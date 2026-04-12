@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KPLNS Encapsulated Solutions | Technology Security & Supply Chain Consulting</title>
+<meta name="description" content="KPLNS - Professional technology security, supply chain, and risk management consulting for defense organizations">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1a2236;
+  --bg-card: rgba(26, 34, 54, 0.65);
+  --bg-card-hover: rgba(32, 42, 68, 0.85);
+  --surface: rgba(255,255,255,0.05);
+  --surface-hover: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(255,255,255,0.15);
+  --cyan: #00d4ff;
+  --cyan-dim: rgba(0, 212, 255, 0.15);
+  --cyan-glow: rgba(0, 212, 255, 0.25);
+  --teal: #00b8a9;
+  --purple: #7b61ff;
+  --purple-dim: rgba(123, 97, 255, 0.15);
+  --gradient-hero: linear-gradient(135deg, #111827 0%, #1a2236 40%, #1e2844 100%);
+  --gradient-accent: linear-gradient(135deg, #00d4ff, #00b8a9);
+  --gradient-card: linear-gradient(135deg, rgba(0,212,255,0.05), rgba(123,97,255,0.05));
+  --text-primary: #e8edf5;
+  --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-he); color: var(--text-primary); background: var(--bg-primary); line-height: 1.7; overflow-x: hidden; }
+[data-lang="en"] { font-family: var(--font-en); }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Navigation ── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.4s var(--ease);
+}
+.nav.scrolled { background: rgba(17, 24, 39, 0.92); }
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 72px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 1.3rem; font-weight: 700; color: var(--text-primary);
+  letter-spacing: 2px; font-family: var(--font-en);
+}
+.logo-mark {
+  width: 42px; height: 42px; border-radius: 8px; position: relative;
+  overflow: hidden; flex-shrink: 0;
+}
+.logo-mark img {
+  width: 100%; height: 100%; object-fit: contain;
+  filter: brightness(1.8) contrast(1.1);
+}
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a {
+  color: var(--text-secondary); font-size: 0.9rem; font-weight: 500;
+  transition: all 0.3s var(--ease); position: relative; padding: 4px 0;
+}
+.nav-links a:hover { color: var(--cyan); }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -2px; right: 0;
+  width: 0; height: 2px; background: var(--gradient-accent);
+  transition: width 0.3s var(--ease); border-radius: 1px;
+}
+.nav-links a:hover::after { width: 100%; }
+.lang-toggle {
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-secondary); padding: 8px 16px; border-radius: var(--radius-sm);
+  cursor: pointer; font-size: 0.8rem; font-weight: 600;
+  transition: all 0.3s var(--ease); font-family: var(--font-en);
+  letter-spacing: 1px;
+}
+.lang-toggle:hover { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-dim); }
+.nav-mobile-btn {
+  display: none; background: none; border: none; color: var(--text-primary);
+  font-size: 1.5rem; cursor: pointer; padding: 8px;
+}
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  background: var(--gradient-hero); position: relative; overflow: hidden;
+  padding-top: 72px;
+}
+.hero-bg {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+}
+.hero-orb {
+  position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4;
+  animation: float 20s ease-in-out infinite;
+}
+.hero-orb-1 {
+  width: 600px; height: 600px; top: -10%; right: -10%;
+  background: radial-gradient(circle, rgba(0,212,255,0.12), transparent 70%);
+}
+.hero-orb-2 {
+  width: 500px; height: 500px; bottom: -15%; left: -5%;
+  background: radial-gradient(circle, rgba(123,97,255,0.1), transparent 70%);
+  animation-delay: -7s;
+}
+.hero-orb-3 {
+  width: 300px; height: 300px; top: 40%; left: 40%;
+  background: radial-gradient(circle, rgba(0,184,169,0.08), transparent 70%);
+  animation-delay: -12s;
+}
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+.hero-grid-lines {
+  position: absolute; inset: 0; opacity: 0.025;
+  background-image:
+    linear-gradient(rgba(0,212,255,0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.3) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 70%);
+}
+.hero-content { position: relative; z-index: 2; max-width: 720px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 20px; border-radius: 50px;
+  background: var(--cyan-dim); border: 1px solid rgba(0,212,255,0.2);
+  color: var(--cyan); font-size: 0.82rem; font-weight: 600;
+  margin-bottom: 28px; letter-spacing: 0.5px;
+}
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--cyan); box-shadow: 0 0 8px var(--cyan);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800;
+  color: var(--text-primary); line-height: 1.15; margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+.hero h1 .accent {
+  background: var(--gradient-accent); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-desc {
+  font-size: 1.1rem; color: var(--text-secondary);
+  margin-bottom: 16px; max-width: 560px; line-height: 1.85;
+}
+.hero-diff {
+  font-size: 0.92rem; color: var(--cyan); font-weight: 600;
+  margin-bottom: 36px; max-width: 560px; line-height: 1.7;
+  padding: 10px 16px; border-right: 3px solid var(--cyan);
+  background: var(--cyan-dim); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* ── Trust Bar ── */
+.trust-bar {
+  background: var(--bg-secondary); border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border); padding: 20px 0;
+}
+.trust-bar-inner {
+  display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap;
+}
+.trust-bar-label {
+  font-size: 0.8rem; color: var(--text-muted); font-weight: 500;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.trust-bar-badges {
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center;
+}
+.trust-bar-badges span {
+  font-size: 0.78rem; font-weight: 600; color: var(--text-secondary);
+  padding: 6px 14px; border: 1px solid var(--border);
+  border-radius: 20px; letter-spacing: 0.5px; white-space: nowrap;
+  font-family: var(--font-en);
+  transition: all 0.3s var(--ease);
+}
+.trust-bar-badges span:hover {
+  border-color: var(--cyan); color: var(--cyan); background: var(--cyan-dim);
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 32px; border-radius: var(--radius-sm); font-size: 0.95rem;
+  font-weight: 600; cursor: pointer; transition: all 0.3s var(--ease);
+  border: none; font-family: inherit; letter-spacing: 0.3px;
+}
+.btn-primary {
+  background: var(--gradient-accent); color: var(--bg-primary);
+  box-shadow: 0 0 30px var(--cyan-dim), 0 4px 16px rgba(0,0,0,0.3);
+}
+.btn-primary:hover {
+  box-shadow: 0 0 50px var(--cyan-glow), 0 8px 32px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  background: var(--surface); color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--border-hover); background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+.hero-stats {
+  display: flex; gap: 48px; margin-top: 72px;
+  padding-top: 36px; border-top: 1px solid var(--border);
+}
+.hero-stat {}
+.hero-stat-num {
+  font-size: 2.2rem; font-weight: 800; font-family: var(--font-en);
+  background: var(--gradient-accent); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; }
+
+/* ── Sections Common ── */
+.section { padding: 120px 0; position: relative; }
+.section-dark { background: var(--bg-secondary); }
+.section-header { text-align: center; margin-bottom: 72px; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.78rem; font-weight: 700; color: var(--cyan);
+  text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px;
+}
+.section-label::before, .section-label::after {
+  content: ''; width: 24px; height: 1px; background: var(--cyan); opacity: 0.4;
+}
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800;
+  color: var(--text-primary); line-height: 1.25; letter-spacing: -0.01em;
+}
+.section-subtitle {
+  font-size: 1.05rem; color: var(--text-secondary); margin-top: 16px;
+  max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.8;
+}
+
+/* ── Services ── */
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.service-card {
+  background: var(--bg-card); border-radius: var(--radius-md);
+  padding: 36px 32px; border: 1px solid var(--border);
+  transition: all 0.4s var(--ease); position: relative; overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: var(--gradient-accent);
+  transform: scaleX(0); transform-origin: right;
+  transition: transform 0.5s var(--ease);
+}
+.service-card:hover::before { transform: scaleX(1); transform-origin: left; }
+.service-card:hover {
+  border-color: var(--border-hover); background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px var(--cyan-dim);
+}
+.svc-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--gradient-card); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px; transition: all 0.3s var(--ease);
+}
+.svc-icon svg { width: 24px; height: 24px; stroke: var(--cyan); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.service-card:hover .svc-icon {
+  background: var(--cyan-dim); border-color: rgba(0,212,255,0.2);
+  box-shadow: 0 0 20px var(--cyan-dim);
+}
+.service-card h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.service-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; }
+.service-card-highlight {
+  grid-column: 1 / -1; border-color: rgba(0,212,255,0.15);
+  background: linear-gradient(135deg, rgba(0,212,255,0.04), rgba(123,97,255,0.04));
+  display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center;
+}
+.service-card-highlight .svc-icon { margin-bottom: 0; }
+.service-card-highlight h3 { margin-bottom: 4px; }
+.service-card-highlight p { margin-bottom: 0; }
+.svc-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 24px; border-radius: var(--radius-sm);
+  background: var(--gradient-accent); color: var(--bg-primary);
+  font-size: 0.85rem; font-weight: 700; white-space: nowrap;
+  transition: all 0.3s var(--ease);
+  box-shadow: 0 0 16px var(--cyan-dim);
+}
+.svc-cta:hover { box-shadow: 0 0 30px var(--cyan-glow); transform: translateY(-2px); }
+
+/* ── About ── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.about-visual {
+  position: relative; border-radius: var(--radius-lg);
+  background: var(--gradient-card); border: 1px solid var(--border);
+  padding: 48px 40px; overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+.about-visual::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 200px;
+  background: radial-gradient(circle, var(--cyan-dim), transparent 70%);
+  filter: blur(40px);
+}
+.about-visual::after {
+  content: ''; position: absolute; bottom: 0; left: 0; width: 150px; height: 150px;
+  background: radial-gradient(circle, var(--purple-dim), transparent 70%);
+  filter: blur(40px);
+}
+.about-name {
+  font-size: 1.7rem; font-weight: 700; color: var(--text-primary);
+  position: relative; z-index: 1;
+}
+.about-role {
+  font-size: 0.95rem; color: var(--cyan); margin-top: 6px;
+  position: relative; z-index: 1; font-weight: 500;
+}
+.about-creds {
+  list-style: none; margin-top: 36px; position: relative; z-index: 1;
+}
+.about-creds li {
+  padding: 12px 0; font-size: 0.92rem; color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 14px;
+}
+.about-creds li:last-child { border-bottom: none; }
+.cred-check {
+  width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+  background: var(--cyan-dim); border: 1px solid rgba(0,212,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+}
+.cred-check svg { width: 14px; height: 14px; stroke: var(--cyan); fill: none; stroke-width: 2.5; }
+.about-text h2 {
+  font-size: 2.2rem; font-weight: 800; color: var(--text-primary);
+  margin-bottom: 24px; letter-spacing: -0.01em;
+}
+.about-text p { font-size: 1rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.85; }
+.about-metrics {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px;
+}
+.metric {
+  padding: 20px 12px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-md); text-align: center;
+  transition: all 0.3s var(--ease);
+}
+.metric:hover { border-color: var(--border-hover); background: var(--surface-hover); }
+.metric-num {
+  font-size: 1.6rem; font-weight: 800; font-family: var(--font-en);
+  background: var(--gradient-accent); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+.metric-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
+
+/* ── Projects ── */
+.projects-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.project-card {
+  background: var(--bg-card); border-radius: var(--radius-md);
+  overflow: hidden; border: 1px solid var(--border);
+  transition: all 0.4s var(--ease);
+  backdrop-filter: blur(10px);
+}
+.project-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.project-top {
+  padding: 32px 28px; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(123,97,255,0.06));
+  border-bottom: 1px solid var(--border);
+}
+.project-tag {
+  display: inline-block; padding: 4px 14px; border-radius: 50px;
+  background: var(--cyan-dim); border: 1px solid rgba(0,212,255,0.15);
+  font-size: 0.72rem; font-weight: 600; color: var(--cyan);
+  margin-bottom: 14px; letter-spacing: 0.5px;
+}
+.project-top h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); line-height: 1.4; }
+.project-body { padding: 28px; }
+.project-body p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 20px; }
+.project-stats {
+  display: flex; gap: 0; border-top: 1px solid var(--border); padding-top: 20px;
+}
+.project-stat {
+  flex: 1; text-align: center; position: relative;
+}
+.project-stat + .project-stat::before {
+  content: ''; position: absolute; right: 0; top: 0; bottom: 0;
+  width: 1px; background: var(--border);
+}
+[dir="ltr"] .project-stat + .project-stat::before { right: auto; left: 0; }
+.project-stat-num {
+  font-size: 1.2rem; font-weight: 700; color: var(--text-primary); font-family: var(--font-en);
+}
+.project-stat-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+
+/* ── Testimonials ── */
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.testimonial-card {
+  background: var(--bg-card); border-radius: var(--radius-md);
+  padding: 36px 32px; border: 1px solid var(--border);
+  transition: all 0.4s var(--ease); position: relative;
+  backdrop-filter: blur(10px);
+}
+.testimonial-card:hover {
+  border-color: var(--border-hover); background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+.testimonial-quote-mark {
+  font-size: 3.5rem; line-height: 1; font-family: Georgia, serif;
+  background: var(--gradient-accent); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+  opacity: 0.3; margin-bottom: -8px;
+}
+.testimonial-text {
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.85;
+  margin-bottom: 28px;
+}
+.testimonial-author { display: flex; align-items: center; gap: 14px; }
+.testimonial-avatar {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--gradient-accent); display: flex;
+  align-items: center; justify-content: center;
+  color: var(--bg-primary); font-weight: 700; font-size: 1rem;
+}
+.testimonial-name { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); }
+.testimonial-role-text { font-size: 0.78rem; color: var(--text-muted); }
+
+/* ── Contact ── */
+.contact-section {
+  background: var(--bg-secondary); position: relative; overflow: hidden;
+}
+.contact-section::before {
+  content: ''; position: absolute; top: 0; left: 50%; width: 800px; height: 800px;
+  transform: translateX(-50%) translateY(-60%);
+  background: radial-gradient(circle, rgba(0,212,255,0.05), transparent 70%);
+  pointer-events: none;
+}
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 72px;
+}
+.contact-info h2 {
+  font-size: 2.2rem; font-weight: 800; color: var(--text-primary);
+  margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.contact-info > p {
+  color: var(--text-secondary); margin-bottom: 40px; line-height: 1.85; font-size: 1rem;
+}
+.contact-items { list-style: none; }
+.contact-items li {
+  display: flex; align-items: center; gap: 18px; padding: 18px 0;
+  border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 0.95rem;
+}
+.contact-items li:last-child { border-bottom: none; }
+.ci-icon {
+  width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
+  background: var(--gradient-card); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+}
+.ci-icon svg { width: 20px; height: 20px; stroke: var(--cyan); fill: none; stroke-width: 1.5; }
+.ci-label { font-weight: 600; color: var(--text-primary); font-size: 0.85rem; margin-bottom: 2px; }
+.ci-value a { color: var(--cyan); transition: opacity 0.2s; }
+.ci-value a:hover { opacity: 0.8; }
+.contact-form-wrapper {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 44px;
+  backdrop-filter: blur(10px);
+}
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block; font-size: 0.82rem; font-weight: 600;
+  color: var(--text-muted); margin-bottom: 8px; letter-spacing: 0.5px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%; padding: 14px 18px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); color: var(--text-primary);
+  font-size: 0.92rem; font-family: inherit;
+  transition: all 0.3s var(--ease); direction: rtl;
+}
+[data-lang="en"] .form-group input,
+[data-lang="en"] .form-group textarea,
+[data-lang="en"] .form-group select { direction: ltr; }
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none; border-color: var(--cyan);
+  background: rgba(0,212,255,0.03);
+  box-shadow: 0 0 0 3px var(--cyan-dim);
+}
+.form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-group select option { background: var(--bg-primary); color: var(--text-primary); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.btn-submit {
+  width: 100%; padding: 16px; border: none; border-radius: var(--radius-sm);
+  background: var(--gradient-accent); color: var(--bg-primary);
+  font-size: 0.95rem; font-weight: 700; cursor: pointer;
+  font-family: inherit; transition: all 0.3s var(--ease);
+  box-shadow: 0 0 20px var(--cyan-dim);
+  letter-spacing: 0.3px;
+}
+.btn-submit:hover {
+  box-shadow: 0 0 40px var(--cyan-glow);
+  transform: translateY(-2px);
+}
+.form-success { display: none; text-align: center; padding: 48px 24px; }
+.form-success.show { display: block; }
+.form-success-icon {
+  width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 20px;
+  background: var(--cyan-dim); border: 2px solid var(--cyan);
+  display: flex; align-items: center; justify-content: center;
+}
+.form-success-icon svg { width: 28px; height: 28px; stroke: var(--cyan); fill: none; stroke-width: 2.5; }
+.form-success h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 8px; }
+.form-success p { color: var(--text-secondary); }
+
+/* ── Footer ── */
+.footer {
+  background: var(--bg-primary); border-top: 1px solid var(--border);
+  padding: 40px 0; text-align: center;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.footer-links {
+  margin-bottom: 12px;
+}
+.footer-links a {
+  color: var(--text-muted); margin: 0 12px;
+  transition: color 0.3s; font-size: 0.8rem;
+}
+.footer-links a:hover { color: var(--cyan); }
+
+/* ── Animations ── */
+.reveal {
+  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* Language */
+.txt-en { display: none; }
+[data-lang="en"] .txt-he { display: none; }
+[data-lang="en"] .txt-en { display: inline; }
+[data-lang="en"] { direction: ltr; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .services-grid, .projects-grid, .testimonials-grid, .threats-grid, .insights-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-metrics { grid-template-columns: repeat(2, 1fr); }
+  .methodology-grid, .maturity-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-mobile-btn { display: block; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 72px; left: 0; right: 0;
+    background: rgba(10,14,26,0.97); backdrop-filter: blur(20px);
+    padding: 28px; gap: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-stats { flex-direction: column; gap: 20px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .form-row { grid-template-columns: 1fr; }
+  .services-grid, .projects-grid, .testimonials-grid, .threats-grid, .insights-grid { grid-template-columns: 1fr; }
+  .methodology-grid, .maturity-grid { grid-template-columns: 1fr; }
+  .service-card-highlight { grid-template-columns: 1fr; text-align: center; }
+  .service-card-highlight .svc-icon { margin: 0 auto 0; }
+  .svc-cta { margin-top: 16px; justify-content: center; }
+  .about-metrics { grid-template-columns: repeat(2, 1fr); }
+  .about-badges { flex-direction: column; }
+  .section { padding: 80px 0; }
+}
+
+/* ── Divider ── */
+.section-divider {
+  height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent);
+  max-width: 1200px; margin: 0 auto;
+}
+
+/* ── Methodology ── */
+.methodology-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  position: relative;
+}
+.methodology-card {
+  background: var(--bg-card); border-radius: var(--radius-md);
+  padding: 32px 24px; border: 1px solid var(--border);
+  transition: all 0.4s var(--ease); position: relative;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+}
+.methodology-card:hover {
+  border-color: var(--cyan); background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px var(--cyan-dim);
+}
+.method-step-num {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--gradient-accent); display: flex;
+  align-items: center; justify-content: center;
+  font-weight: 800; font-size: 1.4rem; color: var(--bg-primary);
+  margin-bottom: 18px; flex-shrink: 0;
+}
+.method-title {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.method-title-he { display: block; }
+.method-title-en { display: none; font-family: var(--font-en); }
+[data-lang="en"] .method-title-he { display: none; }
+[data-lang="en"] .method-title-en { display: block; }
+.method-subtitle {
+  font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;
+}
+.methodology-connector {
+  position: absolute; top: 50%; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+.methodology-card { position: relative; z-index: 1; }
+
+/* ── Threats ── */
+.threats-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.threat-card {
+  background: var(--bg-card); border-radius: var(--radius-md);
+  padding: 32px; border: 1px solid var(--border);
+  transition: all 0.4s var(--ease); position: relative;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+.threat-card::before {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 100%; height: 4px; background: var(--gradient-accent);
+  transform: translateX(100%); transition: transform 0.4s var(--ease);
+}
+.threat-card:hover::before { transform: translateX(0); }
+.threat-card:hover {
+  border-color: var(--cyan); background: var(--bg-card-hover);
+  transform: translateY(-4px);
+}
+.threat-tag {
+  display: inline-block; font-size: 0.7rem; font-weight: 600;
+  color: var(--cyan); background: var(--cyan-dim);
+  padding: 6px 12px; border-radius: 4px; margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+.threat-card h3 {
+  font-size: 1.15rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 14px; line-height: 1.4;
+}
+.threat-card-desc {
+  font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;
+  margin-bottom: 20px;
+}
+.threat-card-desc span { display: block; margin-bottom: 8px; }
+.threat-card-desc span:last-child { margin-bottom: 0; }
+.threat-stats {
+  display: flex; gap: 12px; padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.threat-stat {
+  flex: 1; text-align: center;
+}
+.threat-stat-value {
+  font-size: 1.1rem; font-weight: 700; color: var(--cyan);
+  font-family: var(--font-en);
+}
+.threat-stat-label {
+  font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;
+}
+
+/* ── Maturity Model ── */
+.maturity-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  margin-bottom: 48px;
+}
+.maturity-card {
+  background: var(--bg-card); border-radius: var(--radius-md);
+  border: 1px solid var(--border); backdrop-filter: blur(10px);
+  transition: all 0.4s var(--ease); position: relative;
+  overflow: hidden;
+  padding: 28px 24px;
+}
+.maturity-card:hover {
+  border-color: var(--cyan); background: var(--bg-card-hover);
+  box-shadow: 0 0 30px var(--cyan-dim);
+}
+.maturity-level {
+  font-size: 2.5rem; font-weight: 800;
+  background: var(--gradient-accent); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 12px;
+}
+.maturity-title {
+  font-size: 1.15rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.maturity-desc {
+  font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;
+}
+.maturity-cta {
+  text-align: center; margin-top: 32px;
+}
+.maturity-cta-text {
+  font-size: 1rem; color: var(--text-secondary); margin-bottom: 20px;
+}
+.maturity-cta-btn {
+  display: inline-block; padding: 14px 28px;
+  background: var(--gradient-accent); color: var(--bg-primary);
+  border-radius: var(--radius-sm); font-weight: 700;
+  transition: all 0.3s var(--ease); cursor: pointer;
+  box-shadow: 0 0 20px var(--cyan-dim);
+}
+.maturity-cta-btn:hover {
+  box-shadow: 0 0 40px var(--cyan-glow);
+  transform: translateY(-2px);
+}
+
+/* ── Regulatory Badges ── */
+.about-badges {
+  display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px;
+  padding-top: 24px; border-top: 1px solid var(--border);
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px; border: 1px solid var(--cyan);
+  border-radius: 20px; background: var(--cyan-dim);
+  font-size: 0.75rem; font-weight: 600; color: var(--cyan);
+  letter-spacing: 0.5px;
+}
+
+/* ── Insights ── */
+.insights-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+@media (min-width: 769px) and (max-width: 1200px) {
+  .insights-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.insight-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 32px 28px;
+  transition: all 0.4s var(--ease); display: flex; flex-direction: column;
+  cursor: pointer; text-decoration: none; color: inherit;
+}
+.insight-card:hover {
+  border-color: var(--border-hover); background: var(--bg-card-hover);
+  transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+.insight-tag {
+  display: inline-block; font-size: 0.72rem; font-weight: 600;
+  color: var(--cyan); background: var(--cyan-dim); padding: 4px 12px;
+  border-radius: 12px; margin-bottom: 16px; width: fit-content;
+  letter-spacing: 0.5px; text-transform: uppercase;
+}
+.insight-card h3 {
+  font-size: 1.05rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 12px; line-height: 1.5;
+}
+.insight-card p {
+  font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75;
+  flex-grow: 1; margin-bottom: 20px;
+}
+.insight-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.85rem; font-weight: 600; color: var(--cyan);
+  transition: gap 0.3s var(--ease);
+}
+.insight-card:hover .insight-cta { gap: 10px; }
+
+</style>
+</head>
+<body data-lang="he">
+
+<!-- Navigation -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="logo-mark"><img src="logo.png" alt="KPLNS"></div>
+      <span>KPLNS</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#insights"><span class="txt-he">תובנות</span><span class="txt-en">Insights</span></a>
+      <a href="#services"><span class="txt-he">שירותים</span><span class="txt-en">Services</span></a>
+      <a href="#methodology"><span class="txt-he">מתודולוגיה</span><span class="txt-en">Methodology</span></a>
+      <a href="#about"><span class="txt-he">אודות</span><span class="txt-en">About</span></a>
+      <a href="#contact"><span class="txt-he">צור קשר</span><span class="txt-en">Contact</span></a>
+      <button class="lang-toggle" onclick="toggleLang()">EN / עב</button>
+    </div>
+    <button class="nav-mobile-btn" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <div class="hero-grid-lines"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <h1>
+        <span class="txt-he">ייעוץ מקצועי ב<span class="accent">ביטחון טכנולוגי</span> ושרשרת אספקה</span>
+        <span class="txt-en">Professional <span class="accent">Technology Security</span> & Supply Chain Consulting</span>
+      </h1>
+      <p class="hero-desc">
+        <span class="txt-he">מיפוי סיכונים, גיבוש מדיניות, ביצוע סקרי ביטחון 360° וליווי ספקים לעמידה בדרישות רגולטוריות — לגופים ביטחוניים ותעשיית הביטחון</span>
+        <span class="txt-en">Risk mapping, policy development, 360° security surveys, and vendor compliance support for defense organizations and the security industry</span>
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">
+          <span class="txt-he">דברו איתנו</span>
+          <span class="txt-en">Get in Touch</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost">
+          <span class="txt-he">השירותים שלנו</span>
+          <span class="txt-en">Our Services</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<div class="section-divider"></div>
+
+<!-- Insights -->
+<section class="section section-dark" id="insights">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><span class="txt-he">תובנות</span><span class="txt-en">Insights</span></div>
+      <h2 class="section-title"><span class="txt-he">ידע שמגן עליכם</span><span class="txt-en">Knowledge That Protects You</span></h2>
+      <p class="section-subtitle"><span class="txt-he">מאמרים קצרים מהשטח — מה חשוב לדעת על ביטחון שרשרת אספקה</span><span class="txt-en">Short field insights — what you need to know about supply chain security</span></p>
+    </div>
+    <div class="insights-grid">
+      <a class="insight-card reveal reveal-delay-1" href="article-supplier-signs.html">
+        <div class="insight-tag"><span class="txt-he">מדריך</span><span class="txt-en">Guide</span></div>
+        <h3><span class="txt-he">5 סימנים שהספק שלכם חשוף לתקיפה</span><span class="txt-en">5 Signs Your Supplier Is Vulnerable to Attack</span></h3>
+        <p><span class="txt-he">איך לזהות חולשות ביטחוניות אצל ספקים לפני שתוקפים מנצלים אותן — בדיקות פשוטות שכל ארגון יכול לעשות</span><span class="txt-en">How to spot supplier security weaknesses before attackers exploit them — simple checks any organization can do</span></p>
+        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="insight-card reveal reveal-delay-2" href="article-rav-magen.html">
+        <div class="insight-tag"><span class="txt-he">רגולציה</span><span class="txt-en">Regulation</span></div>
+        <h3><span class="txt-he">מה זה "רב מגן" ולמה הרגולטור דורש את זה?</span><span class="txt-en">What Is "Rav Magen" and Why Does the Regulator Require It?</span></h3>
+        <p><span class="txt-he">44 בקרות אבטחת מידע שכל ספק בתעשייה הביטחונית צריך לעמוד בהן — סקירה מהירה של המתודולוגיה והדרישות</span><span class="txt-en">44 information security controls every defense industry supplier must meet — a quick overview of the methodology</span></p>
+        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="insight-card reveal reveal-delay-3" href="article-attacks-trends.html">
+        <div class="insight-tag"><span class="txt-he">ניתוח</span><span class="txt-en">Analysis</span></div>
+        <h3><span class="txt-he">תקיפות שרשרת אספקה בישראל — מגמות 2024-2025</span><span class="txt-en">Supply Chain Attacks in Israel — 2024-2025 Trends</span></h3>
+        <p><span class="txt-he">ישראל בין שלוש המדינות המותקפות בעולם. סיכום האיומים המרכזיים והשלכותיהם על ספקים בתעשייה הביטחונית</span><span class="txt-en">Israel ranks among the top 3 most targeted countries. Summary of key threats and their impact on defense industry suppliers</span></p>
+        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="insight-card reveal reveal-delay-4" href="article-cmmc.html">
+        <div class="insight-tag"><span class="txt-he">רגולציה בינלאומית</span><span class="txt-en">International Regulation</span></div>
+        <h3><span class="txt-he">CMMC Level 2 — התקן האמריקאי שעומד מאחורי רב מגן</span><span class="txt-en">CMMC Level 2 — The US Standard Behind Rav Magen</span></h3>
+        <p><span class="txt-he">110 בקרות, 14 תחומים, וחובת Flowdown על כלל שרשרת האספקה — איך התקן של משרד ההגנה האמריקאי משפיע על ספקים ישראליים ועל מדינות Five Eyes</span><span class="txt-en">110 controls, 14 domains, and mandatory flowdown across the supply chain — how the DoD standard impacts Israeli suppliers and Five Eyes nations</span></p>
+        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="insight-card reveal reveal-delay-5" href="article-hardware-trust.html">
+        <div class="insight-tag"><span class="txt-he">אמון בחומרה</span><span class="txt-en">Hardware Trust</span></div>
+        <h3><span class="txt-he">אמון בחומרה — איך לדעת שהרכיב הוא מה שהוא טוען שהוא</span><span class="txt-en">Hardware Trust — How to Know Your Component Is What It Claims to Be</span></h3>
+        <p><span class="txt-he">רכיבים מזויפים, קושחה שעברה שינוי, מקור ייצור לא ידוע ובעלות נסתרת — הסיכונים שאף אחד לא בודק ואיך להתגונן מפניהם</span><span class="txt-en">Counterfeit parts, tampered firmware, unknown manufacturing origin and hidden ownership — the risks nobody checks and how to protect against them</span></p>
+        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="insight-card reveal reveal-delay-6" href="article-supply-chain-cost.html">
+        <div class="insight-tag"><span class="txt-he">ניתוח עלויות</span><span class="txt-en">Cost Analysis</span></div>
+        <h3><span class="txt-he">המחיר האמיתי של הזנחת שרשרת האספקה — מהשבתה לנפילה עסקית</span><span class="txt-en">The Real Cost of Supply Chain Negligence — From Downtime to Business Collapse</span></h3>
+        <p><span class="txt-he">$4.88M עלות ממוצעת לפריצה, 30% מהפריצות מערבות צד שלישי — ניתוח של העלויות הישירות, הנסתרות וההשלכות העסקיות של תקיפות שרשרת אספקה</span><span class="txt-en">$4.88M average breach cost, 30% of breaches involve third parties — analysis of direct costs, hidden costs and business impact of supply chain attacks</span></p>
+        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Threats -->
+<section class="section" id="threats">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><span class="txt-he">למה זה חשוב</span><span class="txt-en">Why It Matters</span></div>
+      <h2 class="section-title"><span class="txt-he">ההשפעה של אי-הכנות לתקיפות שרשרת אספקה</span><span class="txt-en">The Impact of Unpreparedness for Supply Chain Attacks</span></h2>
+      <p class="section-subtitle"><span class="txt-he">ישראל נמנית עם שלוש המדינות המותקפות ביותר בעולם. הנה אירועים אמיתיים מהשנים האחרונות</span><span class="txt-en">Israel ranks among the three most cyber-targeted countries globally. Here are real incidents from recent years</span></p>
+    </div>
+    <div class="threats-grid">
+      <div class="threat-card reveal reveal-delay-1">
+        <div class="threat-tag"><span class="txt-he">אירוח ומסחר מקוון — ישראל 2023</span><span class="txt-en">Web Hosting & E-Commerce — Israel 2023</span></div>
+        <h3><span class="txt-he">פריצה דרך ספק אירוח אתרים — 100+ ארגונים נפגעו</span><span class="txt-en">Breach via Web Hosting Provider — 100+ Organizations Hit</span></h3>
+        <div class="threat-card-desc">
+          <span class="txt-he">קבוצת תקיפה איראנית חדרה לחברת אירוח אתרים ישראלית ודרכה הגיעה ליותר מ-100 ארגונים — קמעונאים, יבואנים, גופים ציבוריים וחברות בינלאומיות הפועלות בישראל. מידע אישי של מיליוני לקוחות הודלף ושרתים נמחקו.</span><span class="txt-en">An Iranian-linked attack group breached an Israeli web hosting company and through it reached over 100 organizations — retailers, importers, public bodies, and international companies operating in Israel. Personal data of millions of customers was leaked and servers wiped.</span>
+        </div>
+        <div class="threat-stats">
+          <div class="threat-stat">
+            <div class="threat-stat-value">100+</div>
+            <div class="threat-stat-label"><span class="txt-he">ארגונים</span><span class="txt-en">Organizations</span></div>
+          </div>
+          <div class="threat-stat">
+            <div class="threat-stat-value">מיליונים</div>
+            <div class="threat-stat-label"><span class="txt-he">רשומות</span><span class="txt-en">Records</span></div>
+          </div>
+          <div class="threat-stat">
+            <div class="threat-stat-value">שרשרת</div>
+            <div class="threat-stat-label"><span class="txt-he">סוג תקיפה</span><span class="txt-en">Attack Type</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="threat-card reveal reveal-delay-2">
+        <div class="threat-tag"><span class="txt-he">תעשייה ביטחונית — ישראל 2024</span><span class="txt-en">Defense Industry — Israel 2024</span></div>
+        <h3><span class="txt-he">חדירה לקבלן ביטחוני — 18 חודשי ריגול שלא זוהו</span><span class="txt-en">Defense Contractor Breach — 18 Months of Undetected Espionage</span></h3>
+        <div class="threat-card-desc">
+          <span class="txt-he">תוקפים זוהי איראן חדרו לחברת פיתוח ביטחונית ישראלית ושהו ברשת במשך 18 חודשים ללא זיהוי. דרך החברה הגיעו ל-17 קבלני ביטחון. הודלפו שרטוטים מסווגים של מערכות נשק, מל"טים ופרויקטים בינלאומיים.</span><span class="txt-en">Iran-linked attackers breached an Israeli defense R&D firm and remained in the network for 18 months undetected. Through the company, they reached 17 defense contractors. Classified blueprints of weapons systems, UAVs, and international projects were leaked.</span>
+        </div>
+        <div class="threat-stats">
+          <div class="threat-stat">
+            <div class="threat-stat-value">17</div>
+            <div class="threat-stat-label"><span class="txt-he">קבלנים שנפרצו</span><span class="txt-en">Contractors Hit</span></div>
+          </div>
+          <div class="threat-stat">
+            <div class="threat-stat-value">18</div>
+            <div class="threat-stat-label"><span class="txt-he">חודשי חדירה</span><span class="txt-en">Months Inside</span></div>
+          </div>
+          <div class="threat-stat">
+            <div class="threat-stat-value">מסווג</div>
+            <div class="threat-stat-label"><span class="txt-he">חומרת הדלפה</span><span class="txt-en">Leak Severity</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="threat-card reveal reveal-delay-3">
+        <div class="threat-tag"><span class="txt-he">אקדמיה — ישראל 2024</span><span class="txt-en">Academia — Israel 2024</span></div>
+        <h3><span class="txt-he">תקיפת ספק תוכנה אקדמי — אוניברסיטאות ומכללות נפרצו</span><span class="txt-en">Academic Software Vendor Attack — Universities Breached</span></h3>
+        <div class="threat-card-desc">
+          <span class="txt-he">קבוצה איראנית חדרה לספק תוכנה לניהול מוסדות אקדמיים בישראל וניצלה הרשאות ניהול לגישה למערכות CRM סטודנטים במספר אוניברסיטאות ומכללות. לאחר 4 חודשים שלחו מייל מחשבון הספק ללקוחותיו ובו הודיעו על השתלטות מלאה על התשתיות.</span><span class="txt-en">An Iranian group breached a software vendor managing Israeli academic institutions and exploited admin credentials to access student CRM systems at multiple universities. After 4 months, they sent emails from the vendor's own account to its clients announcing full infrastructure takeover.</span>
+        </div>
+        <div class="threat-stats">
+          <div class="threat-stat">
+            <div class="threat-stat-value">4</div>
+            <div class="threat-stat-label"><span class="txt-he">חודשים ברשת</span><span class="txt-en">Months Inside</span></div>
+          </div>
+          <div class="threat-stat">
+            <div class="threat-stat-value">מוסדות</div>
+            <div class="threat-stat-label"><span class="txt-he">יעד התקיפה</span><span class="txt-en">Target</span></div>
+          </div>
+          <div class="threat-stat">
+            <div class="threat-stat-value">שרשרת</div>
+            <div class="threat-stat-label"><span class="txt-he">וקטור כניסה</span><span class="txt-en">Entry Vector</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="section-divider"></div>
+<!-- Services -->
+<section class="section section-dark" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><span class="txt-he">שירותים</span><span class="txt-en">Services</span></div>
+      <h2 class="section-title"><span class="txt-he">תחומי שירות מקצועיים</span><span class="txt-en">Professional Service Areas</span></h2>
+      <p class="section-subtitle"><span class="txt-he">מענה מקצועי ומקיף לאתגרי ביטחון טכנולוגי, שרשרת אספקה וניהול סיכונים</span><span class="txt-en">Comprehensive solutions for technology security, supply chain, and risk management</span></p>
+    </div>
+    <div class="services-grid">
+      <!-- Row 1: Core Services -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3><span class="txt-he">סקרי ביטחון 360° בשרשרת האספקה</span><span class="txt-en">360° Supply Chain Security Surveys</span></h3>
+        <p><span class="txt-he">ביצוע סקרי ביטחון מקיפים אצל ספקים וקבלני משנה — סקר סיכונים מקדים, סקר ביטחון מקיף באתר, סיכום ממצאים והפקת דו"ח מסכם עם תוכנית עבודה. כולל תיאום מול בעלי עניין פנימיים וחיצוניים.</span><span class="txt-en">Comprehensive security surveys at suppliers and subcontractors — pre-assessment, on-site survey, findings summary, and a full report with action plan. Includes coordination with internal and external stakeholders.</span></p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3><span class="txt-he">סקר "רב מגן" — 44 בקרות אבטחת מידע</span><span class="txt-en">"Rav Magen" Audit — 44 Information Security Controls</span></h3>
+        <p><span class="txt-he">סקר אבטחת מידע מקיף המבוסס על מתודולוגיית הרגולטור הכולל 44 בקרות אבטחה ב-14 תחומים. דירוג כל בקרה ב-4 רמות יישום עם ציון חוסן ארגוני וגרפים השוואתיים. מבוצע על ידי CISO/DPO מוסמך.</span><span class="txt-en">Comprehensive information security audit based on the regulator's methodology, covering 44 security controls across 14 domains. Each control rated at 4 implementation levels with organizational resilience scoring. Performed by certified CISO/DPO.</span></p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2"/><line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3><span class="txt-he">ייעוץ וגיבוש מדיניות אבטחת שרשרת אספקה</span><span class="txt-en">Supply Chain Security Consulting & Policy</span></h3>
+        <p><span class="txt-he">פרישת עבודה עם בעלי תפקידים, ניגוש תפיסת אבטחה ארגונית, כתיבת מסמך מדיניות אבטחת שרשרת אספקה מלא, סבב הערות ותיקונים, והפקת מצגת ניהולית. בהתאם לסטנדרטים בינלאומיים ודרישות הרגולטור.</span><span class="txt-en">Stakeholder engagement, organizational security concept, full supply chain security policy document, review cycles, and executive presentation. Aligned with international standards and regulatory requirements.</span></p>
+      </div>
+      <!-- Row 2: Supporting Services -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3><span class="txt-he">מיפוי וניתוח סיכונים</span><span class="txt-en">Risk Mapping & Analysis</span></h3>
+        <p><span class="txt-he">זיהוי, מיפוי וניתוח סיכוני מידע, אמל"ח וסייבר. הערכת פערים, דירוג סיכונים עם ציון חוסן ארגוני ותוכנית פעולה מפורטת לצמצום סיכונים בהתאם לדרישות הרגולטור.</span><span class="txt-en">Identification, mapping, and analysis of information, weapons, and cyber risks. Gap assessment, risk scoring with organizational resilience metrics, and detailed mitigation action plans.</span></p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 15h6M9 11h6M9 7h2" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3><span class="txt-he">כתיבת SOPs תפעוליים והטמעה ארגונית</span><span class="txt-en">Operational SOPs & Organizational Implementation</span></h3>
+        <p><span class="txt-he">הכנה וכתיבת עד 5 נהלים תפעוליים (SOPs) מאושרים בתחומי ביטחון טכנולוגי, הטמעה ארגונית עם בעלי תפקידים רלוונטיים, סבב הערות והטמעה מעשית בשטח.</span><span class="txt-en">Development of up to 5 approved operational SOPs in technology security, organizational implementation with relevant stakeholders, review cycles, and practical field deployment.</span></p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3><span class="txt-he">ליווי ביטחוני שוטף (Retainer)</span><span class="txt-en">Ongoing Security Retainer</span></h3>
+        <p><span class="txt-he">ליווי ביטחוני פרויקטאלי/קריטי שוטף לספק, הכולל ביקורים פיזיים אצל הספק לטובת בקרה על תהליכי עבודה וייצור. כל ביקור מבוצע בהתאם למיקוד נציג הלקוח. כולל דו"ח סיכום ביקור ומענה שוטף.</span><span class="txt-en">Ongoing project/critical security support for suppliers, including physical site visits for work process and production oversight. Each visit focused per client representative guidance. Includes visit summary reports and ongoing support.</span></p>
+      </div>
+      <!-- Row 3: Additional Services -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="17 6 23 6 23 12" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3><span class="txt-he">סקר מעקב (Follow-Up)</span><span class="txt-en">Follow-Up Survey</span></h3>
+        <p><span class="txt-he">סקר חוזר לבדיקת סגירת ממצאים שזוהו, השוואה למנעסי סקר ראשוני, עדכון ציון חוסן ארגוני, דו"ח התקדמות. מומלץ 6–12 חודשים לאחר סיום סקרי הביטחון.</span><span class="txt-en">Return survey to verify finding closures, comparison to initial survey metrics, updated resilience scoring, and progress report. Recommended 6–12 months after initial security surveys.</span></p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="17 8 12 3 7 8" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3><span class="txt-he">הצגה בפני הנהלה / הנהלה בכירה</span><span class="txt-en">Executive Management Presentation</span></h3>
+        <p><span class="txt-he">הכנת מצגת ייעודית להנהלה, הצגה בפורום ניהולי/דירקטוריון. כולל מענה לשאלות, סיכום ישיבה בכתב, עיקרי תפיסה ומסאז'ים, סיכונים והמלצות.</span><span class="txt-en">Preparation of a dedicated executive presentation, delivery in management/board forums. Includes Q&A, written meeting summary, key messages, risks, and recommendations.</span></p>
+      </div>
+      <div class="service-card service-card-highlight reveal reveal-delay-3">
+        <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+        <h3><span class="txt-he">הדרכות מודעות ביטחונית</span><span class="txt-en">Security Awareness Training</span></h3>
+        <p><span class="txt-he">הדרכות פרונטאליות בנושאי ביטחון טכנולוגי ושרשרת אספקה — לספקים, עובדים, מנהלים ומתחלים בארגון. כולל אבטחת מידע, סייבר, מודיעין תחרותי וחומרי הדרכה מותאמים. מוצעת גם כחבילת 4 הדרכות מוזלת.</span><span class="txt-en">In-person training sessions on technology security and supply chain — for suppliers, employees, managers, and interns. Covers information security, cyber, competitive intelligence, and customized materials. Also available as a discounted 4-session package.</span></p>
+        <a href="#contact" class="svc-cta"><span class="txt-he">הזמינו הדרכה</span><span class="txt-en">Book a Training</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Methodology -->
+<section class="section section-dark" id="methodology">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><span class="txt-he">מתודולוגיה</span><span class="txt-en">Methodology</span></div>
+      <h2 class="section-title"><span class="txt-he">מודל ניהול שרשרת האספקה בארבע שלבים</span><span class="txt-en">Four-Step Supply Chain Management Model</span></h2>
+      <p class="section-subtitle"><span class="txt-he">תהליך מובנה וסדור לזיהוי, סיווג, הגדרת דרישות ובקרה על ספקים וגורמים חיצוניים</span><span class="txt-en">Structured process for identifying, classifying, setting requirements, and controlling external suppliers</span></p>
+    </div>
+    <div class="methodology-grid">
+      <div class="methodology-connector"></div>
+      <div class="methodology-card reveal reveal-delay-1">
+        <div class="method-step-num">1</div>
+        <div class="method-title"><span class="method-title-he">מיפוי</span><span class="method-title-en">Mapping</span></div>
+        <div class="method-subtitle"><span class="txt-he">הכרת כלל הספקים והגורמים החיצוניים</span><span class="txt-en">Identifying all suppliers and external entities</span></div>
+      </div>
+      <div class="methodology-card reveal reveal-delay-2">
+        <div class="method-step-num">2</div>
+        <div class="method-title"><span class="method-title-he">סיווג</span><span class="method-title-en">Classification</span></div>
+        <div class="method-subtitle"><span class="txt-he">קביעת רמת הסיכון: קריטי, גבוה, נמוך</span><span class="txt-en">Determining risk level: critical, high, low</span></div>
+      </div>
+      <div class="methodology-card reveal reveal-delay-3">
+        <div class="method-step-num">3</div>
+        <div class="method-title"><span class="method-title-he">דרישות</span><span class="method-title-en">Requirements</span></div>
+        <div class="method-subtitle"><span class="txt-he">NDA, נהלים, חוזים ונספחי ביטחון</span><span class="txt-en">NDA, procedures, contracts, security annexes</span></div>
+      </div>
+      <div class="methodology-card reveal reveal-delay-4">
+        <div class="method-step-num">4</div>
+        <div class="method-title"><span class="method-title-he">בקרה</span><span class="method-title-en">Control</span></div>
+        <div class="method-subtitle"><span class="txt-he">אכיפה, ביקורות פתע וביקורים במשרדי הספק</span><span class="txt-en">Enforcement, surprise audits, vendor site visits</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- Maturity Model -->
+<section class="section section-dark" id="maturity">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><span class="txt-he">פיתוח ארגוני</span><span class="txt-en">Organizational Development</span></div>
+      <h2 class="section-title"><span class="txt-he">איפה אתם?</span><span class="txt-en">Where Are You?</span></h2>
+      <p class="section-subtitle"><span class="txt-he">מודל הבשלות לניהול ביטחון שרשרת האספקה</span><span class="txt-en">Supply Chain Security Maturity Model</span></p>
+    </div>
+    <div class="maturity-grid">
+      <div class="maturity-card reveal reveal-delay-1">
+        <div class="maturity-level">1</div>
+        <div class="maturity-title"><span class="txt-he">תגובתיים</span><span class="txt-en">Reactive</span></div>
+        <div class="maturity-desc"><span class="txt-he">מכבים שריפות</span><span class="txt-en">Putting out fires</span></div>
+      </div>
+      <div class="maturity-card reveal reveal-delay-2">
+        <div class="maturity-level">2</div>
+        <div class="maturity-title"><span class="txt-he">מנוהלים</span><span class="txt-en">Managed</span></div>
+        <div class="maturity-desc"><span class="txt-he">רשימות ונהלים בסיסיים</span><span class="txt-en">Basic lists and procedures</span></div>
+      </div>
+      <div class="maturity-card reveal reveal-delay-3">
+        <div class="maturity-level">3</div>
+        <div class="maturity-title"><span class="txt-he">פרואקטיביים</span><span class="txt-en">Proactive</span></div>
+        <div class="maturity-desc"><span class="txt-he">סקרים ובדיקות יזומות</span><span class="txt-en">Proactive surveys and audits</span></div>
+      </div>
+      <div class="maturity-card reveal reveal-delay-4">
+        <div class="maturity-level">4</div>
+        <div class="maturity-title"><span class="txt-he">אופטימלי</span><span class="txt-en">Optimal</span></div>
+        <div class="maturity-desc"><span class="txt-he">שילוב מלא של ביטחון וסייבר בכל התהליכים</span><span class="txt-en">Full integration of security and cyber in all processes</span></div>
+      </div>
+    </div>
+    <div class="maturity-cta">
+      <div class="maturity-cta-text"><span class="txt-he">רוצים לדעת איפה אתם?</span><span class="txt-en">Want to know where you stand?</span></div>
+      <a href="#contact" class="maturity-cta-btn"><span class="txt-he">דברו איתנו</span><span class="txt-en">Talk to us</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label"><span class="txt-he">אודות</span><span class="txt-en">About</span></div>
+      <h2 class="section-title"><span class="txt-he">הניסיון שמאחורי השירות</span><span class="txt-en">The Experience Behind the Service</span></h2>
+    </div>
+    <div class="about-compact reveal" style="max-width:800px;margin:0 auto;text-align:center;">
+      <p style="font-size:1.05rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px;">
+        <span class="txt-he">KPLNS נוסדה על בסיס למעלה מעשור של ניסיון מצטבר בניהול ביטחון טכנולוגי ושרשרת אספקה בתעשייה הביטחונית הישראלית. הניסיון כולל תפקידי ניהול ופיקוד במערכת הביטחון, ניהול אבטחת מידע ושרשרת אספקה בתעשייה הביטחונית, והדרכת קב"טים בגופי חירום לאומיים.</span>
+        <span class="txt-en">KPLNS was founded on over a decade of hands-on experience managing technology security and supply chains in Israel's defense industry. This includes command and management roles in the security establishment, information security and supply chain management in defense manufacturing, and training security officers for national emergency agencies.</span>
+      </p>
+      <p style="font-size:1.05rem;color:var(--text-secondary);line-height:1.95;margin-bottom:36px;">
+        <span class="txt-he">אנו מביאים היכרות עמוקה עם הרגולציה הישראלית, הבנה של האתגרים בשטח, ויכולת ליישם פתרונות מעשיים — לא תיאוריה, אלא תוצאות.</span>
+        <span class="txt-en">We bring deep familiarity with Israeli regulation, an understanding of real-world challenges, and the ability to deliver practical solutions — not theory, but results.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h2><span class="txt-he">בואו נדבר</span><span class="txt-en">Let's Talk</span></h2>
+        <p><span class="txt-he">מעוניינים בייעוץ מקצועי? השאירו פרטים ונחזור אליכם תוך 24 שעות, או שלחו לנו מייל ישירות.</span><span class="txt-en">Interested in professional consulting? Leave your details and we'll get back to you within 24 hours.</span></p>
+        <ul class="contact-items">
+          <li>
+            <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="ci-label"><span class="txt-he">דוא"ל</span><span class="txt-en">Email</span></div><div class="ci-value"><a href="mailto:Yevgeni@kplns.com">Yevgeni@kplns.com</a></div></div>
+          </li>
+          <li>
+            <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <div><div class="ci-label"><span class="txt-he">WhatsApp</span><span class="txt-en">WhatsApp</span></div><div class="ci-value"><a href="https://wa.me/972528194913?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%90%D7%AA%D7%A8%20%D7%94%D7%90%D7%99%D7%A0%D7%98%D7%A8%D7%A0%D7%98%20%D7%90%D7%A0%D7%90%20%D7%A6%D7%A8%D7%95%20%D7%A7%D7%A9%D7%A8" target="_blank" rel="noopener" style="direction:ltr;display:inline-block"><span class="txt-he">שלחו הודעה</span><span class="txt-en">Send a message</span></a></div></div>
+          </li>
+          <li>
+            <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="ci-label"><span class="txt-he">מיקום</span><span class="txt-en">Location</span></div><div class="ci-value"><span class="txt-he">ישראל, אזור המרכז</span><span class="txt-en">Israel, Central Region</span></div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="contact-form-wrapper reveal">
+        <form id="theForm" onsubmit="return handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label><span class="txt-he">שם מלא</span><span class="txt-en">Full Name</span></label>
+              <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+              <label><span class="txt-he">חברה</span><span class="txt-en">Company</span></label>
+              <input type="text" name="company">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><span class="txt-he">דוא"ל</span><span class="txt-en">Email</span></label>
+              <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label><span class="txt-he">טלפון</span><span class="txt-en">Phone</span></label>
+              <input type="tel" name="phone">
+            </div>
+          </div>
+          <div class="form-group">
+            <label><span class="txt-he">נושא הפנייה</span><span class="txt-en">Subject</span></label>
+            <select name="subject">
+              <option value="survey"><span class="txt-he">סקר ביטחון שרשרת אספקה</span> | Supply Chain Security Survey</option>
+              <option value="policy"><span class="txt-he">גיבוש מדיניות ומסמכים</span> | Policy Development</option>
+              <option value="risk"><span class="txt-he">מיפוי וניתוח סיכונים</span> | Risk Analysis</option>
+              <option value="ongoing"><span class="txt-he">ליווי שוטף</span> | Ongoing Support</option>
+              <option value="training"><span class="txt-he">הדרכת מודעות ביטחונית</span> | Security Awareness Training</option>
+              <option value="other"><span class="txt-he">אחר</span> | Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label><span class="txt-he">הודעה</span><span class="txt-en">Message</span></label>
+            <textarea name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit"><span class="txt-he">שלח פנייה</span><span class="txt-en">Send Message</span></button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3><span class="txt-he">הפנייה נשלחה בהצלחה!</span><span class="txt-en">Message Sent Successfully!</span></h3>
+          <p><span class="txt-he">נחזור אליכם תוך 24 שעות</span><span class="txt-en">We'll get back to you within 24 hours</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="privacy.html"><span class="txt-he">מדיניות פרטיות</span><span class="txt-en">Privacy Policy</span></a>
+      <a href="accessibility.html"><span class="txt-he">הצהרת נגישות</span><span class="txt-en">Accessibility</span></a>
+      <a href="disclaimer.html"><span class="txt-he">תנאי שימוש</span><span class="txt-en">Terms of Use</span></a>
+    </div>
+    <p>&copy; 2026 KPLNS Encapsulated Solutions. <span class="txt-he">כל הזכויות שמורות.</span><span class="txt-en">All rights reserved.</span></p>
+  </div>
+</footer>
+
+<script>
+function toggleLang() {
+  const body = document.body;
+  const html = document.documentElement;
+  if (body.dataset.lang === 'he') {
+    body.dataset.lang = 'en';
+    html.lang = 'en'; html.dir = 'ltr';
+  } else {
+    body.dataset.lang = 'he';
+    html.lang = 'he'; html.dir = 'rtl';
+  }
+}
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Nav scroll effect
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Contact form
+function handleSubmit(e) {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  const subjectMap = { survey:'סקר ביטחון', policy:'גיבוש מדיניות', risk:'מיפוי סיכונים', ongoing:'ליווי שוטף', training:'הדרכת מודעות ביטחונית', other:'פנייה כללית' };
+  const body = `שם: ${data.get('name')}%0Aחברה: ${data.get('company')||'-'}%0Aאימייל: ${data.get('email')}%0Aטלפון: ${data.get('phone')||'-'}%0A%0A${data.get('message')}`;
+  window.location.href = `mailto:Yevgeni@kplns.com?subject=${encodeURIComponent('פנייה מהאתר: '+(subjectMap[data.get('subject')]||''))}&body=${body}`;
+  e.target.style.display = 'none';
+  document.getElementById('formSuccess').classList.add('show');
+}
+
+// Mobile menu close on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+</script>
+</body>
+</html>

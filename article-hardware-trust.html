@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אמון בחומרה — איך לדעת שהרכיב שקניתם הוא מה שהוא טוען שהוא | KPLNS</title>
+<meta name="description" content="ניתוח מעמיק של סיכוני חומרה בשרשרת האספקה הביטחונית: רכיבים מזויפים, קושחה פגומה, מקור ייצור לא ידוע, ובעלות נסתרת — מה שצריך לבדוק לפני שהרכיב נכנס למערכת">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1a2236;
+  --bg-card: rgba(26, 34, 54, 0.65);
+  --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff;
+  --cyan-dim: rgba(0, 212, 255, 0.15);
+  --teal: #00b8a9;
+  --text-primary: #e8edf5;
+  --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg, #00d4ff, #00b8a9);
+  --red: #ef4444;
+  --red-dim: rgba(239, 68, 68, 0.12);
+  --orange: #fb923c;
+  --orange-dim: rgba(251, 146, 60, 0.12);
+  --yellow: #facc15;
+  --yellow-dim: rgba(250, 204, 21, 0.12);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167, 139, 250, 0.12);
+  --green: #22c55e;
+  --green-dim: rgba(34, 197, 94, 0.12);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-he); color: var(--text-primary); background: var(--bg-primary); line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+
+.article-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(17, 24, 39, 0.92); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border); height: 64px;
+  display: flex; align-items: center;
+}
+.article-nav-inner {
+  max-width: 800px; margin: 0 auto; padding: 0 24px; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.article-nav a {
+  font-size: 0.85rem; color: var(--cyan); font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.3s;
+}
+.article-nav a:hover { opacity: 0.7; }
+.article-nav .logo-text {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  letter-spacing: 2px; font-family: var(--font-en);
+}
+
+.article-container {
+  max-width: 760px; margin: 0 auto; padding: 100px 24px 80px;
+}
+.article-tag {
+  display: inline-block; font-size: 0.72rem; font-weight: 600;
+  color: var(--cyan); background: var(--cyan-dim); padding: 5px 14px;
+  border-radius: 12px; margin-bottom: 20px; letter-spacing: 0.5px;
+}
+.article-container h1 {
+  font-size: 2.2rem; font-weight: 800; line-height: 1.3;
+  margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.article-meta {
+  font-size: 0.85rem; color: var(--text-muted); margin-bottom: 48px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--border);
+}
+.article-body h2 {
+  font-size: 1.4rem; font-weight: 700; color: var(--text-primary);
+  margin: 48px 0 16px; padding-top: 16px;
+}
+.article-body h3 {
+  font-size: 1.15rem; font-weight: 700; color: var(--cyan);
+  margin: 32px 0 12px;
+}
+.article-body p {
+  font-size: 1.02rem; color: var(--text-secondary); line-height: 1.95;
+  margin-bottom: 20px;
+}
+.article-body strong { color: var(--text-primary); }
+.article-body ul {
+  list-style: none; margin: 0 0 24px 0; padding: 0;
+}
+.article-body ul li {
+  font-size: 1rem; color: var(--text-secondary); line-height: 1.85;
+  padding: 8px 0 8px 0; padding-right: 24px; position: relative;
+}
+.article-body ul li::before {
+  content: ''; position: absolute; right: 0; top: 17px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan); opacity: 0.6;
+}
+
+/* Stat row */
+.stat-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin: 32px 0;
+}
+.stat-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; text-align: center;
+}
+.stat-num {
+  font-size: 1.8rem; font-weight: 800; font-family: var(--font-en);
+  background: var(--gradient-accent); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-num.red {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.stat-label {
+  font-size: 0.78rem; color: var(--text-muted); margin-top: 6px;
+}
+
+/* Risk cards */
+.risk-grid {
+  display: grid; grid-template-columns: 1fr; gap: 16px;
+  margin: 28px 0;
+}
+.risk-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px; display: flex; gap: 18px;
+  align-items: flex-start;
+}
+.risk-card.critical { border-right: 4px solid var(--red); }
+.risk-card.warning { border-right: 4px solid var(--orange); }
+.risk-card.info { border-right: 4px solid var(--purple); }
+.risk-icon {
+  font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;
+}
+.risk-card h4 {
+  font-size: 1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.risk-card p {
+  font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin: 0;
+}
+
+/* Case box */
+.case-box {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px 28px; margin: 24px 0;
+  border-right: 4px solid var(--red);
+}
+.case-box.orange { border-right-color: var(--orange); }
+.case-box.cyan { border-right-color: var(--cyan); }
+.case-box h4 {
+  font-size: 1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.case-box p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8; margin: 0 0 8px; }
+.case-box p:last-child { margin-bottom: 0; }
+
+/* Highlight box */
+.highlight-box {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px 28px; margin: 28px 0;
+  border-right: 4px solid var(--cyan);
+}
+.highlight-box.red { border-right-color: var(--red); }
+.highlight-box.orange { border-right-color: var(--orange); }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+/* Layer diagram */
+.layer-stack {
+  margin: 28px 0; display: flex; flex-direction: column; gap: 0;
+}
+.layer-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.layer-item:first-child { border-radius: 12px 12px 0 0; }
+.layer-item:last-child { border-radius: 0 0 12px 12px; }
+.layer-item:not(:last-child) { border-bottom: none; }
+.layer-num {
+  font-size: 0.75rem; font-weight: 800; font-family: var(--font-en);
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.layer-item:nth-child(1) .layer-num { background: var(--red-dim); color: var(--red); }
+.layer-item:nth-child(2) .layer-num { background: var(--orange-dim); color: var(--orange); }
+.layer-item:nth-child(3) .layer-num { background: var(--yellow-dim); color: var(--yellow); }
+.layer-item:nth-child(4) .layer-num { background: var(--cyan-dim); color: var(--cyan); }
+.layer-item:nth-child(5) .layer-num { background: var(--green-dim); color: var(--green); }
+.layer-item:nth-child(6) .layer-num { background: var(--purple-dim); color: var(--purple); }
+.layer-title {
+  font-size: 0.92rem; font-weight: 700; color: var(--text-primary);
+}
+.layer-desc {
+  font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;
+}
+
+/* Checklist */
+.checklist {
+  margin: 28px 0; list-style: none; padding: 0;
+}
+.checklist li {
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8;
+  padding: 10px 0 10px 0; padding-right: 36px; position: relative;
+  border-bottom: 1px solid var(--border);
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: ''; position: absolute; right: 0; top: 14px;
+  width: 20px; height: 20px; border-radius: 4px;
+  border: 2px solid var(--cyan); opacity: 0.4;
+}
+
+/* Sources */
+.article-sources {
+  margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+}
+.article-sources h4 {
+  font-size: 0.78rem; font-weight: 700; color: var(--text-muted);
+  letter-spacing: 0.5px; margin-bottom: 12px; text-transform: uppercase;
+}
+.article-sources ol {
+  list-style: none; counter-reset: src; margin: 0; padding: 0;
+}
+.article-sources ol li {
+  counter-increment: src; font-size: 0.75rem; color: var(--text-muted);
+  line-height: 1.7; padding: 4px 0 4px 0; padding-right: 22px; position: relative;
+}
+.article-sources ol li::before {
+  content: counter(src); position: absolute; right: 0; top: 5px;
+  font-size: 0.65rem; font-weight: 700; color: var(--text-muted);
+  font-family: var(--font-en);
+}
+.article-sources ol li a {
+  color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.3s;
+}
+.article-sources ol li a:hover { color: var(--cyan); }
+
+/* CTA */
+.article-cta {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 16px; padding: 48px 40px; margin-top: 56px; text-align: center;
+}
+.article-cta h3 { font-size: 1.3rem; color: var(--text-primary); margin: 0 0 12px; }
+.article-cta p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px; }
+.article-cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; border-radius: 8px; font-size: 0.95rem;
+  font-weight: 600; background: var(--gradient-accent);
+  color: var(--bg-primary); transition: all 0.3s;
+}
+.article-cta-btn:hover { box-shadow: 0 0 30px var(--cyan-dim); transform: translateY(-2px); }
+
+.article-footer {
+  text-align: center; padding: 40px 0; font-size: 0.8rem;
+  color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 60px;
+}
+@media (max-width: 600px) {
+  .article-container h1 { font-size: 1.6rem; }
+  .article-container { padding: 80px 16px 60px; }
+  .stat-row { grid-template-columns: 1fr; }
+  .risk-card { flex-direction: column; gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<article class="article-container">
+  <div class="article-tag">אמון בחומרה</div>
+  <h1>אמון בחומרה — איך לדעת שהרכיב שקניתם הוא מה שהוא טוען שהוא</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; אפריל 2026 &nbsp;·&nbsp; זמן קריאה: 9 דקות</div>
+
+  <div class="article-body">
+
+    <p>כשארגון ביטחוני רוכש רכיב אלקטרוני — שבב, מודול תקשורת, יחידת בקרה, ספק כוח — הוא מניח שהרכיב הוא בדיוק מה שמוצהר עליו. שהיצרן הוא מי שהוא טוען שהוא. שהקושחה שרצה בפנים עושה רק מה שהיא אמורה לעשות. ושהמסלול מהמפעל ועד המחסן לא כלל עצירה לא מתוכננת.</p>
+
+    <p>ההנחות האלה שגויות יותר ממה שנוח לחשוב. <strong>רכיבים מזויפים, קושחה שעברה שינוי, מקור ייצור שונה מהמוצהר, ובעלות נסתרת על ספקים</strong> — אלה לא תרחישים תיאורטיים. אלה סיכונים מתועדים שפוגעים במערכות ביטחוניות ברחבי העולם, כולל בישראל.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num red">1,800+</div>
+        <div class="stat-label">מקרי רכיבים מזויפים שזוהו ב-DoD (2011-2012)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">+25%</div>
+        <div class="stat-label">עלייה בדיווחי זיוף ב-2024</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">~15%</div>
+        <div class="stat-label">מחלקי חילוף צבאיים — חשודים כמזויפים</div>
+      </div>
+    </div>
+
+    <h2>מה הבעיה בדיוק?</h2>
+
+    <p>איום החומרה בשרשרת האספקה הוא רב-שכבתי. הוא לא מתמצה ב"רכיב מזויף" במובן הפשוט — שבב שלא עובד. הבעיה האמיתית מורכבת מכמה וקטורי סיכון שיכולים להתקיים בו-זמנית:</p>
+
+    <div class="risk-grid">
+      <div class="risk-card critical">
+        <div class="risk-icon">1</div>
+        <div>
+          <h4>רכיבים מזויפים (Counterfeit Components)</h4>
+          <p>רכיבים ממוחזרים, משופשפים ומתויגים מחדש כחדשים. לעיתים מגיעים מפסולת אלקטרונית שעוברת ליטוש לייזר, תיוג מחדש ואריזה מקורית — ונמכרים דרך חברות קש כרכיבים חדשים מהיצרן המקורי. ההערכה: כ-15% מחלקי החילוף במערכות צבאיות חשודים כמזויפים.</p>
+        </div>
+      </div>
+      <div class="risk-card critical">
+        <div class="risk-icon">2</div>
+        <div>
+          <h4>קושחה שעברה שינוי (Firmware Tampering)</h4>
+          <p>רכיב שנראה תקין מבחוץ, אבל הקושחה שמותקנת בו שונתה — כדי ליצור דלת אחורית, לאסוף מידע, או לאפשר שליטה מרחוק. התקפות firmware שורדות התקנה מחדש של מערכת ההפעלה, החלפת דיסקים, ולעיתים גם עדכוני תוכנה — מה שהופך אותן לקשות מאוד לגילוי ולנטרול.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">3</div>
+        <div>
+          <h4>מקור ייצור לא ידוע (Unknown Manufacturing Origin)</h4>
+          <p>הספק מצהיר שהמוצר יוצר ביפן, אבל בפועל הייצור מבוצע במפעל בסין או בדרום-מזרח אסיה. הפער בין המוצהר לבין המציאות כמעט שאינו נבדק — והוא קריטי, כי מדינת הייצור מגדירה את רמת הסיכון לשיבוש, ריגול או הכנסת רכיבים פגומים בכוונה.</p>
+        </div>
+      </div>
+      <div class="risk-card info">
+        <div class="risk-icon">4</div>
+        <div>
+          <h4>בעלות נסתרת על ספקים (Hidden Ownership)</h4>
+          <p>חברת הפצה שנראית אירופית או ישראלית, אבל הבעלות האמיתית — דרך שרשרת חברות בנות — שייכת לגורם זר, לעיתים עוין. בעלות נסתרת מאפשרת השפעה על מה שנכנס לשרשרת האספקה, מי שולט בתיעוד, ומה בדיוק מגיע למערכת הביטחונית.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>מקרים שקרו בפועל</h2>
+
+    <div class="case-box">
+      <h4>ספק בודד, 84,000 רכיבים חשודים — ארה"ב</h4>
+      <p>ועדת הכוחות המזוינים של הסנאט האמריקאי תיעדה כ-1,800 מקרים של רכיבים חשודים כמזויפים בשרשרת האספקה הביטחונית. ספק בודד משנג'ן, סין — Hong Dark Electronic Trade — הזרים כ-84,000 רכיבים חשודים שהגיעו למערכות TCAS (מערכות למניעת התנגשויות מטוסים), לפגז מונחה Excalibur ולרכבי Stryker של הצבא האמריקאי.</p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>פירוק טבעת זיוף שבבים — שנג'ן, 2024</h4>
+      <p>משטרת סין פירקה רשת שזייפה שבבים של Infineon ו-TI. התהליך: איסוף שבבים משומשים, ליטוש לייזר, תיוג מחדש עם מספרי חלק של דגמים יקרים יותר, ומכירה דרך חברות קש. חלק מהשבבים הגיעו ללוחות אם, כרטיסי מסך וספקי כוח שנמכרו בשווקים גלובליים.</p>
+    </div>
+
+    <div class="case-box cyan">
+      <h4>אירוע הפייג'רים — לבנון, ספטמבר 2024</h4>
+      <p>בספטמבר 2024 התפוצצו אלפי פייג'רים ומכשירי קשר שנועדו לשימוש חיזבאללה בלבנון ובסוריה. המכשירים נרכשו דרך חברת קש בהונגריה שקיבלה רישיון ייצור מחברה טייוואנית. חומר נפץ הוטמן בתוך הסוללות — ברמה שהייתה כמעט בלתי ניתנת לגילוי. מקרה זה הפך לדוגמה הדרמטית ביותר בהיסטוריה לסיכון של שרשרת אספקה שנפרצה ברמת החומרה.</p>
+    </div>
+
+    <h2>נתוני סנאט ארה״ב — היקף הבעיה</h2>
+
+    <p>חקירת ועדת הכוחות המזוינים של הסנאט האמריקאי (2011-2012) חשפה את ההיקף האמיתי של בעיית הרכיבים המזויפים בשרשרת האספקה של משרד ההגנה. אנו מדברים לא על מקרים ספורים, אלא על מערכת של רכיבים מזויפים, קונים לא מאובחנים, וזרם מתמשך של חומרה בעלות נסתרת הנכנסת לתוך מערכות ביטחוניות קריטיות.</p>
+
+    <div class="case-box">
+      <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">גזר דין — חלקי מסוקים</div>
+      <h4>רכיבי Black Hawk מזויפים — קליפורניה</h4>
+      <p>קונה רכש טבעות גומי מטייוואן בעלות של כ-1 דולר ליחידה, תיוג אותן כרכיבים מאושרים על ידי משרד ההגנה, ומכר אותן כרכיבים קריטיים לטיסה בכלי טייסה H-60A Black Hawk ו-H-60 Sea Hawk. גזר דין: 2.5 שנות מאסר וגם 55,000 דולר פיצויים.</p>
+    </div>
+
+    <div class="case-box">
+      <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">גזר דין — צוללות גרעיניות</div>
+      <h4>מעגלים משולבים מזויפים לצוללות גרעיניות — מסצ'וסטס</h4>
+      <p>בשנים 2007-2012, קונה ייבא אלפי מעגלים משולבים (IC) מזויפים מסין והונג קונג, עם תיוגים שקריים של Motorola, Xilinx ו-National Semiconductor. הרכיבים נמכרו לצי ארה"ב לשימוש בצוללות גרעיניות בבסיס גרוטון, קונטיקט. גזר דין: 37 חודשי מאסר, 352,076 דולר פיצויים ו-70,050 דולר החרמה.</p>
+    </div>
+
+    <div class="case-box orange">
+      <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">מבצע — Network Raider</div>
+      <h4>רכיבי Cisco מזויפים — טקסס</h4>
+      <p>קונה ייבא רכיבי תקשורת Cisco מזויפים מסין, הדביק לוגואים מזויפים, ומכר לחיל הים, חיל האוויר, FAA, משרד האנרגיה, ה-FBI ו-Lockheed Martin. החלקים נועדו למערכות ביודיעציה קריטיות בבסיסים צבאיים בעיראק.</p>
+    </div>
+
+    <h2>שש שכבות של סיכון — מהמפעל ועד המערכת</h2>
+
+    <p>כדי להבין את עומק הבעיה, צריך למפות את שרשרת האספקה של רכיב חומרה לפי שכבות הסיכון:</p>
+
+    <div class="layer-stack">
+      <div class="layer-item">
+        <div class="layer-num">1</div>
+        <div>
+          <div class="layer-title">תכנון ו-IP (Design)</div>
+          <div class="layer-desc">מי תכנן את השבב? האם ה-IP מקורי או מורשה? האם יש גישה ל-RTL code?</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">2</div>
+        <div>
+          <div class="layer-title">ייצור (Fabrication)</div>
+          <div class="layer-desc">באיזה מפעל יוצר? האם המפעל בבעלות היצרן או קבלן משנה? באיזו מדינה?</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">3</div>
+        <div>
+          <div class="layer-title">קושחה ותוכנה (Firmware)</div>
+          <div class="layer-desc">מי כתב את הקושחה? האם יש חתימה דיגיטלית? האם יש יכולת עדכון מרחוק?</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">4</div>
+        <div>
+          <div class="layer-title">אריזה ותיוג (Packaging)</div>
+          <div class="layer-desc">האם התיוג תואם למפרט? האם יש סימני ליטוש, הדפסה מחדש או חוסר עקביות?</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">5</div>
+        <div>
+          <div class="layer-title">הפצה ולוגיסטיקה (Distribution)</div>
+          <div class="layer-desc">דרך כמה ידיים עבר הרכיב? האם המפיץ מורשה? מה שרשרת הבעלות?</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">6</div>
+        <div>
+          <div class="layer-title">שילוב במערכת (Integration)</div>
+          <div class="layer-desc">האם בוצעה בדיקת קבלה? האם הרכיב נבדק מול מפרט מקורי של היצרן?</div>
+        </div>
+      </div>
+    </div>
+
+    <p>ברוב הארגונים, הבדיקה מתבצעת רק בשכבה 6 — אם בכלל. שכבות 1–5 נלקחות כ"given". וזו בדיוק הבעיה.</p>
+
+    <h2>הקשר הישראלי — למה זה רלוונטי כאן במיוחד</h2>
+
+    <p>ישראל נמצאת במצב ייחודי שמגביר את הסיכון:</p>
+
+    <ul>
+      <li><strong>שוק קטן, תלות ביבוא:</strong> רוב הרכיבים האלקטרוניים מיובאים. לישראל אין תעשיית מוליכים למחצה מקומית ברמה שמאפשרת עצמאות מלאה, מה שמגדיל את התלות בשרשרת אספקה בינלאומית.</li>
+      <li><strong>מטרה לריגול ולשיבוש:</strong> כמדינה עם תעשייה ביטחונית מפותחת ויריבים אזוריים ובינלאומיים, ישראל היא מטרה מועדפת להכנסת רכיבים מפולשים לשרשרת הביטחונית.</li>
+      <li><strong>ספקי משנה מפוזרים:</strong> תעשיות ביטחוניות ישראליות עובדות עם מאות ספקי משנה, חלקם קטנים מאוד, שלעיתים רוכשים רכיבים ממפיצים שאינם מורשים — בגלל לחצי מחיר או זמני אספקה.</li>
+      <li><strong>Flowdown חלש:</strong> בעוד התעשיות הגדולות מקפידות על תהליכי QA, הדרישות לא תמיד זורמות כלפי מטה לספקי הקצה שמספקים רכיבים בודדים.</li>
+    </ul>
+
+    <h2>מה לבדוק — רשימת בדיקה מעשית</h2>
+
+    <p>הנה הבדיקות שארגון ביטחוני — או כל ארגון שמשלב רכיבים קריטיים — צריך לבצע:</p>
+
+    <h3>ברמת הספק</h3>
+    <ul class="checklist">
+      <li>מיהו הבעלים האמיתי של הספק? האם בוצעה בדיקת בעלות (UBO — Ultimate Beneficial Owner) דרך שרשרת החברות?</li>
+      <li>האם הספק מפיץ מורשה של היצרן (Authorized Distributor), או מפיץ עצמאי (Independent Distributor)?</li>
+      <li>באיזו מדינה רשום הספק? האם יש חברות בנות או חברות אם במדינות בסיכון?</li>
+      <li>האם הספק מחזיק בהסמכות רלוונטיות: AS6081 (רכיבים מזויפים), AS6171 (בדיקות), ISO 9001?</li>
+      <li>האם יש לספק מדיניות מתועדת למניעת כניסת רכיבים מזויפים (Counterfeit Avoidance Plan)?</li>
+    </ul>
+
+    <h3>ברמת הרכיב</h3>
+    <ul class="checklist">
+      <li>האם יש תיעוד מלא של שרשרת המשמורת (Chain of Custody) — מהיצרן ועד הספק?</li>
+      <li>האם בוצעה בדיקת חזותית ומיקרוסקופית: סימני ליטוש, הדפסה מחדש, חוסר עקביות בתיוג?</li>
+      <li>האם מספרי ה-Lot/Date Code תואמים את מסד הנתונים של היצרן?</li>
+      <li>האם הקושחה נבדקה: חתימה דיגיטלית, hashim, יכולות תקשורת לא מתועדות?</li>
+      <li>האם בוצעה בדיקה חשמלית (Electrical Testing) מול מפרט היצרן המקורי?</li>
+    </ul>
+
+    <h3>ברמת הארגון</h3>
+    <ul class="checklist">
+      <li>האם קיים נוהל כתוב לבדיקת רכיבים נכנסים (Incoming Inspection)?</li>
+      <li>האם יש רשימת ספקים מאושרים (AVL — Approved Vendor List) ונוהל לעדכונה?</li>
+      <li>האם יש מנגנון דיווח פנימי על רכיבים חשודים?</li>
+      <li>האם הארגון מנוי על מאגרי מודיעין רכיבים כמו ERAI או GIDEP?</li>
+    </ul>
+
+    <h2>המסגרת הרגולטורית — NIST 800-161</h2>
+
+    <p>בעוד רב מגן ו-CMMC מתמקדים באבטחת מידע וסייבר, יש תקן ייעודי שמטפל בדיוק בסיכוני שרשרת אספקה ברמת החומרה: <strong>NIST SP 800-161 — Cybersecurity Supply Chain Risk Management</strong>. התקן, שעודכן לגרסה Rev. 1 Update 1 בנובמבר 2024, מספק מסגרת מפורטת לזיהוי, הערכה והפחתת סיכוני סייבר לאורך כל שרשרת האספקה.</p>
+
+    <p>NIST 800-161 מתייחס במפורש לסיכונים של רכיבים מזויפים, קושחה זדונית, ייצור לא מפוקח, גניבה, ושינויים בלתי מורשים — והוא משלים את ה-CMMC ואת רב מגן בכך שהוא מספק את השכבה שחסרה: ביטחון פיזי של מה שנכנס למערכת, לא רק ביטחון דיגיטלי של מה שרץ עליה.</p>
+
+    <div class="highlight-box">
+      <p><strong>נקודת מפתח:</strong> ארגון שעומד ברב מגן וגם מיישם את עקרונות NIST 800-161 מכסה את שני הצדדים של המשוואה — הגנה דיגיטלית (סייבר) והגנה פיזית (שרשרת אספקה). זהו השילוב שמפריד בין ספק שמסמן V בטופס, לבין ספק שבאמת מוגן.</p>
+    </div>
+
+    <h2>סיכום — אמון הוא לא ברירת מחדל, אמון נבנה</h2>
+
+    <p>בעולם שבו שבב ממוחזר בשנג'ן יכול להגיע למערכת ביטחונית בישראל תוך שלושה שבועות, ובו חברת קש בבודפשט יכולה להזרים חומרה שמכילה נפץ או קושחה זדונית — <strong>אמון בחומרה הוא לא משהו שמניחים. זה משהו שבודקים.</strong></p>
+
+    <p>ספקים ותעשיות ביטחוניות שמבינים את זה — ושמטמיעים תהליכי בדיקה לא רק ברמת התוכנה אלא גם ברמת החומרה, מקור הייצור, שרשרת ההפצה ומבנה הבעלות — הם אלה שיכולים באמת לומר שהם מגנים על שרשרת האספקה שלהם.</p>
+
+  </div>
+
+  <div class="article-sources">
+    <h4>מקורות</h4>
+    <ol>
+      <li>U.S. Senate Armed Services Committee — Inquiry into Counterfeit Electronic Parts in the Department of Defense Supply Chain, 2012</li>
+      <li>U.S. Senate Armed Services Committee — Inquiry into Counterfeit Electronic Parts in the DoD Supply Chain, <a href="https://www.armed-services.senate.gov/press-releases/senate-armed-services-committee-releases-report-on-counterfeit-electronic-parts" target="_blank">armed-services.senate.gov</a></li>
+      <li>ERAI — 2024 Counterfeit Electronic Parts Report, <a href="https://www.supplychainconnect.com/counterfeit/article/55311316/2024-counterfeit-electronic-parts-report-from-erai" target="_blank">supplychainconnect.com</a></li>
+      <li>NIST SP 800-161 Rev. 1 — Cybersecurity Supply Chain Risk Management, <a href="https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final" target="_blank">csrc.nist.gov</a></li>
+      <li>Stanford Cyber Policy Center — Lessons from the Israel Pager Attack, <a href="https://cyberlaw.stanford.edu/blog/2024/09/lessons-from-the-israel-pager-attack/" target="_blank">cyberlaw.stanford.edu</a></li>
+      <li>Eclypsium — The Top Firmware and Hardware Attack Vectors, <a href="https://eclypsium.com/blog/the-top-5-firmware-and-hardware-attack-vectors/" target="_blank">eclypsium.com</a></li>
+    </ol>
+  </div>
+
+  <div class="article-cta">
+    <h3>רוצים לדעת מי באמת עומד מאחורי הספקים שלכם?</h3>
+    <p>KPLNS מבצע סקרי אמון בחומרה, בדיקות מקור ייצור, וניתוח בעלות נסתרת על ספקים בשרשרת האספקה הביטחונית</p>
+    <a class="article-cta-btn" href="index.html#contact">
+      לתיאום סקר ספקים
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <div class="article-footer">
+    <div style="margin-bottom:10px;"><a href="privacy.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">מדיניות פרטיות</a><a href="accessibility.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">הצהרת נגישות</a><a href="disclaimer.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">תנאי שימוש</a></div>
+    &copy; 2026 KPLNS Encapsulated Solutions. כל הזכויות שמורות.
+  </div>
+</article>
+
+</body>
+</html>

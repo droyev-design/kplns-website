@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>המחיר האמיתי של הזנחת שרשרת האספקה | KPLNS</title>
+<meta name="description" content="כמה עולה פריצה דרך הספק? $4.88M ממוצע גלובלי. ניתוח מעמיק של העלויות הישירות, העקיפות וההשלכות העסקיות של תקיפות שרשרת אספקה — ומה הארגון שלכם יכול לעשות כדי למנוע אותן">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1a2236;
+  --bg-card: rgba(26, 34, 54, 0.65);
+  --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff;
+  --cyan-dim: rgba(0, 212, 255, 0.15);
+  --teal: #00b8a9;
+  --text-primary: #e8edf5;
+  --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg, #00d4ff, #00b8a9);
+  --orange: #fb923c;
+  --orange-dim: rgba(251, 146, 60, 0.15);
+  --red: #ef4444;
+  --red-dim: rgba(239, 68, 68, 0.12);
+  --green: #22c55e;
+  --green-dim: rgba(34, 197, 94, 0.12);
+  --yellow: #facc15;
+  --yellow-dim: rgba(250, 204, 21, 0.12);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167, 139, 250, 0.12);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-he); color: var(--text-primary); background: var(--bg-primary); line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+
+.article-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(17, 24, 39, 0.92); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border); height: 64px;
+  display: flex; align-items: center;
+}
+.article-nav-inner {
+  max-width: 800px; margin: 0 auto; padding: 0 24px; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.article-nav a {
+  font-size: 0.85rem; color: var(--cyan); font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.3s;
+}
+.article-nav a:hover { opacity: 0.7; }
+.article-nav .logo-text {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  letter-spacing: 2px; font-family: var(--font-en);
+}
+
+.article-container {
+  max-width: 760px; margin: 0 auto; padding: 100px 24px 80px;
+}
+.article-tag {
+  display: inline-block; font-size: 0.72rem; font-weight: 600;
+  color: var(--cyan); background: var(--cyan-dim); padding: 5px 14px;
+  border-radius: 12px; margin-bottom: 20px; letter-spacing: 0.5px;
+}
+.article-container h1 {
+  font-size: 2.2rem; font-weight: 800; line-height: 1.3;
+  margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.article-meta {
+  font-size: 0.85rem; color: var(--text-muted); margin-bottom: 48px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--border);
+}
+.article-body h2 {
+  font-size: 1.4rem; font-weight: 700; color: var(--text-primary);
+  margin: 48px 0 16px; padding-top: 16px;
+}
+.article-body h3 {
+  font-size: 1.15rem; font-weight: 700; color: var(--cyan);
+  margin: 32px 0 12px;
+}
+.article-body p {
+  font-size: 1.02rem; color: var(--text-secondary); line-height: 1.95;
+  margin-bottom: 20px;
+}
+.article-body strong { color: var(--text-primary); }
+.article-body ul {
+  list-style: none; margin: 0 0 24px 0; padding: 0;
+}
+.article-body ul li {
+  font-size: 1rem; color: var(--text-secondary); line-height: 1.85;
+  padding: 8px 0 8px 0; padding-right: 24px; position: relative;
+}
+.article-body ul li::before {
+  content: ''; position: absolute; right: 0; top: 17px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan); opacity: 0.6;
+}
+
+/* Stat row */
+.stat-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin: 32px 0;
+}
+.stat-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; text-align: center;
+}
+.stat-num {
+  font-size: 1.8rem; font-weight: 800; font-family: var(--font-en);
+  background: var(--gradient-accent); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-num.red {
+  background: none; -webkit-background-clip: unset;
+  -webkit-text-fill-color: var(--red);
+}
+.stat-num.orange {
+  background: none; -webkit-background-clip: unset;
+  -webkit-text-fill-color: var(--orange);
+}
+.stat-label {
+  font-size: 0.78rem; color: var(--text-muted); margin-top: 6px;
+}
+
+/* Case boxes */
+.case-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px; margin: 28px 0;
+  border-right: 4px solid var(--orange);
+}
+.case-box.critical { border-right-color: var(--red); }
+.case-box h3 { margin-top: 0; }
+.case-box p:last-child { margin-bottom: 0; }
+.case-tag {
+  display: inline-block; font-size: 0.7rem; font-weight: 600;
+  padding: 3px 10px; border-radius: 8px; margin-bottom: 12px;
+}
+.case-tag.orange { background: var(--orange-dim); color: var(--orange); }
+.case-tag.red { background: var(--red-dim); color: var(--red); }
+
+/* Highlight box */
+.highlight-box {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px 28px; margin: 28px 0;
+  border-right: 4px solid var(--cyan);
+}
+.highlight-box p:last-child { margin-bottom: 0; }
+
+/* Cost breakdown */
+.cost-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  margin: 24px 0;
+}
+.cost-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px; position: relative;
+  overflow: hidden;
+}
+.cost-card::before {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 4px; height: 100%; border-radius: 0 12px 12px 0;
+}
+.cost-card.direct::before { background: var(--red); }
+.cost-card.indirect::before { background: var(--orange); }
+.cost-card h4 {
+  font-size: 0.95rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 10px;
+}
+.cost-card p {
+  font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;
+  margin: 0;
+}
+
+/* Impact timeline */
+.impact-timeline {
+  margin: 32px 0; position: relative;
+  padding-right: 28px;
+}
+.impact-timeline::before {
+  content: ''; position: absolute; right: 8px; top: 0;
+  width: 2px; height: 100%; background: var(--border);
+}
+.timeline-item {
+  position: relative; margin-bottom: 28px;
+}
+.timeline-item::before {
+  content: ''; position: absolute; right: -24px; top: 8px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--cyan); border: 2px solid var(--bg-primary);
+}
+.timeline-item.red::before { background: var(--red); }
+.timeline-item.orange::before { background: var(--orange); }
+.timeline-item h4 {
+  font-size: 0.92rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.timeline-item p {
+  font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;
+  margin: 0;
+}
+.timeline-time {
+  font-size: 0.72rem; font-weight: 600; color: var(--cyan);
+  margin-bottom: 4px; font-family: var(--font-en);
+}
+
+/* Sources */
+.article-sources {
+  margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+}
+.article-sources h4 {
+  font-size: 0.78rem; font-weight: 700; color: var(--text-muted);
+  letter-spacing: 0.5px; margin-bottom: 12px; text-transform: uppercase;
+}
+.article-sources ol {
+  list-style: none; counter-reset: src; margin: 0; padding: 0;
+}
+.article-sources ol li {
+  counter-increment: src; font-size: 0.75rem; color: var(--text-muted);
+  line-height: 1.7; padding: 4px 0 4px 0; padding-right: 22px; position: relative;
+}
+.article-sources ol li::before {
+  content: counter(src); position: absolute; right: 0; top: 5px;
+  font-size: 0.65rem; font-weight: 700; color: var(--text-muted);
+  font-family: var(--font-en);
+}
+.article-sources ol li a {
+  color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.3s;
+}
+.article-sources ol li a:hover { color: var(--cyan); }
+
+.article-cta {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 16px; padding: 48px 40px; margin-top: 56px; text-align: center;
+}
+.article-cta h3 { font-size: 1.3rem; color: var(--text-primary); margin: 0 0 12px; }
+.article-cta p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px; }
+.article-cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; border-radius: 8px; font-size: 0.95rem;
+  font-weight: 600; background: var(--gradient-accent);
+  color: var(--bg-primary); transition: all 0.3s;
+}
+.article-cta-btn:hover { box-shadow: 0 0 30px var(--cyan-dim); transform: translateY(-2px); }
+
+.article-footer {
+  text-align: center; padding: 40px 0; font-size: 0.8rem;
+  color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 60px;
+}
+@media (max-width: 600px) {
+  .article-container h1 { font-size: 1.7rem; }
+  .article-container { padding: 80px 16px 60px; }
+  .stat-row { grid-template-columns: 1fr; }
+  .cost-grid { grid-template-columns: 1fr; }
+  .case-box, .highlight-box { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<article class="article-container">
+  <div class="article-tag">ניתוח עלויות</div>
+  <h1>המחיר האמיתי של הזנחת שרשרת האספקה — מהשבתה לנפילה עסקית</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; אפריל 2026 &nbsp;·&nbsp; זמן קריאה: 8 דקות</div>
+
+  <div class="article-body">
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">$4.88M</div>
+        <div class="stat-label">עלות ממוצעת של פריצת סייבר — גלובלי, 2024</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num orange">30%</div>
+        <div class="stat-label">מהפריצות מערבות צד שלישי (Verizon DBIR 2025)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">$60B</div>
+        <div class="stat-label">נזקי תקיפות שרשרת אספקה בתוכנה — תחזית 2025</div>
+      </div>
+    </div>
+
+    <p>כשספק נפרץ, הנזק לא נעצר אצלו. הוא מתפשט לכל מי שמחובר אליו — לקוחות, קבלני משנה, שותפים עסקיים, ולעיתים גם ללקוחות של הלקוחות. ארגונים רבים משקיעים משאבים ניכרים באבטחת המערכות הפנימיות שלהם, אך מתעלמים מסיכוני הספקים. התוצאות הכלכליות של הזנחה זו חמורות הרבה יותר ממה שרוב המנהלים מניחים.</p>
+
+    <h2>העלויות הישירות — מה קורה כשספק נפרץ</h2>
+    <p>ברגע שמתגלה אירוע אבטחה אצל ספק, השעון מתחיל לרוץ — וכל שעה עולה כסף.</p>
+
+    <div class="cost-grid">
+      <div class="cost-card direct">
+        <h4>תגובה לאירוע (Incident Response)</h4>
+        <p>גיוס צוותי תגובה, חקירה פורנזית, ייעוץ משפטי. עלות ממוצעת: $150K–$500K. בארגונים גדולים — לעיתים מעל למיליון דולר.</p>
+      </div>
+      <div class="cost-card direct">
+        <h4>השבתה תפעולית</h4>
+        <p>עצירת מערכות ייצור, עיכוב פרויקטים, אי-עמידה בלוחות זמנים. כל יום השבתה של ספק קריטי עלול לעלות עשרות אלפי דולרים ומעלה.</p>
+      </div>
+      <div class="cost-card indirect">
+        <h4>קנסות רגולטוריים</h4>
+        <p>הפרת דרישות מלמ"ב, GDPR או CMMC עלולה להוביל לקנסות של מאות אלפי שקלים — ובמקרים חמורים, להשעיית הרשאות עבודה מול גופים ממשלתיים.</p>
+      </div>
+      <div class="cost-card indirect">
+        <h4>שחזור ושיקום</h4>
+        <p>בנייה מחדש של מערכות שנפגעו, הטמעת בקרות אבטחה חדשות, הכשרת עובדים. לא מדובר בתיקון נקודתי אלא בשינוי ארכיטקטורת אבטחה.</p>
+      </div>
+    </div>
+
+    <h2>העלויות הנסתרות — מה קורה בחודשים שאחרי</h2>
+    <p>העלויות הישירות הן רק קצה הקרחון. הנזק ארוך הטווח הוא שמכריע את רוב הארגונים.</p>
+
+    <h3>אובדן חוזים והדרה משרשרת האספקה</h3>
+    <p>לאחר אירוע פריצה, קבלנים ראשיים וגופים ממשלתיים בוחנים מחדש את מערכת היחסים עם הספק שנפגע. במגזר הביטחוני, ספק שסווג כ"חולייה חלשה" מודר מהזדמנויות עתידיות — לא לחודשים, אלא לשנים. שרשרת האספקה הביטחונית לא סולחת.</p>
+
+    <h3>סיכון קיומי לקבלנים קטנים ובינוניים</h3>
+    <p>עבור SME בתעשייה הביטחונית, פריצה יחידה עלולה להיות אירוע קיומי. חברה שתלויה בשניים-שלושה חוזים ממשלתיים ומוצאת את עצמה מחוץ לשרשרת האספקה — מאבדת את מקור הכנסתה העיקרי. בפועל, אירוע אבטחה חמור מספיק כדי לסגור עסק.</p>
+
+    <h3>נזק תדמיתי מתמשך</h3>
+    <p>שיקום מוניטין לוקח שנים. דיווח תקשורתי על הפריצה, הדלפת מידע, או חשיפה ציבורית של כשלים — כל אלה מקשים על גיוס לקוחות חדשים ועל שימור הקיימים. חברה שנתפסה כ"סיכון אבטחתי" נושאת את התווית הזו לאורך זמן.</p>
+
+    <h2>ציר הזמן של נזק — מהרגע הראשון ועד שנה אחרי</h2>
+    <p>כך נראה המסלול מרגע הפריצה ועד ההשלכות ארוכות הטווח:</p>
+
+    <div class="impact-timeline">
+      <div class="timeline-item red">
+        <div class="timeline-time">שעה 0</div>
+        <h4>זיהוי — או אי-זיהוי</h4>
+        <p>במקרים רבים האירוע אינו מזוהה כלל בשלב הראשון. לפי IBM, זמן הזיהוי הממוצע של פריצה הוא כ-200 ימים. ספק שלא מנטר — לא יידע שנפרץ.</p>
+      </div>
+      <div class="timeline-item red">
+        <div class="timeline-time">ימים 1–7</div>
+        <h4>הפעלת צוות תגובה</h4>
+        <p>גיוס חירום של צוותי IR, בידוד מערכות נגועות, מיפוי ראשוני של היקף הפגיעה. השאלות הקריטיות: מה נפרץ? מי קיבל גישה? אילו מערכות נחשפו?</p>
+      </div>
+      <div class="timeline-item orange">
+        <div class="timeline-time">שבועות 2–4</div>
+        <h4>חקירה פורנזית והערכת היקף</h4>
+        <p>ניתוח לוגים, שחזור מסלול התוקף, הערכת המידע שנחשף. כאשר הפריצה עברה דרך ספק צד שלישי — התיאום מורכב יותר והחקירה ממושכת.</p>
+      </div>
+      <div class="timeline-item orange">
+        <div class="timeline-time">חודשים 1–3</div>
+        <h4>דיווח רגולטורי ובדיקה משפטית</h4>
+        <p>חובת דיווח לרגולטורים (מלמ"ב, מערך הסייבר, CISA) תוך 30 יום מגילוי. בדיקה משפטית של חבויות, עדכון לקוחות שנפגעו, ובחינת חוזים מול הספק הפגוע.</p>
+      </div>
+      <div class="timeline-item red">
+        <div class="timeline-time">חודשים 3–6</div>
+        <h4>אובדן חוזים ושחיקת אמון</h4>
+        <p>קבלנים ראשיים מקפיאים חוזים או מסיימים אותם. מכרזים חדשים נסגרים בפני הספק. הארגון נתפס כסיכון — ושינוי התפיסה הזו דורש הוכחות משמעותיות.</p>
+      </div>
+      <div class="timeline-item red">
+        <div class="timeline-time">חודשים 6–12</div>
+        <h4>מיצוב מחדש או סגירה</h4>
+        <p>ארגון שהצליח לשרוד משקיע בשיקום: הסמכות חדשות, שדרוג תשתיות, גיוס כוח אדם מקצועי. ארגון שלא — מצמצם ויוצא מהשוק.</p>
+      </div>
+    </div>
+
+    <h2>מקרי בוחן — כשההזנחה הפכה לאסון</h2>
+
+    <div class="case-box critical">
+      <div class="case-tag red">שרשרת אספקה — ישראל, 2020</div>
+      <h3>פרשת Amital Data — 40+ חברות לוגיסטיקה נפרצו</h3>
+      <p>Amital Data, חברת תוכנה ששירתה את ענף הלוגיסטיקה והיבוא בישראל, נפרצה. דרך גישה למערכותיה הגיעו התוקפים ל-<strong>40 לקוחות ישירים</strong>, ותקפו 15–20 חברות נוספות באופן עצמאי. בין הנפגעים — חברות המעורבות ביבוא ציוד ביטחוני. לא הוצגה דרישת כופר, מה שמצביע על מבצע איסוף מודיעיני — בדומה לדפוס הפעולה של NotPetya.</p>
+      <p><strong>המסקנה:</strong> ספק תוכנה אחד עם גישה לעשרות לקוחות הפך לנקודת כניסה למבצע תקיפה רחב היקף. ללא סקרי ביטחון תקופתיים — אף לקוח לא ידע שהספק נפגע.</p>
+    </div>
+
+    <div class="case-box critical">
+      <div class="case-tag red">שרשרת אספקה — ארה"ב, 2020</div>
+      <h3>פרשת SolarWinds — 18,000 ארגונים נחשפו</h3>
+      <p>תוקפים הצליחו להחדיר קוד זדוני לעדכון תוכנה של SolarWinds Orion. <strong>18,000 ארגונים</strong> התקינו את העדכון, כולל סוכנויות פדרליות אמריקאיות (משרד האוצר, משרד המסחר, הפנטגון). הנזק כלל חשיפת מידע רגיש, בנייה מחדש של מערכות, והחלפת תשתיות. עלויות השיקום מוערכות בעשרות עד מאות מיליוני דולרים.</p>
+      <p><strong>המסקנה:</strong> עדכון תוכנה אחד הפך לוקטור תקיפה נגד אלפי ארגונים. שרשרת אספקת התוכנה היא משטח תקיפה קריטי.</p>
+    </div>
+
+    <div class="case-box">
+      <div class="case-tag orange">מיקור חוץ — בריטניה, 2024</div>
+      <h3>Rolls-Royce Submarines — פיתוח שהועבר לבלארוס</h3>
+      <p>Rolls-Royce Submarines, קבלנית ביטחונית בריטית, מיקרה חוץ פיתוח של מערכת אינטרא-נט פנימית. העבודה הועברה בקבלנות משנה למפתחים <strong>בבלארוס וברוסיה</strong> (העיר טומסק, סיביר). המערכת הכילה פרטי כוח אדם ומבנה ארגוני של צי הצוללות. עובדים שהתריעו על הבעיה דווחו כי ההנהלה ניסתה להסתיר את העניין.</p>
+      <p><strong>המסקנה:</strong> גם מידע שאינו מסווג — כמו מבנה ארגוני ופרטי עובדים — נושא ערך מודיעיני משמעותי עבור יריב. מיקור חוץ ללא בדיקת מקור הוא סיכון ביטחון לאומי.</p>
+    </div>
+
+    <h2>מה עושים כדי למנוע את זה?</h2>
+
+    <div class="highlight-box">
+      <p><strong>השאלה אינה אם שרשרת האספקה שלכם תותקף, אלא האם תהיו מוכנים כשזה יקרה.</strong> ניהול סיכוני שרשרת אספקה הוא לא פרויקט חד-פעמי — הוא תהליך מתמשך שדורש מחויבות ארגונית.</p>
+    </div>
+
+    <ul>
+      <li><strong>מפו את כל הספקים הקריטיים</strong> — לא רק קבלנים ראשיים, אלא גם ספקי IT, ענן, תוכנה ותחזוקה שיש להם גישה למערכות או למידע רגיש</li>
+      <li><strong>סווגו לפי רמת סיכון</strong> — ספק עם גישה ל-CUI דורש רמת בקרה שונה מספק שירותי ניקיון. בנו מטריצת סיכון שמשקללת קריטיות, היקף גישה ורגישות מידע</li>
+      <li><strong>הגדירו מטריצת אחריות משותפת</strong> — מי אחראי על עדכוני אבטחה? על ניטור? על דיווח אירועים? הגדרה ברורה בין הארגון לספק מונעת פערים מסוכנים</li>
+      <li><strong>בצעו סקרי ביטחון תקופתיים</strong> — סקר חד-פעמי אינו מספיק. ספקים קריטיים דורשים הערכה שנתית, וספקים ברמת סיכון בינונית — כל 18 חודשים</li>
+      <li><strong>שלבו דרישות אבטחה בחוזים</strong> — נספח ביטחון, חובת דיווח אירוע תוך 24 שעות, הצפנת מידע בהעברה ובאחסון, וזכות ביקורת</li>
+      <li><strong>בנו תוכנית תגובה שכוללת תרחישי ספק</strong> — מה קורה כשספק קריטי נפרץ? מי אחראי? מה לוח הזמנים? תרגלו את התרחיש לפחות פעם בשנה</li>
+    </ul>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li><a href="https://www.ibm.com/reports/data-breach" target="_blank">IBM — Cost of a Data Breach Report 2024</a></li>
+        <li><a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank">Verizon — Data Breach Investigations Report 2025</a></li>
+        <li>Cybersecurity Ventures — Supply Chain Attack Forecast 2025</li>
+        <li><a href="https://www.gao.gov/products/gao-25-107283" target="_blank">GAO-25-107283 — Defense Industrial Base: Actions Needed to Address Risks</a></li>
+        <li>UK Ministry of Defence — Submarine IT Outsourcing Investigation, 2024</li>
+        <li>Israel National Cyber Directorate — Supply Chain Security Framework, <a href="https://www.gov.il/he/departments/israel_national_cyber_directorate" target="_blank">gov.il</a></li>
+      </ol>
+    </div>
+
+    <div class="article-cta">
+      <h3>רוצים לדעת כמה חשופה שרשרת האספקה שלכם?</h3>
+      <p>אנו מבצעים הערכות סיכון מקיפות לשרשרת האספקה — מיפוי ספקים, ניתוח פערים ותוכנית פעולה מותאמת.</p>
+      <a href="index.html#contact" class="article-cta-btn">
+        דברו איתנו
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+  </div>
+</article>
+
+<div class="article-footer">
+    <div style="margin-bottom:10px;"><a href="privacy.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">מדיניות פרטיות</a><a href="accessibility.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">הצהרת נגישות</a><a href="disclaimer.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">תנאי שימוש</a></div>
+    &copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; Yevgeni@kplns.com
+  </div>
+
+</body>
+</html>

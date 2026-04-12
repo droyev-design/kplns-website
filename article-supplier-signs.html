@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 סימנים שהספק שלכם חשוף לתקיפה | KPLNS</title>
+<meta name="description" content="איך לזהות חולשות ביטחוניות אצל ספקים לפני שתוקפים מנצלים אותן — מדריך מעשי מאת KPLNS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1a2236;
+  --bg-card: rgba(26, 34, 54, 0.65);
+  --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff;
+  --cyan-dim: rgba(0, 212, 255, 0.15);
+  --text-primary: #e8edf5;
+  --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg, #00d4ff, #00b8a9);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-he); color: var(--text-primary); background: var(--bg-primary); line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+
+.article-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(17, 24, 39, 0.92); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border); height: 64px;
+  display: flex; align-items: center;
+}
+.article-nav-inner {
+  max-width: 800px; margin: 0 auto; padding: 0 24px; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.article-nav a {
+  font-size: 0.85rem; color: var(--cyan); font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: opacity 0.3s;
+}
+.article-nav a:hover { opacity: 0.7; }
+.article-nav .logo-text {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  letter-spacing: 2px; font-family: var(--font-en);
+}
+
+.article-container {
+  max-width: 760px; margin: 0 auto; padding: 100px 24px 80px;
+}
+.article-tag {
+  display: inline-block; font-size: 0.72rem; font-weight: 600;
+  color: var(--cyan); background: var(--cyan-dim); padding: 5px 14px;
+  border-radius: 12px; margin-bottom: 20px; letter-spacing: 0.5px;
+}
+.article-container h1 {
+  font-size: 2.4rem; font-weight: 800; line-height: 1.3;
+  margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.article-meta {
+  font-size: 0.85rem; color: var(--text-muted); margin-bottom: 48px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--border);
+}
+.article-body h2 {
+  font-size: 1.4rem; font-weight: 700; color: var(--text-primary);
+  margin: 48px 0 16px; padding-top: 16px;
+}
+.article-body h3 {
+  font-size: 1.15rem; font-weight: 700; color: var(--cyan);
+  margin: 36px 0 12px;
+}
+.article-body p {
+  font-size: 1.02rem; color: var(--text-secondary); line-height: 1.95;
+  margin-bottom: 20px;
+}
+.article-body strong { color: var(--text-primary); }
+.article-body ul {
+  list-style: none; margin: 0 0 24px 0; padding: 0;
+}
+.article-body ul li {
+  font-size: 1rem; color: var(--text-secondary); line-height: 1.85;
+  padding: 8px 0 8px 0; padding-right: 24px; position: relative;
+}
+.article-body ul li::before {
+  content: ''; position: absolute; right: 0; top: 17px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan); opacity: 0.6;
+}
+.sign-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px 28px; margin: 28px 0;
+  border-right: 4px solid var(--cyan);
+}
+.sign-box h3 { margin-top: 0; }
+.sign-box p:last-child { margin-bottom: 0; }
+
+/* Sources */
+.article-sources {
+  margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+}
+.article-sources h4 {
+  font-size: 0.78rem; font-weight: 700; color: var(--text-muted);
+  letter-spacing: 0.5px; margin-bottom: 12px; text-transform: uppercase;
+}
+.article-sources ol {
+  list-style: none; counter-reset: src; margin: 0; padding: 0;
+}
+.article-sources ol li {
+  counter-increment: src; font-size: 0.75rem; color: var(--text-muted);
+  line-height: 1.7; padding: 4px 0 4px 0; padding-right: 22px; position: relative;
+}
+.article-sources ol li::before {
+  content: counter(src); position: absolute; right: 0; top: 5px;
+  font-size: 0.65rem; font-weight: 700; color: var(--text-muted);
+  font-family: var(--font-en);
+}
+.article-sources ol li a {
+  color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.3s;
+}
+.article-sources ol li a:hover { color: var(--cyan); }
+
+.article-cta {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 16px; padding: 48px 40px; margin-top: 56px;
+  text-align: center;
+}
+.article-cta h3 {
+  font-size: 1.3rem; color: var(--text-primary); margin: 0 0 12px;
+}
+.article-cta p {
+  font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px;
+}
+.article-cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; border-radius: 8px; font-size: 0.95rem;
+  font-weight: 600; background: var(--gradient-accent);
+  color: var(--bg-primary); transition: all 0.3s;
+}
+.article-cta-btn:hover { box-shadow: 0 0 30px var(--cyan-dim); transform: translateY(-2px); }
+
+.article-footer {
+  text-align: center; padding: 40px 0; font-size: 0.8rem;
+  color: var(--text-muted); border-top: 1px solid var(--border);
+  margin-top: 60px;
+}
+@media (max-width: 600px) {
+  .article-container h1 { font-size: 1.7rem; }
+  .article-container { padding: 80px 16px 60px; }
+  .sign-box { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<article class="article-container">
+  <div class="article-tag">מדריך מעשי</div>
+  <h1>5 סימנים שהספק שלכם חשוף לתקיפה</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; אפריל 2026 &nbsp;·&nbsp; זמן קריאה: 5 דקות</div>
+
+  <div class="article-body">
+    <p>ב-2024 דווחו בישראל כ-17,000 אירועי סייבר — עלייה של 24% לעומת השנה הקודמת. חלק ניכר מהתקיפות הגיעו דרך <strong>הדלת האחורית: ספקים וקבלני משנה</strong>. ארגונים רבים משקיעים מיליונים באבטחה פנימית, אבל שוכחים שהספק הקטן שמגיע למפעל פעם בשבוע הוא בדיוק נקודת הכניסה שתוקף מחפש.</p>
+
+    <p>הנה חמישה סימני אזהרה שכל מנהל ביטחון, רכש או פרויקט צריך לזהות — לפני שיהיה מאוחר מדי.</p>
+
+    <div class="sign-box">
+      <h3>סימן 1: אין ממונה ביטחון מידע מוגדר</h3>
+      <p>כשאתם שואלים את הספק "מי אחראי אצלכם על אבטחת מידע?" והתשובה היא "אה, איש ה-IT שלנו מטפל בזה" — זו נורה אדומה. ספק שלא מינה ממונה ביטחון מידע ייעודי (גם אם בחלקיות משרה) כנראה לא מנהל סיכונים באופן שיטתי. ב-44 הבקרות של מתודולוגיית "רב מגן", מינוי ממונה הוא אחת הדרישות הבסיסיות ביותר.</p>
+      <p><strong>מה לעשות:</strong> בקשו לדעת מי הגורם האחראי על אבטחת מידע, מה ההסמכות שלו, ולמי הוא מדווח בארגון. אם אין תשובה ברורה — זו נקודת פתיחה לשיחה רצינית.</p>
+    </div>
+
+    <div class="sign-box">
+      <h3>סימן 2: הספק לא מסוגל להציג מסמך מדיניות אבטחה</h3>
+      <p>ארגון שלוקח אבטחת מידע ברצינות מתעד את זה. אם הספק לא יכול להציג מסמך מדיניות אבטחת מידע, תפיסת אבטחה, או לפחות נהלי עבודה בסיסיים — סביר להניח שהנושא מטופל "לפי הרגשה" ולא לפי תכנית.</p>
+      <p><strong>מה לעשות:</strong> בקשו לראות את מסמך מדיניות אבטחת המידע. אם אין — זה לא סוף העולם, אבל זה אומר שצריך לבנות אחד. העלות והמאמץ נמוכים יחסית, אבל ההשפעה על רמת ההגנה משמעותית.</p>
+    </div>
+
+    <div class="sign-box">
+      <h3>סימן 3: אין בקרת גישה פיזית או לוגית למידע רגיש</h3>
+      <p>כשכל עובד בחברת הספק יכול לגשת לכל תיקייה, לכל שרת, ולכל מסמך — זו בעיה. תקיפת שרשרת אספקה קלאסית מתחילה בגניבת הרשאות של עובד זוטר אצל הספק ומשם מתקדמת למידע הרגיש של הלקוח.</p>
+      <p><strong>מה לעשות:</strong> בדקו האם הספק מיישם עקרון "הרשאה מינימלית" (Least Privilege). שאלו איך מנוהלות הרשאות הגישה, האם יש הפרדת רשתות, והאם יש רישום גישה למערכות המכילות מידע של הלקוח.</p>
+    </div>
+
+    <div class="sign-box">
+      <h3>סימן 4: לא בוצע סקר ביטחון או מבדק חדירה בשנתיים האחרונות</h3>
+      <p>עולם האיומים משתנה כל הזמן. ספק שלא ביצע סקר ביטחון או מבדק חדירה לפחות פעם בשנתיים בעצם אומר: "אנחנו מקווים שהכל בסדר". בסביבה שבה ישראל נמנית עם שלוש המדינות המותקפות ביותר בעולם, תקווה אינה תחליף להערכה שיטתית של סיכונים.</p>
+      <p><strong>מה לעשות:</strong> בקשו לראות ממצאים מסקר ביטחון אחרון או אישור על ביצוע מבדק חדירה. אם לא בוצע — זה הזמן לדרוש (או להציע שירות).</p>
+    </div>
+
+    <div class="sign-box">
+      <h3>סימן 5: אין תוכנית תגובה לאירוע סייבר</h3>
+      <p>השאלה היא לא "אם" אלא "מתי" יתרחש אירוע. ספק שאין לו תוכנית תגובה מוגדרת — מי מתקשר למי, איך מבודדים את הנזק, איך מדווחים ללקוחות — יגיב באיחור, בבהלה, ובלי שיטה. הנזק יהיה גדול משמעותית.</p>
+      <p><strong>מה לעשות:</strong> שאלו את הספק: "מה קורה אצלכם ב-30 הדקות הראשונות אחרי שמגלים פריצה?" אם אין תשובה מסודרת — חסרה תוכנית IR (Incident Response) ויש צורך לבנות אחת.</p>
+    </div>
+
+    <h2>מה עושים עם הממצאים?</h2>
+    <p>אם זיהיתם שניים או יותר מהסימנים האלה אצל ספק — אתם לא צריכים לנתק אותו מחר בבוקר. אבל אתם כן צריכים <strong>לפעול</strong>:</p>
+    <ul>
+      <li>תעדו את הממצאים ודווחו להנהלה ולגורם הביטחוני בארגון</li>
+      <li>העלו את הנושא מול הספק בצורה מקצועית ובונה — זו הזדמנות לשיפור, לא רק ביקורת</li>
+      <li>שקלו ביצוע סקר ביטחון מקיף לספק — כולל סקר פיזי, הערכת פערים ותוכנית עבודה</li>
+      <li>הגדירו דרישות אבטחה מינימליות בחוזי ההתקשרות עם ספקים (נספח ביטחון, NDA, דרישות ציות)</li>
+    </ul>
+
+    <p>ניהול ביטחון שרשרת האספקה הוא לא פרויקט חד-פעמי — זה תהליך מתמשך. אבל הצעד הראשון הוא תמיד הכי חשוב: <strong>לדעת איפה אתם עומדים</strong>.</p>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li>NIST SP 800-161 Rev. 1 — Cybersecurity Supply Chain Risk Management Practices for Systems and Organizations, <a href="https://csrc.nist.gov/pubs/sp/800/161/r1/upd1/final" target="_blank">csrc.nist.gov</a></li>
+        <li>Israel National Cyber Directorate — National Cyber Security Strategy 2025, <a href="https://www.gov.il/he/departments/news/cyber_strategy_2025" target="_blank">gov.il</a></li>
+        <li>ENISA — Threat Landscape for Supply Chain Attacks, <a href="https://www.enisa.europa.eu/publications/threat-landscape-for-supply-chain-attacks" target="_blank">enisa.europa.eu</a></li>
+        <li>ISO/IEC 27036 — Information Security for Supplier Relationships, <a href="https://www.iso.org/standard/82905.html" target="_blank">iso.org</a></li>
+      </ol>
+    </div>
+
+    <div class="article-cta">
+      <h3>רוצים לבדוק את הספקים שלכם?</h3>
+      <p>אנו מבצעים סקרי ביטחון 360° לספקים בתעשייה הביטחונית — מסקר סיכונים מקדים ועד דו"ח ממצאים עם תוכנית עבודה.</p>
+      <a href="index.html#contact" class="article-cta-btn">
+        דברו איתנו
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+<div class="article-footer">
+    <div style="margin-bottom:10px;"><a href="privacy.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">מדיניות פרטיות</a><a href="accessibility.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">הצהרת נגישות</a><a href="disclaimer.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">תנאי שימוש</a></div>
+    &copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; Yevgeni@kplns.com
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>תקיפות שרשרת אספקה בישראל — מגמות 2024-2025 | KPLNS</title>
+<meta name="description" content="ישראל בין שלוש המדינות המותקפות בעולם. סיכום האיומים המרכזיים על שרשרת האספקה והשלכותיהם על ספקים בתעשייה הביטחונית">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1a2236;
+  --bg-card: rgba(26, 34, 54, 0.65);
+  --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff;
+  --cyan-dim: rgba(0, 212, 255, 0.15);
+  --orange: #f59e0b;
+  --orange-dim: rgba(245, 158, 11, 0.15);
+  --red: #ef4444;
+  --red-dim: rgba(239, 68, 68, 0.15);
+  --text-primary: #e8edf5;
+  --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg, #00d4ff, #00b8a9);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-he); color: var(--text-primary); background: var(--bg-primary); line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+
+.article-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(17, 24, 39, 0.92); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border); height: 64px;
+  display: flex; align-items: center;
+}
+.article-nav-inner {
+  max-width: 800px; margin: 0 auto; padding: 0 24px; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.article-nav a {
+  font-size: 0.85rem; color: var(--cyan); font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.3s;
+}
+.article-nav a:hover { opacity: 0.7; }
+.article-nav .logo-text {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  letter-spacing: 2px; font-family: var(--font-en);
+}
+
+.article-container {
+  max-width: 760px; margin: 0 auto; padding: 100px 24px 80px;
+}
+.article-tag {
+  display: inline-block; font-size: 0.72rem; font-weight: 600;
+  color: var(--cyan); background: var(--cyan-dim); padding: 5px 14px;
+  border-radius: 12px; margin-bottom: 20px; letter-spacing: 0.5px;
+}
+.article-container h1 {
+  font-size: 2.4rem; font-weight: 800; line-height: 1.3;
+  margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.article-meta {
+  font-size: 0.85rem; color: var(--text-muted); margin-bottom: 48px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--border);
+}
+.article-body h2 {
+  font-size: 1.4rem; font-weight: 700; color: var(--text-primary);
+  margin: 48px 0 16px; padding-top: 16px;
+}
+.article-body h3 {
+  font-size: 1.15rem; font-weight: 700; color: var(--cyan);
+  margin: 32px 0 12px;
+}
+.article-body p {
+  font-size: 1.02rem; color: var(--text-secondary); line-height: 1.95;
+  margin-bottom: 20px;
+}
+.article-body strong { color: var(--text-primary); }
+.article-body ul {
+  list-style: none; margin: 0 0 24px 0; padding: 0;
+}
+.article-body ul li {
+  font-size: 1rem; color: var(--text-secondary); line-height: 1.85;
+  padding: 8px 0 8px 0; padding-right: 24px; position: relative;
+}
+.article-body ul li::before {
+  content: ''; position: absolute; right: 0; top: 17px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan); opacity: 0.6;
+}
+
+.stat-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin: 32px 0;
+}
+.stat-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px 20px; text-align: center;
+}
+.stat-card .stat-num {
+  font-size: 2rem; font-weight: 800; color: var(--cyan);
+  display: block; margin-bottom: 4px; font-family: var(--font-en);
+}
+.stat-card .stat-label {
+  font-size: 0.82rem; color: var(--text-muted);
+}
+
+.case-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 28px 28px; margin: 28px 0;
+  border-right: 4px solid var(--orange);
+}
+.case-box.critical { border-right-color: var(--red); }
+.case-box h3 { margin-top: 0; }
+.case-box p:last-child { margin-bottom: 0; }
+.case-tag {
+  display: inline-block; font-size: 0.7rem; font-weight: 600;
+  padding: 3px 10px; border-radius: 8px; margin-bottom: 12px;
+}
+.case-tag.orange { background: var(--orange-dim); color: var(--orange); }
+.case-tag.red { background: var(--red-dim); color: var(--red); }
+
+.highlight-box {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px 28px; margin: 28px 0;
+  border-right: 4px solid var(--cyan);
+}
+.highlight-box p:last-child { margin-bottom: 0; }
+
+/* Sources */
+.article-sources {
+  margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+}
+.article-sources h4 {
+  font-size: 0.78rem; font-weight: 700; color: var(--text-muted);
+  letter-spacing: 0.5px; margin-bottom: 12px; text-transform: uppercase;
+}
+.article-sources ol {
+  list-style: none; counter-reset: src; margin: 0; padding: 0;
+}
+.article-sources ol li {
+  counter-increment: src; font-size: 0.75rem; color: var(--text-muted);
+  line-height: 1.7; padding: 4px 0 4px 0; padding-right: 22px; position: relative;
+}
+.article-sources ol li::before {
+  content: counter(src); position: absolute; right: 0; top: 5px;
+  font-size: 0.65rem; font-weight: 700; color: var(--text-muted);
+  font-family: var(--font-en);
+}
+.article-sources ol li a {
+  color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.3s;
+}
+.article-sources ol li a:hover { color: var(--cyan); }
+
+.article-cta {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 16px; padding: 48px 40px; margin-top: 56px; text-align: center;
+}
+.article-cta h3 { font-size: 1.3rem; color: var(--text-primary); margin: 0 0 12px; }
+.article-cta p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px; }
+.article-cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; border-radius: 8px; font-size: 0.95rem;
+  font-weight: 600; background: var(--gradient-accent);
+  color: var(--bg-primary); transition: all 0.3s;
+}
+.article-cta-btn:hover { box-shadow: 0 0 30px var(--cyan-dim); transform: translateY(-2px); }
+
+.article-footer {
+  text-align: center; padding: 40px 0; font-size: 0.8rem;
+  color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 60px;
+}
+@media (max-width: 600px) {
+  .article-container h1 { font-size: 1.7rem; }
+  .article-container { padding: 80px 16px 60px; }
+  .stat-row { grid-template-columns: 1fr; }
+  .case-box { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<article class="article-container">
+  <div class="article-tag">ניתוח מגמות</div>
+  <h1>תקיפות שרשרת אספקה בישראל — מגמות 2024-2025</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; אפריל 2026 &nbsp;·&nbsp; זמן קריאה: 7 דקות</div>
+
+  <div class="article-body">
+    <p>ישראל נמנית עם <strong>שלוש המדינות המותקפות ביותר בעולם</strong> במרחב הסייבר. מאז אוקטובר 2023 חלה עלייה דרמטית בכמות, בתחכום ובהשפעה של תקיפות סייבר — כשחלק ניכר מהן מכוונות ספציפית לשרשרת האספקה.</p>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <span class="stat-num">17,000</span>
+        <span class="stat-label">אירועי סייבר דווחו ב-2024</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">+24%</span>
+        <span class="stat-label">עלייה לעומת 2023</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">x2.5</span>
+        <span class="stat-label">עלייה באיומים ב-2025</span>
+      </div>
+    </div>
+
+    <h2>מה השתנה?</h2>
+    <p>עד 2023, רוב תקיפות הסייבר בישראל היו מהסוג "הקלאסי" — פישינג, כופרה, השחתת אתרים. מאז אוקטובר 2023 חלה <strong>הסטה משמעותית</strong> בדפוס הפעולה של קבוצות התקיפה, בעיקר אלו המקושרות לאיראן:</p>
+    <ul>
+      <li>מעבר מתקיפות "רועש" (השחתה, DDoS) לתקיפות שקטות ומתוחכמות — ריגול ארוך טווח, שהייה ברשת, וחילוץ מידע</li>
+      <li>מיקוד בשרשרת האספקה כוקטור כניסה — במקום לתקוף ישירות ארגון מוגן, תוקפים את הספק הקטן שלו</li>
+      <li>קמפיינים של "Hack & Leak" — פריצה והדלפה מכוונת של מידע רגיש לתקשורת ולרשתות חברתיות</li>
+      <li>שימוש בתשתיות לגיטימיות (חשבונות מייל, עדכוני תוכנה) להפצת קוד זדוני</li>
+    </ul>
+
+    <h2>שלוש תקיפות שרשרת אספקה מרכזיות</h2>
+
+    <div class="case-box critical">
+      <div class="case-tag red">חומרה קריטית — 2023</div>
+      <h3>פריצה דרך ספק אירוח אתרים — 100+ ארגונים</h3>
+      <p>קבוצת תקיפה איראנית חדרה לחברת אירוח אתרים ישראלית ודרכה הגיעה ליותר מ-100 ארגונים — קמעונאים, יבואנים, גופים ציבוריים וחברות בינלאומיות הפועלות בישראל. שרתים נמחקו ומידע אישי של מיליוני לקוחות הודלף.</p>
+      <p><strong>המסקנה:</strong> ספק אחד פרוץ = מאות ארגונים חשופים. חברות שהסתמכו על ספק חיצוני בלי לבדוק את רמת האבטחה שלו שילמו מחיר כבד.</p>
+    </div>
+
+    <div class="case-box critical">
+      <div class="case-tag red">חומרה קריטית — 2024</div>
+      <h3>חדירה לקבלן ביטחוני — 18 חודשי ריגול</h3>
+      <p>תוקפים איראניים חדרו לחברת פיתוח ביטחונית ישראלית ושהו ברשת <strong>במשך 18 חודשים ללא זיהוי</strong>. דרך החברה הגיעו ל-17 קבלני ביטחון נוספים. הודלפו שרטוטים מסווגים של מערכות נשק, כלי טיס בלתי מאוישים ופרויקטים בינלאומיים.</p>
+      <p><strong>המסקנה:</strong> 18 חודשים של שהייה בלתי מזוהה מעידים על היעדר מנגנוני ניטור הולמים. ספק שלא מבצע סקרי ביטחון תקופתיים לא יידע שתוקף יושב אצלו ברשת.</p>
+    </div>
+
+    <div class="case-box">
+      <div class="case-tag orange">חומרה גבוהה — 2024</div>
+      <h3>תקיפת ספק תוכנה אקדמי — אוניברסיטאות נפרצו</h3>
+      <p>קבוצה איראנית חדרה לספק תוכנה לניהול מוסדות אקדמיים וניצלה הרשאות ניהול כדי לגשת למערכות CRM סטודנטים במספר אוניברסיטאות ומכללות. לאחר 4 חודשים שלחו מייל מחשבון הספק ללקוחותיו בו הודיעו על השתלטות מלאה.</p>
+      <p><strong>המסקנה:</strong> ספק המנהל הרשאות Admin עבור לקוחותיו מהווה מטרה אטרקטיבית לתוקפים. אם הספק נפרץ — כל הלקוחות נפרצו.</p>
+    </div>
+
+    <div class="case-box">
+      <div class="case-tag orange">חומרה גבוהה — 2020</div>
+      <h3>פרשת Amital Data — 40+ חברות לוגיסטיקה נפרצו</h3>
+      <p>קבוצת תקיפה חדרה ל-Amital Data, חברת תוכנה המשרתת את ענף הלוגיסטיקה והיבוא בישראל. דרך פגיעה בספק אחד הגיעו התוקפים ל-40 לקוחות ישירים, ובנוסף תקפו 15-20 חברות לוגיסטיקה נוספות באופן עצמאי. בין הנפגעים — חברות המעורבות ביבוא ציוד ביטחוני. לא הוצגה דרישת כופר — מה שמצביע על מבצע מודיעיני, בדומה לדפוס הפעולה של NotPetya.</p>
+      <p><strong>המסקנה:</strong> ספק תוכנה אחד עם גישה לעשרות לקוחות הפך לנקודת כניסה אחת לתקיפה רחבת היקף. ללא ביקורות ביטחון תקופתיות, אף לקוח לא ידע שהספק נפגע.</p>
+    </div>
+
+    <div class="case-box">
+      <div class="case-tag orange">חומרה גבוהה — 2024</div>
+      <h3>מיקור חוץ של מערכות צוללות גרעיניות — בריטניה</h3>
+      <p>Rolls-Royce Submarines, קבלנית ביטחונית בריטית, מיקרה חוץ פיתוח מערכת אינטרא-נט. העבודה הועברה בקבלנות משנה למפתחים בבלארוס וברוסיה (טומסק, סיביר). המערכת הכילה פרטים אישיים של עובדים ומבנה ארגוני של צי הצוללות. לאחר שעובדים התריעו, ההנהלה הסתירה את העניין כדי לא לסכן את הפרויקט.</p>
+      <p><strong>המסקנה:</strong> גם מידע "לא מסווג" — כמו מבנה ארגוני ופרטי כוח אדם — בעל ערך מודיעיני עבור יריב. מיקור חוץ ללא בדיקת מקור הוא סיכון ביטחון לאומי.</p>
+    </div>
+
+    <h2>מה זה אומר עבורכם?</h2>
+    <p>אם אתם ארגון שעובד עם ספקים — ובמיוחד אם אתם בתעשייה הביטחונית — המגמות האלה לא תיאורטיות. הן משפיעות ישירות על פרופיל הסיכון שלכם:</p>
+
+    <div class="highlight-box">
+      <p><strong>הספק שלכם הוא משטח התקיפה שלכם.</strong> לא משנה כמה טובה האבטחה הפנימית — אם הספק שמגיע למפעל, מתחבר לרשת, או מקבל גישה למידע לא מוגן מספיק, התוקף ייכנס דרכו.</p>
+    </div>
+
+    <h2>מה מומלץ לעשות?</h2>
+    <ul>
+      <li><strong>מפו את כל הספקים</strong> שיש להם גישה למידע רגיש, למערכות, או לאתרים פיזיים — כולל ספקי IT, ניקיון, תחזוקה, ואחסון ענן</li>
+      <li><strong>סווגו לפי רמת סיכון</strong> — לא כל ספק מהווה את אותה רמת איום. ספק עם גישה למידע מסווג דורש בקרות שונות מספק משרדי</li>
+      <li><strong>בצעו סקר ביטחון</strong> לספקים קריטיים — סקר 360° שכולל אבטחה פיזית, אבטחת מידע, הגנת מידע מסווג ותהליכי עבודה</li>
+      <li><strong>שלבו דרישות ביטחון בחוזים</strong> — NDA, נספח ביטחון, דרישות ציות, וזכות לביצוע ביקורות פתע</li>
+      <li><strong>בצעו סקרים תקופתיים</strong> — סקר חד-פעמי לא מספיק. המלצה לביצוע סקר מעקב כל 6-12 חודשים</li>
+    </ul>
+
+    <p>ניהול ביטחון שרשרת האספקה הוא לא מותרות — זו דרישה רגולטורית ועסקית כאחד. הארגונים שיטפלו בזה עכשיו ימצאו את עצמם מוכנים יותר לגל התקיפות הבא.</p>
+
+    <h2>הנתונים מדברים — 2024 במספרים</h2>
+
+    <div class="highlight-box">
+      <p><strong>נתוני שב"כ מצביעים על עלייה של פי 5 בתקיפות עוינות מאז אוקטובר 2023.</strong> במהלך 2024 נבלמו 700 תקיפות סייבר עוינות נגד גופים ישראליים. מתוכן: 66% לאיסוף מודיעין, 32% לפגיעה תפעולית, ו-2% לפעולות השפעה.</p>
+      <p>גדילה מן ההיקף: מ-19,000 תקיפות בחודש יולי ל-33,600 בחודש נובמבר 2024 — עלייה של 74% במשך 4 חודשים בלבד. מה שמדגים את הקצב המואץ של הסיכון.</p>
+    </div>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li>Israel National Cyber Directorate — Annual Cyber Report 2024, <a href="https://www.gov.il/he/departments/israel_national_cyber_directorate" target="_blank">gov.il</a></li>
+        <li>Check Point Research — 2024 Cyber Security Report, <a href="https://www.checkpoint.com/cyber-hub/cyber-security/what-is-cyber-security/" target="_blank">checkpoint.com</a></li>
+        <li>Sygnia — Supply Chain Attacks in Q4 2025, <a href="https://www.sygnia.co/threat-reports-and-advisories/supply-chain-attacks-in-q4-2025/" target="_blank">sygnia.co</a></li>
+        <li>Silobreaker — 12 Months That Changed Supply Chain Security, <a href="https://www.silobreaker.com/blog/cyber-threats/supply-chain-attacks-in-2025-a-month-by-month-summary/" target="_blank">silobreaker.com</a></li>
+        <li>Shin Bet Annual Cyber Report 2024, <a href="https://www.gov.il/he/departments/shin_bet" target="_blank">gov.il</a></li>
+        <li>CERT-IL — Amital Data Supply Chain Attack Advisory, 2020, <a href="https://www.cert.org.il" target="_blank">cert.org.il</a></li>
+        <li>The Telegraph — British Nuclear Submarine IT Outsourcing Investigation, 2024, <a href="https://www.telegraph.co.uk" target="_blank">telegraph.co.uk</a></li>
+      </ol>
+    </div>
+
+    <div class="article-cta">
+      <h3>רוצים לדעת מה מצב הספקים שלכם?</h3>
+      <p>אנו מבצעים סקרי ביטחון 360° וסקרי "רב מגן" לספקים בתעשייה הביטחונית — מיפוי סיכונים, הערכת פערים ותוכנית עבודה.</p>
+      <a href="index.html#contact" class="article-cta-btn">
+        דברו איתנו
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+<div class="article-footer">
+    <div style="margin-bottom:10px;"><a href="privacy.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">מדיניות פרטיות</a><a href="accessibility.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">הצהרת נגישות</a><a href="disclaimer.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">תנאי שימוש</a></div>
+    &copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; Yevgeni@kplns.com
+  </div>
+
+</body>
+</html>
