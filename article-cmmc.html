@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMMC Level 2 — התקן האמריקאי שעומד מאחורי רב מגן | KPLNS</title>
+<meta name="description" content="ניתוח מעמיק של תקן CMMC Level 2 של משרד ההגנה האמריקאי, הקשר לרב מגן הישראלי, וההשלכות על ספקים ישראליים שמוכרים לשוק הביטחוני האמריקאי ול-Five Eyes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1a2236;
+  --bg-card: rgba(26, 34, 54, 0.65);
+  --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff;
+  --cyan-dim: rgba(0, 212, 255, 0.15);
+  --teal: #00b8a9;
+  --text-primary: #e8edf5;
+  --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg, #00d4ff, #00b8a9);
+  --orange: #fb923c;
+  --orange-dim: rgba(251, 146, 60, 0.15);
+  --red: #ef4444;
+  --red-dim: rgba(239, 68, 68, 0.12);
+  --green: #22c55e;
+  --green-dim: rgba(34, 197, 94, 0.12);
+  --yellow: #facc15;
+  --yellow-dim: rgba(250, 204, 21, 0.12);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167, 139, 250, 0.12);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-he); color: var(--text-primary); background: var(--bg-primary); line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+
+.article-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(17, 24, 39, 0.92); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border); height: 64px;
+  display: flex; align-items: center;
+}
+.article-nav-inner {
+  max-width: 800px; margin: 0 auto; padding: 0 24px; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.article-nav a {
+  font-size: 0.85rem; color: var(--cyan); font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.3s;
+}
+.article-nav a:hover { opacity: 0.7; }
+.article-nav .logo-text {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  letter-spacing: 2px; font-family: var(--font-en);
+}
+
+.article-container {
+  max-width: 760px; margin: 0 auto; padding: 100px 24px 80px;
+}
+.article-tag {
+  display: inline-block; font-size: 0.72rem; font-weight: 600;
+  color: var(--cyan); background: var(--cyan-dim); padding: 5px 14px;
+  border-radius: 12px; margin-bottom: 20px; letter-spacing: 0.5px;
+}
+.article-container h1 {
+  font-size: 2.2rem; font-weight: 800; line-height: 1.3;
+  margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.article-meta {
+  font-size: 0.85rem; color: var(--text-muted); margin-bottom: 48px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--border);
+}
+.article-body h2 {
+  font-size: 1.4rem; font-weight: 700; color: var(--text-primary);
+  margin: 48px 0 16px; padding-top: 16px;
+}
+.article-body h3 {
+  font-size: 1.15rem; font-weight: 700; color: var(--cyan);
+  margin: 32px 0 12px;
+}
+.article-body p {
+  font-size: 1.02rem; color: var(--text-secondary); line-height: 1.95;
+  margin-bottom: 20px;
+}
+.article-body strong { color: var(--text-primary); }
+.article-body ul {
+  list-style: none; margin: 0 0 24px 0; padding: 0;
+}
+.article-body ul li {
+  font-size: 1rem; color: var(--text-secondary); line-height: 1.85;
+  padding: 8px 0 8px 0; padding-right: 24px; position: relative;
+}
+.article-body ul li::before {
+  content: ''; position: absolute; right: 0; top: 17px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan); opacity: 0.6;
+}
+
+/* Comparison Table */
+.compare-table-wrap {
+  margin: 28px 0; overflow-x: auto;
+}
+.compare-table {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border);
+}
+.compare-table thead th {
+  background: var(--bg-secondary); color: var(--text-primary);
+  font-size: 0.85rem; font-weight: 700; padding: 14px 18px;
+  text-align: right; border-bottom: 1px solid var(--border);
+}
+.compare-table thead th:first-child { width: 30%; }
+.compare-table thead th.col-us {
+  background: rgba(167, 139, 250, 0.1); color: var(--purple);
+}
+.compare-table thead th.col-il {
+  background: var(--cyan-dim); color: var(--cyan);
+}
+.compare-table tbody td {
+  font-size: 0.9rem; color: var(--text-secondary); padding: 13px 18px;
+  border-bottom: 1px solid var(--border); vertical-align: top;
+}
+.compare-table tbody tr:last-child td { border-bottom: none; }
+.compare-table tbody td:first-child {
+  font-weight: 600; color: var(--text-primary); font-size: 0.88rem;
+}
+
+/* Stat row */
+.stat-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin: 32px 0;
+}
+.stat-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; text-align: center;
+}
+.stat-num {
+  font-size: 1.8rem; font-weight: 800; font-family: var(--font-en);
+  background: var(--gradient-accent); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-label {
+  font-size: 0.78rem; color: var(--text-muted); margin-top: 6px;
+}
+
+/* Timeline */
+.timeline {
+  margin: 28px 0; position: relative;
+}
+.timeline::before {
+  content: ''; position: absolute; right: 15px; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(180deg, var(--cyan), var(--teal), transparent);
+}
+.timeline-item {
+  position: relative; padding-right: 48px; margin-bottom: 24px;
+}
+.timeline-item::before {
+  content: ''; position: absolute; right: 9px; top: 6px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--bg-primary); border: 3px solid var(--cyan);
+}
+.timeline-item.active::before { background: var(--cyan); box-shadow: 0 0 12px var(--cyan-dim); }
+.timeline-date {
+  font-size: 0.8rem; font-weight: 700; color: var(--cyan);
+  font-family: var(--font-en); margin-bottom: 4px;
+}
+.timeline-text {
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7;
+}
+
+/* Flow diagram */
+.flow-diagram {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0; margin: 32px 0; flex-wrap: wrap;
+}
+.flow-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px 20px; text-align: center;
+  flex: 0 0 auto; min-width: 140px;
+}
+.flow-box .flow-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px; }
+.flow-box .flow-name { font-size: 0.92rem; font-weight: 700; color: var(--text-primary); }
+.flow-box.us { border-color: rgba(167,139,250,0.3); }
+.flow-box.us .flow-name { color: var(--purple); }
+.flow-box.il { border-color: rgba(0,212,255,0.3); }
+.flow-box.il .flow-name { color: var(--cyan); }
+.flow-arrow {
+  font-size: 1.4rem; color: var(--text-muted); padding: 0 12px;
+  flex-shrink: 0;
+}
+
+/* Impact cards */
+.impact-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  margin: 28px 0;
+}
+.impact-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; border-top: 3px solid var(--cyan);
+}
+.impact-card.critical { border-top-color: var(--red); }
+.impact-card.warning { border-top-color: var(--orange); }
+.impact-card.info { border-top-color: var(--purple); }
+.impact-icon {
+  font-size: 1.5rem; margin-bottom: 10px;
+}
+.impact-card h4 {
+  font-size: 0.95rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.impact-card p {
+  font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7;
+  margin: 0;
+}
+
+/* Highlight box */
+.highlight-box {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px 28px; margin: 28px 0;
+  border-right: 4px solid var(--cyan);
+}
+.highlight-box.purple { border-right-color: var(--purple); }
+.highlight-box.orange { border-right-color: var(--orange); }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+/* Domains comparison */
+.domains-compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  margin: 28px 0; border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden;
+}
+.domains-col {
+  padding: 20px;
+}
+.domains-col.us-col { background: rgba(167,139,250,0.05); border-left: 1px solid var(--border); }
+.domains-col.il-col { background: rgba(0,212,255,0.05); }
+.domains-col-title {
+  font-size: 0.82rem; font-weight: 700; text-align: center;
+  padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.domains-col.us-col .domains-col-title { color: var(--purple); }
+.domains-col.il-col .domains-col-title { color: var(--cyan); }
+.domains-col .domain-item {
+  font-size: 0.82rem; color: var(--text-secondary); padding: 5px 0;
+  display: flex; gap: 8px; align-items: baseline;
+}
+.domains-col .domain-item .d-num {
+  font-weight: 700; color: var(--text-muted); font-family: var(--font-en);
+  font-size: 0.72rem; min-width: 20px;
+}
+
+/* Sources */
+.article-sources {
+  margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+}
+.article-sources h4 {
+  font-size: 0.78rem; font-weight: 700; color: var(--text-muted);
+  letter-spacing: 0.5px; margin-bottom: 12px; text-transform: uppercase;
+}
+.article-sources ol {
+  list-style: none; counter-reset: src; margin: 0; padding: 0;
+}
+.article-sources ol li {
+  counter-increment: src; font-size: 0.75rem; color: var(--text-muted);
+  line-height: 1.7; padding: 4px 0 4px 0; padding-right: 22px; position: relative;
+}
+.article-sources ol li::before {
+  content: counter(src); position: absolute; right: 0; top: 5px;
+  font-size: 0.65rem; font-weight: 700; color: var(--text-muted);
+  font-family: var(--font-en);
+}
+.article-sources ol li a {
+  color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.3s;
+}
+.article-sources ol li a:hover { color: var(--cyan); }
+
+/* CTA */
+.article-cta {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 16px; padding: 48px 40px; margin-top: 56px; text-align: center;
+}
+.article-cta h3 { font-size: 1.3rem; color: var(--text-primary); margin: 0 0 12px; }
+.article-cta p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px; }
+.article-cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; border-radius: 8px; font-size: 0.95rem;
+  font-weight: 600; background: var(--gradient-accent);
+  color: var(--bg-primary); transition: all 0.3s;
+}
+.article-cta-btn:hover { box-shadow: 0 0 30px var(--cyan-dim); transform: translateY(-2px); }
+
+.article-footer {
+  text-align: center; padding: 40px 0; font-size: 0.8rem;
+  color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 60px;
+}
+@media (max-width: 600px) {
+  .article-container h1 { font-size: 1.6rem; }
+  .article-container { padding: 80px 16px 60px; }
+  .stat-row { grid-template-columns: 1fr; }
+  .impact-grid { grid-template-columns: 1fr; }
+  .domains-compare { grid-template-columns: 1fr; }
+  .domains-col.us-col { border-left: none; border-top: 1px solid var(--border); }
+  .compare-table { font-size: 0.82rem; }
+  .flow-diagram { flex-direction: column; }
+  .flow-arrow { transform: rotate(90deg); }
+}
+</style>
+</head>
+<body>
+
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<article class="article-container">
+  <div class="article-tag">רגולציה בינלאומית</div>
+  <h1>CMMC Level 2 — התקן האמריקאי שעומד מאחורי "רב מגן"</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; אפריל 2026 &nbsp;·&nbsp; זמן קריאה: 8 דקות</div>
+
+  <div class="article-body">
+
+    <p>תקן <strong>"רב מגן 2"</strong> של מלמ"ב לא נולד בחלל ריק. תקן האב שלו הוא <strong>CMMC Level 2 — Cybersecurity Maturity Model Certification</strong> של משרד ההגנה האמריקאי, המבוסס על 110 הבקרות של NIST SP 800-171. רב מגן 2 המלא אימץ את המבנה, את 14 התחומים ואת עקרונות הבקרה מהתקן האמריקאי, והתאים אותם לסביבה הביטחונית הישראלית.</p>
+
+    <p>אבל יש הבדל קריטי שחשוב להבין: <strong>הרגולטור הישראלי (מלמ"ב) סוקר כיום לפי 44 בקרות בלבד</strong> — לא לפי תקן רב מגן 2 המלא. 44 הבקרות הן למעשה ליבת התקן המעשית, שנבחרה כבסיס לסקרי הביטחון הנוכחיים. התקן המלא, עם מכלול הבקרות הרחב יותר, קיים ברקע — ומי שמכיר את CMMC Level 2 מבין לאן הרגולציה הישראלית צפויה להתפתח.</p>
+
+    <h2>מה זה CMMC?</h2>
+
+    <p>CMMC הוא מסגרת הסמכה שפותחה על ידי <strong>משרד ההגנה האמריקאי (DoD)</strong> כדי להבטיח שכלל שרשרת האספקה הביטחונית — מקבלני ענק ועד ספקי משנה קטנים — עומדת ברף מינימלי של הגנת סייבר. התקן עבר שינויים מהותיים מגרסתו הראשונה וגובש לבסוף לשלוש רמות:</p>
+
+    <ul>
+      <li><strong>Level 1 — Foundational:</strong> 17 בקרות בסיסיות להגנה על מידע פדרלי (FCI). הערכה עצמית בלבד.</li>
+      <li><strong>Level 2 — Advanced:</strong> 110 בקרות מבוססות NIST SP 800-171, להגנה על מידע מסווג כ-CUI (Controlled Unclassified Information). נדרשת הערכה על ידי גוף צד שלישי (C3PAO).</li>
+      <li><strong>Level 3 — Expert:</strong> בקרות מתקדמות מבוססות NIST SP 800-172, להגנה מפני APT. הערכה על ידי DIBCAC — הזרוע הביקורתית של משרד ההגנה.</li>
+    </ul>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">110</div>
+        <div class="stat-label">בקרות ב-Level 2</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">~80K</div>
+        <div class="stat-label">ספקים שנדרשים לעמוד בתקן</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">14</div>
+        <div class="stat-label">תחומי בקרה (Domains)</div>
+      </div>
+    </div>
+
+    <h2>למה Level 2 הוא המפתח?</h2>
+
+    <p>הרמה השנייה היא הרמה הקריטית עבור רוב שרשרת האספקה הביטחונית. כל ספק שמטפל ב-<strong>CUI — Controlled Unclassified Information</strong> — כלומר מידע טכני, תכנוני או תפעולי שאינו מסווג אך רגיש מבחינה ביטחונית — חייב לעמוד ב-110 הבקרות של NIST SP 800-171. זה כולל שרטוטים הנדסיים, מפרטים טכניים, תוצאות בדיקות, ומסמכי תחזוקה.</p>
+
+    <p>מה שהופך את Level 2 למשמעותי במיוחד הוא דרישת <strong>ה-Flowdown</strong>: הדרישה חלה על כל שרשרת האספקה כלפי מטה. קבלן ראשי שמעביר מידע מסוג CUI לספק משנה — אותו ספק משנה חייב גם הוא לעמוד ב-Level 2. אין חריגות, אין פטורים, ואין הבדל אם הספק יושב בארה"ב, בישראל, או בכל מדינה אחרת.</p>
+
+    <div class="highlight-box purple">
+      <p><strong>נקודת מפתח:</strong> CMMC חל על ספקים בינלאומיים. משרד ההגנה האמריקאי הבהיר כי דרישות התקן מחייבות קבלנים וקבלני משנה מקומיים ובינלאומיים כאחד, כל עוד מערכות המידע שלהם מעבדות, מאחסנות או משדרות FCI או CUI.</p>
+    </div>
+
+    <h2>לוח הזמנים — התקן כבר כאן</h2>
+
+    <p>CMMC אינו עוד "תקן עתידי". הכללים הסופיים נכנסו לתוקף, ולוח הזמנים ברור:</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">דצמבר 2024</div>
+        <div class="timeline-text">הכלל הסופי (32 CFR Part 170) נכנס לתוקף. הערכות Level 2 מתחילות.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">נובמבר 2025</div>
+        <div class="timeline-text">ה-DoD מתחיל לדרוש הערכות עצמיות של Level 1 ו-Level 2 כתנאי לחוזים חדשים.</div>
+      </div>
+      <div class="timeline-item active">
+        <div class="timeline-date">נובמבר 2026</div>
+        <div class="timeline-text">חוזים חדשים ידרשו הערכת Level 2 של C3PAO (צד שלישי) — ללא הסמכה, אין חוזה.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">אוקטובר 2026</div>
+        <div class="timeline-text">עמידה ב-CMMC תהיה תנאי לכלל ההתקשרויות החדשות של ה-DoD.</div>
+      </div>
+    </div>
+
+    <h2>14 התחומים של NIST 800-171 — תקן האב של רב מגן</h2>
+
+    <p>Level 2 של CMMC מבוסס על 110 בקרות המחולקות ל-14 תחומים (Domain Families). רב מגן 2 אימץ את אותו מבנה בדיוק — 14 תחומים זהים — אלא שהרגולטור הישראלי ריכז מתוכם 44 בקרות מרכזיות שלפיהן מתבצע הסקר בפועל. ההקבלה אינה מקרית — זו גזירה ישירה:</p>
+
+    <div class="domains-compare">
+      <div class="domains-col il-col">
+        <div class="domains-col-title">רב מגן — ישראל (44 בקרות נסקרות מתוך תקן מלא)</div>
+        <div class="domain-item"><span class="d-num">1.</span> בקרת גישה</div>
+        <div class="domain-item"><span class="d-num">2.</span> זיהוי ואימות</div>
+        <div class="domain-item"><span class="d-num">3.</span> ניהול תצורה</div>
+        <div class="domain-item"><span class="d-num">4.</span> בקרת תקשורת</div>
+        <div class="domain-item"><span class="d-num">5.</span> שלמות המידע</div>
+        <div class="domain-item"><span class="d-num">6.</span> ניהול סיכונים</div>
+        <div class="domain-item"><span class="d-num">7.</span> הגנה פיזית</div>
+        <div class="domain-item"><span class="d-num">8.</span> הערכת רמת ההגנה</div>
+        <div class="domain-item"><span class="d-num">9.</span> הגנה על תקשורת</div>
+        <div class="domain-item"><span class="d-num">10.</span> אבטחת כ"א</div>
+        <div class="domain-item"><span class="d-num">11.</span> ניהול אירועים</div>
+        <div class="domain-item"><span class="d-num">12.</span> הגנה על מדיה</div>
+        <div class="domain-item"><span class="d-num">13.</span> מודעות והכשרה</div>
+        <div class="domain-item"><span class="d-num">14.</span> ביקורת ובקרה</div>
+      </div>
+      <div class="domains-col us-col">
+        <div class="domains-col-title">CMMC Level 2 — ארה"ב (110 בקרות)</div>
+        <div class="domain-item"><span class="d-num">AC</span> Access Control (22)</div>
+        <div class="domain-item"><span class="d-num">AT</span> Awareness & Training (3)</div>
+        <div class="domain-item"><span class="d-num">AU</span> Audit & Accountability (9)</div>
+        <div class="domain-item"><span class="d-num">CM</span> Configuration Mgmt (9)</div>
+        <div class="domain-item"><span class="d-num">IA</span> Identification & Auth (11)</div>
+        <div class="domain-item"><span class="d-num">IR</span> Incident Response (3)</div>
+        <div class="domain-item"><span class="d-num">MA</span> Maintenance (6)</div>
+        <div class="domain-item"><span class="d-num">MP</span> Media Protection (9)</div>
+        <div class="domain-item"><span class="d-num">PE</span> Physical Protection (6)</div>
+        <div class="domain-item"><span class="d-num">PS</span> Personnel Security (2)</div>
+        <div class="domain-item"><span class="d-num">RA</span> Risk Assessment (3)</div>
+        <div class="domain-item"><span class="d-num">SA</span> Security Assessment (4)</div>
+        <div class="domain-item"><span class="d-num">SC</span> System & Comms (16)</div>
+        <div class="domain-item"><span class="d-num">SI</span> System & Info Integrity (7)</div>
+      </div>
+    </div>
+
+    <p>כפי שניתן לראות — 14 תחומים שם, 14 תחומים כאן. התחומים כמעט זהים: בקרת גישה, זיהוי ואימות, ניהול תצורה, הגנה פיזית, ניהול אירועים, הגנה על מדיה. CMMC Level 2 מפרט 110 בקרות עם 320 יעדי הערכה. רב מגן 2 המלא מבוסס על אותה מסגרת, אך <strong>הרגולטור הישראלי בחר לסקור בפועל 44 בקרות מרכזיות</strong> בלבד — עם 4 רמות יישום לכל בקרה. זהו הפער שחשוב להבין: התקן המלא קיים, אך הסקר הנוכחי מתמקד בליבה.</p>
+
+    <h2>השוואת מסגרות: CMMC Level 2 מול רב מגן</h2>
+
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>פרמטר</th>
+            <th class="col-us">CMMC Level 2</th>
+            <th class="col-il">רב מגן</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>מקור</td>
+            <td>משרד ההגנה האמריקאי (DoD)</td>
+            <td>מלמ"ב — משרד הביטחון ישראל</td>
+          </tr>
+          <tr>
+            <td>בסיס טכני</td>
+            <td>NIST SP 800-171 Rev. 2</td>
+            <td>נגזר מ-CMMC L2 / NIST, מותאם מקומית</td>
+          </tr>
+          <tr>
+            <td>מספר בקרות</td>
+            <td>110 בקרות, 320 יעדי הערכה</td>
+            <td>תקן מלא רחב; <strong>44 בקרות נסקרות בפועל</strong>, 4 רמות יישום</td>
+          </tr>
+          <tr>
+            <td>תחומים</td>
+            <td>14 Domain Families</td>
+            <td>14 תחומי ביקורת</td>
+          </tr>
+          <tr>
+            <td>הסמכה</td>
+            <td>C3PAO — גוף צד שלישי מאושר</td>
+            <td>סוקר מוסמך מטעם הרגולטור</td>
+          </tr>
+          <tr>
+            <td>תוקף</td>
+            <td>3 שנים + אישור שנתי ב-SPRS</td>
+            <td>תלוי דרישת הלקוח / הרגולטור</td>
+          </tr>
+          <tr>
+            <td>Flowdown</td>
+            <td>חובה — על כלל שרשרת האספקה</td>
+            <td>חובה — דרישות מלמ"ב מזרימות לספקי משנה</td>
+          </tr>
+          <tr>
+            <td>חל על זרים</td>
+            <td>כן — ללא הבדל גיאוגרפי</td>
+            <td>חל על ספקים בתעשייה הביטחונית</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>ה-Five Eyes ושרשרת האספקה הגלובלית</h2>
+
+    <p>CMMC לא נוצר בחלל ריק. הוא חלק ממגמה עולמית שמובילות מדינות <strong>ברית Five Eyes</strong> — ארה"ב, בריטניה, קנדה, אוסטרליה וניו זילנד — ליצירת רף אחיד של הגנת סייבר בשרשרת האספקה הביטחונית. כל אחת מהמדינות הללו מפתחת או כבר אימצה מסגרות דומות:</p>
+
+    <ul>
+      <li><strong>בריטניה</strong> — Cyber Essentials Plus ו-Defence Cyber Protection Partnership (DCPP)</li>
+      <li><strong>אוסטרליה</strong> — Defence Industry Security Program (DISP) עם Essential Eight</li>
+      <li><strong>קנדה</strong> — Canadian Program for Cyber Security Certification (CPCSC), הנבנה במקביל ל-CMMC</li>
+    </ul>
+
+    <p>ישראל, כשותפה אסטרטגית של ארה"ב ויצואנית מרכזית של טכנולוגיה ביטחונית, מושפעת ישירות מהמגמה הזו. תעשיות ביטחוניות ישראליות שמוכרות למשרד ההגנה האמריקאי, או שמשתתפות בתוכניות משותפות עם מדינות Five Eyes, כבר כפופות ל-CMMC — וצריכות לעמוד ב-Level 2 כתנאי לשימור החוזים.</p>
+
+    <div class="flow-diagram">
+      <div class="flow-box us">
+        <div class="flow-label">DoD</div>
+        <div class="flow-name">CMMC L2</div>
+      </div>
+      <div class="flow-arrow">&larr;</div>
+      <div class="flow-box us">
+        <div class="flow-label">Prime Contractor</div>
+        <div class="flow-name">קבלן ראשי</div>
+      </div>
+      <div class="flow-arrow">&larr;</div>
+      <div class="flow-box il">
+        <div class="flow-label">Flowdown</div>
+        <div class="flow-name">ספק ישראלי</div>
+      </div>
+      <div class="flow-arrow">&larr;</div>
+      <div class="flow-box il">
+        <div class="flow-label">Sub-tier</div>
+        <div class="flow-name">ספק משנה</div>
+      </div>
+    </div>
+
+    <h2>ההשלכות על הספק הישראלי</h2>
+
+    <p>עבור ספקים ישראליים בתעשייה הביטחונית, ההשלכות הן מיידיות ומשמעותיות:</p>
+
+    <div class="impact-grid">
+      <div class="impact-card critical">
+        <div class="impact-icon">&#9888;</div>
+        <h4>חובת עמידה כפולה</h4>
+        <p>ספק שמוכר גם לתעשייה ביטחונית ישראלית (רב מגן) וגם לשוק האמריקאי (CMMC) חייב לעמוד בשתי המסגרות במקביל. חוסר עמידה באחת מהן עלול לחסום את כלל הפעילות העסקית.</p>
+      </div>
+      <div class="impact-card warning">
+        <div class="impact-icon">&#128337;</div>
+        <h4>לוח זמנים מתכווץ</h4>
+        <p>מנובמבר 2026 — חוזים חדשים של ה-DoD ידרשו הסמכת Level 2 של צד שלישי. ספקים שלא נערכים עכשיו עלולים להיות מושעים מהזמנות חדשות.</p>
+      </div>
+      <div class="impact-card info">
+        <div class="impact-icon">&#128279;</div>
+        <h4>ITAR + CMMC = חובה כפולה</h4>
+        <p>מידע בכפוף ל-ITAR (International Traffic in Arms Regulations) מסווג גם כ-CUI — מה שמחיל אוטומטית את דרישות CMMC Level 2 על כל ספק שמטפל במידע כזה.</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">&#127919;</div>
+        <h4>יתרון תחרותי</h4>
+        <p>ספקים שמשיגים הסמכת CMMC Level 2 לפני המתחרים ממצבים את עצמם כספקים אמינים — ומשפרים את סיכויי הזכייה בחוזים בינלאומיים.</p>
+      </div>
+    </div>
+
+    <h2>44 בקרות היום, תקן מלא מחר</h2>
+
+    <p>כאמור, הרגולטור הישראלי סוקר כיום לפי <strong>44 בקרות בלבד</strong>. זו החלטה מעשית — לא עקרונית. התקן המלא של רב מגן 2 קיים, ומכסה מכלול בקרות רחב בהרבה בהתאמה ל-NIST 800-171. אבל בשטח, סקר הביטחון שמלמ"ב דורש מתבצע כיום על בסיס 44 הבקרות המרכזיות.</p>
+
+    <p>למה זה חשוב? כי <strong>הכיוון ברור</strong>. מה שקרה בארה"ב הולך לקרות גם כאן: הרגולציה מתהדקת בהדרגה. כשה-DoD עבר מהערכות עצמיות לביקורות צד שלישי מחייבות, זה לקח כמה שנים — אבל זה קרה. כשהתקן המלא של רב מגן 2 ייכנס לתוקף מלא, ספקים שהכירו רק את 44 הבקרות יצטרכו לסגור פערים משמעותיים בזמן קצר.</p>
+
+    <div class="highlight-box">
+      <p><strong>ההמלצה המקצועית:</strong> גם אם כיום הסקר מתבצע לפי 44 בקרות — כדאי להכיר את התקן המלא ולהתחיל להיערך אליו. ספק שעומד ב-44 הבקרות הנוכחיות ומבין את הפערים כלפי התקן המלא, נמצא בעמדה טובה משמעותית ביום שהרגולציה תתרחב.</p>
+    </div>
+
+    <h2>למה זה צריך לעניין גם ספקים שלא מוכרים לארה"ב?</h2>
+
+    <p>גם ספקים שפועלים אך ורק בשוק הישראלי צריכים להבין את CMMC, ויש לכך שלוש סיבות עיקריות.</p>
+
+    <p><strong>ראשית</strong> — מגמת הרגולציה ברורה. מה שקורה ב-DoD מגיע לישראל תוך 2–4 שנים. רב מגן הוא ההוכחה: המבנה, התחומים, הגישה מבוססת-בקרות — הכול נגזר מ-CMMC ו-NIST. היום סוקרים 44 בקרות, מחר יסקרו יותר. ככל שהתקן האמריקאי מתהדק, גם הדרישות הישראליות יתעדכנו בהתאם.</p>
+
+    <p><strong>שנית</strong> — תעשיות ביטחוניות ישראליות שמוכרות לשוק האמריקאי או לשווקי Five Eyes כבר כפופות ל-CMMC. דרישות ה-Flowdown זורמות כלפי מטה לכל ספקי המשנה — גם הישראליים. ספק שכבר מכיר את הבסיס הרגולטורי מקצר את תהליך ההיערכות משמעותית.</p>
+
+    <p><strong>שלישית</strong> — לקוחות מובילים בתעשייה הביטחונית הישראלית כבר דורשים עמידה בתקנים בינלאומיים כחלק מתהליכי המכרז. ספק שמפגין היכרות עם CMMC, מעבר ל-44 הבקרות של רב מגן, מקבל יתרון משמעותי בהערכת הספקים.</p>
+
+    <div class="highlight-box orange">
+      <p><strong>תרחיש מעשי:</strong> תעשייה ביטחונית ישראלית גדולה זוכה בחוזה משותף עם קבלן אמריקאי. במסגרת ה-Flowdown, כל ספקי המשנה הישראליים שמטפלים ב-CUI נדרשים להסמכת CMMC Level 2 — כלומר 110 בקרות, לא 44. הספק שלא מוכן — נפסל. הספק שכבר עומד ב-44 הבקרות של רב מגן ומכיר את הפערים כלפי התקן המלא — מקצר את ההיערכות מ-18 חודשים ל-6.</p>
+    </div>
+
+    <h2>איך להתכונן — מ-44 בקרות לתקן מלא</h2>
+
+    <p>החדשות הטובות: ספק שכבר עומד ב-44 הבקרות של רב מגן בציון גבוה נמצא בנקודת פתיחה טובה. 14 התחומים זהים, השפה המקצועית מוכרת, והתשתית הארגונית קיימת. עם זאת, הפער בין 44 בקרות ל-110 בקרות הוא משמעותי, ויש לטפל בו בצורה מסודרת:</p>
+
+    <ul>
+      <li><strong>Gap Analysis — מ-44 ל-110:</strong> מיפוי שיטתי של הבקרות שכבר מיושמות מול 110 הבקרות של NIST 800-171. רוב הספקים שעומדים ברב מגן ברמה גבוהה מכסים כבר 40%–60% מדרישות CMMC Level 2 — אבל ה-40% הנותרים דורשים עבודה ממוקדת.</li>
+      <li><strong>תיעוד מורחב:</strong> CMMC דורש SSP (System Security Plan) מפורט, POA&M (Plan of Action & Milestones), ותיעוד מלא של כל בקרה. רמת התיעוד הנדרשת גבוהה משמעותית ממה שנהוג בסקרי רב מגן.</li>
+      <li><strong>הערכת צד שלישי:</strong> בניגוד לרב מגן שבו הסוקר פועל מטעם הרגולטור, ב-CMMC נדרשת הערכה של C3PAO — גוף הערכה מאושר. הביקוש לביקורות עולה על ההיצע — יש לתכנן מראש.</li>
+      <li><strong>SPRS Score:</strong> יש לבצע הערכה עצמית ולדווח ציון ב-Supplier Performance Risk System. הציון נע בין ‎-203 ל-110, כאשר 110 מייצג עמידה מלאה.</li>
+    </ul>
+
+    <h2>סיכום: שני צדדים של אותו מטבע</h2>
+
+    <p>CMMC Level 2 הוא תקן האב. רב מגן 2 הוא הביטוי הישראלי שלו. כיום הרגולטור סוקר לפי 44 בקרות — אבל התקן המלא קיים, וההתפתחות הרגולטורית ברורה: <strong>שרשרת האספקה היא רק חזקה כמו החוליה החלשה בה</strong>, והדרישות רק הולכות להתרחב.</p>
+
+    <p>ספקים שמבינים את התמונה הכוללת — לא רק את 44 הבקרות של היום, אלא את כיוון הרגולציה של מחר — הם אלה שישמרו על חוזיהם, ירחיבו לשווקים בינלאומיים, וימצבו את עצמם כספקים שתמיד צעד אחד לפני הדרישה.</p>
+
+  </div>
+
+    <h2>עלויות הטמעה ולוחות זמנים</h2>
+
+    <div class="highlight-box">
+      <p><strong>בנקודה זו חשוב להיות ברור:</strong> עלויות הטמעת CMMC Level 2 משמעותיות, אך הן נחוצות כהשקעה אסטרטגית. ספקים שדוחים את החשיבות משלמים מחיר גבוה יותר בהמשך — כאשר הרגולציה מתחדדת והזמן לשינוי הופך לכמה שבועות, לא חודשים.</p>
+    </div>
+
+    <p><strong>הוצאות טיפוסיות ולוחות זמנים להטמעה:</strong></p>
+
+    <ul>
+      <li><strong>הטמעה ראשונית (Gap Remediation):</strong> $150,000–$300,000 לארגונים קטנים-בינוניים, בהתאם למצב התחלתי וגודל התשתית</li>
+      <li><strong>הערכה והסמכה (C3PAO Assessment):</strong> $40,000–$80,000 לכל מחזור (כל 3 שנים)</li>
+      <li><strong>תחזוקה שוטפת (Ongoing Governance & Maintenance):</strong> $100,000–$200,000 בשנה להנהלת הביקורות, עדכוני בקרות, וניהול המתדלקים המתמשכים</li>
+      <li><strong>לוח זמנים ממוצע:</strong> 12–18 חודשים הכנה לפני הערכה רשמית</li>
+    </ul>
+
+    <h3>סיבות כשלון נפוצות בהטמעת CMMC</h3>
+
+    <p>ארגונים רבים משלמים עלויות גבוהות יותר או נכשלים בהערכה משום שהם לא תכננו כראוי מראש. אנו זיהינו ארבע סיבות כשלון חוזרות שונות ומפסידות:</p>
+
+    <ul>
+      <li><strong>פערי תיעוד קריטיים</strong> — היעדר הוכחות מספקות בתיעוד לעמידה בבקרות. CMMC דורש SSP מפורט ו-POA&M שלם עם כל צעד מתועד. רוב הארגונים שמבצעים בקרות בפועל אך לא מתעדים אותן כראוי — נכשלים בהערכה</li>
+      <li><strong>היעדר Shared Responsibility Matrix</strong> — חוסר הבנה ברורה של גבולות האחריות עם ספקי ענן ותוכנה. CMMC דורש מיפוי מפורש של איזה בקרות מטופלות על ידי המשרת, איזה על ידי הספק, ואיזה משותפות</li>
+      <li><strong>הגדרת Scope לקויה</strong> — חוסר הפרדה ברורה בין סביבות המטפלות ב-CUI לשאר הארגון. זה מעלה משמעותית את מורכבות ההערכה ועלותה</li>
+      <li><strong>חוסר משאבים ממוקדים</strong> — היעדר צוות Governance ייעודי. בקרות דורשות ניהול מתמיד, לא רק בהערכה חד-פעמית. ארגונים שמאתרים משאבים פחותות או זמניות — למדו בקושי</li>
+    </ul>
+
+  <div class="article-sources">
+    <h4>מקורות</h4>
+    <ol>
+      <li>DoD CIO — CMMC Model Overview, <a href="https://dodcio.defense.gov/cmmc/About/" target="_blank">dodcio.defense.gov</a></li>
+      <li>NIST SP 800-171 Rev. 2 — Protecting Controlled Unclassified Information, <a href="https://csrc.nist.gov/pubs/sp/800/171/r2/upd1/final" target="_blank">csrc.nist.gov</a></li>
+      <li>32 CFR Part 170 — CMMC Final Rule, <a href="https://www.federalregister.gov/documents/2024/10/15/2024-22905/cybersecurity-maturity-model-certification-cmmc-program" target="_blank">federalregister.gov</a></li>
+      <li>DFARS 252.204-7021 — Contractor Compliance with CMMC, <a href="https://www.acquisition.gov/dfars/252.204-7021" target="_blank">acquisition.gov</a></li>
+      <li>משרד הביטחון — רב מגן, <a href="https://mod.gov.il/שירות-לעסקיים/רב-מגן" target="_blank">mod.gov.il</a></li>
+      <li>CMMC Accreditation Body (Cyber AB) — Assessment Process & Costs, <a href="https://cyberab.org" target="_blank">cyberab.org</a></li>
+    </ol>
+  </div>
+
+  <div class="article-cta">
+    <h3>עומדים ב-44 הבקרות? בואו נבדוק את הפער לתקן המלא</h3>
+    <p>KPLNS מבצע סקר 44 בקרות רב מגן וגם Gap Analysis מותאם כלפי CMMC Level 2 — כדי שתדעו בדיוק איפה אתם עומדים היום ומה נדרש מחר</p>
+    <a class="article-cta-btn" href="index.html#contact">
+      לתיאום פגישת ייעוץ
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <div class="article-footer">
+    <div style="margin-bottom:10px;"><a href="privacy.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">מדיניות פרטיות</a><a href="accessibility.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">הצהרת נגישות</a><a href="disclaimer.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">תנאי שימוש</a></div>
+    &copy; 2026 KPLNS Encapsulated Solutions. כל הזכויות שמורות.
+  </div>
+</article>
+
+</body>
+</html>

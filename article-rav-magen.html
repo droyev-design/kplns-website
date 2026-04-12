@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מה זה "רב מגן" ולמה הרגולטור דורש את זה? | KPLNS</title>
+<meta name="description" content="סקירה מקצועית של מתודולוגיית רב מגן — 44 בקרות אבטחת מידע ב-14 תחומים, רמות יישום, וציון חוסן ארגוני">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1a2236;
+  --bg-card: rgba(26, 34, 54, 0.65);
+  --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff;
+  --cyan-dim: rgba(0, 212, 255, 0.15);
+  --teal: #00b8a9;
+  --text-primary: #e8edf5;
+  --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg, #00d4ff, #00b8a9);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-he); color: var(--text-primary); background: var(--bg-primary); line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+
+.article-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(17, 24, 39, 0.92); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border); height: 64px;
+  display: flex; align-items: center;
+}
+.article-nav-inner {
+  max-width: 800px; margin: 0 auto; padding: 0 24px; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.article-nav a {
+  font-size: 0.85rem; color: var(--cyan); font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.3s;
+}
+.article-nav a:hover { opacity: 0.7; }
+.article-nav .logo-text {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  letter-spacing: 2px; font-family: var(--font-en);
+}
+
+.article-container {
+  max-width: 760px; margin: 0 auto; padding: 100px 24px 80px;
+}
+.article-tag {
+  display: inline-block; font-size: 0.72rem; font-weight: 600;
+  color: var(--cyan); background: var(--cyan-dim); padding: 5px 14px;
+  border-radius: 12px; margin-bottom: 20px; letter-spacing: 0.5px;
+}
+.article-container h1 {
+  font-size: 2.4rem; font-weight: 800; line-height: 1.3;
+  margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.article-meta {
+  font-size: 0.85rem; color: var(--text-muted); margin-bottom: 48px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--border);
+}
+.article-body h2 {
+  font-size: 1.4rem; font-weight: 700; color: var(--text-primary);
+  margin: 48px 0 16px; padding-top: 16px;
+}
+.article-body h3 {
+  font-size: 1.15rem; font-weight: 700; color: var(--cyan);
+  margin: 32px 0 12px;
+}
+.article-body p {
+  font-size: 1.02rem; color: var(--text-secondary); line-height: 1.95;
+  margin-bottom: 20px;
+}
+.article-body strong { color: var(--text-primary); }
+.article-body ul {
+  list-style: none; margin: 0 0 24px 0; padding: 0;
+}
+.article-body ul li {
+  font-size: 1rem; color: var(--text-secondary); line-height: 1.85;
+  padding: 8px 0 8px 0; padding-right: 24px; position: relative;
+}
+.article-body ul li::before {
+  content: ''; position: absolute; right: 0; top: 17px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan); opacity: 0.6;
+}
+
+.domain-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+  margin: 28px 0;
+}
+.domain-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.domain-num {
+  font-size: 0.75rem; font-weight: 700; color: var(--cyan);
+  background: var(--cyan-dim); width: 28px; height: 28px;
+  border-radius: 8px; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+}
+.domain-name {
+  font-size: 0.88rem; color: var(--text-secondary); font-weight: 500;
+}
+
+.level-bar {
+  display: flex; gap: 2px; margin: 28px 0; border-radius: 10px; overflow: hidden;
+}
+.level-bar div {
+  flex: 1; padding: 16px 12px; text-align: center;
+}
+.level-bar div:nth-child(1) { background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); border-radius: 0 10px 10px 0; }
+.level-bar div:nth-child(2) { background: rgba(251,146,60,0.15); border: 1px solid rgba(251,146,60,0.3); }
+.level-bar div:nth-child(3) { background: rgba(250,204,21,0.15); border: 1px solid rgba(250,204,21,0.3); }
+.level-bar div:nth-child(4) { background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); border-radius: 10px 0 0 10px; }
+.level-bar .level-num { font-size: 1.2rem; font-weight: 800; color: var(--text-primary); display: block; }
+.level-bar .level-label { font-size: 0.72rem; color: var(--text-secondary); display: block; margin-top: 4px; }
+
+.highlight-box {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px 28px; margin: 28px 0;
+  border-right: 4px solid var(--cyan);
+}
+.highlight-box p:last-child { margin-bottom: 0; }
+
+/* Sources */
+.article-sources {
+  margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+}
+.article-sources h4 {
+  font-size: 0.78rem; font-weight: 700; color: var(--text-muted);
+  letter-spacing: 0.5px; margin-bottom: 12px; text-transform: uppercase;
+}
+.article-sources ol {
+  list-style: none; counter-reset: src; margin: 0; padding: 0;
+}
+.article-sources ol li {
+  counter-increment: src; font-size: 0.75rem; color: var(--text-muted);
+  line-height: 1.7; padding: 4px 0 4px 0; padding-right: 22px; position: relative;
+}
+.article-sources ol li::before {
+  content: counter(src); position: absolute; right: 0; top: 5px;
+  font-size: 0.65rem; font-weight: 700; color: var(--text-muted);
+  font-family: var(--font-en);
+}
+.article-sources ol li a {
+  color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.3s;
+}
+.article-sources ol li a:hover { color: var(--cyan); }
+
+.article-cta {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 16px; padding: 48px 40px; margin-top: 56px; text-align: center;
+}
+.article-cta h3 { font-size: 1.3rem; color: var(--text-primary); margin: 0 0 12px; }
+.article-cta p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px; }
+.article-cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; border-radius: 8px; font-size: 0.95rem;
+  font-weight: 600; background: var(--gradient-accent);
+  color: var(--bg-primary); transition: all 0.3s;
+}
+.article-cta-btn:hover { box-shadow: 0 0 30px var(--cyan-dim); transform: translateY(-2px); }
+
+.article-footer {
+  text-align: center; padding: 40px 0; font-size: 0.8rem;
+  color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 60px;
+}
+@media (max-width: 600px) {
+  .article-container h1 { font-size: 1.7rem; }
+  .article-container { padding: 80px 16px 60px; }
+  .domain-grid { grid-template-columns: 1fr; }
+  .level-bar { flex-direction: column; }
+  .level-bar div { border-radius: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<article class="article-container">
+  <div class="article-tag">רגולציה</div>
+  <h1>מה זה "רב מגן" ולמה הרגולטור דורש את זה?</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; אפריל 2026 &nbsp;·&nbsp; זמן קריאה: 6 דקות</div>
+
+  <div class="article-body">
+    <p>"רב מגן" הוא שם המתודולוגיה של הרגולטור הישראלי לביצוע <strong>סקר אבטחת מידע מקיף</strong> בארגונים, ספקים וקבלני משנה הפועלים בתעשייה הביטחונית. המתודולוגיה כוללת 44 בקרות אבטחה המחולקות ל-14 תחומים, וכל בקרה נבדקת לפי 4 רמות יישום.</p>
+
+    <p>המטרה: ליצור <strong>שפה אחידה ומדידה</strong> להערכת רמת אבטחת המידע של ספקים, לאפשר השוואה בין ספקים שונים, ולוודא עמידה ברף מינימלי של הגנה.</p>
+
+    <h2>למה זה נוצר?</h2>
+    <p>התעשייה הביטחונית הישראלית חווה בשנים האחרונות גידול חד בתקיפות שרשרת אספקה — תוקפים מזהים שקל יותר לפרוץ לספק קטן מאשר לתעשייה ביטחונית גדולה, ומשתמשים בספק כ"גשר" למידע רגיש. המתודולוגיה נוצרה כדי להתמודד עם האיום הזה באופן שיטתי.</p>
+
+    <h2>14 תחומי הביקורת</h2>
+    <p>כל סקר "רב מגן" בודק 44 בקרות המחולקות ל-14 תחומים:</p>
+
+    <div class="domain-grid">
+      <div class="domain-card"><div class="domain-num">1</div><div class="domain-name">בקרת גישה</div></div>
+      <div class="domain-card"><div class="domain-num">2</div><div class="domain-name">זיהוי ואימות</div></div>
+      <div class="domain-card"><div class="domain-num">3</div><div class="domain-name">ניהול תצורה</div></div>
+      <div class="domain-card"><div class="domain-num">4</div><div class="domain-name">בקרת תקשורת</div></div>
+      <div class="domain-card"><div class="domain-num">5</div><div class="domain-name">שלמות המידע</div></div>
+      <div class="domain-card"><div class="domain-num">6</div><div class="domain-name">ניהול סיכונים</div></div>
+      <div class="domain-card"><div class="domain-num">7</div><div class="domain-name">הגנה פיזית</div></div>
+      <div class="domain-card"><div class="domain-num">8</div><div class="domain-name">תחזוקה ותפעול</div></div>
+      <div class="domain-card"><div class="domain-num">9</div><div class="domain-name">הערכת רמת ההגנה</div></div>
+      <div class="domain-card"><div class="domain-num">10</div><div class="domain-name">הגנה על תקשורת</div></div>
+      <div class="domain-card"><div class="domain-num">11</div><div class="domain-name">אבטחת כ"א</div></div>
+      <div class="domain-card"><div class="domain-num">12</div><div class="domain-name">ניהול אירועים</div></div>
+      <div class="domain-card"><div class="domain-num">13</div><div class="domain-name">מערכות ונכסים</div></div>
+      <div class="domain-card"><div class="domain-num">14</div><div class="domain-name">מודעות והדרכה</div></div>
+    </div>
+
+    <h2>4 רמות יישום</h2>
+    <p>כל בקרה מדורגת באחת מ-4 רמות. הדירוג מאפשר לזהות בדיוק איפה הארגון חזק ואיפה יש פערים:</p>
+
+    <div class="level-bar">
+      <div><span class="level-num">1</span><span class="level-label">לא מיושם</span></div>
+      <div><span class="level-num">2</span><span class="level-label">חלקי</span></div>
+      <div><span class="level-num">3</span><span class="level-label">בינוני</span></div>
+      <div><span class="level-num">4</span><span class="level-label">מלא</span></div>
+    </div>
+
+    <p>בסיום הסקר מופק <strong>ציון חוסן ארגוני</strong> — מספר מצרפי שמייצג את רמת ההגנה הכוללת של הארגון, יחד עם גרפים השוואתיים לפי תחום. הציון מאפשר להנהלה להבין בזריקת עין את מצב האבטחה ולקבל החלטות מבוססות נתונים.</p>
+
+    <h2>מי צריך לעבור סקר "רב מגן"?</h2>
+    <p>בפועל, כל ספק שמקבל מידע רגיש או ביטחוני מארגון ביטחוני עשוי להידרש לעבור סקר "רב מגן". זה כולל:</p>
+    <ul>
+      <li>ספקי תוכנה ומערכות IT</li>
+      <li>קבלני ייצור ואלקטרוניקה</li>
+      <li>חברות הנדסה ופיתוח</li>
+      <li>ספקי שירותים (ייעוץ, עיצוב, לוגיסטיקה)</li>
+      <li>כל גורם עם גישה פיזית או דיגיטלית למידע מסווג</li>
+    </ul>
+
+    <h2>איך מתנהל הסקר בפועל?</h2>
+    <div class="highlight-box">
+      <p><strong>שלב 1 — הכנה ותיאום:</strong> איסוף מידע מקדים, תיאום מול ממונה ביטחון/CISO, קבלת מסמכי מדיניות קיימים.</p>
+      <p><strong>שלב 2 — ביצוע הסקר:</strong> בדיקה מעמיקה של כל 44 בקרות ב-14 תחומים. כולל ריאיונות עם בעלי תפקידים, בדיקת מערכות, הגנה פיזית, ניהול תצורה ועוד. כל בקרה מדורגת ב-4 רמות עם ציון לכל בקרה.</p>
+      <p><strong>שלב 3 — ניתוח ודירוג:</strong> עיבוד הממצאים, חישוב ציון חוסן ארגוני, הפקת גרפים השוואתיים וזיהוי פערים קריטיים.</p>
+      <p><strong>שלב 4 — דו"ח מסכם:</strong> הפקת דו"ח מסכם הכולל תקציר מנהלים, ממצאים מפורטים, המלצות מתועדפות ותוכנית עבודה.</p>
+    </div>
+
+    <h2>מה קורה אחרי הסקר?</h2>
+    <p>הדו"ח מוגש להנהלת הארגון ולגורם הביטחוני אצל הלקוח. על בסיס הממצאים נבנית תוכנית עבודה לסגירת פערים, עם לוחות זמנים ואחריות מוגדרים. מומלץ לבצע סקר מעקב (Follow-Up) לאחר 6-12 חודשים לוודא שהפערים נסגרו.</p>
+
+    <p>הערך האמיתי של "רב מגן" הוא לא העמידה בדרישה הרגולטורית — אלא <strong>היכולת לראות בצורה ברורה איפה הארגון חשוף</strong>, ולפעול בהתאם לפני שתוקף עושה את זה בשבילכם.</p>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li>משרד הביטחון — רב מגן, דף הבית, <a href="https://mod.gov.il/שירות-לעסקיים/רב-מגן" target="_blank">mod.gov.il</a></li>
+        <li>NIST SP 800-171 Rev. 2 — Protecting Controlled Unclassified Information, <a href="https://csrc.nist.gov/pubs/sp/800/171/r2/upd1/final" target="_blank">csrc.nist.gov</a></li>
+        <li>ISO/IEC 27001:2022 — Information Security Management Systems, <a href="https://www.iso.org/standard/27001" target="_blank">iso.org</a></li>
+        <li>מערך הסייבר הלאומי — תורת ההגנה בסייבר לארגון 2.0, <a href="https://www.gov.il/he/departments/general/cyber_security_methodology_2" target="_blank">gov.il</a></li>
+      </ol>
+    </div>
+
+    <div class="article-cta">
+      <h3>צריכים לעבור סקר "רב מגן"?</h3>
+      <p>אנו מבצעים סקרי "רב מגן" מלאים — 44 בקרות, 14 תחומים, ציון חוסן ארגוני ודו"ח מסכם עם תוכנית עבודה. מבוצע על ידי CISO/DPO מוסמך.</p>
+      <a href="index.html#contact" class="article-cta-btn">
+        דברו איתנו
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</article>
+
+<div class="article-footer">
+    <div style="margin-bottom:10px;"><a href="privacy.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">מדיניות פרטיות</a><a href="accessibility.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">הצהרת נגישות</a><a href="disclaimer.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">תנאי שימוש</a></div>
+    &copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; Yevgeni@kplns.com
+  </div>
+
+</body>
+</html>
