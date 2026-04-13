@@ -147,10 +147,25 @@ a { text-decoration: none; color: inherit; }
   color: var(--text-muted); border-top: 1px solid var(--border);
   margin-top: 60px;
 }
-@media (max-width: 600px) {
-  .article-container h1 { font-size: 1.7rem; }
-  .article-container { padding: 80px 16px 60px; }
-  .sign-box { padding: 20px; }
+@media (max-width: 768px) {
+  .article-nav-inner { padding: 0 16px; height: 60px; }
+  .article-nav .logo-text { font-size: 1.1rem; gap: 10px; }
+  .article-container { padding: 70px 16px 48px; }
+  .article-container h1 { font-size: 1.5rem; margin-bottom: 16px; }
+  .article-container h2 { font-size: 1.15rem; }
+  .article-container h3 { font-size: 1.05rem; }
+  .article-container p, .article-container li { font-size: 0.9rem; line-height: 1.75; }
+  .article-nav a { font-size: 0.85rem; margin-bottom: 20px; }
+  .sign-box { padding: 20px 16px; }
+  .highlight-box { padding: 20px 16px; }
+  .article-nav { flex-direction: column; gap: 12px; padding: 20px 0; }
+  .article-nav a { width: 100%; text-align: center; padding: 12px; }
+  table { font-size: 0.82rem; display: block; overflow-x: auto; }
+  th, td { padding: 8px 10px; }
+}
+@media (max-width: 420px) {
+  .article-container { padding: 64px 12px 40px; }
+  .article-container h1 { font-size: 1.3rem; }
 }
 </style>
 </head>
@@ -197,20 +212,7 @@ a { text-decoration: none; color: inherit; }
     <div class="sign-box">
       <h3>סימן 4: לא בוצע סקר ביטחון או מבדק חדירה בשנתיים האחרונות</h3>
       <p>עולם האיומים משתנה כל הזמן. ספק שלא ביצע סקר ביטחון או מבדק חדירה לפחות פעם בשנתיים בעצם אומר: "אנחנו מקווים שהכל בסדר". בסביבה שבה ישראל נמנית עם שלוש המדינות המותקפות ביותר בעולם, תקווה אינה תחליף להערכה שיטתית של סיכונים.</p>
-      <p><strong>מה לעשות:</strong> בקשו לראות ממצאים מסקר ביטחון אחרון או אישור על ביצוע מבדק חדירה. אם לא בוצע — זה הזמן לדרוש (או להציע שירות).</p>
-    </div>
-
-    <div class="sign-box">
-      <h3>סימן 5: אין תוכנית תגובה לאירוע סייבר</h3>
-      <p>השאלה היא לא "אם" אלא "מתי" יתרחש אירוע. ספק שאין לו תוכנית תגובה מוגדרת — מי מתקשר למי, איך מבודדים את הנזק, איך מדווחים ללקוחות — יגיב באיחור, בבהלה, ובלי שיטה. הנזק יהיה גדול משמעותית.</p>
-      <p><strong>מה לעשות:</strong> שאלו את הספק: "מה קורה אצלכם ב-30 הדקות הראשונות אחרי שמגלים פריצה?" אם אין תשובה מסודרת — חסרה תוכנית IR (Incident Response) ויש צורך לבנות אחת.</p>
-    </div>
-
-    <h2>מה עושים עם הממצאים?</h2>
-    <p>אם זיהיתם שניים או יותר מהסימנים האלה אצל ספק — אתם לא צריכים לנתק אותו מחר בבוקר. אבל אתם כן צריכים <strong>לפעול</strong>:</p>
-    <ul>
-      <li>תעדו את הממצאים ודווחו להנהלה ולגורם הביטחוני בארגון</li>
-      <li>העלו את הנושא מול הספק בצורה מקצועית ובונה — זו הזדמנות לשיפור, לא רק ביקורת</li>
+      <p><strong>מה לעשות:</strong> בקשו לראות ממצאים מסקר ביטחון אחרון או אישור על ביצוע מבדק חדירה. אם לא בוצע — זה הזדמנות לשיפור, לא רק ביקורת</li>
       <li>שקלו ביצוע סקר ביטחון מקיף לספק — כולל סקר פיזי, הערכת פערים ותוכנית עבודה</li>
       <li>הגדירו דרישות אבטחה מינימליות בחוזי ההתקשרות עם ספקים (נספח ביטחון, NDA, דרישות ציות)</li>
     </ul>
