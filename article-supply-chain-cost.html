@@ -251,12 +251,26 @@ a { text-decoration: none; color: inherit; }
   text-align: center; padding: 40px 0; font-size: 0.8rem;
   color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 60px;
 }
-@media (max-width: 600px) {
-  .article-container h1 { font-size: 1.7rem; }
-  .article-container { padding: 80px 16px 60px; }
-  .stat-row { grid-template-columns: 1fr; }
-  .cost-grid { grid-template-columns: 1fr; }
-  .case-box, .highlight-box { padding: 20px; }
+@media (max-width: 768px) {
+  .article-nav-inner { padding: 0 16px; height: 60px; }
+  .article-nav .logo-text { font-size: 1.1rem; gap: 10px; }
+  .article-container { padding: 70px 16px 48px; }
+  .article-container h1 { font-size: 1.5rem; margin-bottom: 16px; }
+  .article-container h2 { font-size: 1.15rem; }
+  .article-container h3 { font-size: 1.05rem; }
+  .article-container p, .article-container li { font-size: 0.9rem; line-height: 1.75; }
+  .article-nav a { font-size: 0.85rem; margin-bottom: 20px; }
+  .stat-row, .cost-grid { grid-template-columns: 1fr; gap: 12px; }
+  .stat-box { padding: 20px 16px; }
+  .case-box, .highlight-box { padding: 20px 16px; }
+  .article-nav { flex-direction: column; gap: 12px; padding: 20px 0; }
+  .article-nav a { width: 100%; text-align: center; padding: 12px; }
+  table { font-size: 0.82rem; display: block; overflow-x: auto; }
+  th, td { padding: 8px 10px; }
+}
+@media (max-width: 420px) {
+  .article-container { padding: 64px 12px 40px; }
+  .article-container h1 { font-size: 1.3rem; }
 }
 </style>
 </head>
@@ -330,7 +344,7 @@ a { text-decoration: none; color: inherit; }
     <h3>נזק תדמיתי מתמשך</h3>
     <p>שיקום מוניטין לוקח שנים. דיווח תקשורתי על הפריצה, הדלפת מידע, או חשיפה ציבורית של כשלים — כל אלה מקשים על גיוס לקוחות חדשים ועל שימור הקיימים. חברה שנתפסה כ"סיכון אבטחתי" נושאת את התווית הזו לאורך זמן.</p>
 
-    <h2>ציר הזמן של נזק — מהרגע הראשון ועד שנה אחרי</h2>
+    <h2>ציר הזמן של נזק — מהרגע הפריצה ועד שנה אחרי</h2>
     <p>כך נראה המסלול מרגע הפריצה ועד ההשלכות ארוכות הטווח:</p>
 
     <div class="impact-timeline">
@@ -399,39 +413,103 @@ a { text-decoration: none; color: inherit; }
       <li><strong>מפו את כל הספקים הקריטיים</strong> — לא רק קבלנים ראשיים, אלא גם ספקי IT, ענן, תוכנה ותחזוקה שיש להם גישה למערכות או למידע רגיש</li>
       <li><strong>סווגו לפי רמת סיכון</strong> — ספק עם גישה ל-CUI דורש רמת בקרה שונה מספק שירותי ניקיון. בנו מטריצת סיכון שמשקללת קריטיות, היקף גישה ורגישות מידע</li>
       <li><strong>הגדירו מטריצת אחריות משותפת</strong> — מי אחראי על עדכוני אבטחה? על ניטור? על דיווח אירועים? הגדרה ברורה בין הארגון לספק מונעת פערים מסוכנים</li>
-      <li><strong>בצעו סקרי ביטחון תקופתיים</strong> — סקר חד-פעמי אינו מספיק. ספקים קריטיים דורשים הערכה שנתית, וספקים ברמת סיכון בינונית — כל 18 חודשים</li>
-      <li><strong>שלבו דרישות אבטחה בחוזים</strong> — נספח ביטחון, חובת דיווח אירוע תוך 24 שעות, הצפנת מידע בהעברה ובאחסון, וזכות ביקורת</li>
-      <li><strong>בנו תוכנית תגובה שכוללת תרחישי ספק</strong> — מה קורה כשספק קריטי נפרץ? מי אחראי? מה לוח הזמנים? תרגלו את התרחיש לפחות פעם בשנה</li>
-    </ul>
-
-    <div class="article-sources">
-      <h4>מקורות</h4>
-      <ol>
-        <li><a href="https://www.ibm.com/reports/data-breach" target="_blank">IBM — Cost of a Data Breach Report 2024</a></li>
-        <li><a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank">Verizon — Data Breach Investigations Report 2025</a></li>
-        <li>Cybersecurity Ventures — Supply Chain Attack Forecast 2025</li>
-        <li><a href="https://www.gao.gov/products/gao-25-107283" target="_blank">GAO-25-107283 — Defense Industrial Base: Actions Needed to Address Risks</a></li>
-        <li>UK Ministry of Defence — Submarine IT Outsourcing Investigation, 2024</li>
-        <li>Israel National Cyber Directorate — Supply Chain Security Framework, <a href="https://www.gov.il/he/departments/israel_national_cyber_directorate" target="_blank">gov.il</a></li>
-      </ol>
-    </div>
-
-    <div class="article-cta">
-      <h3>רוצים לדעת כמה חשופה שרשרת האספקה שלכם?</h3>
-      <p>אנו מבצעים הערכות סיכון מקיפות לשרשרת האספקה — מיפוי ספקים, ניתוח פערים ותוכנית פעולה מותאמת.</p>
-      <a href="index.html#contact" class="article-cta-btn">
-        דברו איתנו
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-  </div>
-</article>
-
-<div class="article-footer">
-    <div style="margin-bottom:10px;"><a href="privacy.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">מדיניות פרטיות</a><a href="accessibility.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">הצהרת נגישות</a><a href="disclaimer.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">תנאי שימוש</a></div>
-    &copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; Yevgeni@kplns.com
-  </div>
-
-</body>
-</html>
+      <li><strong>בצעו סקרי ביטחון תקופתיים</strong> — סקר חד-פעמי אינו מספיק. ספק ש׍y�y�y�y�y�
+y=y]z�z�y�y�
+yMz-z�y�yB
+z�z
+z�y�z��
+y]zzMz}y�y�
+yz�y�z�
+zy�y�y]y�
+yy�z
+y]z
+y�z�(	B
+y�y��
+y}y]y=z�y�y���Ɠ��Ɠ��7G&��s�z�y�yyR
+y=z�y�z�y]z�
+y
+yy�y}yB
+yy}y]ymy�y���7G&��s�(	B
+z
+zzMyr
+yy�y�y}y]y��
+y}y]yz�
+y=y�y]y]yr
+y
+y�z�y]z"
+z�y]y�#B
+z�z-y]z��
+yMzmzMz
+z�
+y�y�y=z"
+yyMz-yz�yB
+y]yy
+y}zy]y��
+y]ymy�y]z�
+yy�z}y]z�z���Ɠ��Ɠ��7G&��s�yz
+yR
+z�y]y�z
+y�z�
+z�y-y]yyB
+z�y�y]y�y�z�
+z�z�y}y�z�y�
+zzMzs��7G&��s�(	B
+y�yB
+z}y]z�yB
+y�z�zzMzr
+z}z�y�y�y�
+z
+zMz�zS�
+y�y�
+y
+y}z�y
+y��
+y�yB
+y�y]yr
+yMymy�z
+y�y��
+z�z�y-y�yR
+y
+z�
+yMz�z�y}y�z�
+y�zMy}y]z�
+zMz-y�
+yz�z
+yC��Ɠ���V�ࠢ�F�b6�73�&'F�6�R�6�W&6W2#�ƃC�y�z}y]z�y]z����C������Ɠ���&Vc�&�GG3���wwr�&��6���&W�'G2�FF�'&V6�"F&vWC�%�&��#�$�(	B6�7B�bFF'&V6�&W�'B##C�����Ɠ��Ɠ���&Vc�&�GG3���wwr�fW&�����6���'W6��W72�&W6�W&6W2�&W�'G2�F&�"�"F&vWC�%�&��#�fW&����(	BFF'&V6���fW7F�vF���2&W�'B##S�����Ɠ��Ɠ�7�&W'6V7W&�G�fV�GW&W2(	B7Wǒ6���GF6�f�&V67B##S��Ɠ��Ɠ���&Vc�&�GG3���wwr�v��v�b�&�GV7G2�v��#R�s#�2"F&vWC�%�&��#�t��#R�s#�2(	BFVfV�6R��GW7G&��&6S�7F���2�VVFVBF�FG&W72&�6�3�����Ɠ��Ɠ�T�֖�7G'��bFVfV�6R(	B7V&�&��R�B�WG6�W&6��r��fW7F�vF����##C��Ɠ��Ɠ�7&V��F����7�&W"F�&V7F�&FR(	B7Wǒ6���6V7W&�G�g&�Wv�&����&Vc�&�GG3���wwr�v�b����R�FW'F�V�G2��7&V���F�����7�&W%�F�&V7F�&FR"F&vWC�%�&��#�v�b�������Ɠ��������F�cࠢ�F�b6�73�&'F�6�R�7F#�ƃ3�z�y]zmy�y�
+y�y=z-z�
+y�y�yB
+y}z�y]zMyB
+z�z�z�z�z�
+yMy
+zzMz}yB
+z�y�y�y�����3���y
+z
+yR
+y�yzmz-y�y�
+yMz-z�y�y]z�
+zy�y�y]y�
+y�z}y�zMy]z�
+y�z�z�z�z�z�
+yMy
+zzMz}yB(	B
+y�y�zMy]y�
+zzMz}y�y��
+z
+y�z�y]yr
+zMz-z�y�y�
+y]z�y]y�z
+y�z�
+zMz-y]y�yB
+y�y]z�y
+y�z�������&Vc�&��FW��F��66��F7B"6�73�&'F�6�R�7F�'F�#�
+y=yz�yR
+y
+y�z�z
+yP��7frv�GF��#b"�V�v�C�#b"f�Wt&���##B#B"f����&���R"7G&��S�&7W'&V�D6���""7G&��R�v�GF��#"�R#��F�C�$�R&�D�"V�rr�rr"����7fs������F�cࠢ��F�c���'F�6�Sࠣ�F�b6�73�&'F�6�R�f��FW"#��F�b7G��S�&�&v���&�GF�ӣ��#���&Vc�'&�f7��F��"7G��S�&6���#�&v&�#3"�#3r�#CR��B���&v����f��B�6��S��s�&VӷG&�6�F����6�G��73�#�y�y=y�z
+y�y]z�
+zMz�y�y�y]z������&Vc�&66W76�&�ƗG��F��"7G��S�&6���#�&v&�#3"�#3r�#CR��B���&v����f��B�6��S��s�&VӷG&�6�F����6�G��73�#�yMzmyMz�z�
+z
+y-y�z�y]z������&Vc�&F�66���W"�F��"7G��S�&6���#�&v&�#3"�#3r�#CR��B���&v����f��B�6��S��s�&VӷG&�6�F����6�G��73�#�z�z
+y
+y�
+z�y�y�y]z������F�c�f6���##b���2V�67V�FVB6��WF���2f�'7�+rf�'7��WfvV����2�6�Т��F�cࠣ��&�G�����F��
