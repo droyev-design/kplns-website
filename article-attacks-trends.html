@@ -175,11 +175,27 @@ a { text-decoration: none; color: inherit; }
   text-align: center; padding: 40px 0; font-size: 0.8rem;
   color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 60px;
 }
-@media (max-width: 600px) {
-  .article-container h1 { font-size: 1.7rem; }
-  .article-container { padding: 80px 16px 60px; }
-  .stat-row { grid-template-columns: 1fr; }
-  .case-box { padding: 20px; }
+@media (max-width: 768px) {
+  .article-nav-inner { padding: 0 16px; height: 60px; }
+  .article-nav .logo-text { font-size: 1.1rem; gap: 10px; }
+  .article-container { padding: 70px 16px 48px; }
+  .article-container h1 { font-size: 1.5rem; margin-bottom: 16px; }
+  .article-container h2 { font-size: 1.15rem; }
+  .article-container h3 { font-size: 1.05rem; }
+  .article-container p, .article-container li { font-size: 0.9rem; line-height: 1.75; }
+  .article-nav a { font-size: 0.85rem; margin-bottom: 20px; }
+  .stat-row { grid-template-columns: 1fr; gap: 12px; }
+  .stat-card { padding: 20px 16px; }
+  .case-box { padding: 20px 16px; }
+  .highlight-box { padding: 20px 16px; }
+  .article-nav { flex-direction: column; gap: 12px; padding: 20px 0; }
+  .article-nav a { width: 100%; text-align: center; padding: 12px; }
+  table { font-size: 0.82rem; display: block; overflow-x: auto; }
+  th, td { padding: 8px 10px; }
+}
+@media (max-width: 420px) {
+  .article-container { padding: 64px 12px 40px; }
+  .article-container h1 { font-size: 1.3rem; }
 }
 </style>
 </head>
@@ -231,9 +247,9 @@ a { text-decoration: none; color: inherit; }
 
     <div class="case-box critical">
       <div class="case-tag red">חומרה קריטית — 2023</div>
-      <h3>פריצה דרך ספק אירוח אתרים — 100+ ארגונים</h3>
+      <h3>פריצה דרך ספק אירוח אתרים — 245+ ארגונים</h3>
       <p>קבוצת תקיפה איראנית חדרה לחברת אירוח אתרים ישראלית ודרכה הגיעה ליותר מ-100 ארגונים — קמעונאים, יבואנים, גופים ציבוריים וחברות בינלאומיות הפועלות בישראל. שרתים נמחקו ומידע אישי של מיליוני לקוחות הודלף.</p>
-      <p><strong>המסקנה:</strong> ספק אחד פרוץ = מאות ארגונים חשופים. חברות שהסתמכו על ספק חיצוני בלי לבדוק את רמת האבטחה שלו שילמו מחיר כבד.</p>
+      <p><strong>המסקנה:</strong> ספק אחד פרוץ = מאות ארגונים חשופים. חברות שהסתמכה על ספק חיצוני בלי לבדוק את רמת האבטחה שלו שילמו מחיר כבד.</p>
     </div>
 
     <div class="case-box critical">
@@ -246,7 +262,7 @@ a { text-decoration: none; color: inherit; }
     <div class="case-box">
       <div class="case-tag orange">חומרה גבוהה — 2024</div>
       <h3>תקיפת ספק תוכנה אקדמי — אוניברסיטאות נפרצו</h3>
-      <p>קבוצה איראנית חדרה לספק תוכנה לניהול מוסדות אקדמיים וניצלה הרשאות ניהול כדי לגשת למערכות CRM סטודנטים במספר אוניברסיטאות ומכללות. לאחר 4 חודשים שלחו מייל מחשבון הספק ללקוחותיו בו הודיעו על השתלטות מלאה.</p>
+      <p>קבוצה איראנית חדרה לספק תוכנה לניהול מוסדות אקדמיים וניצלה הרשאות ניהול כדי לגשת למערכות CND סטודנטים במספר אוניברסיטאות ומכללות. לאחר 4 חודשים שלחו מייל מחשבון הספק ללקוחותיו בו הודיעו על השתלטות מלאה.</p>
       <p><strong>המסקנה:</strong> ספק המנהל הרשאות Admin עבור לקוחותיו מהווה מטרה אטרקטיבית לתוקפים. אם הספק נפרץ — כל הלקוחות נפרצו.</p>
     </div>
 
