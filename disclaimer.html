@@ -87,9 +87,30 @@ a { text-decoration: none; color: inherit; }
 }
 .page-footer a { color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.1); transition: color 0.3s; }
 .page-footer a:hover { color: var(--cyan); }
-@media (max-width: 600px) {
-  .page-container h1 { font-size: 1.5rem; }
-  .page-container { padding: 80px 16px 60px; }
+@media (max-width: 768px) {
+  .article-nav { height: 60px; padding: 0 16px; }
+  .article-nav-inner { padding: 0 16px; }
+  .logo-text { font-size: 1.1rem; gap: 10px; }
+  .article-nav a { font-size: 0.8rem; gap: 6px; }
+  .page-container { padding: 70px 16px 48px; }
+  .page-container h1 { font-size: 1.5rem; line-height: 1.3; }
+  .page-container h2 { font-size: 1.15rem; }
+  .page-body p { font-size: 0.9rem; line-height: 1.75; }
+  .page-body ul li { font-size: 0.9rem; line-height: 1.75; }
+  .page-meta { font-size: 0.8rem; margin-bottom: 36px; padding-bottom: 24px; }
+  .page-footer { font-size: 0.75rem; padding: 32px 0; }
+}
+@media (max-width: 420px) {
+  .article-nav { height: 56px; }
+  .article-nav-inner { padding: 0 12px; }
+  .logo-text { font-size: 1rem; }
+  .article-nav a { font-size: 0.75rem; }
+  .page-container { padding: 64px 12px 40px; }
+  .page-container h1 { font-size: 1.3rem; }
+  .page-container h2 { font-size: 1.05rem; }
+  .page-body p { font-size: 0.85rem; line-height: 1.7; }
+  .page-body ul li { font-size: 0.85rem; line-height: 1.7; padding-right: 20px; }
+  .page-meta { margin-bottom: 28px; }
 }
 </style>
 </head>
