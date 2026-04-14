@@ -109,37 +109,8 @@ img { max-width: 100%; display: block; }
 .hero-bg {
   position: absolute; inset: 0; overflow: hidden; pointer-events: none;
 }
-.hero-orb {
-  position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4;
-  animation: float 20s ease-in-out infinite;
-}
-.hero-orb-1 {
-  width: 600px; height: 600px; top: -10%; right: -10%;
-  background: radial-gradient(circle, rgba(0,212,255,0.12), transparent 70%);
-}
-.hero-orb-2 {
-  width: 500px; height: 500px; bottom: -15%; left: -5%;
-  background: radial-gradient(circle, rgba(123,97,255,0.1), transparent 70%);
-  animation-delay: -7s;
-}
-.hero-orb-3 {
-  width: 300px; height: 300px; top: 40%; left: 40%;
-  background: radial-gradient(circle, rgba(0,184,169,0.08), transparent 70%);
-  animation-delay: -12s;
-}
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.05); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
-}
-.hero-grid-lines {
-  position: absolute; inset: 0; opacity: 0.025;
-  background-image:
-    linear-gradient(rgba(0,212,255,0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,212,255,0.3) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 70%);
+#heroCanvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
 }
 .hero-content { position: relative; z-index: 2; max-width: 720px; }
 .hero-badge {
@@ -469,8 +440,9 @@ img { max-width: 100%; display: block; }
   pointer-events: none;
 }
 .contact-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 72px;
+  display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 700px; margin: 0 auto;
 }
+.contact-info { text-align: center; }
 .contact-info h2 {
   font-size: 2.2rem; font-weight: 800; color: var(--text-primary);
   margin-bottom: 16px; letter-spacing: -0.01em;
@@ -478,21 +450,6 @@ img { max-width: 100%; display: block; }
 .contact-info > p {
   color: var(--text-secondary); margin-bottom: 40px; line-height: 1.85; font-size: 1rem;
 }
-.contact-items { list-style: none; }
-.contact-items li {
-  display: flex; align-items: center; gap: 18px; padding: 18px 0;
-  border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 0.95rem;
-}
-.contact-items li:last-child { border-bottom: none; }
-.ci-icon {
-  width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
-  background: var(--gradient-card); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-}
-.ci-icon svg { width: 20px; height: 20px; stroke: var(--cyan); fill: none; stroke-width: 1.5; }
-.ci-label { font-weight: 600; color: var(--text-primary); font-size: 0.85rem; margin-bottom: 2px; }
-.ci-value a { color: var(--cyan); transition: opacity 0.2s; }
-.ci-value a:hover { opacity: 0.8; }
 .contact-form-wrapper {
   background: var(--bg-card); border: 1px solid var(--border);
   border-radius: var(--radius-lg); padding: 44px;
@@ -589,7 +546,6 @@ img { max-width: 100%; display: block; }
   .methodology-grid, .maturity-grid { grid-template-columns: repeat(2, 1fr); }
   .section { padding: 100px 0; }
   .about-grid { gap: 48px; }
-  .contact-grid { gap: 48px; }
 }
 @media (max-width: 768px) {
   /* Navigation */
@@ -698,7 +654,6 @@ img { max-width: 100%; display: block; }
   .about-visual { padding: 32px 24px; }
 
   /* Contact */
-  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
   .contact-info h2 { font-size: 1.6rem; }
   .contact-form-wrapper { padding: 28px 20px; }
   .form-row { grid-template-columns: 1fr; }
@@ -738,8 +693,6 @@ img { max-width: 100%; display: block; }
   .contact-form-wrapper { padding: 24px 16px; }
   .trust-bar-badges span { font-size: 0.7rem; padding: 5px 10px; }
   .trust-bar-inner { flex-direction: column; gap: 12px; }
-  .ci-icon { width: 40px; height: 40px; }
-  .contact-items li { gap: 12px; font-size: 0.88rem; }
   .about-metrics { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .metric { padding: 14px 8px; }
   .metric-num { font-size: 1.1rem; }
@@ -944,10 +897,7 @@ img { max-width: 100%; display: block; }
 <!-- Hero -->
 <section class="hero" id="hero">
   <div class="hero-bg">
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="hero-orb hero-orb-3"></div>
-    <div class="hero-grid-lines"></div>
+    <canvas id="heroCanvas"></canvas>
   </div>
   <div class="container">
     <div class="hero-content">
@@ -1198,7 +1148,7 @@ img { max-width: 100%; display: block; }
     <div class="contact-grid">
       <div class="contact-info reveal">
         <h2><span class="txt-he">בואו נדבר</span><span class="txt-en">Let's Talk</span></h2>
-        <p><span class="txt-he">מעוניינים בייעוץ מקצועי? השאירו פרטים ונחזור אליכם תוך 24 שעות, או שלחו לנו מייל ישירות.</span><span class="txt-en">Interested in professional consulting? Leave your details and we'll get back to you within 24 hours.</span></p>
+        <p><span class="txt-he">מעוניינים בייעוץ מקצועי? השאירו פרטים ונחזור אליכם תוך 24 שעות.</span><span class="txt-en">Interested in professional consulting? Leave your details and we'll get back to you within 24 hours.</span></p>
       </div>
       <div class="contact-form-wrapper reveal">
         <form id="theForm" onsubmit="return handleSubmit(event)" action="https://formsubmit.co/308bbd9c369ca5e2e44fb01b29db0a51" method="POST">
@@ -1332,6 +1282,112 @@ function handleSubmit(e) {
 document.querySelectorAll('.nav-links a').forEach(a => {
   a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
 });
+
+// ── Particle Field Hero Background ──
+(function() {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, dpr, particles = [];
+  const PARTICLE_COUNT_DESKTOP = 80;
+  const PARTICLE_COUNT_MOBILE = 35;
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.parentElement.offsetWidth;
+    H = canvas.parentElement.offsetHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function initParticles() {
+    particles = [];
+    const count = W < 768 ? PARTICLE_COUNT_MOBILE : PARTICLE_COUNT_DESKTOP;
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: -0.1 - Math.random() * 0.3,
+        size: Math.random() * 2.5 + 0.5,
+        alpha: Math.random() * 0.5 + 0.2,
+        color: Math.random() > 0.7 ? [123, 97, 255] : [0, 212, 255],
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+
+    // Soft radial background glow
+    const bg = ctx.createRadialGradient(W*0.3, H*0.6, 0, W*0.5, H*0.5, W*0.7);
+    bg.addColorStop(0, 'rgba(123, 97, 255, 0.02)');
+    bg.addColorStop(0.5, 'rgba(0, 212, 255, 0.015)');
+    bg.addColorStop(1, 'transparent');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, W, H);
+
+    const connDist = W < 768 ? 80 : 100;
+
+    // Connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < connDist) {
+          const alpha = (1 - dist / connDist) * 0.12;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = 'rgba(0, 212, 255, ' + alpha + ')';
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Update & draw particles
+    particles.forEach(function(p) {
+      p.x += p.vx + Math.sin(t * 0.001 + p.phase) * 0.15;
+      p.y += p.vy;
+      if (p.y < -10) { p.y = H + 10; p.x = Math.random() * W; }
+      if (p.x < -10) p.x = W + 10;
+      if (p.x > W + 10) p.x = -10;
+
+      var flicker = 0.7 + Math.sin(t * 0.003 + p.phase) * 0.3;
+      var r = p.color[0], g = p.color[1], b = p.color[2];
+
+      // Glow
+      var grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 5);
+      grad.addColorStop(0, 'rgba(' + r + ',' + g + ',' + b + ',' + (p.alpha * flicker * 0.2) + ')');
+      grad.addColorStop(1, 'transparent');
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * 5, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Core dot
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + (p.alpha * flicker) + ')';
+      ctx.fill();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  initParticles();
+  requestAnimationFrame(draw);
+
+  var resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() { resize(); initParticles(); }, 200);
+  });
+})();
 </script>
 </body>
 </html>
