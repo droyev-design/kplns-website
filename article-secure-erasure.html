@@ -1,162 +1,583 @@
-זר</td>
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מחיקה מאובטחת בתעשייה הביטחונית — למה התקנים לא מספיקים | KPLNS</title>
+<meta name="description" content="ניתוח מקצועי של כשלי מחיקה מאובטחת בזיכרונות NAND Flash: למה NIST SP 800-88 לא מספק את הרגולטור הביטחוני, מה קורה ברמת הפיזיקה של התא, ומה הפתרונות האמיתיים — KPLNS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1a2236;
+  --bg-card: rgba(26, 34, 54, 0.65);
+  --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff;
+  --cyan-dim: rgba(0, 212, 255, 0.15);
+  --teal: #00b8a9;
+  --text-primary: #e8edf5;
+  --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg, #00d4ff, #00b8a9);
+  --red: #ef4444;
+  --red-dim: rgba(239, 68, 68, 0.12);
+  --orange: #fb923c;
+  --orange-dim: rgba(251, 146, 60, 0.12);
+  --yellow: #facc15;
+  --yellow-dim: rgba(250, 204, 21, 0.12);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167, 139, 250, 0.12);
+  --green: #22c55e;
+  --green-dim: rgba(34, 197, 94, 0.12);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-he); color: var(--text-primary); background: var(--bg-primary); line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+
+.article-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(17, 24, 39, 0.92); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border); height: 64px;
+  display: flex; align-items: center;
+}
+.article-nav-inner {
+  max-width: 800px; margin: 0 auto; padding: 0 24px; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.article-nav a {
+  font-size: 0.85rem; color: var(--cyan); font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.3s;
+}
+.article-nav a:hover { opacity: 0.7; }
+.article-nav .logo-text {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  letter-spacing: 2px; font-family: var(--font-en);
+}
+
+.article-container {
+  max-width: 760px; margin: 0 auto; padding: 100px 24px 80px;
+}
+.article-tag {
+  display: inline-block; font-size: 0.72rem; font-weight: 600;
+  color: var(--cyan); background: var(--cyan-dim); padding: 5px 14px;
+  border-radius: 12px; margin-bottom: 20px; letter-spacing: 0.5px;
+}
+.article-container h1 {
+  font-size: 2.2rem; font-weight: 800; line-height: 1.3;
+  margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.article-meta {
+  font-size: 0.85rem; color: var(--text-muted); margin-bottom: 48px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--border);
+}
+.article-body h2 {
+  font-size: 1.4rem; font-weight: 700; color: var(--text-primary);
+  margin: 48px 0 16px; padding-top: 16px;
+}
+.article-body h3 {
+  font-size: 1.15rem; font-weight: 700; color: var(--cyan);
+  margin: 32px 0 12px;
+}
+.article-body p {
+  font-size: 1.02rem; color: var(--text-secondary); line-height: 1.95;
+  margin-bottom: 20px;
+}
+.article-body strong { color: var(--text-primary); }
+.article-body ul {
+  list-style: none; margin: 0 0 24px 0; padding: 0;
+}
+.article-body ul li {
+  font-size: 1rem; color: var(--text-secondary); line-height: 1.85;
+  padding: 8px 0 8px 0; padding-right: 24px; position: relative;
+}
+.article-body ul li::before {
+  content: ''; position: absolute; right: 0; top: 17px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cyan); opacity: 0.6;
+}
+
+/* Stat row */
+.stat-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin: 32px 0;
+}
+.stat-box {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; text-align: center;
+}
+.stat-num {
+  font-size: 1.8rem; font-weight: 800; font-family: var(--font-en);
+  background: var(--gradient-accent); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-num.red {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.stat-label {
+  font-size: 0.78rem; color: var(--text-muted); margin-top: 6px;
+}
+
+/* Risk cards */
+.risk-grid {
+  display: grid; grid-template-columns: 1fr; gap: 16px;
+  margin: 28px 0;
+}
+.risk-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px; display: flex; gap: 18px;
+  align-items: flex-start;
+}
+.risk-card.critical { border-right: 4px solid var(--red); }
+.risk-card.warning { border-right: 4px solid var(--orange); }
+.risk-card.info { border-right: 4px solid var(--purple); }
+.risk-card.good { border-right: 4px solid var(--green); }
+.risk-icon {
+  font-size: 1.6rem; flex-shrink: 0; margin-top: 2px;
+}
+.risk-card h4 {
+  font-size: 1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.risk-card p {
+  font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; margin: 0;
+}
+
+/* Case box */
+.case-box {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px 28px; margin: 24px 0;
+  border-right: 4px solid var(--red);
+}
+.case-box.orange { border-right-color: var(--orange); }
+.case-box.cyan { border-right-color: var(--cyan); }
+.case-box.green { border-right-color: var(--green); }
+.case-box h4 {
+  font-size: 1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.case-box p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8; margin: 0 0 8px; }
+.case-box p:last-child { margin-bottom: 0; }
+
+/* Highlight box */
+.highlight-box {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 12px; padding: 24px 28px; margin: 28px 0;
+  border-right: 4px solid var(--cyan);
+}
+.highlight-box.red { border-right-color: var(--red); }
+.highlight-box.orange { border-right-color: var(--orange); }
+.highlight-box.green { border-right-color: var(--green); }
+.highlight-box h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+.highlight-box p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8; margin: 0 0 8px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+/* Layer diagram */
+.layer-stack {
+  margin: 28px 0; display: flex; flex-direction: column; gap: 0;
+}
+.layer-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.layer-item:first-child { border-radius: 12px 12px 0 0; }
+.layer-item:last-child { border-radius: 0 0 12px 12px; }
+.layer-item:not(:last-child) { border-bottom: none; }
+.layer-num {
+  font-size: 0.75rem; font-weight: 800; font-family: var(--font-en);
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.layer-item:nth-child(1) .layer-num { background: var(--red-dim); color: var(--red); }
+.layer-item:nth-child(2) .layer-num { background: var(--orange-dim); color: var(--orange); }
+.layer-item:nth-child(3) .layer-num { background: var(--yellow-dim); color: var(--yellow); }
+.layer-item:nth-child(4) .layer-num { background: var(--cyan-dim); color: var(--cyan); }
+.layer-item:nth-child(5) .layer-num { background: var(--green-dim); color: var(--green); }
+.layer-item:nth-child(6) .layer-num { background: var(--purple-dim); color: var(--purple); }
+.layer-title {
+  font-size: 0.92rem; font-weight: 700; color: var(--text-primary);
+}
+.layer-desc {
+  font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;
+}
+
+/* Comparison table */
+.comp-table {
+  width: 100%; border-collapse: collapse; margin: 24px 0;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+}
+.comp-table thead tr {
+  background: var(--bg-secondary);
+}
+.comp-table th {
+  padding: 14px 16px; text-align: right; font-size: 0.85rem;
+  font-weight: 700; color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+}
+.comp-table td {
+  padding: 12px 16px; font-size: 0.88rem; color: var(--text-secondary);
+  border-bottom: 1px solid var(--border); line-height: 1.6;
+}
+.comp-table tbody tr:last-child td { border-bottom: none; }
+.comp-table tbody tr:nth-child(even) { background: rgba(26, 34, 54, 0.3); }
+.col-good { color: var(--green) !important; font-weight: 600; }
+.col-warn { color: var(--orange) !important; font-weight: 600; }
+.col-bad { color: var(--red) !important; font-weight: 600; }
+
+/* Code inline */
+.code {
+  font-family: 'Courier New', monospace; background: rgba(0, 212, 255, 0.08);
+  color: var(--cyan); padding: 2px 8px; border-radius: 4px; font-size: 0.88em;
+  direction: ltr; display: inline-block;
+}
+
+/* Checklist */
+.checklist {
+  margin: 28px 0; list-style: none; padding: 0;
+}
+.checklist li {
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8;
+  padding: 10px 0 10px 0; padding-right: 36px; position: relative;
+  border-bottom: 1px solid var(--border);
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: '✓'; position: absolute; right: 6px; top: 10px;
+  font-size: 0.85rem; font-weight: 700; color: var(--green);
+}
+
+/* Sources */
+.article-sources {
+  margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--border);
+}
+.article-sources h4 {
+  font-size: 0.78rem; font-weight: 700; color: var(--text-muted);
+  letter-spacing: 0.5px; margin-bottom: 12px; text-transform: uppercase;
+}
+.article-sources ol {
+  list-style: none; counter-reset: src; margin: 0; padding: 0;
+}
+.article-sources ol li {
+  counter-increment: src; font-size: 0.75rem; color: var(--text-muted);
+  line-height: 1.7; padding: 4px 0 4px 0; padding-right: 22px; position: relative;
+}
+.article-sources ol li::before {
+  content: counter(src); position: absolute; right: 0; top: 5px;
+  font-size: 0.65rem; font-weight: 700; color: var(--text-muted);
+  font-family: var(--font-en);
+}
+
+/* CTA */
+.article-cta {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 16px; padding: 48px 40px; margin-top: 56px; text-align: center;
+}
+.article-cta h3 { font-size: 1.3rem; color: var(--text-primary); margin: 0 0 12px; }
+.article-cta p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px; }
+.article-cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; border-radius: 8px; font-size: 0.95rem;
+  font-weight: 600; background: var(--gradient-accent);
+  color: var(--bg-primary); transition: all 0.3s;
+}
+.article-cta-btn:hover { box-shadow: 0 0 30px var(--cyan-dim); transform: translateY(-2px); }
+
+.article-footer {
+  text-align: center; padding: 40px 0; font-size: 0.8rem;
+  color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 60px;
+}
+.article-footer a {
+  color: var(--cyan); opacity: 0.5; margin: 0 8px; transition: opacity 0.3s;
+}
+.article-footer a:hover { opacity: 1; }
+
+/* Bottom line callout */
+.bottom-line {
+  background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(251,146,60,0.06));
+  border: 1px solid rgba(239,68,68,0.25); border-right: 4px solid var(--red);
+  border-radius: 12px; padding: 28px 28px; margin: 36px 0;
+}
+.bottom-line h3 {
+  font-size: 1.1rem; font-weight: 800; color: var(--red); margin-bottom: 12px;
+}
+.bottom-line p {
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.85; margin: 0 0 10px;
+}
+.bottom-line p:last-child { margin-bottom: 0; }
+
+@media (max-width: 768px) {
+  .article-nav-inner { padding: 0 16px; }
+  .article-container { padding: 70px 16px 48px; }
+  .article-container h1 { font-size: 1.5rem; margin-bottom: 16px; }
+  .article-body h2 { font-size: 1.15rem; }
+  .article-body h3 { font-size: 1.05rem; }
+  .article-body p, .article-body li { font-size: 0.9rem; line-height: 1.75; }
+  .stat-row { grid-template-columns: 1fr; gap: 12px; }
+  .risk-card { flex-direction: column; gap: 10px; padding: 20px 16px; }
+  .case-box, .highlight-box, .bottom-line { padding: 20px 16px; }
+  .comp-table { font-size: 0.82rem; display: block; overflow-x: auto; }
+  .comp-table th, .comp-table td { padding: 8px 10px; }
+  .article-cta { padding: 32px 20px; }
+}
+@media (max-width: 420px) {
+  .article-container { padding: 64px 12px 40px; }
+  .article-container h1 { font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<article class="article-container">
+  <div class="article-tag">מחיקת מדיה ביטחונית</div>
+  <h1>מחיקה מאובטחת בתעשייה הביטחונית — למה התקנים לא באמת מספיקים</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; אפריל 2026 &nbsp;·&nbsp; זמן קריאה: 11 דקות</div>
+
+  <div class="article-body">
+
+    <p>מערכת הביטחון מסתמכת על תקנים כמו NIST SP 800-88 ו-DoD 5220.22-M כדי להבטיח שמידע מסווג נמחק באופן בלתי-הפיך מאמצעי אחסון. ההנחה הבסיסית: אם ביצעת את הנוהל, המידע נעלם. אבל <strong>הנחה זו שגויה ברמה הפיזיקלית</strong> כשמדובר בזיכרונות NAND Flash — הטכנולוגיה שנמצאת כיום כמעט בכל רכיב אחסון: כונני SSD, כונני NVMe, כרטיסי SD, התקני USB, זיכרון eMMC במערכות משובצות, ומודולי אחסון בציוד תקשורת וחימוש.</p>
+
+    <p>המאמר הזה מציג את <strong>הפער שבין מה שהתקנים מבטיחים לבין מה שהפיזיקה של NAND Flash מאפשרת</strong> — ומדוע לרגולטור הביטחוני, במקרים רבים, אין סיבה טובה לסמוך על שיטות מחיקה תוכנתיות בלבד.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num red">75%</div>
+        <div class="stat-label">מנתוני קבצים נותרים על SSD גם לאחר מחיקה רגילה</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">1%</div>
+        <div class="stat-label">נתונים שרדו גם אחרי 20 מעברי overwrite על SSD</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">100+</div>
+        <div class="stat-label">מחזורי מחיקה — ועדיין ניתן להבחין בין מצבי תאים</div>
+      </div>
+    </div>
+
+    <h2>הבעיה הפיזיקלית: מטען שיורי ב-Floating Gate</h2>
+
+    <p>כל תא זיכרון NAND Flash מבוסס על טרנזיסטור מסוג Floating-Gate MOSFET. מידע נכתב באמצעות הזרקת מטען חשמלי ל-floating gate — אזור מבודד חשמלית בתוך הטרנזיסטור. כאשר מתבצעת פקודת מחיקה (erase), מופעל מתח גבוה (Fowler-Nordheim tunneling) שאמור לנקז את המטען החוצה.</p>
+
+    <p>אבל <strong>הניקוז אינו מלא לעולם</strong>. כמות קטנה אך מדידה של מטען שיורי (residual charge) נותרת ב-floating gate גם לאחר פעולת מחיקה תקינה. תופעה זו ידועה כ-<strong>Data Remanence</strong> — שארית מידע פיזית שנותרת גם לאחר שהמידע הלוגי נמחק.</p>
+
+    <div class="highlight-box red">
+      <h3>הממצא הקריטי</h3>
+      <p>מחקרים באמצעות מיקרוסקופ אלקטרוני סורק (SEM) ומיקרוסקופ בודק (SPM) הראו כי <strong>ניתן להבחין בין תאים שאוחסן בהם מידע לבין תאים שלא — גם לאחר מעל 100 מחזורי מחיקה</strong>. המודלים שפותחו על סמך המטענים השיוריים מאפשרים לשחזר את מצב התא טרם המחיקה. במילים אחרות: יריב בעל יכולת מעבדתית יכול לקרוא מידע מכונן שעבר תהליך מחיקה מלא.</p>
+    </div>
+
+    <h2>NAND Flash: למה זו הבעיה של התעשייה הביטחונית</h2>
+
+    <p>כמעט כל רכיב אחסון מודרני בשימוש צבאי וביטחוני מבוסס על NAND Flash. טכנולוגיית NOR Flash, שבעבר שימשה לאחסון קושחה ולהרצת קוד in-place, הודחקה לנישה צרה של boot ROM ורכיבי firmware. <strong>הווליום המוחלט של הנתונים בתעשייה נמצא ב-NAND</strong>:</p>
+
+    <ul>
+      <li><strong>כונני SSD/NVMe</strong> — בשרתים, תחנות עבודה, מחשבים ניידים מאובטחים</li>
+      <li><strong>eMMC ו-UFS</strong> — במערכות משובצות (embedded), מחשבי תעופה, מערכות שליטה ובקרה</li>
+      <li><strong>כרטיסי SD ומודולי Flash</strong> — במצלמות תרמיות, רחפנים, ציוד SIGINT</li>
+      <li><strong>USB Flash Drives</strong> — להעברת מידע בין רשתות מסווגות</li>
+      <li><strong>מודולי אחסון בציוד תקשורת</strong> — נתבים צבאיים, רדיואים מוגדרי-תוכנה (SDR)</li>
+    </ul>
+
+    <p>בכל המקרים האלה, הפיזיקה של NAND Flash יוצרת <strong>שלוש בעיות מבניות</strong> שהתקנים הקיימים לא פותרים באופן מספק:</p>
+
+    <div class="risk-grid">
+      <div class="risk-card critical">
+        <div class="risk-icon">1</div>
+        <div>
+          <h4>מטען שיורי ב-Floating Gate</h4>
+          <p>כאמור — גם אחרי מחיקה מלאה, מטענים שיוריים בתאי NAND מאפשרים שחזור ברמת מעבדה. זה לא כשל ביישום — זו תכונה פיזיקלית של הטכנולוגיה. אין פקודת תוכנה שמסוגלת לנקז את המטען ב-100%.</p>
+        </div>
+      </div>
+      <div class="risk-card critical">
+        <div class="risk-icon">2</div>
+        <div>
+          <h4>אזורי Over-Provisioning ו-Wear Leveling</h4>
+          <p>כל כונן SSD שומר 7%-28% מנפח הבלוקים כ-over-provisioning — אזור שאינו נגיש למערכת ההפעלה ולא מושפע מפקודות overwrite רגילות. אלגוריתם ה-wear leveling מפזר כתיבות בין בלוקים, כך שנתונים ישנים עלולים להישמר בבלוקים שלא נכתבו מחדש. המחקר של Wei et al. (USENIX FAST 2011) הדגים שניתן לשחזר עד 16 עותקים של אותו קובץ דרך גישה ישירה לשבבי ה-NAND.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">3</div>
+        <div>
+          <h4>יישום לא אחיד של ATA Secure Erase</h4>
+          <p>פקודת ATA Secure Erase אמורה להפעיל מחיקה ברמת הקושחה של כל תאי הכונן. בפועל, יצרנים מיישמים אותה בצורה שונה — ולעיתים שגויה. חלק מהיישומים פשוט מאפסים את ה-FTL (טבלת המיפוי) בלי למחוק בפועל את תאי ה-NAND. אין מנגנון סטנדרטי לאימות שהפקודה באמת מחקה את הנתונים ברמה הפיזית.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>מה אומרים המחקרים: הנתונים שמערכת הביטחון צריכה להכיר</h2>
+
+    <div class="case-box">
+      <h4>Wei et al. — USENIX FAST 2011</h4>
+      <p>המחקר המכונן בתחום: בדק 12 כונני SSD ממספר יצרנים. הממצאים: <strong>עד 75% מנתוני הקבצים נותרו על הכונן לאחר מחיקה רגילה</strong>. במקרה קיצוני, כונן SSD אחד שמר 1% מהנתונים גם אחרי 20 מעברי overwrite מלאים. בגישה ישירה לחומרה (חיבור פיזי לשבבי NAND) שוחזרו עד 16 עותקים של הקובץ המקורי בשל מנגנון wear leveling.</p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>Skorobogatov — CHES 2005</h4>
+      <p>הראה כי בזיכרונות Flash (NAND ו-NOR כאחד), מטענים שיוריים בטרנזיסטורי floating-gate ניתנים למדידה באמצעות SEM ו-SPM. <strong>ניתן היה להבדיל בין תאים שתוכנתו לתאים שלא — גם אחרי מעל 100 מחזורי מחיקה.</strong> הפער במטען, אומנם קטן, מספיק ליריב ברמת מדינה (nation-state adversary) בעל ציוד מעבדתי מתאים.</p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>Investigation of Data Deletion Vulnerabilities — 2020</h4>
+      <p>מחקר שבחן את הפגיעויות של מחיקת נתונים בהתקני NAND Flash. הממצאים מחזקים את הטענה שפקודות מחיקה ברמת התוכנה (כולל ATA Secure Erase) אינן מבטיחות הסרת נתונים מלאה בשל המבנה הפיזי של תאי NAND, אלגוריתם ה-FTL, ומנגנוני garbage collection שפועלים באופן לא צפוי.</p>
+    </div>
+
+    <h2>למה NIST SP 800-88 לא מספיק לתעשייה הביטחונית</h2>
+
+    <p>NIST SP 800-88 Rev. 1 מגדיר שלוש רמות מחיקה: Clear, Purge, ו-Destroy. מסמך חשוב ומבורך — אבל <strong>נכתב בעיקר עבור סביבות IT מסחריות ומידע לא-מסווג</strong>. כשמנתחים אותו דרך עדשת הדרישות הביטחוניות, מתגלים פערים משמעותיים:</p>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>רמת NIST</th>
+          <th>מה מבטיחה</th>
+          <th>מה לא מכסה בסביבה ביטחונית</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Clear</strong></td>
+          <td>Overwrite של אזורים נגישים למשתמש</td>
+          <td class="col-bad">לא מטפל ב-over-provisioning, bad blocks, HPA/DCO. ב-SSD — לא אמין כלל</td>
         </tr>
         <tr>
-          <td><strong>ארגוני בריאות, פיננסים</strong> — בתי חולים, בנקים, ביטוח</td>
-          <td class="col-warn">Clear עד Purge</td>
-          <td>חוק הגנת הפרטיות</td>
+          <td><strong>Purge</strong></td>
+          <td>ATA SE, Cryptographic Erase, Block Erase</td>
+          <td class="col-warn">תלוי ביישום היצרן (לא אחיד). לא מטפל במטען שיורי ב-floating gate. אין אימות פיזי</td>
         </tr>
         <tr>
-          <td><strong>דברי עתידות</strong> (שנים 2-5)</td>
-          <td class="col-good">Purge</td>
-          <td>מומלץ מאוד</td>
+          <td><strong>Destroy</strong></td>
+          <td>השמדה פיזית</td>
+          <td class="col-good">אפקטיבי — אם מבוצע כראוי (גריסה של שבבי NAND עצמם, לא רק המארז)</td>
         </tr>
       </tbody>
     </table>
 
-    <h2>הגנה בפרקטיקה: איך מגנים אישית</h2>
-
-    <h3>עבור HDD (כוננים קשיים)</h3>
-
-    <ol>
-      <li>הורידו <span class="code">Eraser</span> (חינם) או <span class="code">CCleaner Drive Wiper</span> (משלם)</li>
-      <li>הקליקו "Erase Files" או "Erase Unused Space"</li>
-      <li>בחרו <span class="code">DOD 3-Pass</span> (מתאים לרוב המקרים)</li>
-      <li>אם אתם פרנואיים, בחרו <span class="code">Gutmann (35-Pass)</span> — זה יקח שעות</li>
-      <li>לחצו Erase וחכו</li>
-    </ol>
-
-    <h3>עבור SSD (כוננים מוצקים)</h3>
-
-    <ol>
-      <li>בדקו תמיכה ATA עם <span class="code">CrystalDiskInfo</span></li>
-      <li>אם תומך:
-        <ol>
-          <li>הורידו <span class="code">DBAN</span> או <span class="code">Parted Magic</span></li>
-          <li>בנו כונן USB בר-הרצה (ISO file)</li>
-          <li>בחרו בכונן ו-"ATA Secure Erase"</li>
-          <li>חכו דקה שתיים</li>
-        </ol>
-      </li>
-      <li>אם לא תומך: הצפינו את הכונן עם BitLocker (Windows) או FileVault (Mac)</li>
-    </ol>
-
-    <h3>עבור Mac</h3>
-
-    <ol>
-      <li>אם כבר הצפנתם עם FileVault: פשוט הוציאו את התפתחת!</li>
-      <li>אם לא: System Preferences → Security & Privacy → FileVault</li>
-      <li>הקליקו "Turn On FileVault"</li>
-      <li>עתה מחיקת הקובץ = מחיקה אמיתית</li>
-    </ol>
-
-    <h3>עבור Linux</h3>
-
-    <ol>
-      <li>כל-סטנדרט: `shred -vfz -n 3 /path/to/file`</li>
-      <li>עבור מרחב חופשי: `shred -vfz -n 3 /path/to/empty`</li>
-      <li>או הצפינו את הכונן כל מראש עם LUKS</li>
-    </ol>
-
-    <div class="highlight-box orange">
-      <h3>טעות נפוצה</h3>
-      <p>אנשים חושבים ש-Windows built-in "cipher /w:c:" מחק קבצים בטוח. זה לא נכון! זה רק מחק מרחב חופשי. בשביל קבצים קיימים, צריכים Eraser או שדומה.</p>
+    <div class="bottom-line">
+      <h3>השורה התחתונה</h3>
+      <p>ברוב רכיבי הזיכרון בתעשייה הביטחונית — שהינם רכיבי NAND Flash — <strong>נותר זיכרון שיורי גם לאחר ביצוע מלא של נהלי NIST SP 800-88 ברמות Clear ו-Purge</strong>. המטען השיורי ב-floating gate הוא תכונה פיזיקלית של הטכנולוגיה שאינה ניתנת לתיקון בתוכנה.</p>
+      <p>משמעות מעשית: <strong>עבור מידע מסווג ובטחוני, רמות Clear ו-Purge של NIST אינן מספקות את הרגולטור</strong>. יריב ברמת מדינה, בעל גישה לציוד SEM/SPM ויכולת chip-off forensics, עשוי לשחזר מידע מכונן שעבר תהליך Purge מלא. הדרך היחידה להבטיח מחיקה בלתי-הפיכה של מידע מסווג מרכיבי NAND היא <strong>השמדה פיזית (Destroy) של שבבי ה-NAND עצמם</strong>.</p>
     </div>
 
-    <h2>ויזואליות של הבעיה</h2>
+    <h2>מה הפתרון: מודל שלוש השכבות לתעשייה הביטחונית</h2>
+
+    <p>על בסיס מגבלות הטכנולוגיה, אנו ממליצים על מודל מדורג שמתבסס על רמת הסיווג וסוג המדיה:</p>
 
     <div class="layer-stack">
       <div class="layer-item">
         <div class="layer-num">1</div>
         <div>
-          <div class="layer-title">קובץ נמחק מ-Windows Explorer</div>
-          <div class="layer-desc">הפנייה מוסרת מ-FAT/NTFS, אבל הנתונים נשארים בדיסק</div>
+          <div class="layer-title">מידע לא-מסווג (Unclassified) — Purge + אימות</div>
+          <div class="layer-desc">ATA SE / Cryptographic Erase + אימות עם כלי forensics. מותנה בכונן מיצרן מאומת עם יישום SE תקין</div>
         </div>
       </div>
       <div class="layer-item">
         <div class="layer-num">2</div>
         <div>
-          <div class="layer-title">מחיקה רגילה</div>
-          <div class="layer-desc">יכול להשחזר עם כל כלי data recovery</div>
+          <div class="layer-title">מידע מסווג (Confidential / Secret) — Destroy בלבד</div>
+          <div class="layer-desc">גריסה פיזית של שבבי ה-NAND. לא מספיק לגרוס את המארז — יש להגיע לרכיבי הזיכרון עצמם</div>
         </div>
       </div>
       <div class="layer-item">
         <div class="layer-num">3</div>
         <div>
-          <div class="layer-title">מחיקה מאובטחת (Secure Erase)</div>
-          <div class="layer-desc">הנתונים מוחקים לחלוטין בשלוש או יותר כתיבות</div>
-        </div>
-      </div>
-      <div class="layer-item">
-        <div class="layer-num">4</div>
-        <div>
-          <div class="layer-title">ATA Secure Erase (ל-SSD)</div>
-          <div class="layer-desc">כל הדיסק מאפס ו-FTL מתרוקנת — שום דרך לשחזר</div>
-        </div>
-      </div>
-      <div class="layer-item">
-        <div class="layer-num">5</div>
-        <div>
-          <div class="layer-title">הצפנה מראש + מחיקת מפתח</div>
-          <div class="layer-desc">אם המפתח הצפנה יוצא מהרשומות, הנתונים נשארים אבל לא יוכלו להתועד</div>
+          <div class="layer-title">מידע רגיש ביותר (Top Secret / SCI) — Destroy + תיעוד + אימות</div>
+          <div class="layer-desc">גריסה ברמת 2mm, שריפה, או התכה. תיעוד מספר סריאלי, צילום תהליך, עד נוכח, תעודת השמדה חתומה</div>
         </div>
       </div>
     </div>
 
-    <h2>צעיחת הנתונים שלכם</h2>
+    <h3>הצפנה מראש — שכבת הגנה הכרחית</h3>
 
-    <p>אם אתם מוכנים קובץ משומש (דיסק חדש, קונדה נ כוננים אחרים) בשוק השנייה או בתאריך שתיק, <strong>בדקו תמיד</strong> שהכונן השתמש בשיטת מחיקה אמיתית. תוכנות כמו <span class="code">R-Studio</span> או <span class="code">DiskDigger</span> יכולות להראות לכם אם יש נתונים בר-שחזור.</p>
+    <p>הגישה האפקטיבית ביותר להפחתת סיכון היא <strong>הצפנת כל מדיה מרגע הפריסה</strong> — Full Disk Encryption (FDE) עם מפתח ייחודי לכל כונן, רצוי על בסיס מודול הצפנה חומרתי (TPM / HSM). כך, גם אם נותר מטען שיורי בתאים, המידע מוצפן ולא קריא ללא המפתח. מחיקת המפתח (Cryptographic Erase) הופכת את הנתונים ללא-שמישים — אך <strong>גם זה אינו מספיק כתחליף ל-Destroy עבור מידע מסווג</strong>, כיוון שיריב עם יכולת מתקדמת עשוי לנסות לפרוץ את ההצפנה בעתיד.</p>
 
-    <p>אם קניתם כונן בeBay או Amazon, קנס אדום: 67% ממוצעות כיל מידע בר-שחזור.</p>
+    <div class="highlight-box orange">
+      <h3>אין מפרט ממשלתי אחיד</h3>
+      <p>נכון ל-2026, <strong>אין מפרט ממשלתי אחד שמגדיר באופן ברור את נהלי ה-sanitization לזיכרונות Flash במערכות ביטחוניות</strong>. DoD 5220.22-M פותח עבור כוננים מגנטיים. NIST SP 800-88 עודכן אך אינו מחייב Destroy עבור NAND מסווג. הפער הזה מחייב כל ארגון ביטחוני לפתח מדיניות פנימית שמתבססת על הסיכון הפיזיקלי האמיתי — לא רק על ציות לתקן.</p>
+    </div>
 
-    <h2>מדיניות בחברות ארגוניות</h2>
+    <h2>המלצות מעשיות לקצין אבטחת מידע</h2>
 
-    <p>חברות גדולות מחויבות (בחוק) למחוק נתוני לקוחות בטוח. כמה דוגמאות:</p>
+    <ul class="checklist">
+      <li>קבעו כברירת מחדל: <strong>כל מדיית NAND שנשאה מידע מסווג — Destroy בלבד</strong>. אל תסתמכו על Purge</li>
+      <li>הצפינו כל כונן מרגע הפריסה באמצעות FDE עם מפתח ייחודי. אחסנו מפתחות ב-HSM/TPM נפרד</li>
+      <li>תעדו כל רכיב אחסון: מספר סריאלי, סוג, יצרן, רמת סיווג מקסימלית שאוחסנה, ותאריך הפריסה</li>
+      <li>וודאו שתהליך הגריסה הפיזית מגיע לשבבי ה-NAND עצמם — לא רק למארז ה-SSD או לפלטת ה-PCB</li>
+      <li>בבדיקת ספקי השמדה חיצוניים, דרשו ציוד גריסה ברמת 2mm (NSA/CSS EPL Listed), ביקורות שנתיות, והסכמי NDA</li>
+      <li>עבור כוננים שלא ניתן להשמיד מיידית (למשל במערכות פעילות), הפעילו Cryptographic Erase + סמנו לגריסה בסוף מחזור החיים</li>
+      <li>הכשירו את הצוותים הטכניים: overwrite על SSD אינו שקול ל-overwrite על HDD — הפיזיקה שונה</li>
+      <li>עקבו אחרי התפתחויות: טכנולוגיות כמו Type III Secure Erase (שריפת טרנזיסטורים במתח גבוה) מתפתחות כפתרון ביניים בין Purge ל-Destroy</li>
+    </ul>
 
-    <table style="width: 100%; border-collapse: collapse; margin: 20px 0; background: var(--bg-card); border: 1px solid var(--border);">
+    <h2>דרישות רגולטוריות — מפת ההתאמה</h2>
+
+    <table class="comp-table">
       <thead>
-        <tr style="background: var(--bg-secondary); font-weight: 700; color: var(--text-primary);">
-          <th style="padding: 14px; text-align: right; border-bottom: 1px solid var(--border);">אזור / ארגון</th>
-          <th style="padding: 14px; text-align: right; border-bottom: 1px solid var(--border);">דרישה</th>
-          <th style="padding: 14px; text-align: right; border-bottom: 1px solid var(--border);">פעלות</th>
+        <tr>
+          <th>רגולציה / תקן</th>
+          <th>דרישה</th>
+          <th>מספיק ל-NAND מסווג?</th>
         </tr>
       </thead>
       <tbody>
-        <tr style="border-bottom: 1px solid var(--border);">
-          <td style="padding: 12px;"><strong>GDPR</strong> (אירופה)</td>
-          <td style="padding: 12px;">מחיקה בתוך 30 ימים</td>
-          <td style="padding: 12px; color: var(--green); font-weight: 600;">Clear או Purge</td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--border); background: rgba(26, 34, 54, 0.3);">
-          <td style="padding: 12px;"><strong>HIPAA</strong> (ארה"ב, בריאות)</td>
-          <td style="padding: 12px;">מחיקה בטוחה של רשומות רפואיות</td>
-          <td style="padding: 12px; color: var(--green); font-weight: 600;">DOD or NIST</td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--border);">
-          <td style="padding: 12px;"><strong>PCI-DSS</strong> (תשלומים)</td>
-          <td style="padding: 12px;">מחיקה של מספרי כרטיס</td>
-          <td style="padding: 12px; color: var(--green); font-weight: 600;">Cryptographic erase</td>
-        </tr>
-        <tr style="border-bottom: 1px solid var(--border); background: rgba(26, 34, 54, 0.3);">
-          <td style="padding: 12px;"><strong>ארגוני בריאות, פיננסים</strong> — בתי חולים, בנקים, ביטוח</td>
-          <td style="padding: 12px; color: var(--orange); font-weight: 600;">Clear עד Purge</td>
-          <td style="padding: 12px;">חוק הגנת הפרטיות</td>
+        <tr>
+          <td><strong>NIST SP 800-88</strong></td>
+          <td>Clear / Purge / Destroy לפי סיווג</td>
+          <td class="col-warn">Purge לא מספיק — Destroy בלבד</td>
         </tr>
         <tr>
-          <td style="padding: 12px;"><strong>דברי עתידות</strong> (שנים 2-5)</td>
-          <td style="padding: 12px; color: var(--green); font-weight: 600;">Purge</td>
-          <td style="padding: 12px;">מומלץ מאוד</td>
+          <td><strong>DoD 5220.22-M</strong></td>
+          <td>3-pass overwrite</td>
+          <td class="col-bad">פותח עבור HDD — לא רלוונטי ל-NAND</td>
+        </tr>
+        <tr>
+          <td><strong>NSA/CSS EPL</strong></td>
+          <td>רשימת ציוד מאושר להשמדה</td>
+          <td class="col-good">גורסים מאושרים מבטיחים הרס פיזי של שבבים</td>
+        </tr>
+        <tr>
+          <td><strong>GDPR</strong></td>
+          <td>זכות המחיקה — סעיף 17</td>
+          <td class="col-warn">Purge מספיק למידע אזרחי, לא למסווג</td>
+        </tr>
+        <tr>
+          <td><strong>חוק הגנת הפרטיות (ישראל)</strong></td>
+          <td>מחיקת מידע אישי</td>
+          <td class="col-warn">אין התייחסות ספציפית לסוג המדיה</td>
+        </tr>
+        <tr>
+          <td><strong>ISO 27001:2022</strong></td>
+          <td>בקרה A.8.10 — Media Sanitization</td>
+          <td class="col-warn">מסגרת כללית — לא מתייחסת לפיזיקה של NAND</td>
         </tr>
       </tbody>
     </table>
 
     <div class="article-sources">
-      <h4>מקורות ותיעודדות</h4>
+      <h4>מקורות</h4>
       <ol>
-        <li>NIST Special Publication 800-88 Revision 1, "Guidelines for Media Sanitization" (2014, updated 2023)</li>
-        <li>DOD 5220.22-M, "National Industrial Security Program Operating Manual" (2008)</li>
-        <li>Statista Cybersecurity Report, "Data Recovery from Consumer SSDs" (2024)</li>
-        <li>Philipp Schindler & Jonas Krautter, "Flash Memory Data Remanence: A Real-World Assessment" (2024)</li>
-        <li>תמונות וסכימות: בנוי בעצמי בהשראת מקורות מדעיים</li>
+        <li>Wei, M., Grupp, L.M., Spada, F.E., Swanson, S. — "Reliably Erasing Data From Flash-Based Solid State Drives", USENIX FAST 2011</li>
+        <li>Skorobogatov, S. — "Data Remanence in Flash Memory Devices", CHES 2005 (Cryptographic Hardware and Embedded Systems)</li>
+        <li>Reardon, J. et al. — "Investigation of Data Deletion Vulnerabilities in NAND Flash Memory Based Storage", arXiv:2001.07424 (2020)</li>
+        <li>NIST Special Publication 800-88 Revision 1 — "Guidelines for Media Sanitization" (2014, עדכון 2023)</li>
+        <li>DoD 5220.22-M — "National Industrial Security Program Operating Manual", Chapter 8 (2006)</li>
+        <li>Military Aerospace Electronics — "Does Secure-Erase Work to Protect Sensitive Military Data?" (2023)</li>
+        <li>ATP Electronics — "Erasing Data on a Flash Storage Device is Not as Easy as It Seems" (2024)</li>
+        <li>Forte, D. et al. — "Amnesiac Memory: A Self-Destructive Polymorphic Mechanism", GLSVLSI (2024)</li>
       </ol>
     </div>
 
@@ -164,15 +585,15 @@
 </article>
 
 <div class="article-cta">
-  <h3>שמרו על הנתונים שלכם</h3>
-  <p>אם יש לכם נתונים רגישים שצריכים מחיקה מאובטחת, בחרו את הכלי הנכון לפי מה שקיים לכם — HDD, SSD, או ענן.</p>
-  <a href="https://kplns.com" class="article-cta-btn">חזרה לעמוד הבית</a>
+  <h3>צריכים מדיניות השמדת מדיה שעומדת בדרישות?</h3>
+  <p>KPLNS מלווה גופים ביטחוניים וארגוני ביטחון בבניית מדיניות media sanitization שמתבססת על הסיכון הפיזיקלי האמיתי — לא רק על ציות לתקן. כולל ליווי רגולטורי, בחירת ספקי השמדה, ובניית נהלים.</p>
+  <a href="index.html#contact" class="article-cta-btn">דברו איתנו ←</a>
 </div>
 
-<div class="article-footer" style="color:var(--text-muted);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;"><a href="privacy.html" style="color:var(--cyan-dim);text-decoration:underline;margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">מדיניות פרטיות</a> | <a href="terms.html" style="color:var(--cyan-dim);text-decoration:underline;margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">תנאי שימוש</a></div>
-    &copy; 2026 KPLNS Encapsulated Solutions. כל הזכויות שמורות.
-  </div>
-</article>
+<div class="article-footer">
+  <a href="privacy.html">מדיניות פרטיות</a> · <a href="disclaimer.html">הגבלת אחריות</a>
+  <br>&copy; 2026 KPLNS Encapsulated Solutions. כל הזכויות שמורות.
+</div>
 
 </body>
 </html>
