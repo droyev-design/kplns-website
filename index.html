@@ -872,6 +872,32 @@ img { max-width: 100%; display: block; }
   margin-bottom: 0; line-height: 1.5;
 }
 
+/* ── Mobile Final Overrides (must be last to win cascade) ── */
+@media (max-width: 768px) {
+  .services-grid,
+  .projects-grid,
+  .testimonials-grid,
+  .threats-grid,
+  .insights-grid { grid-template-columns: 1fr !important; gap: 12px; }
+  .methodology-grid,
+  .maturity-grid { grid-template-columns: 1fr !important; gap: 12px; }
+  .about-metrics { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+
+  .insight-card { padding: 20px 18px; }
+  .insight-card h3 { font-size: 0.95rem; line-height: 1.45; }
+  .insight-tag { font-size: 0.68rem; padding: 3px 10px; margin-bottom: 10px; }
+
+  .threat-card { padding: 20px 18px; }
+  .threat-card h3 { font-size: 0.95rem; }
+  .threat-tag { font-size: 0.68rem; }
+
+  .section-subtitle { font-size: 0.88rem; padding: 0 8px; }
+}
+@media (max-width: 420px) {
+  .methodology-grid,
+  .maturity-grid { grid-template-columns: 1fr !important; }
+}
+
 </style>
 </head>
 <body data-lang="he">
