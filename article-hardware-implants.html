@@ -294,13 +294,17 @@ a { text-decoration: none; color: inherit; }
 .article-cta-btn:hover { box-shadow: 0 0 30px var(--cyan-dim); transform: translateY(-2px); }
 
 .article-footer {
-  text-align: center; padding: 40px 0; font-size: 0.8rem;
-  color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 60px;
+  text-align: center; padding: 40px 24px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 60px;
+  color: rgba(232,237,245,0.4); font-size: 0.85rem;
 }
-.article-footer a {
-  color: var(--cyan); opacity: 0.5; margin: 0 8px; transition: opacity 0.3s;
+.article-footer .footer-links {
+  display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap;
 }
-.article-footer a:hover { opacity: 1; }
+.article-footer .footer-links a {
+  color: rgba(232,237,245,0.5); font-size: 0.82rem; transition: color 0.3s;
+}
+.article-footer .footer-links a:hover { color: #00d4ff; }
+.article-footer .footer-copy { font-size: 0.8rem; }
 
 /* Bottom line callout */
 .bottom-line {
@@ -756,10 +760,12 @@ a { text-decoration: none; color: inherit; }
 </article>
 
 <footer class="article-footer">
-  <p>© 2026 KPLNS Encapsulated Solutions. כל הזכויות שמורות.</p>
-  <a href="index.html">ראשי</a>
-  <a href="index.html#insights">תובנות</a>
-  <a href="index.html#contact">צור קשר</a>
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+    <a href="disclaimer.html">תנאי שימוש</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
 </footer>
 
 </body>
