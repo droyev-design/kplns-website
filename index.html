@@ -928,7 +928,7 @@ img { max-width: 100%; display: block; }
 <!-- Navigation -->
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
+    <a href="#hero" class="nav-logo">
       <span>KPLNS</span>
     </a>
     <div class="nav-links" id="navLinks">
@@ -939,7 +939,7 @@ img { max-width: 100%; display: block; }
       <a href="#contact"><span class="txt-he">צור קשר</span><span class="txt-en">Contact</span></a>
       <button class="lang-toggle" onclick="toggleLang()">EN / עברית</button>
     </div>
-    <button class="nav-mobile-btn" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+    <button class="nav-mobile-btn" onclick="this.setAttribute('aria-expanded',document.getElementById('navLinks').classList.toggle('open'))" aria-label="Menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
     </button>
   </div>
