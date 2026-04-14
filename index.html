@@ -1214,7 +1214,12 @@ img { max-width: 100%; display: block; }
         </ul>
       </div>
       <div class="contact-form-wrapper reveal">
-        <form id="theForm" onsubmit="return handleSubmit(event)">
+        <form id="theForm" onsubmit="return handleSubmit(event)" action="https://formsubmit.co/Yevgeni@kplns.com" method="POST">
+          <!-- FormSubmit config -->
+          <input type="hidden" name="_subject" value="פנייה חדשה מהאתר — KPLNS">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="">
+          <input type="hidden" name="_template" value="table">
           <div class="form-row">
             <div class="form-group">
               <label><span class="txt-he">שם מלא</span><span class="txt-en">Full Name</span></label>
@@ -1307,12 +1312,33 @@ window.addEventListener('scroll', () => {
 // Contact form
 function handleSubmit(e) {
   e.preventDefault();
-  const data = new FormData(e.target);
-  const subjectMap = { survey:'סקר ביטחון', policy:'גיבוש מדיניות', risk:'מיפוי סיכונים', ongoing:'ליווי שוטף', training:'הדרכת מודעות ביטחונית', other:'פנייה כללית' };
-  const body = `שם: ${data.get('name')}%0Aחברה: ${data.get('company')||'-'}%0Aאימייל: ${data.get('email')}%0Aטלפון: ${data.get('phone')||'-'}%0A%0A${data.get('message')}`;
-  window.location.href = `mailto:Yevgeni@kplns.com?subject=${encodeURIComponent('פנייה מהאתר: '+(subjectMap[data.get('subject')]||''))}&body=${body}`;
-  e.target.style.display = 'none';
-  document.getElementById('formSuccess').classList.add('show');
+  const form = e.target;
+  const data = new FormData(form);
+  const btn = form.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.style.opacity = '0.6';
+  fetch('https://formsubmit.co/ajax/Yevgeni@kplns.com', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: data
+  })
+  .then(res => res.json())
+  .then(res => {
+    if (res.success === 'true' || res.success === true) {
+      form.style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+    } else {
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      alert('אירעה שגיאה בשליחה. נסו שנית.');
+    }
+  })
+  .catch(() => {
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    alert('אירעה שגיאה בשליחה. נסו שנית.');
+  });
+  return false;
 }
 
 // Mobile menu close on link click
