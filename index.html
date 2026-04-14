@@ -673,7 +673,6 @@ img { max-width: 100%; display: block; }
 
   .insight-card { padding: 24px 20px; }
   .insight-card h3 { font-size: 0.98rem; }
-  .insight-card p { font-size: 0.84rem; }
 
   /* Methodology */
   .methodology-connector { display: none; }
@@ -722,7 +721,7 @@ img { max-width: 100%; display: block; }
   .trust-bar-badges span { font-size: 0.75rem; padding: 5px 12px; }
 
   /* Touch-friendly tap targets */
-  .btn, .svc-cta, .maturity-cta-btn, .insight-cta { min-height: 44px; }
+  .btn, .svc-cta, .maturity-cta-btn { min-height: 44px; }
 }
 
 /* ── Small phones ── */
@@ -934,18 +933,8 @@ img { max-width: 100%; display: block; }
 }
 .insight-card h3 {
   font-size: 1.05rem; font-weight: 700; color: var(--text-primary);
-  margin-bottom: 12px; line-height: 1.5;
+  margin-bottom: 0; line-height: 1.5;
 }
-.insight-card p {
-  font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75;
-  flex-grow: 1; margin-bottom: 20px;
-}
-.insight-cta {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.85rem; font-weight: 600; color: var(--cyan);
-  transition: gap 0.3s var(--ease);
-}
-.insight-card:hover .insight-cta { gap: 10px; }
 
 </style>
 </head>
@@ -1007,50 +996,34 @@ img { max-width: 100%; display: block; }
       <a class="insight-card reveal reveal-delay-1" href="article-supplier-signs.html">
         <div class="insight-tag"><span class="txt-he">מדריך</span><span class="txt-en">Guide</span></div>
         <h3><span class="txt-he">5 סימנים שהספק שלכם חשוף לתקיפה</span><span class="txt-en">5 Signs Your Supplier Is Vulnerable to Attack</span></h3>
-        <p><span class="txt-he">איך לזהות חולשות ביטחוניות אצל ספקים לפני שתוקפים מנצלים אותן — בדיקות פשוטות שכל ארגון יכול לעשות</span><span class="txt-en">How to spot supplier security weaknesses before attackers exploit them — simple checks any organization can do</span></p>
-        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
       <a class="insight-card reveal reveal-delay-2" href="article-rav-magen.html">
         <div class="insight-tag"><span class="txt-he">רגולציה</span><span class="txt-en">Regulation</span></div>
         <h3><span class="txt-he">מה זה "רב מגן" ולמה הרגולטור דורש את זה?</span><span class="txt-en">What Is "Rav Magen" and Why Does the Regulator Require It?</span></h3>
-        <p><span class="txt-he">44 בקרות אבטחת מידע שכל ספק בתעשייה הביטחונית צריך לעמוד בהן — סקירה מהירה של המתודולוגיה והדרישות</span><span class="txt-en">44 information security controls every defense industry supplier must meet — a quick overview of the methodology</span></p>
-        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
       <a class="insight-card reveal reveal-delay-3" href="article-attacks-trends.html">
         <div class="insight-tag"><span class="txt-he">ניתוח</span><span class="txt-en">Analysis</span></div>
         <h3><span class="txt-he">תקיפות שרשרת אספקה בישראל — מגמות 2024-2025</span><span class="txt-en">Supply Chain Attacks in Israel — 2024-2025 Trends</span></h3>
-        <p><span class="txt-he">ישראל בין שלוש המדינות המותקפות בעולם. סיכום האיומים המרכזיים והשלכותיהם על ספקים בתעשייה הביטחונית</span><span class="txt-en">Israel ranks among the top 3 most targeted countries. Summary of key threats and their impact on defense industry suppliers</span></p>
-        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
       <a class="insight-card reveal reveal-delay-4" href="article-cmmc.html">
         <div class="insight-tag"><span class="txt-he">רגולציה בינלאומית</span><span class="txt-en">International Regulation</span></div>
         <h3><span class="txt-he">CMMC Level 2 — התקן האמריקאי שעומד מאחורי רב מגן</span><span class="txt-en">CMMC Level 2 — The US Standard Behind Rav Magen</span></h3>
-        <p><span class="txt-he">110 בקרות, 14 תחומים, וחובת Flowdown על כלל שרשרת האספקה — איך התקן של משרד ההגנה האמריקאי משפיע על ספקים ישראליים ועל מדינות Five Eyes</span><span class="txt-en">110 controls, 14 domains, and mandatory flowdown across the supply chain — how the DoD standard impacts Israeli suppliers and Five Eyes nations</span></p>
-        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
       <a class="insight-card reveal reveal-delay-5" href="article-hardware-trust.html">
         <div class="insight-tag"><span class="txt-he">אמון בחומרה</span><span class="txt-en">Hardware Trust</span></div>
         <h3><span class="txt-he">אמון בחומרה — איך לדעת שהרכיב הוא מה שהוא טוען שהוא</span><span class="txt-en">Hardware Trust — How to Know Your Component Is What It Claims to Be</span></h3>
-        <p><span class="txt-he">רכיבים מזויפים, קושחה שעברה שינוי, מקור ייצור לא ידוע ובעלות נסתרת — הסיכונים שאף אחד לא בודק ואיך להתגונן מפניהם</span><span class="txt-en">Counterfeit parts, tampered firmware, unknown manufacturing origin and hidden ownership — the risks nobody checks and how to protect against them</span></p>
-        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
       <a class="insight-card reveal reveal-delay-6" href="article-supply-chain-cost.html">
         <div class="insight-tag"><span class="txt-he">ניתוח עלויות</span><span class="txt-en">Cost Analysis</span></div>
         <h3><span class="txt-he">המחיר האמיתי של הזנחת שרשרת האספקה — מהשבתה לנפילה עסקית</span><span class="txt-en">The Real Cost of Supply Chain Negligence — From Downtime to Business Collapse</span></h3>
-        <p><span class="txt-he">$4.88M עלות ממוצעת לפריצה, 30% מהפריצות מערבות צד שלישי — ניתוח של העלויות הישירות, הנסתרות וההשלכות העסקיות של תקיפות שרשרת אספקה</span><span class="txt-en">$4.88M average breach cost, 30% of breaches involve third parties — analysis of direct costs, hidden costs and business impact of supply chain attacks</span></p>
-        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
       <a class="insight-card reveal reveal-delay-1" href="article-secure-erasure.html">
         <div class="insight-tag"><span class="txt-he">ביטחון טכנולוגי</span><span class="txt-en">Technology Security</span></div>
         <h3><span class="txt-he">מחיקה מאובטחת — מה באמת נמחק כשאתם מוחקים?</span><span class="txt-en">Secure Erasure — What Really Gets Deleted?</span></h3>
-        <p><span class="txt-he">DOD 5220.22-M ו-NIST 800-88 מול האתגר של זיכרונות פלאש</span><span class="txt-en">DOD &amp; NIST standards vs. the flash memory challenge</span></p>
-        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
       <a class="insight-card reveal reveal-delay-2" href="article-hardware-implants.html">
         <div class="insight-tag"><span class="txt-he">הטמנות חומרה</span><span class="txt-en">Hardware Implants</span></div>
         <h3><span class="txt-he">הטמנות בחומרה, קושחה ותשתיות — מקרי עולם אמיתיים והגנה דרך שרשרת האספקה</span><span class="txt-en">Hardware, Firmware & Infrastructure Implants — Real-World Cases and Supply Chain Defense</span></h3>
-        <p><span class="txt-he">מ-NSA TAO ועד מתקפת הפייג'רים בלבנון — דוגמאות מתועדות של הטמנות, ופתרונות מעשיים באמצעות בקרות מפצות ותהליכי זיכוי</span><span class="txt-en">From NSA TAO to the Lebanon pager attack — documented implant cases, and practical solutions through compensating controls and accreditation</span></p>
-        <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
     </div>
   </div>
