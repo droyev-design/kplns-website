@@ -669,7 +669,6 @@ img { max-width: 100%; display: block; }
 
   .threat-card { padding: 24px 20px; }
   .threat-card h3 { font-size: 1.05rem; }
-  .threat-card-desc { font-size: 0.85rem; }
 
   .insight-card { padding: 24px 20px; }
   .insight-card h3 { font-size: 0.98rem; }
@@ -825,27 +824,7 @@ img { max-width: 100%; display: block; }
 }
 .threat-card h3 {
   font-size: 1.15rem; font-weight: 700; color: var(--text-primary);
-  margin-bottom: 14px; line-height: 1.4;
-}
-.threat-card-desc {
-  font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;
-  margin-bottom: 20px;
-}
-.threat-card-desc span { display: block; margin-bottom: 8px; }
-.threat-card-desc span:last-child { margin-bottom: 0; }
-.threat-stats {
-  display: flex; gap: 12px; padding-top: 20px;
-  border-top: 1px solid var(--border);
-}
-.threat-stat {
-  flex: 1; text-align: center;
-}
-.threat-stat-value {
-  font-size: 1.1rem; font-weight: 700; color: var(--cyan);
-  font-family: var(--font-en);
-}
-.threat-stat-label {
-  font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;
+  margin-bottom: 0; line-height: 1.4;
 }
 
 /* ── Maturity Model ── */
@@ -1043,65 +1022,14 @@ img { max-width: 100%; display: block; }
       <div class="threat-card reveal reveal-delay-1">
         <div class="threat-tag"><span class="txt-he">אירוח ומסחר מקוון — ישראל 2023</span><span class="txt-en">Web Hosting & E-Commerce — Israel 2023</span></div>
         <h3><span class="txt-he">פריצה דרך ספק אירוח אתרים — 100+ ארגונים נפגעו</span><span class="txt-en">Breach via Web Hosting Provider — 100+ Organizations Hit</span></h3>
-        <div class="threat-card-desc">
-          <span class="txt-he">קבוצת תקיפה איראנית חדרה לחברת אירוח אתרים ישראלית ודרכה הגיעה ליותר מ-100 ארגונים — קמעונאים, יבואנים, גופים ציבוריים וחברות בינלאומיות הפועלות בישראל. מידע אישי של מיליוני לקוחות הודלף ושרתים נמחקו.</span><span class="txt-en">An Iranian-linked attack group breached an Israeli web hosting company and through it reached over 100 organizations — retailers, importers, public bodies, and international companies operating in Israel. Personal data of millions of customers was leaked and servers wiped.</span>
-        </div>
-        <div class="threat-stats">
-          <div class="threat-stat">
-            <div class="threat-stat-value">100+</div>
-            <div class="threat-stat-label"><span class="txt-he">ארגונים</span><span class="txt-en">Organizations</span></div>
-          </div>
-          <div class="threat-stat">
-            <div class="threat-stat-value">מיליונים</div>
-            <div class="threat-stat-label"><span class="txt-he">רשומות</span><span class="txt-en">Records</span></div>
-          </div>
-          <div class="threat-stat">
-            <div class="threat-stat-value">שרשרת</div>
-            <div class="threat-stat-label"><span class="txt-he">סוג תקיפה</span><span class="txt-en">Attack Type</span></div>
-          </div>
-        </div>
       </div>
       <div class="threat-card reveal reveal-delay-2">
         <div class="threat-tag"><span class="txt-he">תעשייה ביטחונית — ישראל 2024</span><span class="txt-en">Defense Industry — Israel 2024</span></div>
         <h3><span class="txt-he">חדירה לקבלן ביטחוני — 18 חודשי ריגול שלא זוהו</span><span class="txt-en">Defense Contractor Breach — 18 Months of Undetected Espionage</span></h3>
-        <div class="threat-card-desc">
-          <span class="txt-he">תוקפים זוהי איראן חדרו לחברת פיתוח ביטחונית ישראלית ושהו ברשת במשך 18 חודשים ללא זיהוי. דרך החברה הגיעו ל-17 קבלני ביטחון. הודלפו שרטוטים מסווגים של מערכות נשק, מל"טים ופרויקטים בינלאומיים.</span><span class="txt-en">Iran-linked attackers breached an Israeli defense R&D firm and remained in the network for 18 months undetected. Through the company, they reached 17 defense contractors. Classified blueprints of weapons systems, UAVs, and international projects were leaked.</span>
-        </div>
-        <div class="threat-stats">
-          <div class="threat-stat">
-            <div class="threat-stat-value">17</div>
-            <div class="threat-stat-label"><span class="txt-he">קבלנים שנפרצו</span><span class="txt-en">Contractors Hit</span></div>
-          </div>
-          <div class="threat-stat">
-            <div class="threat-stat-value">18</div>
-            <div class="threat-stat-label"><span class="txt-he">חודשי חדירה</span><span class="txt-en">Months Inside</span></div>
-          </div>
-          <div class="threat-stat">
-            <div class="threat-stat-value">מסווג</div>
-            <div class="threat-stat-label"><span class="txt-he">חומרת הדלפה</span><span class="txt-en">Leak Severity</span></div>
-          </div>
-        </div>
       </div>
       <div class="threat-card reveal reveal-delay-3">
         <div class="threat-tag"><span class="txt-he">אקדמיה — ישראל 2024</span><span class="txt-en">Academia — Israel 2024</span></div>
         <h3><span class="txt-he">תקיפת ספק תוכנה אקדמי — אוניברסיטאות ומכללות נפרצו</span><span class="txt-en">Academic Software Vendor Attack — Universities Breached</span></h3>
-        <div class="threat-card-desc">
-          <span class="txt-he">קבוצה איראנית חדרה לספק תוכנה לניהול מוסדות אקדמיים בישראל וניצלה הרשאות ניהול לגישה למערכות CRM סטודנטים במספר אוניברסיטאות ומכללות. לאחר 4 חודשים שלחו מייל מחשבון הספק ללקוחותיו ובו הודיעו על השתלטות מלאה על התשתיות.</span><span class="txt-en">An Iranian group breached a software vendor managing Israeli academic institutions and exploited admin credentials to access student CRM systems at multiple universities. After 4 months, they sent emails from the vendor's own account to its clients announcing full infrastructure takeover.</span>
-        </div>
-        <div class="threat-stats">
-          <div class="threat-stat">
-            <div class="threat-stat-value">4</div>
-            <div class="threat-stat-label"><span class="txt-he">חודשים ברשת</span><span class="txt-en">Months Inside</span></div>
-          </div>
-          <div class="threat-stat">
-            <div class="threat-stat-value">מוסדות</div>
-            <div class="threat-stat-label"><span class="txt-he">יעד התקיפה</span><span class="txt-en">Target</span></div>
-          </div>
-          <div class="threat-stat">
-            <div class="threat-stat-value">שרשרת</div>
-            <div class="threat-stat-label"><span class="txt-he">וקטור כניסה</span><span class="txt-en">Entry Vector</span></div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
