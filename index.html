@@ -277,11 +277,12 @@ img { max-width: 100%; display: block; }
 .service-card-highlight {
   grid-column: 1 / -1; border-color: rgba(0,212,255,0.15);
   background: linear-gradient(135deg, rgba(0,212,255,0.04), rgba(123,97,255,0.04));
-  display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 40px 32px;
 }
-.service-card-highlight .svc-icon { margin-bottom: 0; }
-.service-card-highlight h3 { margin-bottom: 4px; }
-.service-card-highlight p { margin-bottom: 0; }
+.service-card-highlight .svc-icon { margin-bottom: 16px; }
+.service-card-highlight h3 { margin-bottom: 8px; }
+.service-card-highlight p { margin-bottom: 20px; max-width: 700px; }
 .svc-cta {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 10px 24px; border-radius: var(--radius-sm);
@@ -1081,10 +1082,10 @@ img { max-width: 100%; display: block; }
         <p><span class="txt-he">ליווי ביטחוני פרויקטאלי שוטף לספק, הכולל ביקורים פיזיים אצל הספק לטובת בקרה על תהליכי עבודה וייצור. כל ביקור מבוצע בהתאם למיקוד נציג הלקוח. כולל דו"ח סיכום ביקור ומענה שוטף.</span><span class="txt-en">Ongoing project/critical security support for suppliers, including physical site visits for work process and production oversight. Each visit focused per client representative guidance. Includes visit summary reports and ongoing support.</span></p>
       </div>
       <!-- Row 3: Additional Services -->
-      <div class="service-card reveal reveal-delay-1">
+      <div class="service-card service-card-highlight reveal reveal-delay-1">
         <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="17 6 23 6 23 12" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
         <h3><span class="txt-he">סקר מעקב (Follow-Up)</span><span class="txt-en">Follow-Up Survey</span></h3>
-        <p><span class="txt-he">סקר חוזר לבדיקת סגירת ממצאים שזוהו, השוואה לממצאי סקר ראשוני, עדכון ציון חוסן ארגוני, דו"ח התקדמות. מומלץ 6–12 חודשים לאחר סיום סקרי הביטחון.</span><span class="txt-en">Return survey to verify finding closures, comparison to initial survey metrics, updated resilience scoring, and progress report. Recommended 6–12 months after initial security surveys.</span></p>
+        <p><span class="txt-he">סקר חוזר לבדיקת סגירת ממצאים שזוהו, השוואה לממצאי סקר ראשוני, עדכון ציון חוסן ארגוני, דו"ח התקדמות. מומלץ 6-12 חודשים לאחר סיום סקרי הביטחון.</span><span class="txt-en">Return survey to verify finding closures, comparison to initial survey metrics, updated resilience scoring, and progress report. Recommended 6–12 months after initial security surveys.</span></p>
       </div>
       <div class="service-card service-card-highlight reveal reveal-delay-3">
         <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
