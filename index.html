@@ -95,13 +95,15 @@ img { max-width: 100%; display: block; }
 .nav-mobile-btn {
   display: none; background: none; border: none; color: var(--text-primary);
   font-size: 1.5rem; cursor: pointer; padding: 8px;
+  width: 44px; height: 44px; align-items: center; justify-content: center;
 }
+.nav-mobile-btn:active { opacity: 0.7; }
 
 /* ── Hero ── */
 .hero {
   min-height: 100vh; display: flex; align-items: center;
   background: var(--gradient-hero); position: relative; overflow: hidden;
-  padding-top: 72px;
+  padding-top: 72px; padding-bottom: 60px;
 }
 .hero-bg {
   position: absolute; inset: 0; overflow: hidden; pointer-events: none;
@@ -591,15 +593,21 @@ img { max-width: 100%; display: block; }
 @media (max-width: 768px) {
   /* Navigation */
   .nav-links { display: none; }
-  .nav-mobile-btn { display: block; }
+  .nav-mobile-btn { display: flex; }
   .nav-inner { height: 60px; padding: 0 16px; }
   .nav-links.open {
     display: flex; flex-direction: column; position: absolute;
     top: 60px; left: 0; right: 0;
     background: rgba(10,14,26,0.98); backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 20px 24px; gap: 4px;
     border-bottom: 1px solid var(--border);
     max-height: 80vh; overflow-y: auto;
+    animation: slideDown 0.3s var(--ease);
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   .nav-links.open a {
     padding: 12px 16px; font-size: 1rem;
@@ -615,17 +623,22 @@ img { max-width: 100%; display: block; }
   .logo-mark { width: 36px; height: 36px; }
 
   /* Hero */
-  .hero { padding-top: 60px; min-height: auto; padding-bottom: 60px; }
+  .hero { padding-top: 60px; min-height: auto; padding-bottom: 48px; }
   .hero h1 { font-size: clamp(1.8rem, 7vw, 2.4rem); margin-bottom: 18px; }
   .hero-badge { font-size: 0.75rem; padding: 6px 14px; margin-bottom: 20px; }
   .hero-desc { font-size: 0.95rem; margin-bottom: 12px; line-height: 1.75; }
   .hero-diff { font-size: 0.85rem; padding: 8px 14px; margin-bottom: 28px; }
-  .hero-buttons { gap: 12px; }
-  .hero-buttons .btn { padding: 12px 24px; font-size: 0.88rem; width: 100%; justify-content: center; }
-  .hero-stats { flex-direction: row; flex-wrap: wrap; gap: 16px; margin-top: 48px; padding-top: 28px; }
-  .hero-stat { flex: 1; min-width: 80px; text-align: center; }
-  .hero-stat-num { font-size: 1.7rem; }
-  .hero-stat-label { font-size: 0.75rem; }
+  .hero-buttons { gap: 12px; flex-direction: column; }
+  .hero-buttons .btn { padding: 14px 24px; font-size: 0.92rem; width: 100%; justify-content: center; }
+  .hero-stats { flex-direction: row; flex-wrap: nowrap; gap: 0; margin-top: 40px; padding-top: 24px;
+    justify-content: space-between; }
+  .hero-stat { flex: 1; min-width: 0; text-align: center;
+    border-left: 1px solid var(--border); }
+  .hero-stat:last-child { border-left: none; }
+  [dir="rtl"] .hero-stat { border-left: none; border-right: 1px solid var(--border); }
+  [dir="rtl"] .hero-stat:first-child { border-right: none; }
+  .hero-stat-num { font-size: 1.5rem; }
+  .hero-stat-label { font-size: 0.72rem; }
 
   /* Sections */
   .section { padding: 60px 0; }
@@ -702,6 +715,12 @@ img { max-width: 100%; display: block; }
   .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 12px; }
   .footer-links a { margin: 0; padding: 4px 8px; }
 
+  /* Trust bar mobile */
+  .trust-bar { padding: 16px 0; }
+  .trust-bar-inner { flex-direction: column; gap: 12px; }
+  .trust-bar-badges { justify-content: center; gap: 8px; }
+  .trust-bar-badges span { font-size: 0.75rem; padding: 5px 12px; }
+
   /* Touch-friendly tap targets */
   .btn, .svc-cta, .maturity-cta-btn, .insight-cta { min-height: 44px; }
 }
@@ -710,15 +729,22 @@ img { max-width: 100%; display: block; }
 @media (max-width: 420px) {
   .hero h1 { font-size: 1.6rem; }
   .hero-buttons { flex-direction: column; }
-  .hero-stats { gap: 12px; }
-  .hero-stat-num { font-size: 1.4rem; }
+  .hero-stats { gap: 0; }
+  .hero-stat-num { font-size: 1.3rem; }
+  .hero-stat-label { font-size: 0.68rem; }
+  .hero-diff { font-size: 0.8rem; padding: 8px 12px; }
   .section { padding: 48px 0; }
   .section-title { font-size: 1.3rem; }
   .methodology-grid, .maturity-grid { grid-template-columns: 1fr; }
   .contact-form-wrapper { padding: 24px 16px; }
   .trust-bar-badges span { font-size: 0.7rem; padding: 5px 10px; }
+  .trust-bar-inner { flex-direction: column; gap: 12px; }
   .ci-icon { width: 40px; height: 40px; }
   .contact-items li { gap: 12px; font-size: 0.88rem; }
+  .about-metrics { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .metric { padding: 14px 8px; }
+  .metric-num { font-size: 1.1rem; }
+  .metric-label { font-size: 0.7rem; }
 }
 
 /* ── Divider ── */
@@ -956,6 +982,10 @@ img { max-width: 100%; display: block; }
   </div>
   <div class="container">
     <div class="hero-content">
+      <div class="hero-badge">
+        <span class="txt-he">ייעוץ ביטחון שרשרת אספקה</span>
+        <span class="txt-en">Supply Chain Security Consulting</span>
+      </div>
       <h1>
         <span class="txt-he">ייעוץ מקצועי ב<span class="accent">ביטחון טכנולוגי</span> ושרשרת אספקה</span>
         <span class="txt-en">Professional <span class="accent">Technology Security</span> & Supply Chain Consulting</span>
@@ -964,6 +994,10 @@ img { max-width: 100%; display: block; }
         <span class="txt-he">מיפוי סיכונים, גיבוש מדיניות, ביצוע סקרי ביטחון 360° וליווי ספקים לעמידה בדרישות רגולטוריות — לגופים ביטחוניים ותעשיית הביטחון</span>
         <span class="txt-en">Risk mapping, policy development, 360° security surveys, and vendor compliance support for defense organizations and the security industry</span>
       </p>
+      <div class="hero-diff">
+        <span class="txt-he">ליווי מקצה לקצה: ממיפוי סיכונים ועד עמידה מלאה בדרישות מלמ"ב ורב מגן</span>
+        <span class="txt-en">End-to-end support: from risk mapping to full compliance with DSDE and Rav Magen requirements</span>
+      </div>
       <div class="hero-buttons">
         <a href="#contact" class="btn btn-primary">
           <span class="txt-he">דברו איתנו</span>
@@ -975,11 +1009,36 @@ img { max-width: 100%; display: block; }
           <span class="txt-en">Our Services</span>
         </a>
       </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">15+</div>
+          <div class="hero-stat-label"><span class="txt-he">שנות ניסיון</span><span class="txt-en">Years Experience</span></div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">360°</div>
+          <div class="hero-stat-label"><span class="txt-he">סקרי ביטחון</span><span class="txt-en">Security Surveys</span></div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label"><span class="txt-he">עמידה ברגולציה</span><span class="txt-en">Regulatory Compliance</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <span class="trust-bar-label"><span class="txt-he">עומדים בתקנים</span><span class="txt-en">Compliance Standards</span></span>
+    <div class="trust-bar-badges">
+      <span>CMMC Level 2</span>
+      <span>NIST 800-171</span>
+      <span>ISO 27001</span>
+      <span>רב מגן</span>
+    </div>
+  </div>
+</div>
 <div class="section-divider"></div>
 
 <!-- Insights -->
@@ -1026,13 +1085,13 @@ img { max-width: 100%; display: block; }
         <h3><span class="txt-he">המחיר האמיתי של הזנחת שרשרת האספקה — מהשבתה לנפילה עסקית</span><span class="txt-en">The Real Cost of Supply Chain Negligence — From Downtime to Business Collapse</span></h3>
         <p><span class="txt-he">$4.88M עלות ממוצעת לפריצה, 30% מהפריצות מערבות צד שלישי — ניתוח של העלויות הישירות, הנסתרות וההשלכות העסקיות של תקיפות שרשרת אספקה</span><span class="txt-en">$4.88M average breach cost, 30% of breaches involve third parties — analysis of direct costs, hidden costs and business impact of supply chain attacks</span></p>
         <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </a>      <a class="insight-card reveal reveal-delay-1" href="article-secure-erasure.html">
+      </a>
+      <a class="insight-card reveal reveal-delay-1" href="article-secure-erasure.html">
         <div class="insight-tag"><span class="txt-he">ביטחון טכנולוגי</span><span class="txt-en">Technology Security</span></div>
         <h3><span class="txt-he">מחיקה מאובטחת — מה באמת נמחק כשאתם מוחקים?</span><span class="txt-en">Secure Erasure — What Really Gets Deleted?</span></h3>
         <p><span class="txt-he">DOD 5220.22-M ו-NIST 800-88 מול האתגר של זיכרונות פלאש</span><span class="txt-en">DOD &amp; NIST standards vs. the flash memory challenge</span></p>
         <span class="insight-cta"><span class="txt-he">קראו עוד</span><span class="txt-en">Read more</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-
     </div>
   </div>
 </section>
