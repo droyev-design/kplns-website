@@ -922,6 +922,9 @@ img { max-width: 100%; display: block; }
 </head>
 <body data-lang="he">
 
+<!-- Skip to content (#14) -->
+<a href="#insights" class="skip-to-content" style="position:absolute;top:-100px;left:0;background:var(--cyan);color:var(--bg-primary);padding:12px 24px;z-index:9999;font-weight:600;font-size:0.9rem;transition:top 0.3s;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">דלג לתוכן</a>
+
 <!-- Navigation -->
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
@@ -934,7 +937,7 @@ img { max-width: 100%; display: block; }
       <a href="#methodology"><span class="txt-he">מתודולוגיה</span><span class="txt-en">Methodology</span></a>
       <a href="#about"><span class="txt-he">אודות</span><span class="txt-en">About</span></a>
       <a href="#contact"><span class="txt-he">צור קשר</span><span class="txt-en">Contact</span></a>
-      <button class="lang-toggle" onclick="toggleLang()">EN / עב</button>
+      <button class="lang-toggle" onclick="toggleLang()">EN / עברית</button>
     </div>
     <button class="nav-mobile-btn" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -945,7 +948,7 @@ img { max-width: 100%; display: block; }
 <!-- Hero -->
 <section class="hero" id="hero">
   <div class="hero-bg">
-    <canvas id="heroCanvas"></canvas>
+    <canvas id="heroCanvas" role="presentation" aria-hidden="true"></canvas>
   </div>
   <div class="container">
     <div class="hero-content">
@@ -1208,7 +1211,7 @@ img { max-width: 100%; display: block; }
           <div class="form-row">
             <div class="form-group">
               <label><span class="txt-he">שם מלא</span><span class="txt-en">Full Name</span></label>
-              <input type="text" name="name" required>
+              <input type="text" name="name" required aria-required="true">
             </div>
             <div class="form-group">
               <label><span class="txt-he">חברה</span><span class="txt-en">Company</span></label>
@@ -1218,7 +1221,7 @@ img { max-width: 100%; display: block; }
           <div class="form-row">
             <div class="form-group">
               <label><span class="txt-he">דוא"ל</span><span class="txt-en">Email</span></label>
-              <input type="email" name="email" required>
+              <input type="email" name="email" required aria-required="true">
             </div>
             <div class="form-group">
               <label><span class="txt-he">טלפון</span><span class="txt-en">Phone</span></label>
@@ -1228,17 +1231,17 @@ img { max-width: 100%; display: block; }
           <div class="form-group">
             <label><span class="txt-he">נושא הפנייה</span><span class="txt-en">Subject</span></label>
             <select name="subject">
-              <option value="survey"><span class="txt-he">סקר ביטחון שרשרת אספקה</span> | Supply Chain Security Survey</option>
-              <option value="policy"><span class="txt-he">גיבוש מדיניות ומסמכים</span> | Policy Development</option>
-              <option value="risk"><span class="txt-he">מיפוי וניתוח סיכונים</span> | Risk Analysis</option>
-              <option value="ongoing"><span class="txt-he">ליווי שוטף</span> | Ongoing Support</option>
-              <option value="training"><span class="txt-he">הדרכת מודעות ביטחונית</span> | Security Awareness Training</option>
-              <option value="other"><span class="txt-he">אחר</span> | Other</option>
+              <option value="survey">סקר ביטחון שרשרת אספקה</option>
+              <option value="policy">גיבוש מדיניות ומסמכים</option>
+              <option value="risk">מיפוי וניתוח סיכונים</option>
+              <option value="ongoing">ליווי שוטף</option>
+              <option value="training">הדרכת מודעות ביטחונית</option>
+              <option value="other">אחר</option>
             </select>
           </div>
           <div class="form-group">
             <label><span class="txt-he">הודעה</span><span class="txt-en">Message</span></label>
-            <textarea name="message" rows="4" required></textarea>
+            <textarea name="message" rows="4" required aria-required="true"></textarea>
           </div>
           <button type="submit" class="btn-submit"><span class="txt-he">שלח פנייה</span><span class="txt-en">Send Message</span></button>
         </form>
