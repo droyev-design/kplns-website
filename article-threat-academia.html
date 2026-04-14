@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>תקיפת ספק תוכנה אקדמי — אוניברסיטאות ומכללות נפרצו | KPLNS</title>
+<meta name="description" content="ניתוח מקרה: קבוצה איראנית חדרה לספק תוכנה לניהול מוסדות אקדמיים ופגעה באוניברסיטאות ומכללות ישראליות — 4 חודשי ריגול וגישה למערכות CRM — KPLNS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(251,146,60,0.06));border:1px solid rgba(239,68,68,0.25);border-right:4px solid var(--red);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--red);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.75rem;color:var(--text-muted);line-height:1.7;padding:4px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:5px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 0;font-size:0.8rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:60px}
+.article-footer a{color:var(--cyan);opacity:0.5;margin:0 8px;transition:opacity 0.3s}
+.article-footer a:hover{opacity:1}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+</style>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<article class="article-container">
+  <div class="article-tag">מקרה בוחן — אקדמיה</div>
+  <h1>תקיפת ספק תוכנה אקדמי — אוניברסיטאות ומכללות נפרצו</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; ישראל 2024 &nbsp;·&nbsp; זמן קריאה: 9 דקות</div>
+
+  <div class="article-body">
+
+    <p>מה קורה כשספק תוכנה שמנהל את מערכות ה-CRM של אוניברסיטאות ומכללות בישראל נפרץ? התוקפים קיבלו גישה לא רק לנתוני הספק — אלא לנתוני כל לקוחותיו בבת אחת. וכשאיש לא הבחין, הם שהו שם ארבעה חודשים.</p>
+
+    <p>הסיום לא היה בשקט — אחרי ארבעה חודשים, <strong>שלחו התוקפים מייל מחשבון הספק עצמו</strong> לכל לקוחותיו, ובו הודיעו על השתלטות מלאה על התשתיות. מבחינתם, המשימה הושלמה. מבחינת המוסדות האקדמיים — הייתה זו ההודעה הראשונה שהם קיבלו על הפריצה.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num red">4</div>
+        <div class="stat-label">חודשים ברשת ללא גילוי</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">מוסדות</div>
+        <div class="stat-label">אקדמאיים שנפגעו</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">CRM</div>
+        <div class="stat-label">מערכות סטודנטים שנחשפו</div>
+      </div>
+    </div>
+
+    <h2>שחזור האירוע — ספק תוכנה כנקודת כניסה</h2>
+
+    <p>הקבוצה האיראנית, שנהגה לתקוף מוסדות אקדמיים ישראליים לשם גניבת מחקרים ומידע ביטחוני, זיהתה הזדמנות יעילה יותר: במקום לתקוף כל מוסד בנפרד — <strong>לתקוף את ספק התוכנה שמנהל את כולם</strong>.</p>
+
+    <div class="case-box">
+      <h4>🔴 וקטור הכניסה — פגיעות בממשק הניהול</h4>
+      <p>הכניסה בוצעה דרך ממשק ניהול של מערכת SaaS הספק שהיה חשוף לאינטרנט עם אימות חלש. לאחר השגת גישה ראשונית, נעשה שימוש בהרשאות הניהול של הספק לגישה לסביבות הייצור של לקוחותיו.</p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>🟠 שלב הריגול — גישה למאגרי CRM</h4>
+      <p>תוך שימוש בהרשאות של הספק, הגיעו התוקפים למאגרי ה-CRM של מספר אוניברסיטאות ומכללות. הנתונים שנחשפו: פרטי סטודנטים, עובדים ופרופסורים; מידע על מחקרים ומלגות; קשרים בינלאומיים; ורשימות תורמים.</p>
+    </div>
+
+    <div class="case-box">
+      <h4>🔴 הסיום — מייל מטעם הספק</h4>
+      <p>לאחר ארבעה חודשים, ביצעו התוקפים שלב חשיפה פרובוקטיבי: שלחו מייל מחשבון הדואר הלגיטימי של הספק לכל לקוחותיו, ובו הכריזו על השתלטות מלאה. זו הייתה ההודעה הראשונה שהמוסדות קיבלו על הפריצה — ישירות מהתוקפים.</p>
+    </div>
+
+    <h2>הבעיות המבניות שאפשרו את התקיפה</h2>
+
+    <div class="risk-grid">
+      <div class="risk-card critical">
+        <div class="risk-icon">🔐</div>
+        <div>
+          <h4>הרשאות יתר של הספק לנתוני לקוחות</h4>
+          <p>לספק הייתה גישה מלאה לכל נתוני לקוחותיו — גם לנתונים שאינם נדרשים לתפעול השוטף. עיקרון ה-Least Privilege לא יושם.</p>
+        </div>
+      </div>
+      <div class="risk-card critical">
+        <div class="risk-icon">🔒</div>
+        <div>
+          <h4>אימות חלש לממשק הניהול</h4>
+          <p>ממשק ניהול חשוף לאינטרנט ללא MFA (Multi-Factor Authentication) הוא פגיעות בסיסית. במערכות SaaS המנהלות מידע של מוסדות מרובים — זהו כשל קריטי.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">🚨</div>
+        <div>
+          <h4>חוסר ניטור ודיווח</h4>
+          <p>ארבעה חודשים ללא זיהוי מוכיחים שלא היה ניטור אנומליות בגישה לנתונים. גם כשהתגלה — המוסדות גילו זאת ממייל של התוקפים, לא מהספק.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>לקחים — ניהול ספקי SaaS</h2>
+
+    <div class="highlight-box">
+      <h3>המוסד האקדמי כלקוח — אחריות שאינה ניתנת להאצלה</h3>
+      <p>כשמוסד אקדמי בוחר בספק SaaS לניהול נתוני הסטודנטים שלו, הוא אינו יכול להאציל את אחריות האבטחה לספק. הנתונים הם שלו — וגם האחריות. <strong>חוק הגנת הפרטיות הישראלי וה-GDPR מחייבים את ה-Data Controller (המוסד) לוודא שה-Data Processor (הספק) עומד ברמת אבטחה מספקת.</strong></p>
+    </div>
+
+    <ul class="checklist">
+      <li>דרישת MFA לכל ממשקי ניהול של הספק שיש להם גישה לנתוני המוסד</li>
+      <li>הגבלת גישת הספק לנתונים הנדרשים לתפעול בלבד (Least Privilege)</li>
+      <li>דרישת Audit Log שמתעד כל גישה לנתוני המוסד — ובדיקתו תקופתית</li>
+      <li>הסכם עיבוד נתונים (DPA) עם הספק הכולל SLA לדיווח על אירועי אבטחה</li>
+      <li>ביצוע Penetration Test שנתי על מערכות הספק — או דרישת עדות לכך</li>
+      <li>תוכנית Incident Response שמכסה תרחיש של פריצה לספק</li>
+      <li>גיבויים עצמאיים של נתוני המוסד שאינם תלויים בספק</li>
+    </ul>
+
+    <div class="bottom-line">
+      <h3>השורה התחתונה</h3>
+      <p>ספק SaaS המנהל נתוני לקוחות מרובים הוא "מטרה שמנה" — פריצה אחת מפיקה גישה לנתונים של כל לקוחותיו. <strong>כל מוסד שמסתמך על ספק כזה צריך לבצע Due Diligence אבטחתי ולוודא שהחוזה מחייב דרישות אבטחה בסיסיות</strong> — הגבלת הרשאות, MFA, ניטור ודיווח מהיר על אירועים.</p>
+      <p>ארבעה חודשים של גישה לנתוני סטודנטים, מחקרים ועובדים — וגילוי ממייל של התוקפים עצמם — הם כשל מוחלט שניתן היה למנוע ברמת הספק ורמת הלקוח.</p>
+    </div>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li>דיווחי תקשורת על תקיפות ספקי תוכנה אקדמיים בישראל, 2024</li>
+        <li>CERT-IL, Advisory — Academic Institution Supply Chain Attacks (2024)</li>
+        <li>MITRE ATT&CK — T1195 (Supply Chain Compromise), T1078 (Valid Accounts)</li>
+        <li>GDPR Article 28 — Processor obligations and Data Processing Agreements</li>
+        <li>חוק הגנת הפרטיות (ישראל) ותקנות אבטחת מידע תשע"ז-2017</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="article-cta">
+    <h3>האם ספקי התוכנה שלכם עמדו בהערכת אבטחה?</h3>
+    <p>KPLNS מסייעת למוסדות אקדמיים ולארגונים ציבוריים לבנות מדיניות ניהול ספקים שמגנה על נתוני המוסד.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+<footer class="article-footer">
+  <p>© 2026 KPLNS Encapsulated Solutions. כל הזכויות שמורות.</p>
+  <a href="index.html">ראשי</a>
+  <a href="index.html#insights">תובנות</a>
+  <a href="index.html#contact">צור קשר</a>
+</footer>
+</body>
+</html>

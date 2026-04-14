@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>חדירה לקבלן ביטחוני — 18 חודשי ריגול שלא זוהו | KPLNS</title>
+<meta name="description" content="ניתוח מקרה: תוקפים איראניים חדרו לחברת פיתוח ביטחונית ישראלית ושהו 18 חודשים ללא גילוי, תוך גישה ל-17 קבלני ביטחון — לקחים ופתרונות — KPLNS">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.layer-stack{margin:28px 0;display:flex;flex-direction:column;gap:0}
+.layer-item{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--border);background:var(--bg-card)}
+.layer-item:first-child{border-radius:12px 12px 0 0}
+.layer-item:last-child{border-radius:0 0 12px 12px}
+.layer-item:not(:last-child){border-bottom:none}
+.layer-num{font-size:0.75rem;font-weight:800;font-family:var(--font-en);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.layer-item:nth-child(1) .layer-num{background:var(--red-dim);color:var(--red)}
+.layer-item:nth-child(2) .layer-num{background:var(--orange-dim);color:var(--orange)}
+.layer-item:nth-child(3) .layer-num{background:var(--yellow-dim);color:var(--yellow)}
+.layer-item:nth-child(4) .layer-num{background:var(--cyan-dim);color:var(--cyan)}
+.layer-item:nth-child(5) .layer-num{background:var(--green-dim);color:var(--green)}
+.layer-title{font-size:0.92rem;font-weight:700;color:var(--text-primary)}
+.layer-desc{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(251,146,60,0.06));border:1px solid rgba(239,68,68,0.25);border-right:4px solid var(--red);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--red);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.75rem;color:var(--text-muted);line-height:1.7;padding:4px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:5px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 0;font-size:0.8rem;color:var(--text-muted);border-top:1px solid var(--border);margin-top:60px}
+.article-footer a{color:var(--cyan);opacity:0.5;margin:0 8px;transition:opacity 0.3s}
+.article-footer a:hover{opacity:1}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+</style>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<article class="article-container">
+  <div class="article-tag">מקרה בוחן — תעשייה ביטחונית</div>
+  <h1>חדירה לקבלן ביטחוני — 18 חודשי ריגול שלא זוהו</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; ישראל 2024 &nbsp;·&nbsp; זמן קריאה: 10 דקות</div>
+
+  <div class="article-body">
+
+    <p>מהו הנזק מ-18 חודשים של גישה בלתי-מורשית לרשת קבלן ביטחוני? לפחות 17 ארגוני ביטחון נוספים שנפגעו, שרטוטים מסווגים של מערכות נשק שהודלפו, ומודיעין על פרויקטים בינלאומיים שהגיע לידי גורמים עוינים. זה לא תסריט היפותטי — זה מה שקרה.</p>
+
+    <p>מקרה זה ממחיש את האיום הייחודי של <strong>Persistent Threat Actor</strong> בתעשייה הביטחונית: לא תקיפה חד-פעמית, אלא <strong>שהייה ממושכת ברשת</strong> שמטרתה איסוף מודיעין לאורך זמן — ובמקביל, מיפוי הגישה לשרשרת האספקה הרחבה יותר.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num red">18</div>
+        <div class="stat-label">חודשי שהייה ברשת ללא גילוי</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">17</div>
+        <div class="stat-label">קבלני ביטחון שנפגעו משרשרת</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">מסווג</div>
+        <div class="stat-label">חומרת החומר שהודלף</div>
+      </div>
+    </div>
+
+    <h2>שחזור האירוע — איך 18 חודשים לא זוהו</h2>
+
+    <p>הקבוצה התוקפת — המזוהה עם גורמי ביון איראניים — בחרה בגישה "low and slow": כניסה שקטה, שהייה שקטה, ואיסוף נתונים בהיקף מינימלי שלא יעורר חשד. הם לא ביצעו שיבוש, לא השמידו קבצים, ולא הריצו כלים שעלולים להפעיל התראות — פשוט ישבו ברשת וקראו.</p>
+
+    <div class="case-box">
+      <h4>🔴 וקטור הכניסה — ניצול פגיעות VPN</h4>
+      <p>הכניסה בוצעה דרך פגיעות בגרסה ישנה של שרת VPN שלא עודכנה בזמן. הפגיעות אפשרה ביצוע Remote Code Execution ללא אימות. לאחר הכניסה, הוטמע implant מינימלי שדאג לשמור על נוכחות מתמדת (Persistence).</p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>🟠 שלב הריגול — תנועה רוחבית ומיפוי</h4>
+      <p>לאחר כניסה ראשונית, בוצעה תנועה רוחבית מדוקדקת: מיפוי הרשת, זיהוי שרתי קבצים, ואיתור תיקיות עם מסמכים מסווגים. הגישה לרשתות של קבלני ביטחון אחרים בוצעה דרך חיבורי VPN ו-RDP לגיטימיים שנמצאו במחשבי הקורבן.</p>
+    </div>
+
+    <div class="case-box">
+      <h4>🔴 ההדלפה — שרטוטים ופרויקטים בינלאומיים</h4>
+      <p>לאורך 18 חודשים הודלפו שרטוטים טכניים של מערכות נשק, מסמכי R&D ומידע על פרויקטים בינלאומיים. הנפח הכולל של הנתונים שהועברו החוצה נאמד בעשרות גיגה-בייט. הגילוי התרחש רק כאשר גורם ביון ממדינה ידידותית התריע.</p>
+    </div>
+
+    <h2>למה 18 חודשים לא זוהו</h2>
+
+    <p>הסיבה המרכזית: <strong>אין אפשרות לזהות מה שלא מחפשים</strong>. רוב הארגונים הביטחוניים מוגנים טוב כנגד תקיפות "רועשות" — ransomware, DDoS, phishing. אבל הגנה מפני Persistent Threat Actor בגישת "low and slow" דורשת יכולות שונות לגמרי:</p>
+
+    <div class="risk-grid">
+      <div class="risk-card critical">
+        <div class="risk-icon">🔍</div>
+        <div>
+          <h4>חוסר ב-Threat Hunting</h4>
+          <p>ניטור מבוסס חוקים (rules) לא מספיק כדי לזהות תוקף שיודע להתחמק מהם. Threat Hunting פרואקטיבי — חיפוש אקטיבי אחרי סימני נוכחות — לא היה קיים.</p>
+        </div>
+      </div>
+      <div class="risk-card critical">
+        <div class="risk-icon">📊</div>
+        <div>
+          <h4>חוסר ב-Baseline התנהגותי</h4>
+          <p>ללא הגדרה ברורה של "מה תקין" ברשת, קשה לזהות "מה חריג". העברת עשרות GB של נתונים לאורך חודשים לא עוררה התראה כי לא היה baseline להשוואה.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">🔗</div>
+        <div>
+          <h4>גישת Flowdown לא מספקת</h4>
+          <p>17 קבלנים אחרים נפגעו דרך חיבורים לגיטימיים. כל ארגון שיש לו חיבור רשת לגיטימי לקבלן — ולא ביצע בדיקות תקופתיות — הפך לנקודת כניסה פוטנציאלית.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>פתרונות — הגנה מפני APT בתעשייה הביטחונית</h2>
+
+    <div class="layer-stack">
+      <div class="layer-item">
+        <div class="layer-num">01</div>
+        <div>
+          <div class="layer-title">ניהול תיקון פגיעויות קפדני (Patch Management)</div>
+          <div class="layer-desc">VPN, firewalls, ו-edge devices — עדכון מיידי בתוך 24-48 שעות מפרסום CVE קריטי. אלה הם נקודות הכניסה המועדפות על APT.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">02</div>
+        <div>
+          <div class="layer-title">Network Segmentation וניטור תעבורה</div>
+          <div class="layer-desc">הפרדת רשתות לפי רמת רגישות, ניטור תעבורה בין סגמנטים, ובדיקת DLP (Data Loss Prevention) לזיהוי העברת נפחי נתונים חריגים.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">03</div>
+        <div>
+          <div class="layer-title">Threat Hunting תקופתי</div>
+          <div class="layer-desc">חיפוש פרואקטיבי אחרי IOC (Indicators of Compromise) וTTP ידועים של קבוצות APT — לפחות אחת לרבעון.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">04</div>
+        <div>
+          <div class="layer-title">בדיקות חיבורים חיצוניים (Third-Party Access Review)</div>
+          <div class="layer-desc">סקירה תקופתית של כל VPN, RDP וחיבורי צד-שלישי — מי מחובר, מתי, ומה הוא עושה. ביטול גישות שאינן נדרשות.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">05</div>
+        <div>
+          <div class="layer-title">Zero Trust Architecture</div>
+          <div class="layer-desc">אימות מתמיד של כל גישה — "לעולם אל תסמוך, תמיד אמת". גם מחשב מאומת ברשת הפנימית צריך לאמת מחדש גישה למשאבים קריטיים.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-line">
+      <h3>השורה התחתונה</h3>
+      <p>18 חודשים של ריגול מוכיחים שהגנה ביטחונית אפקטיבית אינה מסתכמת בחסימת כניסה — אלא גם ב<strong>זיהוי מהיר של נוכחות</strong>. MTTD (Mean Time to Detect) של 18 חודשים הוא כישלון מוחלט בהקשר ביטחוני.</p>
+      <p>ארגון ביטחוני שאינו יכול לזהות נוכחות עוינת בתוך שבועות ספורים — <strong>אינו עומד בדרישות הרגולציה הביטחונית ומהווה סיכון לכל שרשרת האספקה שלו</strong>.</p>
+    </div>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li>דיווחי תקשורת על תקיפות APT בתעשייה הביטחונית הישראלית, 2024</li>
+        <li>CERT-IL, Threat Intelligence Reports — Defense Sector APT Activity (2024)</li>
+        <li>MITRE ATT&CK Framework — APT33, APT34 TTPs</li>
+        <li>NIST SP 800-171 Rev. 3 — Protecting CUI in Defense Contractor Systems</li>
+        <li>NSA/CISA Joint Advisory — Iranian Government-Sponsored APT Actors (2023)</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="article-cta">
+    <h3>האם אתם יכולים לזהות חדירה תוך שבועות?</h3>
+    <p>KPLNS מסייעת לקבלנים ביטחוניים לבנות יכולות זיהוי ותגובה שמתאימות לאיומים של APT ממדינות עוינות.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+<footer class="article-footer">
+  <p>© 2026 KPLNS Encapsulated Solutions. כל הזכויות שמורות.</p>
+  <a href="index.html">ראשי</a>
+  <a href="index.html#insights">תובנות</a>
+  <a href="index.html#contact">צור קשר</a>
+</footer>
+</body>
+</html>
