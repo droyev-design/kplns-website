@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>שאלות נפוצות על ביטחון טכנולוגי ושרשרת אספקה | KPLNS</title>
+<meta name="description" content="תשובות מקצועיות לשאלות נפוצות על סקרי ביטחון, רב מגן, ניהול סיכוני שרשרת אספקה, CMMC, ואבטחת חומרה - מומחי KPLNS">
+<meta property="og:title" content="שאלות נפוצות על ביטחון טכנולוגי ושרשרת אספקה | KPLNS">
+<meta property="og:description" content="תשובות מקצועיות לשאלות נפוצות על סקרי ביטחון, רב מגן, ניהול סיכוני שרשרת אספקה, CMMC, ואבטחת חומרה">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kplns.com/faq.html">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="KPLNS Encapsulated Solutions">
+<link rel="canonical" href="https://kplns.com/faq.html">
+<link rel="alternate" hreflang="he" href="https://kplns.com/faq.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827;
+  --bg-secondary: #1a2236;
+  --bg-card: rgba(26, 34, 54, 0.65);
+  --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff;
+  --cyan-dim: rgba(0, 212, 255, 0.15);
+  --text-primary: #e8edf5;
+  --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif;
+  --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg, #00d4ff, #00b8a9);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--font-he); color: var(--text-primary); background: var(--bg-primary); line-height: 1.7; }
+a { text-decoration: none; color: inherit; }
+
+.article-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(17, 24, 39, 0.92); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border); height: 64px;
+  display: flex; align-items: center;
+}
+.article-nav-inner {
+  max-width: 800px; margin: 0 auto; padding: 0 24px; width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.article-nav a {
+  font-size: 0.85rem; color: var(--cyan); font-weight: 600;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: opacity 0.3s;
+}
+.article-nav a:hover { opacity: 0.7; }
+.article-nav .logo-text {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  letter-spacing: 2px; font-family: var(--font-en);
+}
+
+.article-container {
+  max-width: 760px; margin: 0 auto; padding: 100px 24px 80px;
+}
+.article-container h1 {
+  font-size: 2.4rem; font-weight: 800; line-height: 1.3;
+  margin-bottom: 24px; letter-spacing: -0.01em;
+}
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted); margin-bottom: 24px;
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.faq-intro {
+  font-size: 1.02rem; color: var(--text-secondary); line-height: 1.95;
+  margin-bottom: 40px;
+}
+
+.faq-section {
+  margin-bottom: 48px;
+}
+.faq-section-title {
+  font-size: 1.4rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--cyan);
+}
+
+.faq-item {
+  margin-bottom: 16px; border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  background: var(--bg-card); transition: all 0.3s ease;
+}
+.faq-item:hover {
+  border-color: rgba(0, 212, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.1);
+}
+
+.faq-question {
+  width: 100%; padding: 20px 24px; background: transparent;
+  border: none; cursor: pointer; display: flex; align-items: center;
+  justify-content: space-between; font-size: 1.02rem; font-weight: 600;
+  color: var(--text-primary); text-align: right; font-family: var(--font-he);
+  transition: all 0.3s ease;
+}
+.faq-question:hover {
+  color: var(--cyan);
+}
+.faq-question::after {
+  content: ''; display: block; width: 6px; height: 6px;
+  border-right: 2px solid var(--cyan); border-bottom: 2px solid var(--cyan);
+  transform: rotate(-45deg) translateY(-2px); margin-left: 12px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.faq-item.active .faq-question::after {
+  transform: rotate(135deg) translateY(2px);
+}
+
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+  padding: 0 24px;
+}
+.faq-item.active .faq-answer {
+  max-height: 2000px; padding: 0 24px 20px;
+}
+.faq-answer-content {
+  color: var(--text-secondary); font-size: 1rem; line-height: 1.85;
+}
+.faq-answer-content p {
+  margin-bottom: 12px;
+}
+.faq-answer-content p:last-child {
+  margin-bottom: 0;
+}
+.faq-answer-content a {
+  color: var(--cyan); transition: opacity 0.3s;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+}
+.faq-answer-content a:hover {
+  opacity: 0.8;
+}
+
+.article-cta {
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 16px; padding: 48px 40px; margin-top: 56px;
+  text-align: center;
+}
+.article-cta h3 {
+  font-size: 1.3rem; color: var(--text-primary); margin: 0 0 12px;
+}
+.article-cta p {
+  font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px;
+}
+.article-cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 32px; border-radius: 8px; font-size: 0.95rem;
+  font-weight: 600; background: var(--gradient-accent);
+  color: var(--bg-primary); transition: all 0.3s;
+}
+.article-cta-btn:hover {
+  box-shadow: 0 0 30px var(--cyan-dim); transform: translateY(-2px);
+}
+
+.article-footer {
+  text-align: center; padding: 40px 0; font-size: 0.8rem;
+  color: var(--text-muted); border-top: 1px solid var(--border);
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .article-nav-inner { padding: 0 16px; }
+  .article-container { padding: 70px 16px 48px; }
+  .article-container h1 { font-size: 1.5rem; }
+  .breadcrumb { padding: 0 16px; }
+  .faq-question { padding: 16px 20px; font-size: 0.95rem; }
+  .faq-answer { padding: 0 20px; }
+  .faq-item.active .faq-answer { padding: 0 20px 16px; }
+  .faq-section-title { font-size: 1.2rem; }
+}
+
+@media (max-width: 420px) {
+  .article-container { padding: 64px 12px 40px; }
+  .article-container h1 { font-size: 1.3rem; }
+  .article-cta { padding: 32px 20px; }
+  .article-cta h3 { font-size: 1.1rem; }
+  .faq-question { padding: 14px 16px; font-size: 0.9rem; }
+}
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"שאלות נפוצות","item":"https://kplns.com/faq.html"}]}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "מהו ביטחון שרשרת אספקה ולמה הוא חשוב?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ביטחון שרשרת אספקה הוא קבוצת התהליכים, הבקרות והמדיניות המעוצבים להגן על ארגון מפני סיכונים ביטחוניים הנובעים מספקים וקבלני משנה. בעולם המקושר היום, אתם לא יכולים להתגן רק על גבול הארגון שלכם - הספק הקטן שלכם עשוי להיות הדלת האחורית שתוקפים מחפשים. דוגמאות כוללות הפרות בספקים שהובילו לחדירה למערכות של הלקוחות שלהם, כמו בתקיפת SolarWinds ב-2020."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה ההבדל בין אבטחת מידע לביטחון טכנולוגי?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "אבטחת מידע (Information Security / InfoSec) מתמקדת בהגנה על הנתונים עצמם - סיווג, הצפנה, גישה ושיתוף. ביטחון טכנולוגי (Technology Security / TechSec) הוא הרבה יותר רחב והכולל את ההגנה על כל אמצעי היצור של הנתונים: חומרה (hardware), קושחה (firmware), תוכנה, רשתות, ופיזיקה. לדוגמה: אבטחת מידע טורחת לקובץ מוצפן; ביטחון טכנולוגי טורח שהשרת שבו הקובץ מאוחסן לא קיבל רכיב מזויף בשרשרת האספקה שלו."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "למה ספקים קטנים נמצאים בסיכון גבוה יותר?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ספקים קטנים בדרך כלל כן משאבים ביטחוניים פחותים - תקציב קטן יותר, אנשים מעטים, ותוכניות אבטחה פחות מתוחכמות. הם גם בעיתים קטנים מדי כדי להיות מעניינים לתוקפים... אבל כשהם משרתים גדולה, הם הופכים לנקודת כניסה מושלמת. מהיבט תוקף: קל הרבה יותר להיכנס לשרת של הספק הקטן מאשר לשרתי הלקוח הגדול. ולאחר מכן כל מה שצריך הוא חשבון תקף של הספק כדי למדליג למערכת של הלקוח."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "כמה עולה תקיפת שרשרת אספקה?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "לפי דוח IBM ב-2024, ממוצע העלות של הפרה ביטחונית היא כ-$4.88 מיליון דולר בעולם. תקיפות שרשרת אספקה דומות או יותר יקרות, כיוון שהן משפיעות על חברות מרובות בו זמנית, לא רק על הספק עצמו. זה כולל ירידה בהכנסות, עלויות בחדירה, הודעות לאנשים, משפטים ועלויות סיוע. ראו <a href=\"article-supply-chain-cost.html\">מאמר נוסף על עלויות תקיפות שרשרת אספקה</a>."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מהם הסיכונים העיקריים בשרשרת האספקה הביטחונית?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ישנם כמה קטגוריות עיקריות: (1) רכיבים מזויפים - רכיבי חומרה בעלות ביצועים נמוכים או עם גב-דלת מובנה, בדרך כלל מבאזרים שלא מורשים; (2) עדכונים וקושחה זדוניים - ספק מסתירה קוד זדוני בתוכנה או קושחה במכוון; (3) הם של ספק - הספק עצמו מופרץ ותוקף גם לך דרך ממשקי הספק; (4) איומים פנימיים - עובד של הספק עם גישה למידע רגיש או מערכות יצור שמשתף מידע עם תוקפים; (5) שרשור לוגי - תוקפים משנים בחוזה צורך צעדים כדי להציג מידע ספציפי כסמים."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה זה רב מגן?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "רב מגן היא מתודולוגיית ביטחון ישראלית המורכבת מ-44 בקרות אבטחה המאורגנות ל-14 תחומים שונים. זה תקן שנדרש על ידי המפקד האזרחי של משרד ההגנה לספקים בתעשייה הביטחונית בישראל. רב מגן כוללת דרישות כמו מינוי ממונה אבטחת מידע, עריכת סקרי ביטחון, ניהול גישה ופתרונות סייבר. ראו <a href=\"article-rav-magen.html\">מאמר מלא על רב מגן</a>."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "כמה זמן לוקח סקר רב מגן?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "תהליך בדיקה או הכנה לרב מגן בדרך כלל לוקח בין 2-4 שבועות, תלוי בגודל הארגון, רמת הבשלות הביטחונית הנוכחית, וההיקף של הדרישות. ארגון קטן עם בסיס טוב עשוי להצליח תוך שבועיים; ארגון גדול עם הרבה תעשיות מרובות או ספקים משניים עשוי לחייב חודש או יותר. בנוסף, עלויות הגמר וההכנה מעבר לדוח עצמו עשוי להוסיף זמן נוסף."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה ההבדל בין רב מגן ל-ISO 27001?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "רב מגן הוא תקן ישראלי-ספציפי שנדרש על ידי משרד ההגנה לספקים בתעשייה הביטחונית בישראל. ISO 27001 הוא תקן בינלאומי לניהול אבטחת מידע שנדרש ברחבי העולם על ידי מגזרים שונים. רב מגן בדרך כלל קשוח יותר וחוק יותר על ביטחון טכנולוגי ופיזי; ISO 27001 יותר כללי וגמישה בהתאמה. אם אתה עובד עם משרד ההגנה בישראל - רב מגן. אם אתה עובד בינלאומית - ISO 27001. בדרך כלל אתה יכול לעמוד בשניהם כי יש חפיפה ניכרת."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה כולל סקר ביטחון 360°?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "סקר ביטחון 360 מעלה הערכה מקיפה של הספק שלך מכל הזוויות: (1) סקר סיכון מקדים קצר על מדיניות, תהליכים ותחומים מסוגים; (2) סקר פיזי - בדיקה של הקום השטח, האחסון, גישה וביטחון פיזי; (3) סקר טכני - בדיקה של תשתיות IT, רשתות, הגנה סייבר; (4) סקר משדרות - שיחות עם עובדים רלוונטיים כדי להבין תהליכים ודרישות; (5) דוח ממצאים - מסמך מפורט עם ממצאים, סיווג סיכוני ותוכנית עבודה. ראו <a href=\"service-survey-360.html\">שירות סקר ביטחון 360°</a>."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "כמה פעמים צריך לבצע סקר ביטחון?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "התשובה המנצחת היא: זה תלוי בסיכון. עם זאת, הנוהג הטוב ביותר הוא לבצע סקר ביטחון לפחות פעם בשנה. אם הספק עשה שינויים משמעותיים (תוך גדול, שינוי פרדיגמה, תהליך חדש), עברו סקר מקום בביניים. אם היו תקיפה או הפרה ביטחונית, בצע סקר דחוף לאחר שפתרת את הסיכון. בתעשייה הביטחונית, סקר שנתי הוא כללי; בתעשיות רגישות יותר, כמו בנקאות או בריאות, קד יותר תדוף."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה זה CMMC ומה הקשר לישראל?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CMMC (Cybersecurity Maturity Model Certification) הוא תקן יישום ביטחוני שחייב את קבלני משנה של משרד ההגנה של ארה\"ב. אם אתה ספק ישראלי שמוכר לחיל האוויר של ארה\"ב או עובד דרך תוכניות FMS (Foreign Military Sales), אתה יכול להזדקק ל-CMMC. בנוסף, אם אתה חלק משרשרת אספקה שמשרתת קבלן משנה של ה-DoD שיש בו דרישות CMMC, אתה עשוי להיות מושפע גם אתה. ראו <a href=\"article-cmmc.html\">מאמר מלא על CMMC</a>."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה ההבדל בין CMMC Level 1 ל-Level 2?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CMMC Level 1 כולל 17 בקרות בסיסיות בתחומים כמו בקרת גישה, הצפנה, וניהול תיקייה. זה יותר \"בסיסי\" וכולל מדיניות וביצוע בסיסי. CMMC Level 2 כולל 110 בקרות מיושמות ודוקומנטציה יותר מתוחכמת, תוך התאמה ישירה לתקן NIST 800-171. Level 2 דורש אימות על ידי מוקד הערכה מוסמך (C3PAO). ברוב המקרים, ספקי ה-DoD צריכים לפחות Level 2; Level 1 נחות בהרבה מקרים."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "האם ספק ישראלי צריך CMMC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "זה תלוי באם אתה מוכר ישירות ל-DoD של ארה\"ב או עובד כמו-קבלן משנה בחוזה DoD. אם כן - סביר להניח שתצטרך CMMC, לפחות Level 2. אם אתה עובד דרך תוכנית FMS (מכירה צבאית זרה) שמצביעה על צוות משנה שלך עם דרישות CMMC, תצטרך גם. אם אתה עובד רק עם משרד ההגנה הישראלי ובתעשיות אחרות, אתה לא חייב CMMC - אתה צריך רב מגן ותקנים ישראליים אחרים."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה הקשר בין NIST 800-171 ל-CMMC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NIST SP 800-171 (Protecting Controlled Unclassified Information in Non-Federal Information Systems) הוא תקן יישום ביטחוני פדרלי אמריקאי. CMMC Level 2 ממפה ישירות את 110 בקרות שלו לדרישות NIST 800-171 Rev 2. בעצם, CMMC Level 2 הוא דרך מוסדית של משרד ההגנה לווידוא שאתה עומד בדרישות NIST 800-171. זה אומר שאם אתה מתכוננים לCMC Level 2, אתה יכול להשוות את עצמך לעבודה מול NIST 800-171 ישירות."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "כמה עולה הכנה ל-CMMC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "העלות משתנה מאוד. סקר פער (gap assessment) לזהות את הפערים שלך בדרך כלל עולה בין $10K ל-$50K תלוי בגודל. הכנה מעשית (gap remediation) - בנית בקרות, שינוי תהליכים - יכול לעלות $50K ל-$300K+ תלוי בהיקף הצורך. הכנה לשחזור על ידי C3PAO (סמכות הערכה מוסמכת) בדרך כלל $50K ל-$120K וקט עם הערכה עצמית. כלל אצבע: עבור ספק קטן בעלי בשלות בינונית, חשב בין $100K ל-$200K לעלות הכוללת."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "איך מזהים רכיבי חומרה מזויפים?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "יש מספר דרכים: (1) בדיקה ויזואלית - חיפוש אחרי סימני התהפכות, סימנים מכוונים, סימנים שלא כמו אחרים; (2) בדיקת X-Ray - שימוש בדימוי X-ray כדי לחפש הבדלים בסימטריה או חיבורים פנימיים; (3) בדיקה חשמלית - בדיקה של התפוקה החשמלית כדי להבין אם הרכיב מתנהג כמו צפוי; (4) מסלול אספקה - רכישה ממקורות מורשים, משמירת תסמונת וחתימה של כל רמה בתרשים. ראו <a href=\"article-hardware-trust.html\">מאמר מלא על הבחנה בחומרה מזויפה</a>."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה זה הטמנת חומרה (hardware implant)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "hardware implant הוא שינוי זדוני או תוספת סמוי שמבוצע לרכיב חומרה או רכיב תוך הייצור או במהלך אחסון/הובלה. לדוגמה: (1) טיפ מוסתר מובנה בשבב זיכרון שמאפשר קריאת נתונים; (2) מסלול חשמלי שנוסף בלוח אם שמשדר מידע שנאסף למשדר; (3) קוד זדוני בקושחה של מכשיר רשת שמאפשר גישה כעת. hardware implants קשים לזיהוי כי הם יכולים להיות מקרוסקופיים או אפילו מוסתרים בתוך הרכיבים עצמם. ראו <a href=\"article-hardware-implants.html\">מאמר מלא על hardware implants</a>."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "למה מחיקה רגילה לא מספיקה?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "כשאתה מחק קובץ, מערכת ההפעלה רק מסמנת את המרחק כ\"ריק\" בטבלת הקבצים - הנתונים עצמם נשארים בתוך קוד ה-Flash או דיסק הקשה בדרך כלל עשר עד מאה פעמים עד שהם בפעם הבאה כתובים. בנוסף, שכבות 'wear leveling' (עלייה מצטברת במערכות SSD) מפיצות כתיבות על פני הדיסק כדי להארך את חייו, מה שאומר שנתונים ישנים עשויים להישמר בדוגמות שונות ברחבי הנכס. חוקר עם הרכבים מיוחדים יכול לחלץ נתונים אלה בעדיפות גבוהה. ראו <a href=\"article-secure-erasure.html\">מאמר מלא על מחיקה מאובטחת</a>."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה התקנים למחיקה מאובטחת?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ישנם מספר תקנים המוגדרים: (1) NIST SP 800-88 (Guidelines for Media Sanitization) - משפחה של מחיקה לוגית וגופנית; (2) DoD 5220.22-M (שיטה אמריקאית לשימור אבטחה) - מוצא כעת אך עדיין יוקרתי, דורש 3-7 כתבות עלייה על כל הנתונים; (3) Secure Erase (ATA/NVMe) - פקודה יעילה שמנקה כל אמצעי הגנה של SSD. בתעשיות מאובטחות, הדרישה הטיפוסית היא סטנדרטיזציה מה-NIST או יותר טובה. למידע רגיש במיוחד, הרסה גופנית (כגון שריפה או ניפוץ) היא בדרך כלל הדרך הבטוחה ביותר."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "איך מגנים על קושחה (firmware)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "יש מספר שכבות הגנה: (1) Secure Boot - הדאק בדיקה של חתימת דיגיטלית של קוד מוקדי לפני ביצוע, הבטחה שקוד זדוני לא טורח לפעול; (2) Firmware Signing - חתימה דיגיטלית של תוכנת הקושחה על ידי היצרן, אם הקוד נערך לאחר חתימה, הדאק יכול לזהות זאת; (3) Supply Chain Verification - שימור של מסלול המשלוח עם חתימה בכל שלב כדי להבטיח שהקושחה בא מהיצרן בפועל; (4) Encrypted Firmware Updates - הצפנה של עדכוני קושחה בזמן שידור כדי למנוע יירוט. אלה צעדים שהיצרן או הספק צריך ליישם, לא דבר שהלקוח עושה בדרך כלל."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  שאלות נפוצות
+</nav>
+
+<div class="article-container">
+  <h1>שאלות נפוצות</h1>
+  <p class="faq-intro">כל שאלה שאי פעם התעוררה לדבר עם מומחים בביטחון טכנולוגי ושרשרת אספקה. בחר קטגוריה או לחץ על שאלה כדי לראות את התשובה המקצועית שלנו.</p>
+
+  <!-- Section 1: General -->
+  <div class="faq-section">
+    <h2 class="faq-section-title">כללי - ביטחון טכנולוגי ושרשרת אספקה</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">מהו ביטחון שרשרת אספקה ולמה הוא חשוב?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>ביטחון שרשרת אספקה הוא קבוצת התהליכים, הבקרות והמדיניות המעוצבים להגן על ארגון מפני סיכונים ביטחוניים הנובעים מספקים וקבלני משנה. בעולם המקושר היום, אתם לא יכולים להתגן רק על גבול הארגון שלכם - הספק הקטן שלכם עשוי להיות הדלת האחורית שתוקפים מחפשים. דוגמאות כוללות הפרות בספקים שהובילו לחדירה למערכות של הלקוחות שלהם, כמו בתקיפת SolarWinds ב-2020.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">מה ההבדל בין אבטחת מידע לביטחון טכנולוגי?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>אבטחת מידע (Information Security / InfoSec) מתמקדת בהגנה על הנתונים עצמים - סיווג, הצפנה, גישה ושיתוף. ביטחון טכנולוגי (Technology Security / TechSec) הוא הרבה יותר רחב והכולל את ההגנה על כל אמצעי היצור של הנתונים: חומרה (hardware), קושחה (firmware), תוכנה, רשתות, ופיזיקה. לדוגמה: אבטחת מידע טורחת לקובץ מוצפן; ביטחון טכנולוגי טורח שהשרת שבו הקובץ מאוחסן לא קיבל רכיב מזויף בשרשרת האספקה שלו.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">למה ספקים קטנים נמצאים בסיכון גבוה יותר?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>ספקים קטנים בדרך כלל יש משאבים ביטחוניים פחותים - תקציב קטן יותר, אנשים מעטים, ותוכניות אבטחה פחות מתוחכמות. הם גם בעיתים קטנים מדי כדי להיות מעניינים לתוקפים... אבל כשהם משרתים גדולה, הם הופכים לנקודת כניסה מושלמת. מהיבט תוקף: קל הרבה יותר להיכנס לשרת של הספק הקטן מאשר לשרתי הלקוח הגדול. ולאחר מכן כל מה שצריך הוא חשבון תקף של הספק כדי למדליג למערכת של הלקוח.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">כמה עולה תקיפת שרשרת אספקה?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>לפי דוח IBM ב-2024, ממוצע העלות של הפרה ביטחונית היא כ-$4.88 מיליון דולר בעולם. תקיפות שרשרת אספקה דומות או יותר יקרות, כיוון שהן משפיעות על חברות מרובות בו זמנית, לא רק על הספק עצמו. זה כולל ירידה בהכנסות, עלויות בחדירה, הודעות לאנשים, משפטים ועלויות סיוע. <a href="article-supply-chain-cost.html">ראו מאמר נוסף על עלויות תקיפות שרשרת אספקה</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">מהם הסיכונים העיקריים בשרשרת האספקה הביטחונית?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>ישנם כמה קטגוריות עיקריות: (1) רכיבים מזויפים - רכיבי חומרה בעלות ביצועים נמוכים או עם גב-דלת מובנה, בדרך כלל מבאזרים שלא מורשים; (2) עדכונים וקושחה זדוניים - ספק מסתירה קוד זדוני בתוכנה או קושחה במכוון; (3) הם של ספק - הספק עצמו מופרץ ותוקף גם לך דרך ממשקי הספק; (4) איומים פנימיים - עובד של הספק עם גישה למידע רגיש או מערכות יצור שמשתף מידע עם תוקפים; (5) שרשור לוגי - תוקפים משנים בחוזה צורך צעדים כדי להציג מידע ספציפי כסמים.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Rav Magen & Surveys -->
+  <div class="faq-section">
+    <h2 class="faq-section-title">רב מגן וסקרי ביטחון</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">מה זה רב מגן?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>רב מגן היא מתודולוגיית ביטחון ישראלית המורכבת מ-44 בקרות אבטחה המאורגנות ל-14 תחומים שונים. זה תקן שנדרש על ידי המפקד האזרחי של משרד ההגנה לספקים בתעשייה הביטחונית בישראל. רב מגן כוללת דרישות כמו מינוי ממונה אבטחת מידע, עריכת סקרי ביטחון, ניהול גישה ופתרונות סייבר. <a href="article-rav-magen.html">ראו מאמר מלא על רב מגן</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">כמה זמן לוקח סקר רב מגן?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>תהליך בדיקה או הכנה לרב מגן בדרך כלל לוקח בין 2-4 שבועות, תלוי בגודל הארגון, רמת הבשלות הביטחונית הנוכחית, וההיקף של הדרישות. ארגון קטן עם בסיס טוב עשוי להצליח תוך שבועיים; ארגון גדול עם הרבה תעשיות מרובות או ספקים משניים עשוי לחייב חודש או יותר. בנוסף, עלויות הגמר וההכנה מעבר לדוח עצמו עשוי להוסיף זמן נוסף.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">מה ההבדל בין רב מגן ל-ISO 27001?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>רב מגן הוא תקן ישראלי-ספציפי שנדרש על ידי משרד ההגנה לספקים בתעשייה הביטחונית בישראל. ISO 27001 הוא תקן בינלאומי לניהול אבטחת מידע שנדרש ברחבי העולם על ידי מגזרים שונים. רב מגן בדרך כלל קשוח יותר וחוק יותר על ביטחון טכנולוגי ופיזי; ISO 27001 יותר כללי וגמישה בהתאמה. אם אתה עובד עם משרד ההגנה בישראל - רב מגן. אם אתה עובד בינלאומית - ISO 27001. בדרך כלל אתה יכול לעמוד בשניהם כי יש חפיפה ניכרת.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">מה כולל סקר ביטחון 360°?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>סקר ביטחון 360 מעלה הערכה מקיפה של הספק שלך מכל הזוויות: (1) סקר סיכון מקדים קצר על מדיניות, תהליכים ותחומים מסוגים; (2) סקר פיזי - בדיקה של הקום השטח, האחסון, גישה וביטחון פיזי; (3) סקר טכני - בדיקה של תשתיות IT, רשתות, הגנה סייבר; (4) סקר משדרות - שיחות עם עובדים רלוונטיים כדי להבין תהליכים ודרישות; (5) דוח ממצאים - מסמך מפורט עם ממצאים, סיווג סיכוני ותוכנית עבודה. <a href="service-survey-360.html">ראו שירות סקר ביטחון 360°</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">כמה פעמים צריך לבצע סקר ביטחון?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>התשובה המנצחת היא: זה תלוי בסיכון. עם זאת, הנוהג הטוב ביותר הוא לבצע סקר ביטחון לפחות פעם בשנה. אם הספק עשה שינויים משמעותיים (תוך גדול, שינוי פרדיגמה, תהליך חדש), עברו סקר מקום בביניים. אם היו תקיפה או הפרה ביטחונית, בצע סקר דחוף לאחר שפתרת את הסיכון. בתעשייה הביטחונית, סקר שנתי הוא כללי; בתעשיות רגישות יותר, כמו בנקאות או בריאות, קד יותר תדוף.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: CMMC & Standards -->
+  <div class="faq-section">
+    <h2 class="faq-section-title">CMMC ותקנים בינלאומיים</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">מה זה CMMC ומה הקשר לישראל?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>CMMC (Cybersecurity Maturity Model Certification) הוא תקן יישום ביטחוני שחייב את קבלני משנה של משרד ההגנה של ארה"ב. אם אתה ספק ישראלי שמוכר לחיל האוויר של ארה"ב או עובד דרך תוכניות FMS (Foreign Military Sales), אתה יכול להזדקק ל-CMMC. בנוסף, אם אתה חלק משרשרת אספקה שמשרתת קבלן משנה של ה-DoD שיש בו דרישות CMMC, אתה עשוי להיות מושפע גם אתה. <a href="article-cmmc.html">ראו מאמר מלא על CMMC</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">מה ההבדל בין CMMC Level 1 ל-Level 2?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>CMMC Level 1 כולל 17 בקרות בסיסיות בתחומים כמו בקרת גישה, הצפנה, וניהול תיקייה. זה יותר "בסיסי" וכולל מדיניות וביצוע בסיסי. CMMC Level 2 כולל 110 בקרות מיושמות ודוקומנטציה יותר מתוחכמת, תוך התאמה ישירה לתקן NIST 800-171. Level 2 דורש אימות על ידי מוקד הערכה מוסמך (C3PAO). ברוב המקרים, ספקי ה-DoD צריכים לפחות Level 2; Level 1 נחות בהרבה מקרים.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">האם ספק ישראלי צריך CMMC?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>זה תלוי באם אתה מוכר ישירות ל-DoD של ארה"ב או עובד כמו-קבלן משנה בחוזה DoD. אם כן - סביר להניח שתצטרך CMMC, לפחות Level 2. אם אתה עובד דרך תוכנית FMS (מכירה צבאית זרה) שמצביעה על צוות משנה שלך עם דרישות CMMC, תצטרך גם. אם אתה עובד רק עם משרד ההגנה הישראלי ובתעשיות אחרות, אתה לא חייב CMMC - אתה צריך רב מגן ותקנים ישראליים אחרים.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">מה הקשר בין NIST 800-171 ל-CMMC?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>NIST SP 800-171 (Protecting Controlled Unclassified Information in Non-Federal Information Systems) הוא תקן יישום ביטחוני פדרלי אמריקאי. CMMC Level 2 ממפה ישירות את 110 בקרות שלו לדרישות NIST 800-171 Rev 2. בעצם, CMMC Level 2 הוא דרך מוסדית של משרד ההגנה לווידוא שאתה עומד בדרישות NIST 800-171. זה אומר שאם אתה מתכוננים לCMC Level 2, אתה יכול להשוות את עצמך לעבודה מול NIST 800-171 ישירות.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">כמה עולה הכנה ל-CMMC?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>העלות משתנה מאוד. סקר פער (gap assessment) לזהות את הפערים שלך בדרך כלל עולה בין $10K ל-$50K תלוי בגודל. הכנה מעשית (gap remediation) - בנית בקרות, שינוי תהליכים - יכול לעלות $50K ל-$300K+ תלוי בהיקף הצורך. הכנה לשחזור על ידי C3PAO (סמכות הערכה מוסמכת) בדרך כלל $50K ל-$120K וקט עם הערכה עצמית. כלל אצבע: עבור ספק קטן בעלי בשלות בינונית, חשב בין $100K ל-$200K לעלות הכוללת.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: Hardware Security -->
+  <div class="faq-section">
+    <h2 class="faq-section-title">אבטחת חומרה ומחיקה מאובטחת</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">איך מזהים רכיבי חומרה מזויפים?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>יש מספר דרכים: (1) בדיקה ויזואלית - חיפוש אחרי סימני התהפכות, סימנים מכוונים, סימנים שלא כמו אחרים; (2) בדיקת X-Ray - שימוש בדימוי X-ray כדי לחפש הבדלים בסימטריה או חיבורים פנימיים; (3) בדיקה חשמלית - בדיקה של התפוקה החשמלית כדי להבין אם הרכיב מתנהג כמו צפוי; (4) מסלול אספקה - רכישה ממקורות מורשים, משמירת תסמונת וחתימה של כל רמה בתרשים. <a href="article-hardware-trust.html">ראו מאמר מלא על הבחנה בחומרה מזויפה</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">מה זה הטמנת חומרה (hardware implant)?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>hardware implant הוא שינוי זדוני או תוספת סמוי שמבוצע לרכיב חומרה או רכיב תוך הייצור או במהלך אחסון/הובלה. לדוגמה: (1) טיפ מוסתר מובנה בשבב זיכרון שמאפשר קריאת נתונים; (2) מסלול חשמלי שנוסף בלוח אם שמשדר מידע שנאסף למשדר; (3) קוד זדוני בקושחה של מכשיר רשת שמאפשר גישה כעת. hardware implants קשים לזיהוי כי הם יכולים להיות מקרוסקופיים או אפילו מוסתרים בתוך הרכיבים עצמם. <a href="article-hardware-implants.html">ראו מאמר מלא על hardware implants</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">למה מחיקה רגילה לא מספיקה?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>כשאתה מחק קובץ, מערכת ההפעלה רק מסמנת את המרחק כ"ריק" בטבלת הקבצים - הנתונים עצמם נשארים בתוך קוד ה-Flash או דיסק הקשה בדרך כלל עשר עד מאה פעמים עד שהם בפעם הבאה כתובים. בנוסף, שכבות 'wear leveling' (עלייה מצטברת במערכות SSD) מפיצות כתיבות על פני הדיסק כדי להארך את חייו, מה שאומר שנתונים ישנים עשויים להישמר בדוגמות שונות ברחבי הנכס. חוקר עם הרכבים מיוחדים יכול לחלץ נתונים אלה בעדיפות גבוהה. <a href="article-secure-erasure.html">ראו מאמר מלא על מחיקה מאובטחת</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">מה התקנים למחיקה מאובטחת?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>ישנם מספר תקנים המוגדרים: (1) NIST SP 800-88 (Guidelines for Media Sanitization) - משפחה של מחיקה לוגית וגופנית; (2) DoD 5220.22-M (שיטה אמריקאית לשימור אבטחה) - מוצא כעת אך עדיין יוקרתי, דורש 3-7 כתבות עלייה על כל הנתונים; (3) Secure Erase (ATA/NVMe) - פקודה יעילה שמנקה כל אמצעי הגנה של SSD. בתעשיות מאובטחות, הדרישה הטיפוסית היא סטנדרטיזציה מה-NIST או יותר טובה. למידע רגיש במיוחד, הרסה גופנית (כגון שריפה או ניפוץ) היא בדרך כלל הדרך הבטוחה ביותר.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">איך מגנים על קושחה (firmware)?</button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">
+          <p>יש מספר שכבות הגנה: (1) Secure Boot - הדאק בדיקה של חתימה דיגיטלית של קוד מוקדי לפני ביצוע, הבטחה שקוד זדוני לא טורח לפעול; (2) Firmware Signing - חתימה דיגיטלית של תוכנת הקושחה על ידי היצרן, אם הקוד נערך לאחר חתימה, הדאק יכול לזהות זאת; (3) Supply Chain Verification - שימור של מסלול המשלוח עם חתימה בכל שלב כדי להבטיח שהקושחה בא מהיצרן בפועל; (4) Encrypted Firmware Updates - הצפנה של עדכוני קושחה בזמן שידור כדי למנוע יירוט. אלה צעדים שהיצרן או הספק צריך ליישם, לא דבר שהלקוח עושה בדרך כלל.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="article-cta">
+    <h3>עדיין יש שאלות?</h3>
+    <p>אם לא מצאת את התשובה שחיפשת, הצוות המומחה שלנו בחדו"א בן"א יענה לכל שאלה - בין אם היא על סקרי ביטחון, ניהול סיכונים או דרישות ציות.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div style="margin-bottom:10px;">
+    <a href="privacy.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">מדיניות פרטיות</a>
+    <a href="accessibility.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">הצהרת נגישות</a>
+    <a href="disclaimer.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">תנאי שימוש</a>
+  </div>
+  &copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a>
+</div>
+
+<script>
+// Accordion functionality
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', function() {
+    const faqItem = this.closest('.faq-item');
+    const isActive = faqItem.classList.contains('active');
+
+    // Close all other items
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.classList.remove('active');
+    });
+
+    // Toggle current item
+    if (!isActive) {
+      faqItem.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
