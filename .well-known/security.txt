@@ -1,5 +1,4 @@
 Contact: mailto:security@kplns.com
-Contact: mailto:noreply@kplns.com
 Expires: 2027-04-16T00:00:00.000Z
 Preferred-Languages: he, en
 Canonical: https://kplns.com/.well-known/security.txt
