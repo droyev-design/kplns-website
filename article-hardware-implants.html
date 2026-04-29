@@ -436,6 +436,16 @@ a { text-decoration: none; color: inherit; }
 }
 @media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
 
+
+.article-related { margin: 56px 0 0; }
+.article-related h3 { font-size: 1.2rem; color: var(--text-primary); margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.related-card { display: flex; flex-direction: column; padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; transition: all 0.25s ease; }
+.related-card:hover { border-color: rgba(0, 212, 255, 0.3); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0, 212, 255, 0.08); }
+.related-tag { font-size: 0.7rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 6px; font-weight: 700; }
+.related-title { font-size: 0.92rem; color: var(--text-primary); font-weight: 600; line-height: 1.5; }
+@media (max-width: 640px) { .related-grid { grid-template-columns: 1fr; } }
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"הטמנות בחומרה, קושחה ותשתיות - מקרי עולם אמיתיים"}]}
@@ -824,7 +834,18 @@ a { text-decoration: none; color: inherit; }
   </div><!-- /article-body -->
 
   <!-- CTA -->
-  <div class="article-cta">
+  
+    <section class="article-related">
+      <h3>מאמרים ושירותים קשורים</h3>
+      <div class="related-grid">
+      <a href="article-hardware-trust.html" class="related-card"><span class="related-tag">מאמר</span><span class="related-title">אמון בחומרה - איך לדעת שהרכיב אותנטי</span></a>
+      <a href="article-secure-erasure.html" class="related-card"><span class="related-tag">מאמר</span><span class="related-title">מחיקה מאובטחת - מה באמת נמחק?</span></a>
+      <a href="article-shipment-immunization.html" class="related-card"><span class="related-tag">מאמר</span><span class="related-title">חיסון משלוחים מפני שיבוש</span></a>
+      <a href="service-survey-360.html" class="related-card"><span class="related-tag">שירות</span><span class="related-title">סקר ביטחון 360°</span></a>
+      </div>
+    </section>
+
+    <div class="article-cta">
     <h3>צריכים לבנות הגנה על שרשרת האספקה?</h3>
     <p>KPLNS מלווה ארגונים ביטחוניים ותעשייתיים בבניית מסגרות אבטחת שרשרת אספקה - מניהול ספקים ועד תהליכי זיכוי.</p>
     <a href="index.html#contact" class="article-cta-btn">

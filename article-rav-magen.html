@@ -247,6 +247,43 @@ a { text-decoration: none; color: inherit; }
   .article-container { padding: 64px 12px 40px; }
   .article-container h1 { font-size: 1.3rem; }
 }
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.related-articles {
+  max-width: 760px; margin: 0 auto; padding: 48px 24px 0;
+}
+.related-articles h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.related-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.related-card:hover {
+  border-color: rgba(0,212,255,0.2); background: rgba(26, 34, 54, 0.85);
+  transform: translateX(-4px);
+}
+.related-card .r-tag {
+  font-size: 0.7rem; font-weight: 600; color: var(--cyan);
+  background: var(--cyan-dim); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap;
+}
+.related-card .r-title {
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+}
+@media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
 </style>
 </head>
 <body>
@@ -388,6 +425,16 @@ a { text-decoration: none; color: inherit; }
         <div style="color:var(--cyan);font-size:0.78rem;margin-bottom:6px;">רגולציה</div>
         <h3 style="font-size:1.05rem;margin-bottom:8px;color:var(--text-primary);">CMMC — המקבילה האמריקאית</h3>
         <p style="font-size:0.88rem;color:var(--text-secondary);">איך CMMC משתלבת עם רב מגן ו-NIST 800-171.</p>
+      </a>
+      <a href="service-rav-magen.html" style="background:var(--bg-card);border:1px solid rgba(0,212,255,0.25);padding:18px;border-radius:12px;display:block;color:inherit;transition:transform .3s;">
+        <div style="color:var(--cyan);font-size:0.78rem;margin-bottom:6px;">שירות KPLNS</div>
+        <h3 style="font-size:1.05rem;margin-bottom:8px;color:var(--text-primary);">סקר רב מגן עם KPLNS</h3>
+        <p style="font-size:0.88rem;color:var(--text-secondary);">סקר מלא של 44 בקרות, ציון חוסן ארגוני ותוכנית עבודה.</p>
+      </a>
+      <a href="service-survey-360.html" style="background:var(--bg-card);border:1px solid rgba(0,212,255,0.25);padding:18px;border-radius:12px;display:block;color:inherit;transition:transform .3s;">
+        <div style="color:var(--cyan);font-size:0.78rem;margin-bottom:6px;">שירות KPLNS</div>
+        <h3 style="font-size:1.05rem;margin-bottom:8px;color:var(--text-primary);">סקר ביטחון 360° לספקים</h3>
+        <p style="font-size:0.88rem;color:var(--text-secondary);">סריקה מקיפה של ספקים — מסקר ראשוני ועד תוכנית עבודה.</p>
       </a>
     </div>
 
