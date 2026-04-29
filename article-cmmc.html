@@ -390,16 +390,6 @@ a { text-decoration: none; color: inherit; }
 }
 @media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
 
-
-.article-related { margin: 56px 0 0; }
-.article-related h3 { font-size: 1.2rem; color: var(--text-primary); margin: 0 0 18px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
-.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.related-card { display: flex; flex-direction: column; padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; transition: all 0.25s ease; }
-.related-card:hover { border-color: rgba(0, 212, 255, 0.3); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0, 212, 255, 0.08); }
-.related-tag { font-size: 0.7rem; color: var(--cyan); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 6px; font-weight: 700; }
-.related-title { font-size: 0.92rem; color: var(--text-primary); font-weight: 600; line-height: 1.5; }
-@media (max-width: 640px) { .related-grid { grid-template-columns: 1fr; } }
-
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"CMMC Level 2 - התקן האמריקאי שעומד מאחורי רב מגן"}]}
@@ -735,18 +725,7 @@ a { text-decoration: none; color: inherit; }
     </ol>
   </div>
 
-  
-    <section class="article-related">
-      <h3>מאמרים ושירותים קשורים</h3>
-      <div class="related-grid">
-      <a href="article-rav-magen.html" class="related-card"><span class="related-tag">מאמר</span><span class="related-title">מה זה רב מגן ולמה הרגולטור דורש את זה?</span></a>
-      <a href="service-rav-magen.html" class="related-card"><span class="related-tag">שירות</span><span class="related-title">סקר רב מגן - 44 בקרות</span></a>
-      <a href="article-supplier-signs.html" class="related-card"><span class="related-tag">מאמר</span><span class="related-title">5 סימנים שהספק שלכם חשוף לתקיפה</span></a>
-      <a href="service-survey-360.html" class="related-card"><span class="related-tag">שירות</span><span class="related-title">סקר ביטחון 360°</span></a>
-      </div>
-    </section>
-
-    <div class="article-cta">
+  <div class="article-cta">
     <h3>עומדים ב-44 הבקרות? בואו נבדוק את הפער לתקן המלא</h3>
     <p>KPLNS מבצע סקר 44 בקרות רב מגן וגם Gap Analysis מותאם כלפי CMMC Level 2 - כדי שתדעו בדיוק איפה אתם עומדים היום ומה נדרש מחר</p>
     <a class="article-cta-btn" href="index.html#contact">
