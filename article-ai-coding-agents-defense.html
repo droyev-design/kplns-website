@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>Cursor, Copilot ו-Claude Code בתעשייה הביטחונית - וקטורי תקיפה חדשים | KPLNS</title>
+<meta name="description" content="ניתוח סיכוני שרשרת אספקת תוכנה של סוכני AI בארגון ביטחוני: prompt injection, MCP poisoning, slopsquatting. ממצאי מחקר מ-USENIX 2025 ו-arXiv 2026, CVEs רלוונטיים ומסגרת אכיפה מעשית">
+<meta property="og:title" content="Cursor, Copilot ו-Claude Code בתעשייה הביטחונית - וקטורי תקיפה חדשים | KPLNS">
+<meta property="og:description" content="ניתוח סיכוני שרשרת אספקת תוכנה של סוכני AI בארגון ביטחוני: prompt injection, MCP poisoning, slopsquatting. ממצאי מחקר מ-USENIX 2025 ו-arXiv 2026">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/article-ai-coding-agents-defense.html">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="סוכני AI בתעשייה הביטחונית - וקטורי תקיפה | KPLNS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cursor, Copilot ו-Claude Code בתעשייה הביטחונית - וקטורי תקיפה חדשים | KPLNS">
+<meta name="twitter:description" content="ניתוח סיכוני שרשרת אספקת תוכנה של סוכני AI בארגון ביטחוני: prompt injection, MCP poisoning, slopsquatting">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
+<meta name="twitter:image:alt" content="סוכני AI בתעשייה הביטחונית | KPLNS">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="KPLNS Encapsulated Solutions">
+<link rel="canonical" href="https://kplns.com/article-ai-coding-agents-defense.html">
+<meta name="theme-color" content="#0a1628">
+<link rel="alternate" hreflang="he" href="https://kplns.com/article-ai-coding-agents-defense.html">
+<link rel="alternate" hreflang="en" href="https://kplns.com/article-ai-coding-agents-defense.html">
+<link rel="alternate" hreflang="x-default" href="https://kplns.com/article-ai-coding-agents-defense.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.layer-stack{margin:28px 0;display:flex;flex-direction:column;gap:0}
+.layer-item{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--border);background:var(--bg-card)}
+.layer-item:first-child{border-radius:12px 12px 0 0}
+.layer-item:last-child{border-radius:0 0 12px 12px}
+.layer-item:not(:last-child){border-bottom:none}
+.layer-num{font-size:0.75rem;font-weight:800;font-family:var(--font-en);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.layer-item:nth-child(1) .layer-num{background:var(--red-dim);color:var(--red)}
+.layer-item:nth-child(2) .layer-num{background:var(--orange-dim);color:var(--orange)}
+.layer-item:nth-child(3) .layer-num{background:var(--yellow-dim);color:var(--yellow)}
+.layer-item:nth-child(4) .layer-num{background:var(--cyan-dim);color:var(--cyan)}
+.layer-item:nth-child(5) .layer-num{background:var(--green-dim);color:var(--green)}
+.layer-title{font-size:0.92rem;font-weight:700;color:var(--text-primary)}
+.layer-desc{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(251,146,60,0.06));border:1px solid rgba(239,68,68,0.25);border-right:4px solid var(--red);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--red);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.78rem;color:var(--text-muted);line-height:1.7;padding:6px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:7px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-sources ol li a{color:var(--cyan);word-break:break-word;transition:opacity 0.3s}
+.article-sources ol li a:hover{opacity:0.75}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.08);margin-top:60px;color:rgba(232,237,245,0.4);font-size:0.85rem}
+.article-footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.article-footer .footer-links a{color:rgba(232,237,245,0.5);font-size:0.82rem;transition:color 0.3s}
+.article-footer .footer-links a:hover{color:#00d4ff}
+.article-footer .footer-copy{font-size:0.8rem}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.related-articles {
+  max-width: 760px; margin: 0 auto; padding: 48px 24px 0;
+}
+.related-articles h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.related-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.related-card:hover {
+  border-color: rgba(0,212,255,0.2); background: rgba(26, 34, 54, 0.85);
+  transform: translateX(-4px);
+}
+.related-card .r-tag {
+  font-size: 0.7rem; font-weight: 600; color: var(--cyan);
+  background: var(--cyan-dim); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap;
+}
+.related-card .r-title {
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+}
+@media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"סוכני AI לפיתוח קוד בתעשייה הביטחונית"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Cursor, Copilot ו-Claude Code בתעשייה הביטחונית - וקטורי תקיפה חדשים","description":"ניתוח סיכוני שרשרת אספקת תוכנה של סוכני AI בארגון ביטחוני - prompt injection, MCP poisoning, slopsquatting","author":{"@type":"Person","@id":"https://kplns.com/#founder","name":"Y.K.","jobTitle":"Security & Supply Chain Consultant"},"publisher":{"@type":"Organization","name":"KPLNS Encapsulated Solutions","url":"https://kplns.com","logo":{"@type":"ImageObject","url":"https://kplns.com/og-image.png"}},"datePublished":"2026-05-10","dateModified":"2026-05-10","image":"https://kplns.com/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kplns.com/article-ai-coding-agents-defense.html"},"inLanguage":"he-IL","articleSection":"Threat Intelligence","keywords":"Cursor, GitHub Copilot, Claude Code, סוכני AI, prompt injection, MCP, slopsquatting, רב מגן","wordCount":1320}
+</script>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="index.html#insights">מאמרים</a><span>›</span>
+  סוכני AI לפיתוח קוד בתעשייה הביטחונית
+</nav>
+<article class="article-container">
+  <div class="article-tag">איום מתפתח - שרשרת אספקת תוכנה</div>
+  <h1>Cursor, Copilot ו-Claude Code בתעשייה הביטחונית - וקטורי תקיפה חדשים בשרשרת אספקת התוכנה</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; זמן קריאה: 12 דקות &nbsp;·&nbsp; מבוסס על מחקר USENIX 2025 ו-arXiv 2026</div>
+
+  <div class="article-body">
+
+    <p>מפתח בקבלן ביטחוני פותח את <strong>Cursor</strong>, מטעין מאגר ציבורי כדי "ללמוד מהדומה", ושואל את הסוכן: "תוסיף עיבוד JSON בטוח". הסוכן מציע התקנה של חבילה שלא קיימת בפועל - אך תוקף שמע את הסוכן ממציא אותה לפני שעות, ורשם אותה ב-PyPI עם payload זדוני. שלוש דקות אחר כך הקוד הזדוני רץ בסביבת הפיתוח עם גישה לקוד מקור של פרויקט מסווג. זה לא תרחיש עתידני: <strong>מחקר USENIX 2025 מצא ש-19.7% מהחבילות שמודלים גדולים ממליצים עליהן פשוט אינן קיימות</strong>.<sup>[<a href="#src1">1</a>]</sup></p>
+
+    <p>סוכני AI לפיתוח קוד הם כלי הפריון החזק ביותר של 2026. הם גם הווקטור הכי שקט לחדירה לסביבת פיתוח של קבלן ביטחוני. הניתוח הזה מתבסס על שני מחקרים אקדמיים מאומתים, חמישה CVEs רלוונטיים ועל מסגרת OWASP Top 10 for LLM Applications, ומציע מסגרת אכיפה מעשית לארגון בתעשייה הביטחונית הישראלית.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num red">19.7%</div>
+        <div class="stat-label">חבילות שהמודלים ממציאים (USENIX 2025)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">85%+</div>
+        <div class="stat-label">הצלחת prompt injection adaptive (arXiv 2026)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">CVSS 9.8</div>
+        <div class="stat-label">MCP RCE (CVE-2026-23744)</div>
+      </div>
+    </div>
+
+    <h2>שלושת וקטורי התקיפה החדשים</h2>
+
+    <p>סוכני AI אינם רק כותבים קוד - הם פותחים את הסביבה למידע ולפעולות שלא היו נגישים לפני. שלוש משפחות תקיפה עיקריות מסכנות ארגון ביטחוני שאימץ אותם:</p>
+
+    <div class="case-box">
+      <h4>🔴 Slopsquatting / Package Hallucination</h4>
+      <p>חוקרים מ-USENIX 2025 בדקו 16 מודלים פופולריים, ייצרו 576,000 דוגמאות קוד וזיהו <strong>205,474 שמות חבילות מומצאות ייחודיים</strong>. שיעור ההמצאה הממוצע: 5.2% במודלים מסחריים, 21.7% במודלים בקוד פתוח (CodeLlama מגיע לשליש). תוקף שעוקב אחרי תבניות הזיה רושם את החבילות מראש ב-PyPI/npm. כל מפתח שמריץ <code>pip install</code> מהצעת AI - בלי לבדוק - מתקין את ה-payload.<sup>[<a href="#src1">1</a>][<a href="#src2">2</a>]</sup></p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>🟠 Prompt Injection דרך README, comments ו-PR titles</h4>
+      <p>ב-CVE-2025-53773 (CVSS 9.6) הודגם שמתקפת prompt injection ב-comment של PR ציבורי הפעילה ב-GitHub Copilot Agent מצב שמאפשר ביצוע קוד שרירותי על מערכת המפתח. דמוי תקיפה הודגם גם ב-Claude Code Security Review וב-Gemini CLI: <strong>כותרת PR מותאמת מספיקה כדי לחלץ secrets ולחשוף אותם בלוג</strong>.<sup>[<a href="#src3">3</a>][<a href="#src4">4</a>]</sup> עבודת מטה-מחקר באוניברסיטת לומונוסוב (ינואר 2026) ניתחה 78 מחקרים ומצאה 42 טכניקות תקיפה ייחודיות ב-5 קטגוריות, עם <strong>שיעור הצלחה מעל 85%</strong> כאשר התוקף מתאים את ה-prompt למערך ההגנה.<sup>[<a href="#src5">5</a>]</sup></p>
+    </div>
+
+    <div class="case-box">
+      <h4>🔴 MCP Server Poisoning</h4>
+      <p>פרוטוקול MCP (Model Context Protocol) של Anthropic מאפשר לסוכן להתחבר לשרתים חיצוניים - מערכת קבצים, דפדפן, מסד נתונים. ב-CVE-2026-23744 (CVSS 9.8) התגלה ש-MCPJam Inspector מקשיב כברירת מחדל ב-0.0.0.0 ללא אימות; בקשת HTTP יחידה מתקינה שרת MCP זדוני ומריצה קוד שרירותי. בנפרד, ב-CVE-2025-59944 התגלתה פגיעות case-sensitivity ב-Cursor שאיפשרה לעקוף הגנות על קובץ <code>.cursor/mcp.json</code> ולשמר RCE לאורך restart-ים של ה-IDE.<sup>[<a href="#src6">6</a>][<a href="#src7">7</a>]</sup></p>
+    </div>
+
+    <h2>למה זה נופל מתחת לרדאר של רב מגן 2 הקיים</h2>
+
+    <p>הבקרות הקיימות של רב מגן ו-NIST 800-171 לא נכתבו עם סוכני AI בראש. הפער מתבטא בשלושה מקומות מרכזיים:</p>
+
+    <div class="risk-grid">
+      <div class="risk-card critical">
+        <div class="risk-icon">🛠</div>
+        <div>
+          <h4>בקרת הצגת תוכנה (רב מגן תחום 2 / NIST §3.4)</h4>
+          <p>סוכן AI אינו "תוכנה ארגונית" קלאסית - אין הליך אישור פורמלי, אין קטגוריה, אין רישום בכרטיס ה-CMDB. כתוצאה, התקנה של Cursor / Copilot / Claude Code על מחשב מפתח מתבצעת ללא בדיקה מקדימה, ובוודאי בלי תיעוד של התעבורה היוצאת לשרתי המודל.</p>
+        </div>
+      </div>
+      <div class="risk-card critical">
+        <div class="risk-icon">🔐</div>
+        <div>
+          <h4>ניהול גישה (רב מגן תחום 4 / NIST §3.1)</h4>
+          <p>המפתח מעביר קונטקסט - קוד, דיפים, output של פקודות - לסוכן בלי שמערכת ניהול הגישה רואה זאת. אם הסוכן מתחבר ל-MCP server שמתחבר ל-DB ייצור, יש לסוכן גישה דה-פקטו ל-CUI שלא הוקצתה לו רשמית.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">📝</div>
+        <div>
+          <h4>בקרת קוד מקור (רב מגן תחום 11 / NIST §3.13)</h4>
+          <p>סוכן שמציע commits אוטומטיים מצמצם את שלב ה-code review להסתכלות פורמלית. מפתח שמסתמך על הסוכן יותר מאשר על ביקורת עצמאית מפסיק להיות "human in the loop" - הוא הופך ל-rubber stamp.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">📊</div>
+        <div>
+          <h4>OWASP LLM Top 10 - לא מופיע ברגולציה הישראלית עדיין</h4>
+          <p>OWASP פרסמה את ה-Top 10 for LLM Applications 2025. בקרי ה-LLM01 (Prompt Injection), LLM03 (Supply Chain) ו-LLM05 (Improper Output Handling) רלוונטיים ישירות לסוכני AI - אבל אינם חלק מ-44 הבקרות של רב מגן. פער זה צריך להיסגר ב-flowdown ארגוני, לא להמתין לעדכון רגולטורי.<sup>[<a href="#src8">8</a>]</sup></p>
+        </div>
+      </div>
+    </div>
+
+    <h2>מסגרת הגנה לארגון ביטחוני - 5 שכבות</h2>
+
+    <p>מסגרת הגנה מעשית, מבוססת על ה-CVEs המוכרים ועל ממצאי המחקרים האקדמיים. כל שכבה מטפלת בתת-קבוצה אחרת של וקטורי התקיפה:</p>
+
+    <div class="layer-stack">
+      <div class="layer-item">
+        <div class="layer-num">01</div>
+        <div>
+          <div class="layer-title">Sandboxing מחייב לסוכני AI</div>
+          <div class="layer-desc">סוכן AI רץ ב-container/VM נפרד מסביבת CUI. ללא mount ישיר של פרויקטים מסווגים, ללא credentials של ייצור, ללא גישה לרשת הפנימית. אפשרי לאפשר read-only על mirror של קוד מקור.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">02</div>
+        <div>
+          <div class="layer-title">איסור MCP servers חיצוניים (allowlist בלבד)</div>
+          <div class="layer-desc">whitelist רק של שרתי MCP שעברו audit פנימי, מתחברים על 127.0.0.1 בלבד, ועם אימות. כל שרת חיצוני - גם פופולרי - חסום ברמת firewall.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">03</div>
+        <div>
+          <div class="layer-title">Dependency pinning + סריקה מול known-malicious</div>
+          <div class="layer-desc">lock files חובה (pip-tools, package-lock.json, Cargo.lock). pre-commit hook שמשווה כל dependency חדש מול db של חבילות זדוניות מוכרות (Socket, Snyk, GitHub Advisory). ידני לפני <code>pip install</code> שהוצע על ידי AI.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">04</div>
+        <div>
+          <div class="layer-title">Code review דו-שלבי לכל שינוי שנגע בו AI</div>
+          <div class="layer-desc">tag אוטומטי של commits שעברו ב-AI (git note + לוג מרוכז). merge ל-main דורש review של מפתח אנושי + סוכן AI שני שבודק בלי גישה ל-prompt המקורי.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">05</div>
+        <div>
+          <div class="layer-title">Network egress filtering ולוגים מרוכזים</div>
+          <div class="layer-desc">סוכני AI יוצאים רק ל-API endpoints מוגדרים (api.anthropic.com, api.openai.com, etc.) - לא ל-pip/npm חיצוני, לא ל-paste-bins, לא ל-webhook לא מוכר. כל egress עובר proxy שמתעד tokens, prompts ופלטים.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>איך לאכוף את זה (כי "אסור" לא יעבוד מול מפתחים)</h2>
+
+    <p>הניסיון לחסום סוכני AI לחלוטין יכשל - מפתח שצריך להספיק את ה-sprint ימצא דרך לעקוף. המפתח להצלחה: לאפשר במסגרת מבוקרת.</p>
+
+    <ul class="checklist">
+      <li>Cursor / Copilot / Claude Code דרך רשיון enterprise בלבד, עם logging מרכזי של כל prompt ופלט.</li>
+      <li>Static analysis pipeline שמסמן אוטומטית קוד שמקורו AI (commit metadata, comments, sub-conventions).</li>
+      <li>"Dual control" merges: כל merge ל-main דורש אישור human + שיקוף בסוכן AI שני בלי קונטקסט.</li>
+      <li>הדרכה ייעודית: מפתח שלא מבין prompt injection או slopsquatting לא צריך גישה לסוכן עם MCP.</li>
+      <li>בקרת זמן: הגבלת זמן השימוש בסוכן ביום למפתחים שעובדים על פרויקטים מסווגים. זמן ארוך = יותר חשיפה.</li>
+      <li>חיסום default-deny לתעבורה יוצאת מסביבת הפיתוח - allowlist מפורש של domains בלבד.</li>
+      <li>סקר 360° תקופתי שכולל sample של commits, מי השתמש ב-AI, מה ה-context שעבר, ומה ה-attack surface שנפתח.</li>
+    </ul>
+
+    <div class="bottom-line">
+      <h3>השורה התחתונה</h3>
+      <p>סוכני AI הם כלי הפריון החזק ביותר של 2026 - ובמקביל, החדירה הכי שקטה לסביבת פיתוח של קבלן ביטחוני. שלושה CVEs בולטים (CVE-2025-53773, CVE-2025-59944, CVE-2026-23744) ושני מחקרים אקדמיים מבוססים מצביעים על פער ביטחוני אמיתי - לא תיאורטי.</p>
+      <p>התעשייה הישראלית מאמצת את הכלים האלה מהר יותר מהרגולציה. הפער הזה הוא הפער הביטחוני המשמעותי ביותר השנה - ולא נראה בסקרי 360° סטנדרטיים שלא עודכנו ל-OWASP LLM Top 10. הזמן לסגור את הפער הוא עכשיו, במסגרת flowdown ארגוני - לא לחכות לעדכון רב מגן 3.</p>
+    </div>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li id="src1"><a href="https://arxiv.org/abs/2406.10279" target="_blank" rel="noopener noreferrer">Spracklen et al., "We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs", USENIX Security 2025 (arXiv 2406.10279)</a></li>
+        <li id="src2"><a href="https://socket.dev/blog/slopsquatting-how-ai-hallucinations-are-fueling-a-new-class-of-supply-chain-attacks" target="_blank" rel="noopener noreferrer">Socket Research — The Rise of Slopsquatting: How AI Hallucinations Are Fueling a New Class of Supply Chain Attacks</a></li>
+        <li id="src3"><a href="https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection/" target="_blank" rel="noopener noreferrer">Embrace The Red — GitHub Copilot: Remote Code Execution via Prompt Injection (CVE-2025-53773)</a></li>
+        <li id="src4"><a href="https://www.securityweek.com/claude-code-gemini-cli-github-copilot-agents-vulnerable-to-prompt-injection-via-comments/" target="_blank" rel="noopener noreferrer">SecurityWeek — Claude Code, Gemini CLI, GitHub Copilot Agents Vulnerable to Prompt Injection via Comments</a></li>
+        <li id="src5"><a href="https://arxiv.org/abs/2601.17548" target="_blank" rel="noopener noreferrer">Maloyan & Namiot, "Prompt Injection Attacks on Agentic Coding Assistants: A Systematic Analysis of Vulnerabilities in Skills, Tools, and Protocol Ecosystems" (arXiv 2601.17548, January 2026)</a></li>
+        <li id="src6"><a href="https://feedly.com/cve/CVE-2026-23744" target="_blank" rel="noopener noreferrer">CVE-2026-23744 — MCPJam Inspector RCE (CVSS 9.8)</a></li>
+        <li id="src7"><a href="https://www.lakera.ai/blog/cursor-vulnerability-cve-2025-59944" target="_blank" rel="noopener noreferrer">Lakera — Cursor Vulnerability (CVE-2025-59944): Case-Sensitivity Bug Exposed Risks of Agentic Developer Tools</a></li>
+        <li id="src8"><a href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noopener noreferrer">OWASP — Top 10 for LLM Applications 2025</a></li>
+        <li id="src9"><a href="https://www.bleepingcomputer.com/news/security/ai-hallucinated-code-dependencies-become-new-supply-chain-risk/" target="_blank" rel="noopener noreferrer">BleepingComputer — AI-hallucinated code dependencies become new supply chain risk</a></li>
+      </ol>
+    </div>
+  </div>
+
+
+  <section class="related-articles" aria-label="מאמרים ושירותים קשורים">
+    <h3>מאמרים ושירותים קשורים</h3>
+    <div class="related-grid">
+      <a href="article-cyber-toufan-supply-chain.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">Cyber Toufan על MAYA Technologies</span></a>
+      <a href="article-supplier-signs.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">5 סימנים שהספק שלכם חשוף לתקיפה</span></a>
+      <a href="article-supply-chain-cost.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">המחיר האמיתי של הזנחת שרשרת האספקה</span></a>
+      <a href="service-survey-360.html" class="related-card"><span class="r-tag">שירות</span><span class="r-title">סקר ביטחון 360° בשרשרת האספקה</span></a>
+    </div>
+  </section>
+
+  <div class="article-cta">
+    <h3>סוכני AI כבר רצים בארגון שלכם. מי אחראי על שרשרת האספקה שלהם?</h3>
+    <p>KPLNS עוזרת לקבלנים בתעשייה הביטחונית להגדיר מסגרת אכיפה לשימוש בסוכני AI - sandboxing, MCP allowlists, code review דו-שלבי וניטור egress.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+<footer class="article-footer">
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+    <a href="disclaimer.html">תנאי שימוש</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
+</footer>
+</body>
+</html>
