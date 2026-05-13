@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>DAEMON Tools 2026 - כשחתימה דיגיטלית מובילה למתקפת שרשרת אספקה | KPLNS</title>
+<meta name="description" content="ניתוח מקרה: התקנים חתומים של DAEMON Tools (אפריל 2026) הופצו עם backdoor ו-QUIC RAT. למה allowlist על publisher לא מספיק, ומה לעשות בארגון ביטחוני שמסתמך על trust חתימות">
+<meta property="og:title" content="DAEMON Tools 2026 - כשחתימה דיגיטלית מובילה למתקפת שרשרת אספקה | KPLNS">
+<meta property="og:description" content="ניתוח מקרה: התקנים חתומים של DAEMON Tools (אפריל 2026) הופצו עם backdoor ו-QUIC RAT. למה allowlist על publisher לא מספיק">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/article-signed-installer-supply-chain.html">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DAEMON Tools 2026 supply chain attack | KPLNS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DAEMON Tools 2026 - מתקפת שרשרת אספקה דרך התקן חתום | KPLNS">
+<meta name="twitter:description" content="ניתוח מקרה: התקנים חתומים של DAEMON Tools הופצו עם QUIC RAT - למה allowlist על publisher לא מספיק">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
+<meta name="twitter:image:alt" content="DAEMON Tools 2026 supply chain attack | KPLNS">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="KPLNS Encapsulated Solutions">
+<link rel="canonical" href="https://kplns.com/article-signed-installer-supply-chain.html">
+<meta name="theme-color" content="#0a1628">
+<link rel="alternate" hreflang="he" href="https://kplns.com/article-signed-installer-supply-chain.html">
+<link rel="alternate" hreflang="en" href="https://kplns.com/article-signed-installer-supply-chain.html">
+<link rel="alternate" hreflang="x-default" href="https://kplns.com/article-signed-installer-supply-chain.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.layer-stack{margin:28px 0;display:flex;flex-direction:column;gap:0}
+.layer-item{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--border);background:var(--bg-card)}
+.layer-item:first-child{border-radius:12px 12px 0 0}
+.layer-item:last-child{border-radius:0 0 12px 12px}
+.layer-item:not(:last-child){border-bottom:none}
+.layer-num{font-size:0.75rem;font-weight:800;font-family:var(--font-en);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.layer-item:nth-child(1) .layer-num{background:var(--red-dim);color:var(--red)}
+.layer-item:nth-child(2) .layer-num{background:var(--orange-dim);color:var(--orange)}
+.layer-item:nth-child(3) .layer-num{background:var(--yellow-dim);color:var(--yellow)}
+.layer-item:nth-child(4) .layer-num{background:var(--cyan-dim);color:var(--cyan)}
+.layer-item:nth-child(5) .layer-num{background:var(--green-dim);color:var(--green)}
+.layer-title{font-size:0.92rem;font-weight:700;color:var(--text-primary)}
+.layer-desc{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(251,146,60,0.06));border:1px solid rgba(239,68,68,0.25);border-right:4px solid var(--red);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--red);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.78rem;color:var(--text-muted);line-height:1.7;padding:6px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:7px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-sources ol li a{color:var(--cyan);word-break:break-word;transition:opacity 0.3s}
+.article-sources ol li a:hover{opacity:0.75}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.08);margin-top:60px;color:rgba(232,237,245,0.4);font-size:0.85rem}
+.article-footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.article-footer .footer-links a{color:rgba(232,237,245,0.5);font-size:0.82rem;transition:color 0.3s}
+.article-footer .footer-links a:hover{color:#00d4ff}
+.article-footer .footer-copy{font-size:0.8rem}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.related-articles {
+  max-width: 760px; margin: 0 auto; padding: 48px 24px 0;
+}
+.related-articles h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.related-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.related-card:hover {
+  border-color: rgba(0,212,255,0.2); background: rgba(26, 34, 54, 0.85);
+  transform: translateX(-4px);
+}
+.related-card .r-tag {
+  font-size: 0.7rem; font-weight: 600; color: var(--cyan);
+  background: var(--cyan-dim); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap;
+}
+.related-card .r-title {
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+}
+@media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"DAEMON Tools 2026 - מתקפת שרשרת אספקה"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"DAEMON Tools 2026 - כשחתימה דיגיטלית מובילה למתקפת שרשרת אספקה","description":"ניתוח מקרה: התקנים חתומים של DAEMON Tools הופצו עם backdoor ו-QUIC RAT. למה allowlist על publisher לא מספיק","author":{"@type":"Person","@id":"https://kplns.com/#founder","name":"Y.K.","jobTitle":"Security & Supply Chain Consultant"},"publisher":{"@type":"Organization","name":"KPLNS Encapsulated Solutions","url":"https://kplns.com","logo":{"@type":"ImageObject","url":"https://kplns.com/og-image.png"}},"datePublished":"2026-05-13","dateModified":"2026-05-13","image":"https://kplns.com/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kplns.com/article-signed-installer-supply-chain.html"},"inLanguage":"he-IL","articleSection":"Threat Intelligence","keywords":"DAEMON Tools, QUIC RAT, code signing, supply chain attack, AVB Disc Soft, application control, רב מגן","wordCount":1240}
+</script>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="index.html#insights">מאמרים</a><span>›</span>
+  DAEMON Tools 2026 - מתקפת שרשרת אספקה
+</nav>
+<article class="article-container">
+  <div class="article-tag">מקרה בוחן - שרשרת אספקת תוכנה</div>
+  <h1>DAEMON Tools 2026 - כשחתימה דיגיטלית מובילה למתקפת שרשרת אספקה</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; זמן קריאה: 11 דקות &nbsp;·&nbsp; מבוסס על דוח Securelist (Kaspersky) מאי 2026</div>
+
+  <div class="article-body">
+
+    <p>ב-8 באפריל 2026 החל ערוץ ההפצה הרשמי של <strong>DAEMON Tools</strong> - תוכנת mounting פופולרית של חברת AVB Disc Soft - לחלק התקנים שאינם מה שהם מציגים. שלושה בינארים בליבת הסוויטה (DTHelper.exe, DiscSoftBusServiceLite.exe, DTShellHlp.exe) שונו, נחתמו מחדש ב<strong>תעודה דיגיטלית תקפה ולגיטימית של AVB Disc Soft</strong>, ונשלחו ללקוחות ביותר מ-100 מדינות. ב-5 במאי 2026 פרסמה Kaspersky Securelist את הניתוח המלא: backdoor פעיל מכל הפעלת מערכת, ו-QUIC RAT מתוחכם שמתחבר לשרתי שליטה דרך 6 פרוטוקולים שונים.<sup>[<a href="#src1">1</a>][<a href="#src2">2</a>]</sup></p>
+
+    <p>קבלן ביטחוני ש-DAEMON Tools רשום ברשימת ה-trusted publishers שלו, או שמשתמש ב-allowlist קלאסי המבוסס על "publisher legitimate", התקין על תחנות הקצה תוכנה שנחתמה כראוי - וקיבל גם backdoor. <strong>זה לא כשל בחתימה הדיגיטלית עצמה - זה כשל במודל האמון שמסביב</strong>. הניתוח הזה מציג מה ייחודי במתקפה, מדוע allowlist על publisher כבר לא מספיק, ומה לעשות בארגון בתעשייה הביטחונית.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num red">3</div>
+        <div class="stat-label">בינארי ליבה שנחתמו מחדש בזדון</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">100+</div>
+        <div class="stat-label">מדינות בהן זוהו ניסיונות הדבקה</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">6</div>
+        <div class="stat-label">פרוטוקולי C2 ב-QUIC RAT</div>
+      </div>
+    </div>
+
+    <h2>שחזור האירוע - איך התקן לגיטימי הופך לבסיס תקיפה</h2>
+
+    <p>על פי הדוח של Kaspersky, ההפצה הזדונית החלה ב-<strong>8 באפריל 2026</strong> וכיסתה גרסאות 12.5.0.2421 עד 12.5.0.2434. שלושת הבינארים נחתמו בתעודה תקפה של AVB Disc Soft - מה שאומר שאחת משתי אפשרויות התקיימה: התעודה הפרטית של החברה דלפה, או שהמערכת שמייצרת את ההתקנים נפרצה. בכל מקרה, מבחינת תחנת הקצה - ההתקן <strong>לגיטימי לחלוטין</strong> בכל בקרת חתימה סטנדרטית.<sup>[<a href="#src1">1</a>]</sup></p>
+
+    <div class="case-box">
+      <h4>🔴 שלב 1: הפצה דרך הערוץ הרשמי</h4>
+      <p>התקנים זדוניים הופצו דרך אתר DAEMON Tools, mirrors מאומתים, ו-CDN רשמי. אין משתנה דאונלוד שמסמן בעיה - אותו URL, אותה תעודה, אותו מנגנון עדכון אוטומטי. משתמש שיש לו DAEMON Tools מותקן עם auto-update פעיל קיבל את התקן הזדוני בלי שום אינטראקציה.<sup>[<a href="#src2">2</a>]</sup></p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>🟠 שלב 2: backdoor שטוח עם RC4</h4>
+      <p>תוצאת ההתקנה: backdoor מינימליסטי שרץ מכל startup. הוא מחזיק shellcode מוצפן ב-RC4, מסוגל להוריד payload נוסף, להריץ פקודות, ולהזריק קוד לתהליכים קיימים. הקוד עצמו דחוס וחתום - ה-EDR הסטנדרטי מאשר את החתימה ועוזב.<sup>[<a href="#src1">1</a>]</sup></p>
+    </div>
+
+    <div class="case-box">
+      <h4>🔴 שלב 3: QUIC RAT - C2 רב-פרוטוקולים</h4>
+      <p>על קורבנות שנבחרו ידנית (לא כולם) הוטמעה גרסה מתקדמת בשם <strong>QUIC RAT</strong>: backdoor C++ קומפילציה סטטית עם WolfSSL, שמתחבר לשרתי שליטה דרך 6 פרוטוקולים שונים: HTTP, UDP, TCP, WSS, QUIC, DNS ו-HTTP/3. זריקת הפעילות לתוך תהליכים לגיטימיים כמו <code>notepad.exe</code> ו-<code>conhost.exe</code> מקשה ניטור התנהגותי. זוהה כרגע על מטרה חינוכית רוסית - מה שמצביע על ייעוד מודיעיני, לא ראש-נפץ.<sup>[<a href="#src1">1</a>]</sup></p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>🟠 שלב 4: Attribution - ככל הנראה גורם דובר סינית</h4>
+      <p>מחרוזות באנליזה הסטטית של ה-payload מצביעות על מפתחים דוברי סינית. Kaspersky עצמה לא קושרת את האירוע לקבוצה ידועה. ריכוז ההדבקות: רוסיה, ברזיל, טורקיה, ספרד, גרמניה, צרפת, איטליה וסין.<sup>[<a href="#src1">1</a>][<a href="#src3">3</a>]</sup></p>
+    </div>
+
+    <h2>למה allowlisting קלאסי נכשל</h2>
+
+    <p>רוב הארגונים הביטחוניים מסתמכים על שילוב של בקרות חתימה (Authenticode), allowlist מבוסס publisher (Microsoft Defender Application Control / WDAC, AppLocker) ו-EDR סטנדרטי. במקרה DAEMON Tools - <strong>כל שלוש השכבות שותקו בו-זמנית</strong>, כי כולן נסמכות על אותה הנחת יסוד שגויה: ש"חתימה תקפה של publisher מהימן" = "לא זדוני".</p>
+
+    <div class="risk-grid">
+      <div class="risk-card critical">
+        <div class="risk-icon">🔏</div>
+        <div>
+          <h4>חתימה דיגיטלית מאמתת זהות, לא תוכן</h4>
+          <p>Authenticode מוודא שהקובץ נחתם על ידי בעל המפתח הפרטי. הוא לא מוודא שהקובץ נכון, מקורי, או לא הוטמע בו payload. אם המפתח דלף או המערכת המפיקה נפרצה - החתימה ממשיכה להיות "תקפה" עד פג תוקף או revocation.</p>
+        </div>
+      </div>
+      <div class="risk-card critical">
+        <div class="risk-icon">📋</div>
+        <div>
+          <h4>WDAC/AppLocker לפי publisher - גרגיר גס מדי</h4>
+          <p>WDAC policy שמאפשרת "כל מה שחתום ע"י AVB Disc Soft" אישרה את כל 14 הגרסאות הזדוניות בלי שאלה. מדיניות מבוססת publisher היא מתאימה לחברות שאתה לא מתכוון להפיק עליהן בקרה פרטנית - אבל זה בדיוק מקור הסיכון.<sup>[<a href="#src4">4</a>]</sup></p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">🛡</div>
+        <div>
+          <h4>EDR מבוסס reputation - מתעכב</h4>
+          <p>EDR שמסתמך על "האם ה-hash הזה מוכר טוב לקהילה" יצביע על "לא ידוע" עד שהדגימות יגיעו ל-cloud telemetry. עבור התקפה ממוקדת על קורבן ספציפי, ה-window של "לא ידוע אבל חתום" מספיק כדי להשלים את החדירה.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">⏰</div>
+        <div>
+          <h4>חוסר במנגנון התראה על שינוי גרסה לא צפוי</h4>
+          <p>גרסה 12.5.0.2421 הוחלפה בגרסה 12.5.0.2434 ב-26 ימים בלבד. בארגונים רבים, auto-update מותקן בלי דרישה ל-staging. אין dashboard שאומר "הגרסה הזו של DAEMON Tools החליפה את הקודמת אצל 200 מהמכשירים בחודש - מישהו בדק?".</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>בקרות שעובדות בעולם פוסט-חתימה</h2>
+
+    <p>השכבות הבאות מטפלות בכשלים של allowlist קלאסי, ומבוססות על הניסיון של מתקפות 2025-2026 (eScan, Notepad++, CPUID, DAEMON Tools). אף אחת אינה חדשה - אבל בארגון ביטחוני ישראלי טיפוסי, רק חלקן מיושמות.</p>
+
+    <div class="layer-stack">
+      <div class="layer-item">
+        <div class="layer-num">01</div>
+        <div>
+          <div class="layer-title">Hash whitelisting פר-בינאר (לא רק פר-publisher)</div>
+          <div class="layer-desc">WDAC/AppLocker עם File Rule מבוסס SHA-256 לכל קובץ הפעלה מאושר. כל גרסה חדשה דורשת אישור פעיל. דורש תהליך עדכון מסודר - ולכן מסנן אוטומטית גרסאות זדוניות שהופצו בלי תהליך.<sup>[<a href="#src4">4</a>]</sup></div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">02</div>
+        <div>
+          <div class="layer-title">SBOM לתוכנות צד שלישי (NIST SP 800-161)</div>
+          <div class="layer-desc">לכל installer מאושר - SBOM שמתעד שגיאות hashes, חתימות, ותלויות. אימות אוטומטי ב-pipeline לפני distribution לתחנות. אם ה-SBOM משתנה בלי gatekeeper - חוסם.<sup>[<a href="#src5">5</a>]</sup></div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">03</div>
+        <div>
+          <div class="layer-title">Behavioral EDR (process tree anomalies, network egress)</div>
+          <div class="layer-desc">EDR שצופה בהתנהגות אחרי ההתקנה: process tree, child processes, גישה לרשת. תהליך לגיטימי שלפתע פותח חיבור QUIC לשרת לא מוכר - alert. עוקף את המגבלות של reputation-based detection.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">04</div>
+        <div>
+          <div class="layer-title">Application Control עם default-deny</div>
+          <div class="layer-desc">המודל ההפוך מ-allowlist רגיל: ברירת מחדל - הכל אסור. רק תוכנות שאושרו פר-בינאר רצות. מצריך תחזוקה, אבל הופך התקפות מהסוג הזה לאי-אפשריות. מתאים לתחנות עם גישה ל-CUI.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">05</div>
+        <div>
+          <div class="layer-title">הפרדת תחנות - shareware ו-CUI לא על אותה מכונה</div>
+          <div class="layer-desc">תחנות הקצה שיש להן גישה ל-CUI לא רצות freeware/shareware כמו DAEMON Tools. אם נחוצה תוכנה כזו - מכונה נפרדת, רשת נפרדת, גישה מבוקרת. הקטנת attack surface ברמת הארכיטקטורה.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>תוכנית פעולה - מה לעשות עכשיו</h2>
+
+    <p>ארגון ביטחוני ישראלי טיפוסי לא יקפוץ ל-default-deny ב-WDAC ביום אחד. להלן רשימת המשימות שצריך לסגור בסדר תעדוף:</p>
+
+    <ul class="checklist">
+      <li>בדיקה מיידית: האם DAEMON Tools מותקן על מכונות בארגון? אם כן - איזו גרסה? בגרסאות 12.5.0.2421-2434, יש למחוק, לסרוק את המכונה ב-EDR מתקדם, ולחקור גישה לרשת מהמכונות הללו מ-08/04/2026 ואילך.</li>
+      <li>סקירת רשימת ה-trusted publishers בארגון. מי שלא בסיכון נמוך מובהק (Microsoft, מוסדות פיננסיים מאומתים) - להסיר.</li>
+      <li>לעבור מ-publisher rules ל-File Rules בארגון: גם אם רק לתחנות עם גישה ל-CUI לעת עתה.</li>
+      <li>SBOM חובה לכל installer של תוכנות צד שלישי לפני אישור. אימות SBOM אוטומטי ב-deployment pipeline.</li>
+      <li>הוספת התראה ב-EDR על "תהליך מתחבר ל-QUIC/HTTP/3 לדומיין שלא ב-allowlist". QUIC נדיר יחסית בתעבורה ארגונית סטנדרטית.</li>
+      <li>תהליך "phase-out" לכל freeware/shareware על מכונות עם גישה לפרויקטים מסווגים. הפרדה ארכיטקטונית מ-CUI.</li>
+      <li>עדכון תרחיש IR: מה קורה אם תוכנה חתומה מאושרת מתגלה כזדונית בדיעבד? מי מודיע למי, איך מבצעים rollback, מה עם תחנות שכבר התקיימה בהן תקשורת C2.</li>
+    </ul>
+
+    <div class="bottom-line">
+      <h3>השורה התחתונה</h3>
+      <p>חתימה דיגיטלית הייתה בקרת אבטחה משמעותית בעולם של 100 חברות תוכנה מוכרות. בעולם של 2026, אחרי ארבעה אירועים גדולים של supply chain בתוך מחצית שנה (eScan, Notepad++, CPUID, DAEMON Tools), היא הפכה ל-attestation חלשה: הוכחת זהות בלבד, לא הוכחת אמינות.</p>
+      <p>ארגון ביטחוני שלא מטמיע SBOM + behavioral EDR + Application Control עם default-deny על תחנות CUI - <strong>סומך על מודל אמון שכבר נשבר</strong>. הזמן לעבור מ-publisher allowlists ל-hash-based controls הוא לפני המקרה הבא, לא אחרי.</p>
+    </div>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li id="src1"><a href="https://securelist.com/tr/daemon-tools-backdoor/119654/" target="_blank" rel="noopener noreferrer">Kaspersky Securelist — Popular DAEMON Tools software compromised (2026-05-05, updated 2026-05-06)</a></li>
+        <li id="src2"><a href="https://www.bleepingcomputer.com/news/security/daemon-tools-trojanized-in-supply-chain-attack-to-deploy-backdoor/" target="_blank" rel="noopener noreferrer">BleepingComputer — DAEMON Tools trojanized in supply-chain attack to deploy backdoor</a></li>
+        <li id="src3"><a href="https://www.kaspersky.com/blog/daemon-tools-supply-chain-attack/55691/" target="_blank" rel="noopener noreferrer">Kaspersky — Supply chain attack via DAEMON Tools (geographic distribution analysis)</a></li>
+        <li id="src4"><a href="https://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/" target="_blank" rel="noopener noreferrer">Microsoft — Windows Defender Application Control (WDAC) documentation</a></li>
+        <li id="src5"><a href="https://csrc.nist.gov/pubs/sp/800/161/r1/final" target="_blank" rel="noopener noreferrer">NIST SP 800-161 Rev. 1 — Cybersecurity Supply Chain Risk Management Practices (SBOM guidance)</a></li>
+      </ol>
+    </div>
+  </div>
+
+
+  <section class="related-articles" aria-label="מאמרים ושירותים קשורים">
+    <h3>מאמרים ושירותים קשורים</h3>
+    <div class="related-grid">
+      <a href="article-cyber-toufan-supply-chain.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">Cyber Toufan על MAYA Technologies</span></a>
+      <a href="article-hardware-trust.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">אמון בחומרה - האם הרכיב הוא מה שטוען</span></a>
+      <a href="article-hardware-implants.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">הטמנות בחומרה וקושחה</span></a>
+      <a href="service-survey-360.html" class="related-card"><span class="r-tag">שירות</span><span class="r-title">סקר ביטחון 360° בשרשרת האספקה</span></a>
+    </div>
+  </section>
+
+  <div class="article-cta">
+    <h3>ה-allowlist שלכם מבוסס על trust של 2010?</h3>
+    <p>KPLNS מסייעת לקבלנים בתעשייה הביטחונית להעביר את מודל האמון מ-publisher-based ל-binary-hash + behavioral, עם תוכנית yצא מסודרת ובדיקות אבחון.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+<footer class="article-footer">
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+    <a href="disclaimer.html">תנאי שימוש</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
+</footer>
+</body>
+</html>
