@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>אבטחת OT בקווי ייצור ביטחוניים - הפער שמסקרי 360° מפספסים | KPLNS</title>
+<meta name="description" content="ניתוח האיום על Unitronics, PLCs ו-SCADA בקווי ייצור ביטחוניים: CyberAv3ngers, מסגרת CISA AA23-335A, NIST 800-82r3 ו-IEC 62443, פערים בסקרי 360° סטנדרטיים ומסגרת הגנה מעשית">
+<meta property="og:title" content="אבטחת OT בקווי ייצור ביטחוניים - הפער שמסקרי 360° מפספסים | KPLNS">
+<meta property="og:description" content="CyberAv3ngers, Unitronics, NIST 800-82r3, IEC 62443 - איפה רוב סקרי הסייבר מפספסים את ה-OT בקווי ייצור ביטחוניים">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/article-ot-defense-production-lines.html">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="אבטחת OT בקווי ייצור ביטחוניים | KPLNS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="אבטחת OT בקווי ייצור ביטחוניים - הפער שמסקרי 360° מפספסים | KPLNS">
+<meta name="twitter:description" content="CyberAv3ngers על Unitronics, פערי סקרי 360° ב-OT, מסגרת NIST 800-82r3 + IEC 62443">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
+<meta name="twitter:image:alt" content="אבטחת OT בקווי ייצור ביטחוניים | KPLNS">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="KPLNS Encapsulated Solutions">
+<link rel="canonical" href="https://kplns.com/article-ot-defense-production-lines.html">
+<meta name="theme-color" content="#0a1628">
+<link rel="alternate" hreflang="he" href="https://kplns.com/article-ot-defense-production-lines.html">
+<link rel="alternate" hreflang="en" href="https://kplns.com/article-ot-defense-production-lines.html">
+<link rel="alternate" hreflang="x-default" href="https://kplns.com/article-ot-defense-production-lines.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.layer-stack{margin:28px 0;display:flex;flex-direction:column;gap:0}
+.layer-item{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--border);background:var(--bg-card)}
+.layer-item:first-child{border-radius:12px 12px 0 0}
+.layer-item:last-child{border-radius:0 0 12px 12px}
+.layer-item:not(:last-child){border-bottom:none}
+.layer-num{font-size:0.75rem;font-weight:800;font-family:var(--font-en);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.layer-item:nth-child(1) .layer-num{background:var(--red-dim);color:var(--red)}
+.layer-item:nth-child(2) .layer-num{background:var(--orange-dim);color:var(--orange)}
+.layer-item:nth-child(3) .layer-num{background:var(--yellow-dim);color:var(--yellow)}
+.layer-item:nth-child(4) .layer-num{background:var(--cyan-dim);color:var(--cyan)}
+.layer-item:nth-child(5) .layer-num{background:var(--green-dim);color:var(--green)}
+.layer-title{font-size:0.92rem;font-weight:700;color:var(--text-primary)}
+.layer-desc{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(251,146,60,0.06));border:1px solid rgba(239,68,68,0.25);border-right:4px solid var(--red);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--red);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.78rem;color:var(--text-muted);line-height:1.7;padding:6px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:7px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-sources ol li a{color:var(--cyan);word-break:break-word;transition:opacity 0.3s}
+.article-sources ol li a:hover{opacity:0.75}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.08);margin-top:60px;color:rgba(232,237,245,0.4);font-size:0.85rem}
+.article-footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.article-footer .footer-links a{color:rgba(232,237,245,0.5);font-size:0.82rem;transition:color 0.3s}
+.article-footer .footer-links a:hover{color:#00d4ff}
+.article-footer .footer-copy{font-size:0.8rem}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.related-articles {
+  max-width: 760px; margin: 0 auto; padding: 48px 24px 0;
+}
+.related-articles h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.related-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.related-card:hover {
+  border-color: rgba(0,212,255,0.2); background: rgba(26, 34, 54, 0.85);
+  transform: translateX(-4px);
+}
+.related-card .r-tag {
+  font-size: 0.7rem; font-weight: 600; color: var(--cyan);
+  background: var(--cyan-dim); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap;
+}
+.related-card .r-title {
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+}
+@media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"אבטחת OT בקווי ייצור ביטחוניים"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"אבטחת OT בקווי ייצור ביטחוניים - הפער שמסקרי 360° מפספסים","description":"איום CyberAv3ngers על Unitronics ו-PLCs, מסגרת CISA AA23-335A, NIST SP 800-82r3 ו-IEC 62443, פערי סקרי 360° סטנדרטיים ומסגרת הגנה מעשית לקבלן ביטחוני","author":{"@type":"Person","@id":"https://kplns.com/#founder","name":"Y.K.","jobTitle":"Security & Supply Chain Consultant"},"publisher":{"@type":"Organization","name":"KPLNS Encapsulated Solutions","url":"https://kplns.com","logo":{"@type":"ImageObject","url":"https://kplns.com/og-image.png"}},"datePublished":"2026-05-20","dateModified":"2026-05-20","image":"https://kplns.com/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kplns.com/article-ot-defense-production-lines.html"},"inLanguage":"he-IL","articleSection":"Operational Technology","keywords":"OT, PLC, SCADA, Unitronics, CyberAv3ngers, CISA AA23-335A, NIST 800-82, IEC 62443, רב מגן, סקר 360","wordCount":1240}
+</script>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="index.html#insights">מאמרים</a><span>›</span>
+  אבטחת OT בקווי ייצור ביטחוניים
+</nav>
+<article class="article-container">
+  <div class="article-tag">איום פעיל - Operational Technology</div>
+  <h1>אבטחת OT בקווי ייצור ביטחוניים - הפער שסקרי 360° סטנדרטיים מפספסים</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; זמן קריאה: 11 דקות &nbsp;·&nbsp; מבוסס על CISA AA23-335A, NIST SP 800-82 Rev 3 ו-IEC 62443</div>
+
+  <div class="article-body">
+
+    <p>בנובמבר 2023 פרסמה CISA את ההתראה <strong>AA23-335A</strong>: קבוצת CyberAv3ngers — חזית של חיל הסייבר של ה-IRGC האיראני — מנצלת בקרי <strong>Unitronics Vision</strong> ישראלים שחשופים לאינטרנט עם סיסמת ברירת מחדל <code>1111</code>, ומחליפה את ה-HMI של רשות המים בארה"ב במסך עם הודעת תעמולה. המשטרה הפדרלית, ה-NSA וה-EPA פרסמו אותה התראה במשותף — סימן לחומרת המקרה ולתפיסה שמדובר באיום מתמשך, לא בתקרית בודדת.<sup>[<a href="#src1">1</a>][<a href="#src2">2</a>]</sup></p>
+
+    <p>אותו וקטור עצמו — בקרי PLC ישראלים שחשופים לאינטרנט, עם סיסמת ברירת מחדל או שגרת תחזוקה מרחוק — קיים בכל קו ייצור ביטחוני בארץ שמשתמש ב-OT לבקרת רובוטיקה, חיתוך CNC, בדיקות חשמל אוטומטיות, או מערכות כיבוי. הניתוח הזה מציג למה רוב סקרי הסייבר ה-360° סטנדרטיים מפספסים את העובדה, ומה צריך להיות במסגרת אכיפה לארגון ביטחוני שעובד תחת רב מגן 2.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num red">AA23-335A</div>
+        <div class="stat-label">התראת CISA על Unitronics - נובמבר 2023</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">100+</div>
+        <div class="stat-label">מתקנים אומרכזיים שנפגעו ע"י CyberAv3ngers (Claroty)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">62443</div>
+        <div class="stat-label">תקן IEC לאבטחת OT - מנדטורי בעולם, לא ברב מגן</div>
+      </div>
+    </div>
+
+    <h2>למה OT בקו ייצור ביטחוני הוא יעד מועדף</h2>
+
+    <p>בניגוד למערכת IT — שם פגיעה גוררת דליפת נתונים — פגיעה ב-OT גוררת תוצאה פיזית: כיבוי קו ייצור, פסילת אצוות מוצרים בגלל סטיית ערך מהפרמטר ההנדסי, או גרוע מכך — פגיעה בבטיחות עובדים. עבור תוקף מדינתי, ההשפעה הפסיכולוגית והכלכלית של עצירת קו ייצור של רכיב צבאי קריטי גדולה פי כמה ממונים מקבילים של דליפת מידע.</p>
+
+    <div class="case-box">
+      <h4>🔴 Aliquippa, פנסילבניה - נובמבר 2023</h4>
+      <p>תחנת שאיבה של רשות המים Municipal Water Authority of Aliquippa הופסקה לאחר ש-CyberAv3ngers החליפה את מסך ה-HMI על בקר <strong>Unitronics Vision PLC</strong> בהודעה "Down with Israel". התקיפה התאפשרה בגלל חשיפה ישירה לאינטרנט בפורט 20256 (PCOM Protocol של Unitronics) עם סיסמת ברירת מחדל. CISA הוציאה את AA23-335A תוך 48 שעות. מתקנים זהים זוהו בעוד 9 מדינות אמריקאיות בתוך שבועיים.<sup>[<a href="#src1">1</a>][<a href="#src3">3</a>]</sup></p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>🟠 TRITON / TRISIS - מערכת בטיחות פטרוכימית, סעודיה 2017</h4>
+      <p>המקרה הקלאסי שמלמדים בכל קורס OT security: malware ייעודי שתקף בקרי בטיחות <strong>Schneider Triconex</strong> במפעל פטרוכימי בסעודיה. המטרה לא הייתה ריגול - אלא לבטל את ה-Safety Instrumented System (SIS) שעוצר את התהליך בחריגה מסוכנת. כשל ה-malware הוא שגרם להפעלת ה-fail-safe ועצירת המתקן; בלעדיו, יכלה להתרחש פיצוץ עם נפגעים. המקרה מיוחס ל-CIA האיראני וקבוצת XENOTIME.<sup>[<a href="#src4">4</a>]</sup></p>
+    </div>
+
+    <div class="case-box">
+      <h4>🔴 Dragos OT Cybersecurity Year in Review 2024</h4>
+      <p>בדוח השנתי של Dragos לשנת 2024: <strong>זינוק של 87% במספר התקיפות שדווחו ל-OT</strong> בהשוואה ל-2023. שלוש קבוצות חדשות שפעילות נגד יעדים מערביים (BAUXITE/CyberAv3ngers, GRAPHITE, VOLTZITE) זוהו. 80% מהפגיעויות שזוהו ב-OT אינן ניתנות לתיקון פשוט (patch) - הן דורשות שינוי ארכיטקטוני או החלפת ציוד.<sup>[<a href="#src5">5</a>]</sup></p>
+    </div>
+
+    <h2>הפער במסגרת רב מגן 2 הקיימת</h2>
+
+    <p>רב מגן 2, גם בגרסה המעודכנת של 2025, נכתב במקור עם דגש על IT והגנה על מידע מסווג (CUI). שלוש פערים מרכזיים נחשפים כשבוחנים אותו מול הסביבה האמיתית של קו ייצור:</p>
+
+    <div class="risk-grid">
+      <div class="risk-card critical">
+        <div class="risk-icon">🏭</div>
+        <div>
+          <h4>הפרדת רשת IT/OT - לא מוגדרת כדרישה מינימלית</h4>
+          <p>רב מגן מדבר על "סגמנטציה" כללית, אבל לא מציין שמערכות OT חייבות להיות במקטע מבודד עם DMZ ל-IT, כפי שדורש NIST SP 800-82r3 ו-Purdue Model. בפועל, בחלק מהקבלנים, רובוטי הייצור מחוברים לאותו VLAN של מחשבי המהנדסים - וזה לא מתועד כאי-ציות.</p>
+        </div>
+      </div>
+      <div class="risk-card critical">
+        <div class="risk-icon">🔌</div>
+        <div>
+          <h4>גישת תחזוקה מרחוק - "כוונה טובה" ללא ביקורת</h4>
+          <p>ספק PLC או SCADA דורש גישה לתחזוקה. רב מגן דורש אישור הגישה - אבל אינו דורש לוג מלא של פעולות, אינו דורש hashing של firmware לפני ואחרי, ואינו דורש הסכם משולש שכולל את ה-cyber. תוקף ש"פגע" בספק כבר ראה את כל הקרביים.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">📊</div>
+        <div>
+          <h4>NIST 800-82r3 ו-IEC 62443 - לא מופיעים כתקני ייחוס</h4>
+          <p>שני התקנים הבינלאומיים המובילים לאבטחת OT (NIST 800-82r3 משנת 2023, IEC 62443-3-2/4-1/4-2) לא נדרשים מפורשות בסקרי רב מגן. ארגון שעובר רב מגן ועוד לא יישם IEC 62443 הוא ארגון תואם - אבל לא מוגן.<sup>[<a href="#src6">6</a>][<a href="#src7">7</a>]</sup></p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">⚠️</div>
+        <div>
+          <h4>Safety vs Security - אי-בהירות סמכותית</h4>
+          <p>בקרי בטיחות (SIS) הם בגזרת מהנדס בטיחות / EHS, לא בגזרת CISO. כשבקר Triconex נדרש update אבטחה, מי החליט - האם תהליך ההפסקה החודשית מספיק, או שצריך outage מיוחד? ברוב הקבלנים בארץ אין נוהל חוצה-יחידות.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>מסגרת הגנה לקו ייצור ביטחוני - 5 שכבות</h2>
+
+    <p>הגנה אמיתית על OT דורשת ארכיטקטורה — לא בקרים נקודתיים. הקפיצה האפקטיבית הראשונה היא הפרדת רשת לפי Purdue Reference Model, שמגדיר 6 רמות (0=physical, 5=enterprise). העיקרון: ככל שיורדים ברמה, פחות תעבורה, פחות פרוטוקולים, פחות גישה אנושית.</p>
+
+    <div class="layer-stack">
+      <div class="layer-item">
+        <div class="layer-num">01</div>
+        <div>
+          <div class="layer-title">סגמנטציה לפי Purdue Model + DMZ ייעודי ל-OT</div>
+          <div class="layer-desc">VLAN נפרד לבקרים (Level 1-2), DMZ עם data diode חד-כיווני ליציאת telemetry ל-IT (Level 3-4), חסימת תעבורה דו-כיוונית מ-Internet ל-PLC על firewall בקצה.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">02</div>
+        <div>
+          <div class="layer-title">Asset inventory מלא לכל בקר, גרסת firmware, ופרוטוקול</div>
+          <div class="layer-desc">CMDB ייעודי ל-OT: יצרן, דגם, גרסה, פורטים פתוחים, ספק תחזוקה אחראי, last patch date. בלי inventory אין הגנה - כל סקירת Shodan חיצונית כבר יודעת יותר מכם.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">03</div>
+        <div>
+          <div class="layer-title">שינוי סיסמאות ברירת מחדל + MFA לכל גישה מרחוק</div>
+          <div class="layer-desc">סיסמת 1111 על Unitronics, "admin/admin" על Schneider, ערך ברירת מחדל ב-Siemens S7 - הסר ידנית. תחזוקה מרחוק רק דרך jump host מאומת עם MFA, מוקלטת מקצה לקצה.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">04</div>
+        <div>
+          <div class="layer-title">ניטור פסיבי של תעבורת OT (passive monitoring)</div>
+          <div class="layer-desc">SPAN port מ-VLAN ה-OT למערכת ייעודית (Dragos, Claroty, Nozomi, או open-source כמו Suricata עם רולים ICS). זיהוי משינוי baseline - לא חתימה - הוא העיקרון. כל פקודת write לבקר שלא בחלון תחזוקה = אירוע.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">05</div>
+        <div>
+          <div class="layer-title">תרגול שכבת SIS - הפרדה מ-BPCS ובדיקת התאוששות</div>
+          <div class="layer-desc">בקרי בטיחות (SIS) במקטע פיזי נפרד מ-Basic Process Control. תרגול שנתי שמסמלץ אירוע - האם הקו עוצר בזמן? האם logs מספיקים לחקירה? בלי תרגול, ההגנה תיאורטית.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>איך לאכוף את זה במסגרת סקר 360°</h2>
+
+    <p>סקר 360° סטנדרטי בארץ בוחן IT - תחנות עבודה, שרתים, רשת ארגונית. מעטים סוקרים את OT בעומק. בקבלן שעוסק בייצור פיזי, זה כמו לבדוק את הגדר מבלי להיכנס למחסן. מסגרת מעשית להרחבת סקר 360°:</p>
+
+    <ul class="checklist">
+      <li>סקר Shodan חיצוני של ה-IP range הציבורי של הארגון - לזהות PLCs/HMIs חשופים לפני שתוקף יזהה.</li>
+      <li>חיבור פיזי לרשת ה-OT עם laptop ייעודי, הרצת Nmap עם NSE לסקריפטים ICS-aware (s7-info, modbus-discover).</li>
+      <li>סקירת קונפיגורציית firewall בין IT ל-OT: כל rule צריך הצדקה תפעולית, ברירת מחדל deny.</li>
+      <li>ראיון עם מהנדס בטיחות + ראש OT: מי מקבל גישה למה, מי מתחזק מה, איך מתעדכן firmware.</li>
+      <li>בדיקת הסכמי ספק ל-PLC/SCADA: סעיף סייבר, חובות דיווח על תקריות, גישה מבוקרת.</li>
+      <li>סימולציית תקיפה (red team) עם הנחה של חדירה ל-IT - האם ניתן לקפוץ ל-OT? כמה זמן זה לוקח?</li>
+      <li>השוואה formal של הבקרות הקיימות מול NIST SP 800-82r3 + IEC 62443-2-1 - לא רק רב מגן.</li>
+    </ul>
+
+    <div class="bottom-line">
+      <h3>השורה התחתונה</h3>
+      <p>קווי ייצור ביטחוניים בישראל פועלים בסביבת איום שבה מדינות בעלות אינטרס - איראן, באמצעות CyberAv3ngers/BAUXITE - תוקפות בפועל, לא בתיאוריה. וקטור התקיפה אינו זירו-דיי מתוחכם, אלא Unitronics PLC עם סיסמת ברירת מחדל וגישה ישירה לאינטרנט. עלות התיקון: שינוי סיסמה, חסימת פורט, סגמנטציה. עלות אי-תיקון: עצירת קו ייצור, פסילת אצוות, או פגיעה פיזית.</p>
+      <p>רב מגן 2, כפי שהוא כתוב היום, אינו מכסה את ה-OT. הפער הזה הוא אחריות הקבלן - לא רגולציה שתשלים אותו עוד שנתיים. סקר 360° שלא בוחן את ה-OT הוא סקר חלקי, לא סקר מלא. KPLNS מקדמת מסגרת הרחבה של סקרי 360° לכלול NIST 800-82r3 ו-IEC 62443 כתקני ייחוס - לא להמתין לעדכון רב מגן 3.</p>
+    </div>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li id="src1"><a href="https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-335a" target="_blank" rel="noopener noreferrer">CISA — Alert AA23-335A: IRGC-Affiliated Cyber Actors Exploit PLCs in Multiple Sectors, Including U.S. Water and Wastewater Systems Facilities (November 2023)</a></li>
+        <li id="src2"><a href="https://www.cisa.gov/news-events/ics-advisories/icsa-23-348-15" target="_blank" rel="noopener noreferrer">CISA ICS Advisory ICSA-23-348-15 — Unitronics Vision Series PLCs and HMIs</a></li>
+        <li id="src3"><a href="https://claroty.com/team82/research/cyberav3ngers-iranian-government-actors-target-unitronics-plcs" target="_blank" rel="noopener noreferrer">Claroty Team82 — CyberAv3ngers: Iranian Government Actors Targeting Unitronics PLCs</a></li>
+        <li id="src4"><a href="https://www.dragos.com/threat/xenotime/" target="_blank" rel="noopener noreferrer">Dragos — XENOTIME Threat Group Profile (TRITON/TRISIS attribution)</a></li>
+        <li id="src5"><a href="https://www.dragos.com/ot-cybersecurity-year-in-review/" target="_blank" rel="noopener noreferrer">Dragos OT Cybersecurity Year in Review 2024</a></li>
+        <li id="src6"><a href="https://csrc.nist.gov/pubs/sp/800/82/r3/final" target="_blank" rel="noopener noreferrer">NIST SP 800-82 Rev. 3 — Guide to Operational Technology (OT) Security (September 2023)</a></li>
+        <li id="src7"><a href="https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards" target="_blank" rel="noopener noreferrer">ISA/IEC 62443 — Industrial Automation and Control Systems Security Series</a></li>
+        <li id="src8"><a href="https://www.cisa.gov/news-events/news/strengthening-cybersecurity-water-and-wastewater-systems" target="_blank" rel="noopener noreferrer">CISA — Strengthening Cybersecurity in Water and Wastewater Systems</a></li>
+        <li id="src9"><a href="https://www.gov.il/he/departments/news/cyber-defense-methodology" target="_blank" rel="noopener noreferrer">מערך הסייבר הלאומי — מתודולוגיית הגנת סייבר לארגון</a></li>
+      </ol>
+    </div>
+  </div>
+
+
+  <section class="related-articles" aria-label="מאמרים ושירותים קשורים">
+    <h3>מאמרים ושירותים קשורים</h3>
+    <div class="related-grid">
+      <a href="article-rav-magen.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">רב מגן - מדריך מעשי לקבלן ביטחוני</span></a>
+      <a href="article-hardware-implants.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">השתלים בחומרה - איום פיזי שמעורר עכשיו</span></a>
+      <a href="article-supplier-signs.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">5 סימנים שהספק שלכם חשוף לתקיפה</span></a>
+      <a href="service-survey-360.html" class="related-card"><span class="r-tag">שירות</span><span class="r-title">סקר ביטחון 360° בשרשרת האספקה</span></a>
+    </div>
+  </section>
+
+  <div class="article-cta">
+    <h3>קו הייצור שלכם מבוקר על ידי PLCs. מי מבוקר עליהם?</h3>
+    <p>KPLNS מרחיבה סקרי 360° לכלול את שכבת ה-OT — סגמנטציה, NIST 800-82r3 ו-IEC 62443, ניטור פסיבי וסקירת חשיפת PLC חיצונית. ההפרדה בין IT ל-OT היא נקודת הכשל המתועדת ביותר בקבלן ביטחוני.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+<footer class="article-footer">
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+    <a href="disclaimer.html">תנאי שימוש</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
+</footer>
+</body>
+</html>
