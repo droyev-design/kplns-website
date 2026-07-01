@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>מבצע ShadowHammer - עדכון יצרן חתום שהפיץ דלת אחורית ל-500,000 מחשבים | KPLNS</title>
+<meta name="description" content="ניתוח מקרה: תוקפים הרעילו את שרת העדכונים הרשמי של ASUS והפיצו דלת אחורית חתומה בתעודה לגיטימית לכ-500,000 מחשבי Windows - הלקח על מחיר אי-הכנות לתקיפות שרשרת אספקה - KPLNS">
+<meta property="og:title" content="מבצע ShadowHammer - עדכון יצרן חתום שהפיץ דלת אחורית ל-500,000 מחשבים | KPLNS">
+<meta property="og:description" content="ניתוח מקרה: תוקפים הרעילו את שרת העדכונים הרשמי של ASUS והפיצו דלת אחורית חתומה בתעודה לגיטימית לכ-500,000 מחשבי Windows - הלקח על מחיר אי-הכנות לתקיפות שרשרת אספקה - KPLNS">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/article-threat-shadowhammer.html">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="מבצע ShadowHammer - עדכון יצרן חתום שהפיץ דלת אחורית ל-500,000 מחשבים | KPLNS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="מבצע ShadowHammer - עדכון יצרן חתום שהפיץ דלת אחורית ל-500,000 מחשבים | KPLNS">
+<meta name="twitter:description" content="ניתוח מקרה: תוקפים הרעילו את שרת העדכונים הרשמי של ASUS והפיצו דלת אחורית חתומה בתעודה לגיטימית לכ-500,000 מחשבי Windows - הלקח על מחיר אי-הכנות לתקיפות שרשרת אספקה - KPLNS">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
+<meta name="twitter:image:alt" content="מבצע ShadowHammer - עדכון יצרן חתום שהפיץ דלת אחורית ל-500,000 מחשבים | KPLNS">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="KPLNS Encapsulated Solutions">
+<link rel="canonical" href="https://kplns.com/article-threat-shadowhammer.html">
+<meta name="theme-color" content="#0a1628">
+<link rel="alternate" hreflang="he" href="https://kplns.com/article-threat-shadowhammer.html">
+<link rel="alternate" hreflang="en" href="https://kplns.com/article-threat-shadowhammer.html">
+<link rel="alternate" hreflang="x-default" href="https://kplns.com/article-threat-shadowhammer.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(251,146,60,0.06));border:1px solid rgba(239,68,68,0.25);border-right:4px solid var(--red);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--red);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.75rem;color:var(--text-muted);line-height:1.7;padding:4px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:5px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.08);margin-top:60px;color:rgba(232,237,245,0.4);font-size:0.85rem}
+.article-footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.article-footer .footer-links a{color:rgba(232,237,245,0.5);font-size:0.82rem;transition:color 0.3s}
+.article-footer .footer-links a:hover{color:#00d4ff}
+.article-footer .footer-copy{font-size:0.8rem}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.related-articles {
+  max-width: 760px; margin: 0 auto; padding: 48px 24px 0;
+}
+.related-articles h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.related-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.related-card:hover {
+  border-color: rgba(0,212,255,0.2); background: rgba(26, 34, 54, 0.85);
+  transform: translateX(-4px);
+}
+.related-card .r-tag {
+  font-size: 0.7rem; font-weight: 600; color: var(--cyan);
+  background: var(--cyan-dim); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap;
+}
+.related-card .r-title {
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+}
+@media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"מבצע ShadowHammer"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"מבצע ShadowHammer - עדכון יצרן חתום שהפיץ דלת אחורית ל-500,000 מחשבים","description":"ניתוח מקרה: תוקפים הרעילו את שרת העדכונים הרשמי של ASUS והפיצו דלת אחורית חתומה בתעודה לגיטימית לכ-500,000 מחשבי Windows - הלקח על מחיר אי-הכנות לתקיפות שרשרת אספקה","author":{"@type":"Person","@id":"https://kplns.com/#founder","name":"Y.K.","jobTitle":"Security & Supply Chain Consultant"},"publisher":{"@type":"Organization","name":"KPLNS Encapsulated Solutions","url":"https://kplns.com","logo":{"@type":"ImageObject","url":"https://kplns.com/og-image.png"}},"datePublished":"2026-07-01","dateModified":"2026-07-01","image":"https://kplns.com/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kplns.com/article-threat-shadowhammer.html"},"inLanguage":"he-IL","articleSection":"Threat Intelligence","keywords":"ShadowHammer, ASUS, שרשרת אספקה, supply chain attack, code signing, עדכון תוכנה, Kaspersky","wordCount":830}
+</script>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="index.html#insights">מאמרים</a><span>›</span>
+  מבצע ShadowHammer
+</nav>
+<article class="article-container">
+  <div class="article-tag"><span class="txt-he">יצרן חומרה - טייוואן-גלובלי 2019</span></div>
+  <h1>מבצע ShadowHammer - עדכוני יצרן חתומים שהפיצו דלת אחורית ל-500,000 מחשבים</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; זמן קריאה: 8 דקות</div>
+
+  <div class="article-body">
+
+    <p>מה קורה כשכלי העדכון הרשמי של יצרן החומרה שלכם - זה שנועד לשמור על המחשב מעודכן ומאובטח - הופך בעצמו לנשק? זה בדיוק מה שקרה במבצע <strong>ShadowHammer</strong>. תוקפים הרעילו את שרת העדכונים הרשמי של ASUS, אחת מיצרניות המחשבים הגדולות בעולם, והפיצו דלת אחורית לכחצי מיליון מחשבים - כשכל אחד מהם קיבל אותה עם חתימה דיגיטלית תקפה של היצרן.</p>
+
+    <p>הקורבנות לא עשו דבר "לא נכון". הם לא לחצו על קישור חשוד ולא הורידו קובץ פיראטי. הם עשו בדיוק את מה שמומחי אבטחה ממליצים: התקינו עדכון רשמי מהיצרן, דרך הערוץ הרשמי, חתום בתעודה לגיטימית. וזו בדיוק הסיבה שהתקיפה הזו כה מטרידה.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num red">~500K</div>
+        <div class="stat-label">מחשבים שקיבלו את העדכון הנגוע</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">~600</div>
+        <div class="stat-label">כתובות MAC למיקוד כירורגי</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">6 חוד'</div>
+        <div class="stat-label">הפצה עד הגילוי (6-11/2018)</div>
+      </div>
+    </div>
+
+    <h2>שחזור האירוע - הרעלת שרת העדכונים</h2>
+
+    <p>בין יוני לנובמבר 2018 הפיצו התוקפים גרסה נגועה של <strong>ASUS Live Update Utility</strong> - כלי העדכון האוטומטי המותקן מראש על מיליוני מחשבים ניידים ושולחניים של ASUS. הכלי משך את "העדכון" ישירות משרת ה-Live Update הרשמי של החברה, כך שמבחינת המשתמש ומבחינת מנגנוני ההגנה - מדובר היה בעדכון לגיטימי לכל דבר.</p>
+
+    <div class="case-box">
+      <h4>🔴 שרשרת האמון שנוצלה - חתימה דיגיטלית תקפה</h4>
+      <p>הקבצים המזויפים נחתמו בתעודות חתימת קוד לגיטימיות של ASUS (על שם <strong>"ASUSTeK Computer Inc."</strong>). מערכות הפעלה, אנטי-וירוסים וכלי הגנה נבנו כך שיסמכו על חתימה כזו - ולכן העבירו את הדלת האחורית ללא התרעה. האמון בתעודת היצרן היה עצם הפרצה.</p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>🟠 המיקוד הכירורגי - רשימת MAC קשיחה</h4>
+      <p>למרות שכ-500,000 מחשבים קיבלו את העדכון הנגוע, המתקפה כלל לא נועדה לכולם. הדלת האחורית נשאה בתוכה רשימה מוקשחת של יותר מ-600 כתובות MAC ספציפיות. רק מחשבים שכתובת הרשת שלהם התאימה לרשימה - קיבלו את מטען השלב השני מהתוקפים. כל השאר נותרו נגועים אך "רדומים".</p>
+    </div>
+
+    <div class="case-box cyan">
+      <h4>🔵 הגילוי - Kaspersky, ינואר 2019</h4>
+      <p>המבצע התגלה על ידי חוקרי Kaspersky בסוף ינואר 2019, לאחר כחצי שנה של הפצה. בטלמטריה של Kaspersky בלבד זוהו למעלה מ-57,000 משתמשים נגועים; המספר הכולל בעולם נותר לא ידוע. החוקרים קישרו את הקוד לכלי הריגול <strong>ShadowPad</strong> ולמתקפת <strong>CCleaner</strong> משנת 2017, שבה נפגעו כ-700,000 מערכות בדפוס דומה.</p>
+    </div>
+
+    <h2>מהתוכנה אל החומרה - למה זה כה משמעותי</h2>
+
+    <p>ShadowHammer מסמן נקודת מפנה: זו אינה עוד פריצה לספק תוכנה מקרי, אלא ניצול של האמון שאנו נותנים <strong>ביצרן החומרה עצמו</strong>. אותו אמון שמאפשר לעדכון קושחה או לדרייבר לרוץ בהרשאות הגבוהות ביותר - הוא שהופך יצרן חומרה לוקטור תקיפה קטלני. מי ששולט בערוץ העדכון של היצרן, שולט למעשה בכל מכשיר שנושם דרכו.</p>
+
+    <div class="risk-grid">
+      <div class="risk-card critical">
+        <div class="risk-icon">✍️</div>
+        <div>
+          <h4>אמון עיוור בחתימת היצרן</h4>
+          <p>חתימה דיגיטלית תקפה מוכיחה שהקובץ נחתם במפתח של היצרן - לא שהוא נקי. כשתשתית החתימה של הספק נפגעת, החתימה הופכת מבקרת אבטחה לחותמת אישור עבור הנוזקה.</p>
+        </div>
+      </div>
+      <div class="risk-card critical">
+        <div class="risk-icon">📡</div>
+        <div>
+          <h4>ערוץ עדכון כנקודת כשל יחידה</h4>
+          <p>כלי עדכון אוטומטי מותקן-מראש עם הרשאות גבוהות הוא יעד אידיאלי: פגיעה בשרת אחד מתורגמת להפצה ממוקדת למאות אלפי נקודות קצה, מבלי שאף משתמש יעשה דבר.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">👁️</div>
+        <div>
+          <h4>היעדר אימות שלמות עצמאי</h4>
+          <p>הסתמכות בלעדית על החתימה של הספק, בלי בקרת שלמות בלתי-תלויה (ניטור התנהגות, בקרת גרסאות, השוואת hash), הותירה את המתקפה בלתי-נראית לחצי שנה.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>מחיר אי-ההכנות - הלקח לארגונים</h2>
+
+    <div class="highlight-box red">
+      <h3>לסמוך על עדכון חתום מהיצרן - זה לא מספיק</h3>
+      <p>הלקח המרכזי של ShadowHammer אינו "ASUS טעו", אלא ש<strong>מודל אבטחה המבוסס כולו על אמון בספק חיצוני נשבר ברגע שהספק עצמו נפרץ</strong>. ארגון שאין לו יכולת עצמאית לאמת מה רץ על נקודות הקצה שלו - מוותר על ההגנה שלו לטובת רמת האבטחה של החוליה החלשה ביותר בשרשרת האספקה שלו.</p>
+    </div>
+
+    <p>אי-ההכנות עולה בשני מישורים: ראשית, חוסר יכולת <strong>למנוע</strong> - כשאין בקרת שלמות עצמאית, נוזקה חתומה עוברת חלק. שנית, וחמור מכך, חוסר יכולת <strong>לגלות</strong> - חצי שנה חלפה עד שגורם חיצוני (Kaspersky) חשף את המתקפה, ולא הארגונים הנגועים עצמם.</p>
+
+    <ul class="checklist">
+      <li>מיפוי ספקי החומרה והתוכנה שלכם ודירוגם לפי רמת ההרשאות שיש להם על נקודות הקצה</li>
+      <li>נטרול או ניטור הדוק של כלי עדכון אוטומטיים מותקנים-מראש (bloatware) שאינם נדרשים</li>
+      <li>בקרת שלמות עצמאית - allowlisting, ניטור התנהגות (EDR) והשוואת hash מול מקור מהימן</li>
+      <li>אי-הסתמכות בלעדית על חתימת קוד; יעד: זיהוי אנומליה גם אם הקובץ חתום כדין</li>
+      <li>הפרדת רשתות והגבלת תעבורה יוצאת, כדי לחסום את מטען השלב השני מהשגת יעדו</li>
+      <li>מעקב אחר פרסומי CERT ו-Threat Intelligence על היצרנים שבשימוש הארגון</li>
+      <li>תוכנית Incident Response המכסה תרחיש של עדכון יצרן נגוע ומהלכי ריטרו (rollback)</li>
+    </ul>
+
+    <div class="bottom-line">
+      <h3>השורה התחתונה</h3>
+      <p>ShadowHammer הוכיח שהשאלה אינה "האם היצרן שלי אמין", אלא "מה קורה כשגם ערוץ האמון האמין ביותר נפרץ". <strong>עדכון רשמי, משרת רשמי, חתום בתעודה לגיטימית - הפיץ דלת אחורית לחצי מיליון מחשבים.</strong> מודל הגנה שמסתמך רק על אמון בספק אינו הכנה - הוא הימור.</p>
+      <p>ארגון מוכן הוא כזה שמניח מראש שכל חוליה בשרשרת האספקה עלולה להיפגע, ובונה שכבת אימות שלמות עצמאית שאינה תלויה בספק. זה ההבדל בין מתקפה שנעצרת בנקודת הקצה - לבין מתקפה שמתגלה חצי שנה מאוחר מדי.</p>
+    </div>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li>Kaspersky (Securelist) - "Operation ShadowHammer: a high-profile supply chain attack" (2019): https://securelist.com/operation-shadowhammer-a-high-profile-supply-chain-attack/90380/</li>
+        <li>CERT-EU, Security Advisory 2019-007 - ASUS Live Update Supply Chain Attack: https://cert.europa.eu/publications/security-advisories/2019-007/</li>
+        <li>Kaspersky - ShadowPad backdoor analysis (קשר טכני ל-ShadowHammer)</li>
+        <li>Cisco Talos / Avast - CCleaner Supply Chain Attack (2017), כ-700 אלף מערכות שדיווחו לשרת השליטה</li>
+        <li>MITRE ATT&CK - T1195.002 (Supply Chain Compromise: Compromise Software Supply Chain), T1553.002 (Code Signing)</li>
+      </ol>
+    </div>
+  </div>
+
+
+  <section class="related-articles" aria-label="מאמרים ושירותים קשורים">
+    <h3>מאמרים ושירותים קשורים</h3>
+    <div class="related-grid">
+      <a href="article-cyber-toufan-supply-chain.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">Cyber Toufan - פגיעה דרך ספק</span></a>
+      <a href="article-threat-defense-contractor.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">חדירה לקבלן ביטחוני</span></a>
+      <a href="article-threat-hosting.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">פריצה דרך ספק אירוח</span></a>
+      <a href="article-threat-academia.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">תקיפת ספק תוכנה אקדמי</span></a>
+    </div>
+  </section>
+
+  <!-- related-articles:auto -->
+  <div class="article-cta">
+    <h3>האם אתם יכולים לאמת מה רץ על נקודות הקצה שלכם?</h3>
+    <p>KPLNS מסייעת לארגונים לבנות בקרת שלמות עצמאית וניהול סיכוני שרשרת אספקה - כדי שעדכון חתום לא יהפוך לדלת אחורית.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+<footer class="article-footer">
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+    <a href="disclaimer.html">תנאי שימוש</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
+</footer>
+</body>
+</html>
