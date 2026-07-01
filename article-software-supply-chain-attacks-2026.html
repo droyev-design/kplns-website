@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>מתקפת שרשרת אספקת תוכנה 2026: הגנת SBOM ו-CI/CD | KPLNS</title>
+<meta name="description" content="גל מתקפת שרשרת אספקת תוכנה ב-2026 דרך GitHub ו-CI/CD (Megalodon, Shai-Hulud): איך SBOM, נעילת Actions והקשחת פייפליין מגנים על קבלן ביטחוני. ניתוח KPLNS.">
+<meta property="og:title" content="מתקפת שרשרת אספקת תוכנה 2026: הגנת SBOM ו-CI/CD | KPLNS">
+<meta property="og:description" content="גל מתקפות ה-2026 על GitHub ו-CI/CD - Megalodon, Shai-Hulud, tj-actions - ולמה SBOM והקשחת פייפליין הן ההגנה של קבלן ביטחוני">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/article-software-supply-chain-attacks-2026.html">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="מתקפת שרשרת אספקת תוכנה 2026 - SBOM ו-CI/CD | KPLNS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="מתקפת שרשרת אספקת תוכנה 2026: הגנת SBOM ו-CI/CD | KPLNS">
+<meta name="twitter:description" content="גל 2026 של מתקפות שרשרת אספקת תוכנה דרך GitHub/CI-CD - וההגנה: SBOM והקשחת פייפליין לקבלן ביטחוני">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
+<meta name="twitter:image:alt" content="מתקפת שרשרת אספקת תוכנה 2026 - SBOM ו-CI/CD | KPLNS">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="KPLNS Encapsulated Solutions">
+<link rel="canonical" href="https://kplns.com/article-software-supply-chain-attacks-2026.html">
+<meta name="theme-color" content="#0a1628">
+<link rel="alternate" hreflang="he" href="https://kplns.com/article-software-supply-chain-attacks-2026.html">
+<link rel="alternate" hreflang="en" href="https://kplns.com/article-software-supply-chain-attacks-2026.html">
+<link rel="alternate" hreflang="x-default" href="https://kplns.com/article-software-supply-chain-attacks-2026.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.layer-stack{margin:28px 0;display:flex;flex-direction:column;gap:0}
+.layer-item{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--border);background:var(--bg-card)}
+.layer-item:first-child{border-radius:12px 12px 0 0}
+.layer-item:last-child{border-radius:0 0 12px 12px}
+.layer-item:not(:last-child){border-bottom:none}
+.layer-num{font-size:0.75rem;font-weight:800;font-family:var(--font-en);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.layer-item:nth-child(1) .layer-num{background:var(--red-dim);color:var(--red)}
+.layer-item:nth-child(2) .layer-num{background:var(--orange-dim);color:var(--orange)}
+.layer-item:nth-child(3) .layer-num{background:var(--yellow-dim);color:var(--yellow)}
+.layer-item:nth-child(4) .layer-num{background:var(--cyan-dim);color:var(--cyan)}
+.layer-item:nth-child(5) .layer-num{background:var(--green-dim);color:var(--green)}
+.layer-title{font-size:0.92rem;font-weight:700;color:var(--text-primary)}
+.layer-desc{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(251,146,60,0.06));border:1px solid rgba(239,68,68,0.25);border-right:4px solid var(--red);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--red);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.78rem;color:var(--text-muted);line-height:1.7;padding:6px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:7px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-sources ol li a{color:var(--cyan);word-break:break-word;transition:opacity 0.3s}
+.article-sources ol li a:hover{opacity:0.75}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.08);margin-top:60px;color:rgba(232,237,245,0.4);font-size:0.85rem}
+.article-footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.article-footer .footer-links a{color:rgba(232,237,245,0.5);font-size:0.82rem;transition:color 0.3s}
+.article-footer .footer-links a:hover{color:#00d4ff}
+.article-footer .footer-copy{font-size:0.8rem}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.related-articles {
+  max-width: 760px; margin: 0 auto; padding: 48px 24px 0;
+}
+.related-articles h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.related-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.related-card:hover {
+  border-color: rgba(0,212,255,0.2); background: rgba(26, 34, 54, 0.85);
+  transform: translateX(-4px);
+}
+.related-card .r-tag {
+  font-size: 0.7rem; font-weight: 600; color: var(--cyan);
+  background: var(--cyan-dim); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap;
+}
+.related-card .r-title {
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+}
+@media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"מתקפת שרשרת אספקת תוכנה 2026 - SBOM ו-CI/CD"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"מתקפת שרשרת אספקת תוכנה 2026 - הגנת SBOM והקשחת CI/CD לקבלן ביטחוני","description":"ניתוח גל 2026 של מתקפות שרשרת אספקת תוכנה דרך GitHub ו-CI/CD (Megalodon, Shai-Hulud, tj-actions) וההגנה המעשית: SBOM, נעילת GitHub Actions, בידוד סודות והקשחת פייפליין לקבלן ביטחוני","author":{"@type":"Person","@id":"https://kplns.com/#founder","name":"Y.K.","jobTitle":"Security & Supply Chain Consultant"},"publisher":{"@type":"Organization","name":"KPLNS Encapsulated Solutions","url":"https://kplns.com","logo":{"@type":"ImageObject","url":"https://kplns.com/og-image.png"}},"datePublished":"2026-07-01","dateModified":"2026-07-01","image":"https://kplns.com/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kplns.com/article-software-supply-chain-attacks-2026.html"},"inLanguage":"he-IL","articleSection":"Threat Intelligence","keywords":"מתקפת שרשרת אספקת תוכנה, SBOM, CI/CD, GitHub Actions, Megalodon, Shai-Hulud, tj-actions, SLSA, קבלן ביטחוני, שרשרת אספקה","wordCount":1720}
+</script>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="index.html#insights">מאמרים</a><span>›</span>
+  מתקפת שרשרת אספקת תוכנה 2026
+</nav>
+<article class="article-container">
+  <div class="article-tag">מודיעין איומים - שרשרת אספקת תוכנה</div>
+  <h1>מתקפת שרשרת אספקת תוכנה 2026: איך SBOM והקשחת CI/CD מגנים על הקבלן הביטחוני</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; זמן קריאה: 11 דקות &nbsp;·&nbsp; ניתוח גל התקיפות של 2026</div>
+
+  <div class="article-body">
+
+    <p>הרבעונים הראשונים של 2026 הפכו את <strong>מתקפת שרשרת אספקת התוכנה</strong> מתרחיש תיאורטי לגל תקיפות שבועי. הפעם המטרה אינה רק חבילת קוד פתוח בודדת - אלא ה<strong>פייפליין</strong> עצמו: מערכות ה-CI/CD, חשבונות GitHub של מפתחים, וקבצי GitHub Actions שרצים אוטומטית בכל דחיפת קוד. תוקף שמשתלט על שלב הבנייה לא צריך לפרוץ את הרשת שלכם - הוא פשוט מזריק את עצמו לתוך התוכנה שאתם ממילא מריצים בסביבת ייצור.<sup>[<a href="#src1">1</a>][<a href="#src2">2</a>]</sup></p>
+
+    <p>לקבלן ביטחוני זו נקודת עיוורון קלאסית: תקציבי ההגנה הולכים ל-EDR, לפיירוול ולסקרי חדירה - בעוד ה-CI/CD, שיש לו הרשאות לענן, למאגרי הקוד ולסודות הייצור, נשאר מחוץ למיפוי הסיכונים. המאמר הזה מנתח שלוש תקריות שהגדירו את הגל של 2026, מסביר למה קבלן ביטחוני חשוף במיוחד, ומפרט את ההגנה המעשית - <strong>SBOM והקשחת פייפליין</strong> - שאפשר להתחיל ליישם השבוע. זהו המשך ישיר לניתוחים הקודמים שלנו על <a href="article-signed-installer-supply-chain.html">חתימה דיגיטלית שהובילה לתקיפה</a> ועל <a href="article-supply-chain-cost.html">המחיר האמיתי של הזנחת שרשרת האספקה</a>.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">5,561</div>
+        <div class="stat-label">מאגרי GitHub שהודבקו בקמפיין Megalodon בכ-6 שעות</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">23,000</div>
+        <div class="stat-label">מאגרים שהושפעו מפריצת tj-actions/changed-files</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">חבילות npm שהודבקו בתולעת Shai-Hulud מספטמבר 2025</div>
+      </div>
+    </div>
+
+    <h2>מה השתנה ב-2026: מהתקנת ההתקנה למתקפה על הפייפליין</h2>
+
+    <p>מתקפות שרשרת אספקה קלאסיות (כמו מקרה <a href="article-cyber-toufan-supply-chain.html">Cyber Toufan</a> או המקרה של DAEMON Tools) פגעו בקובץ התקנה או בספק בודד. הגל של 2026 שונה בשלושה מאפיינים: הוא <strong>אוטומטי</strong> (בוט דוחף אלפי commits בשעות), הוא <strong>מתפשט מעצמו</strong> (תולעים שגונבות אישורים ומדביקות חבילות נוספות), והוא מכוון ל<strong>סודות של הפייפליין</strong> - מפתחות ענן, טוקנים של OIDC ומשתני סביבה של CI - ולא לקבצים על דיסק. התוצאה: חדירה אחת לחשבון מפתח מתורגמת לגישה למאות מערכות במורד הזרם.</p>
+
+    <h2>שלוש התקריות שמגדירות את גל 2026</h2>
+
+    <div class="case-box">
+      <h4>🔴 Megalodon - הרעלת CI/CD בקנה מידה תעשייתי (מאי 2026)</h4>
+      <p>ב-18 במאי 2026, בין השעות 11:36 ל-17:48 UTC - חלון של כ-6 שעות - נדחפו <strong>5,718 commits זדוניים ל-5,561 מאגרי GitHub</strong>. השם המזויף על ה-commits היה "build-bot" / "auto-ci", כדי להיראות כתרומה אוטומטית תמימה. כל commit הזריק קובץ GitHub Actions עם payload מוצפן ב-base64 שגנב את כל משתני הסביבה של ה-CI, אישורי AWS/GCP/Azure, מפתחות SSH, קונפיגורציות Docker ו-Kubernetes וטוקני OIDC, ושלח אותם לשרת שליטה בכתובת 216.126.225.129:8443.<sup>[<a href="#src1">1</a>][<a href="#src2">2</a>]</sup></p>
+      <p>החלק המסוכן: חלק מהגרסאות שתלו <strong>backdoor רדום</strong> מסוג <code>workflow_dispatch</code> - שאינו רץ אוטומטית ולכן אינו יוצר בנייה כושלת שתעורר חשד, אבל ניתן להפעילו מאוחר יותר דרך ה-API של GitHub בעזרת טוקן גנוב. הקמפיין התגלה על ידי חברת SafeDep לאחר שזוהתה חבילת npm נגועה של <code>@tiledesk/tiledesk-server</code> (גרסאות 2.18.6-2.18.12), שפורסמה ממאגר קוד מורעל מבלי שהמתחזק הבחין.<sup>[<a href="#src1">1</a>]</sup></p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>🟠 Shai-Hulud ו-TeamPCP - התולעת שמתרבה מעצמה (2025-2026)</h4>
+      <p>בספטמבר 2025 התגלתה <strong>Shai-Hulud</strong>, תולעת npm שמתרבה מעצמה: היא הזריקה סקריפט post-install שגנב אישורי מפתח ומאגרים פרטיים, ואז השתמשה בהם כדי לפרסם גרסאות נגועות של חבילות נוספות. למעלה מ-<strong>500 חבילות</strong> הודבקו, ו-GitHub הסירה אותן מהרישום. גרסה משופרת ("The Second Coming" / Shai-Hulud 2.0) הופיעה כבר בנובמבר 2025.<sup>[<a href="#src4">4</a>][<a href="#src5">5</a>]</sup></p>
+      <p>ב-2026 המשיך אשכול הפעילות שיוחס לקבוצת <strong>TeamPCP</strong> ("Mini Shai-Hulud"): ב-12 במאי 2026 נפגעו TanStack ולמעלה מ-160 חבילות npm/PyPI נוספות, וגורמי מחקר קשרו לאותה פעילות גם דליפת קוד מקור אצל ספקי אבטחה - כולל Trellix, לצד כלי הקוד-הפתוח Trivy ו-Checkmarx KICS. המכנה המשותף: גניבת אישורי GitHub וטוקני CI/CD, לא פריצת רשת קלאסית.<sup>[<a href="#src6">6</a>]</sup></p>
+    </div>
+
+    <div class="case-box cyan">
+      <h4>🔵 tj-actions/changed-files - התקדים שהוכיח את הווקטור (מרץ 2025)</h4>
+      <p>הפעולה הפופולרית <code>tj-actions/changed-files</code>, המשמשת בעשרות אלפי פייפליינים, נפרצה במרץ 2025 (מזוהה כ-CVE-2025-30066). התוקף <strong>שינה רטרואקטיבית תגי גרסה קיימים</strong> כך שיצביעו על commit זדוני - כלומר גם מי ש"נעל" גרסה קיבל את הקוד הנגוע. התוצאה: הפעולה השפיעה על למעלה מ-<strong>23,000 מאגרים</strong>, ובמאגרים ציבוריים נחשפו סודות בלוגים - כולל מפתחות גישה, PAT של GitHub וטוקני npm. CISA פרסמה התראה רשמית, והתיקון הגיע רק בגרסה 46.0.1.<sup>[<a href="#src3">3</a>][<a href="#src7">7</a>]</sup></p>
+    </div>
+
+    <h2>למה קבלן ביטחוני חשוף במיוחד</h2>
+
+    <p>ה-CI/CD הוא בדיוק סוג הנכס שנופל בין הכיסאות: הוא לא "שרת ייצור" קלאסי, אבל יש לו הרשאות רחבות יותר מרוב המערכות. שלושה מאפיינים הופכים אותו למטרה מועדפת בסקטור הביטחוני:</p>
+
+    <div class="risk-grid">
+      <div class="risk-card critical">
+        <div class="risk-icon">🔑</div>
+        <div>
+          <h4>הפייפליין מחזיק את המפתחות לכל הממלכה</h4>
+          <p>סוכן ה-CI ניגש למאגר הקוד, לרישום החבילות, לסביבת הענן ולסודות הייצור. תוקף שמשיג ריצת קוד בתוך ה-runner - כפי ש-Megalodon הדגים - קוצר בבת אחת את כל האישורים שמשתני הסביבה חושפים, בלי לפרוץ אף מערכת נוספת.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">📦</div>
+        <div>
+          <h4>תלות עמוקה בקוד פתוח שלא נמפה</h4>
+          <p>גם קוד "ביטחוני" בנוי על מאות תלויות npm/PyPI וגרסאות של GitHub Actions. בלי SBOM, הארגון לא יודע אילו רכיבים באמת רצים אצלו - ולכן לא יכול לדעת אם חבילה נגועה מ-Shai-Hulud או מ-TeamPCP כבר נכנסה לפייפליין שלו.</p>
+        </div>
+      </div>
+      <div class="risk-card critical">
+        <div class="risk-icon">🔗</div>
+        <div>
+          <h4>flowdown לקבלן הראשי ולמדינה</h4>
+          <p>קוד נגוע שמשולב במערכת שנמסרת ל-Prime contractor אמריקאי או למשרד ביטחון הופך את הקבלן לווקטור החדירה. דרישות CMMC ו-NIST SSDF כבר מחייבות provenance של הבנייה - ותקרית שרשרת אספקה אחת עלולה לפסול הסמכה שלמה.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>SBOM - לראות מה באמת רץ בקוד שלכם</h2>
+
+    <p>לא ניתן להגן על מה שלא רואים. <strong>SBOM (Software Bill of Materials)</strong> הוא "רשימת רכיבים" מלאה של כל תלות, גרסה ומקור בתוכנה - כולל קבצי ה-workflow שנארזים בתוך חבילות. במקרה Megalodon, בדיוק יצירת SBOM שסורק גם את קבצי ה-Actions הייתה חושפת את ה-payload הזדוני שהוטמע בחבילת Tiledesk. ה-SBOM הוא הבסיס שממנו נגזרות כל שאר הבקרות: בלי מצאי מדויק, גם ניטור סודות וגם ניהול פגיעות עובדים בעיוורון.<sup>[<a href="#src1">1</a>][<a href="#src8">8</a>]</sup></p>
+
+    <div class="highlight-box">
+      <h3>SBOM הוא כבר דרישת רגולציה - לא "נחמד שיהיה"</h3>
+      <p>SBOM ו-provenance עברו מהמלצה לדרישה: צו EO 14028 בארה"ב, חוק ה-Cyber Resilience Act של האיחוד האירופי, ומסגרות כמו NIST SSDF (SP 800-218) ו-CMMC 2.0 מחייבים כיום מצאי רכיבים והוכחת שלמות בנייה עבור תוכנה שנמכרת לממשלה. עבור קבלן ביטחוני, SBOM הוא כבר תנאי סף חוזי - לא מותרות.<sup>[<a href="#src8">8</a>][<a href="#src9">9</a>]</sup></p>
+    </div>
+
+    <h2>הקשחת CI/CD - חמש שכבות הגנה על הפייפליין</h2>
+
+    <p>SBOM נותן ראות; הקשחת ה-CI/CD מונעת את הפגיעה מלכתחילה. חמש השכבות הבאות עוקבות אחר מסגרות SLSA ו-NIST SSDF, ומתמודדות ישירות עם הווקטורים ש-Megalodon, Shai-Hulud ו-tj-actions ניצלו:</p>
+
+    <div class="layer-stack">
+      <div class="layer-item">
+        <div class="layer-num">01</div>
+        <div>
+          <div class="layer-title">נעילת GitHub Actions ל-commit hash מלא (pinning)</div>
+          <div class="layer-desc">אל תשתמשו ב-<code>@v4</code> או <code>@main</code> - הצמידו כל פעולה ל-SHA מלא של commit. זה בדיוק מה שהיה עוצר את מתקפת tj-actions, שבה תגי הגרסה שונו רטרואקטיבית להצביע על קוד זדוני.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">02</div>
+        <div>
+          <div class="layer-title">בידוד סודות והרשאות מינימום ל-runner</div>
+          <div class="layer-desc">העדיפו OIDC עם טוקנים קצרי-חיים על פני סודות ארוכי-חיים, הגבילו את הרשאות ה-<code>GITHUB_TOKEN</code> ל-read-only כברירת מחדל, וחלקו סודות לפי סביבה. גם אם payload רץ - הוא קוצר הרשאות מוגבלות בלבד.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">03</div>
+        <div>
+          <div class="layer-title">סריקת סודות והתראה על workflow חשוד</div>
+          <div class="layer-desc">הפעילו secret scanning ו-push protection, ונטרו הוספת קבצי workflow חדשים או שינויי הרשאות. backdoor רדום מסוג <code>workflow_dispatch</code> - כמו של Megalodon - שקוף לרוב הכלים, ולכן צריך בקרה ייעודית על שינויי הפייפליין עצמו.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">04</div>
+        <div>
+          <div class="layer-title">provenance ובנייה מבודדת (SLSA Build L3)</div>
+          <div class="layer-desc">חתמו על ארטיפקטים (Sigstore) והפיקו provenance לא-ניתן-לזיוף שמוכיח היכן ואיך נבנתה התוכנה. SLSA Build L3 הוא הרף הנדרש כיום לרכש פדרלי בארה"ב - ומספק גם הגנה טכנית וגם עמידה חוזית.<sup>[<a href="#src10">10</a>]</sup></div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">05</div>
+        <div>
+          <div class="layer-title">רוטציית סודות ותרגיל IR ייעודי לפייפליין</div>
+          <div class="layer-desc">הגדירו רוטציה אוטומטית של אישורי CI, ותרחיש תגובה לאירוע שמניח "ה-runner נפרץ": אילו סודות נחשפו, מה מסתובב במורד הזרם, וכמה מהר אפשר לבטל טוקנים. זה ההבדל בין תקרית מוכלת לפריצה שמתפשטת ל-Prime.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>צ'קליסט מעשי - מה לבצע ברבעון הקרוב</h2>
+
+    <ul class="checklist">
+      <li>הפקת SBOM אוטומטית (SPDX/CycloneDX) לכל בנייה - כולל סריקת קבצי workflow שנארזים בחבילות.</li>
+      <li>נעילת כל GitHub Actions ל-commit SHA מלא, וביטול שימוש בתגי גרסה נעים (@v4/@main).</li>
+      <li>מעבר ל-OIDC וטוקנים קצרי-חיים; הגדרת <code>GITHUB_TOKEN</code> ל-read-only כברירת מחדל.</li>
+      <li>הפעלת secret scanning + push protection, וניטור ייעודי על הוספת/שינוי קבצי workflow.</li>
+      <li>יישום חתימת ארטיפקטים ו-provenance ברמת SLSA Build L3 לקראת דרישות CMMC/NIST SSDF.</li>
+      <li>בדיקה מיידית: האם מאגרים שלכם קיבלו commits מ-"build-bot"/"auto-ci" סביב 18.5.2026 - ואם כן, רוטציית כל סודות ה-CI.</li>
+      <li>הוספת תרחיש "פריצת CI/CD" לתרגיל ה-IR השנתי, כולל בדיקת חשיפה במורד הזרם ל-Prime contractors.</li>
+    </ul>
+
+    <div class="bottom-line">
+      <h3>השורה התחתונה</h3>
+      <p>גל 2026 הוכיח ש<strong>מתקפת שרשרת אספקת תוכנה</strong> כבר לא מכוונת לקובץ ההתקנה - אלא ל-CI/CD, לחשבון המפתח ולסודות הפייפליין. Megalodon הדביק 5,561 מאגרים בשש שעות, Shai-Hulud התרבתה מעצמה על-פני מאות חבילות, ו-tj-actions הראתה שאפילו גרסה "נעולה" יכולה להירעל. לקבלן ביטחוני, נקודת העיוורון הזו היא גם סיכון תפעולי וגם חשיפה חוזית מול Prime contractors ומול דרישות CMMC ו-NIST SSDF.</p>
+      <p>ההגנה אינה עוד כלי - אלא שילוב של <strong>ראות (SBOM)</strong> ו<strong>הקשחת פייפליין (SLSA)</strong>: נעילת Actions, בידוד סודות, provenance ותרגול IR. KPLNS מבצעת סקר ביטחון 360° לשרשרת האספקה שממפה את ה-CI/CD כנכס בסיכון, בונה SBOM לתשתית הבנייה, ומתרגם את הפערים לתוכנית הקשחה מדורגת - לפני שהתקרית הבאה מגיעה דרך commit של "build-bot" תמים.</p>
+    </div>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li id="src1"><a href="https://safedep.io/megalodon-mass-github-repo-backdooring-ci-workflows/" target="_blank" rel="noopener noreferrer">SafeDep — Megalodon: Mass GitHub Repo Backdooring via CI Workflows</a></li>
+        <li id="src2"><a href="https://www.securityweek.com/over-5500-github-repositories-infected-in-megalodon-supply-chain-attack/" target="_blank" rel="noopener noreferrer">SecurityWeek — Over 5,500 GitHub Repositories Infected in 'Megalodon' Supply Chain Attack</a></li>
+        <li id="src3"><a href="https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066" target="_blank" rel="noopener noreferrer">Wiz — GitHub Action tj-actions/changed-files Supply Chain Attack (CVE-2025-30066)</a></li>
+        <li id="src4"><a href="https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem" target="_blank" rel="noopener noreferrer">CISA — Widespread Supply Chain Compromise Impacting npm Ecosystem (Shai-Hulud)</a></li>
+        <li id="src5"><a href="https://checkmarx.com/zero-post/inside-shai-huluds-maw-how-the-npm-worm-exploits-and-propagates/" target="_blank" rel="noopener noreferrer">Checkmarx — Inside Shai-Hulud's Maw: How the npm Worm Exploits and Propagates</a></li>
+        <li id="src6"><a href="https://www.cm-alliance.com/cybersecurity-blog/5-of-the-biggest-supply-chain-attacks-of-2026-so-far" target="_blank" rel="noopener noreferrer">Cyber Management Alliance — 5 of the Biggest Supply Chain Attacks of 2026 So Far (TeamPCP / Trellix / Nx)</a></li>
+        <li id="src7"><a href="https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction" target="_blank" rel="noopener noreferrer">CISA — Supply Chain Compromise of tj-actions/changed-files (CVE-2025-30066)</a></li>
+        <li id="src8"><a href="https://www.cisa.gov/sbom" target="_blank" rel="noopener noreferrer">CISA — Software Bill of Materials (SBOM)</a></li>
+        <li id="src9"><a href="https://csrc.nist.gov/pubs/sp/800/218/final" target="_blank" rel="noopener noreferrer">NIST SP 800-218 — Secure Software Development Framework (SSDF)</a></li>
+        <li id="src10"><a href="https://slsa.dev/spec/v1.0/levels" target="_blank" rel="noopener noreferrer">SLSA — Supply-chain Levels for Software Artifacts (Build Levels)</a></li>
+        <li id="src11"><a href="https://securitylabs.datadoghq.com/articles/shai-hulud-2.0-npm-worm/" target="_blank" rel="noopener noreferrer">Datadog Security Labs — The Shai-Hulud 2.0 npm Worm: Analysis</a></li>
+        <li id="src12"><a href="https://www.cisa.gov/news-events/alerts/2026/05/28/supply-chain-compromises-impact-nx-console-and-github-repositories" target="_blank" rel="noopener noreferrer">CISA — Supply Chain Compromises Impact Nx Console and GitHub Repositories</a></li>
+      </ol>
+    </div>
+  </div>
+
+
+  <section class="related-articles" aria-label="מאמרים ושירותים קשורים">
+    <h3>מאמרים ושירותים קשורים</h3>
+    <div class="related-grid">
+      <a href="article-signed-installer-supply-chain.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">DAEMON Tools - כשחתימה דיגיטלית מובילה למתקפת שרשרת אספקה</span></a>
+      <a href="article-cyber-toufan-supply-chain.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">Cyber Toufan על MAYA - 17 קבלנים, 36 פרויקטים</span></a>
+      <a href="article-supply-chain-cost.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">המחיר האמיתי של הזנחת שרשרת האספקה</span></a>
+      <a href="service-survey-360.html" class="related-card"><span class="r-tag">שירות</span><span class="r-title">סקר ביטחון 360° בשרשרת האספקה</span></a>
+    </div>
+  </section>
+
+  <div class="article-cta">
+    <h3>ה-CI/CD שלכם מוגן - או נקודת עיוורון?</h3>
+    <p>KPLNS מבצעת סקר ביטחון 360° שממפה את שרשרת אספקת התוכנה שלכם: ה-CI/CD כנכס בסיכון, בניית SBOM לתשתית הבנייה, ותוכנית הקשחת פייפליין מדורגת (נעילת Actions, בידוד סודות, provenance) - מותאמת לדרישות CMMC ו-NIST SSDF. דוח ראשוני ב-2-3 שבועות.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+<footer class="article-footer">
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+    <a href="disclaimer.html">תנאי שימוש</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
+</footer>
+</body>
+</html>
