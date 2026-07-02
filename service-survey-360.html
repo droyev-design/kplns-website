@@ -204,12 +204,53 @@ a { text-decoration: none; color: inherit; }
 .breadcrumb a:hover { opacity: 0.8; }
 .breadcrumb span { margin: 0 8px; }
 
+
+/* FAQ (matches faq.html styling) */
+.faq-block { margin-top: 56px; }
+.faq-block > h2 { margin-bottom: 20px; }
+.faq-item {
+  margin-bottom: 16px; border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+  background: var(--bg-card); transition: all 0.3s ease;
+}
+.faq-item:hover {
+  border-color: rgba(0, 212, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.1);
+}
+.faq-question {
+  width: 100%; padding: 20px 24px; background: transparent;
+  border: none; cursor: pointer; display: flex; align-items: center;
+  justify-content: space-between; font-size: 1.02rem; font-weight: 600;
+  color: var(--text-primary); text-align: right; font-family: var(--font-he);
+  transition: all 0.3s ease;
+}
+.faq-question:hover { color: var(--cyan); }
+.faq-question::after {
+  content: ''; display: block; width: 6px; height: 6px;
+  border-right: 2px solid var(--cyan); border-bottom: 2px solid var(--cyan);
+  transform: rotate(-45deg) translateY(-2px); margin-left: 12px;
+  transition: transform 0.3s ease; flex-shrink: 0;
+}
+.faq-item.active .faq-question::after { transform: rotate(135deg) translateY(2px); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 24px; }
+.faq-item.active .faq-answer { max-height: 2000px; padding: 0 24px 20px; }
+.faq-answer-content { color: var(--text-secondary); font-size: 1rem; line-height: 1.85; }
+.faq-answer-content p { margin-bottom: 12px; }
+.faq-answer-content p:last-child { margin-bottom: 0; }
+@media (max-width: 768px) {
+  .faq-question { padding: 16px 20px; font-size: 0.95rem; }
+  .faq-answer { padding: 0 20px; }
+  .faq-item.active .faq-answer { padding: 0 20px 16px; }
+}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"שירותים","item":"https://kplns.com/#services"},{"@type":"ListItem","position":3,"name":"סקר ביטחון 360° בשרשרת האספקה"}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Service","name":"סקר ביטחון 360° בשרשרת האספקה","description":"סקר ביטחון 360° אצל ספקים וקבלני משנה בתעשייה הביטחונית - איתור חולשות, פערי רגולציה ותוכנית עבודה מתועדפת, מבוצע על ידי CISO מוסמך","provider":{"@type":"Organization","name":"KPLNS Encapsulated Solutions","url":"https://kplns.com","logo":"https://kplns.com/og-image.png"},"serviceType":"Supply Chain Security Assessment","areaServed":"IL","offers":{"@type":"Offer","availability":"https://schema.org/InStock","priceCurrency":"ILS"},"image":"https://kplns.com/og-image.png"}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "למי מיועד סקר ביטחון 360°?", "acceptedAnswer": {"@type": "Answer", "text": "הסקר מיועד לספקים בתעשייה הביטחונית ובתשתיות קריטיות, לארגונים המנהלים שרשראות אספקה מורכבות עם עשרות ומאות ספקים, לחברות שנערכות להסמכת \"רב מגן\", לארגונים שחוו תקיפה דרך ספק, ולגופים ציבוריים עם דרישות פורמליות לניהול סיכוני ספקים."}}, {"@type": "Question", "name": "אילו תחומים נבדקים במסגרת הסקר?", "acceptedAnswer": {"@type": "Answer", "text": "הסקר מכסה את כל מערכות האבטחה של הספק: אבטחה פיזית (בקרות גישה וניטור), אבטחת מידע (סיווג, הצפנה, ניהול סיסמאות), אבטחת אנשים (בדיקות רקע והדרכות), בקרות גישה והפרדת רשתות, תיעוד וציות, והתאמה לתקנים כגון NIST 800-161, ISO 27036 ודרישות \"רב מגן\" בישראל."}}, {"@type": "Question", "name": "איך מתבצע הסקר בפועל?", "acceptedAnswer": {"@type": "Answer", "text": "בארבעה שלבים מובנים: מיפוי וסיווג כל הספקים לפי רמת סיכון; הערכת סיכונים לספקים בסיווג גבוה מול 44 בקרות (כולל שאלון, ראיונות, סיור פיזי וביקורת מסמכים); דו\"ח ממצאים עם דירוגי חומרה; ותוכנית עבודה מתועדפת לטיפול בחולשות."}}, {"@type": "Question", "name": "מה מקבלים בסיום הסקר וכמה עולה להתחיל?", "acceptedAnswer": {"@type": "Answer", "text": "בסיום מתקבלים דו\"ח ממצאים מלא, מטריצת סיכון ספקים מדורגת, תוכנית עבודה עם לוח זמנים וסיכום מנהלים ביצועי. תיאום הסקר הראשוני לבירור הצרכים, ההיקף ולוח הזמנים - בחינם וללא התחייבות."}}]}
 </script>
 </head>
 <body>
@@ -347,6 +388,34 @@ a { text-decoration: none; color: inherit; }
     <h2>למה לבחור ב-KPLNS?</h2>
     <p>KPLNS היא חברה המתמחה בביטחון שרשרת אספקה, עם ניסיון מוכח בביצוע סקרים עבור התעשייה הביטחונית, תשתיות קריטיות ותאגידים גדולים. הצוות שלנו מורכב מ<strong>מומחים בעלי ניסיון מעשי רב</strong> בתחומי אבטחה פיזית, אבטחת מידע וציות רגולטורי. אנו משתמשים במתודולוגיות בינלאומיות מוכרות (NIST, ISO) תוך התאמה לנוף הסיכונים והדרישות הרגולטוריות בישראל.</p>
 
+    <div class="faq-block">
+      <h2>שאלות נפוצות על סקר ביטחון 360°</h2>
+      <div class="faq-item">
+        <button class="faq-question">למי מיועד סקר ביטחון 360°?</button>
+        <div class="faq-answer">
+          <div class="faq-answer-content"><p>הסקר מיועד לספקים בתעשייה הביטחונית ובתשתיות קריטיות, לארגונים המנהלים שרשראות אספקה מורכבות עם עשרות ומאות ספקים, לחברות שנערכות להסמכת "רב מגן", לארגונים שחוו תקיפה דרך ספק, ולגופים ציבוריים עם דרישות פורמליות לניהול סיכוני ספקים.</p></div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">אילו תחומים נבדקים במסגרת הסקר?</button>
+        <div class="faq-answer">
+          <div class="faq-answer-content"><p>הסקר מכסה את כל מערכות האבטחה של הספק: אבטחה פיזית (בקרות גישה וניטור), אבטחת מידע (סיווג, הצפנה, ניהול סיסמאות), אבטחת אנשים (בדיקות רקע והדרכות), בקרות גישה והפרדת רשתות, תיעוד וציות, והתאמה לתקנים כגון NIST 800-161, ISO 27036 ודרישות "רב מגן" בישראל.</p></div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">איך מתבצע הסקר בפועל?</button>
+        <div class="faq-answer">
+          <div class="faq-answer-content"><p>בארבעה שלבים מובנים: מיפוי וסיווג כל הספקים לפי רמת סיכון; הערכת סיכונים לספקים בסיווג גבוה מול 44 בקרות (כולל שאלון, ראיונות, סיור פיזי וביקורת מסמכים); דו"ח ממצאים עם דירוגי חומרה; ותוכנית עבודה מתועדפת לטיפול בחולשות.</p></div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">מה מקבלים בסיום הסקר וכמה עולה להתחיל?</button>
+        <div class="faq-answer">
+          <div class="faq-answer-content"><p>בסיום מתקבלים דו"ח ממצאים מלא, מטריצת סיכון ספקים מדורגת, תוכנית עבודה עם לוח זמנים וסיכום מנהלים ביצועי. תיאום הסקר הראשוני לבירור הצרכים, ההיקף ולוח הזמנים - בחינם וללא התחייבות.</p></div>
+        </div>
+      </div>
+    </div>
+
     <div class="article-cta">
       <h3>מוכנים לסקור את שרשרת האספקה שלכם?</h3>
       <p>תיאום סקר ראשוני בחינם לבירור הצרכים, ההיקף ולוח הזמנים. ללא התחייבות.</p>
@@ -363,6 +432,17 @@ a { text-decoration: none; color: inherit; }
     <div style="margin-bottom:10px;"><a href="privacy.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">מדיניות פרטיות</a><a href="accessibility.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">הצהרת נגישות</a><a href="disclaimer.html" style="color:rgba(232,237,245,0.4);margin:0 10px;font-size:0.78rem;transition:opacity 0.3s;">תנאי שימוש</a></div>
     &copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a>
   </div>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', function() {
+    const faqItem = this.closest('.faq-item');
+    const isActive = faqItem.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+    if (!isActive) faqItem.classList.add('active');
+  });
+});
+</script>
 
 </body>
 </html>
