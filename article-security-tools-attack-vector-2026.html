@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>כשכלי האבטחה הופכים לווקטור תקיפה - TeamPCP ושרשרת האספקה 2026 | KPLNS</title>
+<meta name="description" content="פגיעת שרשרת אספקה בכלי אבטחה דרך GitHub: קמפיין TeamPCP הרעיל את Trivy, Checkmarx KICS ו-LiteLLM ב-2026. הסיכון הייחודי כשספק האבטחה עצמו נפרץ, ואיך ארגון ביטחוני מאמת את שלמות שרשרת הכלים שהוא סומך עליהם.">
+<meta property="og:title" content="כשכלי האבטחה הופכים לווקטור תקיפה - TeamPCP ושרשרת האספקה 2026 | KPLNS">
+<meta property="og:description" content="קמפיין TeamPCP הרעיל כלי אבטחה בקוד פתוח דרך GitHub Actions. הסיכון כשספק האבטחה עצמו נפרץ, ואיך מאמתים את שלמות שרשרת הכלים.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/article-security-tools-attack-vector-2026.html">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="כשכלי האבטחה הופכים לווקטור תקיפה | KPLNS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="כשכלי האבטחה הופכים לווקטור תקיפה - TeamPCP ושרשרת האספקה 2026 | KPLNS">
+<meta name="twitter:description" content="קמפיין TeamPCP הרעיל את Trivy, Checkmarx KICS ו-LiteLLM דרך GitHub. הסיכון כשספק האבטחה עצמו הופך לווקטור.">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
+<meta name="twitter:image:alt" content="כשכלי האבטחה הופכים לווקטור תקיפה | KPLNS">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="KPLNS Encapsulated Solutions">
+<link rel="canonical" href="https://kplns.com/article-security-tools-attack-vector-2026.html">
+<meta name="theme-color" content="#0a1628">
+<link rel="alternate" hreflang="he" href="https://kplns.com/article-security-tools-attack-vector-2026.html">
+<link rel="alternate" hreflang="en" href="https://kplns.com/article-security-tools-attack-vector-2026.html">
+<link rel="alternate" hreflang="x-default" href="https://kplns.com/article-security-tools-attack-vector-2026.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.layer-stack{margin:28px 0;display:flex;flex-direction:column;gap:0}
+.layer-item{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--border);background:var(--bg-card)}
+.layer-item:first-child{border-radius:12px 12px 0 0}
+.layer-item:last-child{border-radius:0 0 12px 12px}
+.layer-item:not(:last-child){border-bottom:none}
+.layer-num{font-size:0.75rem;font-weight:800;font-family:var(--font-en);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.layer-item:nth-child(1) .layer-num{background:var(--red-dim);color:var(--red)}
+.layer-item:nth-child(2) .layer-num{background:var(--orange-dim);color:var(--orange)}
+.layer-item:nth-child(3) .layer-num{background:var(--yellow-dim);color:var(--yellow)}
+.layer-item:nth-child(4) .layer-num{background:var(--cyan-dim);color:var(--cyan)}
+.layer-item:nth-child(5) .layer-num{background:var(--green-dim);color:var(--green)}
+.layer-title{font-size:0.92rem;font-weight:700;color:var(--text-primary)}
+.layer-desc{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(251,146,60,0.06));border:1px solid rgba(239,68,68,0.25);border-right:4px solid var(--red);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--red);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.78rem;color:var(--text-muted);line-height:1.7;padding:6px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:7px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-sources ol li a{color:var(--cyan);word-break:break-word;transition:opacity 0.3s}
+.article-sources ol li a:hover{opacity:0.75}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.08);margin-top:60px;color:rgba(232,237,245,0.4);font-size:0.85rem}
+.article-footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.article-footer .footer-links a{color:rgba(232,237,245,0.5);font-size:0.82rem;transition:color 0.3s}
+.article-footer .footer-links a:hover{color:#00d4ff}
+.article-footer .footer-copy{font-size:0.8rem}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.related-articles {
+  max-width: 760px; margin: 0 auto; padding: 48px 24px 0;
+}
+.related-articles h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.related-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.related-card:hover {
+  border-color: rgba(0,212,255,0.2); background: rgba(26, 34, 54, 0.85);
+  transform: translateX(-4px);
+}
+.related-card .r-tag {
+  font-size: 0.7rem; font-weight: 600; color: var(--cyan);
+  background: var(--cyan-dim); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap;
+}
+.related-card .r-title {
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+}
+@media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"כשכלי האבטחה הופכים לווקטור התקיפה"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"כשכלי האבטחה עצמם הופכים לווקטור התקיפה - קמפיין TeamPCP ופגיעת שרשרת האספקה בכלי אבטחה דרך GitHub","description":"קמפיין TeamPCP הרעיל ב-2026 כלי אבטחה בקוד פתוח - Trivy, Checkmarx KICS ו-LiteLLM - דרך GitHub Actions וסודות CI/CD גנובים. ניתוח הסיכון הייחודי כשספק האבטחה עצמו נפרץ, ואיך ארגון ביטחוני מאמת את שלמות שרשרת הכלים שהוא סומך עליהם.","author":{"@type":"Person","@id":"https://kplns.com/#founder","name":"Y.K.","jobTitle":"Security & Supply Chain Consultant"},"publisher":{"@type":"Organization","name":"KPLNS Encapsulated Solutions","url":"https://kplns.com","logo":{"@type":"ImageObject","url":"https://kplns.com/og-image.png"}},"datePublished":"2026-08-12","dateModified":"2026-08-12","image":"https://kplns.com/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kplns.com/article-security-tools-attack-vector-2026.html"},"inLanguage":"he-IL","articleSection":"Supply Chain Security","keywords":"פגיעת שרשרת אספקה כלי אבטחה GitHub, TeamPCP, Trivy, Checkmarx KICS, LiteLLM, GitHub Actions, CI/CD, אבטחת שרשרת אספקה, ספק אבטחה נפרץ, שלמות שרשרת הכלים","wordCount":1950}
+</script>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="index.html#insights">מאמרים</a><span>›</span>
+  כשכלי האבטחה הופכים לווקטור התקיפה
+</nav>
+<article class="article-container">
+  <div class="article-tag">שרשרת אספקה — כלי אבטחה</div>
+  <h1>כשכלי האבטחה עצמם הופכים לווקטור התקיפה</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; זמן קריאה: 11 דקות &nbsp;·&nbsp; מבוסס על קמפיין TeamPCP (מרץ 2026) — Trivy, Checkmarx KICS, LiteLLM</div>
+
+  <div class="article-body">
+
+    <p>ההיגיון של אבטחת מידע בנוי על היררכיית אמון: אתה לא בודק כל שורת קוד בעצמך, אלא מריץ עליה <strong>סורק</strong>. אתה לא מנתח כל תמונת Container ידנית, אלא נותן ל<strong>כלי סריקה</strong> לעשות זאת. הכלים האלה מקבלים גישה עמוקה - למאגרי הקוד, לסודות ה-CI/CD, למשתני הסביבה, למפתחות הענן. זו בדיוק הגישה שהופכת אותם, כשהם עצמם נפרצים, ל<strong>וקטור התקיפה האידיאלי</strong>. במרץ 2026 זה הפסיק להיות תרחיש תיאורטי.<sup>[<a href="#src1">1</a>][<a href="#src2">2</a>]</sup></p>
+
+    <p>קבוצת תקיפה המכונה <strong>TeamPCP</strong> (מזוהה גם כ-UNC6780) הריצה קמפיין מתואם שהרעיל שורה של כלי אבטחה ותשתיות פיתוח בקוד פתוח: סורק הפגיעויות <strong>Trivy</strong> של Aqua Security, כלי סריקת ה-Infrastructure-as-Code <strong>KICS</strong> של Checkmarx, וספריית שער ה-LLM בשם <strong>LiteLLM</strong>. המשותף לשלושתם: הם לא נפרצו דרך פגם בקוד המוצר, אלא דרך <strong>שרשרת האספקה של הבנייה שלהם</strong> - GitHub Actions, סודות CI/CD גנובים ומפתחות חתימה. המאמר הזה לא עוסק ב"עוד פרצה", אלא בשאלה הצרה והמסוכנת: מה קורה כשהכלי שאמור למצוא את הפגיעויות הוא זה שמזריק אותן, ואיך ארגון - במיוחד בסביבה ביטחונית - מאמת את שלמות שרשרת הכלים שהוא סומך עליהם בעיניים עצומות.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num red">3</div>
+        <div class="stat-label">כלי ליבה שהורעלו במרץ 2026 (Trivy, KICS, LiteLLM)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">~1,000</div>
+        <div class="stat-label">סביבות SaaS ארגוניות שעלולות היו להיפגע</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">~97M</div>
+        <div class="stat-label">הורדות חודשיות ל-LiteLLM - היקף התפוצה</div>
+      </div>
+    </div>
+
+    <h2>מה בדיוק קרה - כרונולוגיה מאומתת</h2>
+
+    <p>הקמפיין התגלגל תוך ימים ספורים, כשכל פגיעה שירתה את הבאה בתורה: סודות שנגנבו ממטרה אחת שימשו לפריצת המטרה הבאה. זהו הדפוס שהופך שרשרת אספקה של תוכנה מ"נקודת כשל בודדת" ל<strong>אפקט מפל</strong>.<sup>[<a href="#src1">1</a>][<a href="#src3">3</a>]</sup></p>
+
+    <div class="layer-stack">
+      <div class="layer-item">
+        <div class="layer-num">01</div>
+        <div>
+          <div class="layer-title">20.3.2026 — Trivy (Aqua Security)</div>
+          <div class="layer-desc">סורק הפגיוות ל-Container ו-CI/CD נפרץ דרך תהליכת GitHub Actions שהוגדרה בצורה שגויה. בינאריים זדוניים הופצו החל מגרסה v0.69.4, וכן דרך aquasecurity/trivy-action ו-setup-trivy. הפגיעה תועדה כ-CVE-2026-33634.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">02</div>
+        <div>
+          <div class="layer-title">23.3.2026 — Checkmarx KICS</div>
+          <div class="layer-desc">בעזרת סודות CI/CD שנגנבו קודם, נפרצו שתי מאגרי GitHub Actions: ast-github-action ו-kics-github-action. אותה נוזקה גונבת-אישורים הוזרקה, ותמונות Docker מורעלות נדחפו למאגר checkmarx/kics הרשמי ב-Docker Hub.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">03</div>
+        <div>
+          <div class="layer-title">24.3.2026 — LiteLLM</div>
+          <div class="layer-desc">חבילות PyPI מורעלות בגרסאות 1.82.7 ו-1.82.8 של שער ה-LLM הנפוץ. הטכניקה: קובצי ‎.pth‎ של פייתון שמורצים אוטומטית עם עליית המפרש - כך שהמטען פועל בלי שהחבילה בכלל יובאה במפורש בקוד.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">04</div>
+        <div>
+          <div class="layer-title">אפריל 2026 — התרעות רשמיות</div>
+          <div class="layer-desc">Red Hat פרסמה את RHSB-2026-001 ורשמה בין הפרויקטים הנפגעים את LiteLLM, Trivy, KICS, Telnyx ו-Axios. מסקנת החקירה שלה: אף מוצר Red Hat לא נבנה או נשלח עם גרסה מורעלת - אך רק לאחר בדיקה יזומה.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">05</div>
+        <div>
+          <div class="layer-title">מאי 2026 — הרחבה אל מעלה הזרם</div>
+          <div class="layer-desc">TeamPCP טענה - ו-GitHub אישרה בחקירה - שגורם שפגע במכשיר של עובד באמצעות תוסף VS Code זדוני שיבט כ-3,800 מאגרים פנימיים של GitHub עצמה. אותה תקופה נחשפה גם פריצה למאגר קוד המקור של ספקית האבטחה Trellix (ראו הסתייגות בהמשך).</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>למה פגיעה בספק אבטחה חמורה מפגיעה בספק רגיל</h2>
+
+    <p>כל פגיעת שרשרת אספקה מסוכנת, אבל כשהחוליה שנפרצת היא <strong>כלי אבטחה</strong>, נוספים שלושה מכפילי נזק שאין להם מקבילה בפגיעה בספריית תוכנה "רגילה":</p>
+
+    <div class="risk-grid">
+      <div class="risk-card critical">
+        <div class="risk-icon">🔴</div>
+        <div>
+          <h4>הרשאות-על מובנות</h4>
+          <p>סורק פגיעויות רץ בליבת ה-CI/CD עם גישה למשתני סביבה, אסימוני ענן, מפתחות SSH וסודות Kubernetes - בדיוק המקומות שנוזקה גונבת-אישורים מחפשת. הכלי מקבל את המפתחות מרצון, כי בלעדיהם הוא לא יכול לעשות את עבודתו. פגיעה בו היא פגיעה בכספת.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">🟠</div>
+        <div>
+          <h4>אמון שמדכא חשד</h4>
+          <p>כלי אבטחה נהנה מ"חסינות פסיכולוגית": פלט חריג ממנו מתפרש כאזהרת אמת, לא כתסמין של הכלי עצמו. צוותי SOC מכוונים לחפש איום <em>דרך</em> הכלי, לא <em>בתוך</em> הכלי. הווקטור הזה עוקף לא רק בקרה טכנית אלא גם את תשומת הלב של המגן.</p>
+        </div>
+      </div>
+      <div class="risk-card critical">
+        <div class="risk-icon">🔴</div>
+        <div>
+          <h4>הפצה בקנה מידה של המוצר</h4>
+          <p>גרסה מורעלת של סורק בשימוש רחב אינה נשארת אצל קורבן אחד - היא מתפשטת לכל צינור בנייה שמושך אותה אוטומטית. הרעלה של תמונת Docker אחת ב-Docker Hub מגיעה תוך שעות לאלפי סביבות. כאן ~1,000 סביבות SaaS נכנסו לרשימת הסיכון.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>המכניקה: לא באג במוצר - פגיעה בקו הייצור</h2>
+
+    <p>הנקודה הטכנית שמבדילה את הקמפיין הזה ממתקפות "קלאסיות" היא שאף אחד מהמוצרים לא נפרץ דרך פגם בקוד שהם מריצים. התוקף נכנס דרך <strong>שרשרת הבנייה וההפצה</strong> - אותה תשתית CI/CD שהופכת קוד מקור לחבילה מופצת. זהו בדיוק אותו דפוס שכיסינו <a href="article-software-supply-chain-attacks-2026.html">בסקירת מתקפות שרשרת האספקה של 2026</a>, ומקביל למנגנון של <a href="article-signed-installer-supply-chain.html">מתקין חתום שהופך לנשק</a>.<sup>[<a href="#src2">2</a>][<a href="#src4">4</a>]</sup></p>
+
+    <div class="case-box orange">
+      <h4>🟠 נקודת הכניסה: סודות CI/CD ומפתחות חתימה גנובים</h4>
+      <p>התוקף לא "פרץ" את המוצר - הוא השיג <strong>אסימוני GitHub Actions ומפתחות חתימת גרסאות</strong>. עם אלה בידיו, הוא יכול לשנות תהליכות בנייה, להזריק קוד בזמן ה-CI ולדחוף ארטיפקטים חתומים כביכול-לגיטימיים. משם המפל: סודות שנגנבו מ-Trivy שירתו את הפגיעה ב-Checkmarx.</p>
+    </div>
+
+    <div class="case-box">
+      <h4>🔴 המטען: גונב-אישורים עם יכולת התפשטות</h4>
+      <p>הנוזקה שהוזרקה היא infostealer שקוצר משתני סביבה, אסימוני ענן, מפתחות SSH, סודות Kubernetes וסיסמאות מסדי נתונים מסביבת הבנייה - וכן דלת אחורית לגישה מתמשכת. חלק מהמימושים כללו <strong>התפשטות תולעתית</strong> דרך מפתחות SSH חשופים ו-API לא מאובטח, כך שקורבן אחד הופך למקפצה לבא.</p>
+    </div>
+
+    <div class="case-box cyan">
+      <h4>הטריק של LiteLLM: הרצה בלי import</h4>
+      <p>ב-LiteLLM המטען הסתמך על קובצי ‎.pth‎ של פייתון - מנגנון שמריץ קוד אוטומטית עם עליית המפרש. המשמעות: מספיק שהחבילה המורעלת <strong>מותקנת</strong> בסביבה, גם כתלות עקיפה (transitive), כדי שהקוד ירוץ - בלי שאף שורת קוד ייבאה אותה במפורש. זו סיבה שפגיעה במרכיב תשתית עמוק כמו שער LLM מסוכנת במיוחד לסביבות <a href="article-ai-coding-agents-defense.html">שמשלבות סוכני AI ותשתית LLM</a>.</p>
+    </div>
+
+    <h2>ההסתייגות שאסור לדלג עליה: מה מאומת ומה לא</h2>
+
+    <p>בדיווחים המוקדמים נקשרו לקמפיין אירועים נוספים, ולא כולם עומדים באותה רמת ודאות. אמינות מקצועית מחייבת להפריד בין העובדה למה שעדיין בגדר השערה:</p>
+
+    <div class="highlight-box red">
+      <h3>פריצת Trellix — קשר משוער, לא מאושר</h3>
+      <p>פריצת מאגר קוד המקור של ספקית האבטחה <strong>Trellix</strong> אכן דווחה ואושרה על ידי החברה (חלק ממאגר הקוד נגיש לגורם לא מורשה; לפי החברה לא נמצאה עדות לפגיעה בתהליך ההפצה). אולם <strong>שיוך הפריצה ל-TeamPCP הוא ספקולטיבי בלבד</strong> - הדיווחים מציינים שהיא "עשויה להיות קשורה" לקמפיין הרחב, ומקורות אחרים קשרו את האירוע לקבוצת סחיטה אחרת. במאמר זה Trellix מובאת כ<strong>מקרה מקביל</strong> הממחיש את אותה תבנית - ספק אבטחה כמטרה - ולא כפעולה מוכחת של TeamPCP. זו בדיוק אבחנת השלמות שהמאמר קורא לארגון לאמץ: לא כל קישור זמני הוא שרשרת סיבתית.</p>
+    </div>
+
+    <h2>איך ארגון ביטחוני מאמת את שלמות שרשרת הכלים</h2>
+
+    <p>המסקנה אינה "להפסיק להשתמש בכלי אבטחה" - זו לא אופציה. המסקנה היא שכלי אבטחה חייב לעבור את אותה <strong>בקרת שלמות שרשרת אספקה</strong> שהיינו דורשים מכל רכיב אחר בקו הייצור. בסביבה ביטחונית, שבה <a href="article-supply-chain-cost.html">עלות ההזנחה של שרשרת האספקה</a> נמדדת בחשיפת מידע מסווג ולא רק בזמן השבתה, ההיערכות היא רב-שכבתית:</p>
+
+    <ul>
+      <li><strong>נעילת גרסאות לפי Hash, לא לפי תג:</strong> תלות ב-GitHub Actions וב-Container צריכה להיות מקובעת ל-digest/SHA מלא, לא ל-tag נייד כמו <code>@v1</code>. תג ניתן להסטה שקטה אל גרסה מורעלת; digest לא. זהו הבלם היחיד שהיה עוצר את הרעלת trivy-action מלהתגלגל אוטומטית.</li>
+      <li><strong>אימות חתימות ו-checksum מהיצרן:</strong> כל בינארי ותמונת Container מאומתים מול checksum וחתימה שהמתחזק פרסם - ולא נמשכים "כמו שהם". בקמפיין הזה, אימות מול הערכים המקוריים היה חושף את הבינארי המורעל של Trivy מגרסה v0.69.4.</li>
+      <li><strong>SBOM ומעקב תלות עקיפה:</strong> מפת רכיבים (SBOM) שחושפת גם תלות עקיפה כמו LiteLLM - כי הסכנה הייתה דווקא בשכבת ה-transitive dependency, לא בחבילה שנבחרה ידנית.</li>
+      <li><strong>הפרדת הרשאות של הכלי (least privilege ל-CI):</strong> סורק לא צריך אסימון עם הרשאות כתיבה לכל הארגון. צמצום היקף הסודות שכל שלב בנייה נחשף אליהם מקטין את השלל שנוזקה גונבת-אישורים יכולה לקצור.</li>
+      <li><strong>רוטציה יזומה של סודות ומפתחות חתימה:</strong> לאחר כל אירוע בשרשרת - ואפילו כשגרה - סיבוב אסימוני GitHub Actions, מפתחות API ומפתחות חתימה. במפל TeamPCP, סוד שלא סובב הוא שאיפשר את המעבר בין קורבן לקורבן.</li>
+      <li><strong>ניטור יומני בנייה ועצי תלות לשינוי לא מורשה:</strong> חריגה בזמן ה-CI - הרצת קוד לא צפויה, קריאת רשת יוצאת מסורק - צריכה להדליק התרעה, גם כשמקורה בכלי "אמין".</li>
+    </ul>
+
+    <div class="highlight-box">
+      <h3>העיקרון המנחה</h3>
+      <p>אמון בכלי אבטחה אינו פטור מאימות - הוא <strong>הסיבה</strong> לאימות מחמיר יותר. ככל שלרכיב יש יותר הרשאות והשפעה, כך גובר הצורך להוכיח את שלמותו מחדש בכל בנייה. "זה כלי אבטחה, אז הוא בטוח" היא בדיוק ההנחה ש-TeamPCP ניצלה.</p>
+    </div>
+
+    <h2>צ'קליסט אימות שרשרת הכלים</h2>
+
+    <ul class="checklist">
+      <li>מיפוי כל כלי אבטחה וכלי CI/CD בשימוש - כולל תלות עקיפה - ל-SBOM מתוחזק.</li>
+      <li>קיבוע כל GitHub Action ותמונת Container ל-digest/SHA מלא, לא ל-tag נייד.</li>
+      <li>אימות checksum וחתימת יצרן לכל בינארי ותמונה לפני משיכה לצינור.</li>
+      <li>הגבלת הרשאות אסימוני CI לפי עקרון ההרשאה המזערית לכל שלב בנייה.</li>
+      <li>רוטציה מתוזמנת של אסימוני Actions, מפתחות API ומפתחות חתימה.</li>
+      <li>ניטור יומני בנייה לזיהוי הרצת קוד או תעבורת רשת יוצאת חריגה מכלים.</li>
+      <li>בדיקה יזומה מול התרעות היצרן (Aqua, Checkmarx) ומול RHSB-2026-001/OSV.</li>
+      <li>נוהל תגובה: החזרה מיידית לגרסה שלפני הפגיעה + רוטציית סודות בכל אירוע.</li>
+      <li>הפרדת בירור סיבתי מקישור זמני - לא לשייך אירוע לתוקף בלי ראיה.</li>
+    </ul>
+
+    <div class="bottom-line">
+      <h3>השורה התחתונה</h3>
+      <p>קמפיין TeamPCP הוכיח במרץ 2026 שכלי האבטחה - Trivy, Checkmarx KICS, LiteLLM - אינם מחוץ למשוואת האיום; הם יעד מועדף דווקא בגלל ההרשאות והאמון שהם נהנים מהם. הפגיעה לא נעשתה דרך באג במוצר אלא דרך קו הייצור: GitHub Actions, סודות CI/CD גנובים ומפתחות חתימה - כלומר, אותה שרשרת אספקה של תוכנה שכל ארגון סומך עליה בעיוורון.</p>
+      <p>לארגון ביטחוני, המסקנה אינה להימנע מכלי אבטחה אלא להחיל עליהם בקרת שלמות מלאה: קיבוע לפי Hash, אימות חתימות, SBOM, הרשאה מזערית ורוטציית סודות. KPLNS מלווה ארגונים במיפוי שרשרת כלי הפיתוח והאבטחה, בהקשחת צינור ה-CI/CD ובבניית נוהל אימות שלמות - כדי שהכלי הבא שאתם מושכים אוטומטית לא יהיה הדלת שדרכה נכנס התוקף.</p>
+    </div>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li id="src1"><a href="https://arcticwolf.com/resources/blog/teampcp-supply-chain-attack-campaign-targets-trivy-checkmarx-kics-and-litellm-potential-downstream-impact-to-additional-projects/" target="_blank" rel="noopener noreferrer">Arctic Wolf — TeamPCP Supply Chain Attack Campaign Targets Trivy, Checkmarx (KICS), and LiteLLM (dates, mechanism, ~1,000 SaaS environments)</a></li>
+        <li id="src2"><a href="https://access.redhat.com/security/vulnerabilities/RHSB-2026-001" target="_blank" rel="noopener noreferrer">Red Hat — RHSB-2026-001: Multiple supply chain compromises of open source projects (affected projects, CVE-2026-33634)</a></li>
+        <li id="src3"><a href="https://www.theregister.com/security/2026/04/28/ongoing-supply-chain-attack-targets-security-dev-tools/" target="_blank" rel="noopener noreferrer">The Register — Ongoing supply-chain attack targets security, dev tools</a></li>
+        <li id="src4"><a href="https://www.kaspersky.com/blog/critical-supply-chain-attack-trivy-litellm-checkmarx-teampcp/55510/" target="_blank" rel="noopener noreferrer">Kaspersky — Trojanization of Trivy, Checkmarx, and LiteLLM solutions (.pth technique, CI/CD secrets)</a></li>
+        <li id="src5"><a href="https://www.paloaltonetworks.com/blog/cloud-security/trivy-supply-chain-attack/" target="_blank" rel="noopener noreferrer">Palo Alto Networks — When Security Scanners Become the Weapon: Breaking Down the Trivy Supply Chain Attack</a></li>
+        <li id="src6"><a href="https://checkmarx.com/blog/ongoing-security-updates/" target="_blank" rel="noopener noreferrer">Checkmarx — Update: Ongoing Checkmarx Supply Chain Security Incident (KICS / ast-github-action)</a></li>
+        <li id="src7"><a href="https://www.docker.com/blog/trivy-kics-and-the-shape-of-supply-chain-attacks-so-far-in-2026/" target="_blank" rel="noopener noreferrer">Docker — Trivy, KICS, and the shape of supply chain attacks so far in 2026</a></li>
+        <li id="src8"><a href="https://www.securityweek.com/trellix-source-code-repository-breached/" target="_blank" rel="noopener noreferrer">SecurityWeek — Trellix Source Code Repository Breached (attribution to TeamPCP is speculative)</a></li>
+        <li id="src9"><a href="https://www.helpnetsecurity.com/2026/05/20/github-breached-teampcp/" target="_blank" rel="noopener noreferrer">Help Net Security — TeamPCP breached GitHub's internal codebase via poisoned VS Code extension (~3,800 repos)</a></li>
+      </ol>
+    </div>
+  </div>
+
+
+  <section class="related-articles" aria-label="מאמרים ושירותים קשורים">
+    <h3>מאמרים ושירותים קשורים</h3>
+    <div class="related-grid">
+      <a href="article-software-supply-chain-attacks-2026.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">מתקפות שרשרת אספקה בתוכנה — מגמות 2026</span></a>
+      <a href="article-signed-installer-supply-chain.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">כשמתקין חתום הופך לנשק — שרשרת אספקה</span></a>
+      <a href="article-ai-coding-agents-defense.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">סוכני AI לכתיבת קוד בסביבה ביטחונית</span></a>
+      <a href="service-survey-360.html" class="related-card"><span class="r-tag">שירות</span><span class="r-title">סקר ביטחון 360° בשרשרת האספקה</span></a>
+    </div>
+  </section>
+
+  <div class="article-cta">
+    <h3>הכלים שאתם מושכים אוטומטית — מי מאמת שהם לא הורעלו?</h3>
+    <p>KPLNS מבצעת מיפוי שרשרת כלי הפיתוח והאבטחה, הקשחת צינור CI/CD ובניית נוהל אימות שלמות: קיבוע לפי Hash, אימות חתימות, SBOM ורוטציית סודות. לפני שהכלי הבא הופך לדלת הכניסה.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+<footer class="article-footer">
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+    <a href="disclaimer.html">תנאי שימוש</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
+</footer>
+</body>
+</html>
