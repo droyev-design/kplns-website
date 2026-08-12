@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>אינטגרציות SaaS ו-OAuth - דלת אחורית לשרשרת האספקה | KPLNS</title>
+<meta name="description" content="פרשת Klue (יוני 2026): תוקף שאב נתוני CRM מעשרות ארגונים דרך אינטגרציית OAuth מהימנה - בלי לגעת בסביבת Salesforce של אף לקוח. איך טוקני OAuth הופכים לדלת אחורית בשרשרת האספקה, ואילו בקרות ממפות ומצמצמות הרשאות.">
+<meta property="og:title" content="אינטגרציות SaaS ו-OAuth - דלת אחורית לשרשרת האספקה | KPLNS">
+<meta property="og:description" content="פרשת Klue מלמדת איך טוקן OAuth של אינטגרציה מהימנה הופך לנקודת כשל של עשרות לקוחות - ואילו בקרות מצמצמות את ההרשאות.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/article-saas-oauth-supply-chain-2026.html">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="אינטגרציות SaaS ו-OAuth - דלת אחורית לשרשרת האספקה | KPLNS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="אינטגרציות SaaS ו-OAuth - דלת אחורית לשרשרת האספקה | KPLNS">
+<meta name="twitter:description" content="פרשת Klue (יוני 2026): איך טוקן OAuth של אינטגרציה הופך לנקודת כשל של שרשרת האספקה - ואילו בקרות מצמצמות הרשאות">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
+<meta name="twitter:image:alt" content="אינטגרציות SaaS ו-OAuth - דלת אחורית לשרשרת האספקה | KPLNS">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="KPLNS Encapsulated Solutions">
+<link rel="canonical" href="https://kplns.com/article-saas-oauth-supply-chain-2026.html">
+<meta name="theme-color" content="#0a1628">
+<link rel="alternate" hreflang="he" href="https://kplns.com/article-saas-oauth-supply-chain-2026.html">
+<link rel="alternate" hreflang="en" href="https://kplns.com/article-saas-oauth-supply-chain-2026.html">
+<link rel="alternate" hreflang="x-default" href="https://kplns.com/article-saas-oauth-supply-chain-2026.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.layer-stack{margin:28px 0;display:flex;flex-direction:column;gap:0}
+.layer-item{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--border);background:var(--bg-card)}
+.layer-item:first-child{border-radius:12px 12px 0 0}
+.layer-item:last-child{border-radius:0 0 12px 12px}
+.layer-item:not(:last-child){border-bottom:none}
+.layer-num{font-size:0.75rem;font-weight:800;font-family:var(--font-en);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.layer-item:nth-child(1) .layer-num{background:var(--red-dim);color:var(--red)}
+.layer-item:nth-child(2) .layer-num{background:var(--orange-dim);color:var(--orange)}
+.layer-item:nth-child(3) .layer-num{background:var(--yellow-dim);color:var(--yellow)}
+.layer-item:nth-child(4) .layer-num{background:var(--cyan-dim);color:var(--cyan)}
+.layer-item:nth-child(5) .layer-num{background:var(--green-dim);color:var(--green)}
+.layer-title{font-size:0.92rem;font-weight:700;color:var(--text-primary)}
+.layer-desc{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(251,146,60,0.06));border:1px solid rgba(239,68,68,0.25);border-right:4px solid var(--red);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--red);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.78rem;color:var(--text-muted);line-height:1.7;padding:6px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:7px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-sources ol li a{color:var(--cyan);word-break:break-word;transition:opacity 0.3s}
+.article-sources ol li a:hover{opacity:0.75}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.08);margin-top:60px;color:rgba(232,237,245,0.4);font-size:0.85rem}
+.article-footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.article-footer .footer-links a{color:rgba(232,237,245,0.5);font-size:0.82rem;transition:color 0.3s}
+.article-footer .footer-links a:hover{color:#00d4ff}
+.article-footer .footer-copy{font-size:0.8rem}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.related-articles {
+  max-width: 760px; margin: 0 auto; padding: 48px 24px 0;
+}
+.related-articles h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.related-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.related-card:hover {
+  border-color: rgba(0,212,255,0.2); background: rgba(26, 34, 54, 0.85);
+  transform: translateX(-4px);
+}
+.related-card .r-tag {
+  font-size: 0.7rem; font-weight: 600; color: var(--cyan);
+  background: var(--cyan-dim); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap;
+}
+.related-card .r-title {
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+}
+@media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"אינטגרציות SaaS ו-OAuth - דלת אחורית לשרשרת האספקה"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"אינטגרציות SaaS ו-OAuth - דלת אחורית לשרשרת האספקה","description":"פרשת Klue (יוני 2026): תוקף שאב נתוני CRM מעשרות ארגונים דרך אינטגרציית OAuth מהימנה - בלי לגעת בסביבת Salesforce של אף לקוח. איך טוקני OAuth הופכים לנקודת כשל של שרשרת האספקה, ואילו בקרות ממפות ומצמצמות הרשאות","author":{"@type":"Person","@id":"https://kplns.com/#founder","name":"Y.K.","jobTitle":"Security & Supply Chain Consultant"},"publisher":{"@type":"Organization","name":"KPLNS Encapsulated Solutions","url":"https://kplns.com","logo":{"@type":"ImageObject","url":"https://kplns.com/og-image.png"}},"datePublished":"2026-08-12","dateModified":"2026-08-12","image":"https://kplns.com/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kplns.com/article-saas-oauth-supply-chain-2026.html"},"inLanguage":"he-IL","articleSection":"Supply Chain Security","keywords":"סיכון אינטגרציות SaaS OAuth טוקן, OAuth token, Klue, Salesforce, שרשרת אספקה, connected app, Salesloft Drift, UNC6395, מזעור הרשאות, רב מגן","wordCount":2000}
+</script>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="index.html#insights">מאמרים</a><span>›</span>
+  אינטגרציות SaaS ו-OAuth - דלת אחורית לשרשרת האספקה
+</nav>
+<article class="article-container">
+  <div class="article-tag">אבטחת SaaS ו-OAuth - שרשרת אספקה</div>
+  <h1>אינטגרציות SaaS ו-OAuth - הדלת האחורית לשרשרת האספקה</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; זמן קריאה: 11 דקות &nbsp;·&nbsp; מבוסס על פרשת Klue (יוני 2026) ופרשת Salesloft Drift / UNC6395 (2025)</div>
+
+  <div class="article-body">
+
+    <p>ביוני 2026 עשרות חברות - ובהן ספקי סייבר מהשורה הראשונה כמו Huntress, ‏Recorded Future, ‏Tanium ו-BeyondTrust - גילו שנתוני ה-CRM שלהן נשאבו מסביבת ה-Salesforce שלהן. הפרט המטריד: אף אחת מהן לא נפרצה ישירות. איש לא ניחש סיסמה, לא עקף אימות דו-שלבי ולא ניצל חולשה בפלטפורמת Salesforce. התוקף פשוט השתמש ב<strong>אינטגרציה מהימנה</strong> שכל אחת מהן חיברה מרצונה - פלטפורמת המודיעין התחרותי <strong>Klue</strong> - ובטוקני ה-OAuth שהיא החזיקה בשמן.<sup>[<a href="#src1">1</a>][<a href="#src2">2</a>]</sup></p>
+
+    <p>זו אינה תקלה חד-פעמית של ספק אחד. זהו דפוס תקיפה שחוזר על עצמו: החוליה החלשה בשרשרת האספקה של ה-SaaS אינה בהכרח היישום שאתם מריצים, אלא <strong>ההרשאה שנתתם ליישום אחר לגעת בו</strong>. המאמר מסביר איך טוקן OAuth של אינטגרציה הופך לנקודת כשל של עשרות ארגונים בבת אחת, ואילו בקרות ממפות את ההרשאות האלה ומצמצמות אותן - אותן בקרות שעומדות בלב שירות <a href="article-rav-magen.html">"רב מגן"</a> ו<a href="service-survey-360.html">סקר הביטחון 360°</a> של KPLNS.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num red">~24 ש'</div>
+        <div class="stat-label">חלון שאיבת נתוני ה-CRM בפרשת Klue</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">700+</div>
+        <div class="stat-label">ארגונים שנפגעו במתקפת Salesloft Drift המקבילה (2025)</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">0</div>
+        <div class="stat-label">חולשות שנוצלו בפלטפורמת Salesforce עצמה</div>
+      </div>
+    </div>
+
+    <h2>מה קרה ב-Klue - פריצה בלי לגעת באף לקוח</h2>
+
+    <p>Klue היא פלטפורמת SaaS למודיעין תחרותי, שמתחברת ל-Salesforce של לקוחותיה כדי למשוך נתוני עסקאות ולהזרים אליהם תובנות. כדי לעשות זאת היא מחזיקה, בשם כל לקוח, טוקן OAuth שמעניק לה גישה מתמשכת לאותה סביבת Salesforce. כאשר תשתית האינטגרציה של Klue נפרצה - כל הטוקנים האלה הפכו למפתח מוכן לשימוש.<sup>[<a href="#src1">1</a>][<a href="#src3">3</a>]</sup></p>
+
+    <div class="case-box">
+      <h4>🔴 שרשרת האירועים - יוני 2026</h4>
+      <p>נקודת הכניסה הייתה <strong>אישור ותק (credential) ישן שנוצר לצורכי אב-טיפוס - נותר פעיל אך מזמן לא בשימוש</strong>. דרכו הפיק התוקף טוקני OAuth של חשבונות השירות שחיברו את Klue ל-Salesforce, והריץ סקריפטים אוטומטיים שמשכו כמויות גדולות של רשומות דרך <strong>Salesforce REST API</strong> לאורך כ-24 שעות. התבנית זוהתה: שלב סיור אטי עם User-Agent של python-urllib, ואז זינוק של כמעט אלף שאילתות בחלון של 15 דקות.<sup>[<a href="#src2">2</a>]</sup></p>
+      <p>הכשל התגלה ב-12 ביוני 2026; Klue ביטלה את אישורי ה-OAuth לכל הלקוחות והשביתה זמנית את האינטגרציות, ו-Salesforce ניתקה את חיבור אפליקציית Klue מצדה. קבוצת הסחיטה <strong>Icarus</strong> נטלה אחריות והחלה לשלוח מיילי סחיטה לקורבנות.<sup>[<a href="#src1">1</a>][<a href="#src4">4</a>]</sup></p>
+    </div>
+
+    <p>Salesforce הבהירה במפורש: "הבעיה מוגבלת לחיבור האפליקציה של Klue ואינה נובעת מחולשה בפלטפורמת Salesforce".<sup>[<a href="#src1">1</a>]</sup> וזו בדיוק הנקודה - מנגנוני ההגנה של הלקוח (סיסמאות, MFA, מדיניות התחברות) לא נגעו לאירוע, כי התוקף לא נכנס דרך הדלת הקדמית. הוא נכנס דרך אינטגרציה שהלקוח עצמו אישר.</p>
+
+    <div class="highlight-box red">
+      <h3>המשמעות עבור ספק בשרשרת אספקה</h3>
+      <p>הנתונים שנחשפו כללו אנשי קשר עסקיים, הצעות מחיר, פרטי מנוי והתכתבויות מכירה - בדיוק סוג המידע שספק ביטחוני או תעשייתי מחזיק על לקוחותיו ועל הפרויקטים שלו. מבחינת <strong>הלקוח שלכם</strong>, אין הבדל אם הדליפה יצאה מה-CRM שלכם ישירות או מאינטגרציה שחיברתם אליו. האחריות - ולעיתים גם החשיפה המשפטית - נשארת אצלכם.</p>
+    </div>
+
+    <h2>OAuth בגובה העיניים - למה טוקן שווה סיסמה (ולעיתים יותר)</h2>
+
+    <p>‏OAuth הוא המנגנון שמאפשר לאפליקציה אחת לגשת לנתונים באפליקציה אחרת <strong>בלי לחשוף סיסמה</strong>. במקום למסור ל-Klue את סיסמת ה-Salesforce שלכם, אתם מאשרים לה גישה, ובתמורה היא מקבלת <strong>טוקן</strong> - מחרוזת סודית שמייצגת את ההרשאה. הרעיון מצוין; הבעיה היא בתכונות שהופכות את הטוקן ליעד תקיפה אידיאלי:</p>
+
+    <div class="risk-grid">
+      <div class="risk-card critical">
+        <div class="risk-icon">🔴</div>
+        <div>
+          <h4>טוקן עוקף אימות דו-שלבי</h4>
+          <p>‏MFA מגן על תהליך ההתחברות. טוקן OAuth תקף כבר <em>אחרי</em> ההתחברות - הוא מייצג הרשאה שכבר אושרה. מי שמחזיק בטוקן ניגש לנתונים בלי סיסמה ובלי אתגר MFA. זו הסיבה שגניבת טוקן היא כה אפקטיבית: היא מדלגת מעל שכבת ההגנה החזקה ביותר של הלקוח.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">🟠</div>
+        <div>
+          <h4>Refresh Token = גישה מתמשכת</h4>
+          <p>אינטגרציות רבות מחזיקות <strong>refresh token</strong> שמאפשר להן לחדש את הגישה שוב ושוב, לאורך חודשים, בלי מעורבות המשתמש. טוקן כזה שנגנב מעניק לתוקף דריסת רגל שקטה ומתמשכת - עד שמישהו יבטל אותו יזומות. בפרשת Klue ובפרשת Drift כאחת, ביטול מסיבי של refresh tokens היה צעד הכיבוי המרכזי.</p>
+        </div>
+      </div>
+      <div class="risk-card critical">
+        <div class="risk-icon">🔴</div>
+        <div>
+          <h4>הרשאות רחבות מדי (Over-scoping)</h4>
+          <p>אינטגרציה שביקשה גישת "קריאה לכל האובייקטים" מקבלת בדיוק את זה - גם אם בפועל היא צריכה שלושה שדות. טוקן עם scope רחב שנגנב שווה הרבה יותר לתוקף. מזעור ההרשאות (least privilege) הוא ההבדל בין דליפה של מספר טלפון לבין שאיבה של כל בסיס הלקוחות.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">🟠</div>
+        <div>
+          <h4>ריכוזיות: ספק אחד, עשרות קורבנות</h4>
+          <p>ספק SaaS שמחזיק טוקנים של מאות לקוחות הוא <strong>נקודת כשל בודדת בקנה מידה עצום</strong>. פריצה אחת אליו = גישה בו-זמנית לכל הלקוחות. זה בדיוק מה שהפך אירוע בודד ב-Klue לדליפה חוצת-תעשייה, וזה מה שהפך את Salesloft Drift למתקפה שנגעה ב-700+ ארגונים.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>למה זו בעיית שרשרת אספקה - לא בעיה של SaaS בודד</h2>
+
+    <p>קל להתייחס לפרשת Klue כתקרית של ספק אחד. אבל אותו דפוס בדיוק התרחש כמעט שנה קודם לכן, בקנה מידה גדול יותר - סימן שמדובר במחלקה של תקיפות, לא במקרה קצה. זהו בדיוק סוג <a href="article-software-supply-chain-attacks-2026.html">מתקפת שרשרת אספקת התוכנה</a> שבה החוליה הנפרצת אינה הארגון המותקף אלא ספק שהוא סומך עליו.</p>
+
+    <div class="case-box orange">
+      <h4>🟠 תקדים: Salesloft Drift / UNC6395 (אוגוסט 2025)</h4>
+      <p>בין 9 ל-17 באוגוסט 2025 ניצלה קבוצת התקיפה <strong>UNC6395</strong> טוקני OAuth שנגנבו מאינטגרציית הצ'אטבוט <strong>Drift</strong> של חברת Salesloft, וגישה דרכם למאות סביבות Salesforce. התוקפים שאבו רשומות מ-<strong>700+ ארגונים</strong>, בהם Cloudflare, ‏Google, ‏Palo Alto Networks, ‏Proofpoint ו-Zscaler. הטוקנים נגנבו מסביבת ה-AWS של Drift; ב-20 באוגוסט ביטלו Salesloft ו-Salesforce את כל טוקני ה-OAuth של Drift והסירו את האפליקציה מ-AppExchange.<sup>[<a href="#src5">5</a>][<a href="#src6">6</a>]</sup></p>
+    </div>
+
+    <div class="highlight-box">
+      <h3>המכנה המשותף - וזה מה שחשוב</h3>
+      <p>בשני המקרים הפלטפורמה (Salesforce) לא נפרצה. בשני המקרים נפרץ <strong>ספק-ביניים מהימן</strong> שהחזיק טוקני OAuth של לקוחותיו. בשני המקרים הכיבוי היה ביטול מסיבי של טוקנים וניתוק האינטגרציה. וברוב המקרים הקורבנות גילו את הדליפה <em>מהתוקף</em>, לא ממערכות ההגנה שלהם - כי אף אחד לא ניטר את התנהגות האינטגרציה. שרשרת האספקה של ה-SaaS גדולה בדיוק כמו רשימת האפליקציות שחיברתם, ורוב הארגונים לא יודעים כמה ארוכה הרשימה הזו.</p>
+    </div>
+
+    <h2>נקודות הכשל של אינטגרציית OAuth - ואיפה נשברת השרשרת</h2>
+
+    <p>כשמפרקים את שני האירועים למרכיבים, מתגלה שרשרת של כשלים שאפשר לחתוך בכל אחת מחוליותיה. זה מה שהופך את הסיכון לניתן לניהול - בתנאי שממפים אותו:</p>
+
+    <div class="layer-stack">
+      <div class="layer-item">
+        <div class="layer-num">01</div>
+        <div>
+          <div class="layer-title">אישור ותק נשכח אצל הספק</div>
+          <div class="layer-desc">אצל Klue - credential ישן של אב-טיפוס שנותר פעיל. חוליה שאינה בשליטתכם הישירה, אך משפיעה על השאלה למי אתם בכלל מחברים את המערכת.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">02</div>
+        <div>
+          <div class="layer-title">טוקן OAuth בהיקף רחב מדי</div>
+          <div class="layer-desc">האינטגרציה קיבלה scope נדיב יותר מהנדרש. כאן כן יש לכם שליטה: אתם מאשרים את ההרשאה, ואתם יכולים לצמצם אותה.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">03</div>
+        <div>
+          <div class="layer-title">אין הגבלת מקור (IP allowlisting)</div>
+          <div class="layer-desc">חשבון האינטגרציה יכול היה לגשת מכל כתובת IP בעולם. הגבלת הגישה לטווח הכתובות של הספק בלבד הייתה חוסמת את השאיבה מכתובת זרה.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">04</div>
+        <div>
+          <div class="layer-title">אין ניטור על נפח ה-API</div>
+          <div class="layer-desc">כמעט אלף שאילתות ב-15 דקות דרך ה-REST API הן חריגה בוטה - אך רק אם מישהו מנטר את קצב הגישה של החשבון המחובר. איש לא ניטר.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">05</div>
+        <div>
+          <div class="layer-title">אין תהליך לביטול וסבב טוקנים</div>
+          <div class="layer-desc">refresh token שנותר תקף חודשים, ללא סבב תקופתי וללא נוהל ביטול מהיר, הוא הרשאה שתישאר פתוחה עד לאירוע. סבב יזום מקצר את חלון החשיפה.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>הבקרות שממפות ומצמצמות את ההרשאות</h2>
+
+    <p>ההגנה מפני סיכון אינטגרציות ה-SaaS אינה טכנולוגיה חדשה - היא היגיינת הרשאות. אותן משפחות בקרה שעומדות בבסיס <a href="service-rav-magen.html">סקר "רב מגן" - 44 בקרות אבטחת מידע</a> ממפות בדיוק את נקודות הכשל שלמעלה: ניהול זהויות והרשאות, ניטור, ותגובה לאירועים. הנה כיצד הן מתורגמות לעולם ה-OAuth:</p>
+
+    <div class="case-box cyan">
+      <h4>מיפוי (Inventory) - אי אפשר להגן על מה שלא רשום</h4>
+      <p>הצעד הראשון הוא רשימה מלאה של כל היישומים המחוברים (Connected Apps) לכל מערכת SaaS מרכזית - מי הם, מי אישר אותם, אילו הרשאות (scopes) יש להם, ומתי נעשה בהם שימוש בפועל. אינטגרציות "יתומות" שאיש כבר לא זוכר - הן הראשונות שיש לנתק. ברוב הארגונים מספר האפליקציות המחוברות גדול בהרבה מההערכה.</p>
+    </div>
+
+    <div class="case-box cyan">
+      <h4>מזעור הרשאות (Least Privilege) - לצמצם את ערך הטוקן הגנוב</h4>
+      <p>לכל אינטגרציה יש להעניק את ה-scope המינימלי שנדרש לתפקודה - קריאה בלבד במקום כתיבה, אובייקטים ספציפיים במקום גישה גורפת. כך, גם אם טוקן נגנב, מה שהתוקף יכול לעשות איתו מוגבל. זו הבקרה היחידה שהייתה מצמצמת ישירות את היקף הדליפה בשתי הפרשות.</p>
+    </div>
+
+    <div class="case-box cyan">
+      <h4>הגבלת מקור וניטור - לזהות את החריגה בזמן אמת</h4>
+      <p>‏IP allowlisting על חשבונות האינטגרציה מגביל את הגישה לכתובות הספק בלבד. במקביל, ניטור התנהגותי על קצב ונפח ה-API של החשבונות המחוברים - וזיהוי גישה מכתובת לא מוכרת - הוא מה שהופך שאיבה של 24 שעות לאירוע שנעצר תוך דקות. יש להתייחס לזהות של אפליקציה מחוברת, לטוקנים שלה ולתעבורה היוצאת ממנה באותה קפדנות כמו לחשבון משתמש בעל הרשאות-על.</p>
+    </div>
+
+    <div class="case-box cyan">
+      <h4>סבב וביטול מהיר - לקצר את חלון החשיפה</h4>
+      <p>נוהל מוגדר לסבב תקופתי של סודות האינטגרציה (client secrets, ‏refresh tokens) ולביטול מיידי בעת חשד. כשפרשת Klue התפוצצה, הצעד המומלץ היה לאפס ולהנפיק מחדש הכול - סיסמת חשבון השירות, refresh tokens, ‏client secrets וכל מענקי ה-OAuth הפעילים. ארגון שיש לו נוהל כזה מראש מכבה אירוע בשעות, לא בימים.</p>
+    </div>
+
+    <h2>צ'קליסט היערכות - אבטחת אינטגרציות SaaS</h2>
+
+    <ul class="checklist">
+      <li>הפקת רשימת מלאי מלאה של כל היישומים המחוברים (Connected Apps / OAuth) לכל מערכת SaaS מרכזית.</li>
+      <li>סקירת ה-scope של כל אינטגרציה וצמצומו למינימום הנדרש - קריאה בלבד ואובייקטים ספציפיים ככל הניתן.</li>
+      <li>ניתוק אינטגרציות "יתומות" ובלתי-מזוהות, וביטול טוקנים שאינם בשימוש.</li>
+      <li>הפעלת IP allowlisting על חשבונות שירות ואינטגרציה, כולל ממשקי SIEM/SOAR.</li>
+      <li>ניטור נפח וקצב שאילתות API של חשבונות מחוברים, והתראה על גישה מכתובת לא מוכרת.</li>
+      <li>הגדרת נוהל סבב תקופתי ל-client secrets ו-refresh tokens.</li>
+      <li>הגדרת נוהל ביטול מהיר (kill-switch) של טוקנים ואינטגרציה בעת חשד לאירוע.</li>
+      <li>הכללת ספקי ה-SaaS בהערכת סיכוני צד-שלישי - מי מהם מחזיק טוקנים בשמכם, ומה מדיניות האבטחה שלהם.</li>
+      <li>עיגון בחוזה מול הספק של חובת דיווח על אירוע ושל בקרות מינימום על תשתית האינטגרציה.</li>
+    </ul>
+
+    <div class="bottom-line">
+      <h3>השורה התחתונה</h3>
+      <p>פרשת Klue (יוני 2026) ופרשת Salesloft Drift (2025) מספרות את אותו סיפור: החוליה החלשה בשרשרת האספקה של ה-SaaS אינה המערכת שאתם מריצים, אלא <strong>ההרשאה שנתתם למערכת אחרת לגעת בה</strong>. טוקן OAuth עוקף MFA, מעניק גישה מתמשכת, ולעיתים קרובות רחב הרבה מהנדרש - ומי שמחזיק אותו לא צריך לפרוץ אליכם כדי לשאוב את הנתונים שלכם.</p>
+      <p>הבשורה הטובה: זו בעיה של היגיינת הרשאות, ויש לה תשובה מוכרת. מיפוי היישומים המחוברים, מזעור ה-scope, הגבלת מקור, ניטור וסבב טוקנים - אלה בדיוק הבקרות ש-KPLNS ממפה ומיישמת במסגרת <a href="article-rav-magen.html">"רב מגן"</a> וסקר הביטחון 360°. השאלה אינה אם ספק ה-SaaS הבא שלכם ייפרץ, אלא כמה מהנתונים שלכם הוא יוכל לחשוף כשזה יקרה.</p>
+    </div>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li id="src1"><a href="https://thehackernews.com/2026/06/salesforce-disables-klue-app.html" target="_blank" rel="noopener noreferrer">The Hacker News — Salesforce Disables Klue App Integration After OAuth Token Abuse Exposes Customer Data (June 2026)</a></li>
+        <li id="src2"><a href="https://reliaquest.com/blog/threat-spotlight-integration-abused-in-crm-data-theft/" target="_blank" rel="noopener noreferrer">ReliaQuest — Threat Spotlight: Klue Integration Abused in CRM Data Theft (OAuth token generation, Salesforce REST API, recommended controls)</a></li>
+        <li id="src3"><a href="https://www.bankinfosecurity.com/klue-confirms-oauth-token-theft-led-to-salesforce-data-heist-a-32024" target="_blank" rel="noopener noreferrer">BankInfoSecurity — Klue Confirms OAuth Token Theft Led to Salesforce Data Heist</a></li>
+        <li id="src4"><a href="https://rhisac.org/threat-intelligence/icarus-threat-group-claims-salesforce-data-theft-in-klue-supply-chain-breach/" target="_blank" rel="noopener noreferrer">RH-ISAC — Icarus Threat Group Claims Salesforce Data Theft in Klue Supply Chain Breach</a></li>
+        <li id="src5"><a href="https://www.anomali.com/blog/salesloft-drift-breach-recap" target="_blank" rel="noopener noreferrer">Anomali — Reviewing the Salesforce–Salesloft Drift OAuth Supply Chain Breach (UNC6395, Aug 2025)</a></li>
+        <li id="src6"><a href="https://appomni.com/blog/drift-breach-salesforce-unc6395-saas-prevention/" target="_blank" rel="noopener noreferrer">AppOmni — Drift Breach Salesforce (UNC6395): Why Salesforce OAuth Integrations Are a Growing Risk</a></li>
+        <li id="src7"><a href="https://fieldeffect.com/blog/klue-integration-breach-salesforce-data" target="_blank" rel="noopener noreferrer">Field Effect — Klue Integration Breach Exposes Salesforce Customer Data</a></li>
+      </ol>
+    </div>
+  </div>
+
+
+  <section class="related-articles" aria-label="מאמרים ושירותים קשורים">
+    <h3>מאמרים ושירותים קשורים</h3>
+    <div class="related-grid">
+      <a href="article-software-supply-chain-attacks-2026.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">מתקפת שרשרת אספקת תוכנה 2026 - הגנת SBOM והקשחת CI/CD</span></a>
+      <a href="article-rav-magen.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">מה זה "רב מגן" ולמה הרגולטור דורש את זה?</span></a>
+      <a href="service-rav-magen.html" class="related-card"><span class="r-tag">שירות</span><span class="r-title">סקר רב מגן - 44 בקרות אבטחת מידע להסמכה</span></a>
+      <a href="service-survey-360.html" class="related-card"><span class="r-tag">שירות</span><span class="r-title">סקר ביטחון 360° בשרשרת האספקה</span></a>
+    </div>
+  </section>
+
+  <div class="article-cta">
+    <h3>כמה אפליקציות מחוברות ל-SaaS הארגוני שלכם - וכמה מהן עדיין נדרשות?</h3>
+    <p>KPLNS ממפה את כל היישומים המחוברים (OAuth / Connected Apps), מצמצמת הרשאות למינימום הנדרש ומקימה ניטור וסבב טוקנים - במסגרת "רב מגן" וסקר הביטחון 360°. לפני שהאינטגרציה הבאה הופכת לדלת אחורית.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+<footer class="article-footer">
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+    <a href="disclaimer.html">תנאי שימוש</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
+</footer>
+</body>
+</html>
