@@ -6,6 +6,19 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0a1628">
 <title>ראדאר הסלמה — ישראל ואיראן | KPLNS</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kplns.com/radar/">
+<meta property="og:title" content="ראדאר הסלמה — ישראל ואיראן">
+<meta property="og:description" content="שני מדדים נפרדים מבוססי אינדיקטורים ציבוריים. אינה מערכת התרעה — המקור המחייב היחיד הוא פיקוד העורף.">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ראדאר הסלמה — ישראל ואיראן">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ראדאר הסלמה — ישראל ואיראן">
+<meta name="twitter:description" content="שני מדדים נפרדים מבוססי אינדיקטורים ציבוריים. אינה מערכת התרעה — המקור המחייב היחיד הוא פיקוד העורף.">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -42,7 +55,6 @@ html{scroll-behavior:smooth}
 body{
   font-family:var(--font-he);
   background:linear-gradient(135deg,#111827 0%,#1a2236 40%,#1e2844 100%);
-  background-attachment:fixed;
   color:var(--text-primary); line-height:1.7; padding:0 0 70px;
   -webkit-font-smoothing:antialiased;
 }
@@ -193,6 +205,39 @@ h3{
   color:var(--text-muted);font-size:.83rem
 }
 
+/* ── 7-day history strip ────────────────────────────── */
+.hist{
+  margin-top:20px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:18px 20px
+}
+.hist-head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:12px;margin-bottom:10px;flex-wrap:wrap
+}
+.hist-head h3{margin:0;text-align:start;color:var(--text-secondary)}
+.hist-since{font-size:.82rem;color:var(--text-muted);font-variant-numeric:tabular-nums}
+.hist-row{margin-bottom:12px}
+.hist-label{font-size:.82rem;color:var(--text-secondary);margin-bottom:5px}
+.strip{
+  display:flex;gap:1px;direction:ltr;height:22px;border-radius:5px;
+  overflow:hidden;background:rgba(255,255,255,.04)
+}
+.strip i{flex:1 1 0;display:block;min-width:0}
+.hist-axis{
+  display:flex;justify-content:space-between;direction:ltr;
+  font-size:.72rem;color:var(--text-muted);margin-top:4px;font-family:var(--font-en)
+}
+.hist-note{
+  margin-top:12px;padding-top:11px;border-top:1px solid var(--border);
+  color:var(--text-muted);font-size:.8rem
+}
+.rng{color:var(--text-muted);font-size:.78rem;margin-top:2px;font-variant-numeric:tabular-nums}
+.ctx{
+  font-family:var(--font-en);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-muted);border:1px solid var(--border-hover);border-radius:20px;
+  padding:1px 7px;margin-inline-start:7px;vertical-align:middle;font-weight:600
+}
+
 /* ── methodology ────────────────────────────────────── */
 .method{
   margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
@@ -311,6 +356,8 @@ footer a:hover{color:var(--cyan)}
     מדד בודד לרוב אומר רעש. מדדים המסומנים <span class="tag">אזורי</span>
     נספרים לשני הצדדים.
   </div>
+
+  <div id="hist"></div>
 
   <section class="method" aria-label="מתודולוגיית החישוב">
     <h3 class="legend-h">מתודולוגיית החישוב</h3>
@@ -464,20 +511,53 @@ function ago(ms){
   return `לפני ${Math.round(h / 24)} ימים`;
 }
 
+function strip(hist, key){
+  // 84 two-hour buckets over 7 days, coloured by the MAX level in each bucket —
+  // never average a spike away. Grey = no data, which is what proves the green
+  // buckets are measurements rather than a default.
+  const COL = ['var(--l0)','var(--l1)','var(--l2)','var(--l3)'];
+  const now = Date.now(), BUCKET = 2*3600*1000, N = 84;
+  const buckets = new Array(N).fill(null);
+  (hist||[]).forEach(h => {
+    const i = N - 1 - Math.floor((now - h.t*1000) / BUCKET);
+    if (i >= 0 && i < N) buckets[i] = Math.max(buckets[i] ?? 0, h[key] ?? 0);
+  });
+  return buckets.map(v => v === null
+    ? '<i style="background:rgba(255,255,255,.05)" title="אין נתונים"></i>'
+    : `<i style="background:${COL[v]}" title="רמה ${v}"></i>`).join('');
+}
+
+function since(hist, key){
+  if (!hist || !hist.length) return '';
+  const cur = hist[hist.length-1][key];
+  let t = hist[hist.length-1].t;
+  for (let i = hist.length-1; i >= 0; i--){
+    if (hist[i][key] !== cur) break;
+    t = hist[i].t;
+  }
+  const h = Math.round((Date.now()/1000 - t) / 3600);
+  if (h < 1)  return 'ברמה זו פחות משעה';
+  if (h < 48) return `ברמה זו מזה ${h} שעות`;
+  return `ברמה זו מזה ${Math.round(h/24)} ימים`;
+}
+
 function rows(ix){
   const items = (ix.tripwires || []).map(t => {
     const cls = t.lit ? 'row on' : (t.ok === false ? 'row err' : 'row');
     const ic  = t.lit ? '🔺' : (t.ok === false ? '⚠️' : '✓');
     const rs  = t.lit ? t.reason
               : (t.ok === false ? 'לא נקרא בריצה האחרונה' : (t.value || 'תקין'));
-    const tag = t.shared ? '<span class="tag">אזורי</span>' : '';
+    const tag = t.context ? '<span class="ctx">הקשר</span>'
+              : (t.shared ? '<span class="tag">אזורי</span>' : '');
     // Republishing someone else's index without crediting it is not okay.
     const src = t.key === 'strikeradar'
       ? ' <a href="https://usstrikeradar.com" target="_blank" rel="noopener" style="color:var(--cyan);font-size:.78rem">(מקור)</a>'
       : '';
     return `<div class="${cls}"><div class="ic" aria-hidden="true">${ic}</div><div>
       <div class="nm">${esc(t.name)}${tag}${src}</div>
-      <div class="rs">${esc(rs)}</div></div></div>`;
+      <div class="rs">${esc(rs)}</div>
+      ${t.range && !t.lit ? `<div class="rng">טווח רגיל בשבוע האחרון: ${esc(t.range)}</div>` : ''}
+      </div></div>`;
   }).join('');
   const gaps = (ix.unavailable || [])
     .map(u => `<div class="gap">⊘ ${esc(u)}</div>`).join('');
@@ -522,6 +602,23 @@ fetch('status.json?t=' + Date.now())
     document.getElementById('gauges').innerHTML =
       d.indices.map(i => gauge(i, stale, degraded)).join('');
     document.getElementById('detail').innerHTML = d.indices.map(rows).join('');
+
+    const H = d.history || [];
+    document.getElementById('hist').innerHTML = H.length < 2 ? '' : `
+      <section class="hist" aria-label="היסטוריית הרמות בשבוע האחרון">
+        <div class="hist-head"><h3>7 הימים האחרונים</h3></div>
+        ${d.indices.map(ix => `
+          <div class="hist-row">
+            <div class="hist-label">${esc(ix.flag)} ${esc(ix.name)}
+              <span class="hist-since">· ${since(H, ix.key)}</span></div>
+            <div class="strip" role="img"
+                 aria-label="רמת ${esc(ix.name)} בשבעת הימים האחרונים">${strip(H, ix.key)}</div>
+          </div>`).join('')}
+        <div class="hist-axis"><span>לפני 7 ימים</span><span>עכשיו</span></div>
+        <div class="hist-note">כל משבצת היא שעתיים, וצבועה לפי הרמה
+          <b>הגבוהה ביותר</b> באותו חלון — כדי שאירוע קצר לא ייעלם בממוצע.
+          משבצת אפורה = לא נאספו נתונים, ולא "רגוע".</div>
+      </section>`;
     document.getElementById('stamp').textContent =
       'חותמת מלאה: ' + dt.toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'});
   })

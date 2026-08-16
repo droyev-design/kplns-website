@@ -1,5 +1,17 @@
 {
- "generated": "2026-08-16T18:51:00+00:00",
+ "generated": "2026-08-16T19:02:58+00:00",
+ "history": [
+  {
+   "t": 1786906862,
+   "il": 0,
+   "ir": 0
+  },
+  {
+   "t": 1786906978,
+   "il": 0,
+   "ir": 0
+  }
+ ],
  "indices": [
   {
    "key": "il",
@@ -11,46 +23,56 @@
      "key": "hfc_policy",
      "name": "מדיניות התגוננות (פיקוד העורף)",
      "shared": false,
+     "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "אין הגבלות בכל הארץ"
+     "value": "אין הגבלות בכל הארץ",
+     "range": ""
     },
     {
      "key": "il_airspace",
      "name": "מרחב אווירי ישראל",
      "shared": false,
+     "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "76 מטוסים אזרחיים באזור"
+     "value": "76 מטוסים אזרחיים באזור",
+     "range": ""
     },
     {
      "key": "advisories_il",
      "name": "אזהרות מסע — ישראל והסביבה",
      "shared": false,
+     "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "3 מדינות במעקב — ללא שינוי ברמות"
+     "value": "3 מדינות במעקב — ללא שינוי ברמות",
+     "range": ""
     },
     {
      "key": "us_mil_air",
      "name": "תעופה צבאית אמריקאית באזור",
      "shared": true,
+     "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "1 מטוסים צבאיים באזור"
+     "value": "1 מטוסים צבאיים באזור",
+     "range": ""
     },
     {
      "key": "strikeradar",
-     "name": "StrikeRadar (מאשש)",
-     "shared": true,
+     "name": "StrikeRadar (הקשר בלבד — נגזר חדשות)",
+     "shared": false,
+     "context": true,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "38/100"
+     "value": "38/100",
+     "range": ""
     }
    ]
   },
@@ -64,64 +86,78 @@
      "key": "ir_internet",
      "name": "אינטרנט באיראן (ארצי)",
      "shared": false,
+     "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "קישוריות תקינה (41,625 מסלולי BGP)"
+     "value": "קישוריות תקינה (41,625 מסלולי BGP)",
+     "range": ""
     },
     {
      "key": "ir_provinces",
      "name": "אינטרנט באיראן (ברמת מחוז)",
      "shared": false,
+     "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "8 מחוזות במעקב — קישוריות תקינה"
+     "value": "8 מחוזות במעקב — קישוריות תקינה",
+     "range": ""
     },
     {
      "key": "firms",
      "name": "חריגות תרמיות מלוויין (NASA FIRMS)",
      "shared": false,
+     "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "198 חריגות תרמיות ב-24 שעות (כולל שריפות ותעשייה)"
+     "value": "198 חריגות תרמיות ב-24 שעות (כולל שריפות ותעשייה)",
+     "range": ""
     },
     {
      "key": "rial",
      "name": "ריאל איראני",
      "shared": false,
+     "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "1,866,800 ריאל לדולר"
+     "value": "1,866,800 ריאל לדולר",
+     "range": ""
     },
     {
      "key": "advisories_ir",
      "name": "אזהרות מסע — איראן והמפרץ",
      "shared": false,
+     "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "7 מדינות במעקב — ללא שינוי ברמות"
+     "value": "7 מדינות במעקב — ללא שינוי ברמות",
+     "range": ""
     },
     {
      "key": "us_mil_air",
      "name": "תעופה צבאית אמריקאית באזור",
      "shared": true,
+     "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "1 מטוסים צבאיים באזור"
+     "value": "1 מטוסים צבאיים באזור",
+     "range": ""
     },
     {
      "key": "strikeradar",
-     "name": "StrikeRadar (מאשש)",
-     "shared": true,
+     "name": "StrikeRadar (הקשר בלבד — נגזר חדשות)",
+     "shared": false,
+     "context": true,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "38/100"
+     "value": "38/100",
+     "range": ""
     }
    ],
    "unavailable": [
