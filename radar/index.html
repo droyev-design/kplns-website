@@ -1,169 +1,290 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>ראדאר הסלמה — מצב אזורי</title>
-<link rel="icon" href="../favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="theme-color" content="#0a1628">
+<title>ראדאר הסלמה — ישראל ואיראן | KPLNS</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#111827; --bg2:#1a2236; --card:rgba(26,34,54,.65); --border:rgba(255,255,255,.08);
-    --cyan:#00d4ff; --teal:#00b8a9; --text:#e8edf5; --text2:rgba(232,237,245,.6);
-    --text3:rgba(232,237,245,.4);
-    --calm:#22c55e; --raised:#eab308; --warn:#f97316; --crit:#ef4444;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    background:linear-gradient(135deg,#111827 0%,#1a2236 40%,#1e2844 100%);
-    background-attachment:fixed; min-height:100vh; color:var(--text);
-    font-family:'Heebo',system-ui,sans-serif; line-height:1.65;
-    padding:24px 16px 64px;
-  }
-  .wrap{max-width:760px;margin:0 auto}
-  header{text-align:center;margin-bottom:26px}
-  h1{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:800;letter-spacing:-.01em}
-  .sub{color:var(--text2);font-size:.95rem;margin-top:6px}
+:root{
+  --bg-primary:#111827; --bg-secondary:#1a2236;
+  --bg-card:rgba(26,34,54,.65); --bg-card-hover:rgba(32,42,68,.85);
+  --border:rgba(255,255,255,.08); --border-hover:rgba(255,255,255,.15);
+  --cyan:#00d4ff; --cyan-dim:rgba(0,212,255,.15); --teal:#00b8a9;
+  --purple:#7b61ff;
+  --gradient-accent:linear-gradient(135deg,#00d4ff,#00b8a9);
+  --text-primary:#e8edf5; --text-secondary:rgba(232,237,245,.6);
+  --text-muted:rgba(232,237,245,.4);
+  --font-he:'Heebo',sans-serif; --font-en:'Inter',sans-serif;
+  --radius-md:16px; --radius-lg:24px;
+  --l0:#22c55e; --l1:#eab308; --l2:#f97316; --l3:#ef4444;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-he);
+  background:linear-gradient(135deg,#111827 0%,#1a2236 40%,#1e2844 100%);
+  background-attachment:fixed;
+  color:var(--text-primary); line-height:1.7; padding:0 0 70px;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:940px;margin:0 auto;padding:0 20px}
 
-  /* disclaimer sits ABOVE the status, deliberately — it must be read first */
-  .disclaimer{
-    background:rgba(239,68,68,.08); border:1px solid rgba(239,68,68,.35);
-    border-radius:14px; padding:16px 18px; margin-bottom:22px;
-  }
-  .disclaimer b{color:#ff9b9b;display:block;margin-bottom:6px;font-size:1rem}
-  .disclaimer ul{margin:0;padding-inline-start:20px;color:var(--text2);font-size:.9rem}
-  .disclaimer li{margin:3px 0}
-  .disclaimer .oref{
-    display:inline-block;margin-top:10px;color:var(--cyan);font-weight:500;font-size:.9rem
-  }
+/* ── header ─────────────────────────────────────────── */
+.topbar{
+  border-bottom:1px solid var(--border); background:rgba(17,24,39,.6);
+  backdrop-filter:blur(12px); position:sticky; top:0; z-index:50;
+}
+.topbar-inner{
+  max-width:940px;margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.brand{font-family:var(--font-en);font-weight:700;letter-spacing:.08em;font-size:.95rem}
+.brand span{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.backlink{color:var(--text-secondary);font-size:.85rem;text-decoration:none;transition:color .2s}
+.backlink:hover{color:var(--cyan)}
 
-  .status{
-    background:var(--card); border:1px solid var(--border); border-radius:20px;
-    padding:30px 22px; text-align:center; margin-bottom:20px;
-    backdrop-filter:blur(10px);
-  }
-  .dot{
-    width:104px;height:104px;border-radius:50%;margin:0 auto 16px;
-    display:flex;align-items:center;justify-content:center;font-size:2.6rem;
-    border:3px solid currentColor;
-  }
-  .lbl{font-size:1.5rem;font-weight:800}
-  .lvlnote{color:var(--text2);font-size:.92rem;margin-top:8px}
-  .l0{color:var(--calm);background:rgba(34,197,94,.10)}
-  .l1{color:var(--raised);background:rgba(234,179,8,.10)}
-  .l2{color:var(--warn);background:rgba(249,115,22,.10)}
-  .l3{color:var(--crit);background:rgba(239,68,68,.12)}
+.hero{text-align:center;padding:46px 0 26px}
+.section-label{
+  font-family:var(--font-en);font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:12px
+}
+h1{
+  font-size:clamp(1.7rem,4.6vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.25;
+  background:linear-gradient(135deg,#e8edf5 30%,#00d4ff 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero p{color:var(--text-secondary);margin-top:12px;font-size:1rem}
+.divider{width:64px;height:2px;background:var(--gradient-accent);margin:22px auto 0;border-radius:2px}
 
-  h2{font-size:1.05rem;font-weight:700;margin:26px 0 12px;color:var(--text)}
-  .tw{
-    background:var(--card);border:1px solid var(--border);border-radius:14px;
-    padding:13px 16px;margin-bottom:9px;display:flex;gap:12px;align-items:flex-start;
-  }
-  .tw .ic{font-size:1.1rem;line-height:1.5;flex-shrink:0}
-  .tw .nm{font-weight:500;font-size:.97rem}
-  .tw .rs{color:var(--text2);font-size:.86rem;margin-top:2px}
-  .tw.on{border-color:rgba(239,68,68,.4);background:rgba(239,68,68,.07)}
-  .tw.err{border-color:rgba(234,179,8,.3);background:rgba(234,179,8,.05)}
+/* ── disclaimer (deliberately before the gauges) ─────── */
+.notice{
+  margin:30px 0 34px;border-radius:var(--radius-md);
+  border:1px solid rgba(239,68,68,.32);background:rgba(239,68,68,.07);
+  padding:20px 22px;
+}
+.notice h2{
+  font-size:1rem;font-weight:700;color:#ff9b9b;margin-bottom:10px;
+  display:flex;align-items:center;gap:8px
+}
+.notice ul{list-style:none;display:grid;gap:7px}
+.notice li{
+  color:var(--text-secondary);font-size:.9rem;padding-inline-start:20px;position:relative
+}
+.notice li::before{content:"—";position:absolute;inset-inline-start:0;color:rgba(239,68,68,.7)}
+.notice li b{color:var(--text-primary);font-weight:600}
+.notice a{
+  display:inline-block;margin-top:13px;color:var(--cyan);font-weight:600;
+  font-size:.88rem;text-decoration:none;border-bottom:1px solid var(--cyan-dim)
+}
 
-  .explain{
-    background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.2);
-    border-radius:14px;padding:16px 18px;margin-top:24px;font-size:.9rem;color:var(--text2)
-  }
-  .explain b{color:var(--cyan)}
-  footer{text-align:center;color:var(--text3);font-size:.8rem;margin-top:30px;line-height:2}
-  footer a{color:var(--text2)}
-  .stamp{color:var(--text3);font-size:.83rem;text-align:center;margin-top:14px}
-  @media(max-width:480px){ .dot{width:88px;height:88px;font-size:2.2rem} }
+/* ── the two gauges ─────────────────────────────────── */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+
+.gauge{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:26px 22px;text-align:center;
+  backdrop-filter:blur(10px);transition:border-color .3s,transform .3s;
+}
+.gauge:hover{border-color:var(--border-hover);transform:translateY(-2px)}
+.gauge-head{
+  display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:18px
+}
+.gauge-flag{font-size:1.5rem;line-height:1}
+.gauge-name{font-size:1.15rem;font-weight:700}
+
+.ring{position:relative;width:150px;height:150px;margin:0 auto 16px}
+.ring svg{transform:rotate(-90deg);width:100%;height:100%}
+.ring circle{fill:none;stroke-width:9;stroke-linecap:round}
+.ring .track{stroke:rgba(255,255,255,.07)}
+.ring .val{transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1),stroke .5s}
+.ring-mid{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:1px
+}
+.ring-emoji{font-size:1.6rem;line-height:1}
+.ring-label{font-size:1.02rem;font-weight:800;letter-spacing:-.01em}
+.ring-scale{font-family:var(--font-en);font-size:.68rem;color:var(--text-muted);letter-spacing:.08em}
+.gauge-note{color:var(--text-secondary);font-size:.86rem;min-height:2.6em}
+
+/* ── indicator rows ─────────────────────────────────── */
+h3{
+  font-size:.78rem;font-family:var(--font-en);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-muted);font-weight:600;margin:34px 0 12px;text-align:center
+}
+.rows{display:grid;gap:8px}
+.row{
+  display:flex;gap:12px;align-items:flex-start;text-align:start;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:14px;padding:12px 15px;transition:border-color .25s
+}
+.row:hover{border-color:var(--border-hover)}
+.row.on{border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.08)}
+.row.err{border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.05)}
+.row .ic{flex-shrink:0;font-size:.95rem;line-height:1.75;width:18px;text-align:center}
+.row .nm{font-weight:600;font-size:.93rem}
+.row .rs{color:var(--text-secondary);font-size:.83rem;margin-top:1px}
+.tag{
+  font-family:var(--font-en);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple);border:1px solid rgba(123,97,255,.35);border-radius:20px;
+  padding:1px 7px;margin-inline-start:7px;vertical-align:middle;font-weight:600
+}
+.gap{
+  margin-top:9px;border:1px dashed rgba(255,255,255,.14);border-radius:14px;
+  padding:11px 15px;color:var(--text-muted);font-size:.82rem;text-align:start
+}
+
+/* ── explainer + footer ─────────────────────────────── */
+.explain{
+  margin-top:34px;border:1px solid rgba(0,212,255,.22);background:rgba(0,212,255,.05);
+  border-radius:var(--radius-md);padding:20px 22px;color:var(--text-secondary);font-size:.9rem
+}
+.explain b{color:var(--cyan);font-weight:600}
+.stamp{text-align:center;color:var(--text-muted);font-size:.8rem;margin-top:24px;font-family:var(--font-en)}
+footer{
+  text-align:center;margin-top:34px;padding-top:24px;border-top:1px solid var(--border);
+  color:var(--text-muted);font-size:.8rem;line-height:2.1
+}
+footer a{color:var(--text-secondary);text-decoration:none}
+footer a:hover{color:var(--cyan)}
+.counter{margin-top:14px;opacity:.55;transition:opacity .3s}
+.counter:hover{opacity:1}
+.counter img{vertical-align:middle}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <header>
-    <h1>🛰️ ראדאר הסלמה — מצב אזורי</h1>
-    <div class="sub">מדד התארגנות מבוסס אינדיקטורים ציבוריים</div>
-  </header>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span>KPLNS</span></div>
+    <a class="backlink" href="/">← חזרה לאתר</a>
+  </div>
+</div>
 
-  <div class="disclaimer">
-    <b>⚠️ קראו לפני שמסתכלים על הצבע</b>
+<div class="container">
+
+  <div class="hero">
+    <div class="section-label">Situational Radar</div>
+    <h1>ראדאר הסלמה — ישראל ואיראן</h1>
+    <p>שני מדדים נפרדים, מבוססי אינדיקטורים ציבוריים בלבד</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="notice">
+    <h2>⚠️ לקרוא לפני שמסתכלים על הצבע</h2>
     <ul>
       <li><b>זו אינה מערכת התרעה.</b> היא לא תודיע לכם על שיגור.</li>
       <li>המקור המחייב היחיד הוא <b>פיקוד העורף</b>. תמיד.</li>
       <li>זו שכבת התארגנות של <b>ימים</b>, לא של דקות. בתרחיש מהיר ייתכן שלא יהיה כאן שום זמן התרעה.</li>
-      <li>זהו <b>פרויקט פרטי</b> ולא גורם רשמי. אין להסתמך עליו לקבלת החלטות בטיחות.</li>
+      <li>זהו <b>פרויקט פרטי</b>, לא גורם רשמי. אין להסתמך עליו לקבלת החלטות בטיחות.</li>
       <li>הפלט הוא <b>רמה</b>, לא אחוזי סבירות.</li>
     </ul>
-    <a class="oref" href="https://www.oref.org.il/" target="_blank" rel="noopener">
-      ← להנחיות המחייבות של פיקוד העורף
-    </a>
+    <a href="https://www.oref.org.il/" target="_blank" rel="noopener">להנחיות המחייבות של פיקוד העורף ←</a>
   </div>
 
-  <div class="status" id="status">
-    <div class="dot l0" id="dot">…</div>
-    <div class="lbl" id="label">טוען…</div>
-    <div class="lvlnote" id="lvlnote"></div>
-  </div>
+  <div class="grid" id="gauges"></div>
 
-  <h2>מדדים במעקב</h2>
-  <div id="tripwires"></div>
+  <div id="detail"></div>
 
   <div class="explain">
     <b>איך זה עובד.</b> המערכת לא מסכמת כותרות בחדשות. היא עוקבת אחרי
     <b>צעדים יקרים</b> — כאלה שעולים למישהו משהו לעשות: שינוי הנחיות התגוננות,
     מרחב אווירי שמתרוקן ממטוסים אזרחיים, מדינה שמנתקת לעצמה את האינטרנט,
-    פינוי כפוי של סגלים דיפלומטיים. הצהרות וכותרות לא מדליקות מדד כאן.
-    רמה עולה ככל שיותר משפחות מדדים <em>בלתי תלויות</em> נדלקות יחד.
+    קריסת מטבע, העלאת רמת אזהרת מסע. הצהרות וכותרות אינן מדליקות מדד כאן.
+    הרמה עולה ככל שיותר משפחות אינדיקטורים <b>בלתי תלויות</b> נדלקות יחד —
+    מדד בודד לרוב אומר רעש. מדדים המסומנים <span class="tag">אזורי</span>
+    נספרים לשני הצדדים.
   </div>
 
-  <div class="stamp" id="stamp"></div>
+  <div class="stamp" id="stamp">טוען…</div>
 
   <footer>
     יבגני קפלן · ייעוץ וניהול פרוייקטים<br>
-    <a href="../">kplns.com</a>
+    <a href="/">kplns.com</a>
+    <!-- Cumulative page-view counter. hits.sh, no account needed; verified
+         incrementing before use. Counts page LOADS, not unique visitors, and
+         deliberately sits in the footer: a viewer count next to the gauges
+         would read as an escalation signal in its own right. -->
+    <div class="counter">
+      <img src="https://hits.sh/kplns.com/radar-v1.svg?style=flat-square&label=%D7%A6%D7%A4%D7%99%D7%95%D7%AA&color=1a2236&labelColor=111827"
+           alt="מונה צפיות מצטבר" height="20" loading="lazy">
+    </div>
   </footer>
 
 </div>
 
 <script>
 const LVL = [
-  {c:'l0', e:'🟢', t:'רגוע',  n:'לא נדלק אף מדד.'},
-  {c:'l1', e:'🟡', t:'מוגבר', n:'משפחת מדדים אחת נדלקה. לרוב רעש — לא סיבה לשנות תוכניות.'},
-  {c:'l2', e:'🟠', t:'אזהרה', n:'שתי משפחות בלתי תלויות נדלקו יחד.'},
-  {c:'l3', e:'🔴', t:'קריטי', n:'שינוי במדיניות ההתגוננות, או שלוש משפחות ומעלה. עקבו אחרי פיקוד העורף.'}
+  {e:'🟢', t:'רגוע',  c:'var(--l0)', n:'לא נדלק אף מדד.'},
+  {e:'🟡', t:'מוגבר', c:'var(--l1)', n:'משפחת מדדים אחת נדלקה. לרוב רעש — לא סיבה לשנות תוכניות.'},
+  {e:'🟠', t:'אזהרה', c:'var(--l2)', n:'שתי משפחות בלתי תלויות נדלקו יחד.'},
+  {e:'🔴', t:'קריטי', c:'var(--l3)', n:'שלוש משפחות ומעלה, או שינוי במדיניות ההתגוננות. עקבו אחרי פיקוד העורף.'}
 ];
+const R = 62, C = 2 * Math.PI * R;
+
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function gauge(ix){
+  const L = LVL[Math.max(0, Math.min(3, ix.level || 0))];
+  const off = C - (C * (ix.level || 0) / 3);
+  return `<div class="gauge">
+    <div class="gauge-head"><span class="gauge-flag">${esc(ix.flag)}</span>
+      <span class="gauge-name">${esc(ix.name)}</span></div>
+    <div class="ring">
+      <svg viewBox="0 0 150 150">
+        <circle class="track" cx="75" cy="75" r="${R}"></circle>
+        <circle class="val" cx="75" cy="75" r="${R}"
+          stroke="${L.c}" stroke-dasharray="${C}" stroke-dashoffset="${off}"></circle>
+      </svg>
+      <div class="ring-mid">
+        <div class="ring-emoji">${L.e}</div>
+        <div class="ring-label" style="color:${L.c}">${L.t}</div>
+        <div class="ring-scale">${ix.level || 0} / 3</div>
+      </div>
+    </div>
+    <div class="gauge-note">${L.n}</div>
+  </div>`;
+}
+
+function rows(ix){
+  const items = (ix.tripwires || []).map(t => {
+    const cls = t.lit ? 'row on' : (t.ok === false ? 'row err' : 'row');
+    const ic  = t.lit ? '🔺' : (t.ok === false ? '⚠️' : '✓');
+    const rs  = t.lit ? t.reason
+              : (t.ok === false ? 'לא נקרא בריצה האחרונה' : (t.value || 'תקין'));
+    const tag = t.shared ? '<span class="tag">אזורי</span>' : '';
+    return `<div class="${cls}"><div class="ic">${ic}</div><div>
+      <div class="nm">${esc(t.name)}${tag}</div>
+      <div class="rs">${esc(rs)}</div></div></div>`;
+  }).join('');
+  const gaps = (ix.unavailable || [])
+    .map(u => `<div class="gap">⃠ ${esc(u)}</div>`).join('');
+  return `<h3>${esc(ix.flag)} ${esc(ix.name)}</h3><div class="rows">${items}</div>${gaps}`;
+}
 
 fetch('status.json?t=' + Date.now())
   .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
   .then(d => {
-    const L = LVL[Math.max(0, Math.min(3, d.level ?? 0))];
-    const dot = document.getElementById('dot');
-    dot.className = 'dot ' + L.c;
-    dot.textContent = L.e;
-    document.getElementById('label').textContent = L.t;
-    document.getElementById('lvlnote').textContent = L.n;
-
-    document.getElementById('tripwires').innerHTML = (d.tripwires || []).map(t => {
-      const cls = t.lit ? 'tw on' : (t.ok === false ? 'tw err' : 'tw');
-      const ic  = t.lit ? '🔺' : (t.ok === false ? '⚠️' : '✓');
-      const rs  = t.lit ? t.reason
-                : (t.ok === false ? 'לא נקרא בריצה האחרונה' : (t.value || 'תקין'));
-      return `<div class="${cls}"><div class="ic">${ic}</div><div>
-                <div class="nm">${t.name}</div><div class="rs">${rs}</div>
-              </div></div>`;
-    }).join('') || '<div class="tw"><div class="ic">…</div><div class="nm">אין נתונים</div></div>';
-
+    document.getElementById('gauges').innerHTML = d.indices.map(gauge).join('');
+    document.getElementById('detail').innerHTML = d.indices.map(rows).join('');
     const dt = new Date(d.generated);
     document.getElementById('stamp').textContent =
-      'עודכן: ' + dt.toLocaleString('he-IL', {timeZone:'Asia/Jerusalem'}) +
-      ' · נבדק כל 30 דקות';
+      'עודכן ' + dt.toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'}) +
+      ' · נבדק כל 30 דקות · ' + d.sources_ok + '/' + d.sources_total + ' מקורות נקראו';
   })
-  .catch(e => {
-    document.getElementById('label').textContent = 'הנתונים אינם זמינים';
-    document.getElementById('lvlnote').textContent =
-      'לא ניתן לטעון את הסטטוס. אל תסיקו מכך דבר — פנו לפיקוד העורף.';
+  .catch(() => {
+    document.getElementById('gauges').innerHTML =
+      '<div class="gauge"><div class="gauge-name">הנתונים אינם זמינים</div>' +
+      '<div class="gauge-note">לא ניתן לטעון את הסטטוס. אל תסיקו מכך דבר — פנו לפיקוד העורף.</div></div>';
     document.getElementById('stamp').textContent = '';
   });
 </script>

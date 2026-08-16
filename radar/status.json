@@ -1,64 +1,117 @@
 {
- "generated": "2026-08-16T17:45:09+00:00",
- "level": 0,
- "tripwires": [
+ "generated": "2026-08-16T17:51:40+00:00",
+ "indices": [
   {
-   "key": "hfc_policy",
-   "name": "מדיניות התגוננות (פיקוד העורף)",
-   "lit": false,
-   "ok": true,
-   "reason": "",
-   "value": "אין הגבלות בכל הארץ"
+   "key": "il",
+   "flag": "🇮🇱",
+   "name": "ישראל",
+   "level": 0,
+   "tripwires": [
+    {
+     "key": "hfc_policy",
+     "name": "מדיניות התגוננות (פיקוד העורף)",
+     "shared": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "אין הגבלות בכל הארץ"
+    },
+    {
+     "key": "il_airspace",
+     "name": "מרחב אווירי ישראל",
+     "shared": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "100 מטוסים אזרחיים באזור"
+    },
+    {
+     "key": "advisories_il",
+     "name": "אזהרות מסע — ישראל והסביבה",
+     "shared": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "3 מדינות במעקב — ללא שינוי ברמות"
+    },
+    {
+     "key": "us_mil_air",
+     "name": "תעופה צבאית אמריקאית באזור",
+     "shared": true,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "4 מטוסים צבאיים באזור"
+    },
+    {
+     "key": "strikeradar",
+     "name": "StrikeRadar (מאשש)",
+     "shared": true,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "37/100"
+    }
+   ]
   },
   {
-   "key": "il_airspace",
-   "name": "מרחב אווירי ישראל",
-   "lit": false,
-   "ok": true,
-   "reason": "",
-   "value": "90 מטוסים אזרחיים באזור"
-  },
-  {
-   "key": "us_mil_air",
-   "name": "תעופה צבאית אמריקאית באזור",
-   "lit": false,
-   "ok": true,
-   "reason": "",
-   "value": "2 מטוסים צבאיים באזור"
-  },
-  {
-   "key": "ir_internet",
-   "name": "אינטרנט באיראן",
-   "lit": false,
-   "ok": true,
-   "reason": "",
-   "value": "קישוריות תקינה"
-  },
-  {
-   "key": "rial",
-   "name": "ריאל איראני",
-   "lit": false,
-   "ok": true,
-   "reason": "",
-   "value": "1,866,800 ריאל לדולר"
-  },
-  {
-   "key": "advisories",
-   "name": "אזהרות מסע רשמיות",
-   "lit": false,
-   "ok": true,
-   "reason": "",
-   "value": "10 מדינות במעקב — ללא שינוי ברמות"
-  },
-  {
-   "key": "strikeradar",
-   "name": "StrikeRadar (מאשש)",
-   "lit": false,
-   "ok": true,
-   "reason": "",
-   "value": "37/100"
+   "key": "ir",
+   "flag": "🇮🇷",
+   "name": "איראן",
+   "level": 0,
+   "tripwires": [
+    {
+     "key": "ir_internet",
+     "name": "אינטרנט באיראן",
+     "shared": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "קישוריות תקינה (41,625 מסלולי BGP)"
+    },
+    {
+     "key": "rial",
+     "name": "ריאל איראני",
+     "shared": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "1,866,800 ריאל לדולר"
+    },
+    {
+     "key": "advisories_ir",
+     "name": "אזהרות מסע — איראן והמפרץ",
+     "shared": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "7 מדינות במעקב — ללא שינוי ברמות"
+    },
+    {
+     "key": "us_mil_air",
+     "name": "תעופה צבאית אמריקאית באזור",
+     "shared": true,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "4 מטוסים צבאיים באזור"
+    },
+    {
+     "key": "strikeradar",
+     "name": "StrikeRadar (מאשש)",
+     "shared": true,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "37/100"
+    }
+   ],
+   "unavailable": [
+    "אין כיסוי מקלטי ADS-B מעל איראן — לא ניתן למדוד"
+   ]
   }
  ],
  "sources_ok": 7,
- "sources_total": 7
+ "sources_total": 7,
+ "degraded": []
 }
