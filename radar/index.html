@@ -18,15 +18,26 @@
   --bg-card:rgba(26,34,54,.65); --bg-card-hover:rgba(32,42,68,.85);
   --border:rgba(255,255,255,.08); --border-hover:rgba(255,255,255,.15);
   --cyan:#00d4ff; --cyan-dim:rgba(0,212,255,.15); --teal:#00b8a9;
-  --purple:#7b61ff;
+  --purple:#9d8cff;                     /* #7b61ff measured 3.46:1 — failed AA */
   --gradient-accent:linear-gradient(135deg,#00d4ff,#00b8a9);
   --text-primary:#e8edf5; --text-secondary:rgba(232,237,245,.6);
-  --text-muted:rgba(232,237,245,.4);
+  --text-muted:rgba(232,237,245,.62);   /* .4 measured 3.25:1 — failed WCAG AA */
   --font-he:'Heebo',sans-serif; --font-en:'Inter',sans-serif;
   --radius-md:16px; --radius-lg:24px;
-  --l0:#22c55e; --l1:#eab308; --l2:#f97316; --l3:#ef4444;
+  --l0:#22c55e; --l1:#eab308; --l2:#f97316; --l3:#ff6b6b;                         /* #ef4444 measured 3.87:1 — failed AA */
 }
 *{margin:0;padding:0;box-sizing:border-box}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.skip{
+  position:absolute;top:-100px;inset-inline-start:0;background:var(--cyan);
+  color:#111827;padding:12px 22px;z-index:999;font-weight:700;font-size:.9rem;
+  transition:top .25s;text-decoration:none
+}
+.skip:focus{top:0}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
 html{scroll-behavior:smooth}
 body{
   font-family:var(--font-he);
@@ -134,7 +145,7 @@ h3{
 .row .rs{color:var(--text-secondary);font-size:.83rem;margin-top:1px}
 .tag{
   font-family:var(--font-en);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--purple);border:1px solid rgba(123,97,255,.35);border-radius:20px;
+  color:var(--purple);border:1px solid rgba(157,140,255,.4);border-radius:20px;
   padding:1px 7px;margin-inline-start:7px;vertical-align:middle;font-weight:600
 }
 .gap{
@@ -155,12 +166,16 @@ footer{
 }
 footer a{color:var(--text-secondary);text-decoration:none}
 footer a:hover{color:var(--cyan)}
+.legal{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;margin-bottom:10px}
+.thirdparty{max-width:520px;margin:0 auto;font-size:.75rem;line-height:1.8;color:var(--text-muted)}
 .counter{margin-top:14px;opacity:.55;transition:opacity .3s}
 .counter:hover{opacity:1}
 .counter img{vertical-align:middle}
 </style>
 </head>
 <body>
+
+<a class="skip" href="#main">דלג לתוכן</a>
 
 <div class="topbar">
   <div class="topbar-inner">
@@ -169,7 +184,7 @@ footer a:hover{color:var(--cyan)}
   </div>
 </div>
 
-<div class="container">
+<main class="container" id="main">
 
   <div class="hero">
     <div class="section-label">Situational Radar</div>
@@ -190,7 +205,7 @@ footer a:hover{color:var(--cyan)}
     <a href="https://www.oref.org.il/" target="_blank" rel="noopener">להנחיות המחייבות של פיקוד העורף ←</a>
   </div>
 
-  <div class="grid" id="gauges"></div>
+  <div class="grid" id="gauges" role="status" aria-live="polite" aria-label="רמות ההסלמה הנוכחיות"></div>
 
   <div id="detail"></div>
 
@@ -206,10 +221,21 @@ footer a:hover{color:var(--cyan)}
 
   <div class="stamp" id="stamp">טוען…</div>
 
+  </main>
+
   <footer>
     <!-- No personal byline here by request (2026-08-16): this page is shared
          publicly, and the owner does not want to be identified by name on it. -->
-    <a href="/">kplns.com</a>
+    <nav class="legal" aria-label="מידע משפטי">
+      <a href="/privacy.html">מדיניות פרטיות</a>
+      <a href="/accessibility.html">הצהרת נגישות</a>
+      <a href="/disclaimer.html">תנאי שימוש</a>
+      <a href="/">kplns.com</a>
+    </nav>
+    <p class="thirdparty">
+      הדף אינו אוסף נתונים ואינו משתמש ב-Cookies. הוא טוען גופנים מ-Google Fonts
+      ומונה צפיות מ-hits.sh — שירותי צד שלישי שרואים את כתובת ה-IP של הדפדפן.
+    </p>
     <!-- Cumulative page-view counter. hits.sh, no account needed; verified
          incrementing before use. Counts page LOADS, not unique visitors, and
          deliberately sits in the footer: a viewer count next to the gauges
@@ -219,8 +245,6 @@ footer a:hover{color:var(--cyan)}
            alt="מונה צפיות מצטבר" height="20" loading="lazy">
     </div>
   </footer>
-
-</div>
 
 <script>
 const LVL = [
@@ -238,16 +262,16 @@ function gauge(ix){
   const L = LVL[Math.max(0, Math.min(3, ix.level || 0))];
   const off = C - (C * (ix.level || 0) / 3);
   return `<div class="gauge">
-    <div class="gauge-head"><span class="gauge-flag">${esc(ix.flag)}</span>
+    <div class="gauge-head"><span class="gauge-flag" aria-hidden="true">${esc(ix.flag)}</span>
       <span class="gauge-name">${esc(ix.name)}</span></div>
-    <div class="ring">
-      <svg viewBox="0 0 150 150">
+    <div class="ring" role="img" aria-label="רמה ${ix.level||0} מתוך 3 — ${L.t}">
+      <svg viewBox="0 0 150 150" aria-hidden="true" focusable="false">
         <circle class="track" cx="75" cy="75" r="${R}"></circle>
         <circle class="val" cx="75" cy="75" r="${R}"
           stroke="${L.c}" stroke-dasharray="${C}" stroke-dashoffset="${off}"></circle>
       </svg>
       <div class="ring-mid">
-        <div class="ring-emoji">${L.e}</div>
+        <div class="ring-emoji" aria-hidden="true">${L.e}</div>
         <div class="ring-label" style="color:${L.c}">${L.t}</div>
         <div class="ring-scale">${ix.level || 0} / 3</div>
       </div>
@@ -263,7 +287,7 @@ function rows(ix){
     const rs  = t.lit ? t.reason
               : (t.ok === false ? 'לא נקרא בריצה האחרונה' : (t.value || 'תקין'));
     const tag = t.shared ? '<span class="tag">אזורי</span>' : '';
-    return `<div class="${cls}"><div class="ic">${ic}</div><div>
+    return `<div class="${cls}"><div class="ic" aria-hidden="true">${ic}</div><div>
       <div class="nm">${esc(t.name)}${tag}</div>
       <div class="rs">${esc(rs)}</div></div></div>`;
   }).join('');
