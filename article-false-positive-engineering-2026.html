@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>הנדסת התרעות שווא - איך בונים ניטור שלא מאמנים אותו להתעלם | KPLNS</title>
+<meta name="description" content="57 התראות ב-68 ימים ממערכת ניטור אחת. שלוש התרעות שווא אמיתיות שתפסתי תוך שעה - חיפוש גלובלי במקום ממוקד, מקור שמחזיר תוכן שונה בין בקשה לבקשה, ובדיקת מצב בזמן הלא נכון - ושישה כללי תכנון שמונעים אותן.">
+<meta property="og:title" content="הנדסת התרעות שווא - איך בונים ניטור שלא מאמנים אותו להתעלם | KPLNS">
+<meta property="og:description" content="הכשל של מערכת ניטור אינו החמצת אירוע אלא אימון המשתמש להתעלם. שלושה מקרי בוחן מתועדים ושישה כללי תכנון להנדסת התרעות שווא.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/article-false-positive-engineering-2026.html">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="הנדסת התרעות שווא - איך בונים ניטור שלא מאמנים אותו להתעלם | KPLNS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="הנדסת התרעות שווא - איך בונים ניטור שלא מאמנים אותו להתעלם | KPLNS">
+<meta name="twitter:description" content="הכשל של מערכת ניטור אינו החמצת אירוע אלא אימון המשתמש להתעלם. שלושה מקרי בוחן מתועדים ושישה כללי תכנון להנדסת התרעות שווא.">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
+<meta name="twitter:image:alt" content="הנדסת התרעות שווא - איך בונים ניטור שלא מאמנים אותו להתעלם | KPLNS">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="KPLNS Encapsulated Solutions">
+<link rel="canonical" href="https://kplns.com/article-false-positive-engineering-2026.html">
+<meta name="theme-color" content="#0a1628">
+<link rel="alternate" hreflang="he" href="https://kplns.com/article-false-positive-engineering-2026.html">
+<link rel="alternate" hreflang="en" href="https://kplns.com/article-false-positive-engineering-2026.html">
+<link rel="alternate" hreflang="x-default" href="https://kplns.com/article-false-positive-engineering-2026.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.layer-stack{margin:28px 0;display:flex;flex-direction:column;gap:0}
+.layer-item{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--border);background:var(--bg-card)}
+.layer-item:first-child{border-radius:12px 12px 0 0}
+.layer-item:last-child{border-radius:0 0 12px 12px}
+.layer-item:not(:last-child){border-bottom:none}
+.layer-num{font-size:0.75rem;font-weight:800;font-family:var(--font-en);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.layer-item:nth-child(1) .layer-num{background:var(--red-dim);color:var(--red)}
+.layer-item:nth-child(2) .layer-num{background:var(--orange-dim);color:var(--orange)}
+.layer-item:nth-child(3) .layer-num{background:var(--yellow-dim);color:var(--yellow)}
+.layer-item:nth-child(4) .layer-num{background:var(--cyan-dim);color:var(--cyan)}
+.layer-item:nth-child(5) .layer-num{background:var(--green-dim);color:var(--green)}
+.layer-title{font-size:0.92rem;font-weight:700;color:var(--text-primary)}
+.layer-desc{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(251,146,60,0.06));border:1px solid rgba(239,68,68,0.25);border-right:4px solid var(--red);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--red);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.78rem;color:var(--text-muted);line-height:1.7;padding:6px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:7px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-sources ol li a{color:var(--cyan);word-break:break-word;transition:opacity 0.3s}
+.article-sources ol li a:hover{opacity:0.75}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.08);margin-top:60px;color:rgba(232,237,245,0.4);font-size:0.85rem}
+.article-footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.article-footer .footer-links a{color:rgba(232,237,245,0.5);font-size:0.82rem;transition:color 0.3s}
+.article-footer .footer-links a:hover{color:#00d4ff}
+.article-footer .footer-copy{font-size:0.8rem}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.related-articles {
+  max-width: 760px; margin: 0 auto; padding: 48px 24px 0;
+}
+.related-articles h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.related-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.related-card:hover {
+  border-color: rgba(0,212,255,0.2); background: rgba(26, 34, 54, 0.85);
+  transform: translateX(-4px);
+}
+.related-card .r-tag {
+  font-size: 0.7rem; font-weight: 600; color: var(--cyan);
+  background: var(--cyan-dim); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap;
+}
+.related-card .r-title {
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+}
+@media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"התרעות שווא - הכשל שהורג מערכות ניטור מבפנים"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"התרעות שווא - הכשל שהורג מערכות ניטור מבפנים","description":"57 התראות ב-68 ימים ממערכת ניטור אחת. שלושה מקרי בוחן מתועדים של התרעות שווא - חיפוש גלובלי במקום ממוקד, מקור שמחזיר תוכן שונה בין בקשה לבקשה, ובדיקת מצב בזמן הלא נכון - ושישה כללי תכנון שמונעים אותן","author":{"@type":"Person","@id":"https://kplns.com/#founder","name":"Y.K.","jobTitle":"Security & Supply Chain Consultant"},"publisher":{"@type":"Organization","name":"KPLNS Encapsulated Solutions","url":"https://kplns.com","logo":{"@type":"ImageObject","url":"https://kplns.com/og-image.png"}},"datePublished":"2026-08-16","dateModified":"2026-08-16","image":"https://kplns.com/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kplns.com/article-false-positive-engineering-2026.html"},"inLanguage":"he-IL","articleSection":"Security Operations","keywords":"התרעות שווא, false positives, alert fatigue, עייפות התראות, ניטור אבטחה, SOC, חוקי התרעה, קו בסיס, אישוש בלתי תלוי, סקר ביטחון 360, רב מגן","wordCount":1500}
+</script>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="index.html#insights">מאמרים</a><span>›</span>
+  הנדסת התרעות שווא במערכות ניטור
+</nav>
+<article class="article-container">
+  <div class="article-tag">ניטור, התרעות ותפעול אבטחה</div>
+  <h1>התרעות שווא - הכשל שהורג מערכות ניטור מבפנים</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; זמן קריאה: 9 דקות &nbsp;·&nbsp; מבוסס על מערכת ניטור שבניתי והרצתי, אוגוסט 2026</div>
+
+  <div class="article-body">
+
+    <p>בדקתי לאחרונה לוג של מערכת ניטור שרצה אצלי ברציפות 68 ימים. היא שלחה <strong>57 התראות</strong> - בממוצע כמעט אחת ליום - מול 3,142 בדיקות שקטות. אף אחת מהן לא הייתה "תקלה" במובן הצר: הקוד עשה בדיוק את מה שנכתב בו. ובכל זאת המערכת נכשלה - כי בקצב כזה, ההתראה מפסיקה להיקרא.</p>
+
+    <p>זהו כשל התכנון הנפוץ ביותר במערכות ניטור, והוא כמעט לעולם אינו מתועד כבאג: <strong>מערכת לא נכשלת רק כשהיא מפספסת אירוע - היא נכשלת גם כשהיא מאמנת את מי שמסתכל עליה להתעלם ממנה</strong>. התוצאה זהה, אבל הכשל השני שקט, מצטבר, ולא מופיע בשום דוח.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num red">57</div>
+        <div class="stat-label">התראות ב-68 ימים ממערכת ניטור אחת</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">63%</div>
+        <div class="stat-label">מההתראות אינן מטופלות כלל (Vectra AI, 2026)<sup>[<a href="#src1">1</a>]</sup></div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">46%</div>
+        <div class="stat-label">מההתראות מתבררות כהתרעות שווא (Microsoft/Omdia, 2026)<sup>[<a href="#src1">1</a>]</sup></div>
+      </div>
+    </div>
+
+    <p>המספרים בענף נעים בטווח רחב מאוד בין סקר לסקר, ואנטון צ'ובאקין - מי שריכז אותם - מציין בכנות שחלק ניכר מהנתונים בתחום סותרים זה את זה.<sup>[<a href="#src2">2</a>]</sup> לכן לא אבנה טיעון על מספר בודד. הכיוון, לעומת זאת, עקבי בכל הסקרים: <strong>נפח ההתראות אינו הבעיה המרכזית - איכות הסיגנל היא.</strong> בסקר SANS לשנת 2025, 73% מצוותי האבטחה מציינים התרעות שווא כאתגר הזיהוי מספר אחת שלהם.<sup>[<a href="#src1">1</a>]</sup></p>
+
+    <h2>שלוש התרעות שווא אמיתיות - שנתפסו בתוך שעה</h2>
+
+    <p>המקרים הבאים אינם תיאורטיים ואינם לקוחים מספרות מקצועית. הם קרו בבנייה של מערכת ניטור אחת, בערב אחד, ואני מביא אותם עם המספרים המדויקים שנמדדו. כל אחד מהם מייצג משפחה שלמה של באגים שאני פוגש אצל לקוחות.</p>
+
+    <div class="case-box">
+      <h4>🔴 מקרה 1 - חיפוש גלובלי במקום חיפוש ממוקד</h4>
+      <p>המערכת נדרשה לזהות מתי מדינה מסוימת מורה על פינוי חירום של סגל דיפלומטי. כתבתי חיפוש של הביטוי הרלוונטי בתוך פיד רשמי - וההתראה נדלקה בריצה הראשונה.</p>
+      <p>הסיבה: הפיד מכיל <strong>213 מדינות</strong>, והביטוי הופיע בשבע מהן כטקסט קבוע וישן - ובהן מדינות חסרות כל רלוונטיות לאירוע שחיפשתי. הקוד עשה בדיוק את מה שביקשתי ממנו. אני ביקשתי את הדבר הלא נכון.</p>
+      <p><strong>השורש:</strong> בלבול בין <em>נוכחות</em> של מאפיין לבין <em>שינוי</em> בו. ברוב מערכות הניטור העובדה שערך מסוים קיים אינה אומרת דבר. מה שאומר משהו הוא שהוא <strong>השתנה</strong> ביחס לקו בסיס ידוע.</p>
+    </div>
+
+    <div class="case-box orange">
+      <h4>🟠 מקרה 2 - מקור הנתונים עצמו אינו יציב</h4>
+      <p>תיקנתי את מקרה 1 וצמצמתי את החיפוש לגוף הרשומה של כל מדינה בנפרד. ההתראה נדלקה שוב - הפעם על שתי מדינות שמצבן לא השתנה כבר חודשים.</p>
+      <p>שתי בקשות לאותה כתובת בדיוק, בהפרש של שניות, החזירו:</p>
+      <ul>
+        <li>בקשה א' - <strong>229</strong> רשומות, גוף הרשומה הרלוונטית באורך <strong>5,603</strong> תווים, הביטוי <strong>אינו</strong> מופיע</li>
+        <li>בקשה ב' - <strong>216</strong> רשומות, אותה רשומה באורך <strong>8,682</strong> תווים, הביטוי <strong>מופיע</strong></li>
+      </ul>
+      <p>המקור מגיש גרסאות קטומות שונות של אותו תוכן. כל השוואה בין שתי דגימות עוקבות "מגלה" שינוי שמעולם לא קרה.</p>
+      <p><strong>השורש:</strong> הנחה שקטה שהקלט יציב. זו הנחה שאיש אינו כותב בפירוש ולכן איש אינו בודק. במקרה הזה מדובר במקור רשמי ומכובד - מה שהופך את ההנחה למפתה עוד יותר.</p>
+    </div>
+
+    <div class="case-box cyan">
+      <h4>🔵 מקרה 3 - בדיקת מצב בזמן הלא נכון</h4>
+      <p>מערכת אחרת שלחה פקודה למכשיר, המתינה חמש שניות קבועות, ואז בדקה פעם אחת אם המצב השתנה. הדפוס נראה סביר לגמרי. בפועל הוא הגרלה - ולשני הכיוונים.</p>
+      <p>מהיסטוריית המצב, ברזולוציה של אלפיות שנייה:</p>
+      <ul>
+        <li><code>19:02:43.951</code> - הערך נרשם כמבוקש (כתיבה אופטימית מקומית)</li>
+        <li><code>19:02:44.568</code> - הערך <strong>חוזר לקדמותו</strong>: המכשיר עצמו דיווח שלא קיבל את הפקודה</li>
+      </ul>
+      <p>בדיקה שנוחתת לפני החזרה מדווחת הצלחה שלא קרתה. בדיקה שנוחתת אחריה מדווחת כישלון - גם כשהפקודה השנייה כן נקלטה. אותו קוד בדיוק ייצר גם התרעת שווא וגם <em>שקט</em> שווא - תלוי במילישניות שבהן נחתה הבדיקה.</p>
+      <p><strong>השורש:</strong> אימות של <em>שליחת הפקודה</em> במקום אימות של <em>האפקט</em>, בתוספת חלון זמן קבוע מול מערכת שזמן התגובה שלה משתנה.</p>
+    </div>
+
+    <h2>שישה כללי תכנון שמונעים את שלושת המקרים</h2>
+
+    <div class="layer-stack">
+      <div class="layer-item">
+        <div class="layer-num">01</div>
+        <div>
+          <div class="layer-title">נוכחות אינה שינוי</div>
+          <div class="layer-desc">אל תתריעו על עצם קיומו של ערך. שמרו קו בסיס והתריעו על סטייה ממנו. זה לבדו מבטל את מקרה 1 ומשפחה שלמה של "התראה שנדלקת בריצה הראשונה".</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">02</div>
+        <div>
+          <div class="layer-title">קו בסיס לפני התרעה</div>
+          <div class="layer-desc">מערכת חדשה חייבת תקופת למידה שקטה. כלל אצבע מעשי: אל תאפשרו לחוק שמבוסס על חציון או סטייה לפעול לפני שנצברו מספיק דגימות כדי שהחציון יהיה בעל משמעות.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">03</div>
+        <div>
+          <div class="layer-title">אישור בשתי תצפיות עוקבות</div>
+          <div class="layer-desc">שינוי שנצפה פעם אחת אינו שינוי - הוא דגימה. דרשו שהתצפית תחזור על עצמה לפני שהיא מתריעה. זה מבטל את מקרה 2 גם כשאין לכם שליטה על יציבות המקור, וזה עולה השהיה של מחזור אחד בלבד.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">04</div>
+        <div>
+          <div class="layer-title">ודאו את האפקט, לא את הפקודה</div>
+          <div class="layer-desc">"הפקודה נשלחה בהצלחה" אינו מדד. בדקו שהמצב בפועל הגיע ליעד, המתינו להתייצבות, ואז בדקו שוב - ואם לא, שלחו שנית. מערכת ששולחת בלי לאמת מדווחת על עצמה, לא על המציאות.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">05</div>
+        <div>
+          <div class="layer-title">דרשו אישוש בלתי תלוי</div>
+          <div class="layer-desc">התרעה על סמך מדד בודד היא הדרך המהירה ביותר לרעש. דרשו ששניים או שלושה מדדים <strong>בלתי תלויים</strong> יצביעו לאותו כיוון. שימו לב למילה: שלושה מדדים שנשענים על אותו מקור אינם שלושה מדדים.</div>
+        </div>
+      </div>
+      <div class="layer-item">
+        <div class="layer-num">06</div>
+        <div>
+          <div class="layer-title">העדיפו סיגנל יקר על דיבור זול</div>
+          <div class="layer-desc">שקללו כל מדד לפי המחיר שמשלם מי שמייצר אותו. פעולה שעולה למישהו כסף, זמן או סיכון שווה יותר מאלף אזכורים. זהו עקרון שמסנן רעש הרבה לפני שהוא מגיע לחוקי ההתרעה.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>מה שבחרתי לא למדוד - וגם זה החלטת תכנון</h2>
+
+    <p>באותה מערכת רציתי מדד סימטרי לשני אזורים. בדקתי את מקור הנתונים בפועל וקיבלתי <strong>0</strong> רשומות באזור אחד מול <strong>96</strong> באזור השני - לא בגלל אירוע, אלא כי לאזור הראשון פשוט אין כיסוי חיישנים.</p>
+
+    <div class="highlight-box red">
+      <h3>מדד ריק מסוכן יותר ממדד חסר</h3>
+      <p>הפיתוי היה להציג את המדד ממילא - הוא היה נראה תקין, ירוק ומרגיע. זו בדיוק ההגדרה של תצוגה מטעה: רכיב שמשדר "נבדק ונמצא תקין" בזמן שהוא לא מודד דבר. בחרתי להציג במקומו הצהרה מפורשת שהמדד אינו ניתן למדידה.</p>
+      <p>הכלל: <strong>חור מוצהר עדיף על מדד שנראה שלם.</strong> מי שמסתכל על המסך צריך לדעת לא רק מה נמדד, אלא גם מה לא.</p>
+    </div>
+
+    <h2>למה זה נוגע ישירות לארגון שלכם</h2>
+
+    <p>שלושת המקרים למעלה אינם ייחודיים למערכת שבניתי. הם התבניות שאני פוגש שוב ושוב בסקרי ביטחון, ובמיוחד בסביבות שבהן הותקן כלי ניטור והוגדר "לפי ברירת המחדל":</p>
+
+    <ul>
+      <li><strong>חוקים שמתריעים על נוכחות</strong> - חתימה שקיימת בסביבה מאז ומעולם, ומייצרת התראה יומית שאיש כבר לא פותח.</li>
+      <li><strong>אינטגרציות שמניחות קלט יציב</strong> - פיד מודיעין או API של ספק שמשנה פורמט, וכל שינוי נספר כאירוע.</li>
+      <li><strong>מדדים שנראים ירוקים כי המקור מת</strong> - החיישן הפסיק לדווח, ולוח המחוונים מציג "תקין" במקום "אין נתונים". זה הכשל המסוכן מכולם.</li>
+      <li><strong>חוסר הבחנה בין עלות הסיגנלים</strong> - אזכור ברשת וניסיון הזדהות כושל מקבלים אותו משקל.</li>
+    </ul>
+
+    <p>העלות אינה תיאורטית. כשצוות מתרגל שרוב ההתראות אינן דורשות פעולה, ההתראה האמיתית מגיעה לאותה תיבה ומקבלת את אותו יחס. הבעיה אינה בטכנולוגיה אלא בתכנון חוקי ההתרעה - וזו בדיוק העבודה שאני עושה בסקר <a href="service-survey-360.html">ביטחון 360°</a> ובמסגרת <a href="article-rav-magen.html">"רב מגן"</a>: לא להוסיף עוד כלי, אלא לגרום לכלים הקיימים לדבר רק כשיש מה לומר.</p>
+
+    <div class="bottom-line">
+      <h3>השורה התחתונה</h3>
+      <p>מערכת ניטור נמדדת לא רק במה שהיא תופסת, אלא ב<strong>מה שהיא נמנעת מלשלוח</strong>. שלוש התרעות השווא שתיארתי כאן נבעו משלוש הנחות שקטות שאיש לא כתב במפורש: שנוכחות היא שינוי, שהקלט יציב, ושפקודה שנשלחה היא פקודה שבוצעה. כל אחת מהן נראית סבירה בקוד וכל אחת מהן שקרה.</p>
+      <p>התיקון אינו טכנולוגי ואינו יקר: קו בסיס לפני התרעה, אישור בשתי תצפיות, ודאות לגבי האפקט במקום ודאות לגבי הפקודה, ודרישת אישוש בלתי תלוי. ארבעה מתוך ששת הכללים שלמעלה - והם לבדם מורידים את נפח ההתרעות באופן משמעותי - ובעיקר מחזירים את האמון בהתרעה שכן נשלחת.</p>
+    </div>
+
+    <h2>צ'קליסט - בדיקת בריאות לחוקי ההתרעה שלכם</h2>
+
+    <ul>
+      <li>האם קיים חוק שנדלק בריצה הראשונה שלו? אם כן - הוא כנראה בודק נוכחות ולא שינוי.</li>
+      <li>האם לכל חוק יש קו בסיס מוגדר, ומה קורה לפני שנצבר מספיק מידע?</li>
+      <li>האם שינוי שנצפה פעם אחת מספיק כדי להתריע?</li>
+      <li>האם המערכת מבחינה בין "המקור דיווח תקין" לבין "המקור לא ענה"? מה מוצג במסך בכל אחד מהמצבים?</li>
+      <li>כמה מהמדדים שלכם באמת בלתי תלויים - ולא נגזרים מאותו מקור?</li>
+      <li>מתי בפעם האחרונה מישהו פתח התראה מסוג מסוים ופעל בעקבותיה? חוק שאיש לא פעל לפיו חצי שנה הוא חוב תפעולי.</li>
+      <li>מי מוסמך לכבות חוק רועש - והאם יש מסלול לעשות זאת בלי לכבות את הכיסוי כולו?</li>
+    </ul>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li id="src1"><a href="https://www.vectra.ai/topics/alert-fatigue" target="_blank" rel="noopener noreferrer">Vectra AI — What Is Alert Fatigue? Causes, Impact &amp; How to Reduce It (מרכז נתונים מ-Vectra AI 2026, Microsoft/Omdia 2026 ו-SANS 2025)</a></li>
+        <li id="src2"><a href="https://medium.com/anton-on-security/antons-alert-fatigue-the-study-0ac0e6f5621c" target="_blank" rel="noopener noreferrer">Anton Chuvakin — Anton's Alert Fatigue: The Study (ריכוז סקרים בנושא, כולל הסתייגות מפורשת מהסתירות שביניהם)</a></li>
+      </ol>
+      <p style="font-size:0.85rem;opacity:0.7;margin-top:10px">הנתונים המספריים על המערכת שתוארה במאמר - 57 התראות ב-68 ימים, 229 מול 216 רשומות, 5,603 מול 8,682 תווים, 0 מול 96 רשומות - נמדדו על ידי ישירות בלוגים ובקריאות חיות לאותם מקורות באוגוסט 2026.</p>
+    </div>
+  </div>
+
+
+  <section class="related-articles" aria-label="מאמרים ושירותים קשורים">
+    <h3>מאמרים ושירותים קשורים</h3>
+    <div class="related-grid">
+      <a href="article-attacks-trends.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">מגמות תקיפה - מה באמת משתנה בשטח</span></a>
+      <a href="article-rav-magen.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">מה זה "רב מגן" ולמה הרגולטור דורש את זה?</span></a>
+      <a href="service-survey-360.html" class="related-card"><span class="r-tag">שירות</span><span class="r-title">סקר ביטחון 360° בשרשרת האספקה</span></a>
+      <a href="service-rav-magen.html" class="related-card"><span class="r-tag">שירות</span><span class="r-title">סקר רב מגן - 44 בקרות אבטחת מידע להסמכה</span></a>
+    </div>
+  </section>
+
+  <div class="article-cta">
+    <h3>מתי בפעם האחרונה מישהו אצלכם פעל בעקבות התראה - ולא סגר אותה?</h3>
+    <p>KPLNS בוחנת את חוקי ההתרעה הקיימים, מזהה את אלה שמייצרים רעש, ומתכננת מחדש את הסף, קו הבסיס ודרישת האישוש - כדי שההתראה שכן נשלחת תיקרא. במסגרת סקר הביטחון 360° ו"רב מגן".</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+
+<footer class="article-footer">
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+    <a href="disclaimer.html">תנאי שימוש</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
+</footer>
+</body>
+</html>
