@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-16T20:12:32+00:00",
+ "generated": "2026-08-16T20:42:29+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -23,6 +23,11 @@
   },
   {
    "t": 1786911152,
+   "il": 0,
+   "ir": 0
+  },
+  {
+   "t": 1786912949,
    "il": 0,
    "ir": 0
   }
@@ -53,8 +58,8 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "75 מטוסים אזרחיים באזור",
-     "range": "71–100"
+     "value": "61 מטוסים אזרחיים באזור",
+     "range": "61–100"
     },
     {
      "key": "advisories_il",
@@ -75,8 +80,8 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "1 מטוסים צבאיים באזור",
-     "range": ""
+     "value": "2 מטוסים צבאיים באזור",
+     "range": "0–4"
     },
     {
      "key": "strikeradar",
@@ -86,7 +91,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "39/100",
+     "value": "40/100",
      "range": ""
     }
    ]
@@ -106,7 +111,7 @@
      "ok": true,
      "reason": "",
      "value": "קישוריות תקינה (41,630 מסלולי BGP)",
-     "range": "41,623–41,626"
+     "range": "41,623–41,630"
     },
     {
      "key": "ir_provinces",
@@ -160,8 +165,8 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "1 מטוסים צבאיים באזור",
-     "range": ""
+     "value": "2 מטוסים צבאיים באזור",
+     "range": "0–4"
     },
     {
      "key": "strikeradar",
@@ -171,7 +176,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "39/100",
+     "value": "40/100",
      "range": ""
     }
    ],
