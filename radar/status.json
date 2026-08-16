@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-16T17:55:38+00:00",
+ "generated": "2026-08-16T18:12:14+00:00",
  "indices": [
   {
    "key": "il",
@@ -23,7 +23,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "98 מטוסים אזרחיים באזור"
+     "value": "93 מטוסים אזרחיים באזור"
     },
     {
      "key": "advisories_il",
@@ -39,9 +39,9 @@
      "name": "תעופה צבאית אמריקאית באזור",
      "shared": true,
      "lit": false,
-     "ok": false,
+     "ok": true,
      "reason": "",
-     "value": ""
+     "value": "3 מטוסים צבאיים באזור"
     },
     {
      "key": "strikeradar",
@@ -67,7 +67,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "קישוריות תקינה (41,626 מסלולי BGP)"
+     "value": "קישוריות תקינה (41,623 מסלולי BGP)"
     },
     {
      "key": "rial",
@@ -92,9 +92,9 @@
      "name": "תעופה צבאית אמריקאית באזור",
      "shared": true,
      "lit": false,
-     "ok": false,
+     "ok": true,
      "reason": "",
-     "value": ""
+     "value": "3 מטוסים צבאיים באזור"
     },
     {
      "key": "strikeradar",
@@ -111,9 +111,7 @@
    ]
   }
  ],
- "sources_ok": 6,
+ "sources_ok": 7,
  "sources_total": 7,
- "degraded": [
-  "תעופה צבאית אמריקאית באזור"
- ]
+ "degraded": []
 }
