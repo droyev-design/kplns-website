@@ -153,6 +153,27 @@ h3{
   padding:11px 15px;color:var(--text-muted);font-size:.82rem;text-align:start
 }
 
+/* ── freshness / degraded banners ───────────────────── */
+.fresh{
+  margin:18px 0 0;text-align:center;font-size:.86rem;color:var(--text-secondary);
+  font-variant-numeric:tabular-nums
+}
+.banner{
+  margin:16px 0 0;border-radius:12px;padding:11px 16px;font-size:.88rem;
+  display:flex;gap:9px;align-items:flex-start;text-align:start
+}
+/* #fbbf24 measured 10.63:1 on #111827 / 8.72:1 on #1e2844 — AA pass */
+.banner.warn{border:1px solid rgba(251,191,36,.42);background:rgba(251,191,36,.09);color:#fbbf24}
+/* #94a3b8 measured 6.92:1 / 5.68:1 — AA pass */
+.banner.dead{border:1px solid rgba(148,163,184,.42);background:rgba(148,163,184,.10);color:#94a3b8}
+.banner b{display:block;color:var(--text-primary);margin-bottom:2px}
+.stale .ring .val{stroke:#94a3b8!important}
+.stale .ring-label{color:#94a3b8!important}
+.stale .ring-emoji{filter:grayscale(1);opacity:.6}
+.gauge-caveat{
+  margin-top:10px;font-size:.79rem;color:#fbbf24;line-height:1.5
+}
+
 /* ── level legend ───────────────────────────────────── */
 .legend{
   margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
@@ -224,6 +245,16 @@ footer a:hover{color:var(--cyan)}
     <a href="https://www.oref.org.il/" target="_blank" rel="noopener">להנחיות המחייבות של פיקוד העורף ←</a>
   </div>
 
+  <noscript>
+    <div class="banner warn"><span aria-hidden="true">⚠️</span><div>
+      <b>הדף דורש JavaScript כדי להציג את הסטטוס.</b>
+      אל תסיקו מכך דבר — פנו לפיקוד העורף.
+    </div></div>
+  </noscript>
+
+  <div class="fresh" id="fresh"></div>
+  <div id="banners"></div>
+
   <div class="grid" id="gauges" role="status" aria-live="polite" aria-label="רמות ההסלמה הנוכחיות"></div>
 
   <section class="legend" aria-label="הסבר הרמות">
@@ -269,6 +300,7 @@ footer a:hover{color:var(--cyan)}
     <p class="thirdparty">
       הדף אינו אוסף נתונים ואינו משתמש ב-Cookies. הוא טוען גופנים מ-Google Fonts
       ומונה צפיות מ-hits.sh — שירותי צד שלישי שרואים את כתובת ה-IP של הדפדפן.
+      אחד המדדים המוצגים כאן (StrikeRadar) מקורו ב-<a href="https://usstrikeradar.com" target="_blank" rel="noopener">usstrikeradar.com</a> ואינו מחושב על ידינו.
     </p>
     <!-- Cumulative page-view counter. hits.sh, no account needed; verified
          incrementing before use. Counts page LOADS, not unique visitors, and
@@ -292,10 +324,15 @@ const R = 62, C = 2 * Math.PI * R;
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g,
   c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
-function gauge(ix){
+function gauge(ix, stale, degraded){
   const L = LVL[Math.max(0, Math.min(3, ix.level || 0))];
   const off = C - (C * (ix.level || 0) / 3);
-  return `<div class="gauge">
+  // A source that failed cannot light its tripwire, so broken feeds make the
+  // page look CALMER than reality. Say so where the number actually is.
+  const caveat = degraded.length && !stale
+    ? `<div class="gauge-caveat">⚠️ ${degraded.length} מקורות לא נקראו — ייתכן שהרמה מוצגת נמוך מדי</div>`
+    : '';
+  return `<div class="gauge${stale ? ' stale' : ''}">
     <div class="gauge-head"><span class="gauge-flag" aria-hidden="true">${esc(ix.flag)}</span>
       <span class="gauge-name">${esc(ix.name)}</span></div>
     <div class="ring" role="img" aria-label="רמה ${ix.level||0} מתוך 3 — ${L.t}">
@@ -310,8 +347,18 @@ function gauge(ix){
         <div class="ring-scale">${ix.level || 0} / 3</div>
       </div>
     </div>
-    <div class="gauge-note">${L.n}</div>
+    <div class="gauge-note">${stale ? 'הנתון אינו עדכני — אין להסיק ממנו דבר.' : L.n}</div>
+    ${caveat}
   </div>`;
+}
+
+function ago(ms){
+  const m = Math.round(ms / 60000);
+  if (m < 1)   return 'לפני פחות מדקה';
+  if (m < 60)  return `לפני ${m} דק׳`;
+  const h = Math.round(m / 60);
+  if (h < 24)  return `לפני ${h} שע׳`;
+  return `לפני ${Math.round(h / 24)} ימים`;
 }
 
 function rows(ix){
@@ -321,24 +368,59 @@ function rows(ix){
     const rs  = t.lit ? t.reason
               : (t.ok === false ? 'לא נקרא בריצה האחרונה' : (t.value || 'תקין'));
     const tag = t.shared ? '<span class="tag">אזורי</span>' : '';
+    // Republishing someone else's index without crediting it is not okay.
+    const src = t.key === 'strikeradar'
+      ? ' <a href="https://usstrikeradar.com" target="_blank" rel="noopener" style="color:var(--cyan);font-size:.78rem">(מקור)</a>'
+      : '';
     return `<div class="${cls}"><div class="ic" aria-hidden="true">${ic}</div><div>
-      <div class="nm">${esc(t.name)}${tag}</div>
+      <div class="nm">${esc(t.name)}${tag}${src}</div>
       <div class="rs">${esc(rs)}</div></div></div>`;
   }).join('');
   const gaps = (ix.unavailable || [])
-    .map(u => `<div class="gap">⃠ ${esc(u)}</div>`).join('');
+    .map(u => `<div class="gap">⊘ ${esc(u)}</div>`).join('');
   return `<h3>${esc(ix.flag)} ${esc(ix.name)}</h3><div class="rows">${items}</div>${gaps}`;
 }
 
 fetch('status.json?t=' + Date.now())
   .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
   .then(d => {
-    document.getElementById('gauges').innerHTML = d.indices.map(gauge).join('');
+    const dt  = new Date(d.generated);
+    const age = Date.now() - dt.getTime();
+    // The monitor runs every 30 min. Past 90 min something is wrong; past 12 h
+    // the reading must not be presented as a current state at all.
+    const WARN = 90 * 60 * 1000, DEAD = 12 * 3600 * 1000;
+    const stale = age > DEAD;
+    const degraded = d.degraded || [];
+
+    const b = [];
+    if (stale) {
+      b.push(`<div class="banner dead"><span aria-hidden="true">⊘</span><div>
+        <b>הנתונים אינם עדכניים (${ago(age)}).</b>
+        המדדים מוצגים מעומעמים ואינם מייצגים את המצב כעת. פנו לפיקוד העורף.
+      </div></div>`);
+    } else if (age > WARN) {
+      b.push(`<div class="banner warn"><span aria-hidden="true">⚠️</span><div>
+        <b>העדכון האחרון ${ago(age)}.</b>
+        הבדיקה אמורה לרוץ כל 30 דקות — ייתכן שמקור נתונים או תהליך העדכון נתקע.
+      </div></div>`);
+    }
+    if (degraded.length && !stale) {
+      b.push(`<div class="banner warn"><span aria-hidden="true">⚠️</span><div>
+        <b>${degraded.length} מקורות לא נקראו בבדיקה האחרונה.</b>
+        ${degraded.map(esc).join(' · ')} — מדד שלא נקרא אינו יכול להידלק, ולכן הרמה עשויה להיות מוצגת נמוך מדי.
+      </div></div>`);
+    }
+    document.getElementById('banners').innerHTML = b.join('');
+
+    document.getElementById('fresh').textContent =
+      'עודכן ' + ago(age) + ' · נבדק כל 30 דקות · ' +
+      d.sources_ok + '/' + d.sources_total + ' מקורות נקראו';
+
+    document.getElementById('gauges').innerHTML =
+      d.indices.map(i => gauge(i, stale, degraded)).join('');
     document.getElementById('detail').innerHTML = d.indices.map(rows).join('');
-    const dt = new Date(d.generated);
     document.getElementById('stamp').textContent =
-      'עודכן ' + dt.toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'}) +
-      ' · נבדק כל 30 דקות · ' + d.sources_ok + '/' + d.sources_total + ' מקורות נקראו';
+      'חותמת מלאה: ' + dt.toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'});
   })
   .catch(() => {
     document.getElementById('gauges').innerHTML =
