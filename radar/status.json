@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-16T18:42:43+00:00",
+ "generated": "2026-08-16T18:51:00+00:00",
  "indices": [
   {
    "key": "il",
@@ -23,7 +23,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "83 מטוסים אזרחיים באזור"
+     "value": "76 מטוסים אזרחיים באזור"
     },
     {
      "key": "advisories_il",
@@ -41,7 +41,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "2 מטוסים צבאיים באזור"
+     "value": "1 מטוסים צבאיים באזור"
     },
     {
      "key": "strikeradar",
@@ -67,7 +67,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "קישוריות תקינה (41,623 מסלולי BGP)"
+     "value": "קישוריות תקינה (41,625 מסלולי BGP)"
     },
     {
      "key": "ir_provinces",
@@ -77,6 +77,15 @@
      "ok": true,
      "reason": "",
      "value": "8 מחוזות במעקב — קישוריות תקינה"
+    },
+    {
+     "key": "firms",
+     "name": "חריגות תרמיות מלוויין (NASA FIRMS)",
+     "shared": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "198 חריגות תרמיות ב-24 שעות (כולל שריפות ותעשייה)"
     },
     {
      "key": "rial",
@@ -103,7 +112,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "2 מטוסים צבאיים באזור"
+     "value": "1 מטוסים צבאיים באזור"
     },
     {
      "key": "strikeradar",
@@ -120,7 +129,7 @@
    ]
   }
  ],
- "sources_ok": 8,
- "sources_total": 8,
+ "sources_ok": 9,
+ "sources_total": 9,
  "degraded": []
 }
