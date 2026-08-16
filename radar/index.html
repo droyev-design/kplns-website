@@ -153,6 +153,25 @@ h3{
   padding:11px 15px;color:var(--text-muted);font-size:.82rem;text-align:start
 }
 
+/* ── level legend ───────────────────────────────────── */
+.legend{
+  margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px
+}
+.legend-h{margin:0 0 14px;text-align:start;color:var(--text-secondary)}
+.legend-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px}
+@media(max-width:640px){.legend-grid{grid-template-columns:1fr}}
+.legend-item{display:flex;gap:11px;align-items:flex-start}
+.legend-item .dot{
+  width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:7px
+}
+.legend-item b{display:block;font-size:.92rem;font-weight:700}
+.legend-item span:not(.dot){display:block;color:var(--text-secondary);font-size:.84rem}
+.legend-note{
+  margin-top:15px;padding-top:13px;border-top:1px solid var(--border);
+  color:var(--text-muted);font-size:.83rem
+}
+
 /* ── explainer + footer ─────────────────────────────── */
 .explain{
   margin-top:34px;border:1px solid rgba(0,212,255,.22);background:rgba(0,212,255,.05);
@@ -206,6 +225,21 @@ footer a:hover{color:var(--cyan)}
   </div>
 
   <div class="grid" id="gauges" role="status" aria-live="polite" aria-label="רמות ההסלמה הנוכחיות"></div>
+
+  <section class="legend" aria-label="הסבר הרמות">
+    <h3 class="legend-h">מה אומרות הרמות</h3>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="dot" style="background:var(--l0)" aria-hidden="true"></span>
+        <div><b>0 · רגוע</b><span>לא נדלק אף מדד. מצב הרקע הרגיל.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l1)" aria-hidden="true"></span>
+        <div><b>1 · מוגבר</b><span>משפחת מדדים אחת נדלקה. מדד בודד הוא לרוב רעש — לא סיבה לשנות תוכניות.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l2)" aria-hidden="true"></span>
+        <div><b>2 · אזהרה</b><span>שתי משפחות <em>בלתי תלויות</em> נדלקו יחד. שווה לשים לב לחדשות.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l3)" aria-hidden="true"></span>
+        <div><b>3 · קריטי</b><span>שלוש משפחות ומעלה — או שינוי במדיניות ההתגוננות של פיקוד העורף, שמספיק לבדו. עקבו אחרי ההנחיות הרשמיות.</span></div></div>
+    </div>
+    <p class="legend-note">הרמה סופרת <b>כמה משפחות מדדים בלתי תלויות</b> נדלקו יחד — לא כמה חדשות פורסמו. לכן היא נעה לאט, ובכוונה.</p>
+  </section>
 
   <div id="detail"></div>
 
