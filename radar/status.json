@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-16T18:42:32+00:00",
+ "generated": "2026-08-16T18:42:43+00:00",
  "indices": [
   {
    "key": "il",
@@ -23,7 +23,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "82 מטוסים אזרחיים באזור"
+     "value": "83 מטוסים אזרחיים באזור"
     },
     {
      "key": "advisories_il",
