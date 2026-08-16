@@ -1,6 +1,6 @@
 {
- "generated": "2026-08-16T17:42:11+00:00",
- "level": 1,
+ "generated": "2026-08-16T17:45:09+00:00",
+ "level": 0,
  "tripwires": [
   {
    "key": "hfc_policy",
@@ -16,7 +16,7 @@
    "lit": false,
    "ok": true,
    "reason": "",
-   "value": "87 מטוסים אזרחיים באזור"
+   "value": "90 מטוסים אזרחיים באזור"
   },
   {
    "key": "us_mil_air",
@@ -24,7 +24,7 @@
    "lit": false,
    "ok": true,
    "reason": "",
-   "value": "1 מטוסים צבאיים באזור"
+   "value": "2 מטוסים צבאיים באזור"
   },
   {
    "key": "ir_internet",
@@ -45,10 +45,10 @@
   {
    "key": "advisories",
    "name": "אזהרות מסע רשמיות",
-   "lit": true,
+   "lit": false,
    "ok": true,
-   "reason": "Lebanon: הורתה על פינוי כפוי של הצוות; Jordan: הורתה על פינוי כפוי של הצוות",
-   "value": "10 מדינות במעקב — ללא שינוי"
+   "reason": "",
+   "value": "10 מדינות במעקב — ללא שינוי ברמות"
   },
   {
    "key": "strikeradar",
