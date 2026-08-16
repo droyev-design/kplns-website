@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ראדאר הסלמה — מצב אזורי</title>
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#111827; --bg2:#1a2236; --card:rgba(26,34,54,.65); --border:rgba(255,255,255,.08);
+    --cyan:#00d4ff; --teal:#00b8a9; --text:#e8edf5; --text2:rgba(232,237,245,.6);
+    --text3:rgba(232,237,245,.4);
+    --calm:#22c55e; --raised:#eab308; --warn:#f97316; --crit:#ef4444;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:linear-gradient(135deg,#111827 0%,#1a2236 40%,#1e2844 100%);
+    background-attachment:fixed; min-height:100vh; color:var(--text);
+    font-family:'Heebo',system-ui,sans-serif; line-height:1.65;
+    padding:24px 16px 64px;
+  }
+  .wrap{max-width:760px;margin:0 auto}
+  header{text-align:center;margin-bottom:26px}
+  h1{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:800;letter-spacing:-.01em}
+  .sub{color:var(--text2);font-size:.95rem;margin-top:6px}
+
+  /* disclaimer sits ABOVE the status, deliberately — it must be read first */
+  .disclaimer{
+    background:rgba(239,68,68,.08); border:1px solid rgba(239,68,68,.35);
+    border-radius:14px; padding:16px 18px; margin-bottom:22px;
+  }
+  .disclaimer b{color:#ff9b9b;display:block;margin-bottom:6px;font-size:1rem}
+  .disclaimer ul{margin:0;padding-inline-start:20px;color:var(--text2);font-size:.9rem}
+  .disclaimer li{margin:3px 0}
+  .disclaimer .oref{
+    display:inline-block;margin-top:10px;color:var(--cyan);font-weight:500;font-size:.9rem
+  }
+
+  .status{
+    background:var(--card); border:1px solid var(--border); border-radius:20px;
+    padding:30px 22px; text-align:center; margin-bottom:20px;
+    backdrop-filter:blur(10px);
+  }
+  .dot{
+    width:104px;height:104px;border-radius:50%;margin:0 auto 16px;
+    display:flex;align-items:center;justify-content:center;font-size:2.6rem;
+    border:3px solid currentColor;
+  }
+  .lbl{font-size:1.5rem;font-weight:800}
+  .lvlnote{color:var(--text2);font-size:.92rem;margin-top:8px}
+  .l0{color:var(--calm);background:rgba(34,197,94,.10)}
+  .l1{color:var(--raised);background:rgba(234,179,8,.10)}
+  .l2{color:var(--warn);background:rgba(249,115,22,.10)}
+  .l3{color:var(--crit);background:rgba(239,68,68,.12)}
+
+  h2{font-size:1.05rem;font-weight:700;margin:26px 0 12px;color:var(--text)}
+  .tw{
+    background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:13px 16px;margin-bottom:9px;display:flex;gap:12px;align-items:flex-start;
+  }
+  .tw .ic{font-size:1.1rem;line-height:1.5;flex-shrink:0}
+  .tw .nm{font-weight:500;font-size:.97rem}
+  .tw .rs{color:var(--text2);font-size:.86rem;margin-top:2px}
+  .tw.on{border-color:rgba(239,68,68,.4);background:rgba(239,68,68,.07)}
+  .tw.err{border-color:rgba(234,179,8,.3);background:rgba(234,179,8,.05)}
+
+  .explain{
+    background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.2);
+    border-radius:14px;padding:16px 18px;margin-top:24px;font-size:.9rem;color:var(--text2)
+  }
+  .explain b{color:var(--cyan)}
+  footer{text-align:center;color:var(--text3);font-size:.8rem;margin-top:30px;line-height:2}
+  footer a{color:var(--text2)}
+  .stamp{color:var(--text3);font-size:.83rem;text-align:center;margin-top:14px}
+  @media(max-width:480px){ .dot{width:88px;height:88px;font-size:2.2rem} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>🛰️ ראדאר הסלמה — מצב אזורי</h1>
+    <div class="sub">מדד התארגנות מבוסס אינדיקטורים ציבוריים</div>
+  </header>
+
+  <div class="disclaimer">
+    <b>⚠️ קראו לפני שמסתכלים על הצבע</b>
+    <ul>
+      <li><b>זו אינה מערכת התרעה.</b> היא לא תודיע לכם על שיגור.</li>
+      <li>המקור המחייב היחיד הוא <b>פיקוד העורף</b>. תמיד.</li>
+      <li>זו שכבת התארגנות של <b>ימים</b>, לא של דקות. בתרחיש מהיר ייתכן שלא יהיה כאן שום זמן התרעה.</li>
+      <li>זהו <b>פרויקט פרטי</b> ולא גורם רשמי. אין להסתמך עליו לקבלת החלטות בטיחות.</li>
+      <li>הפלט הוא <b>רמה</b>, לא אחוזי סבירות.</li>
+    </ul>
+    <a class="oref" href="https://www.oref.org.il/" target="_blank" rel="noopener">
+      ← להנחיות המחייבות של פיקוד העורף
+    </a>
+  </div>
+
+  <div class="status" id="status">
+    <div class="dot l0" id="dot">…</div>
+    <div class="lbl" id="label">טוען…</div>
+    <div class="lvlnote" id="lvlnote"></div>
+  </div>
+
+  <h2>מדדים במעקב</h2>
+  <div id="tripwires"></div>
+
+  <div class="explain">
+    <b>איך זה עובד.</b> המערכת לא מסכמת כותרות בחדשות. היא עוקבת אחרי
+    <b>צעדים יקרים</b> — כאלה שעולים למישהו משהו לעשות: שינוי הנחיות התגוננות,
+    מרחב אווירי שמתרוקן ממטוסים אזרחיים, מדינה שמנתקת לעצמה את האינטרנט,
+    פינוי כפוי של סגלים דיפלומטיים. הצהרות וכותרות לא מדליקות מדד כאן.
+    רמה עולה ככל שיותר משפחות מדדים <em>בלתי תלויות</em> נדלקות יחד.
+  </div>
+
+  <div class="stamp" id="stamp"></div>
+
+  <footer>
+    יבגני קפלן · ייעוץ וניהול פרוייקטים<br>
+    <a href="../">kplns.com</a>
+  </footer>
+
+</div>
+
+<script>
+const LVL = [
+  {c:'l0', e:'🟢', t:'רגוע',  n:'לא נדלק אף מדד.'},
+  {c:'l1', e:'🟡', t:'מוגבר', n:'משפחת מדדים אחת נדלקה. לרוב רעש — לא סיבה לשנות תוכניות.'},
+  {c:'l2', e:'🟠', t:'אזהרה', n:'שתי משפחות בלתי תלויות נדלקו יחד.'},
+  {c:'l3', e:'🔴', t:'קריטי', n:'שינוי במדיניות ההתגוננות, או שלוש משפחות ומעלה. עקבו אחרי פיקוד העורף.'}
+];
+
+fetch('status.json?t=' + Date.now())
+  .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d => {
+    const L = LVL[Math.max(0, Math.min(3, d.level ?? 0))];
+    const dot = document.getElementById('dot');
+    dot.className = 'dot ' + L.c;
+    dot.textContent = L.e;
+    document.getElementById('label').textContent = L.t;
+    document.getElementById('lvlnote').textContent = L.n;
+
+    document.getElementById('tripwires').innerHTML = (d.tripwires || []).map(t => {
+      const cls = t.lit ? 'tw on' : (t.ok === false ? 'tw err' : 'tw');
+      const ic  = t.lit ? '🔺' : (t.ok === false ? '⚠️' : '✓');
+      const rs  = t.lit ? t.reason
+                : (t.ok === false ? 'לא נקרא בריצה האחרונה' : (t.value || 'תקין'));
+      return `<div class="${cls}"><div class="ic">${ic}</div><div>
+                <div class="nm">${t.name}</div><div class="rs">${rs}</div>
+              </div></div>`;
+    }).join('') || '<div class="tw"><div class="ic">…</div><div class="nm">אין נתונים</div></div>';
+
+    const dt = new Date(d.generated);
+    document.getElementById('stamp').textContent =
+      'עודכן: ' + dt.toLocaleString('he-IL', {timeZone:'Asia/Jerusalem'}) +
+      ' · נבדק כל 30 דקות';
+  })
+  .catch(e => {
+    document.getElementById('label').textContent = 'הנתונים אינם זמינים';
+    document.getElementById('lvlnote').textContent =
+      'לא ניתן לטעון את הסטטוס. אל תסיקו מכך דבר — פנו לפיקוד העורף.';
+    document.getElementById('stamp').textContent = '';
+  });
+</script>
+</body>
+</html>

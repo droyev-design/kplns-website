@@ -1,0 +1,64 @@
+{
+ "generated": "2026-08-16T17:42:11+00:00",
+ "level": 1,
+ "tripwires": [
+  {
+   "key": "hfc_policy",
+   "name": "מדיניות התגוננות (פיקוד העורף)",
+   "lit": false,
+   "ok": true,
+   "reason": "",
+   "value": "אין הגבלות בכל הארץ"
+  },
+  {
+   "key": "il_airspace",
+   "name": "מרחב אווירי ישראל",
+   "lit": false,
+   "ok": true,
+   "reason": "",
+   "value": "87 מטוסים אזרחיים באזור"
+  },
+  {
+   "key": "us_mil_air",
+   "name": "תעופה צבאית אמריקאית באזור",
+   "lit": false,
+   "ok": true,
+   "reason": "",
+   "value": "1 מטוסים צבאיים באזור"
+  },
+  {
+   "key": "ir_internet",
+   "name": "אינטרנט באיראן",
+   "lit": false,
+   "ok": true,
+   "reason": "",
+   "value": "קישוריות תקינה"
+  },
+  {
+   "key": "rial",
+   "name": "ריאל איראני",
+   "lit": false,
+   "ok": true,
+   "reason": "",
+   "value": "1,866,800 ריאל לדולר"
+  },
+  {
+   "key": "advisories",
+   "name": "אזהרות מסע רשמיות",
+   "lit": true,
+   "ok": true,
+   "reason": "Lebanon: הורתה על פינוי כפוי של הצוות; Jordan: הורתה על פינוי כפוי של הצוות",
+   "value": "10 מדינות במעקב — ללא שינוי"
+  },
+  {
+   "key": "strikeradar",
+   "name": "StrikeRadar (מאשש)",
+   "lit": false,
+   "ok": true,
+   "reason": "",
+   "value": "37/100"
+  }
+ ],
+ "sources_ok": 7,
+ "sources_total": 7
+}
