@@ -87,9 +87,30 @@ h1{
 .hero p{color:var(--text-secondary);margin-top:12px;font-size:1rem}
 .divider{width:64px;height:2px;background:var(--gradient-accent);margin:22px auto 0;border-radius:2px}
 
-/* ── disclaimer (deliberately before the gauges) ─────── */
+/* ── always-visible one-line disclaimer strip ────────── */
+/* The five-point notice moved BELOW the gauges (state-first, like every
+   comparable). This strip is the compensation: it is short enough to actually
+   be read on every visit, which a wall-of-box never is. */
+.alertstrip{
+  margin:22px auto 0;max-width:760px;
+  border:1px solid rgba(239,68,68,.32);background:rgba(239,68,68,.07);
+  border-radius:12px;padding:10px 16px;font-size:.88rem;
+  display:flex;gap:9px;align-items:baseline;justify-content:center;
+  flex-wrap:wrap;text-align:center
+}
+.alertstrip b{color:#ff9b9b;font-weight:700}
+.alertstrip a{color:var(--cyan);font-weight:600;text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+
+/* ── combined summary line above the grid ────────────── */
+.summary{
+  margin:14px 0 0;text-align:center;font-size:1rem;font-weight:600;
+  color:var(--text-secondary)
+}
+.summary .sv{font-weight:800}
+
+/* ── disclaimer (full five points, below the gauges) ─── */
 .notice{
-  margin:30px 0 34px;border-radius:var(--radius-md);
+  margin:26px 0 0;border-radius:var(--radius-md);
   border:1px solid rgba(239,68,68,.32);background:rgba(239,68,68,.07);
   padding:20px 22px;
 }
@@ -113,10 +134,16 @@ h1{
 @media(max-width:720px){.grid{grid-template-columns:1fr}}
 
 .gauge{
+  position:relative;overflow:hidden;
   background:var(--bg-card);border:1px solid var(--border);
   border-radius:var(--radius-lg);padding:26px 22px;text-align:center;
   backdrop-filter:blur(10px);transition:border-color .3s,transform .3s;
 }
+/* Level-coloured accent only — NOT a tinted card. A fully green card at level 0
+   would assert safety; a 3px edge just makes the state readable at arm's length,
+   which the empty level-0 ring alone does not. */
+.gauge-accent{position:absolute;top:0;inset-inline:0;height:3px;display:block}
+.gauge.stale .gauge-accent{background:#94a3b8!important}
 .gauge:hover{border-color:var(--border-hover);transform:translateY(-2px)}
 .gauge-head{
   display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:18px
@@ -135,7 +162,7 @@ h1{
 }
 .ring-emoji{font-size:1.6rem;line-height:1}
 .ring-label{font-size:1.02rem;font-weight:800;letter-spacing:-.01em}
-.ring-scale{font-family:var(--font-en);font-size:.68rem;color:var(--text-muted);letter-spacing:.08em}
+.ring-scale{font-family:var(--font-en);font-size:.68rem;color:var(--text-muted);letter-spacing:.08em;font-variant-numeric:tabular-nums}
 .gauge-note{color:var(--text-secondary);font-size:.86rem;min-height:2.6em}
 
 /* ── indicator rows ─────────────────────────────────── */
@@ -144,17 +171,38 @@ h3{
   color:var(--text-muted);font-weight:600;margin:34px 0 12px;text-align:center
 }
 .rows{display:grid;gap:8px}
+/* Each row is a <details>: the disclosure is pure HTML, no JS, and keeps
+   keyboard + screen-reader behaviour for free. */
 .row{
-  display:flex;gap:12px;align-items:flex-start;text-align:start;
+  display:block;text-align:start;
   background:var(--bg-card);border:1px solid var(--border);
   border-radius:14px;padding:12px 15px;transition:border-color .25s
 }
+.row>summary{
+  display:flex;gap:12px;align-items:flex-start;cursor:pointer;
+  list-style:none;border-radius:6px
+}
+.row>summary::-webkit-details-marker{display:none}
 .row:hover{border-color:var(--border-hover)}
 .row.on{border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.08)}
 .row.err{border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.05)}
 .row .ic{flex-shrink:0;font-size:.95rem;line-height:1.75;width:18px;text-align:center}
+.row .rw{flex:1 1 auto;min-width:0}
+.row .chev{
+  flex-shrink:0;color:var(--cyan);font-weight:700;font-size:1rem;
+  line-height:1.6;width:14px;text-align:center;user-select:none
+}
+.row[open] .chev::before{content:"−"}
+.row .chev::before{content:"+"}
 .row .nm{font-weight:600;font-size:.93rem}
-.row .rs{color:var(--text-secondary);font-size:.83rem;margin-top:1px}
+.row .rs{color:var(--text-secondary);font-size:.83rem;margin-top:1px;font-variant-numeric:tabular-nums}
+.row-info{
+  margin-top:10px;padding-top:10px;border-top:1px solid var(--border);
+  color:var(--text-secondary);font-size:.83rem;line-height:1.75
+}
+.row-info p{margin:0 0 5px}
+.row-info b{color:var(--text-primary);font-weight:600}
+.row-info a{color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
 .tag{
   font-family:var(--font-en);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--purple);border:1px solid rgba(157,140,255,.4);border-radius:20px;
@@ -272,7 +320,7 @@ h3{
   border-radius:var(--radius-md);padding:20px 22px;color:var(--text-secondary);font-size:.9rem
 }
 .explain b{color:var(--cyan);font-weight:600}
-.stamp{text-align:center;color:var(--text-muted);font-size:.8rem;margin-top:24px;font-family:var(--font-en)}
+.stamp{text-align:center;color:var(--text-muted);font-size:.8rem;margin-top:24px;font-family:var(--font-en);font-variant-numeric:tabular-nums}
 footer{
   text-align:center;margin-top:34px;padding-top:24px;border-top:1px solid var(--border);
   color:var(--text-muted);font-size:.8rem;line-height:2.1
@@ -304,18 +352,12 @@ footer a:hover{color:var(--cyan)}
     <h1>ראדאר הסלמה — ישראל ואיראן</h1>
     <p>שני מדדים נפרדים, מבוססי אינדיקטורים ציבוריים בלבד</p>
     <div class="divider"></div>
-  </div>
 
-  <div class="notice">
-    <h2>⚠️ לקרוא לפני שמסתכלים על הצבע</h2>
-    <ul>
-      <li><b>זו אינה מערכת התרעה.</b> היא לא תודיע לכם על שיגור.</li>
-      <li>המקור המחייב היחיד הוא <b>פיקוד העורף</b>. תמיד.</li>
-      <li>זו שכבת התארגנות של <b>ימים</b>, לא של דקות. בתרחיש מהיר ייתכן שלא יהיה כאן שום זמן התרעה.</li>
-      <li>זהו <b>פרויקט פרטי</b>, לא גורם רשמי. אין להסתמך עליו לקבלת החלטות בטיחות.</li>
-      <li>הפלט הוא <b>רמה</b>, לא אחוזי סבירות.</li>
-    </ul>
-    <a href="https://www.oref.org.il/" target="_blank" rel="noopener">להנחיות המחייבות של פיקוד העורף ←</a>
+    <div class="alertstrip">
+      <span><span aria-hidden="true">⚠️</span> <b>זו אינה מערכת התרעה.</b>
+      המקור המחייב היחיד הוא פיקוד העורף.</span>
+      <a href="https://www.oref.org.il/" target="_blank" rel="noopener">להנחיות המחייבות ←</a>
+    </div>
   </div>
 
   <noscript>
@@ -327,8 +369,21 @@ footer a:hover{color:var(--cyan)}
 
   <div class="fresh" id="fresh"></div>
   <div id="banners"></div>
+  <div class="summary" id="summary"></div>
 
   <div class="grid" id="gauges" role="status" aria-live="polite" aria-label="רמות ההסלמה הנוכחיות"></div>
+
+  <div class="notice">
+    <h2>⚠️ לקרוא לפני שמסיקים מהצבע</h2>
+    <ul>
+      <li><b>זו אינה מערכת התרעה.</b> היא לא תודיע לכם על שיגור.</li>
+      <li>המקור המחייב היחיד הוא <b>פיקוד העורף</b>. תמיד.</li>
+      <li>זו שכבת התארגנות של <b>ימים</b>, לא של דקות. בתרחיש מהיר ייתכן שלא יהיה כאן שום זמן התרעה.</li>
+      <li>זהו <b>פרויקט פרטי</b>, לא גורם רשמי. אין להסתמך עליו לקבלת החלטות בטיחות.</li>
+      <li>הפלט הוא <b>רמה</b>, לא אחוזי סבירות.</li>
+    </ul>
+    <a href="https://www.oref.org.il/" target="_blank" rel="noopener">להנחיות המחייבות של פיקוד העורף ←</a>
+  </div>
 
   <section class="legend" aria-label="הסבר הרמות">
     <h3 class="legend-h">מה אומרות הרמות</h3>
@@ -400,7 +455,7 @@ footer a:hover{color:var(--cyan)}
           <tr><td>אזהרות מסע</td><td>מחלקת המדינה האמריקאית · FCDO</td>
               <td>עליית רמת אזהרה למדינה במעקב</td></tr>
           <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
-              <td>מדד מעל 60/100 - מאשש בלבד, קול אחד</td></tr>
+              <td><b>לא מדליק כלום</b> - מוצג להקשר בלבד ואינו יכול להעלות רמה</td></tr>
         </tbody>
       </table></div>
     </details>
@@ -483,6 +538,7 @@ function gauge(ix, stale, degraded){
     ? `<div class="gauge-caveat">⚠️ ${degraded.length} מקורות לא נקראו — ייתכן שהרמה מוצגת נמוך מדי</div>`
     : '';
   return `<div class="gauge${stale ? ' stale' : ''}">
+    <span class="gauge-accent" style="background:${L.c}" aria-hidden="true"></span>
     <div class="gauge-head"><span class="gauge-flag" aria-hidden="true">${esc(ix.flag)}</span>
       <span class="gauge-name">${esc(ix.name)}</span></div>
     <div class="ring" role="img" aria-label="רמה ${ix.level||0} מתוך 3 — ${L.t}">
@@ -541,6 +597,72 @@ function since(hist, key){
   return `ברמה זו מזה ${Math.round(h/24)} ימים`;
 }
 
+// Per-tripwire disclosure: what it measures, what makes it light up, where the
+// number comes from. Every threshold here is copied from the monitor's actual
+// rule — if a rule changes, this text has to change with it.
+const INFO = {
+  hfc_policy: {
+    what: 'נוסח הנחיות ההתגוננות שפיקוד העורף מפרסם ב-API הרשמי שלו. זהו <b>שינוי מדיניות</b>, לא אזעקה בזמן אמת.',
+    when: 'כשהנוסח משתנה מול קו הבסיס השמור, או כשמדיניות מגבילה בתוקף (כלומר לא "אין הגבלות").',
+    src: 'פיקוד העורף', url: 'https://www.oref.org.il/'
+  },
+  il_airspace: {
+    what: 'מספר המטוסים האזרחיים ברדיוס 250 מייל ימי סביב ישראל, בכל בדיקה.',
+    when: 'כשהמספר יורד מתחת ל-35% מהחציון ההיסטורי. חברות תעופה מפנות מרחב אווירי לפני שמישהו מכריז על כך.',
+    src: 'adsb.lol', url: 'https://adsb.lol/'
+  },
+  us_mil_air: {
+    what: 'מספר המטוסים בעלי שדר צבאי באזור. מדד זה נספר <b>לשני המדדים</b>.',
+    when: 'בזינוק של פי 2 מהחציון, ולפחות 8 מטוסים מעליו — כדי ששינוי קטן במספרים נמוכים לא ידליק אותו.',
+    src: 'adsb.lol', url: 'https://adsb.lol/'
+  },
+  ir_internet: {
+    what: 'קישוריות האינטרנט הארצית של איראן — מסלולי BGP וטלסקופ Merit.',
+    when: 'בנפילת BGP מתחת ל-85% מהחציון, או נפילת הטלסקופ מתחת ל-50%. ניתוק יזום הוא צעד יקר שמדינה עושה לעצמה.',
+    src: 'IODA · Georgia Tech', url: 'https://ioda.inetintel.cc.gatech.edu/'
+  },
+  ir_provinces: {
+    what: 'אותה מדידה, אבל ל-8 מחוזות איראניים בנפרד (מתוך 33 קיימים).',
+    when: 'רק כש<b>שני מחוזות ומעלה</b> יורדים יחד מתחת ל-80% מהחציון. מחוז בודד שנופל הוא לרוב תחזוקה, לא מדיניות.',
+    src: 'IODA · Georgia Tech', url: 'https://ioda.inetintel.cc.gatech.edu/'
+  },
+  firms: {
+    what: 'חריגות תרמיות שלוויין VIIRS מזהה מעל איראן, אחרי סינון תאים שבוערים דרך קבע (בעיקר פידי גז בח\'וזסתאן).',
+    when: 'בזינוק של פי 3 מהחציון באירועים עזים בלבד (FRP≥50). <b>אינו מזהה סיבה</b> — תקיפה, שריפת יער ובעירה חקלאית נראות לו זהות.',
+    src: 'NASA FIRMS', url: 'https://firms.modaps.eosdis.nasa.gov/'
+  },
+  rial: {
+    what: 'שער הריאל האיראני מול הדולר בשוק החופשי (לא השער הרשמי).',
+    when: 'בתזוזה של 8% ומעלה מול החציון, לכל כיוון.',
+    src: 'tgju', url: 'https://www.tgju.org/'
+  },
+  advisories_il: {
+    what: 'רמות אזהרת המסע שמדינות מפרסמות לאזרחיהן לגבי ישראל והסביבה.',
+    when: 'בעליית רמה — ורק אחרי ש<b>אותה תצפית חזרה פעמיים ברצף</b>, כי הפיד אינו יציב בין בקשה לבקשה.',
+    src: 'מחלקת המדינה האמריקאית · FCDO', url: 'https://travel.state.gov/'
+  },
+  advisories_ir: {
+    what: 'רמות אזהרת המסע שמדינות מפרסמות לאזרחיהן לגבי איראן והמפרץ.',
+    when: 'בעליית רמה — ורק אחרי ש<b>אותה תצפית חזרה פעמיים ברצף</b>, כי הפיד אינו יציב בין בקשה לבקשה.',
+    src: 'מחלקת המדינה האמריקאית · FCDO', url: 'https://travel.state.gov/'
+  },
+  strikeradar: {
+    what: 'מדד חיצוני 0–100 של אתר אחר, שנגזר מזרם חדשות ושואל שאלה אחרת: האם ארה"ב תתקוף את איראן.',
+    when: '<b>לעולם לא.</b> הוא מוצג להקשר בלבד ואינו יכול להעלות את הרמה כאן — כל רכיביו הם משפחה אחת של כותרות, וזו בדיוק המחלקה שהתכנון הזה מוציא.',
+    src: 'usstrikeradar.com', url: 'https://usstrikeradar.com'
+  }
+};
+
+function info(t){
+  const i = INFO[t.key];
+  if (!i) return '';
+  return `<div class="row-info">
+    <p><b>מה זה מודד:</b> ${i.what}</p>
+    <p><b>מה מדליק:</b> ${i.when}</p>
+    <p><b>מקור:</b> <a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.src)}</a></p>
+  </div>`;
+}
+
 function rows(ix){
   const items = (ix.tripwires || []).map(t => {
     const cls = t.lit ? 'row on' : (t.ok === false ? 'row err' : 'row');
@@ -553,11 +675,20 @@ function rows(ix){
     const src = t.key === 'strikeradar'
       ? ' <a href="https://usstrikeradar.com" target="_blank" rel="noopener" style="color:var(--cyan);font-size:.78rem">(מקור)</a>'
       : '';
-    return `<div class="${cls}"><div class="ic" aria-hidden="true">${ic}</div><div>
-      <div class="nm">${esc(t.name)}${tag}${src}</div>
-      <div class="rs">${esc(rs)}</div>
-      ${t.range && !t.lit ? `<div class="rng">טווח רגיל בשבוע האחרון: ${esc(t.range)}</div>` : ''}
-      </div></div>`;
+    const body = `
+      <div class="ic" aria-hidden="true">${ic}</div>
+      <div class="rw">
+        <div class="nm">${esc(t.name)}${tag}${src}</div>
+        <div class="rs">${esc(rs)}</div>
+        ${t.range && !t.lit ? `<div class="rng">טווח רגיל בשבוע האחרון: ${esc(t.range)}</div>` : ''}
+      </div>`;
+    const inf = info(t);
+    // A tripwire with no written explanation stays a plain row — an empty
+    // disclosure that opens onto nothing is worse than no disclosure.
+    return inf
+      ? `<details class="${cls}"><summary>${body}
+           <span class="chev" aria-hidden="true"></span></summary>${inf}</details>`
+      : `<div class="${cls}"><div style="display:flex;gap:12px;align-items:flex-start">${body}</div></div>`;
   }).join('');
   const gaps = (ix.unavailable || [])
     .map(u => `<div class="gap">⊘ ${esc(u)}</div>`).join('');
@@ -599,6 +730,16 @@ fetch('status.json?t=' + Date.now())
       'עודכן ' + ago(age) + ' · נבדק כל 30 דקות · ' +
       d.sources_ok + '/' + d.sources_total + ' מקורות נקראו';
 
+    // Combined one-liner — labelled "סיכום" so it is not mistaken for a third
+    // index. It reports max(level), never an average of the two.
+    const lv = d.indices.map(i => Math.max(0, Math.min(3, i.level || 0)));
+    const mx = Math.max(...lv);
+    document.getElementById('summary').innerHTML = stale
+      ? '<span style="color:#94a3b8">סיכום: הנתונים אינם עדכניים — אין מצב מוצג</span>'
+      : (lv.every(v => v === mx)
+          ? `סיכום: שני המדדים ברמה ${mx} — <span class="sv" style="color:${LVL[mx].c}">${LVL[mx].t}</span>`
+          : `סיכום: הגבוה מבין השניים ברמה ${mx} — <span class="sv" style="color:${LVL[mx].c}">${LVL[mx].t}</span>`);
+
     document.getElementById('gauges').innerHTML =
       d.indices.map(i => gauge(i, stale, degraded)).join('');
     document.getElementById('detail').innerHTML = d.indices.map(rows).join('');
@@ -623,6 +764,7 @@ fetch('status.json?t=' + Date.now())
       'חותמת מלאה: ' + dt.toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'});
   })
   .catch(() => {
+    document.getElementById('summary').textContent = '';
     document.getElementById('gauges').innerHTML =
       '<div class="gauge"><div class="gauge-name">הנתונים אינם זמינים</div>' +
       '<div class="gauge-note">לא ניתן לטעון את הסטטוס. אל תסיקו מכך דבר — פנו לפיקוד העורף.</div></div>';
