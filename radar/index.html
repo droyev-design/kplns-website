@@ -193,6 +193,34 @@ h3{
   color:var(--text-muted);font-size:.83rem
 }
 
+/* ── methodology ────────────────────────────────────── */
+.method{
+  margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px
+}
+.m-lead{color:var(--text-secondary);font-size:.88rem;margin-bottom:14px}
+.m-lead b{color:var(--text-primary)}
+.method details{border-top:1px solid var(--border);padding:11px 0 3px}
+.method summary{
+  cursor:pointer;font-weight:600;font-size:.92rem;list-style:none;
+  display:flex;align-items:center;gap:8px
+}
+.method summary::-webkit-details-marker{display:none}
+.method summary::before{content:"+";color:var(--cyan);font-weight:700;width:12px}
+.method details[open] summary::before{content:"−"}
+.method details ul{margin:10px 0 4px;padding-inline-start:20px}
+.method details li{color:var(--text-secondary);font-size:.86rem;margin:5px 0}
+.method details p{color:var(--text-secondary);font-size:.86rem;margin-top:9px}
+.method details b{color:var(--text-primary)}
+.m-tbl{width:100%;border-collapse:collapse;margin-top:12px;font-size:.82rem}
+.m-tbl th{
+  text-align:start;color:var(--text-muted);font-weight:600;padding:6px 8px;
+  border-bottom:1px solid var(--border);white-space:nowrap
+}
+.m-tbl td{padding:7px 8px;border-bottom:1px solid var(--border);color:var(--text-secondary);vertical-align:top}
+.m-tbl td:first-child{color:var(--text-primary);font-weight:500}
+.m-wrap{overflow-x:auto}
+
 /* ── explainer + footer ─────────────────────────────── */
 .explain{
   margin-top:34px;border:1px solid rgba(0,212,255,.22);background:rgba(0,212,255,.05);
@@ -283,6 +311,74 @@ footer a:hover{color:var(--cyan)}
     מדד בודד לרוב אומר רעש. מדדים המסומנים <span class="tag">אזורי</span>
     נספרים לשני הצדדים.
   </div>
+
+  <section class="method" aria-label="מתודולוגיית החישוב">
+    <h3 class="legend-h">מתודולוגיית החישוב</h3>
+
+    <p class="m-lead">כל מדד הוא <b>בוליאני</b> - דולק או כבוי - ולא ציון. הרמה היא
+    פשוט <b>כמה משפחות מדדים בלתי תלויות דולקות</b>. אין כאן ממוצע משוקלל ואין
+    ניקוד סובייקטיבי, כי ממוצע מאפשר לרעש חדשותי לדחוף את המחוון בלי שקרה דבר.</p>
+
+    <details><summary>איך נקבעת הרמה</summary>
+      <ul>
+        <li><b>0 · רגוע</b> - אף משפחה לא דולקת.</li>
+        <li><b>1 · מוגבר</b> - משפחה אחת.</li>
+        <li><b>2 · אזהרה</b> - שתי משפחות בלתי תלויות.</li>
+        <li><b>3 · קריטי</b> - שלוש ומעלה, <b>או</b> שינוי במדיניות ההתגוננות של
+        פיקוד העורף, שמספיק לבדו: זו הפעולה היקרה והישראלית ביותר בסט.</li>
+      </ul>
+      <p>מדדים המסומנים "אזורי" נספרים לשני המדדים. מדד שלא נקרא בבדיקה
+      אינו יכול להידלק - ולכן כשמקור נופל מוצגת אזהרה מפורשת, שאחרת הדף היה
+      נראה רגוע יותר מהמציאות.</p>
+    </details>
+
+    <details><summary>מה כל מדד מודד, ומה מדליק אותו</summary>
+      <div class="m-wrap"><table class="m-tbl">
+        <thead><tr><th>מדד</th><th>מקור</th><th>מה מדליק</th></tr></thead>
+        <tbody>
+          <tr><td>מדיניות התגוננות</td><td>פיקוד העורף (API רשמי)</td>
+              <td>כל שינוי בנוסח ההנחיות מול קו הבסיס השמור</td></tr>
+          <tr><td>מרחב אווירי ישראל</td><td>adsb.lol</td>
+              <td>מספר המטוסים האזרחיים יורד מתחת ל-35% מהחציון</td></tr>
+          <tr><td>תעופה צבאית באזור</td><td>adsb.lol</td>
+              <td>פי 2 מהחציון, ולפחות 8 מטוסים מעליו</td></tr>
+          <tr><td>אינטרנט באיראן (ארצי)</td><td>IODA · Georgia Tech</td>
+              <td>נפילת BGP מתחת ל-85% מהחציון</td></tr>
+          <tr><td>אינטרנט ברמת מחוז</td><td>IODA · 8 מחוזות</td>
+              <td><b>שני מחוזות ומעלה</b> יורדים מתחת ל-80% מהחציון</td></tr>
+          <tr><td>ריאל איראני</td><td>tgju (שוק חופשי)</td>
+              <td>תזוזה של 8% ומעלה מול החציון</td></tr>
+          <tr><td>אזהרות מסע</td><td>מחלקת המדינה האמריקאית · FCDO</td>
+              <td>עליית רמת אזהרה למדינה במעקב</td></tr>
+          <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
+              <td>מדד מעל 60/100 - מאשש בלבד, קול אחד</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+
+    <details><summary>כללי הזהירות שמונעים התרעות שווא</summary>
+      <ul>
+        <li><b>קו בסיס לפני התרעה</b> - חוק שמבוסס על חציון אינו פעיל עד שנצברו
+        מספיק דגימות (כשש שעות מהפעלה).</li>
+        <li><b>נוכחות אינה שינוי</b> - המערכת מתריעה על סטייה מקו בסיס, לא על
+        עצם קיומו של ערך.</li>
+        <li><b>אישור בשתי תצפיות</b> - אזהרות המסע נמדדות מול פיד שאינו יציב בין
+        בקשה לבקשה, ולכן שינוי חייב לחזור פעמיים ברצף לפני שהוא נספר.</li>
+        <li><b>מה שלא ניתן למדוד - מוצהר</b>, ולא מוצג כמחוון ירוק.</li>
+      </ul>
+    </details>
+
+    <details><summary>מגבלות ידועות</summary>
+      <ul>
+        <li>אין כיסוי מקלטי ADS-B מעל איראן, ולכן אין מקבילה איראנית למדד
+        המרחב האווירי.</li>
+        <li>מדדי שוק (נפט, תנודתיות, שער השקל) אינם כלולים - לא נמצא ערוץ
+        נתונים יציב מהשרת שמריץ את המערכת.</li>
+        <li>בתרחיש מהיר ייתכן שאף אחד מהמדדים לא יזוז לפני האירוע.</li>
+        <li>המערכת נבדקת כל 30 דקות. היא אינה רציפה.</li>
+      </ul>
+    </details>
+  </section>
 
   <div class="stamp" id="stamp">טוען…</div>
 

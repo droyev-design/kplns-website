@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-16T18:12:14+00:00",
+ "generated": "2026-08-16T18:42:32+00:00",
  "indices": [
   {
    "key": "il",
@@ -23,7 +23,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "93 מטוסים אזרחיים באזור"
+     "value": "82 מטוסים אזרחיים באזור"
     },
     {
      "key": "advisories_il",
@@ -41,7 +41,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "3 מטוסים צבאיים באזור"
+     "value": "2 מטוסים צבאיים באזור"
     },
     {
      "key": "strikeradar",
@@ -50,7 +50,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "37/100"
+     "value": "38/100"
     }
    ]
   },
@@ -62,12 +62,21 @@
    "tripwires": [
     {
      "key": "ir_internet",
-     "name": "אינטרנט באיראן",
+     "name": "אינטרנט באיראן (ארצי)",
      "shared": false,
      "lit": false,
      "ok": true,
      "reason": "",
      "value": "קישוריות תקינה (41,623 מסלולי BGP)"
+    },
+    {
+     "key": "ir_provinces",
+     "name": "אינטרנט באיראן (ברמת מחוז)",
+     "shared": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "value": "8 מחוזות במעקב — קישוריות תקינה"
     },
     {
      "key": "rial",
@@ -94,7 +103,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "3 מטוסים צבאיים באזור"
+     "value": "2 מטוסים צבאיים באזור"
     },
     {
      "key": "strikeradar",
@@ -103,7 +112,7 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "37/100"
+     "value": "38/100"
     }
    ],
    "unavailable": [
@@ -111,7 +120,7 @@
    ]
   }
  ],
- "sources_ok": 7,
- "sources_total": 7,
+ "sources_ok": 8,
+ "sources_total": 8,
  "degraded": []
 }
