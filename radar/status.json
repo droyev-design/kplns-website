@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T06:12:21+00:00",
+ "generated": "2026-08-17T06:42:27+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -130,6 +130,11 @@
    "t": 1786947141,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1786948947,
+   "il": 1,
+   "ir": 1
   }
  ],
  "indices": [
@@ -138,7 +143,7 @@
    "flag": "🇮🇱",
    "name": "ישראל",
    "name_en": "Israel",
-   "level": 0,
+   "level": 1,
    "tripwires": [
     {
      "key": "hfc_policy",
@@ -164,8 +169,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "94 מטוסים אזרחיים באזור",
-     "value_en": "94 civil aircraft in the area",
+     "value": "87 מטוסים אזרחיים באזור",
+     "value_en": "87 civil aircraft in the area",
      "range": "56–94"
     },
     {
@@ -188,13 +193,13 @@
      "name_en": "US military aviation in the region",
      "shared": true,
      "context": false,
-     "lit": false,
+     "lit": true,
      "ok": true,
-     "reason": "",
-     "reason_en": "",
-     "value": "10 מטוסים צבאיים באזור",
-     "value_en": "10 military aircraft in the area",
-     "range": "0–6"
+     "reason": "זינוק בתעופה צבאית באזור: 13 מול חציון 2",
+     "reason_en": "Regional military-aviation surge: 13 vs a median of 2",
+     "value": "13 מטוסים צבאיים באזור",
+     "value_en": "13 military aircraft in the area",
+     "range": "0–7"
     },
     {
      "key": "strikeradar",
@@ -217,7 +222,7 @@
    "flag": "🇮🇷",
    "name": "איראן",
    "name_en": "Iran",
-   "level": 0,
+   "level": 1,
    "tripwires": [
     {
      "key": "ir_internet",
@@ -231,7 +236,7 @@
      "reason_en": "",
      "value": "קישוריות תקינה (41,637 מסלולי BGP)",
      "value_en": "Connectivity normal (41,637 BGP routes)",
-     "range": "40,850–41,636"
+     "range": "40,850–41,637"
     },
     {
      "key": "ir_provinces",
@@ -295,13 +300,13 @@
      "name_en": "US military aviation in the region",
      "shared": true,
      "context": false,
-     "lit": false,
+     "lit": true,
      "ok": true,
-     "reason": "",
-     "reason_en": "",
-     "value": "10 מטוסים צבאיים באזור",
-     "value_en": "10 military aircraft in the area",
-     "range": "0–6"
+     "reason": "זינוק בתעופה צבאית באזור: 13 מול חציון 2",
+     "reason_en": "Regional military-aviation surge: 13 vs a median of 2",
+     "value": "13 מטוסים צבאיים באזור",
+     "value_en": "13 military aircraft in the area",
+     "range": "0–7"
     },
     {
      "key": "strikeradar",
