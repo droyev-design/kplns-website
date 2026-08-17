@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T12:12:28+00:00",
+ "generated": "2026-08-17T12:42:40+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -190,6 +190,11 @@
    "t": 1786968748,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1786970560,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -221,11 +226,11 @@
      "shared": false,
      "context": false,
      "lit": false,
-     "ok": true,
+     "ok": false,
      "reason": "",
      "reason_en": "",
-     "value": "96 מטוסים אזרחיים באזור",
-     "value_en": "96 civil aircraft in the area",
+     "value": "",
+     "value_en": "",
      "range": "56–96"
     },
     {
@@ -252,8 +257,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "0–10"
     },
     {
@@ -317,8 +322,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "0 חריגות תרמיות ב-24 שעות (כולל שריפות ותעשייה)",
-     "value_en": "0 thermal anomalies in 24h (includes wildfires and industry)",
+     "value": "52 חריגות תרמיות ב-24 שעות (כולל שריפות ותעשייה)",
+     "value_en": "52 thermal anomalies in 24h (includes wildfires and industry)",
      "range": "0–9"
     },
     {
@@ -331,8 +336,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,864,000 ריאל לדולר",
-     "value_en": "1,864,000 rial to the dollar",
+     "value": "1,865,000 ריאל לדולר",
+     "value_en": "1,865,000 rial to the dollar",
      "range": "1,864,000–1,866,800"
     },
     {
@@ -359,8 +364,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "0–10"
     },
     {
@@ -386,8 +391,12 @@
    ]
   }
  ],
- "sources_ok": 9,
+ "sources_ok": 8,
  "sources_total": 9,
- "degraded": [],
- "degraded_en": []
+ "degraded": [
+  "מרחב אווירי ישראל"
+ ],
+ "degraded_en": [
+  "Israeli airspace"
+ ]
 }
