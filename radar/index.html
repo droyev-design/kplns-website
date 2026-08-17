@@ -72,12 +72,23 @@ body{
 .topbar-inner{
   max-width:940px;margin:0 auto;padding:14px 20px;
   display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;
 }
 .brand{font-family:var(--font-en);font-weight:700;letter-spacing:.08em;font-size:.95rem}
 .brand span{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .backlink{color:var(--text-secondary);font-size:.85rem;text-decoration:none;transition:color .2s;white-space:nowrap}
 .backlink:hover{color:var(--cyan)}
-.topnav{display:flex;gap:14px;align-items:center}
+/* Wraps on purpose. Every .backlink is white-space:nowrap, so a single
+   non-wrapping row overflows the viewport the moment a link is added — which
+   is exactly what happened on 2026-08-17 when the /flights/ cross-link made it
+   a four-item row and pushed the whole page sideways on a phone. */
+.topnav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+        justify-content:flex-end;row-gap:8px}
+@media (max-width:560px){
+  .topbar-inner{padding:10px 14px;gap:8px}
+  .topnav{gap:10px;row-gap:6px}
+  .backlink{font-size:.78rem}
+}
 
 /* ── bilingual (he/en) ──────────────────────────────── */
 /* Both languages ship in the DOM and one is hidden, rather than swapping text
@@ -389,7 +400,7 @@ footer a:hover{color:var(--cyan)}
       <a class="backlink" href="/radar/methodology.html"
          ><span data-lang="he">מתודולוגיה</span><span data-lang="en">Methodology</span></a>
       <a class="backlink" href="/flights/"
-         ><span data-lang="he">✈️ האם טסים לישראל?</span><span data-lang="en">✈️ Flights to Israel</span></a>
+         ><span data-lang="he">✈️ טיסות</span><span data-lang="en">✈️ Flights</span></a>
       <a class="backlink" href="/"
          ><span data-lang="he">← חזרה לאתר</span><span data-lang="en">← Back to site</span></a>
     </div>
