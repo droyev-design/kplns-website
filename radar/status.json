@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T07:12:27+00:00",
+ "generated": "2026-08-17T07:42:28+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -140,6 +140,11 @@
    "t": 1786950747,
    "il": 1,
    "ir": 1
+  },
+  {
+   "t": 1786952548,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -148,7 +153,7 @@
    "flag": "🇮🇱",
    "name": "ישראל",
    "name_en": "Israel",
-   "level": 1,
+   "level": 0,
    "tripwires": [
     {
      "key": "hfc_policy",
@@ -174,8 +179,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "87 מטוסים אזרחיים באזור",
-     "value_en": "87 civil aircraft in the area",
+     "value": "94 מטוסים אזרחיים באזור",
+     "value_en": "94 civil aircraft in the area",
      "range": "56–94"
     },
     {
@@ -198,12 +203,12 @@
      "name_en": "US military aviation in the region",
      "shared": true,
      "context": false,
-     "lit": true,
+     "lit": false,
      "ok": true,
-     "reason": "זינוק בתעופה צבאית באזור: 11 מול חציון 2",
-     "reason_en": "Regional military-aviation surge: 11 vs a median of 2",
-     "value": "11 מטוסים צבאיים באזור",
-     "value_en": "11 military aircraft in the area",
+     "reason": "",
+     "reason_en": "",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "0–10"
     },
     {
@@ -227,7 +232,7 @@
    "flag": "🇮🇷",
    "name": "איראן",
    "name_en": "Iran",
-   "level": 1,
+   "level": 0,
    "tripwires": [
     {
      "key": "ir_internet",
@@ -239,9 +244,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,639 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,639 BGP routes)",
-     "range": "40,850–41,637"
+     "value": "קישוריות תקינה (41,640 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,640 BGP routes)",
+     "range": "40,850–41,638"
     },
     {
      "key": "ir_provinces",
@@ -305,12 +310,12 @@
      "name_en": "US military aviation in the region",
      "shared": true,
      "context": false,
-     "lit": true,
+     "lit": false,
      "ok": true,
-     "reason": "זינוק בתעופה צבאית באזור: 11 מול חציון 2",
-     "reason_en": "Regional military-aviation surge: 11 vs a median of 2",
-     "value": "11 מטוסים צבאיים באזור",
-     "value_en": "11 military aircraft in the area",
+     "reason": "",
+     "reason_en": "",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "0–10"
     },
     {
