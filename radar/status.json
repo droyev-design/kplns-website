@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T04:42:23+00:00",
+ "generated": "2026-08-17T05:12:26+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -110,6 +110,11 @@
    "t": 1786941743,
    "il": 1,
    "ir": 1
+  },
+  {
+   "t": 1786943546,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -117,7 +122,7 @@
    "key": "il",
    "flag": "🇮🇱",
    "name": "ישראל",
-   "level": 1,
+   "level": 0,
    "tripwires": [
     {
      "key": "hfc_policy",
@@ -138,8 +143,8 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "53 מטוסים אזרחיים באזור",
-     "range": "54–98"
+     "value": "77 מטוסים אזרחיים באזור",
+     "range": "56–98"
     },
     {
      "key": "advisories_il",
@@ -157,11 +162,11 @@
      "name": "תעופה צבאית אמריקאית באזור",
      "shared": true,
      "context": false,
-     "lit": true,
+     "lit": false,
      "ok": true,
-     "reason": "זינוק בתעופה צבאית באזור: 10 מול חציון 1",
-     "value": "10 מטוסים צבאיים באזור",
-     "range": "0–4"
+     "reason": "",
+     "value": "6 מטוסים צבאיים באזור",
+     "range": "0–6"
     },
     {
      "key": "strikeradar",
@@ -180,7 +185,7 @@
    "key": "ir",
    "flag": "🇮🇷",
    "name": "איראן",
-   "level": 1,
+   "level": 0,
    "tripwires": [
     {
      "key": "ir_internet",
@@ -190,8 +195,8 @@
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "קישוריות תקינה (41,635 מסלולי BGP)",
-     "range": "40,850–41,630"
+     "value": "קישוריות תקינה (41,636 מסלולי BGP)",
+     "range": "40,850–41,635"
     },
     {
      "key": "ir_provinces",
@@ -242,11 +247,11 @@
      "name": "תעופה צבאית אמריקאית באזור",
      "shared": true,
      "context": false,
-     "lit": true,
+     "lit": false,
      "ok": true,
-     "reason": "זינוק בתעופה צבאית באזור: 10 מול חציון 1",
-     "value": "10 מטוסים צבאיים באזור",
-     "range": "0–4"
+     "reason": "",
+     "value": "6 מטוסים צבאיים באזור",
+     "range": "0–6"
     },
     {
      "key": "strikeradar",
