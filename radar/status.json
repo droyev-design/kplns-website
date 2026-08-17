@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T06:42:27+00:00",
+ "generated": "2026-08-17T07:12:27+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -135,6 +135,11 @@
    "t": 1786948947,
    "il": 1,
    "ir": 1
+  },
+  {
+   "t": 1786950747,
+   "il": 1,
+   "ir": 1
   }
  ],
  "indices": [
@@ -195,11 +200,11 @@
      "context": false,
      "lit": true,
      "ok": true,
-     "reason": "זינוק בתעופה צבאית באזור: 13 מול חציון 2",
-     "reason_en": "Regional military-aviation surge: 13 vs a median of 2",
-     "value": "13 מטוסים צבאיים באזור",
-     "value_en": "13 military aircraft in the area",
-     "range": "0–7"
+     "reason": "זינוק בתעופה צבאית באזור: 11 מול חציון 2",
+     "reason_en": "Regional military-aviation surge: 11 vs a median of 2",
+     "value": "11 מטוסים צבאיים באזור",
+     "value_en": "11 military aircraft in the area",
+     "range": "0–10"
     },
     {
      "key": "strikeradar",
@@ -234,8 +239,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,637 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,637 BGP routes)",
+     "value": "קישוריות תקינה (41,639 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,639 BGP routes)",
      "range": "40,850–41,637"
     },
     {
@@ -302,11 +307,11 @@
      "context": false,
      "lit": true,
      "ok": true,
-     "reason": "זינוק בתעופה צבאית באזור: 13 מול חציון 2",
-     "reason_en": "Regional military-aviation surge: 13 vs a median of 2",
-     "value": "13 מטוסים צבאיים באזור",
-     "value_en": "13 military aircraft in the area",
-     "range": "0–7"
+     "reason": "זינוק בתעופה צבאית באזור: 11 מול חציון 2",
+     "reason_en": "Regional military-aviation surge: 11 vs a median of 2",
+     "value": "11 מטוסים צבאיים באזור",
+     "value_en": "11 military aircraft in the area",
+     "range": "0–10"
     },
     {
      "key": "strikeradar",
