@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T14:42:23+00:00",
+ "generated": "2026-08-17T15:12:29+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -215,6 +215,11 @@
    "t": 1786977743,
    "il": 0,
    "ir": 1
+  },
+  {
+   "t": 1786979549,
+   "il": 0,
+   "ir": 1
   }
  ],
  "indices": [
@@ -249,9 +254,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "78 מטוסים אזרחיים באזור",
-     "value_en": "78 civil aircraft in the area",
-     "range": "56–99"
+     "value": "82 מטוסים אזרחיים באזור",
+     "value_en": "82 civil aircraft in the area",
+     "range": "57–99"
     },
     {
      "key": "advisories_il",
@@ -277,9 +282,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
-     "range": "0–10"
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
+     "range": "1–10"
     },
     {
      "key": "strikeradar",
@@ -314,8 +319,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,631 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,631 BGP routes)",
+     "value": "קישוריות תקינה (41,629 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,629 BGP routes)",
      "range": "40,855–41,639"
     },
     {
@@ -358,7 +363,7 @@
      "reason_en": "",
      "value": "1,863,150 ריאל לדולר",
      "value_en": "1,863,150 rial to the dollar",
-     "range": "1,864,000–1,866,800"
+     "range": "1,863,150–1,866,800"
     },
     {
      "key": "advisories_ir",
@@ -384,9 +389,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
-     "range": "0–10"
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
+     "range": "1–10"
     },
     {
      "key": "strikeradar",
