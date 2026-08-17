@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T09:12:22+00:00",
+ "generated": "2026-08-17T09:42:22+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -160,6 +160,11 @@
    "t": 1786957942,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1786959742,
+   "il": 1,
+   "ir": 1
   }
  ],
  "indices": [
@@ -168,7 +173,7 @@
    "flag": "🇮🇱",
    "name": "ישראל",
    "name_en": "Israel",
-   "level": 0,
+   "level": 1,
    "tripwires": [
     {
      "key": "hfc_policy",
@@ -194,8 +199,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "92 מטוסים אזרחיים באזור",
-     "value_en": "92 civil aircraft in the area",
+     "value": "86 מטוסים אזרחיים באזור",
+     "value_en": "86 civil aircraft in the area",
      "range": "56–98"
     },
     {
@@ -218,12 +223,12 @@
      "name_en": "US military aviation in the region",
      "shared": true,
      "context": false,
-     "lit": false,
+     "lit": true,
      "ok": true,
-     "reason": "",
-     "reason_en": "",
-     "value": "7 מטוסים צבאיים באזור",
-     "value_en": "7 military aircraft in the area",
+     "reason": "זינוק בתעופה צבאית באזור: 11 מול חציון 2",
+     "reason_en": "Regional military-aviation surge: 11 vs a median of 2",
+     "value": "11 מטוסים צבאיים באזור",
+     "value_en": "11 military aircraft in the area",
      "range": "0–10"
     },
     {
@@ -247,7 +252,7 @@
    "flag": "🇮🇷",
    "name": "איראן",
    "name_en": "Iran",
-   "level": 0,
+   "level": 1,
    "tripwires": [
     {
      "key": "ir_internet",
@@ -261,7 +266,7 @@
      "reason_en": "",
      "value": "קישוריות תקינה (41,640 מסלולי BGP)",
      "value_en": "Connectivity normal (41,640 BGP routes)",
-     "range": "40,850–41,639"
+     "range": "40,855–41,639"
     },
     {
      "key": "ir_provinces",
@@ -301,8 +306,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,855,100 ריאל לדולר",
-     "value_en": "1,855,100 rial to the dollar",
+     "value": "1,861,800 ריאל לדולר",
+     "value_en": "1,861,800 rial to the dollar",
      "range": "1,866,800–1,866,800"
     },
     {
@@ -325,12 +330,12 @@
      "name_en": "US military aviation in the region",
      "shared": true,
      "context": false,
-     "lit": false,
+     "lit": true,
      "ok": true,
-     "reason": "",
-     "reason_en": "",
-     "value": "7 מטוסים צבאיים באזור",
-     "value_en": "7 military aircraft in the area",
+     "reason": "זינוק בתעופה צבאית באזור: 11 מול חציון 2",
+     "reason_en": "Regional military-aviation surge: 11 vs a median of 2",
+     "value": "11 מטוסים צבאיים באזור",
+     "value_en": "11 military aircraft in the area",
      "range": "0–10"
     },
     {
