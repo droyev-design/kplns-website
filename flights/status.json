@@ -1,12 +1,12 @@
 {
- "generated": "2026-08-17T18:07:02+00:00",
+ "generated": "2026-08-17T18:37:03+00:00",
  "level": 0,
  "now": {
   "foreign_ops": 49,
   "cancelled": 15,
   "flights": 826,
-  "aircraft": 10,
-  "airborne_ops": 6
+  "aircraft": 13,
+  "airborne_ops": 8
  },
  "history": [
   {
@@ -27,6 +27,10 @@
   },
   {
    "t": 1786990022,
+   "lv": 0
+  },
+  {
+   "t": 1786991823,
    "lv": 0
   }
  ],
@@ -64,8 +68,8 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "10 מטוסים באוויר כעת, 6 סימני קריאה של חברות",
-   "value_en": "10 aircraft airborne now, 6 airline callsigns"
+   "value": "13 מטוסים באוויר כעת, 8 סימני קריאה של חברות",
+   "value_en": "13 aircraft airborne now, 8 airline callsigns"
   }
  ],
  "days": [
@@ -104,7 +108,7 @@
    "dow": "חמישי",
    "dow_en": "Thu",
    "today": false,
-   "flights": 776,
+   "flights": 787,
    "cancelled": 0,
    "foreign_ops": 53,
    "il_ops": 3
