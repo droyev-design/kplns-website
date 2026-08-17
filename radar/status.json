@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T17:42:28+00:00",
+ "generated": "2026-08-17T18:42:33+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -255,6 +255,21 @@
    "t": 1786988548,
    "il": 0,
    "ir": 1
+  },
+  {
+   "t": 1786989417,
+   "il": 0,
+   "ir": 1
+  },
+  {
+   "t": 1786990360,
+   "il": 0,
+   "ir": 1
+  },
+  {
+   "t": 1786992153,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -289,9 +304,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "90 מטוסים אזרחיים באזור",
-     "value_en": "90 civil aircraft in the area",
-     "range": "57–98"
+     "value": "78 מטוסים אזרחיים באזור",
+     "value_en": "78 civil aircraft in the area",
+     "range": "58–100"
     },
     {
      "key": "jo_airspace",
@@ -331,8 +346,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–8"
     },
     {
@@ -345,8 +360,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $89.8 · דולר 2.95 ₪",
-     "value_en": "Brent $89.8 · USD 2.95 ILS",
+     "value": "ברנט $90.9 · דולר 2.95 ₪",
+     "value_en": "Brent $90.9 · USD 2.95 ILS",
      "range": ""
     },
     {
@@ -384,7 +399,7 @@
    "flag": "🇮🇷",
    "name": "איראן",
    "name_en": "Iran",
-   "level": 1,
+   "level": 0,
    "tripwires": [
     {
      "key": "ir_internet",
@@ -396,9 +411,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,628 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,628 BGP routes)",
-     "range": "40,855–41,639"
+     "value": "קישוריות תקינה (41,626 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,626 BGP routes)",
+     "range": "41,617–41,638"
     },
     {
      "key": "ir_provinces",
@@ -420,10 +435,10 @@
      "name_en": "Satellite thermal anomalies (NASA FIRMS)",
      "shared": false,
      "context": false,
-     "lit": true,
+     "lit": false,
      "ok": true,
-     "reason": "זינוק בחריגות תרמיות: 6 אירועים מול חציון 0 (עוצמה מרבית 67 MW). לא ניתן לייחס סיבה.",
-     "reason_en": "Thermal-anomaly spike: 6 events vs a median of 0 (peak 67 MW). Cause cannot be attributed.",
+     "reason": "",
+     "reason_en": "",
      "value": "510 חריגות תרמיות ב-24 שעות (כולל שריפות ותעשייה)",
      "value_en": "510 thermal anomalies in 24h (includes wildfires and industry)",
      "range": "0–9"
@@ -440,7 +455,7 @@
      "reason_en": "",
      "value": "1,865,000 ריאל לדולר",
      "value_en": "1,865,000 rial to the dollar",
-     "range": "1,863,150–1,866,800"
+     "range": "1,863,950–1,866,800"
     },
     {
      "key": "advisories_ir",
@@ -480,8 +495,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–8"
     },
     {
@@ -494,8 +509,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $89.8 · דולר 2.95 ₪",
-     "value_en": "Brent $89.8 · USD 2.95 ILS",
+     "value": "ברנט $90.9 · דולר 2.95 ₪",
+     "value_en": "Brent $90.9 · USD 2.95 ILS",
      "range": ""
     },
     {
