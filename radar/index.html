@@ -551,6 +551,10 @@ footer a:hover{color:var(--cyan)}
               <td>תזוזה של 8% ומעלה מול החציון</td></tr>
           <tr><td>אזהרות מסע</td><td>מחלקת המדינה האמריקאית · FCDO</td>
               <td>עליית רמת אזהרה למדינה במעקב</td></tr>
+          <tr><td>שיבוש GPS — מצר הורמוז</td><td>gpsjam.org (נגזר ADS-B)</td>
+              <td>היחס היומי מגיע לפי 3 מחציון הימים הקודמים, ולפחות 5%</td></tr>
+          <tr><td>שווקים — ברנט ושקל</td><td>tgju · בנק ישראל</td>
+              <td>ברנט עולה 8%+ מעל החציון, או השקל נחלש 3%+ (כיוון הסלמה בלבד)</td></tr>
           <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
               <td><b>לא מדליק כלום</b> - מוצג להקשר בלבד ואינו יכול להעלות רמה</td></tr>
         </tbody>
@@ -573,8 +577,12 @@ footer a:hover{color:var(--cyan)}
       <ul>
         <li>אין כיסוי מקלטי ADS-B מעל איראן, ולכן אין מקבילה איראנית למדד
         המרחב האווירי.</li>
-        <li>מדדי שוק (נפט, תנודתיות, שער השקל) אינם כלולים - לא נמצא ערוץ
-        נתונים יציב מהשרת שמריץ את המערכת.</li>
+        <li>אין ערוץ NOTAM (הודעות סגירת מרחב אווירי רשמיות) — כל הערוצים
+        החינמיים שנבדקו חסומים מהשרת (FAA, ICAO, autorouter ועוד). מוצהר
+        כפער ולא ממולא בניחוש.</li>
+        <li>אין מדידת תנועת ספינות (AIS) במצר הורמוז — UKMTO חסום ופיד
+        ה-NGA קפוא מ-2024. מדד שיבוש ה-GPS הוא תחליף חלקי בלבד, והוא נגזר
+        מתעופה, לא מספנות.</li>
         <li><b>החריגות התרמיות אינן מזהות סיבה.</b> חתימת חום גדולה יכולה להיות
         תקיפה, שריפת יער או שריפת קש חקלאית — והמדד אינו מבחין ביניהן. הוא סופר
         "משהו גדול בוער היכן שבדרך כלל לא בוער", ולא יותר מזה. מדידה מ-16.8.2026
@@ -638,6 +646,10 @@ footer a:hover{color:var(--cyan)}
               <td>A move of 8% or more against the median</td></tr>
           <tr><td>Travel advisories</td><td>US State Department · FCDO</td>
               <td>An advisory-level rise for a monitored country</td></tr>
+          <tr><td>GPS interference — Hormuz</td><td>gpsjam.org (ADS-B-derived)</td>
+              <td>The daily ratio reaches 3× the median of preceding days, and at least 5%</td></tr>
+          <tr><td>Markets — Brent &amp; shekel</td><td>tgju · Bank of Israel</td>
+              <td>Brent rises 8%+ above the median, or the shekel weakens 3%+ (escalation direction only)</td></tr>
           <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
               <td><b>Lights nothing</b> — shown for context only, and can never raise a level</td></tr>
         </tbody>
@@ -661,8 +673,13 @@ footer a:hover{color:var(--cyan)}
       <ul>
         <li>There is no ADS-B receiver coverage over Iran, so there is no Iranian
         counterpart to the airspace indicator.</li>
-        <li>Market indicators (oil, volatility, the shekel rate) are not included —
-        no stable data channel was found from the server that runs this.</li>
+        <li>There is no NOTAM channel (official airspace-closure notices) — every
+        free channel tested is blocked from this server (FAA, ICAO, autorouter
+        and more). Declared as a gap, not filled with a guess.</li>
+        <li>There is no ship-traffic (AIS) measurement in the Strait of Hormuz —
+        UKMTO is blocked and the NGA feed has been frozen since 2024. The GPS
+        interference indicator is only a partial proxy, and it is derived from
+        aviation, not shipping.</li>
         <li><b>Thermal anomalies do not identify a cause.</b> A large heat signature
         can be a strike, a wildfire or agricultural burning, and the indicator
         cannot tell them apart. It counts "something large is burning where nothing
@@ -1000,6 +1017,22 @@ const INFO = {
     what_en: 'The travel-advisory levels governments publish for their citizens regarding Iran and the Gulf.',
     when_en: 'On a level rise — and only after <b>the same observation repeats twice in a row</b>, because the feed is not stable between requests.',
     src_en: 'US State Department · FCDO'
+  },
+  hormuz_gps: {
+    what: 'אחוז המטוסים סביב מצר הורמוז שמדווחים על דיוק GPS ירוד — נתון יומי הנגזר משידורי ADS-B. זהו מדד לחימה אלקטרונית סביב המצר, <b>לא</b> מדידת תנועת ספינות (ל-AIS אין ערוץ חופשי נגיש — ראו הפער המוצהר).',
+    when: 'כשהיחס היומי מגיע ל<b>פי 3 מחציון הימים הקודמים</b> (עד 30 יום), ולפחות 5% בערך מוחלט. יום עם פחות מ-1,000 תצפיות מטוסים אינו נשפט כלל.',
+    src: 'gpsjam.org (נגזר ADS-B)', url: 'https://gpsjam.org/',
+    what_en: 'The share of aircraft around the Strait of Hormuz reporting degraded GPS accuracy — a daily figure derived from ADS-B broadcasts. It measures electronic warfare around the strait, <b>not</b> ship traffic (AIS has no accessible free channel — see the declared gap).',
+    when_en: 'When the daily ratio reaches <b>3× the median of the preceding days</b> (up to 30), and at least 5% in absolute terms. A day with fewer than 1,000 aircraft observations is not judged at all.',
+    src_en: 'gpsjam.org (ADS-B-derived)'
+  },
+  markets: {
+    what: 'שני מחירים: נפט ברנט (מהפיד של tgju, אותו מקור שמוכח עבור הריאל) ושער הדולר-שקל היציג של בנק ישראל. מדד זה נספר <b>לשני המדדים</b> — וקול אחד בלבד.',
+    when: 'רק בכיוון ההסלמה: ברנט <b>עולה 8%+ מעל החציון</b>, או השקל <b>נחלש 3%+ מהחציון</b>. ירידת נפט או התחזקות שקל לא מדליקות דבר.',
+    src: 'tgju · בנק ישראל', url: 'https://www.boi.org.il/',
+    what_en: "Two prices: Brent crude (from tgju's feed, the same source proven for the rial) and the Bank of Israel's representative USD/ILS rate. This indicator counts for <b>both indices</b> — with exactly one vote.",
+    when_en: 'Only in the escalation direction: Brent <b>rising 8%+ above the median</b>, or the shekel <b>weakening 3%+ against it</b>. Falling oil or a strengthening shekel lights nothing.',
+    src_en: 'tgju · Bank of Israel'
   },
   strikeradar: {
     what: 'מדד חיצוני 0–100 של אתר אחר, שנגזר מזרם חדשות ושואל שאלה אחרת: האם ארה"ב תתקוף את איראן.',

@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T16:12:27+00:00",
+ "generated": "2026-08-17T16:42:30+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -230,6 +230,16 @@
    "t": 1786983147,
    "il": 0,
    "ir": 1
+  },
+  {
+   "t": 1786984869,
+   "il": 0,
+   "ir": 1
+  },
+  {
+   "t": 1786984950,
+   "il": 0,
+   "ir": 1
   }
  ],
  "indices": [
@@ -264,8 +274,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "78 מטוסים אזרחיים באזור",
-     "value_en": "78 civil aircraft in the area",
+     "value": "77 מטוסים אזרחיים באזור",
+     "value_en": "77 civil aircraft in the area",
      "range": "57–98"
     },
     {
@@ -292,9 +302,23 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "1–8"
+    },
+    {
+     "key": "markets",
+     "name": "שווקים — נפט ברנט ושער השקל",
+     "name_en": "Markets — Brent crude and the shekel",
+     "shared": true,
+     "context": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "reason_en": "",
+     "value": "ברנט $88.8 · דולר 2.95 ₪",
+     "value_en": "Brent $88.8 · USD 2.95 ILS",
+     "range": ""
     },
     {
      "key": "strikeradar",
@@ -329,8 +353,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,628 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,628 BGP routes)",
+     "value": "קישוריות תקינה (41,627 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,627 BGP routes)",
      "range": "40,855–41,639"
     },
     {
@@ -371,8 +395,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,863,950 ריאל לדולר",
-     "value_en": "1,863,950 rial to the dollar",
+     "value": "1,864,950 ריאל לדולר",
+     "value_en": "1,864,950 rial to the dollar",
      "range": "1,863,150–1,866,800"
     },
     {
@@ -390,6 +414,20 @@
      "range": ""
     },
     {
+     "key": "hormuz_gps",
+     "name": "שיבוש GPS — מצר הורמוז",
+     "name_en": "GPS interference — Strait of Hormuz",
+     "shared": false,
+     "context": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "reason_en": "",
+     "value": "13.3% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-16 (נגזר מתעופה)",
+     "value_en": "13.3% of aircraft reported degraded GPS on 2026-08-16 (aviation-derived)",
+     "range": "1.9%–12.7%"
+    },
+    {
      "key": "us_mil_air",
      "name": "תעופה צבאית אמריקאית באזור",
      "name_en": "US military aviation in the region",
@@ -399,9 +437,23 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "1–8"
+    },
+    {
+     "key": "markets",
+     "name": "שווקים — נפט ברנט ושער השקל",
+     "name_en": "Markets — Brent crude and the shekel",
+     "shared": true,
+     "context": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "reason_en": "",
+     "value": "ברנט $88.8 · דולר 2.95 ₪",
+     "value_en": "Brent $88.8 · USD 2.95 ILS",
+     "range": ""
     },
     {
      "key": "strikeradar",
@@ -419,15 +471,19 @@
     }
    ],
    "unavailable": [
-    "אין כיסוי מקלטי ADS-B מעל איראן — לא ניתן למדוד"
+    "אין כיסוי מקלטי ADS-B מעל איראן — לא ניתן למדוד",
+    "הודעות NOTAM (סגירת מרחב אווירי רשמית) — כל הערוצים החינמיים שנבדקו חסומים מהשרת — לא ניתן למדוד",
+    "תנועת ספינות במצר הורמוז (AIS) — אין מקור חופשי נגיש (UKMTO חסום, פיד NGA קפוא מ-2024) — שיבוש ה-GPS משמש תחליף חלקי בלבד"
    ],
    "unavailable_en": [
-    "No ADS-B receiver coverage over Iran — this cannot be measured"
+    "No ADS-B receiver coverage over Iran — this cannot be measured",
+    "NOTAMs (official airspace closures) — every free channel tested is blocked from this server — this cannot be measured",
+    "Ship traffic through Hormuz (AIS) — no accessible free source (UKMTO blocked, the NGA feed frozen since 2024) — GPS interference is only a partial proxy"
    ]
   }
  ],
- "sources_ok": 9,
- "sources_total": 9,
+ "sources_ok": 11,
+ "sources_total": 11,
  "degraded": [],
  "degraded_en": []
 }
