@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T12:42:40+00:00",
+ "generated": "2026-08-17T13:12:24+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -195,6 +195,11 @@
    "t": 1786970560,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1786972344,
+   "il": 0,
+   "ir": 1
   }
  ],
  "indices": [
@@ -226,12 +231,12 @@
      "shared": false,
      "context": false,
      "lit": false,
-     "ok": false,
+     "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "",
-     "value_en": "",
-     "range": "56–96"
+     "value": "114 מטוסים אזרחיים באזור",
+     "value_en": "114 civil aircraft in the area",
+     "range": "56–98"
     },
     {
      "key": "advisories_il",
@@ -257,8 +262,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "8 מטוסים צבאיים באזור",
+     "value_en": "8 military aircraft in the area",
      "range": "0–10"
     },
     {
@@ -282,7 +287,7 @@
    "flag": "🇮🇷",
    "name": "איראן",
    "name_en": "Iran",
-   "level": 0,
+   "level": 1,
    "tripwires": [
     {
      "key": "ir_internet",
@@ -294,8 +299,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,630 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,630 BGP routes)",
+     "value": "קישוריות תקינה (41,628 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,628 BGP routes)",
      "range": "40,855–41,639"
     },
     {
@@ -318,12 +323,12 @@
      "name_en": "Satellite thermal anomalies (NASA FIRMS)",
      "shared": false,
      "context": false,
-     "lit": false,
+     "lit": true,
      "ok": true,
-     "reason": "",
-     "reason_en": "",
-     "value": "52 חריגות תרמיות ב-24 שעות (כולל שריפות ותעשייה)",
-     "value_en": "52 thermal anomalies in 24h (includes wildfires and industry)",
+     "reason": "זינוק בחריגות תרמיות: 6 אירועים מול חציון 0 (עוצמה מרבית 67 MW). לא ניתן לייחס סיבה.",
+     "reason_en": "Thermal-anomaly spike: 6 events vs a median of 0 (peak 67 MW). Cause cannot be attributed.",
+     "value": "510 חריגות תרמיות ב-24 שעות (כולל שריפות ותעשייה)",
+     "value_en": "510 thermal anomalies in 24h (includes wildfires and industry)",
      "range": "0–9"
     },
     {
@@ -364,8 +369,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "8 מטוסים צבאיים באזור",
+     "value_en": "8 military aircraft in the area",
      "range": "0–10"
     },
     {
@@ -391,12 +396,8 @@
    ]
   }
  ],
- "sources_ok": 8,
+ "sources_ok": 9,
  "sources_total": 9,
- "degraded": [
-  "מרחב אווירי ישראל"
- ],
- "degraded_en": [
-  "Israeli airspace"
- ]
+ "degraded": [],
+ "degraded_en": []
 }
