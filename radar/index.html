@@ -71,8 +71,9 @@ body{
 }
 .brand{font-family:var(--font-en);font-weight:700;letter-spacing:.08em;font-size:.95rem}
 .brand span{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.backlink{color:var(--text-secondary);font-size:.85rem;text-decoration:none;transition:color .2s}
+.backlink{color:var(--text-secondary);font-size:.85rem;text-decoration:none;transition:color .2s;white-space:nowrap}
 .backlink:hover{color:var(--cyan)}
+.topnav{display:flex;gap:16px;align-items:center}
 
 .hero{text-align:center;padding:46px 0 26px}
 .section-label{
@@ -313,6 +314,16 @@ h3{
 .m-tbl td{padding:7px 8px;border-bottom:1px solid var(--border);color:var(--text-secondary);vertical-align:top}
 .m-tbl td:first-child{color:var(--text-primary);font-weight:500}
 .m-wrap{overflow-x:auto}
+/* Link out to the long-form methodology page. */
+.m-more{
+  display:block;margin-top:16px;padding:15px 17px;text-decoration:none;
+  border:1px solid rgba(0,212,255,.3);background:rgba(0,212,255,.06);
+  border-radius:14px;transition:background .25s,border-color .25s
+}
+.m-more:hover{background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.5)}
+.m-more-t{display:block;font-weight:700;font-size:.95rem;color:var(--text-primary)}
+.m-more-s{display:block;margin-top:5px;font-size:.82rem;color:var(--text-secondary);line-height:1.7}
+.m-more-a{display:block;margin-top:9px;font-size:.86rem;font-weight:600;color:var(--cyan)}
 
 /* ── explainer + footer ─────────────────────────────── */
 .explain{
@@ -341,7 +352,10 @@ footer a:hover{color:var(--cyan)}
 <div class="topbar">
   <div class="topbar-inner">
     <div class="brand"><span>KPLNS</span></div>
-    <a class="backlink" href="/">← חזרה לאתר</a>
+    <div class="topnav">
+      <a class="backlink" href="/radar/methodology.html">מתודולוגיה</a>
+      <a class="backlink" href="/">← חזרה לאתר</a>
+    </div>
   </div>
 </div>
 
@@ -487,6 +501,16 @@ footer a:hover{color:var(--cyan)}
         <li>המערכת נבדקת כל 30 דקות. היא אינה רציפה.</li>
       </ul>
     </details>
+
+    <!-- Full methodology lives on its own page: the status page must stay fast
+         and scannable, and the long-form explanation (statistical basis, the
+         three verified historical episodes, the AI-development disclosure)
+         needs room to actually be read. -->
+    <a class="m-more" href="/radar/methodology.html">
+      <span class="m-more-t">ההסבר המלא: על מה מבוססים המספרים</span>
+      <span class="m-more-s">הבסיס הסטטיסטי · ספי ההדלקה המדויקים · מה זז בפועל לפני אפריל 2024, אוקטובר 2024 ויוני 2025 · מה נבדק ונפסל · גילוי נאות על פיתוח בעזרת AI</span>
+      <span class="m-more-a">לעמוד המתודולוגיה ←</span>
+    </a>
   </section>
 
   <div class="stamp" id="stamp">טוען…</div>

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a1628">
+<title>מתודולוגיה — ראדאר הסלמה | KPLNS</title>
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/radar/methodology.html">
+<meta property="og:title" content="מתודולוגיה — ראדאר הסלמה ישראל ואיראן">
+<meta property="og:description" content="איך נקבעת הרמה, מה מדליק כל מדד, על מה מבוססים הספים, ומה המערכת לא יכולה לעשות.">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:locale" content="he_IL">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-primary:#111827; --bg-secondary:#1a2236;
+  --bg-card:rgba(26,34,54,.65); --border:rgba(255,255,255,.08);
+  --border-hover:rgba(255,255,255,.15);
+  --cyan:#00d4ff; --cyan-dim:rgba(0,212,255,.15); --teal:#00b8a9;
+  --purple:#9d8cff;
+  --gradient-accent:linear-gradient(135deg,#00d4ff,#00b8a9);
+  --text-primary:#e8edf5; --text-secondary:rgba(232,237,245,.72);
+  --text-muted:rgba(232,237,245,.62);
+  --font-he:'Heebo',sans-serif; --font-en:'Inter',sans-serif;
+  --radius-md:16px; --radius-lg:24px;
+  --l0:#22c55e; --l1:#eab308; --l2:#f97316; --l3:#ff6b6b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.skip{
+  position:absolute;top:-100px;inset-inline-start:0;background:var(--cyan);
+  color:#111827;padding:12px 22px;z-index:999;font-weight:700;font-size:.9rem;
+  transition:top .25s;text-decoration:none
+}
+.skip:focus{top:0}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-he);
+  background:linear-gradient(135deg,#111827 0%,#1a2236 40%,#1e2844 100%);
+  color:var(--text-primary); line-height:1.8; padding:0 0 70px;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:880px;margin:0 auto;padding:0 20px}
+
+/* ── header ─────────────────────────────────────────── */
+.topbar{
+  border-bottom:1px solid var(--border); background:rgba(17,24,39,.6);
+  backdrop-filter:blur(12px); position:sticky; top:0; z-index:50;
+}
+.topbar-inner{
+  max-width:880px;margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px
+}
+.brand{font-family:var(--font-en);font-weight:700;letter-spacing:.08em;font-size:.95rem}
+.brand span{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.backlink{color:var(--text-secondary);font-size:.85rem;text-decoration:none;transition:color .2s;white-space:nowrap}
+.backlink:hover{color:var(--cyan)}
+
+.hero{text-align:center;padding:44px 0 20px}
+.section-label{
+  font-family:var(--font-en);font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:12px
+}
+h1{
+  font-size:clamp(1.6rem,4.4vw,2.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.25;
+  background:linear-gradient(135deg,#e8edf5 30%,#00d4ff 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero p{color:var(--text-secondary);margin-top:12px;font-size:1rem}
+.divider{width:64px;height:2px;background:var(--gradient-accent);margin:22px auto 0;border-radius:2px}
+
+.alertstrip{
+  margin:22px auto 0;max-width:760px;
+  border:1px solid rgba(239,68,68,.32);background:rgba(239,68,68,.07);
+  border-radius:12px;padding:10px 16px;font-size:.88rem;
+  display:flex;gap:9px;align-items:baseline;justify-content:center;
+  flex-wrap:wrap;text-align:center
+}
+.alertstrip b{color:#ff9b9b;font-weight:700}
+.alertstrip a{color:var(--cyan);font-weight:600;text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+
+/* ── table of contents ──────────────────────────────── */
+.toc{
+  margin:28px 0 0;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:18px 22px
+}
+.toc h2{
+  font-size:.74rem;font-family:var(--font-en);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-muted);font-weight:600;margin-bottom:11px
+}
+.toc ol{list-style:none;counter-reset:t;display:grid;grid-template-columns:1fr 1fr;gap:5px 20px}
+@media(max-width:640px){.toc ol{grid-template-columns:1fr}}
+.toc li{counter-increment:t;font-size:.89rem}
+.toc li::before{
+  content:counter(t) ".";color:var(--cyan);font-family:var(--font-en);
+  font-weight:600;margin-inline-end:7px
+}
+.toc a{color:var(--text-secondary);text-decoration:none;transition:color .2s}
+.toc a:hover{color:var(--cyan)}
+
+/* ── sections ───────────────────────────────────────── */
+section.blk{
+  margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:24px 24px 22px;scroll-margin-top:80px
+}
+section.blk h2{
+  font-size:1.18rem;font-weight:700;letter-spacing:-.01em;margin-bottom:4px;
+  display:flex;align-items:baseline;gap:10px
+}
+section.blk h2 .num{
+  font-family:var(--font-en);font-size:.8rem;color:var(--cyan);font-weight:600;
+  letter-spacing:.06em
+}
+section.blk h3{
+  font-size:.97rem;font-weight:700;color:var(--text-primary);margin:20px 0 7px
+}
+section.blk p{color:var(--text-secondary);font-size:.92rem;margin:9px 0}
+section.blk b{color:var(--text-primary);font-weight:600}
+section.blk ul{list-style:none;display:grid;gap:7px;margin:11px 0 4px}
+section.blk ul li{
+  color:var(--text-secondary);font-size:.9rem;padding-inline-start:18px;position:relative
+}
+section.blk ul li::before{
+  content:"";position:absolute;inset-inline-start:2px;top:.72em;
+  width:5px;height:5px;border-radius:50%;background:var(--teal)
+}
+section.blk a{color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+section.blk a:hover{border-bottom-color:var(--cyan)}
+.lead{
+  font-size:.98rem!important;color:var(--text-primary)!important;
+  border-inline-start:3px solid var(--cyan);padding-inline-start:14px;margin:14px 0 4px!important
+}
+
+/* ── callouts ───────────────────────────────────────── */
+.call{
+  margin:16px 0 4px;border-radius:12px;padding:14px 17px;font-size:.89rem;
+  line-height:1.75;color:var(--text-secondary)
+}
+.call b{color:var(--text-primary)}
+.call.warn{border:1px solid rgba(251,191,36,.4);background:rgba(251,191,36,.08)}
+.call.warn b{color:#fbbf24}
+.call.info{border:1px solid rgba(0,212,255,.24);background:rgba(0,212,255,.05)}
+.call.info b{color:var(--cyan)}
+.call.red{border:1px solid rgba(239,68,68,.32);background:rgba(239,68,68,.07)}
+.call.red b{color:#ff9b9b}
+
+/* ── tables ─────────────────────────────────────────── */
+.m-wrap{overflow-x:auto;margin-top:14px}
+.m-tbl{width:100%;border-collapse:collapse;font-size:.84rem;min-width:520px}
+.m-tbl th{
+  text-align:start;color:var(--text-muted);font-weight:600;padding:8px 9px;
+  border-bottom:1px solid var(--border-hover);white-space:nowrap
+}
+.m-tbl td{padding:9px;border-bottom:1px solid var(--border);color:var(--text-secondary);vertical-align:top}
+.m-tbl td:first-child{color:var(--text-primary);font-weight:500}
+.m-tbl tr:last-child td{border-bottom:none}
+.num-cell{font-family:var(--font-en);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ── episode timeline ───────────────────────────────── */
+.ep{
+  margin-top:15px;border:1px solid var(--border);border-radius:14px;
+  padding:15px 17px;background:rgba(17,24,39,.35)
+}
+.ep h4{font-size:.95rem;font-weight:700;margin-bottom:3px}
+.ep .when{font-family:var(--font-en);font-size:.74rem;color:var(--cyan);letter-spacing:.08em;font-weight:600}
+.ep ul{margin-top:9px}
+.ep .lead-badge{
+  display:inline-block;margin-top:10px;font-size:.8rem;font-weight:600;
+  border:1px solid var(--border-hover);border-radius:20px;padding:3px 11px;
+  color:var(--text-primary);background:rgba(255,255,255,.04)
+}
+.src{font-size:.78rem;color:var(--text-muted);margin-top:8px}
+.src a{color:var(--text-muted);border-bottom:1px solid var(--border-hover)}
+.src a:hover{color:var(--cyan)}
+
+/* ── formula box ────────────────────────────────────── */
+.fx{
+  font-family:var(--font-en);direction:ltr;text-align:left;
+  background:rgba(17,24,39,.55);border:1px solid var(--border);
+  border-radius:10px;padding:12px 15px;margin:12px 0;font-size:.83rem;
+  color:var(--text-primary);overflow-x:auto;line-height:1.9
+}
+.fx .c{color:var(--text-muted)}
+
+.tag{
+  font-family:var(--font-en);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple);border:1px solid rgba(157,140,255,.4);border-radius:20px;
+  padding:1px 7px;margin-inline-start:7px;vertical-align:middle;font-weight:600
+}
+
+.backbar{
+  margin-top:30px;text-align:center
+}
+.backbar a{
+  display:inline-block;border:1px solid rgba(0,212,255,.35);background:rgba(0,212,255,.07);
+  color:var(--cyan);border-radius:12px;padding:11px 22px;font-weight:600;
+  font-size:.92rem;text-decoration:none;transition:background .25s
+}
+.backbar a:hover{background:rgba(0,212,255,.14)}
+
+footer{
+  text-align:center;margin-top:34px;padding-top:24px;border-top:1px solid var(--border);
+  color:var(--text-muted);font-size:.8rem;line-height:2.1
+}
+footer a{color:var(--text-secondary);text-decoration:none}
+footer a:hover{color:var(--cyan)}
+.legal{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;margin-bottom:10px}
+.stamp{text-align:center;color:var(--text-muted);font-size:.8rem;margin-top:22px;font-family:var(--font-en)}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">דלג לתוכן</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span>KPLNS</span></div>
+    <a class="backlink" href="/radar/">← חזרה לראדאר</a>
+  </div>
+</div>
+
+<main class="container" id="main">
+
+  <div class="hero">
+    <div class="section-label">Methodology</div>
+    <h1>איך הראדאר עובד</h1>
+    <p>המתודולוגיה המלאה — מה נמדד, מה מדליק מדד, על מה מבוססים המספרים, ומה המערכת לא יכולה לעשות</p>
+    <div class="divider"></div>
+
+    <div class="alertstrip">
+      <span><span aria-hidden="true">⚠️</span> <b>זו אינה מערכת התרעה.</b>
+      המקור המחייב היחיד הוא פיקוד העורף.</span>
+      <a href="https://www.oref.org.il/" target="_blank" rel="noopener">להנחיות המחייבות ←</a>
+    </div>
+  </div>
+
+  <nav class="toc" aria-label="תוכן העניינים">
+    <h2>בעמוד הזה</h2>
+    <ol>
+      <li><a href="#q">השאלה שהמערכת עונה עליה</a></li>
+      <li><a href="#design">למה טריפ-ווייר ולא ציון משוקלל</a></li>
+      <li><a href="#weights">איפה כן הוטה המשקל</a></li>
+      <li><a href="#stats">הבסיס הסטטיסטי</a></li>
+      <li><a href="#thresholds">ספי ההדלקה המדויקים</a></li>
+      <li><a href="#history">הבסיס ההיסטורי</a></li>
+      <li><a href="#rejected">מה נבדק ונפסל</a></li>
+      <li><a href="#honesty">כללי היושרה של הדף</a></li>
+      <li><a href="#ai">גילוי נאות: פיתוח בעזרת AI</a></li>
+    </ol>
+  </nav>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <section class="blk" id="q">
+    <h2><span class="num">01</span> השאלה שהמערכת עונה עליה</h2>
+
+    <p class="lead">"האם מצטברים סימנים לכך שמתקרבת הסלמה בין ישראל לאיראן, ברמת
+    ימים — כזו שמצדיקה להתארגן?"</p>
+
+    <p>זו לא אותה שאלה שמדדים אחרים ברשת עונים עליה. usstrikeradar.com, למשל, שואל
+    "האם ארה"ב תתקוף באיראן" — שאלה קרובה, אבל לא זהה, ובוודאי לא זהה בהשלכות על
+    מישהו שגר בישראל. הראדאר הזה מציג <b>שני מדדים נפרדים</b>, אחד לכל צד, מפני
+    שהסימנים משני הצדדים שונים לגמרי באופיים: בישראל נמדדת התנהגות של מערכות אזרחיות
+    וביטחוניות, ובאיראן נמדדת התנהגות של המשטר ושל התשתית.</p>
+
+    <div class="call red">
+      <b>מה שהמערכת לא עושה:</b> היא לא מודיעה על שיגור, ולא נותנת התרעת דקות.
+      היא שכבת התארגנות של 1–3 ימים. במקרה מהיר (ראו אוקטובר 2024 בסעיף 6) ייתכן
+      שלא יהיה כאן שום זמן התרעה. התרעת הדקות היא פיקוד העורף, נקודה.
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <section class="blk" id="design">
+    <h2><span class="num">02</span> למה טריפ-ווייר ולא ציון משוקלל</h2>
+
+    <p>הדרך המקובלת לבנות מדד כזה היא ממוצע משוקלל: לוקחים 6–8 סיגנלים, נותנים לכל
+    אחד משקל, ומקבלים מספר בין 0 ל-100. הדף הזה <b>לא</b> עושה את זה — בכוונה,
+    ואחרי שנמדד מה קורה כשכן.</p>
+
+    <h3>מה שנמדד על מערכת משוקללת שרצה כאן בפועל</h3>
+    <p>לפני בניית הראדאר הזה רץ במשך חודשיים מוניטור שהתבסס על מדד משוקלל חיצוני.
+    זו הייתה ההתנהגות שלו ביומן שלו עצמו, 9.6.2026–16.8.2026:</p>
+    <ul>
+      <li><b>57 התרעות ב-68 ימים</b> — כ-0.85 התרעות ליום.</li>
+      <li>המדד התנדנד 46 → 67 → 24 → 96 → 24 → 78 → 36, וחצה את סף ההתרעה עשרות
+      פעמים לשני הכיוונים.</li>
+      <li>בין 12 ל-16 באוגוסט: 60, 70, 75, 78, 74, 64, 59, 49, 39, 36 —
+      <b>תשע התרעות למחזור חדשותי אחד</b> שעלה ודעך.</li>
+      <li>תת-הסיגנל של רטוריקת מנהיגים היה מסומן "קיצוני" גם כשהמדד הכולל הראה
+      "רגוע". מדד שדולק כמעט תמיד אינו מדד.</li>
+    </ul>
+
+    <p>הסיבה המבנית: כשמערבבים סיגנלים שכולם נגזרים מאותו זרם חדשות (כותרות,
+    הצהרות, שוקי הימורים, מחיר נפט), הם מתואמים זה לזה — במיוחד במשבר. הממוצע
+    המשוקלל מתנהג אז כמו <b>מד עוצמת רעש חדשותי אחד</b>, ויורש את התנודתיות של
+    האיבר הרועש ביותר שלו. הוא גם מסתיר מי בדיוק זז.</p>
+
+    <div class="call warn">
+      <b>העלות האמיתית של רעש:</b> מערכת שמתריעה כל יום מאמנת את מי שמקבל אותה
+      להתעלם ממנה. זה גרוע יותר משום התרעה, בדיוק עבור ההתרעה האחת שחשובה.
+    </div>
+
+    <h3>מה נבנה במקום</h3>
+    <p>כל מדד כאן הוא <b>בוליאני</b> — דולק או כבוי — ולא ציון. הרמה היא פשוט
+    <b>ספירה של כמה משפחות מדדים בלתי תלויות דולקות בו-זמנית</b>:</p>
+    <div class="fx">
+      level = 0 &nbsp; <span class="c">// no family lit</span><br>
+      level = 1 &nbsp; <span class="c">// exactly 1 family lit</span><br>
+      level = 2 &nbsp; <span class="c">// exactly 2 independent families</span><br>
+      level = 3 &nbsp; <span class="c">// 3+ families &nbsp;OR&nbsp; Home Front Command policy change</span>
+    </div>
+    <p>"משפחה" היא מקור-התנהגות אחד, ולה <b>קול אחד</b> בלבד — לא משנה כמה פריטים
+    בתוכה זזו. שני מחוזות באיראן שיורדים יחד הם עדיין קול אחד, לא שניים.</p>
+  </section>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <section class="blk" id="weights">
+    <h2><span class="num">03</span> איפה כן הוטה המשקל</h2>
+
+    <p>אין בקוד טבלת משקלות, ואין ניקוד סובייקטיבי. אבל יש ארבע הטיות מוצהרות,
+    וכל אחת מהן היא החלטת תכנון שאפשר להתווכח איתה:</p>
+
+    <h3>1. אותות יקרים מנצחים דיבור זול</h3>
+    <p>מדד נדלק רק כשמישהו <b>שילם מחיר</b> על פעולה: צבא ששינה הנחיות התגוננות
+    לאזרחים, חברות תעופה שמפסידות הכנסה, מדינה שמנתקת לעצמה את האינטרנט,
+    ממשלה שמפנה אנשי שגרירות, מטבע שקורס. הצהרות, כותרות וטוויטים
+    <b>אינם מדליקים כאן שום דבר</b>, גם לא הצהרות דרמטיות.</p>
+
+    <h3>2. פיקוד העורף לבדו מספיק ל"קריטי"</h3>
+    <p>זו החריגה היחידה מכלל הספירה. שינוי במדיניות ההתגוננות הוא הפעולה היקרה
+    ביותר והספציפית ביותר לישראל בכל הסט — מדינה לא משנה הנחיות התגוננות לאזרחים
+    בגלל כותרת. לכן הוא מקפיץ את המדד הישראלי ל-3 גם לבדו.</p>
+
+    <h3>3. StrikeRadar קיבל משקל אפס</h3>
+    <p>המדד החיצוני מוצג בדף <span class="tag">הקשר</span> — אבל
+    <b>אינו יכול להעלות רמה, אף פעם</b>. הסיבה: רכיביו (חדשות, הצהרות, שוקי הימורים)
+    הם בדיוק סוג הסיגנל שהתכנון הזה נועד להוציא. מפעילו משווק את אותו מנוע גם
+    כ-"LayoffRadar — same engine, fresh signals", כלומר אגרגציית חדשות גנרית.
+    הוא נשאר בדף כדי שאפשר יהיה להשוות, ולא יותר.</p>
+
+    <h3>4. הסף אינו סימטרי בין הדלקה לכיבוי</h3>
+    <p>מדד שכבר דולק אינו מתריע שוב, ולכל משפחה יש <b>קירור של 6 שעות</b>, כדי
+    שפיד מהבהב לא יוכל להציף. מנגד — כל שינוי מדווח, בכל שעה, גם ב-3 לפנות בוקר.
+    ההנחה היא שמי שנרשם למערכת כזו מעדיף להתעורר על שינוי אמיתי.</p>
+  </section>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <section class="blk" id="stats">
+    <h2><span class="num">04</span> הבסיס הסטטיסטי</h2>
+
+    <p class="lead">כמעט כל מדד כאן שואל שאלה אחת: <b>האם הערך הנוכחי חורג ממה
+    שנורמלי עבור המדד הזה בימים האחרונים?</b> — ולא "האם הערך גבוה".</p>
+
+    <h3>למה חציון ולא ממוצע</h3>
+    <p>קו הבסיס של כל מדד הוא ה<b>חציון</b> (median) של הדגימות האחרונות, לא הממוצע.
+    שתי סיבות:</p>
+    <ul>
+      <li><b>ממוצע נגרר על ידי חריגים.</b> קפיצה חדה אחת מושכת את הממוצע כלפי מעלה —
+      כלומר האירוע שאנחנו מנסים לזהות מרעיל את קו הבסיס שאמור לזהות אותו. החציון
+      כמעט לא זז מדגימה חריגה בודדת.</li>
+      <li><b>הפידים האלה לא מתפלגים נורמלית.</b> ספירת מטוסים, מסלולי BGP וחריגות
+      תרמיות הן התפלגויות עם זנב ארוך מאוד. במדידה שנעשתה על נתוני NASA FIRMS באזור
+      איראן ב-16.8.2026: חציון עוצמה 4.0 MW, אחוזון 90 — 16.6, אחוזון 99 — 50.9,
+      ומקסימום 153.8. ממוצע על התפלגות כזו הוא מספר שלא מתאר כמעט שום תצפית.</li>
+    </ul>
+
+    <h3>חלון הזמן והדגימה</h3>
+    <div class="m-wrap"><table class="m-tbl">
+      <tbody>
+        <tr><td>תדירות בדיקה</td><td class="num-cell">כל 30 דקות</td>
+            <td>המערכת אינה רציפה. בין בדיקה לבדיקה היא עיוורת.</td></tr>
+        <tr><td>אורך הסדרה הנשמרת</td><td class="num-cell">96 דגימות ≈ 48 שעות</td>
+            <td>"נורמלי" מוגדר מול היומיים האחרונים, לא מול ממוצע היסטורי. כך המדד
+            מתאים את עצמו לשינויים אמיתיים בקצב הרקע.</td></tr>
+        <tr><td>מינימום לפני שכלל פעיל</td><td class="num-cell">12 דגימות ≈ 6 שעות</td>
+            <td>כלל שמבוסס על חציון פשוט <b>אינו קיים</b> עד שנצברה היסטוריה. אחרת
+            הרצה ראשונה הייתה מייצרת התרעת שווא מיידית.</td></tr>
+        <tr><td>קירור בין התרעות</td><td class="num-cell">6 שעות למשפחה</td>
+            <td>מונע הצפה מפיד מהבהב.</td></tr>
+        <tr><td>"טווח נורמלי" המוצג בדף</td><td class="num-cell">אחוזונים 10–90</td>
+            <td>מה שרואים ליד כל מדד הוא הטווח שבו נמצאות 80% מהדגימות האחרונות —
+            כדי שהמספר הנוכחי יהיה קריא בלי לדעת את הפיד.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>למה הספים יחסיים ולא מוחלטים</h3>
+    <p>אין בקוד ספים כמו "פחות מ-40 מטוסים" או "מעל 900,000 ריאל לדולר". כל סף
+    מנוסח כ<b>יחס לחציון</b>. הסיבה מעשית: לכל פיד יש "נורמלי" משלו, והוא נודד.
+    תנועה אווירית משתנה לפי עונה ושעה; הריאל סובל מאינפלציה מתמשכת שהייתה מדליקה
+    סף מוחלט בתוך שבועות; מספר מסלולי ה-BGP של איראן משתנה עם תשתית. סף יחסי שואל
+    "מה השתנה כאן <b>עכשיו</b>", וזו השאלה הנכונה.</p>
+
+    <div class="fx">
+      <span class="c">// the shape every rule here takes</span><br>
+      prior &nbsp;= last 96 samples (excluding the current one)<br>
+      if len(prior) &lt; 12: &nbsp;<span class="c">// not enough history — rule is inert</span><br>
+      &nbsp; &nbsp; do nothing<br>
+      med &nbsp; = median(prior)<br>
+      lit &nbsp; = current &lt; factor × med &nbsp;<span class="c">// collapse-type signals</span><br>
+      lit &nbsp; = current &gt; max(factor × med, med + floor) &nbsp;<span class="c">// surge-type signals</span>
+    </div>
+
+    <p>ה-<span class="num-cell">med + floor</span> בכללי הזינוק אינו קישוט: כשהחציון
+    נמוך מאוד, "פי 2" יכול להיות קפיצה מ-3 ל-6, שהיא רעש. הרצפה המוחלטת דורשת גם
+    תזוזה משמעותית בגודל אבסולוטי, ולא רק ביחס.</p>
+
+    <h3>מסכת "בוער תמיד" — למה נדרש עיבוד לפני שהנתון בכלל שמיש</h3>
+    <p>המדד הלוויני הוא הדוגמה הטובה ביותר לכך שנתון גולמי אינו סיגנל. מדידה על
+    האזור (bbox 44,25–64,40) ב-16.8.2026 הראתה כ-800–1,300 חריגות תרמיות
+    <b>ביום</b>: 1,181 תאים שונים לאורך 5 ימים, מתוכם 340 בערו ב-3 ימים ומעלה —
+    כלומר לפידי גז קבועים בשדות הנפט בח'וזסתאן ותעשייה. לכן נשמרות רק חריגות
+    שעונות על שלושת התנאים: ודאות גבוהה, עוצמה ≥50 MW (בערך אחוזון 99), ובמיקום
+    <b>שלא מופיע במסכת המקומות שבוערים דרך קבע</b> — מסכה שנלמדת מהתצפיות עצמן.
+    אחרי הסינון נשארות כ-1.4 חריגות ביום, וזה מספר שאפשר לחפש בו זינוק.</p>
+
+    <div class="call warn">
+      <b>ומה שהמדד הזה עדיין לא יודע:</b> הוא אינו מייחס סיבה. חתימת חום גדולה
+      יכולה להיות תקיפה, שריפת יער או שריפת קש חקלאית — והמדד אינו מבחין ביניהן.
+      הוא סופר "משהו גדול בוער היכן שבדרך כלל לא בוער", ומסומן בדף בדיוק כך.
+      אין כאן שום טענה לקורלציה עם אתרים צבאיים, כי אין רשימת אתרים מאומתת.
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <section class="blk" id="thresholds">
+    <h2><span class="num">05</span> ספי ההדלקה המדויקים</h2>
+
+    <p>אלה המספרים שרצים בפועל. הם מפורסמים כאן כדי שאפשר יהיה לבקר אותם —
+    ולראות מה כן ומה לא יכול להדליק את הדף.</p>
+
+    <div class="m-wrap"><table class="m-tbl">
+      <thead><tr><th>מדד</th><th>מקור</th><th>מה מדליק</th><th>לאיזה מדד</th></tr></thead>
+      <tbody>
+        <tr><td>מדיניות התגוננות</td><td>פיקוד העורף (API רשמי)</td>
+            <td>כל שינוי בנוסח ההנחיות מול קו הבסיס השמור, <b>או</b> מדיניות מגבילה
+            שנמצאת בתוקף (כלומר לא "אין הגבלות")</td><td>🇮🇱 ישראל</td></tr>
+        <tr><td>מרחב אווירי ישראל</td><td>adsb.lol</td>
+            <td class="num-cell">מטוסים אזרחיים &lt; 35% מהחציון</td><td>🇮🇱 ישראל</td></tr>
+        <tr><td>אזהרות מסע — ישראל והסביבה</td><td>מחלקת המדינה האמריקאית · FCDO</td>
+            <td>עליית רמת אזהרה לישראל / לבנון / ירדן / סוריה, או עדכון הנחיות
+            בריטניה לישראל — <b>מאושר בשתי תצפיות רצופות</b></td><td>🇮🇱 ישראל</td></tr>
+        <tr><td>אינטרנט באיראן (ארצי)</td><td>IODA · Georgia Tech</td>
+            <td class="num-cell">BGP &lt; 85% מהחציון, או merit-nt &lt; 50%</td><td>🇮🇷 איראן</td></tr>
+        <tr><td>אינטרנט ברמת מחוז</td><td>IODA · 8 מחוזות</td>
+            <td><b>שני מחוזות ומעלה</b> יורדים מתחת ל-80% מהחציון בו-זמנית</td><td>🇮🇷 איראן</td></tr>
+        <tr><td>חריגות תרמיות מלוויין</td><td>NASA FIRMS · VIIRS</td>
+            <td class="num-cell">n &gt; max(3 × חציון, חציון + 5)</td><td>🇮🇷 איראן</td></tr>
+        <tr><td>ריאל איראני</td><td>tgju (שוק חופשי)</td>
+            <td class="num-cell">סטייה של 8%+ מהחציון, לכל כיוון</td><td>🇮🇷 איראן</td></tr>
+        <tr><td>אזהרות מסע — איראן והמפרץ</td><td>מחלקת המדינה האמריקאית</td>
+            <td>עליית רמת אזהרה לאיראן / עיראק / קטר / בחריין / כווית / איחוד
+            האמירויות / סעודיה — מאושר בשתי תצפיות</td><td>🇮🇷 איראן</td></tr>
+        <tr><td>תעופה צבאית אמריקאית</td><td>adsb.lol (משבצת 12–40°N, 25–60°E)</td>
+            <td class="num-cell">n &gt; max(2 × חציון, חציון + 8)</td><td>🌐 אזורי — נספר לשניהם</td></tr>
+        <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
+            <td><b>לא מדליק כלום</b> — הקשר בלבד</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+
+    <p>שני כללים שמופיעים בטבלה ומקורם בכישלון אמיתי, לא בתיאוריה:</p>
+    <ul>
+      <li><b>למה נדרשים שני מחוזות ולא אחד:</b> מחוז בודד שיורד הוא בדרך כלל תחזוקת
+      תשתית או חור בכיסוי הדיווח. שני מחוזות שיורדים יחד זו כבר התנהגות ברמת מדינה.
+      הרעיון למדוד ברמת מחוז ולא רק ארצית אומץ מפרויקט אחר (iranmonitor.online) —
+      נתון ארצי בריא יכול להסתיר ניתוק אזורי ממוקד, שזו בדיוק צורתו של ניתוק לפני
+      אירוע.</li>
+      <li><b>למה אזהרות מסע דורשות שתי תצפיות:</b> פיד ה-RSS של מחלקת המדינה אינו
+      יציב בין בקשה לבקשה. במדידה בהפרש שניות התקבלו 229 פריטים בבקשה אחת ו-216
+      בשנייה, עם גוף טקסט באורך שונה לגמרי לאותה מדינה. קריאה חד-פעמית של הפיד הזה
+      מייצרת "שינויים" שלא קרו — וזה כבר ייצר שתי התרעות שווא לפני שהכלל הוקשח.
+      מאז נקראת ממנו <b>רק רמת האזהרה מהכותרת</b>, שהיא יציבה.</li>
+    </ul>
+  </section>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <section class="blk" id="history">
+    <h2><span class="num">06</span> הבסיס ההיסטורי</h2>
+
+    <p>בחירת המדדים לא נעשתה לפי תחושה, אלא לפי בדיקה של שלושה סבבים אמיתיים:
+    מה בפועל <b>זז לפני</b> האירוע, ומה רק הגיב אחריו. זה גם המקום להיות ישרים
+    לגבי גודל המדגם — שלושה אירועים.</p>
+
+    <div class="ep">
+      <div class="when">APRIL 2024</div>
+      <h4>מטח הכטב"מים והטילים האיראני על ישראל · ליל 13–14 באפריל</h4>
+      <ul>
+        <li><b>T‑12 ימים —</b> התקיפה במתחם הקונסוליה האיראנית בדמשק (1 באפריל) יצרה
+        חובת תגמול מוצהרת ופומבית. מאותו יום היה "חלון פתוח".</li>
+        <li><b>T‑7 ימים —</b> לופטהנזה השעתה טיסות לטהרן החל מ-6 באפריל, והאריכה
+        את ההשעיה — כולל הימנעות ממרחב אווירי איראני — עוד לפני המטח.
+        <b>זו פעולה שעולה כסף</b>, ולכן היא נספרת כאן.</li>
+        <li><b>T‑1 יום —</b> אזהרה רשמית מפורשת: ב-12 באפריל נאמר שהתקיפה צפויה
+        "מוקדם מאוחר יותר".</li>
+      </ul>
+      <span class="lead-badge">זמן התרעה מרבי מנתונים ציבוריים: ~שבוע</span>
+      <div class="src">מקורות (נבדקו 16.8.2026):
+        <a href="https://www.usnews.com/news/world/articles/2024-04-10/lufthansa-suspends-tehran-flights-middle-east-on-alert-for-potential-iran-attacks" target="_blank" rel="noopener">US News</a> ·
+        <a href="https://www.timesofisrael.com/liveblog-april-12-2024/" target="_blank" rel="noopener">Times of Israel</a>
+      </div>
+    </div>
+
+    <div class="ep">
+      <div class="when">OCTOBER 2024</div>
+      <h4>מטח הטילים הבליסטיים · 1 באוקטובר, ~19:30 שעון ישראל</h4>
+      <ul>
+        <li><b>הקשר, T‑1 עד T‑4 ימים —</b> חיסול נסראללה ב-27 בספטמבר והמבצע הקרקעי
+        בלבנון ב-30 בספטמבר פתחו חלון תגמול סביר — אבל בלי שום מבשר ציבורי ספציפי.</li>
+        <li><b>T‑שעות —</b> בבוקר ובצהרי 1 באוקטובר הזהיר גורם אמריקאי בפומבי
+        מפני מתקפת טילים "מיידית". השיגור הגיע באותו יום.</li>
+        <li><b>ממצא כן ולא נוח —</b> שום פיד ציבורי אחר — תעופה, ספנות, נפט — לא זז
+        מראש. זהו המקרה המהיר, והתקרה של מערכת כמו זו בו היא <b>שעות</b>, ורק דרך
+        ערוץ האזהרה הרשמית.</li>
+      </ul>
+      <span class="lead-badge">זמן התרעה מרבי מנתונים ציבוריים: שעות</span>
+      <div class="src">מקורות:
+        <a href="https://www.cnbc.com/2024/10/01/iran-readying-imminent-ballistic-missile-attack-against-israel-us-official-tells-nbc-news.html" target="_blank" rel="noopener">CNBC</a> ·
+        <a href="https://www.defensenews.com/flashpoints/israel-palestine/2024/10/01/iran-preparing-imminent-missile-attack-on-israel-us-warns/" target="_blank" rel="noopener">Defense News</a>
+      </div>
+    </div>
+
+    <div class="ep">
+      <div class="when">JUNE 2025</div>
+      <h4>המערכה הישראלית באיראן (מ-13 ביוני) והתקיפה האמריקאית (21–22 ביוני)</h4>
+      <ul>
+        <li><b>T‑~40 שעות —</b> ב-11 ביוני הורתה מחלקת המדינה על עזיבת אנשי סגל
+        לא-חיוניים משגרירות בגדד, ואושרה עזיבה וולונטרית של בני משפחות אנשי צבא
+        בבחריין, כווית ואיחוד האמירויות. התקיפה החלה בשעות הראשונות של 13 ביוני.
+        <b>ממשלות לא מפנות אנשים סתם</b> — זהו האות היקר החזק ביותר שנמצא.</li>
+        <li><b>נפט —</b> עלה ביותר מ-4% ב-11 ביוני — כתגובה <b>לחדשות הפינוי</b> —
+        ואת התזוזה הגדולה (~7%) עשה רק <b>אחרי</b> התקיפה. הנפט הוא נגזרת של המבשר,
+        ולא מבשר בעצמו.</li>
+        <li><b>שיעור ההטעיה, 21 ביוני —</b> אתרי מעקב טיסות הראו שישה מפציצי B-2
+        נעים מערבה לגואם. זו הייתה הסחה מכוונת; מטוסי התקיפה טסו מזרחה בלי מעקב.
+        יומיים קודם נאמר שההחלטה תתקבל "בתוך שבועיים".</li>
+      </ul>
+      <span class="lead-badge">זמן התרעה מרבי מנתונים ציבוריים: ~40 שעות</span>
+      <div class="src">מקורות:
+        <a href="https://www.aljazeera.com/news/2025/6/12/us-evacuates-personnel-from-middle-east-in-sign-of-growing-regional-tension" target="_blank" rel="noopener">Al Jazeera</a> ·
+        <a href="https://www.twz.com/air/b-2-used-as-decoy-for-iran-strike-mission-is-stuck-in-hawaii" target="_blank" rel="noopener">TWZ</a>
+      </div>
+    </div>
+
+    <h3>דירוג משפחות האינדיקטורים לפי זמן התרעה מוכח</h3>
+    <div class="m-wrap"><table class="m-tbl">
+      <thead><tr><th>משפחה</th><th>זמן התרעה שהודגם</th><th>הערכה</th></tr></thead>
+      <tbody>
+        <tr><td>פעולות הגנה רשמיות (פינוי שגרירויות, קפיצת רמת אזהרה)</td>
+            <td class="num-cell">1–3 ימים</td>
+            <td>המשפחה הטובה ביותר. אות יקר, נדיר, ניתן לבדיקה אוטומטית.</td></tr>
+        <tr><td>אירוע מבני שפותח חלון (תקיפה, חיסול, חובת תגמול מוצהרת)</td>
+            <td class="num-cell">ימים–שבועות</td>
+            <td>לא אומר <b>מתי</b>, אומר "דרוך". ערך גבוה ליחידת התרעת שווא.</td></tr>
+        <tr><td>השעיות טיסה של חברות תעופה</td>
+            <td class="num-cell">ימים–שבוע</td>
+            <td>אות יקר. לעיתים נדלק גם על אי-שקט כללי.</td></tr>
+        <tr><td>אזהרה רשמית מפורשת "מתקפה מיידית"</td>
+            <td class="num-cell">שעות–יום</td>
+            <td>הדבר היחיד שהוביל את המקרה המהיר.</td></tr>
+        <tr><td>שוקי ניבוי</td><td class="num-cell">שעות–ימים, מזוהם</td>
+            <td>חלקית הד לחדשות, חלקית — כפי שהתברר ב-2026 — מידע פנים. ראו סעיף 7.</td></tr>
+        <tr><td>מעקב תנועות צבאיות (OSINT)</td><td class="num-cell">ימים, פגיע להטעיה</td>
+            <td>עלול להצביע לכיוון הלא נכון <b>במכוון</b>.</td></tr>
+        <tr><td>נפט, ספנות, ביטוח ימי</td><td class="num-cell">אחרי, או הד באותה שעה</td>
+            <td>מאשש, לא מתריע.</td></tr>
+        <tr><td>נפח חדשות ומדדים משוקללים</td><td class="num-cell">בו-זמני</td>
+            <td>בדיוק מה שהתכנון הזה נועד להפסיק להישען עליו.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="call red">
+      <b>המגבלה שלא ניתן לעקוף:</b> שלושה אירועים היסטוריים אינם מדגם שמאפשר
+      הסתברויות מכוילות. לכן הפלט של הדף הוא <b>רמה קטגורית</b> — ולעולם לא
+      "68% סיכוי לתקיפה". כל מי שמציג אחוז כזה על בסיס נתונים ציבוריים עושה
+      התאמת עקומה לשלוש נקודות.
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <section class="blk" id="rejected">
+    <h2><span class="num">07</span> מה נבדק ונפסל</h2>
+
+    <p>רשימת הדברים שלא נכנסו חשובה לא פחות מרשימת מה שכן — כי היא מראה איפה
+    המערכת בחרה להצהיר "אני לא יודעת" במקום להציג מחוון ירוק.</p>
+
+    <ul>
+      <li><b>מרחב אווירי איראני —</b> אין בכלל כיסוי של מקלטי ADS-B מעל איראן.
+      במדידה: 0 מטוסים מעל טהרן ומעל מרכז איראן, מול 96 מעל ישראל. לכן אין מקבילה
+      איראנית למדד המרחב האווירי, והדף <b>כותב זאת מפורשות</b> במקום להציג מחוון
+      שלא מודד כלום.</li>
+      <li><b>מדדי שוק (נפט, תנודתיות, שער השקל) —</b> נפסלו משתי סיבות: הנפט הוכח
+      כמגיב-בדיעבד (סעיף 6), ובנוסף לא נמצא ערוץ נתונים יציב מהשרת שמריץ את
+      המערכת — שירות המחירים החזיר שגיאת חסימה בניסיונות חוזרים. אין ערוץ מוכח,
+      אין מדד.</li>
+      <li><b>שוקי ניבוי (Polymarket) —</b> הראו ~99% לתקיפה ישראלית לפני 13 ביוני
+      2025, אבל: (א) הם עקבו בעיקר אחרי אותן חדשות פינוי פומביות; (ב) בפברואר 2026
+      התפרסם שישראלים בעלי גישה מסווגת הימרו בשווקים האלה — כלומר חלק מ"היתרון"
+      היה מידע פנים, שאי אפשר לזהות ככזה בזמן אמת.</li>
+      <li><b>רטוריקת מנהיגים —</b> הוצאה לחלוטין. ב-19 ביוני 2025 נאמר "החלטה בתוך
+      שבועיים", והתקיפה הגיעה תוך יומיים. סיגנל שיכול להיות אנטי-מתואם עם האמת
+      בדיוק ברגע הקריטי אינו סיגנל.</li>
+      <li><b>הודעות NOTAM וספנות —</b> מקורות מבטיחים, אך כל הנתיבים החינמיים שנבדקו
+      חסומים מהשרת. מוצהר כפער, לא ממולא בניחוש.</li>
+      <li><b>רמות שיבוש GPS —</b> מועמד סביר, אבל לא נמצא תיעוד מאומת של הובלה
+      לפני אירוע. לא נכנס עד שיהיה.</li>
+    </ul>
+  </section>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <section class="blk" id="honesty">
+    <h2><span class="num">08</span> כללי היושרה של הדף</h2>
+
+    <p>ארבעה כללים שנאכפים בקוד, ולא רק מוצהרים:</p>
+    <ul>
+      <li><b>קו בסיס לפני התרעה.</b> כלל שמבוסס על חציון אינו פעיל עד שנצברו
+      12 דגימות. עד אז הוא לא יכול להידלק — וגם לא מתיימר.</li>
+      <li><b>נוכחות אינה שינוי.</b> המערכת מתריעה על סטייה מקו בסיס, לא על עצם
+      קיומו של ערך. (הכלל הזה נולד מהתרעת שווא: חיפוש הביטוי "ordered departure"
+      בכל הפיד נדלק על שבע מדינות לא קשורות, שנושאות אותו כטקסט קבוע.)</li>
+      <li><b>מקור שנפל מוצג כאזהרה, לא כשקט.</b> זו נקודה קריטית: מדד שלא נקרא
+      אינו יכול להידלק, ולכן <b>תקלה בפיד גורמת לדף להיראות רגוע יותר מהמציאות</b>.
+      לכן כשמקור נופל מופיעה הודעה מפורשת ש"ייתכן שהרמה מדווחת בחסר".</li>
+      <li><b>נתונים ישנים מסומנים.</b> מעל 90 דקות ללא עדכון — סימון כתום;
+      מעל 12 שעות — המחוונים מאפירים לגמרי. עדיף דף שמודה שהוא לא יודע.</li>
+    </ul>
+  </section>
+
+  <!-- ─────────────────────────────────────────────── -->
+  <section class="blk" id="ai">
+    <h2><span class="num">09</span> גילוי נאות: פיתוח בעזרת כלי AI</h2>
+
+    <p class="lead">המתודולוגיה שבעמוד הזה, ניתוח הסבבים הקודמים והקוד שמריץ את
+    הראדאר פותחו בעזרת כלי בינה מלאכותית, בעבודה משותפת עם מפעיל אנושי.</p>
+
+    <p>ההצהרה הזו מופיעה כאן כי היא רלוונטית לשאלה "כמה אפשר לסמוך על זה", ולא כדי
+    לצאת ידי חובה. לכן גם הפירוט:</p>
+
+    <h3>מה זה אומר בפועל</h3>
+    <ul>
+      <li>סקירת האירועים ההיסטוריים, דירוג משפחות האינדיקטורים והביקורת על מודל
+      משוקלל — נעשו בעזרת כלי AI, מול מקורות פומביים שקושרו בסעיף 6.</li>
+      <li>הספים המספריים נגזרו מ<b>מדידה של הפידים עצמם</b> (התפלגות, חציון,
+      אחוזונים), ולא מהערכה של מודל שפה. איפה שהתבססנו על מדידה — היא מצוינת
+      בעמוד עם תאריך.</li>
+      <li>כל מקור נבדק בקריאה חיה מהשרת לפני שחובר, ומקורות שלא ענו — לא חוברו.</li>
+    </ul>
+
+    <h3>מה זה לא אומר</h3>
+    <ul>
+      <li>אין כאן מודל למידה שמנבא אירועים, ואין אימון על נתונים היסטוריים.
+      ההחלטה בפועל היא <b>שרשרת כללים פשוטה וקריאה</b>, שכל אחד מהם מפורט בעמוד
+      הזה. אין רכיב שאי אפשר להסביר.</li>
+      <li>אין שימוש במודל שפה בזמן ריצה כדי לקבוע רמה. ההרצה כל 30 דקות היא
+      אריתמטיקה על מספרים, לא שיפוט של מודל.</li>
+      <li>אין גישה למידע מסווג, ואין קשר לגורם רשמי כלשהו. כל מקור בעמוד הזה הוא
+      פומבי, וכולם רשומים בשמם.</li>
+    </ul>
+
+    <div class="call info">
+      <b>למה בכלל לפרסם מתודולוגיה:</b> מדדי הסלמה אחרים ברשת הם קופסה שחורה —
+      אי אפשר לדעת מה מזיז אותם, ולכן אי אפשר לדעת מתי לא להאמין להם. עמוד כזה
+      הופך את הדף לבר-ביקורת: אם סף כאן נראה שגוי, אפשר להצביע עליו בדיוק.
+    </div>
+
+    <div class="call red">
+      <b>ולסיום, שוב:</b> זהו פרויקט פרטי, לא גורם רשמי, ואין להסתמך עליו לקבלת
+      החלטות בטיחות. המקור המחייב היחיד הוא פיקוד העורף — תמיד.
+    </div>
+  </section>
+
+  <div class="backbar">
+    <a href="/radar/">← חזרה למצב הנוכחי בראדאר</a>
+  </div>
+
+  <div class="stamp">Last methodology update: 2026-08-17</div>
+
+  </main>
+
+  <footer>
+    <nav class="legal" aria-label="מידע משפטי">
+      <a href="/privacy.html">מדיניות פרטיות</a>
+      <a href="/accessibility.html">הצהרת נגישות</a>
+      <a href="/disclaimer.html">תנאי שימוש</a>
+      <a href="/">kplns.com</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
