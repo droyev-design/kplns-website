@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<!-- Sibling of /radar/ — same design language, same bilingual mechanism
+     (data-lang duplication + CSS toggle + localStorage['radar-lang'], so the
+     language choice follows the user across both pages). data-l is set here,
+     not by script, so the page never flashes both languages before JS runs. -->
+<html lang="he" dir="rtl" data-l="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://kplns.com/flights/">
+<meta name="theme-color" content="#0a1628">
+<title>האם טסים לישראל? ראדאר המשך התעופה — נתב"ג | KPLNS</title>
+<meta name="description" content="האם חברות תעופה זרות עדיין טסות לישראל, והאם זה משתנה? מעקב יומי אחרי לוח הטיסות הרשמי של נתב&quot;ג: כמה חברות זרות טסות, כמה טיסות מבוטלות, וכמה מטוסים באוויר. פרויקט פרטי — לא לוח טיסות.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kplns.com/flights/">
+<meta property="og:title" content="האם טסים לישראל? ראדאר המשך התעופה — נתב&quot;ג">
+<meta property="og:description" content="כמה חברות תעופה זרות טסות היום לישראל, וכמה טיסות מבוטלות — מהלוח הרשמי של נתב&quot;ג. אינו לוח טיסות; לבדיקה מחייבת פנו לחברת התעופה.">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="האם טסים לישראל? ראדאר המשך התעופה — נתב&quot;ג">
+<meta name="twitter:description" content="כמה חברות תעופה זרות טסות היום לישראל, וכמה טיסות מבוטלות — מהלוח הרשמי של נתב&quot;ג.">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-primary:#111827; --bg-secondary:#1a2236;
+  --bg-card:rgba(26,34,54,.65); --bg-card-hover:rgba(32,42,68,.85);
+  --border:rgba(255,255,255,.08); --border-hover:rgba(255,255,255,.15);
+  --cyan:#00d4ff; --cyan-dim:rgba(0,212,255,.15); --teal:#00b8a9;
+  --purple:#9d8cff;
+  --gradient-accent:linear-gradient(135deg,#00d4ff,#00b8a9);
+  --text-primary:#e8edf5; --text-secondary:rgba(232,237,245,.6);
+  --text-muted:rgba(232,237,245,.62);
+  --font-he:'Heebo',sans-serif; --font-en:'Inter',sans-serif;
+  --radius-md:16px; --radius-lg:24px;
+  --l0:#22c55e; --l1:#eab308; --l2:#f97316; --l3:#ff6b6b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.skip{
+  position:absolute;top:-100px;inset-inline-start:0;background:var(--cyan);
+  color:#111827;padding:12px 22px;z-index:999;font-weight:700;font-size:.9rem;
+  transition:top .25s;text-decoration:none
+}
+.skip:focus{top:0}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-he);
+  background:linear-gradient(135deg,#111827 0%,#1a2236 40%,#1e2844 100%);
+  color:var(--text-primary); line-height:1.7; padding:0 0 70px;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:940px;margin:0 auto;padding:0 20px}
+.topbar{
+  border-bottom:1px solid var(--border); background:rgba(17,24,39,.6);
+  backdrop-filter:blur(12px); position:sticky; top:0; z-index:50;
+}
+.topbar-inner{
+  max-width:940px;margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.brand{font-family:var(--font-en);font-weight:700;letter-spacing:.08em;font-size:.95rem}
+.brand span{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.backlink{color:var(--text-secondary);font-size:.85rem;text-decoration:none;transition:color .2s;white-space:nowrap}
+.backlink:hover{color:var(--cyan)}
+.topnav{display:flex;gap:14px;align-items:center}
+html[data-l="he"] [data-lang="en"]{display:none!important}
+html[data-l="en"] [data-lang="he"]{display:none!important}
+.langsw{display:flex;border:1px solid var(--border-hover);border-radius:9px;overflow:hidden}
+.langsw button{
+  background:none;border:0;color:var(--text-secondary);font-family:var(--font-en);
+  font-size:.76rem;font-weight:600;letter-spacing:.06em;padding:5px 10px;
+  cursor:pointer;transition:background .2s,color .2s
+}
+.langsw button:hover{color:var(--text-primary)}
+.langsw button[aria-pressed="true"]{background:var(--cyan-dim);color:var(--cyan)}
+.hero{text-align:center;padding:46px 0 26px}
+.section-label{
+  font-family:var(--font-en);font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:12px
+}
+h1{
+  font-size:clamp(1.7rem,4.6vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.25;
+  background:linear-gradient(135deg,#e8edf5 30%,#00d4ff 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero p{color:var(--text-secondary);margin-top:12px;font-size:1rem}
+.divider{width:64px;height:2px;background:var(--gradient-accent);margin:22px auto 0;border-radius:2px}
+.alertstrip{
+  margin:22px auto 0;max-width:760px;
+  border:1px solid rgba(239,68,68,.32);background:rgba(239,68,68,.07);
+  border-radius:12px;padding:10px 16px;font-size:.88rem;
+  display:flex;gap:9px;align-items:baseline;justify-content:center;
+  flex-wrap:wrap;text-align:center
+}
+.alertstrip b{color:#ff9b9b;font-weight:700}
+.alertstrip a{color:var(--cyan);font-weight:600;text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+.notice{
+  margin:26px 0 0;border-radius:var(--radius-md);
+  border:1px solid rgba(239,68,68,.32);background:rgba(239,68,68,.07);
+  padding:20px 22px;
+}
+.notice h2{
+  font-size:1rem;font-weight:700;color:#ff9b9b;margin-bottom:10px;
+  display:flex;align-items:center;gap:8px
+}
+.notice ul{list-style:none;display:grid;gap:7px}
+.notice li{
+  color:var(--text-secondary);font-size:.9rem;padding-inline-start:20px;position:relative
+}
+.notice li::before{content:"—";position:absolute;inset-inline-start:0;color:rgba(239,68,68,.7)}
+.notice li b{color:var(--text-primary);font-weight:600}
+.notice a{
+  display:inline-block;margin-top:13px;color:var(--cyan);font-weight:600;
+  font-size:.88rem;text-decoration:none;border-bottom:1px solid var(--cyan-dim)
+}
+/* single gauge + stat tiles */
+.gaugewrap{display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:stretch}
+#gauge{display:contents}
+@media(max-width:720px){.gaugewrap{grid-template-columns:1fr}}
+.gauge{
+  position:relative;overflow:hidden;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:26px 22px;text-align:center;
+  backdrop-filter:blur(10px);transition:border-color .3s;
+}
+.gauge-accent{position:absolute;top:0;inset-inline:0;height:3px;display:block}
+.gauge.stale .gauge-accent{background:#94a3b8!important}
+.gauge-head{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:18px}
+.gauge-flag{font-size:1.5rem;line-height:1}
+.gauge-name{font-size:1.05rem;font-weight:700}
+.ring{position:relative;width:150px;height:150px;margin:0 auto 16px}
+.ring svg{transform:rotate(-90deg);width:100%;height:100%}
+.ring circle{fill:none;stroke-width:9;stroke-linecap:round}
+.ring .track{stroke:rgba(255,255,255,.07)}
+.ring .val{transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1),stroke .5s}
+.ring-mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
+.ring-emoji{font-size:1.6rem;line-height:1}
+.ring-label{font-size:.98rem;font-weight:800;letter-spacing:-.01em}
+.ring-scale{font-family:var(--font-en);font-size:.68rem;color:var(--text-muted);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.gauge-note{color:var(--text-secondary);font-size:.86rem;min-height:2.6em}
+.gauge-caveat{margin-top:10px;font-size:.79rem;color:#fbbf24;line-height:1.5}
+.stale .ring .val{stroke:#94a3b8!important}
+.stale .ring-label{color:#94a3b8!important}
+.stale .ring-emoji{filter:grayscale(1);opacity:.6}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:stretch}
+@media(max-width:480px){.tiles{grid-template-columns:1fr 1fr}}
+.tile{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:16px;display:flex;flex-direction:column;justify-content:center;text-align:center
+}
+.tile .tv{font-family:var(--font-en);font-size:1.7rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--text-primary)}
+.tile .tv small{font-size:.95rem;color:var(--text-secondary);font-weight:500}
+.tile .tl{color:var(--text-secondary);font-size:.8rem;margin-top:4px;line-height:1.45}
+h3{
+  font-size:.78rem;font-family:var(--font-en);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-muted);font-weight:600;margin:34px 0 12px;text-align:center
+}
+.rows{display:grid;gap:8px}
+.row{
+  display:block;text-align:start;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:14px;padding:12px 15px;transition:border-color .25s
+}
+.row>summary{display:flex;gap:12px;align-items:flex-start;cursor:pointer;list-style:none;border-radius:6px}
+.row>summary::-webkit-details-marker{display:none}
+.row:hover{border-color:var(--border-hover)}
+.row.on{border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.08)}
+.row.err{border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.05)}
+.row .ic{flex-shrink:0;font-size:.95rem;line-height:1.75;width:18px;text-align:center}
+.row .rw{flex:1 1 auto;min-width:0}
+.row .chev{
+  flex-shrink:0;color:var(--cyan);font-weight:700;font-size:1rem;
+  line-height:1.6;width:14px;text-align:center;user-select:none
+}
+.row[open] .chev::before{content:"−"}
+.row .chev::before{content:"+"}
+.row .nm{font-weight:600;font-size:.93rem}
+.row .rs{color:var(--text-secondary);font-size:.83rem;margin-top:1px;font-variant-numeric:tabular-nums}
+.row-info{
+  margin-top:10px;padding-top:10px;border-top:1px solid var(--border);
+  color:var(--text-secondary);font-size:.83rem;line-height:1.75
+}
+.row-info p{margin:0 0 5px}
+.row-info b{color:var(--text-primary);font-weight:600}
+.row-info a{color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+.obs{
+  font-family:var(--font-en);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple);border:1px solid rgba(157,140,255,.4);border-radius:20px;
+  padding:1px 7px;margin-inline-start:7px;vertical-align:middle;font-weight:600
+}
+.fresh{
+  margin:18px 0 0;text-align:center;font-size:.86rem;color:var(--text-secondary);
+  font-variant-numeric:tabular-nums
+}
+.banner{
+  margin:16px 0 0;border-radius:12px;padding:11px 16px;font-size:.88rem;
+  display:flex;gap:9px;align-items:flex-start;text-align:start
+}
+.banner.warn{border:1px solid rgba(251,191,36,.42);background:rgba(251,191,36,.09);color:#fbbf24}
+.banner.dead{border:1px solid rgba(148,163,184,.42);background:rgba(148,163,184,.10);color:#94a3b8}
+.banner.info{border:1px solid rgba(0,212,255,.3);background:rgba(0,212,255,.06);color:var(--text-secondary)}
+.banner b{display:block;color:var(--text-primary);margin-bottom:2px}
+/* days table */
+.daysbox{
+  margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:18px 20px
+}
+.daysbox h3{margin:0 0 12px;text-align:start;color:var(--text-secondary)}
+.d-wrap{overflow-x:auto}
+.d-tbl{width:100%;border-collapse:collapse;font-size:.86rem}
+.d-tbl th{
+  text-align:start;color:var(--text-muted);font-weight:600;padding:6px 8px;
+  border-bottom:1px solid var(--border);white-space:nowrap
+}
+.d-tbl td{padding:8px;border-bottom:1px solid var(--border);color:var(--text-secondary);font-variant-numeric:tabular-nums;white-space:nowrap}
+.d-tbl tr.today td{color:var(--text-primary);font-weight:600;background:rgba(0,212,255,.05)}
+.d-note{margin-top:10px;color:var(--text-muted);font-size:.8rem}
+/* history strip */
+.hist{
+  margin-top:20px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:18px 20px
+}
+.hist h3{margin:0 0 10px;text-align:start;color:var(--text-secondary)}
+.strip{
+  display:flex;gap:1px;direction:ltr;height:22px;border-radius:5px;
+  overflow:hidden;background:rgba(255,255,255,.04)
+}
+.strip i{flex:1 1 0;display:block;min-width:0}
+.hist-axis{
+  display:flex;justify-content:space-between;direction:ltr;
+  font-size:.72rem;color:var(--text-muted);margin-top:4px;font-family:var(--font-en)
+}
+.hist-note{
+  margin-top:12px;padding-top:11px;border-top:1px solid var(--border);
+  color:var(--text-muted);font-size:.8rem
+}
+/* legend / method / explain */
+.legend{
+  margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px
+}
+.legend-h{margin:0 0 14px;text-align:start;color:var(--text-secondary)}
+.legend-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px}
+@media(max-width:640px){.legend-grid{grid-template-columns:1fr}}
+.legend-item{display:flex;gap:11px;align-items:flex-start}
+.legend-item .dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.legend-item b{display:block;font-size:.92rem;font-weight:700}
+.legend-item span:not(.dot){display:block;color:var(--text-secondary);font-size:.84rem}
+.legend-note{
+  margin-top:15px;padding-top:13px;border-top:1px solid var(--border);
+  color:var(--text-muted);font-size:.83rem
+}
+.method{
+  margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px
+}
+.m-lead{color:var(--text-secondary);font-size:.88rem;margin-bottom:14px}
+.m-lead b{color:var(--text-primary)}
+.method details{border-top:1px solid var(--border);padding:11px 0 3px}
+.method summary{
+  cursor:pointer;font-weight:600;font-size:.92rem;list-style:none;
+  display:flex;align-items:center;gap:8px
+}
+.method summary::-webkit-details-marker{display:none}
+.method summary::before{content:"+";color:var(--cyan);font-weight:700;width:12px}
+.method details[open] summary::before{content:"−"}
+.method details ul{margin:10px 0 4px;padding-inline-start:20px}
+.method details li{color:var(--text-secondary);font-size:.86rem;margin:5px 0}
+.method details p{color:var(--text-secondary);font-size:.86rem;margin-top:9px}
+.method details b{color:var(--text-primary)}
+.m-tbl{width:100%;border-collapse:collapse;margin-top:12px;font-size:.82rem}
+.m-tbl th{
+  text-align:start;color:var(--text-muted);font-weight:600;padding:6px 8px;
+  border-bottom:1px solid var(--border);white-space:nowrap
+}
+.m-tbl td{padding:7px 8px;border-bottom:1px solid var(--border);color:var(--text-secondary);vertical-align:top}
+.m-tbl td:first-child{color:var(--text-primary);font-weight:500}
+.m-wrap{overflow-x:auto}
+.explain{
+  margin-top:34px;border:1px solid rgba(0,212,255,.22);background:rgba(0,212,255,.05);
+  border-radius:var(--radius-md);padding:20px 22px;color:var(--text-secondary);font-size:.9rem
+}
+.explain b{color:var(--cyan);font-weight:600}
+.xlink{
+  display:block;margin-top:22px;padding:15px 17px;text-decoration:none;
+  border:1px solid rgba(0,212,255,.3);background:rgba(0,212,255,.06);
+  border-radius:14px;transition:background .25s,border-color .25s
+}
+.xlink:hover{background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.5)}
+.xlink-t{display:block;font-weight:700;font-size:.95rem;color:var(--text-primary)}
+.xlink-s{display:block;margin-top:5px;font-size:.82rem;color:var(--text-secondary);line-height:1.7}
+.stamp{text-align:center;color:var(--text-muted);font-size:.8rem;margin-top:24px;font-family:var(--font-en);font-variant-numeric:tabular-nums}
+footer{
+  text-align:center;margin-top:34px;padding-top:24px;border-top:1px solid var(--border);
+  color:var(--text-muted);font-size:.8rem;line-height:2.1
+}
+footer a{color:var(--text-secondary);text-decoration:none}
+footer a:hover{color:var(--cyan)}
+.legal{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;margin-bottom:10px}
+.thirdparty{max-width:520px;margin:0 auto;font-size:.75rem;line-height:1.8;color:var(--text-muted)}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"WebPage","@id":"https://kplns.com/flights/#webpage","url":"https://kplns.com/flights/","name":"האם טסים לישראל? ראדאר המשך התעופה — נתב\"ג","description":"מעקב יומי אחרי לוח הטיסות הרשמי של נתב\"ג: כמה חברות תעופה זרות טסות לישראל, כמה טיסות מבוטלות, וכמה מטוסים באוויר. פרויקט פרטי — אינו לוח טיסות; לבדיקה מחייבת פנו לחברת התעופה.","inLanguage":["he-IL","en"],"isPartOf":{"@id":"https://kplns.com/#website"},"publisher":{"@id":"https://kplns.com/#organization"},"breadcrumb":{"@id":"https://kplns.com/flights/#breadcrumb"}},
+  {"@type":"BreadcrumbList","@id":"https://kplns.com/flights/#breadcrumb","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"KPLNS","item":"https://kplns.com/"},
+    {"@type":"ListItem","position":2,"name":"ראדאר המשך התעופה","item":"https://kplns.com/flights/"}
+  ]}
+]}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main"><span data-lang="he">דלג לתוכן</span><span data-lang="en">Skip to content</span></a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span>KPLNS</span></div>
+    <div class="topnav">
+      <div class="langsw" role="group" aria-label="שפה / Language">
+        <button type="button" id="lang-he" aria-pressed="true">עב</button>
+        <button type="button" id="lang-en" aria-pressed="false">EN</button>
+      </div>
+      <a class="backlink" href="/radar/"
+         ><span data-lang="he">ראדאר ההסלמה</span><span data-lang="en">Escalation radar</span></a>
+      <a class="backlink" href="/"
+         ><span data-lang="he">← חזרה לאתר</span><span data-lang="en">← Back to site</span></a>
+    </div>
+  </div>
+</div>
+
+<main class="container" id="main">
+
+  <div class="hero">
+    <div class="section-label">Aviation Continuity</div>
+    <h1><span data-lang="he">האם טסים לישראל?</span
+       ><span data-lang="en">Are airlines still flying to Israel?</span></h1>
+    <p><span data-lang="he">מעקב יומי אחרי המשכיות התעופה האזרחית בנתב"ג — מהלוח הרשמי ומהאוויר</span
+       ><span data-lang="en">Daily tracking of civil-aviation continuity at Ben Gurion — from the official board and from the air</span></p>
+    <div class="divider"></div>
+
+    <div class="alertstrip" data-lang="he">
+      <span><span aria-hidden="true">⚠️</span> <b>זה אינו לוח טיסות.</b>
+      לבדיקה מחייבת של טיסה ספציפית — חברת התעופה שלכם בלבד.</span>
+      <a href="https://www.iaa.gov.il/airports/ben-gurion/flight-board/" target="_blank" rel="noopener">ללוח הרשמי של נתב"ג ←</a>
+    </div>
+    <div class="alertstrip" data-lang="en">
+      <span><span aria-hidden="true">⚠️</span> <b>This is not a flight board.</b>
+      For any specific flight, only your airline's answer counts.</span>
+      <a href="https://www.iaa.gov.il/en/airports/ben-gurion/flight-board/" target="_blank" rel="noopener">Official Ben Gurion board →</a>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="banner warn" data-lang="he"><span aria-hidden="true">⚠️</span><div>
+      <b>הדף דורש JavaScript כדי להציג את הסטטוס.</b>
+      אל תסיקו מכך דבר — בדקו מול חברת התעופה.
+    </div></div>
+    <div class="banner warn" data-lang="en"><span aria-hidden="true">⚠️</span><div>
+      <b>This page needs JavaScript to show the status.</b>
+      Draw no conclusion from that — check with your airline.
+    </div></div>
+  </noscript>
+
+  <div class="fresh" id="fresh"></div>
+  <div id="banners"></div>
+
+  <div class="gaugewrap" id="gaugewrap" role="status" aria-live="polite">
+    <div id="gauge"></div>
+    <div class="tiles" id="tiles"></div>
+  </div>
+
+  <div class="notice" data-lang="he">
+    <h2>⚠️ מה הדף הזה לא יודע</h2>
+    <ul>
+      <li><b>זה אינו פיד ביטולים ואינו מקור רשמי.</b> נוסעים חייבים לבדוק מול חברת התעופה.</li>
+      <li>הלוח הרשמי רואה <b>כ-3 ימים קדימה בלבד</b>. השעיה שהוכרזה לשבוע הבא לא תיראה כאן עד שתיכנס לחלון.</li>
+      <li>חברה שמסירה טיסות מהלוח בשקט (בלי לסמן "מבוטלת") תופיע רק כירידה במספר החברות — לא כביטולים.</li>
+      <li>ביטולים בודדים הם <b>שגרה תפעולית</b> — נמדדו 0–2% ביום רגיל. מספר קטן של ביטולים אינו אומר דבר.</li>
+      <li>זהו <b>פרויקט פרטי</b>, לא גורם רשמי. הפלט הוא רמה, לא תחזית ולא הסתברות.</li>
+    </ul>
+    <a href="https://www.iaa.gov.il/airports/ben-gurion/flight-board/" target="_blank" rel="noopener">ללוח הטיסות הרשמי של רשות שדות התעופה ←</a>
+  </div>
+  <div class="notice" data-lang="en">
+    <h2>⚠️ What this page does not know</h2>
+    <ul>
+      <li><b>This is not a cancellation feed and not an official source.</b> Passengers must check with their airline.</li>
+      <li>The official board sees only <b>about 3 days ahead</b>. A suspension announced for next week will not show here until it enters that window.</li>
+      <li>An airline that quietly removes flights from the schedule (without marking them cancelled) shows up only as a falling carrier count — not as cancellations.</li>
+      <li>A handful of cancellations is <b>routine operations</b> — 0–2% measured on an ordinary day. A small number of cancellations means nothing.</li>
+      <li>This is a <b>private project</b>, not an official body. The output is a level — not a forecast and not a probability.</li>
+    </ul>
+    <a href="https://www.iaa.gov.il/en/airports/ben-gurion/flight-board/" target="_blank" rel="noopener">Israel Airports Authority official flight board →</a>
+  </div>
+
+  <div class="daysbox" id="daysbox" hidden>
+    <h3><span data-lang="he">הימים הקרובים בלוח נתב"ג</span><span data-lang="en">The coming days on the Ben Gurion board</span></h3>
+    <div class="d-wrap"><table class="d-tbl">
+      <thead><tr>
+        <th><span data-lang="he">תאריך</span><span data-lang="en">Date</span></th>
+        <th><span data-lang="he">טיסות בלוח</span><span data-lang="en">Flights on board</span></th>
+        <th><span data-lang="he">מבוטלות</span><span data-lang="en">Cancelled</span></th>
+        <th><span data-lang="he">חברות זרות</span><span data-lang="en">Foreign airlines</span></th>
+      </tr></thead>
+      <tbody id="daysbody"></tbody>
+    </table></div>
+    <p class="d-note" data-lang="he">"חברות זרות" = מספר חברות התעופה הלא-ישראליות השונות עם לפחות טיסה אחת שאינה מבוטלת באותו יום. ימים עתידיים משקפים את הלוח המתוכנן וצפויים להשתנות.</p>
+    <p class="d-note" data-lang="en">"Foreign airlines" = the number of distinct non-Israeli carriers with at least one non-cancelled flight that day. Future days reflect the published schedule and will shift.</p>
+  </div>
+
+  <div id="detail"></div>
+
+  <section class="legend" aria-label="הסבר הרמות" data-lang="he">
+    <h3 class="legend-h">מה אומרות הרמות</h3>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="dot" style="background:var(--l0)" aria-hidden="true"></span>
+        <div><b>0 · פעילות סדירה</b><span>אף מדד לא נדלק. הלוח והתנועה בתחום הרגיל.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l1)" aria-hidden="true"></span>
+        <div><b>1 · חריגה במדד אחד</b><span>מדד בודד נדלק. לרוב רעש תפעולי — לא סיבה לשנות תוכניות.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l2)" aria-hidden="true"></span>
+        <div><b>2 · שיבוש מסתמן</b><span>שני מדדים בלתי תלויים נדלקו יחד. שווה לעקוב.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l3)" aria-hidden="true"></span>
+        <div><b>3 · שיבוש נרחב</b><span>שלושת המדדים נדלקו — עצירה רחבה של התעופה. בדקו מול חברת התעופה לפני כל נסיעה לשדה.</span></div></div>
+    </div>
+    <p class="legend-note">הרמה סופרת <b>כמה מדדים בלתי תלויים</b> נדלקו יחד — לא כמה כותרות פורסמו. חברת תעופה זרה שמפסיקה לטוס לישראל מפסידה כסף אמיתי; לכן זה איתות שקשה לזייף, לשני הכיוונים — גם החזרה של חברות היא איתות רגיעה אמיתי.</p>
+  </section>
+
+  <section class="legend" aria-label="Level legend" data-lang="en">
+    <h3 class="legend-h">What the levels mean</h3>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="dot" style="background:var(--l0)" aria-hidden="true"></span>
+        <div><b>0 · Normal operations</b><span>No indicator lit. Board and traffic within their usual range.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l1)" aria-hidden="true"></span>
+        <div><b>1 · One indicator lit</b><span>A single indicator fired. Usually operational noise — not a reason to change plans.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l2)" aria-hidden="true"></span>
+        <div><b>2 · Disruption forming</b><span>Two independent indicators lit together. Worth following.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l3)" aria-hidden="true"></span>
+        <div><b>3 · Major disruption</b><span>All three indicators lit — a broad aviation stoppage. Check with your airline before travelling to the airport.</span></div></div>
+    </div>
+    <p class="legend-note">The level counts <b>how many independent indicators</b> lit together — not how many headlines were published. A foreign carrier that stops flying to Israel loses real money; that makes it a hard-to-fake signal in both directions — carriers returning is an equally genuine calm signal.</p>
+  </section>
+
+  <div class="explain" data-lang="he">
+    <b>למה דווקא זה.</b> חברת תעופה זרה שמשעה טיסות לישראל מקבלת החלטה
+    <b>יקרה</b>: הכנסות אבודות, מקומות חניה (slots) אבודים, צוותים שצריך להחזיר.
+    היסטורית ההחלטה הזו <b>מקדימה</b> הסלמה ולא עוקבת אחריה — והחזרה של החברות
+    היא איתות רגיעה אמיתי באותה מידה. לעומת זאת, אל על ממשיכה לטוס גם כשכולם
+    עוצרים — ולכן ספירת מטוסים גולמית מסתירה בדיוק את מה שחשוב. הדף עוקב אחרי
+    <b>מספר החברות הזרות השונות</b>, לא אחרי מספר הטיסות.
+  </div>
+  <div class="explain" data-lang="en">
+    <b>Why this, specifically.</b> A foreign airline suspending Tel Aviv service
+    makes an <b>expensive</b> decision: lost revenue, lost slots, crews to
+    reposition. Historically that decision <b>leads</b> escalation rather than
+    following it — and carriers returning is an equally genuine calm signal.
+    El Al, by contrast, keeps flying when everyone else stops — which is why a
+    raw aircraft count hides exactly the thing that matters. This page tracks
+    the <b>number of distinct foreign carriers</b>, not the number of flights.
+  </div>
+
+  <div id="hist"></div>
+
+  <section class="method" aria-label="מתודולוגיה" data-lang="he">
+    <h3 class="legend-h">מתודולוגיה</h3>
+    <p class="m-lead">כל מדד הוא <b>בוליאני</b> — דולק או כבוי — והרמה היא פשוט כמה
+    מדדים דולקים. אין ממוצע משוקלל ואין ניקוד. חוק שאין לו עדיין קו בסיס
+    <b>אינו רשאי להתריע</b> — הוא מוצג כ"צובר קו בסיס" עד שיש לו היסטוריה אמיתית
+    להשוות אליה.</p>
+
+    <details><summary>מה כל מדד מודד, ומה מדליק אותו</summary>
+      <div class="m-wrap"><table class="m-tbl">
+        <thead><tr><th>מדד</th><th>מקור</th><th>מה מדליק</th></tr></thead>
+        <tbody>
+          <tr><td>חברות תעופה זרות בלוח היומי</td><td>לוח נתב"ג הרשמי (data.gov.il, רש"ת)</td>
+              <td>מספר החברות הזרות השונות עם טיסה לא-מבוטלת היום יורד מתחת ל-60% מחציון הימים הדומים (א'–ה' / שישי / שבת נשפטים בנפרד). דורש 4 ימים דומים של היסטוריה.</td></tr>
+          <tr><td>ביטולי טיסות</td><td>לוח נתב"ג הרשמי</td>
+              <td>10% ומעלה מטיסות היום או המחר מבוטלות, ולפחות 20 טיסות — ורק אם התנאי חוזר בשתי בדיקות רצופות. הנורמה הנמדדת: 0–2% ביום.</td></tr>
+          <tr><td>מטוסים באוויר סביב נתב"ג</td><td>adsb.lol (שידורי ADS-B)</td>
+              <td>המספר יורד מתחת ל-35% מהחציון של <b>אותה שעה באותו סוג יום</b>. תא ללא 6 דגימות קודמות, או עם חציון נמוך מ-15, אינו נשפט כלל.</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+
+    <details><summary>בעיית השבת והלילה — ואיך היא נפתרת</summary>
+      <p>התעופה בישראל קורסת <b>בכל שישי בערב</b> מסיבות שאין להן שום קשר לביטחון:
+      החברות הישראליות — כמחצית מהתנועות — אינן טסות בשבת, ובכל לילה יש עוצר טיסות.
+      נמדד בפועל לפני החיווט: בסדרת יום-חול של 27.5 שעות נע מספר המטוסים בין 33
+      ל-114, כלומר שפל הלילה הרגיל לבדו הוא 42% מהחציון היומי — קרוב מסוכן לסף
+      התרעה נאיבי. לכן <b>שום דבר כאן לא מושווה לקו בסיס כלל-שבועי</b>:</p>
+      <ul>
+        <li>מדידת האוויר מושווית רק לאותה שעה באותו סוג יום — קריאת ליל-שישי נשפטת
+        רק מול לילות-שישי קודמים.</li>
+        <li>ספירת החברות הזרות מושווית רק לימים מאותו סוג (חול / שישי / שבת).</li>
+        <li>מדד הביטולים הוא אחוז מתוך הלוח של אותו יום עצמו — ולכן שבת מקוצרת
+        אינה יכולה להזיז אותו מעצם היותה מקוצרת.</li>
+        <li>תא זמן ללא מספיק היסטוריה <b>אינו נשפט</b> — תאי שישי ושבת אינם יכולים
+        להתריע לפני שנצפו לפחות 3 שישבתות אמיתיות.</li>
+      </ul>
+    </details>
+
+    <details><summary>מספרים שנמדדו לפני ההפעלה (17.8.2026)</summary>
+      <ul>
+        <li>49–54 חברות תעופה זרות שונות ביום בלוח נתב"ג (65 מפעילים בסך הכול בחלון).</li>
+        <li>כ-750–830 טיסות ביום (המראות ונחיתות).</li>
+        <li>ביטולים ביום רגיל: 0 עד 15 טיסות (0%–1.8%) — רובם ביטולים תפעוליים
+        בודדים של חברה אחת ליעד אחד.</li>
+        <li>מטוסים באוויר ברדיוס 60 מייל ימי: 33 בלילה עד 114 בשיא, חציון ~78 ביום חול.</li>
+      </ul>
+    </details>
+
+    <details><summary>מה נבדק ונפסל, ומה הדף לא מודד</summary>
+      <ul>
+        <li>ה-API של אתר רש"ת עצמו חסום מאחורי אתגר אנטי-בוטים — הנתונים נלקחים
+        מהעותק הפתוח והרשמי של אותו לוח ב-data.gov.il, שמתעדכן בדקות.</li>
+        <li>FlightAware, aviationstack ו-aviation-edge דורשים מפתח בתשלום — נבדקו
+        (401 / "Missing API Key") ולא בשימוש.</li>
+        <li>הדף אינו רואה הודעות השעיה של חברות (הודעות לעיתונות, מיילים ללקוחות) —
+        רק את מה שמופיע בלוח בפועל.</li>
+        <li>מדידת האוויר כוללת גם מטוסים שחולפים מעל ישראל בדרכם למקום אחר.</li>
+        <li>הבדיקה רצה כל 30 דקות. היא אינה רציפה.</li>
+      </ul>
+      <p>הדף פותח ומתוחזק בעזרת כלי AI, בפיקוח אנושי. כמו בראדאר ההסלמה — מה שלא
+      ניתן למדוד מוצהר כפער, ולא ממולא בניחוש.</p>
+    </details>
+  </section>
+
+  <section class="method" aria-label="Methodology" data-lang="en">
+    <h3 class="legend-h">Methodology</h3>
+    <p class="m-lead">Every indicator is <b>boolean</b> — lit or unlit — and the level
+    is simply how many are lit. No weighted average, no scoring. A rule that does
+    not yet have a baseline <b>is not allowed to fire</b> — it is shown as
+    "building baseline" until it has real history to compare against.</p>
+
+    <details><summary>What each indicator measures, and what lights it</summary>
+      <div class="m-wrap"><table class="m-tbl">
+        <thead><tr><th>Indicator</th><th>Source</th><th>What lights it</th></tr></thead>
+        <tbody>
+          <tr><td>Foreign airlines on today's board</td><td>Official Ben Gurion board (data.gov.il, IAA)</td>
+              <td>The number of distinct foreign carriers with a non-cancelled flight today falls below 60% of the median of comparable days (Sun–Thu / Friday / Saturday judged separately). Needs 4 comparable days of history.</td></tr>
+          <tr><td>Flight cancellations</td><td>Official Ben Gurion board</td>
+              <td>10% or more of today's or tomorrow's flights cancelled, and at least 20 flights — and only if the condition repeats on two consecutive checks. Measured norm: 0–2% a day.</td></tr>
+          <tr><td>Aircraft airborne around Ben Gurion</td><td>adsb.lol (ADS-B broadcasts)</td>
+              <td>The count falls below 35% of the median for <b>the same hour on the same day-class</b>. A bucket without 6 prior samples, or with a median under 15, is not judged at all.</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+
+    <details><summary>The Shabbat and night problem — and how it is solved</summary>
+      <p>Israeli aviation collapses <b>every Friday evening</b> for reasons that have
+      nothing to do with security: Israeli carriers — roughly half the movements —
+      do not fly on Shabbat, and every night there is a curfew. Measured before
+      wiring: over a 27.5-hour weekday series the aircraft count ranged 33–114,
+      meaning the ordinary night trough alone is 42% of the daily median —
+      dangerously close to a naive alert threshold. Therefore <b>nothing here is
+      ever compared against an all-week baseline</b>:</p>
+      <ul>
+        <li>The air measurement is compared only against the same hour on the same
+        day-class — a Friday-night reading is judged only against previous Friday
+        nights.</li>
+        <li>The foreign-carrier count is compared only against days of the same
+        class (weekday / Friday / Saturday).</li>
+        <li>The cancellation indicator is a share of that same day's own board —
+        so a shortened Shabbat schedule cannot move it by being shortened.</li>
+        <li>A time bucket without enough history <b>is not judged</b> — Friday and
+        Saturday buckets cannot fire before at least 3 real Fridays and Saturdays
+        have been observed.</li>
+      </ul>
+    </details>
+
+    <details><summary>Numbers measured before go-live (17 Aug 2026)</summary>
+      <ul>
+        <li>49–54 distinct foreign airlines per day on the Ben Gurion board (65 operators in the window overall).</li>
+        <li>Roughly 750–830 flights a day (arrivals and departures).</li>
+        <li>Cancellations on an ordinary day: 0 to 15 flights (0%–1.8%) — mostly single operational cancellations of one carrier to one destination.</li>
+        <li>Aircraft airborne within 60 nautical miles: 33 at night to 114 at peak, median ~78 on a weekday.</li>
+      </ul>
+    </details>
+
+    <details><summary>What was tested and rejected, and what this page does not measure</summary>
+      <ul>
+        <li>The IAA website's own API sits behind an anti-bot challenge — the data
+        comes from the open, official mirror of the same board on data.gov.il,
+        which updates within minutes.</li>
+        <li>FlightAware, aviationstack and aviation-edge require paid keys — tested
+        (401 / "Missing API Key") and not used.</li>
+        <li>This page cannot see airline suspension announcements (press releases,
+        customer emails) — only what actually appears on the board.</li>
+        <li>The air measurement includes aircraft overflying Israel en route elsewhere.</li>
+        <li>The check runs every 30 minutes. It is not continuous.</li>
+      </ul>
+      <p>This page is developed and maintained with AI tooling, under human review.
+      As on the escalation radar — what cannot be measured is declared as a gap,
+      not filled with a guess.</p>
+    </details>
+  </section>
+
+  <a class="xlink" href="/radar/">
+    <span class="xlink-t" data-lang="he">הפרויקט האח: ראדאר הסלמה — ישראל ואיראן</span>
+    <span class="xlink-t" data-lang="en">Sister project: Escalation Radar — Israel and Iran</span>
+    <span class="xlink-s" data-lang="he">אותה שיטה, שאלה רחבה יותר: מדדי פעולה יקרים — מדיניות פיקוד העורף, מרחב אווירי, אינטרנט באיראן — במקום כותרות. ←</span>
+    <span class="xlink-s" data-lang="en">Same method, a broader question: costly-action indicators — Home Front Command policy, airspace, Iranian internet — instead of headlines. →</span>
+  </a>
+
+  <div class="stamp" id="stamp">טוען…</div>
+
+</main>
+
+<footer>
+  <nav class="legal" aria-label="מידע משפטי" data-lang="he">
+    <a href="/privacy.html">מדיניות פרטיות</a>
+    <a href="/accessibility.html">הצהרת נגישות</a>
+    <a href="/disclaimer.html">תנאי שימוש</a>
+    <a href="/radar/">ראדאר ההסלמה</a>
+    <a href="/">kplns.com</a>
+  </nav>
+  <nav class="legal" aria-label="Legal" data-lang="en">
+    <a href="/privacy.html">Privacy policy</a>
+    <a href="/accessibility.html">Accessibility statement</a>
+    <a href="/disclaimer.html">Terms of use</a>
+    <a href="/radar/">Escalation radar</a>
+    <a href="/">kplns.com</a>
+  </nav>
+  <p class="thirdparty" data-lang="he">
+    הדף אינו אוסף נתונים ואינו משתמש ב-Cookies. הוא טוען גופנים מ-Google Fonts —
+    שירות צד שלישי שרואה את כתובת ה-IP של הדפדפן. נתוני הלוח מקורם במאגר הפתוח
+    של רשות שדות התעופה ב-data.gov.il; נתוני האוויר מ-adsb.lol.
+    בחירת השפה נשמרת מקומית בדפדפן שלכם ואינה נשלחת לשום מקום.
+  </p>
+  <p class="thirdparty" data-lang="en">
+    This page collects no data and uses no cookies. It loads fonts from Google
+    Fonts — a third-party service that sees your browser's IP address. Board data
+    comes from the Israel Airports Authority's open dataset on data.gov.il; air
+    data from adsb.lol. Your language choice is stored locally in your browser
+    and is never sent anywhere.
+  </p>
+</footer>
+
+<script>
+// Same bilingual mechanism and the SAME localStorage key as /radar/, so the
+// language choice follows the user between the two pages.
+const LANGS = ['he', 'en'];
+let LANG = 'he';
+let DATA = null;
+
+const LVLS = {
+  he: [
+    {e:'🟢', t:'פעילות סדירה', c:'var(--l0)', n:'אף מדד לא נדלק. הלוח והתנועה בתחום הרגיל.'},
+    {e:'🟡', t:'חריגה במדד אחד', c:'var(--l1)', n:'מדד בודד נדלק. לרוב רעש תפעולי — לא סיבה לשנות תוכניות.'},
+    {e:'🟠', t:'שיבוש מסתמן', c:'var(--l2)', n:'שני מדדים בלתי תלויים נדלקו יחד. שווה לעקוב.'},
+    {e:'🔴', t:'שיבוש נרחב', c:'var(--l3)', n:'שלושת המדדים נדלקו. בדקו מול חברת התעופה לפני נסיעה לשדה.'}
+  ],
+  en: [
+    {e:'🟢', t:'Normal operations', c:'var(--l0)', n:'No indicator lit. Board and traffic within their usual range.'},
+    {e:'🟡', t:'One indicator lit', c:'var(--l1)', n:'A single indicator fired. Usually operational noise — not a reason to change plans.'},
+    {e:'🟠', t:'Disruption forming', c:'var(--l2)', n:'Two independent indicators lit together. Worth following.'},
+    {e:'🔴', t:'Major disruption', c:'var(--l3)', n:'All three indicators lit. Check with your airline before travelling to the airport.'}
+  ]
+};
+
+const T = {
+  he: {
+    gaugeName: 'המשכיות התעופה — נתב"ג',
+    levelAria: (l, t) => `רמה ${l} מתוך 3 — ${t}`,
+    staleNote: 'הנתון אינו עדכני — אין להסיק ממנו דבר.',
+    gaugeCaveat: n => `⚠️ ${n} מקורות לא נקראו — ייתכן שהרמה מוצגת נמוך מדי`,
+    agoNow: 'לפני פחות מדקה', agoMin: m => `לפני ${m} דק׳`,
+    agoHour: h => `לפני ${h} שע׳`, agoDay: d => `לפני ${d} ימים`,
+    tileForeign: 'חברות תעופה זרות שונות טסות היום',
+    tileCancel: 'טיסות מבוטלות היום בלוח',
+    tileAir: 'מטוסים באוויר כעת (רדיוס 60 מייל ימי)',
+    tileOps: 'סימני קריאה שונים של חברות באוויר כעת',
+    noData: 'אין נתונים', bucketLevel: v => `רמה ${v}`,
+    staleTitle: a => `<b>הנתונים אינם עדכניים (${a}).</b>
+      המדדים מוצגים מעומעמים ואינם מייצגים את המצב כעת. בדקו בלוח הרשמי.`,
+    warnTitle: a => `<b>העדכון האחרון ${a}.</b>
+      הבדיקה אמורה לרוץ כל 30 דקות — ייתכן שמקור נתונים או תהליך העדכון נתקע.`,
+    degradedTitle: (n, list) => `<b>${n} מקורות לא נקראו בבדיקה האחרונה.</b>
+      ${list} — מדד שלא נקרא אינו יכול להידלק, ולכן הרמה עשויה להיות מוצגת נמוך מדי.`,
+    obsTitle: (list, b) => `<b>שלב צבירת קו בסיס.</b> המדדים הבאים עדיין אינם רשאים להתריע: ${list}.
+      ימי חול, שישי ושבת נשפטים בנפרד, ולכן כל סוג יום צריך היסטוריה משלו
+      (נאסף מ-${b.since}: ${b.weekday_days} ימי חול, ${b.fri_days} שישי, ${b.sat_days} שבת).
+      עד אז הדף מציג את המספרים כפי שהם — בלי לשפוט אותם.`,
+    fresh: (a, ok, tot) => `עודכן ${a} · נבדק כל 30 דקות · ${ok}/${tot} מקורות נקראו`,
+    notRead: 'לא נקרא בריצה האחרונה', ok: 'תקין',
+    tagObserve: 'צובר קו בסיס',
+    infoWhat: 'מה זה מודד:', infoWhen: 'מה מדליק:', infoSrc: 'מקור:',
+    detailTitle: 'המדדים',
+    histTitle: '7 הימים האחרונים',
+    histAria: 'היסטוריית הרמות בשבוע האחרון',
+    histFrom: 'לפני 7 ימים', histTo: 'עכשיו',
+    histNote: `כל משבצת היא שעתיים, וצבועה לפי הרמה <b>הגבוהה ביותר</b> באותו חלון.
+      משבצת אפורה = לא נאספו נתונים, ולא "פעילות סדירה".`,
+    stamp: 'חותמת מלאה: ', locale: 'he-IL',
+    errTitle: 'הנתונים אינם זמינים',
+    errNote: 'לא ניתן לטעון את הסטטוס. אל תסיקו מכך דבר — בדקו בלוח הרשמי של נתב"ג.'
+  },
+  en: {
+    gaugeName: 'Aviation continuity — Ben Gurion',
+    levelAria: (l, t) => `Level ${l} of 3 — ${t}`,
+    staleNote: 'This reading is out of date — draw no conclusion from it.',
+    gaugeCaveat: n => `⚠️ ${n} sources were not read — the level may be under-reported`,
+    agoNow: 'less than a minute ago', agoMin: m => `${m} min ago`,
+    agoHour: h => `${h} h ago`, agoDay: d => `${d} days ago`,
+    tileForeign: 'distinct foreign airlines flying today',
+    tileCancel: 'flights cancelled on today’s board',
+    tileAir: 'aircraft airborne now (60 nm radius)',
+    tileOps: 'distinct airline callsigns airborne now',
+    noData: 'no data', bucketLevel: v => `level ${v}`,
+    staleTitle: a => `<b>The data is out of date (${a}).</b>
+      The gauges are dimmed and do not represent the current situation. Check the official board.`,
+    warnTitle: a => `<b>Last update ${a}.</b>
+      The check should run every 30 minutes — a data source or the update process may be stuck.`,
+    degradedTitle: (n, list) => `<b>${n} sources were not read in the last check.</b>
+      ${list} — an indicator that cannot be read cannot light, so the level may be under-reported.`,
+    obsTitle: (list, b) => `<b>Baseline-building phase.</b> These indicators are not yet allowed to fire: ${list}.
+      Weekdays, Fridays and Saturdays are judged separately, so each day-class needs its own history
+      (collecting since ${b.since}: ${b.weekday_days} weekdays, ${b.fri_days} Fridays, ${b.sat_days} Saturdays).
+      Until then the page shows the numbers as they are — without judging them.`,
+    fresh: (a, ok, tot) => `Updated ${a} · checked every 30 minutes · ${ok}/${tot} sources read`,
+    notRead: 'not read in the last run', ok: 'normal',
+    tagObserve: 'building baseline',
+    infoWhat: 'What it measures:', infoWhen: 'What lights it:', infoSrc: 'Source:',
+    detailTitle: 'The indicators',
+    histTitle: 'The last 7 days',
+    histAria: 'Level history for the past week',
+    histFrom: '7 days ago', histTo: 'now',
+    histNote: `Each cell is two hours, coloured by the <b>highest</b> level in that window.
+      A grey cell means no data was collected, not "normal operations".`,
+    stamp: 'Full timestamp: ', locale: 'en-GB',
+    errTitle: 'Data unavailable',
+    errNote: 'The status could not be loaded. Draw no conclusion from that — check the official Ben Gurion board.'
+  }
+};
+
+const R = 62, C = 2 * Math.PI * R;
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const f = (o, k) => (LANG === 'en' ? (o[k + '_en'] || o[k]) : o[k]) || '';
+
+// Every threshold below is copied from monitor.py — if a rule changes there,
+// this text must change with it.
+const INFO = {
+  foreign_carriers: {
+    what: 'מספר חברות התעופה <b>הלא-ישראליות</b> השונות שיש להן לפחות טיסה אחת שאינה מבוטלת בלוח נתב"ג של היום. אל על ממשיכה לטוס כשכולם עוצרים — ולכן נספרות חברות, לא טיסות.',
+    when: 'כשהמספר יורד מתחת ל-60% מחציון הימים הדומים (א׳–ה׳ / שישי / שבת בנפרד). דורש 4 ימים דומים של היסטוריה — עד אז צובר קו בסיס ואינו מתריע.',
+    src: 'לוח נתב"ג הרשמי — המאגר הפתוח של רש"ת', url: 'https://data.gov.il/dataset/flydata',
+    what_en: 'The number of distinct <b>non-Israeli</b> airlines with at least one non-cancelled flight on today’s Ben Gurion board. El Al keeps flying when everyone else stops — so carriers are counted, not flights.',
+    when_en: 'When the count falls below 60% of the median of comparable days (Sun–Thu / Friday / Saturday separately). Needs 4 comparable days of history — until then it builds baseline and cannot fire.',
+    src_en: 'Official Ben Gurion board — IAA open dataset'
+  },
+  cancellations: {
+    what: 'אחוז הטיסות המסומנות "מבוטלת" בלוח הרשמי, להיום ולמחר. ביטולים בודדים הם שגרה — הנורמה הנמדדת היא 0–2% ביום.',
+    when: 'כש-10% ומעלה מטיסות יום אחד מבוטלות, ולפחות 20 טיסות — ורק אם התנאי חוזר בשתי בדיקות רצופות (כדי שעדכון נתונים פגום לא ידליק אותו). מכיוון שזה אחוז מהלוח של אותו יום עצמו, שבת מקוצרת אינה מזיזה אותו.',
+    src: 'לוח נתב"ג הרשמי — המאגר הפתוח של רש"ת', url: 'https://data.gov.il/dataset/flydata',
+    what_en: 'The share of flights marked CANCELED on the official board, for today and tomorrow. Single cancellations are routine — the measured norm is 0–2% a day.',
+    when_en: 'When 10% or more of one day’s flights are cancelled, and at least 20 flights — and only if the condition repeats on two consecutive checks (so one corrupted data upload cannot light it). Because it is a share of that day’s own board, a shortened Shabbat schedule cannot move it.',
+    src_en: 'Official Ben Gurion board — IAA open dataset'
+  },
+  live_traffic: {
+    what: 'מספר המטוסים המשדרים ADS-B ברדיוס 60 מייל ימי סביב נתב"ג, בכל בדיקה. כולל גם מטוסים שחולפים מעל ישראל בדרכם למקום אחר.',
+    when: 'כשהמספר יורד מתחת ל-35% מהחציון של <b>אותה שעה באותו סוג יום</b> (חול / שישי / שבת). תא ללא 6 דגימות קודמות או עם חציון נמוך מ-15 אינו נשפט — ולכן קריאת ליל-שישי לעולם אינה מושווית ליום חול.',
+    src: 'adsb.lol', url: 'https://adsb.lol/',
+    what_en: 'The number of aircraft broadcasting ADS-B within 60 nautical miles of Ben Gurion, at every check. Includes aircraft overflying Israel en route elsewhere.',
+    when_en: 'When the count falls below 35% of the median for <b>the same hour on the same day-class</b> (weekday / Friday / Saturday). A bucket without 6 prior samples or with a median under 15 is not judged — so a Friday-night reading is never compared against a weekday.',
+    src_en: 'adsb.lol'
+  }
+};
+
+function ago(ms){
+  const t = T[LANG];
+  const m = Math.round(ms / 60000);
+  if (m < 1)   return t.agoNow;
+  if (m < 60)  return t.agoMin(m);
+  const h = Math.round(m / 60);
+  if (h < 24)  return t.agoHour(h);
+  return t.agoDay(Math.round(h / 24));
+}
+
+function gauge(level, stale, degraded){
+  const t = T[LANG];
+  const L = LVLS[LANG][Math.max(0, Math.min(3, level || 0))];
+  const off = C - (C * (level || 0) / 3);
+  const caveat = degraded.length && !stale
+    ? `<div class="gauge-caveat">${t.gaugeCaveat(degraded.length)}</div>` : '';
+  return `<div class="gauge${stale ? ' stale' : ''}">
+    <span class="gauge-accent" style="background:${L.c}" aria-hidden="true"></span>
+    <div class="gauge-head"><span class="gauge-flag" aria-hidden="true">✈️</span>
+      <span class="gauge-name">${esc(t.gaugeName)}</span></div>
+    <div class="ring" role="img" aria-label="${esc(t.levelAria(level||0, L.t))}">
+      <svg viewBox="0 0 150 150" aria-hidden="true" focusable="false">
+        <circle class="track" cx="75" cy="75" r="${R}"></circle>
+        <circle class="val" cx="75" cy="75" r="${R}"
+          stroke="${L.c}" stroke-dasharray="${C}" stroke-dashoffset="${off}"></circle>
+      </svg>
+      <div class="ring-mid">
+        <div class="ring-emoji" aria-hidden="true">${L.e}</div>
+        <div class="ring-label" style="color:${L.c}">${L.t}</div>
+        <div class="ring-scale">${level || 0} / 3</div>
+      </div>
+    </div>
+    <div class="gauge-note">${stale ? t.staleNote : L.n}</div>
+    ${caveat}
+  </div>`;
+}
+
+function tiles(now){
+  const t = T[LANG];
+  const v = x => (x == null ? '—' : x);
+  const cancel = now.cancelled == null ? '—'
+    : `${now.cancelled}<small> / ${v(now.flights)}</small>`;
+  return `
+    <div class="tile"><div class="tv">${v(now.foreign_ops)}</div><div class="tl">${esc(t.tileForeign)}</div></div>
+    <div class="tile"><div class="tv">${cancel}</div><div class="tl">${esc(t.tileCancel)}</div></div>
+    <div class="tile"><div class="tv">${v(now.aircraft)}</div><div class="tl">${esc(t.tileAir)}</div></div>
+    <div class="tile"><div class="tv">${v(now.airborne_ops)}</div><div class="tl">${esc(t.tileOps)}</div></div>`;
+}
+
+function daysTable(days){
+  const box = document.getElementById('daysbox');
+  const body = document.getElementById('daysbody');
+  if (!days || !days.length){ box.hidden = true; return; }
+  box.hidden = false;
+  body.innerHTML = days.map(d => {
+    const dt = d.date.slice(8,10) + '.' + d.date.slice(5,7);
+    const dow = LANG === 'en' ? (d.dow_en || d.dow) : d.dow;
+    return `<tr${d.today ? ' class="today"' : ''}>
+      <td>${esc(dow)} ${esc(dt)}</td>
+      <td>${d.flights}</td>
+      <td>${d.cancelled}</td>
+      <td>${d.foreign_ops}</td>
+    </tr>`;
+  }).join('');
+}
+
+function info(key){
+  const i = INFO[key];
+  if (!i) return '';
+  const s = T[LANG];
+  return `<div class="row-info">
+    <p><b>${s.infoWhat}</b> ${f(i, 'what')}</p>
+    <p><b>${s.infoWhen}</b> ${f(i, 'when')}</p>
+    <p><b>${s.infoSrc}</b> <a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(f(i, 'src'))}</a></p>
+  </div>`;
+}
+
+function rows(fams){
+  const s = T[LANG];
+  const items = fams.map(t => {
+    const cls = t.lit ? 'row on' : (t.ok === false ? 'row err' : 'row');
+    const ic  = t.lit ? '🔺' : (t.ok === false ? '⚠️' : '✓');
+    const rs  = t.lit ? f(t, 'reason')
+              : (t.ok === false ? s.notRead : (f(t, 'value') || s.ok));
+    const tag = !t.armed && t.ok !== false
+      ? `<span class="obs">${esc(s.tagObserve)}</span>` : '';
+    const body = `
+      <div class="ic" aria-hidden="true">${ic}</div>
+      <div class="rw">
+        <div class="nm">${esc(f(t, 'name'))}${tag}</div>
+        <div class="rs">${esc(rs)}</div>
+      </div>`;
+    return `<details class="${cls}"><summary>${body}
+      <span class="chev" aria-hidden="true"></span></summary>${info(t.key)}</details>`;
+  }).join('');
+  return `<h3>${esc(s.detailTitle)}</h3><div class="rows">${items}</div>`;
+}
+
+function strip(hist){
+  const COL = ['var(--l0)','var(--l1)','var(--l2)','var(--l3)'];
+  const now = Date.now(), BUCKET = 2*3600*1000, N = 84;
+  const buckets = new Array(N).fill(null);
+  (hist||[]).forEach(h => {
+    const i = N - 1 - Math.floor((now - h.t*1000) / BUCKET);
+    if (i >= 0 && i < N) buckets[i] = Math.max(buckets[i] ?? 0, h.lv ?? 0);
+  });
+  const t = T[LANG];
+  return buckets.map(v => v === null
+    ? `<i style="background:rgba(255,255,255,.05)" title="${esc(t.noData)}"></i>`
+    : `<i style="background:${COL[v]}" title="${esc(t.bucketLevel(v))}"></i>`).join('');
+}
+
+function render(){
+  const d = DATA;
+  if (!d) return;
+  const s = T[LANG];
+  const dt  = new Date(d.generated);
+  const age = Date.now() - dt.getTime();
+  const WARN = 90 * 60 * 1000, DEAD = 12 * 3600 * 1000;
+  const stale = age > DEAD;
+  const degraded = (LANG === 'en' ? (d.degraded_en || d.degraded) : d.degraded) || [];
+
+  const b = [];
+  if (stale) {
+    b.push(`<div class="banner dead"><span aria-hidden="true">⊘</span><div>${s.staleTitle(ago(age))}</div></div>`);
+  } else if (age > WARN) {
+    b.push(`<div class="banner warn"><span aria-hidden="true">⚠️</span><div>${s.warnTitle(ago(age))}</div></div>`);
+  }
+  if (degraded.length && !stale) {
+    b.push(`<div class="banner warn"><span aria-hidden="true">⚠️</span><div>${s.degradedTitle(degraded.length, degraded.map(esc).join(' · '))}</div></div>`);
+  }
+  const observing = (d.tripwires || []).filter(t => !t.armed && t.ok !== false);
+  if (observing.length && !stale && d.baseline) {
+    b.push(`<div class="banner info"><span aria-hidden="true">⏳</span><div>
+      ${s.obsTitle(observing.map(t => esc(f(t, 'name'))).join(' · '), d.baseline)}</div></div>`);
+  }
+  document.getElementById('banners').innerHTML = b.join('');
+
+  document.getElementById('fresh').textContent =
+    s.fresh(ago(age), d.sources_ok, d.sources_total);
+  document.getElementById('gauge').innerHTML = gauge(d.level, stale, degraded);
+  document.getElementById('tiles').innerHTML = tiles(d.now || {});
+  daysTable(d.days);
+  document.getElementById('detail').innerHTML = rows(d.tripwires || []);
+
+  const H = d.history || [];
+  document.getElementById('hist').innerHTML = H.length < 2 ? '' : `
+    <section class="hist" aria-label="${esc(s.histAria)}">
+      <h3>${esc(s.histTitle)}</h3>
+      <div class="strip" role="img" aria-label="${esc(s.histAria)}">${strip(H)}</div>
+      <div class="hist-axis"><span>${esc(s.histFrom)}</span><span>${esc(s.histTo)}</span></div>
+      <div class="hist-note">${s.histNote}</div>
+    </section>`;
+  document.getElementById('stamp').textContent =
+    s.stamp + dt.toLocaleString(s.locale, {timeZone:'Asia/Jerusalem'});
+}
+
+function renderError(){
+  const s = T[LANG];
+  document.getElementById('banners').innerHTML = '';
+  document.getElementById('fresh').textContent = '';
+  document.getElementById('gauge').innerHTML =
+    `<div class="gauge"><div class="gauge-name">${esc(s.errTitle)}</div>` +
+    `<div class="gauge-note">${esc(s.errNote)}</div></div>`;
+  document.getElementById('tiles').innerHTML = '';
+  document.getElementById('stamp').textContent = '';
+}
+
+function setLang(l, persist){
+  LANG = LANGS.indexOf(l) >= 0 ? l : 'he';
+  const root = document.documentElement;
+  root.setAttribute('data-l', LANG);
+  root.setAttribute('lang', LANG);
+  root.setAttribute('dir', LANG === 'he' ? 'rtl' : 'ltr');
+  LANGS.forEach(x => {
+    const btn = document.getElementById('lang-' + x);
+    if (btn) btn.setAttribute('aria-pressed', String(x === LANG));
+  });
+  if (persist) { try { localStorage.setItem('radar-lang', LANG); } catch(e){} }
+  if (DATA) render(); else if (LOAD_FAILED) renderError();
+}
+
+let LOAD_FAILED = false;
+
+(function initLang(){
+  let saved = null;
+  try { saved = localStorage.getItem('radar-lang'); } catch(e){}
+  const auto = (navigator.language || '').toLowerCase().startsWith('he') ? 'he'
+             : ((navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'he');
+  setLang(saved || auto, false);
+  LANGS.forEach(x => {
+    const btn = document.getElementById('lang-' + x);
+    if (btn) btn.addEventListener('click', () => setLang(x, true));
+  });
+})();
+
+fetch('status.json?t=' + Date.now())
+  .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d => { DATA = d; render(); })
+  .catch(() => { LOAD_FAILED = true; renderError(); });
+</script>
+</body>
+</html>

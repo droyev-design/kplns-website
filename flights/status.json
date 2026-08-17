@@ -1,0 +1,113 @@
+{
+ "generated": "2026-08-17T17:35:30+00:00",
+ "level": 0,
+ "now": {
+  "foreign_ops": 49,
+  "cancelled": 15,
+  "flights": 826,
+  "aircraft": 16,
+  "airborne_ops": 8
+ },
+ "history": [
+  {
+   "t": 1786987703,
+   "lv": 0
+  },
+  {
+   "t": 1786988130,
+   "lv": 0
+  }
+ ],
+ "tripwires": [
+  {
+   "key": "foreign_carriers",
+   "name": "חברות תעופה זרות בלוח היומי",
+   "name_en": "Foreign airlines on today's board",
+   "lit": false,
+   "armed": false,
+   "ok": true,
+   "reason": "",
+   "reason_en": "",
+   "value": "49 חברות זרות שונות טסות היום",
+   "value_en": "49 distinct foreign airlines flying today"
+  },
+  {
+   "key": "cancellations",
+   "name": "ביטולי טיסות בלוח נתב\"ג",
+   "name_en": "Flight cancellations at Ben Gurion",
+   "lit": false,
+   "armed": true,
+   "ok": true,
+   "reason": "",
+   "reason_en": "",
+   "value": "15 מתוך 826 טיסות היום (1.8%) — ביטולים בודדים הם שגרה",
+   "value_en": "15 of 826 flights today (1.8%) — a handful is routine"
+  },
+  {
+   "key": "live_traffic",
+   "name": "מטוסים באוויר סביב נתב\"ג",
+   "name_en": "Aircraft airborne around Ben Gurion",
+   "lit": false,
+   "armed": false,
+   "ok": true,
+   "reason": "",
+   "reason_en": "",
+   "value": "16 מטוסים באוויר כעת, 8 סימני קריאה של חברות",
+   "value_en": "16 aircraft airborne now, 8 airline callsigns"
+  }
+ ],
+ "days": [
+  {
+   "date": "2026-08-17",
+   "dow": "שני",
+   "dow_en": "Mon",
+   "today": true,
+   "flights": 826,
+   "cancelled": 15,
+   "foreign_ops": 49,
+   "il_ops": 3
+  },
+  {
+   "date": "2026-08-18",
+   "dow": "שלישי",
+   "dow_en": "Tue",
+   "today": false,
+   "flights": 791,
+   "cancelled": 8,
+   "foreign_ops": 54,
+   "il_ops": 3
+  },
+  {
+   "date": "2026-08-19",
+   "dow": "רביעי",
+   "dow_en": "Wed",
+   "today": false,
+   "flights": 808,
+   "cancelled": 2,
+   "foreign_ops": 52,
+   "il_ops": 3
+  },
+  {
+   "date": "2026-08-20",
+   "dow": "חמישי",
+   "dow_en": "Thu",
+   "today": false,
+   "flights": 759,
+   "cancelled": 0,
+   "foreign_ops": 51,
+   "il_ops": 3
+  }
+ ],
+ "baseline": {
+  "since": "2026-08-17",
+  "weekday_days": 0,
+  "fri_days": 0,
+  "sat_days": 0,
+  "fops_need": 4,
+  "air_need": 6
+ },
+ "sources_ok": 2,
+ "sources_total": 2,
+ "degraded": [],
+ "degraded_en": []
+}
