@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T10:12:23+00:00",
+ "generated": "2026-08-17T10:42:28+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -170,6 +170,11 @@
    "t": 1786961543,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1786963348,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -204,8 +209,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "80 מטוסים אזרחיים באזור",
-     "value_en": "80 civil aircraft in the area",
+     "value": "57 מטוסים אזרחיים באזור",
+     "value_en": "57 civil aircraft in the area",
      "range": "56–94"
     },
     {
@@ -232,8 +237,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "0–10"
     },
     {
@@ -311,9 +316,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,861,800 ריאל לדולר",
-     "value_en": "1,861,800 rial to the dollar",
-     "range": "1,866,800–1,866,800"
+     "value": "1,864,950 ריאל לדולר",
+     "value_en": "1,864,950 rial to the dollar",
+     "range": "1,864,950–1,866,800"
     },
     {
      "key": "advisories_ir",
@@ -339,8 +344,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "0–10"
     },
     {
