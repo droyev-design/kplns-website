@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T08:12:22+00:00",
+ "generated": "2026-08-17T08:42:24+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -150,6 +150,11 @@
    "t": 1786954342,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1786956144,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -184,8 +189,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "99 מטוסים אזרחיים באזור",
-     "value_en": "99 civil aircraft in the area",
+     "value": "93 מטוסים אזרחיים באזור",
+     "value_en": "93 civil aircraft in the area",
      "range": "56–98"
     },
     {
@@ -251,7 +256,7 @@
      "reason_en": "",
      "value": "קישוריות תקינה (41,639 מסלולי BGP)",
      "value_en": "Connectivity normal (41,639 BGP routes)",
-     "range": "40,850–41,638"
+     "range": "40,850–41,639"
     },
     {
      "key": "ir_provinces",
@@ -291,8 +296,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,866,800 ריאל לדולר",
-     "value_en": "1,866,800 rial to the dollar",
+     "value": "1,855,100 ריאל לדולר",
+     "value_en": "1,855,100 rial to the dollar",
      "range": "1,866,800–1,866,800"
     },
     {
