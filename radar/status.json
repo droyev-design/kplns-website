@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T13:42:32+00:00",
+ "generated": "2026-08-17T14:12:23+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -205,6 +205,11 @@
    "t": 1786974152,
    "il": 0,
    "ir": 1
+  },
+  {
+   "t": 1786975943,
+   "il": 0,
+   "ir": 1
   }
  ],
  "indices": [
@@ -239,8 +244,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "102 מטוסים אזרחיים באזור",
-     "value_en": "102 civil aircraft in the area",
+     "value": "76 מטוסים אזרחיים באזור",
+     "value_en": "76 civil aircraft in the area",
      "range": "56–99"
     },
     {
@@ -267,8 +272,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "0–10"
     },
     {
@@ -304,8 +309,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,629 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,629 BGP routes)",
+     "value": "קישוריות תקינה (41,631 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,631 BGP routes)",
      "range": "40,855–41,639"
     },
     {
@@ -374,8 +379,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "0–10"
     },
     {
