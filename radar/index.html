@@ -388,6 +388,8 @@ footer a:hover{color:var(--cyan)}
       </div>
       <a class="backlink" href="/radar/methodology.html"
          ><span data-lang="he">מתודולוגיה</span><span data-lang="en">Methodology</span></a>
+      <a class="backlink" href="/flights/"
+         ><span data-lang="he">✈️ האם טסים לישראל?</span><span data-lang="en">✈️ Flights to Israel</span></a>
       <a class="backlink" href="/"
          ><span data-lang="he">← חזרה לאתר</span><span data-lang="en">← Back to site</span></a>
     </div>
@@ -539,12 +541,19 @@ footer a:hover{color:var(--cyan)}
               <td>כל שינוי בנוסח ההנחיות מול קו הבסיס השמור</td></tr>
           <tr><td>מרחב אווירי ישראל</td><td>adsb.lol</td>
               <td>מספר המטוסים האזרחיים יורד מתחת ל-35% מהחציון</td></tr>
+          <tr><td>מרחב אווירי ירדן</td><td>adsb.lol (שטח ירדן בלבד)</td>
+              <td>שמיים כמעט ריקים בשתי בדיקות רצופות: מתחת ל-35% מהחציון,
+              לכל היותר 2 מטוסים, ומתחת לאחוזון 10; אין שיפוט כשהחציון
+              נמוך מ-5</td></tr>
           <tr><td>תעופה צבאית באזור</td><td>adsb.lol</td>
               <td>פי 2 מהחציון, ולפחות 8 מטוסים מעליו</td></tr>
           <tr><td>אינטרנט באיראן (ארצי)</td><td>IODA · Georgia Tech</td>
               <td>נפילת BGP מתחת ל-85% מהחציון</td></tr>
           <tr><td>אינטרנט ברמת מחוז</td><td>IODA · 8 מחוזות</td>
               <td><b>שני מחוזות ומעלה</b> יורדים מתחת ל-80% מהחציון</td></tr>
+          <tr><td>אינטרנט במדינות שכנות</td><td>IODA · לבנון, סוריה, ירדן, מצרים</td>
+              <td>BGP ארצי של אחת המדינות יורד מתחת ל-85% מהחציון
+              (קול אחד למשפחה; שם המדינה בסיבה)</td></tr>
           <tr><td>חריגות תרמיות מלוויין</td><td>NASA FIRMS · VIIRS</td>
               <td>זינוק פי 3 מהחציון באירועים עזים (FRP≥50) במקומות ללא היסטוריית בעירה</td></tr>
           <tr><td>ריאל איראני</td><td>tgju (שוק חופשי)</td>
@@ -588,6 +597,12 @@ footer a:hover{color:var(--cyan)}
         "משהו גדול בוער היכן שבדרך כלל לא בוער", ולא יותר מזה. מדידה מ-16.8.2026
         הראתה כ-800–1,300 חריגות ביום באזור, שרובן המכריע לפידי גז קבועים בשדות
         הנפט בח'וזסתאן — ולכן המדד מסנן מקומות שבוערים באופן קבוע.</li>
+        <li>כיסוי ה-ADS-B מעל ירדן קיים אך <b>דליל</b> — 5–15 מטוסים ברגע רגיל,
+        מול ~80 מעל ישראל (נמדד 17.8.2026). לכן מדד ירדן דורש שמיים כמעט
+        ריקים בשתי בדיקות רצופות, ועלול להחמיץ סגירה חלקית או קצרה.</li>
+        <li>נפילת אינטרנט במדינה שכנה <b>איננה בהכרח אות מלחמה</b>: תחזוקה,
+        קריסת חשמל וצנזורה של מחאה פנימית נראות זהות מבחוץ. המדד מדווח
+        שמשהו גדול קרה לקישוריות של מדינה — לא למה.</li>
         <li>בתרחיש מהיר ייתכן שאף אחד מהמדדים לא יזוז לפני האירוע.</li>
         <li>המערכת נבדקת כל 30 דקות. היא אינה רציפה.</li>
       </ul>
@@ -634,12 +649,19 @@ footer a:hover{color:var(--cyan)}
               <td>Any change of wording against the stored baseline</td></tr>
           <tr><td>Israeli airspace</td><td>adsb.lol</td>
               <td>Civil aircraft count drops below 35% of the median</td></tr>
+          <tr><td>Jordanian airspace</td><td>adsb.lol (Jordanian territory only)</td>
+              <td>Nearly-empty skies on two consecutive checks: below 35% of the
+              median, at most 2 aircraft, and below the 10th percentile; not
+              judged when the median is under 5</td></tr>
           <tr><td>Regional military aviation</td><td>adsb.lol</td>
               <td>2× the median, and at least 8 aircraft above it</td></tr>
           <tr><td>Iranian internet (national)</td><td>IODA · Georgia Tech</td>
               <td>BGP falls below 85% of the median</td></tr>
           <tr><td>Iranian internet (province)</td><td>IODA · 8 provinces</td>
               <td><b>Two or more provinces</b> fall below 80% of the median</td></tr>
+          <tr><td>Neighbouring-state internet</td><td>IODA · Lebanon, Syria, Jordan, Egypt</td>
+              <td>Any country's national BGP falls below 85% of the median
+              (one vote per family; the country is named in the reason)</td></tr>
           <tr><td>Satellite thermal anomalies</td><td>NASA FIRMS · VIIRS</td>
               <td>3× the median of high-energy events (FRP≥50) at locations with no history of burning</td></tr>
           <tr><td>Iranian rial</td><td>tgju (free market)</td>
@@ -687,6 +709,14 @@ footer a:hover{color:var(--cyan)}
         800–1,300 anomalies a day in the region, the overwhelming majority of them
         permanent gas flares over the Khuzestan oil fields — which is why the
         indicator filters out locations that burn continuously.</li>
+        <li>ADS-B coverage over Jordan exists but is <b>thin</b> — 5–15 aircraft
+        at a normal moment, vs ~80 over Israel (measured 17 Aug 2026). The
+        Jordan indicator therefore demands nearly-empty skies on two
+        consecutive checks, and may miss a partial or short closure.</li>
+        <li>An internet drop in a neighbouring state is <b>not necessarily a war
+        signal</b>: maintenance, a power failure and censorship of domestic
+        protest look identical from outside. The indicator reports that
+        something big happened to a state's connectivity — not why.</li>
         <li>In a fast scenario, none of the indicators may move before the event.</li>
         <li>The system checks every 30 minutes. It is not continuous.</li>
       </ul>
@@ -961,6 +991,22 @@ const INFO = {
     what_en: 'The number of civil aircraft within 250 nautical miles of Israel, at every check.',
     when_en: 'When the count falls below 35% of the historical median. Airlines vacate airspace before anyone announces anything.',
     src_en: 'adsb.lol'
+  },
+  jo_airspace: {
+    what: 'מספר המטוסים מעל שטח ירדן, מסונן לתיבות גיאוגרפיות שהן חד-משמעית ירדן — בלי תנועה ישראלית ממערב ובלי הנתיב הסעודי שנשאר פתוח מדרום. ירדן סגרה את המרחב האווירי שלה בכל אחד מסבבי איראן–ישראל, לרוב לפני שזה הגיע לחדשות.',
+    when: 'רק בשמיים כמעט ריקים לאורך זמן: פחות מ-35% מהחציון, <b>לכל היותר 2 מטוסים</b>, מתחת לאחוזון 10 של ההיסטוריה העצמית, ובשתי בדיקות רצופות. הכיסוי מעל ירדן דליל (5–15 מטוסים ברגע רגיל, מול ~80 מעל ישראל), ולכן הכלל מסרב לשפוט כשהחציון נמוך מ-5 — ועלול להחמיץ סגירה חלקית או קצרה.',
+    src: 'adsb.lol', url: 'https://adsb.lol/',
+    what_en: 'The number of aircraft over Jordanian territory, filtered to boxes that are unambiguously Jordan — excluding Israeli traffic to the west and the Saudi corridor that stays open to the south. Jordan closed its airspace in every Iran–Israel exchange, usually before it reached the news.',
+    when_en: 'Only on skies that are nearly empty and stay that way: below 35% of the median, <b>at most 2 aircraft</b>, below the 10th percentile of its own history, on two consecutive checks. Coverage over Jordan is thin (5–15 aircraft at a normal moment, vs ~80 over Israel), so the rule refuses to judge when the median is under 5 — and may miss a partial or short closure.',
+    src_en: 'adsb.lol'
+  },
+  region_internet: {
+    what: 'קישוריות ה-BGP הארצית של לבנון, סוריה, ירדן ומצרים — אותה מדידת IODA שמוכחת עבור איראן. מדינה שמאבדת או מנתקת את הרשת של עצמה היא אות יקר וקשה לזיוף. משפחה אחת, <b>קול אחד</b>, לשני המדדים — שם המדינה שנפלה מופיע בסיבה.',
+    when: 'כשה-BGP של אחת המדינות יורד מתחת ל-85% מהחציון. חשוב לומר ביושר: נפילה כזו יכולה לנבוע גם מתחזוקה, מקריסת חשמל או מצנזורה של מחאה פנימית — המדד אומר "משהו גדול קרה לקישוריות של מדינה", <b>לא</b> "מלחמה".',
+    src: 'IODA · Georgia Tech', url: 'https://ioda.inetintel.cc.gatech.edu/',
+    what_en: "The national BGP connectivity of Lebanon, Syria, Jordan and Egypt — the same IODA measurement proven for Iran. A state losing or cutting its own network is an expensive, hard-to-fake signal. One family, <b>one vote</b>, for both indices — the country that dropped is named in the reason.",
+    when_en: 'When any of the four countries\' BGP falls below 85% of the median. Said honestly: such a drop can also be maintenance, a power failure or censorship of domestic protest — this indicator says "something big happened to a state\'s connectivity", <b>not</b> "war".',
+    src_en: 'IODA · Georgia Tech'
   },
   us_mil_air: {
     what: 'מספר המטוסים בעלי שדר צבאי באזור. מדד זה נספר <b>לשני המדדים</b>.',

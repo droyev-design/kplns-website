@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T17:12:25+00:00",
+ "generated": "2026-08-17T17:32:09+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -245,6 +245,11 @@
    "t": 1786986745,
    "il": 0,
    "ir": 1
+  },
+  {
+   "t": 1786987929,
+   "il": 0,
+   "ir": 1
   }
  ],
  "indices": [
@@ -279,9 +284,23 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "84 מטוסים אזרחיים באזור",
-     "value_en": "84 civil aircraft in the area",
+     "value": "85 מטוסים אזרחיים באזור",
+     "value_en": "85 civil aircraft in the area",
      "range": "57–98"
+    },
+    {
+     "key": "jo_airspace",
+     "name": "מרחב אווירי ירדן",
+     "name_en": "Jordanian airspace",
+     "shared": false,
+     "context": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "reason_en": "",
+     "value": "2 מטוסים מעל ירדן",
+     "value_en": "2 aircraft over Jordan",
+     "range": ""
     },
     {
      "key": "advisories_il",
@@ -307,8 +326,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "7 מטוסים צבאיים באזור",
+     "value_en": "7 military aircraft in the area",
      "range": "1–8"
     },
     {
@@ -321,8 +340,22 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.8 · דולר 2.95 ₪",
-     "value_en": "Brent $88.8 · USD 2.95 ILS",
+     "value": "ברנט $89.8 · דולר 2.95 ₪",
+     "value_en": "Brent $89.8 · USD 2.95 ILS",
+     "range": ""
+    },
+    {
+     "key": "region_internet",
+     "name": "אינטרנט במדינות שכנות (לבנון·סוריה·ירדן·מצרים)",
+     "name_en": "Neighbouring-state internet (Lebanon·Syria·Jordan·Egypt)",
+     "shared": true,
+     "context": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "reason_en": "",
+     "value": "4 מדינות במעקב — קישוריות תקינה",
+     "value_en": "4 states monitored — connectivity normal",
      "range": ""
     },
     {
@@ -358,8 +391,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,623 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,623 BGP routes)",
+     "value": "קישוריות תקינה (41,626 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,626 BGP routes)",
      "range": "40,855–41,639"
     },
     {
@@ -400,8 +433,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,864,950 ריאל לדולר",
-     "value_en": "1,864,950 rial to the dollar",
+     "value": "1,865,000 ריאל לדולר",
+     "value_en": "1,865,000 rial to the dollar",
      "range": "1,863,150–1,866,800"
     },
     {
@@ -442,8 +475,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "7 מטוסים צבאיים באזור",
+     "value_en": "7 military aircraft in the area",
      "range": "1–8"
     },
     {
@@ -456,8 +489,22 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.8 · דולר 2.95 ₪",
-     "value_en": "Brent $88.8 · USD 2.95 ILS",
+     "value": "ברנט $89.8 · דולר 2.95 ₪",
+     "value_en": "Brent $89.8 · USD 2.95 ILS",
+     "range": ""
+    },
+    {
+     "key": "region_internet",
+     "name": "אינטרנט במדינות שכנות (לבנון·סוריה·ירדן·מצרים)",
+     "name_en": "Neighbouring-state internet (Lebanon·Syria·Jordan·Egypt)",
+     "shared": true,
+     "context": false,
+     "lit": false,
+     "ok": true,
+     "reason": "",
+     "reason_en": "",
+     "value": "4 מדינות במעקב — קישוריות תקינה",
+     "value_en": "4 states monitored — connectivity normal",
      "range": ""
     },
     {
@@ -487,8 +534,8 @@
    ]
   }
  ],
- "sources_ok": 11,
- "sources_total": 11,
+ "sources_ok": 13,
+ "sources_total": 13,
  "degraded": [],
  "degraded_en": []
 }
