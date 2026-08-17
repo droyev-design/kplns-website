@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T19:43:07+00:00",
+ "generated": "2026-08-17T20:12:28+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -280,6 +280,11 @@
    "t": 1786995787,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1786997548,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -314,8 +319,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "72 מטוסים אזרחיים באזור",
-     "value_en": "72 civil aircraft in the area",
+     "value": "70 מטוסים אזרחיים באזור",
+     "value_en": "70 civil aircraft in the area",
      "range": "58–99"
     },
     {
@@ -328,8 +333,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "11 מטוסים מעל ירדן",
+     "value_en": "11 aircraft over Jordan",
      "range": ""
     },
     {
@@ -353,11 +358,11 @@
      "shared": true,
      "context": false,
      "lit": false,
-     "ok": false,
+     "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "",
-     "value_en": "",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–8"
     },
     {
@@ -398,8 +403,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "43/100",
-     "value_en": "43/100",
+     "value": "42/100",
+     "value_en": "42/100",
      "range": ""
     }
    ]
@@ -421,8 +426,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,620 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,620 BGP routes)",
+     "value": "קישוריות תקינה (41,624 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,624 BGP routes)",
      "range": "41,617–41,638"
     },
     {
@@ -502,11 +507,11 @@
      "shared": true,
      "context": false,
      "lit": false,
-     "ok": false,
+     "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "",
-     "value_en": "",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–8"
     },
     {
@@ -547,8 +552,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "43/100",
-     "value_en": "43/100",
+     "value": "42/100",
+     "value_en": "42/100",
      "range": ""
     }
    ],
@@ -564,12 +569,8 @@
    ]
   }
  ],
- "sources_ok": 12,
+ "sources_ok": 13,
  "sources_total": 13,
- "degraded": [
-  "תעופה צבאית אמריקאית באזור"
- ],
- "degraded_en": [
-  "US military aviation in the region"
- ]
+ "degraded": [],
+ "degraded_en": []
 }
