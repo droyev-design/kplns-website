@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T05:12:26+00:00",
+ "generated": "2026-08-17T05:42:37+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -115,6 +115,16 @@
    "t": 1786943546,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1786944165,
+   "il": 0,
+   "ir": 0
+  },
+  {
+   "t": 1786945357,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -122,61 +132,77 @@
    "key": "il",
    "flag": "🇮🇱",
    "name": "ישראל",
+   "name_en": "Israel",
    "level": 0,
    "tripwires": [
     {
      "key": "hfc_policy",
      "name": "מדיניות התגוננות (פיקוד העורף)",
+     "name_en": "Home Front Command defence policy",
      "shared": false,
      "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
+     "reason_en": "",
      "value": "אין הגבלות בכל הארץ",
+     "value_en": "No restrictions nationwide",
      "range": ""
     },
     {
      "key": "il_airspace",
      "name": "מרחב אווירי ישראל",
+     "name_en": "Israeli airspace",
      "shared": false,
      "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "77 מטוסים אזרחיים באזור",
-     "range": "56–98"
+     "reason_en": "",
+     "value": "74 מטוסים אזרחיים באזור",
+     "value_en": "74 civil aircraft in the area",
+     "range": "56–93"
     },
     {
      "key": "advisories_il",
      "name": "אזהרות מסע — ישראל והסביבה",
+     "name_en": "Travel advisories — Israel and neighbours",
      "shared": false,
      "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
+     "reason_en": "",
      "value": "3 מדינות במעקב — ללא שינוי ברמות",
+     "value_en": "3 countries monitored — no level changes",
      "range": ""
     },
     {
      "key": "us_mil_air",
      "name": "תעופה צבאית אמריקאית באזור",
+     "name_en": "US military aviation in the region",
      "shared": true,
      "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
+     "reason_en": "",
      "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "0–6"
     },
     {
      "key": "strikeradar",
      "name": "StrikeRadar (הקשר בלבד — נגזר חדשות)",
+     "name_en": "StrikeRadar (context only — news-derived)",
      "shared": false,
      "context": true,
      "lit": false,
      "ok": true,
      "reason": "",
+     "reason_en": "",
      "value": "43/100",
+     "value_en": "43/100",
      "range": ""
     }
    ]
@@ -185,92 +211,118 @@
    "key": "ir",
    "flag": "🇮🇷",
    "name": "איראן",
+   "name_en": "Iran",
    "level": 0,
    "tripwires": [
     {
      "key": "ir_internet",
      "name": "אינטרנט באיראן (ארצי)",
+     "name_en": "Iranian internet (national)",
      "shared": false,
      "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
-     "value": "קישוריות תקינה (41,636 מסלולי BGP)",
-     "range": "40,850–41,635"
+     "reason_en": "",
+     "value": "קישוריות תקינה (41,638 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,638 BGP routes)",
+     "range": "40,850–41,636"
     },
     {
      "key": "ir_provinces",
      "name": "אינטרנט באיראן (ברמת מחוז)",
+     "name_en": "Iranian internet (province level)",
      "shared": false,
      "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
+     "reason_en": "",
      "value": "8 מחוזות במעקב — קישוריות תקינה",
+     "value_en": "8 provinces monitored — connectivity normal",
      "range": ""
     },
     {
      "key": "firms",
      "name": "חריגות תרמיות מלוויין (NASA FIRMS)",
+     "name_en": "Satellite thermal anomalies (NASA FIRMS)",
      "shared": false,
      "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
+     "reason_en": "",
      "value": "0 חריגות תרמיות ב-24 שעות (כולל שריפות ותעשייה)",
+     "value_en": "0 thermal anomalies in 24h (includes wildfires and industry)",
      "range": "0–9"
     },
     {
      "key": "rial",
      "name": "ריאל איראני",
+     "name_en": "Iranian rial",
      "shared": false,
      "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
+     "reason_en": "",
      "value": "1,866,800 ריאל לדולר",
+     "value_en": "1,866,800 rial to the dollar",
      "range": "1,866,800–1,866,800"
     },
     {
      "key": "advisories_ir",
      "name": "אזהרות מסע — איראן והמפרץ",
+     "name_en": "Travel advisories — Iran and the Gulf",
      "shared": false,
      "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
+     "reason_en": "",
      "value": "7 מדינות במעקב — ללא שינוי ברמות",
+     "value_en": "7 countries monitored — no level changes",
      "range": ""
     },
     {
      "key": "us_mil_air",
      "name": "תעופה צבאית אמריקאית באזור",
+     "name_en": "US military aviation in the region",
      "shared": true,
      "context": false,
      "lit": false,
      "ok": true,
      "reason": "",
+     "reason_en": "",
      "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "0–6"
     },
     {
      "key": "strikeradar",
      "name": "StrikeRadar (הקשר בלבד — נגזר חדשות)",
+     "name_en": "StrikeRadar (context only — news-derived)",
      "shared": false,
      "context": true,
      "lit": false,
      "ok": true,
      "reason": "",
+     "reason_en": "",
      "value": "43/100",
+     "value_en": "43/100",
      "range": ""
     }
    ],
    "unavailable": [
     "אין כיסוי מקלטי ADS-B מעל איראן — לא ניתן למדוד"
+   ],
+   "unavailable_en": [
+    "No ADS-B receiver coverage over Iran — this cannot be measured"
    ]
   }
  ],
  "sources_ok": 9,
  "sources_total": 9,
- "degraded": []
+ "degraded": [],
+ "degraded_en": []
 }

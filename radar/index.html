@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<!-- data-l is set here, not by script, so the page never flashes both languages
+     before JS runs. setLang() overwrites it from localStorage / the browser. -->
+<html lang="he" dir="rtl" data-l="he">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,7 +75,23 @@ body{
 .brand span{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .backlink{color:var(--text-secondary);font-size:.85rem;text-decoration:none;transition:color .2s;white-space:nowrap}
 .backlink:hover{color:var(--cyan)}
-.topnav{display:flex;gap:16px;align-items:center}
+.topnav{display:flex;gap:14px;align-items:center}
+
+/* ── bilingual (he/en) ──────────────────────────────── */
+/* Both languages ship in the DOM and one is hidden, rather than swapping text
+   through a key table. The Hebrew wording here is safety-critical and was
+   reviewed as written; this way it is never rebuilt at runtime, and a missing
+   translation key can never blank out a disclaimer. */
+html[data-l="he"] [data-lang="en"]{display:none!important}
+html[data-l="en"] [data-lang="he"]{display:none!important}
+.langsw{display:flex;border:1px solid var(--border-hover);border-radius:9px;overflow:hidden}
+.langsw button{
+  background:none;border:0;color:var(--text-secondary);font-family:var(--font-en);
+  font-size:.76rem;font-weight:600;letter-spacing:.06em;padding:5px 10px;
+  cursor:pointer;transition:background .2s,color .2s
+}
+.langsw button:hover{color:var(--text-primary)}
+.langsw button[aria-pressed="true"]{background:var(--cyan-dim);color:var(--cyan)}
 
 .hero{text-align:center;padding:46px 0 26px}
 .section-label{
@@ -347,14 +365,20 @@ footer a:hover{color:var(--cyan)}
 </head>
 <body>
 
-<a class="skip" href="#main">דלג לתוכן</a>
+<a class="skip" href="#main"><span data-lang="he">דלג לתוכן</span><span data-lang="en">Skip to content</span></a>
 
 <div class="topbar">
   <div class="topbar-inner">
     <div class="brand"><span>KPLNS</span></div>
     <div class="topnav">
-      <a class="backlink" href="/radar/methodology.html">מתודולוגיה</a>
-      <a class="backlink" href="/">← חזרה לאתר</a>
+      <div class="langsw" role="group" aria-label="שפה / Language">
+        <button type="button" id="lang-he" aria-pressed="true">עב</button>
+        <button type="button" id="lang-en" aria-pressed="false">EN</button>
+      </div>
+      <a class="backlink" href="/radar/methodology.html"
+         ><span data-lang="he">מתודולוגיה</span><span data-lang="en">Methodology</span></a>
+      <a class="backlink" href="/"
+         ><span data-lang="he">← חזרה לאתר</span><span data-lang="en">← Back to site</span></a>
     </div>
   </div>
 </div>
@@ -363,21 +387,32 @@ footer a:hover{color:var(--cyan)}
 
   <div class="hero">
     <div class="section-label">Situational Radar</div>
-    <h1>ראדאר הסלמה — ישראל ואיראן</h1>
-    <p>שני מדדים נפרדים, מבוססי אינדיקטורים ציבוריים בלבד</p>
+    <h1><span data-lang="he">ראדאר הסלמה — ישראל ואיראן</span
+       ><span data-lang="en">Escalation Radar — Israel and Iran</span></h1>
+    <p><span data-lang="he">שני מדדים נפרדים, מבוססי אינדיקטורים ציבוריים בלבד</span
+       ><span data-lang="en">Two separate indices, built only on public indicators</span></p>
     <div class="divider"></div>
 
-    <div class="alertstrip">
+    <div class="alertstrip" data-lang="he">
       <span><span aria-hidden="true">⚠️</span> <b>זו אינה מערכת התרעה.</b>
       המקור המחייב היחיד הוא פיקוד העורף.</span>
       <a href="https://www.oref.org.il/" target="_blank" rel="noopener">להנחיות המחייבות ←</a>
     </div>
+    <div class="alertstrip" data-lang="en">
+      <span><span aria-hidden="true">⚠️</span> <b>This is not a warning system.</b>
+      The only authoritative source is the Home Front Command.</span>
+      <a href="https://www.oref.org.il/eng" target="_blank" rel="noopener">Official instructions →</a>
+    </div>
   </div>
 
   <noscript>
-    <div class="banner warn"><span aria-hidden="true">⚠️</span><div>
+    <div class="banner warn" data-lang="he"><span aria-hidden="true">⚠️</span><div>
       <b>הדף דורש JavaScript כדי להציג את הסטטוס.</b>
       אל תסיקו מכך דבר — פנו לפיקוד העורף.
+    </div></div>
+    <div class="banner warn" data-lang="en"><span aria-hidden="true">⚠️</span><div>
+      <b>This page needs JavaScript to show the status.</b>
+      Draw no conclusion from that — check the Home Front Command.
     </div></div>
   </noscript>
 
@@ -387,7 +422,7 @@ footer a:hover{color:var(--cyan)}
 
   <div class="grid" id="gauges" role="status" aria-live="polite" aria-label="רמות ההסלמה הנוכחיות"></div>
 
-  <div class="notice">
+  <div class="notice" data-lang="he">
     <h2>⚠️ לקרוא לפני שמסיקים מהצבע</h2>
     <ul>
       <li><b>זו אינה מערכת התרעה.</b> היא לא תודיע לכם על שיגור.</li>
@@ -398,8 +433,19 @@ footer a:hover{color:var(--cyan)}
     </ul>
     <a href="https://www.oref.org.il/" target="_blank" rel="noopener">להנחיות המחייבות של פיקוד העורף ←</a>
   </div>
+  <div class="notice" data-lang="en">
+    <h2>⚠️ Read this before reading the colour</h2>
+    <ul>
+      <li><b>This is not a warning system.</b> It will not tell you a launch is happening.</li>
+      <li>The only authoritative source is the <b>Home Front Command</b>. Always.</li>
+      <li>This is a preparation layer measured in <b>days</b>, not minutes. In a fast scenario there may be no lead time here at all.</li>
+      <li>This is a <b>private project</b>, not an official body. Do not rely on it for safety decisions.</li>
+      <li>The output is a <b>level</b>, never a probability.</li>
+    </ul>
+    <a href="https://www.oref.org.il/eng" target="_blank" rel="noopener">Home Front Command official instructions →</a>
+  </div>
 
-  <section class="legend" aria-label="הסבר הרמות">
+  <section class="legend" aria-label="הסבר הרמות" data-lang="he">
     <h3 class="legend-h">מה אומרות הרמות</h3>
     <div class="legend-grid">
       <div class="legend-item"><span class="dot" style="background:var(--l0)" aria-hidden="true"></span>
@@ -414,9 +460,35 @@ footer a:hover{color:var(--cyan)}
     <p class="legend-note">הרמה סופרת <b>כמה משפחות מדדים בלתי תלויות</b> נדלקו יחד — לא כמה חדשות פורסמו. לכן היא נעה לאט, ובכוונה.</p>
   </section>
 
+  <section class="legend" aria-label="Level legend" data-lang="en">
+    <h3 class="legend-h">What the levels mean</h3>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="dot" style="background:var(--l0)" aria-hidden="true"></span>
+        <div><b>0 · Calm</b><span>No indicator lit. The normal background state.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l1)" aria-hidden="true"></span>
+        <div><b>1 · Elevated</b><span>One indicator family lit. A single indicator is usually noise — not a reason to change plans.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l2)" aria-hidden="true"></span>
+        <div><b>2 · Warning</b><span>Two <em>independent</em> families lit together. Worth following the news.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l3)" aria-hidden="true"></span>
+        <div><b>3 · Critical</b><span>Three or more families — or a change in Home Front Command defence policy, which is sufficient on its own. Follow the official instructions.</span></div></div>
+    </div>
+    <p class="legend-note">The level counts <b>how many independent indicator families</b> lit together — not how many headlines were published. That is why it moves slowly, by design.</p>
+  </section>
+
   <div id="detail"></div>
 
-  <div class="explain">
+  <div class="explain" data-lang="en">
+    <b>How this works.</b> The system does not sum up news headlines. It tracks
+    <b>costly actions</b> — ones that cost somebody something to take: a change to
+    civil-defence instructions, an airspace emptying of civil aircraft, a state
+    cutting its own internet, a currency collapsing, a travel advisory being
+    raised. Statements and headlines light nothing here. The level rises as more
+    <b>independent</b> indicator families light together — a single indicator is
+    usually noise. Indicators tagged <span class="tag">regional</span> count for
+    both indices.
+  </div>
+
+  <div class="explain" data-lang="he">
     <b>איך זה עובד.</b> המערכת לא מסכמת כותרות בחדשות. היא עוקבת אחרי
     <b>צעדים יקרים</b> — כאלה שעולים למישהו משהו לעשות: שינוי הנחיות התגוננות,
     מרחב אווירי שמתרוקן ממטוסים אזרחיים, מדינה שמנתקת לעצמה את האינטרנט,
@@ -428,7 +500,7 @@ footer a:hover{color:var(--cyan)}
 
   <div id="hist"></div>
 
-  <section class="method" aria-label="מתודולוגיית החישוב">
+  <section class="method" aria-label="מתודולוגיית החישוב" data-lang="he">
     <h3 class="legend-h">מתודולוגיית החישוב</h3>
 
     <p class="m-lead">כל מדד הוא <b>בוליאני</b> - דולק או כבוי - ולא ציון. הרמה היא
@@ -513,6 +585,92 @@ footer a:hover{color:var(--cyan)}
     </a>
   </section>
 
+  <section class="method" aria-label="Methodology" data-lang="en">
+    <h3 class="legend-h">Methodology</h3>
+
+    <p class="m-lead">Every indicator is <b>boolean</b> — lit or unlit — not a score.
+    The level is simply <b>how many independent indicator families are lit</b>.
+    There is no weighted average and no subjective scoring, because an average
+    lets news noise push the dial when nothing has actually happened.</p>
+
+    <details><summary>How the level is decided</summary>
+      <ul>
+        <li><b>0 · Calm</b> — no family lit.</li>
+        <li><b>1 · Elevated</b> — one family.</li>
+        <li><b>2 · Warning</b> — two independent families.</li>
+        <li><b>3 · Critical</b> — three or more, <b>or</b> a change in Home Front
+        Command defence policy, which is sufficient alone: it is the most
+        expensive and most Israel-specific action in the set.</li>
+      </ul>
+      <p>Indicators tagged "regional" count for both indices. An indicator that
+      could not be read cannot light — so when a source fails, an explicit warning
+      is shown, because otherwise the page would look calmer than reality.</p>
+    </details>
+
+    <details><summary>What each indicator measures, and what lights it</summary>
+      <div class="m-wrap"><table class="m-tbl">
+        <thead><tr><th>Indicator</th><th>Source</th><th>What lights it</th></tr></thead>
+        <tbody>
+          <tr><td>Defence policy</td><td>Home Front Command (official API)</td>
+              <td>Any change of wording against the stored baseline</td></tr>
+          <tr><td>Israeli airspace</td><td>adsb.lol</td>
+              <td>Civil aircraft count drops below 35% of the median</td></tr>
+          <tr><td>Regional military aviation</td><td>adsb.lol</td>
+              <td>2× the median, and at least 8 aircraft above it</td></tr>
+          <tr><td>Iranian internet (national)</td><td>IODA · Georgia Tech</td>
+              <td>BGP falls below 85% of the median</td></tr>
+          <tr><td>Iranian internet (province)</td><td>IODA · 8 provinces</td>
+              <td><b>Two or more provinces</b> fall below 80% of the median</td></tr>
+          <tr><td>Satellite thermal anomalies</td><td>NASA FIRMS · VIIRS</td>
+              <td>3× the median of high-energy events (FRP≥50) at locations with no history of burning</td></tr>
+          <tr><td>Iranian rial</td><td>tgju (free market)</td>
+              <td>A move of 8% or more against the median</td></tr>
+          <tr><td>Travel advisories</td><td>US State Department · FCDO</td>
+              <td>An advisory-level rise for a monitored country</td></tr>
+          <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
+              <td><b>Lights nothing</b> — shown for context only, and can never raise a level</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+
+    <details><summary>The safeguards that prevent false alarms</summary>
+      <ul>
+        <li><b>Baseline before alerting</b> — a median-based rule is inert until
+        enough samples have accumulated (about six hours from start).</li>
+        <li><b>Presence is not change</b> — the system alerts on deviation from a
+        baseline, not on the mere existence of a value.</li>
+        <li><b>Two-observation confirmation</b> — travel advisories are measured
+        against a feed that is unstable between requests, so a change must repeat
+        twice in a row before it counts.</li>
+        <li><b>What cannot be measured is declared</b>, not shown as a green dial.</li>
+      </ul>
+    </details>
+
+    <details><summary>Known limits</summary>
+      <ul>
+        <li>There is no ADS-B receiver coverage over Iran, so there is no Iranian
+        counterpart to the airspace indicator.</li>
+        <li>Market indicators (oil, volatility, the shekel rate) are not included —
+        no stable data channel was found from the server that runs this.</li>
+        <li><b>Thermal anomalies do not identify a cause.</b> A large heat signature
+        can be a strike, a wildfire or agricultural burning, and the indicator
+        cannot tell them apart. It counts "something large is burning where nothing
+        usually burns", and no more. A measurement on 16 Aug 2026 found roughly
+        800–1,300 anomalies a day in the region, the overwhelming majority of them
+        permanent gas flares over the Khuzestan oil fields — which is why the
+        indicator filters out locations that burn continuously.</li>
+        <li>In a fast scenario, none of the indicators may move before the event.</li>
+        <li>The system checks every 30 minutes. It is not continuous.</li>
+      </ul>
+    </details>
+
+    <a class="m-more" href="/radar/methodology.html">
+      <span class="m-more-t">The full explanation: what the numbers are based on</span>
+      <span class="m-more-s">The statistical basis · the exact firing thresholds · what actually moved before April 2024, October 2024 and June 2025 · what was tested and rejected · disclosure on AI-assisted development</span>
+      <span class="m-more-a">Go to the methodology page →</span>
+    </a>
+  </section>
+
   <div class="stamp" id="stamp">טוען…</div>
 
   </main>
@@ -520,16 +678,31 @@ footer a:hover{color:var(--cyan)}
   <footer>
     <!-- No personal byline here by request (2026-08-16): this page is shared
          publicly, and the owner does not want to be identified by name on it. -->
-    <nav class="legal" aria-label="מידע משפטי">
+    <nav class="legal" aria-label="מידע משפטי" data-lang="he">
       <a href="/privacy.html">מדיניות פרטיות</a>
       <a href="/accessibility.html">הצהרת נגישות</a>
       <a href="/disclaimer.html">תנאי שימוש</a>
       <a href="/">kplns.com</a>
     </nav>
-    <p class="thirdparty">
+    <nav class="legal" aria-label="Legal" data-lang="en">
+      <a href="/privacy.html">Privacy policy</a>
+      <a href="/accessibility.html">Accessibility statement</a>
+      <a href="/disclaimer.html">Terms of use</a>
+      <a href="/">kplns.com</a>
+    </nav>
+    <p class="thirdparty" data-lang="he">
       הדף אינו אוסף נתונים ואינו משתמש ב-Cookies. הוא טוען גופנים מ-Google Fonts
       ומונה צפיות מ-hits.sh — שירותי צד שלישי שרואים את כתובת ה-IP של הדפדפן.
       אחד המדדים המוצגים כאן (StrikeRadar) מקורו ב-<a href="https://usstrikeradar.com" target="_blank" rel="noopener">usstrikeradar.com</a> ואינו מחושב על ידינו.
+      בחירת השפה נשמרת מקומית בדפדפן שלכם ואינה נשלחת לשום מקום.
+    </p>
+    <p class="thirdparty" data-lang="en">
+      This page collects no data and uses no cookies. It loads fonts from Google
+      Fonts and a view counter from hits.sh — third-party services that see your
+      browser's IP address. One of the indicators shown here (StrikeRadar) comes
+      from <a href="https://usstrikeradar.com" target="_blank" rel="noopener">usstrikeradar.com</a>
+      and is not calculated by us. Your language choice is stored locally in your
+      browser and is never sent anywhere.
     </p>
     <!-- Cumulative page-view counter. hits.sh, no account needed; verified
          incrementing before use. Counts page LOADS, not unique visitors, and
@@ -542,30 +715,147 @@ footer a:hover{color:var(--cyan)}
   </footer>
 
 <script>
-const LVL = [
-  {e:'🟢', t:'רגוע',  c:'var(--l0)', n:'לא נדלק אף מדד.'},
-  {e:'🟡', t:'מוגבר', c:'var(--l1)', n:'משפחת מדדים אחת נדלקה. לרוב רעש — לא סיבה לשנות תוכניות.'},
-  {e:'🟠', t:'אזהרה', c:'var(--l2)', n:'שתי משפחות בלתי תלויות נדלקו יחד.'},
-  {e:'🔴', t:'קריטי', c:'var(--l3)', n:'שלוש משפחות ומעלה, או שינוי במדיניות ההתגוננות. עקבו אחרי פיקוד העורף.'}
-];
+// ── language ────────────────────────────────────────────────────────
+// The static copy is duplicated in the DOM and toggled by CSS (see [data-lang]).
+// Only the JS-generated parts below need a string table, and they are re-rendered
+// from the SAME fetched payload — the language switch never triggers a refetch,
+// so it cannot show two viewers different data.
+const LANGS = ['he', 'en'];
+let LANG = 'he';
+let DATA = null;          // last successful payload, kept for re-render
+
+const LVLS = {
+  he: [
+    {e:'🟢', t:'רגוע',  c:'var(--l0)', n:'לא נדלק אף מדד.'},
+    {e:'🟡', t:'מוגבר', c:'var(--l1)', n:'משפחת מדדים אחת נדלקה. לרוב רעש — לא סיבה לשנות תוכניות.'},
+    {e:'🟠', t:'אזהרה', c:'var(--l2)', n:'שתי משפחות בלתי תלויות נדלקו יחד.'},
+    {e:'🔴', t:'קריטי', c:'var(--l3)', n:'שלוש משפחות ומעלה, או שינוי במדיניות ההתגוננות. עקבו אחרי פיקוד העורף.'}
+  ],
+  en: [
+    {e:'🟢', t:'Calm',     c:'var(--l0)', n:'No indicator lit.'},
+    {e:'🟡', t:'Elevated', c:'var(--l1)', n:'One indicator family lit. Usually noise — not a reason to change plans.'},
+    {e:'🟠', t:'Warning',  c:'var(--l2)', n:'Two independent families lit together.'},
+    {e:'🔴', t:'Critical', c:'var(--l3)', n:'Three or more families, or a change in defence policy. Follow the Home Front Command.'}
+  ]
+};
+
+const T = {
+  he: {
+    levelAria: (l, t) => `רמה ${l} מתוך 3 — ${t}`,
+    staleNote: 'הנתון אינו עדכני — אין להסיק ממנו דבר.',
+    gaugeCaveat: n => `⚠️ ${n} מקורות לא נקראו — ייתכן שהרמה מוצגת נמוך מדי`,
+    agoNow: 'לפני פחות מדקה',
+    agoMin: m => `לפני ${m} דק׳`,
+    agoHour: h => `לפני ${h} שע׳`,
+    agoDay: d => `לפני ${d} ימים`,
+    sinceShort: 'ברמה זו פחות משעה',
+    sinceHours: h => `ברמה זו מזה ${h} שעות`,
+    sinceDays: d => `ברמה זו מזה ${d} ימים`,
+    noData: 'אין נתונים',
+    bucketLevel: v => `רמה ${v}`,
+    staleTitle: a => `<b>הנתונים אינם עדכניים (${a}).</b>
+      המדדים מוצגים מעומעמים ואינם מייצגים את המצב כעת. פנו לפיקוד העורף.`,
+    warnTitle: a => `<b>העדכון האחרון ${a}.</b>
+      הבדיקה אמורה לרוץ כל 30 דקות — ייתכן שמקור נתונים או תהליך העדכון נתקע.`,
+    degradedTitle: (n, list) => `<b>${n} מקורות לא נקראו בבדיקה האחרונה.</b>
+      ${list} — מדד שלא נקרא אינו יכול להידלק, ולכן הרמה עשויה להיות מוצגת נמוך מדי.`,
+    fresh: (a, ok, tot) => `עודכן ${a} · נבדק כל 30 דקות · ${ok}/${tot} מקורות נקראו`,
+    summaryStale: 'סיכום: הנתונים אינם עדכניים — אין מצב מוצג',
+    summarySame: (mx, c, t) => `סיכום: שני המדדים ברמה ${mx} — <span class="sv" style="color:${c}">${t}</span>`,
+    summaryMax:  (mx, c, t) => `סיכום: הגבוה מבין השניים ברמה ${mx} — <span class="sv" style="color:${c}">${t}</span>`,
+    notRead: 'לא נקרא בריצה האחרונה',
+    ok: 'תקין',
+    range: r => `טווח רגיל בשבוע האחרון: ${r}`,
+    tagRegional: 'אזורי',
+    tagContext: 'הקשר',
+    sourceLink: '(מקור)',
+    infoWhat: 'מה זה מודד:',
+    infoWhen: 'מה מדליק:',
+    infoSrc:  'מקור:',
+    histTitle: '7 הימים האחרונים',
+    histAriaSection: 'היסטוריית הרמות בשבוע האחרון',
+    histAriaRow: n => `רמת ${n} בשבעת הימים האחרונים`,
+    histFrom: 'לפני 7 ימים',
+    histTo: 'עכשיו',
+    histNote: `כל משבצת היא שעתיים, וצבועה לפי הרמה
+      <b>הגבוהה ביותר</b> באותו חלון — כדי שאירוע קצר לא ייעלם בממוצע.
+      משבצת אפורה = לא נאספו נתונים, ולא "רגוע".`,
+    stamp: 'חותמת מלאה: ',
+    locale: 'he-IL',
+    errTitle: 'הנתונים אינם זמינים',
+    errNote: 'לא ניתן לטעון את הסטטוס. אל תסיקו מכך דבר — פנו לפיקוד העורף.'
+  },
+  en: {
+    levelAria: (l, t) => `Level ${l} of 3 — ${t}`,
+    staleNote: 'This reading is out of date — draw no conclusion from it.',
+    gaugeCaveat: n => `⚠️ ${n} sources were not read — the level may be under-reported`,
+    agoNow: 'less than a minute ago',
+    agoMin: m => `${m} min ago`,
+    agoHour: h => `${h} h ago`,
+    agoDay: d => `${d} days ago`,
+    sinceShort: 'at this level for under an hour',
+    sinceHours: h => `at this level for ${h} hours`,
+    sinceDays: d => `at this level for ${d} days`,
+    noData: 'no data',
+    bucketLevel: v => `level ${v}`,
+    staleTitle: a => `<b>The data is out of date (${a}).</b>
+      The gauges are dimmed and do not represent the current situation. Check the Home Front Command.`,
+    warnTitle: a => `<b>Last update ${a}.</b>
+      The check should run every 30 minutes — a data source or the update process may be stuck.`,
+    degradedTitle: (n, list) => `<b>${n} sources were not read in the last check.</b>
+      ${list} — an indicator that cannot be read cannot light, so the level may be under-reported.`,
+    fresh: (a, ok, tot) => `Updated ${a} · checked every 30 minutes · ${ok}/${tot} sources read`,
+    summaryStale: 'Summary: the data is out of date — no state is shown',
+    summarySame: (mx, c, t) => `Summary: both indices at level ${mx} — <span class="sv" style="color:${c}">${t}</span>`,
+    summaryMax:  (mx, c, t) => `Summary: the higher of the two is at level ${mx} — <span class="sv" style="color:${c}">${t}</span>`,
+    notRead: 'not read in the last run',
+    ok: 'normal',
+    range: r => `Normal range this week: ${r}`,
+    tagRegional: 'regional',
+    tagContext: 'context',
+    sourceLink: '(source)',
+    infoWhat: 'What it measures:',
+    infoWhen: 'What lights it:',
+    infoSrc:  'Source:',
+    histTitle: 'The last 7 days',
+    histAriaSection: 'Level history for the past week',
+    histAriaRow: n => `${n} level over the past seven days`,
+    histFrom: '7 days ago',
+    histTo: 'now',
+    histNote: `Each cell is two hours, coloured by the <b>highest</b> level in that
+      window — so a short event is never averaged away. A grey cell means no data
+      was collected, not "calm".`,
+    stamp: 'Full timestamp: ',
+    locale: 'en-GB',
+    errTitle: 'Data unavailable',
+    errNote: 'The status could not be loaded. Draw no conclusion from that — check the Home Front Command.'
+  }
+};
+
 const R = 62, C = 2 * Math.PI * R;
 
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g,
   c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
+// Pick the localised field off a payload object: `name` / `name_en`.
+// Falls back to the Hebrew field, so an older status.json (published before the
+// bilingual monitor change) still renders rather than showing blanks.
+const f = (o, k) => (LANG === 'en' ? (o[k + '_en'] || o[k]) : o[k]) || '';
+
 function gauge(ix, stale, degraded){
-  const L = LVL[Math.max(0, Math.min(3, ix.level || 0))];
+  const t = T[LANG];
+  const L = LVLS[LANG][Math.max(0, Math.min(3, ix.level || 0))];
   const off = C - (C * (ix.level || 0) / 3);
   // A source that failed cannot light its tripwire, so broken feeds make the
   // page look CALMER than reality. Say so where the number actually is.
   const caveat = degraded.length && !stale
-    ? `<div class="gauge-caveat">⚠️ ${degraded.length} מקורות לא נקראו — ייתכן שהרמה מוצגת נמוך מדי</div>`
+    ? `<div class="gauge-caveat">${t.gaugeCaveat(degraded.length)}</div>`
     : '';
   return `<div class="gauge${stale ? ' stale' : ''}">
     <span class="gauge-accent" style="background:${L.c}" aria-hidden="true"></span>
     <div class="gauge-head"><span class="gauge-flag" aria-hidden="true">${esc(ix.flag)}</span>
-      <span class="gauge-name">${esc(ix.name)}</span></div>
-    <div class="ring" role="img" aria-label="רמה ${ix.level||0} מתוך 3 — ${L.t}">
+      <span class="gauge-name">${esc(f(ix, 'name'))}</span></div>
+    <div class="ring" role="img" aria-label="${esc(t.levelAria(ix.level||0, L.t))}">
       <svg viewBox="0 0 150 150" aria-hidden="true" focusable="false">
         <circle class="track" cx="75" cy="75" r="${R}"></circle>
         <circle class="val" cx="75" cy="75" r="${R}"
@@ -577,18 +867,19 @@ function gauge(ix, stale, degraded){
         <div class="ring-scale">${ix.level || 0} / 3</div>
       </div>
     </div>
-    <div class="gauge-note">${stale ? 'הנתון אינו עדכני — אין להסיק ממנו דבר.' : L.n}</div>
+    <div class="gauge-note">${stale ? t.staleNote : L.n}</div>
     ${caveat}
   </div>`;
 }
 
 function ago(ms){
+  const t = T[LANG];
   const m = Math.round(ms / 60000);
-  if (m < 1)   return 'לפני פחות מדקה';
-  if (m < 60)  return `לפני ${m} דק׳`;
+  if (m < 1)   return t.agoNow;
+  if (m < 60)  return t.agoMin(m);
   const h = Math.round(m / 60);
-  if (h < 24)  return `לפני ${h} שע׳`;
-  return `לפני ${Math.round(h / 24)} ימים`;
+  if (h < 24)  return t.agoHour(h);
+  return t.agoDay(Math.round(h / 24));
 }
 
 function strip(hist, key){
@@ -602,13 +893,15 @@ function strip(hist, key){
     const i = N - 1 - Math.floor((now - h.t*1000) / BUCKET);
     if (i >= 0 && i < N) buckets[i] = Math.max(buckets[i] ?? 0, h[key] ?? 0);
   });
+  const t = T[LANG];
   return buckets.map(v => v === null
-    ? '<i style="background:rgba(255,255,255,.05)" title="אין נתונים"></i>'
-    : `<i style="background:${COL[v]}" title="רמה ${v}"></i>`).join('');
+    ? `<i style="background:rgba(255,255,255,.05)" title="${esc(t.noData)}"></i>`
+    : `<i style="background:${COL[v]}" title="${esc(t.bucketLevel(v))}"></i>`).join('');
 }
 
 function since(hist, key){
   if (!hist || !hist.length) return '';
+  const s = T[LANG];
   const cur = hist[hist.length-1][key];
   let t = hist[hist.length-1].t;
   for (let i = hist.length-1; i >= 0; i--){
@@ -616,9 +909,9 @@ function since(hist, key){
     t = hist[i].t;
   }
   const h = Math.round((Date.now()/1000 - t) / 3600);
-  if (h < 1)  return 'ברמה זו פחות משעה';
-  if (h < 48) return `ברמה זו מזה ${h} שעות`;
-  return `ברמה זו מזה ${Math.round(h/24)} ימים`;
+  if (h < 1)  return s.sinceShort;
+  if (h < 48) return s.sinceHours(h);
+  return s.sinceDays(Math.round(h/24));
 }
 
 // Per-tripwire disclosure: what it measures, what makes it light up, where the
@@ -628,83 +921,115 @@ const INFO = {
   hfc_policy: {
     what: 'נוסח הנחיות ההתגוננות שפיקוד העורף מפרסם ב-API הרשמי שלו. זהו <b>שינוי מדיניות</b>, לא אזעקה בזמן אמת.',
     when: 'כשהנוסח משתנה מול קו הבסיס השמור, או כשמדיניות מגבילה בתוקף (כלומר לא "אין הגבלות").',
-    src: 'פיקוד העורף', url: 'https://www.oref.org.il/'
+    src: 'פיקוד העורף', url: 'https://www.oref.org.il/',
+    what_en: 'The wording of the civil-defence instructions the Home Front Command publishes on its official API. This is a <b>policy change</b>, not a real-time siren.',
+    when_en: 'When the wording changes against the stored baseline, or while a restrictive policy is in effect (i.e. not "no restrictions").',
+    src_en: 'Home Front Command'
   },
   il_airspace: {
     what: 'מספר המטוסים האזרחיים ברדיוס 250 מייל ימי סביב ישראל, בכל בדיקה.',
     when: 'כשהמספר יורד מתחת ל-35% מהחציון ההיסטורי. חברות תעופה מפנות מרחב אווירי לפני שמישהו מכריז על כך.',
-    src: 'adsb.lol', url: 'https://adsb.lol/'
+    src: 'adsb.lol', url: 'https://adsb.lol/',
+    what_en: 'The number of civil aircraft within 250 nautical miles of Israel, at every check.',
+    when_en: 'When the count falls below 35% of the historical median. Airlines vacate airspace before anyone announces anything.',
+    src_en: 'adsb.lol'
   },
   us_mil_air: {
     what: 'מספר המטוסים בעלי שדר צבאי באזור. מדד זה נספר <b>לשני המדדים</b>.',
     when: 'בזינוק של פי 2 מהחציון, ולפחות 8 מטוסים מעליו — כדי ששינוי קטן במספרים נמוכים לא ידליק אותו.',
-    src: 'adsb.lol', url: 'https://adsb.lol/'
+    src: 'adsb.lol', url: 'https://adsb.lol/',
+    what_en: 'The number of aircraft squawking military in the region. This indicator counts for <b>both indices</b>.',
+    when_en: 'On a surge to 2× the median, and at least 8 aircraft above it — so a small change at low counts cannot light it.',
+    src_en: 'adsb.lol'
   },
   ir_internet: {
     what: 'קישוריות האינטרנט הארצית של איראן — מסלולי BGP וטלסקופ Merit.',
     when: 'בנפילת BGP מתחת ל-85% מהחציון, או נפילת הטלסקופ מתחת ל-50%. ניתוק יזום הוא צעד יקר שמדינה עושה לעצמה.',
-    src: 'IODA · Georgia Tech', url: 'https://ioda.inetintel.cc.gatech.edu/'
+    src: 'IODA · Georgia Tech', url: 'https://ioda.inetintel.cc.gatech.edu/',
+    what_en: "Iran's national internet connectivity — BGP routes and the Merit network telescope.",
+    when_en: 'When BGP falls below 85% of the median, or the telescope below 50%. A deliberate shutdown is an expensive thing for a state to do to itself.',
+    src_en: 'IODA · Georgia Tech'
   },
   ir_provinces: {
     what: 'אותה מדידה, אבל ל-8 מחוזות איראניים בנפרד (מתוך 33 קיימים).',
     when: 'רק כש<b>שני מחוזות ומעלה</b> יורדים יחד מתחת ל-80% מהחציון. מחוז בודד שנופל הוא לרוב תחזוקה, לא מדיניות.',
-    src: 'IODA · Georgia Tech', url: 'https://ioda.inetintel.cc.gatech.edu/'
+    src: 'IODA · Georgia Tech', url: 'https://ioda.inetintel.cc.gatech.edu/',
+    what_en: 'The same measurement, but for 8 Iranian provinces individually (out of 33 that exist).',
+    when_en: 'Only when <b>two or more provinces</b> drop below 80% of the median together. A single province dipping is usually maintenance, not policy.',
+    src_en: 'IODA · Georgia Tech'
   },
   firms: {
     what: 'חריגות תרמיות שלוויין VIIRS מזהה מעל איראן, אחרי סינון תאים שבוערים דרך קבע (בעיקר פידי גז בח\'וזסתאן).',
     when: 'בזינוק של פי 3 מהחציון באירועים עזים בלבד (FRP≥50). <b>אינו מזהה סיבה</b> — תקיפה, שריפת יער ובעירה חקלאית נראות לו זהות.',
-    src: 'NASA FIRMS', url: 'https://firms.modaps.eosdis.nasa.gov/'
+    src: 'NASA FIRMS', url: 'https://firms.modaps.eosdis.nasa.gov/',
+    what_en: 'Thermal anomalies the VIIRS satellite detects over Iran, after filtering out cells that burn permanently (mostly gas flares in Khuzestan).',
+    when_en: 'On a surge to 3× the median of high-energy events only (FRP≥50). It <b>cannot identify a cause</b> — a strike, a wildfire and agricultural burning look identical to it.',
+    src_en: 'NASA FIRMS'
   },
   rial: {
     what: 'שער הריאל האיראני מול הדולר בשוק החופשי (לא השער הרשמי).',
     when: 'בתזוזה של 8% ומעלה מול החציון, לכל כיוון.',
-    src: 'tgju', url: 'https://www.tgju.org/'
+    src: 'tgju', url: 'https://www.tgju.org/',
+    what_en: 'The Iranian rial against the dollar on the free market (not the official rate).',
+    when_en: 'On a move of 8% or more against the median, in either direction.',
+    src_en: 'tgju'
   },
   advisories_il: {
     what: 'רמות אזהרת המסע שמדינות מפרסמות לאזרחיהן לגבי ישראל והסביבה.',
     when: 'בעליית רמה — ורק אחרי ש<b>אותה תצפית חזרה פעמיים ברצף</b>, כי הפיד אינו יציב בין בקשה לבקשה.',
-    src: 'מחלקת המדינה האמריקאית · FCDO', url: 'https://travel.state.gov/'
+    src: 'מחלקת המדינה האמריקאית · FCDO', url: 'https://travel.state.gov/',
+    what_en: 'The travel-advisory levels governments publish for their citizens regarding Israel and its neighbours.',
+    when_en: 'On a level rise — and only after <b>the same observation repeats twice in a row</b>, because the feed is not stable between requests.',
+    src_en: 'US State Department · FCDO'
   },
   advisories_ir: {
     what: 'רמות אזהרת המסע שמדינות מפרסמות לאזרחיהן לגבי איראן והמפרץ.',
     when: 'בעליית רמה — ורק אחרי ש<b>אותה תצפית חזרה פעמיים ברצף</b>, כי הפיד אינו יציב בין בקשה לבקשה.',
-    src: 'מחלקת המדינה האמריקאית · FCDO', url: 'https://travel.state.gov/'
+    src: 'מחלקת המדינה האמריקאית · FCDO', url: 'https://travel.state.gov/',
+    what_en: 'The travel-advisory levels governments publish for their citizens regarding Iran and the Gulf.',
+    when_en: 'On a level rise — and only after <b>the same observation repeats twice in a row</b>, because the feed is not stable between requests.',
+    src_en: 'US State Department · FCDO'
   },
   strikeradar: {
     what: 'מדד חיצוני 0–100 של אתר אחר, שנגזר מזרם חדשות ושואל שאלה אחרת: האם ארה"ב תתקוף את איראן.',
     when: '<b>לעולם לא.</b> הוא מוצג להקשר בלבד ואינו יכול להעלות את הרמה כאן — כל רכיביו הם משפחה אחת של כותרות, וזו בדיוק המחלקה שהתכנון הזה מוציא.',
-    src: 'usstrikeradar.com', url: 'https://usstrikeradar.com'
+    src: 'usstrikeradar.com', url: 'https://usstrikeradar.com',
+    what_en: 'An external 0–100 index from another site, derived from a news stream, answering a different question: will the US strike Iran.',
+    when_en: '<b>Never.</b> It is shown for context only and cannot raise the level here — all of its components are one family of headlines, which is exactly the class this design excludes.',
+    src_en: 'usstrikeradar.com'
   }
 };
 
 function info(t){
   const i = INFO[t.key];
   if (!i) return '';
+  const s = T[LANG];
   return `<div class="row-info">
-    <p><b>מה זה מודד:</b> ${i.what}</p>
-    <p><b>מה מדליק:</b> ${i.when}</p>
-    <p><b>מקור:</b> <a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.src)}</a></p>
+    <p><b>${s.infoWhat}</b> ${f(i, 'what')}</p>
+    <p><b>${s.infoWhen}</b> ${f(i, 'when')}</p>
+    <p><b>${s.infoSrc}</b> <a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(f(i, 'src'))}</a></p>
   </div>`;
 }
 
 function rows(ix){
+  const s = T[LANG];
   const items = (ix.tripwires || []).map(t => {
     const cls = t.lit ? 'row on' : (t.ok === false ? 'row err' : 'row');
     const ic  = t.lit ? '🔺' : (t.ok === false ? '⚠️' : '✓');
-    const rs  = t.lit ? t.reason
-              : (t.ok === false ? 'לא נקרא בריצה האחרונה' : (t.value || 'תקין'));
-    const tag = t.context ? '<span class="ctx">הקשר</span>'
-              : (t.shared ? '<span class="tag">אזורי</span>' : '');
+    const rs  = t.lit ? f(t, 'reason')
+              : (t.ok === false ? s.notRead : (f(t, 'value') || s.ok));
+    const tag = t.context ? `<span class="ctx">${esc(s.tagContext)}</span>`
+              : (t.shared ? `<span class="tag">${esc(s.tagRegional)}</span>` : '');
     // Republishing someone else's index without crediting it is not okay.
     const src = t.key === 'strikeradar'
-      ? ' <a href="https://usstrikeradar.com" target="_blank" rel="noopener" style="color:var(--cyan);font-size:.78rem">(מקור)</a>'
+      ? ` <a href="https://usstrikeradar.com" target="_blank" rel="noopener" style="color:var(--cyan);font-size:.78rem">${esc(s.sourceLink)}</a>`
       : '';
     const body = `
       <div class="ic" aria-hidden="true">${ic}</div>
       <div class="rw">
-        <div class="nm">${esc(t.name)}${tag}${src}</div>
+        <div class="nm">${esc(f(t, 'name'))}${tag}${src}</div>
         <div class="rs">${esc(rs)}</div>
-        ${t.range && !t.lit ? `<div class="rng">טווח רגיל בשבוע האחרון: ${esc(t.range)}</div>` : ''}
+        ${t.range && !t.lit ? `<div class="rng">${esc(s.range(t.range))}</div>` : ''}
       </div>`;
     const inf = info(t);
     // A tripwire with no written explanation stays a plain row — an empty
@@ -714,86 +1039,122 @@ function rows(ix){
            <span class="chev" aria-hidden="true"></span></summary>${inf}</details>`
       : `<div class="${cls}"><div style="display:flex;gap:12px;align-items:flex-start">${body}</div></div>`;
   }).join('');
-  const gaps = (ix.unavailable || [])
+  const gaps = ((LANG === 'en' ? (ix.unavailable_en || ix.unavailable) : ix.unavailable) || [])
     .map(u => `<div class="gap">⊘ ${esc(u)}</div>`).join('');
-  return `<h3>${esc(ix.flag)} ${esc(ix.name)}</h3><div class="rows">${items}</div>${gaps}`;
+  return `<h3>${esc(ix.flag)} ${esc(f(ix, 'name'))}</h3><div class="rows">${items}</div>${gaps}`;
 }
+
+function render(){
+  const d = DATA;
+  if (!d) return;
+  const s = T[LANG];
+  const LVL = LVLS[LANG];
+  const dt  = new Date(d.generated);
+  const age = Date.now() - dt.getTime();
+  // The monitor runs every 30 min. Past 90 min something is wrong; past 12 h
+  // the reading must not be presented as a current state at all.
+  const WARN = 90 * 60 * 1000, DEAD = 12 * 3600 * 1000;
+  const stale = age > DEAD;
+  const degraded = (LANG === 'en' ? (d.degraded_en || d.degraded) : d.degraded) || [];
+
+  const b = [];
+  if (stale) {
+    b.push(`<div class="banner dead"><span aria-hidden="true">⊘</span><div>
+      ${s.staleTitle(ago(age))}
+    </div></div>`);
+  } else if (age > WARN) {
+    b.push(`<div class="banner warn"><span aria-hidden="true">⚠️</span><div>
+      ${s.warnTitle(ago(age))}
+    </div></div>`);
+  }
+  if (degraded.length && !stale) {
+    b.push(`<div class="banner warn"><span aria-hidden="true">⚠️</span><div>
+      ${s.degradedTitle(degraded.length, degraded.map(esc).join(' · '))}
+    </div></div>`);
+  }
+  document.getElementById('banners').innerHTML = b.join('');
+
+  document.getElementById('fresh').textContent =
+    s.fresh(ago(age), d.sources_ok, d.sources_total);
+
+  // Combined one-liner — labelled "summary" so it is not mistaken for a third
+  // index. It reports max(level), never an average of the two.
+  const lv = d.indices.map(i => Math.max(0, Math.min(3, i.level || 0)));
+  const mx = Math.max(...lv);
+  document.getElementById('summary').innerHTML = stale
+    ? `<span style="color:#94a3b8">${esc(s.summaryStale)}</span>`
+    : (lv.every(v => v === mx)
+        ? s.summarySame(mx, LVL[mx].c, LVL[mx].t)
+        : s.summaryMax(mx, LVL[mx].c, LVL[mx].t));
+
+  document.getElementById('gauges').innerHTML =
+    d.indices.map(i => gauge(i, stale, degraded)).join('');
+  document.getElementById('detail').innerHTML = d.indices.map(rows).join('');
+
+  const H = d.history || [];
+  document.getElementById('hist').innerHTML = H.length < 2 ? '' : `
+    <section class="hist" aria-label="${esc(s.histAriaSection)}">
+      <div class="hist-head"><h3>${esc(s.histTitle)}</h3></div>
+      ${d.indices.map(ix => `
+        <div class="hist-row">
+          <div class="hist-label">${esc(ix.flag)} ${esc(f(ix, 'name'))}
+            <span class="hist-since">· ${since(H, ix.key)}</span></div>
+          <div class="strip" role="img"
+               aria-label="${esc(s.histAriaRow(f(ix, 'name')))}">${strip(H, ix.key)}</div>
+        </div>`).join('')}
+      <div class="hist-axis"><span>${esc(s.histFrom)}</span><span>${esc(s.histTo)}</span></div>
+      <div class="hist-note">${s.histNote}</div>
+    </section>`;
+  document.getElementById('stamp').textContent =
+    s.stamp + dt.toLocaleString(s.locale, {timeZone:'Asia/Jerusalem'});
+}
+
+function renderError(){
+  const s = T[LANG];
+  document.getElementById('summary').textContent = '';
+  document.getElementById('banners').innerHTML = '';
+  document.getElementById('fresh').textContent = '';
+  document.getElementById('gauges').innerHTML =
+    `<div class="gauge"><div class="gauge-name">${esc(s.errTitle)}</div>` +
+    `<div class="gauge-note">${esc(s.errNote)}</div></div>`;
+  document.getElementById('stamp').textContent = '';
+}
+
+// ── language switch ─────────────────────────────────────────────────
+function setLang(l, persist){
+  LANG = LANGS.indexOf(l) >= 0 ? l : 'he';
+  const root = document.documentElement;
+  root.setAttribute('data-l', LANG);
+  root.setAttribute('lang', LANG);
+  root.setAttribute('dir', LANG === 'he' ? 'rtl' : 'ltr');
+  LANGS.forEach(x => {
+    const btn = document.getElementById('lang-' + x);
+    if (btn) btn.setAttribute('aria-pressed', String(x === LANG));
+  });
+  if (persist) { try { localStorage.setItem('radar-lang', LANG); } catch(e){} }
+  if (DATA) render(); else if (LOAD_FAILED) renderError();
+}
+
+let LOAD_FAILED = false;
+
+(function initLang(){
+  let saved = null;
+  try { saved = localStorage.getItem('radar-lang'); } catch(e){}
+  // No stored choice: follow the browser, but default to Hebrew — this page is
+  // written for people in Israel first.
+  const auto = (navigator.language || '').toLowerCase().startsWith('he') ? 'he'
+             : ((navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'he');
+  setLang(saved || auto, false);
+  LANGS.forEach(x => {
+    const btn = document.getElementById('lang-' + x);
+    if (btn) btn.addEventListener('click', () => setLang(x, true));
+  });
+})();
 
 fetch('status.json?t=' + Date.now())
   .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
-  .then(d => {
-    const dt  = new Date(d.generated);
-    const age = Date.now() - dt.getTime();
-    // The monitor runs every 30 min. Past 90 min something is wrong; past 12 h
-    // the reading must not be presented as a current state at all.
-    const WARN = 90 * 60 * 1000, DEAD = 12 * 3600 * 1000;
-    const stale = age > DEAD;
-    const degraded = d.degraded || [];
-
-    const b = [];
-    if (stale) {
-      b.push(`<div class="banner dead"><span aria-hidden="true">⊘</span><div>
-        <b>הנתונים אינם עדכניים (${ago(age)}).</b>
-        המדדים מוצגים מעומעמים ואינם מייצגים את המצב כעת. פנו לפיקוד העורף.
-      </div></div>`);
-    } else if (age > WARN) {
-      b.push(`<div class="banner warn"><span aria-hidden="true">⚠️</span><div>
-        <b>העדכון האחרון ${ago(age)}.</b>
-        הבדיקה אמורה לרוץ כל 30 דקות — ייתכן שמקור נתונים או תהליך העדכון נתקע.
-      </div></div>`);
-    }
-    if (degraded.length && !stale) {
-      b.push(`<div class="banner warn"><span aria-hidden="true">⚠️</span><div>
-        <b>${degraded.length} מקורות לא נקראו בבדיקה האחרונה.</b>
-        ${degraded.map(esc).join(' · ')} — מדד שלא נקרא אינו יכול להידלק, ולכן הרמה עשויה להיות מוצגת נמוך מדי.
-      </div></div>`);
-    }
-    document.getElementById('banners').innerHTML = b.join('');
-
-    document.getElementById('fresh').textContent =
-      'עודכן ' + ago(age) + ' · נבדק כל 30 דקות · ' +
-      d.sources_ok + '/' + d.sources_total + ' מקורות נקראו';
-
-    // Combined one-liner — labelled "סיכום" so it is not mistaken for a third
-    // index. It reports max(level), never an average of the two.
-    const lv = d.indices.map(i => Math.max(0, Math.min(3, i.level || 0)));
-    const mx = Math.max(...lv);
-    document.getElementById('summary').innerHTML = stale
-      ? '<span style="color:#94a3b8">סיכום: הנתונים אינם עדכניים — אין מצב מוצג</span>'
-      : (lv.every(v => v === mx)
-          ? `סיכום: שני המדדים ברמה ${mx} — <span class="sv" style="color:${LVL[mx].c}">${LVL[mx].t}</span>`
-          : `סיכום: הגבוה מבין השניים ברמה ${mx} — <span class="sv" style="color:${LVL[mx].c}">${LVL[mx].t}</span>`);
-
-    document.getElementById('gauges').innerHTML =
-      d.indices.map(i => gauge(i, stale, degraded)).join('');
-    document.getElementById('detail').innerHTML = d.indices.map(rows).join('');
-
-    const H = d.history || [];
-    document.getElementById('hist').innerHTML = H.length < 2 ? '' : `
-      <section class="hist" aria-label="היסטוריית הרמות בשבוע האחרון">
-        <div class="hist-head"><h3>7 הימים האחרונים</h3></div>
-        ${d.indices.map(ix => `
-          <div class="hist-row">
-            <div class="hist-label">${esc(ix.flag)} ${esc(ix.name)}
-              <span class="hist-since">· ${since(H, ix.key)}</span></div>
-            <div class="strip" role="img"
-                 aria-label="רמת ${esc(ix.name)} בשבעת הימים האחרונים">${strip(H, ix.key)}</div>
-          </div>`).join('')}
-        <div class="hist-axis"><span>לפני 7 ימים</span><span>עכשיו</span></div>
-        <div class="hist-note">כל משבצת היא שעתיים, וצבועה לפי הרמה
-          <b>הגבוהה ביותר</b> באותו חלון — כדי שאירוע קצר לא ייעלם בממוצע.
-          משבצת אפורה = לא נאספו נתונים, ולא "רגוע".</div>
-      </section>`;
-    document.getElementById('stamp').textContent =
-      'חותמת מלאה: ' + dt.toLocaleString('he-IL',{timeZone:'Asia/Jerusalem'});
-  })
-  .catch(() => {
-    document.getElementById('summary').textContent = '';
-    document.getElementById('gauges').innerHTML =
-      '<div class="gauge"><div class="gauge-name">הנתונים אינם זמינים</div>' +
-      '<div class="gauge-note">לא ניתן לטעון את הסטטוס. אל תסיקו מכך דבר — פנו לפיקוד העורף.</div></div>';
-    document.getElementById('stamp').textContent = '';
-  });
+  .then(d => { DATA = d; render(); })
+  .catch(() => { LOAD_FAILED = true; renderError(); });
 </script>
 </body>
 </html>
