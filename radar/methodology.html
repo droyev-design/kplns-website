@@ -70,6 +70,20 @@ body{
 .brand span{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .backlink{color:var(--text-secondary);font-size:.85rem;text-decoration:none;transition:color .2s;white-space:nowrap}
 .backlink:hover{color:var(--cyan)}
+.topnav{display:flex;gap:14px;align-items:center}
+
+/* Language switch — same mechanism as /radar/: the static copy is duplicated
+   in the DOM and toggled purely by these CSS rules. */
+html[data-l="he"] [data-lang="en"]{display:none!important}
+html[data-l="en"] [data-lang="he"]{display:none!important}
+.langsw{display:flex;border:1px solid var(--border-hover);border-radius:9px;overflow:hidden}
+.langsw button{
+  background:none;border:0;color:var(--text-secondary);font-family:var(--font-en);
+  font-size:.76rem;font-weight:600;letter-spacing:.06em;padding:5px 10px;
+  cursor:pointer;transition:background .2s,color .2s
+}
+.langsw button:hover{color:var(--text-primary)}
+.langsw button[aria-pressed="true"]{background:var(--cyan-dim);color:var(--cyan)}
 
 .hero{text-align:center;padding:44px 0 20px}
 .section-label{
@@ -235,12 +249,19 @@ footer a:hover{color:var(--cyan)}
 </head>
 <body>
 
-<a class="skip" href="#main">דלג לתוכן</a>
+<a class="skip" href="#main"><span data-lang="he">דלג לתוכן</span><span data-lang="en">Skip to content</span></a>
 
 <div class="topbar">
   <div class="topbar-inner">
     <div class="brand"><span>KPLNS</span></div>
-    <a class="backlink" href="/radar/">← חזרה לראדאר</a>
+    <div class="topnav">
+      <div class="langsw" role="group" aria-label="שפה / Language">
+        <button type="button" id="lang-he" aria-pressed="true">עב</button>
+        <button type="button" id="lang-en" aria-pressed="false">EN</button>
+      </div>
+      <a class="backlink" href="/radar/"
+         ><span data-lang="he">← חזרה לראדאר</span><span data-lang="en">← Back to the radar</span></a>
+    </div>
   </div>
 </div>
 
@@ -248,18 +269,24 @@ footer a:hover{color:var(--cyan)}
 
   <div class="hero">
     <div class="section-label">Methodology</div>
-    <h1>איך הראדאר עובד</h1>
-    <p>המתודולוגיה המלאה — מה נמדד, מה מדליק מדד, על מה מבוססים המספרים, ומה המערכת לא יכולה לעשות</p>
+    <h1><span data-lang="he">איך הראדאר עובד</span><span data-lang="en">How the radar works</span></h1>
+    <p><span data-lang="he">המתודולוגיה המלאה — מה נמדד, מה מדליק מדד, על מה מבוססים המספרים, ומה המערכת לא יכולה לעשות</span><span data-lang="en">The full methodology — what is measured, what lights an indicator, what the numbers are based on, and what the system cannot do</span></p>
     <div class="divider"></div>
 
-    <div class="alertstrip">
+    <div class="alertstrip" data-lang="he">
       <span><span aria-hidden="true">⚠️</span> <b>זו אינה מערכת התרעה.</b>
       המקור המחייב היחיד הוא פיקוד העורף.</span>
       <a href="https://www.oref.org.il/" target="_blank" rel="noopener">להנחיות המחייבות ←</a>
     </div>
+    <div class="alertstrip" data-lang="en">
+      <span><span aria-hidden="true">⚠️</span> <b>This is not an alert system.</b>
+      The only binding source is the Home Front Command.</span>
+      <a href="https://www.oref.org.il/" target="_blank" rel="noopener">Official instructions ←</a>
+    </div>
   </div>
 
-  <nav class="toc" aria-label="תוכן העניינים">
+  <nav class="toc" aria-label="תוכן העניינים / Contents">
+    <div data-lang="he">
     <h2>בעמוד הזה</h2>
     <ol>
       <li><a href="#q">השאלה שהמערכת עונה עליה</a></li>
@@ -272,10 +299,26 @@ footer a:hover{color:var(--cyan)}
       <li><a href="#honesty">כללי היושרה של הדף</a></li>
       <li><a href="#ai">גילוי נאות: פיתוח בעזרת AI</a></li>
     </ol>
+    </div>
+    <div data-lang="en">
+    <h2>On this page</h2>
+    <ol>
+      <li><a href="#q">The question the system answers</a></li>
+      <li><a href="#design">Why tripwires and not a weighted score</a></li>
+      <li><a href="#weights">Where weight was applied after all</a></li>
+      <li><a href="#stats">The statistical basis</a></li>
+      <li><a href="#thresholds">The exact thresholds</a></li>
+      <li><a href="#history">The historical basis</a></li>
+      <li><a href="#rejected">What was tested and rejected</a></li>
+      <li><a href="#honesty">The page's honesty rules</a></li>
+      <li><a href="#ai">Disclosure: developed with AI tools</a></li>
+    </ol>
+    </div>
   </nav>
 
   <!-- ─────────────────────────────────────────────── -->
   <section class="blk" id="q">
+    <div data-lang="he">
     <h2><span class="num">01</span> השאלה שהמערכת עונה עליה</h2>
 
     <p class="lead">"האם מצטברים סימנים לכך שמתקרבת הסלמה בין ישראל לאיראן, ברמת
@@ -292,10 +335,34 @@ footer a:hover{color:var(--cyan)}
       היא שכבת התארגנות של 1–3 ימים. במקרה מהיר (ראו אוקטובר 2024 בסעיף 6) ייתכן
       שלא יהיה כאן שום זמן התרעה. התרעת הדקות היא פיקוד העורף, נקודה.
     </div>
+    </div>
+    <div data-lang="en">
+    <h2><span class="num">01</span> The question the system answers</h2>
+
+    <p class="lead">"Are signs accumulating that an escalation between Israel and
+    Iran is approaching, on a scale of days — the kind that justifies getting
+    prepared?"</p>
+
+    <p>That is not the question other indices online answer. usstrikeradar.com,
+    for example, asks "will the US strike Iran" — a nearby question, but not the
+    same one, and certainly not the same in its consequences for someone living
+    in Israel. This radar shows <b>two separate indices</b>, one per side,
+    because the signs on the two sides differ completely in kind: on the Israeli
+    side it is the behaviour of civil and defence systems that is measured, and
+    on the Iranian side the behaviour of the regime and its infrastructure.</p>
+
+    <div class="call red">
+      <b>What the system does not do:</b> it does not announce a launch, and it
+      gives no minutes-level warning. It is a 1–3 day preparation layer. In a
+      fast case (see October 2024 in section 6) there may be no warning time
+      here at all. Minutes-level warning is the Home Front Command, full stop.
+    </div>
+    </div>
   </section>
 
   <!-- ─────────────────────────────────────────────── -->
   <section class="blk" id="design">
+    <div data-lang="he">
     <h2><span class="num">02</span> למה טריפ-ווייר ולא ציון משוקלל</h2>
 
     <p>הדרך המקובלת לבנות מדד כזה היא ממוצע משוקלל: לוקחים 6–8 סיגנלים, נותנים לכל
@@ -336,10 +403,61 @@ footer a:hover{color:var(--cyan)}
     </div>
     <p>"משפחה" היא מקור-התנהגות אחד, ולה <b>קול אחד</b> בלבד — לא משנה כמה פריטים
     בתוכה זזו. שני מחוזות באיראן שיורדים יחד הם עדיין קול אחד, לא שניים.</p>
+    </div>
+    <div data-lang="en">
+    <h2><span class="num">02</span> Why tripwires and not a weighted score</h2>
+
+    <p>The usual way to build an index like this is a weighted average: take 6–8
+    signals, give each a weight, and get a number between 0 and 100. This page
+    <b>does not</b> do that — deliberately, and after measuring what happens
+    when you do.</p>
+
+    <h3>What was measured on a weighted system that actually ran here</h3>
+    <p>Before this radar was built, a monitor based on an external weighted
+    index ran for two months. This was its behaviour, from its own log,
+    9.6.2026–16.8.2026:</p>
+    <ul>
+      <li><b>57 alerts in 68 days</b> — about 0.85 alerts per day.</li>
+      <li>The index swung 46 → 67 → 24 → 96 → 24 → 78 → 36, crossing the alert
+      threshold dozens of times in both directions.</li>
+      <li>Between 12 and 16 August: 60, 70, 75, 78, 74, 64, 59, 49, 39, 36 —
+      <b>nine alerts for a single news cycle</b> that rose and faded.</li>
+      <li>The leader-rhetoric sub-signal was marked "extreme" even while the
+      overall index showed "calm". An indicator that is almost always lit is not
+      an indicator.</li>
+    </ul>
+
+    <p>The structural reason: when you mix signals that all derive from the same
+    news stream (headlines, statements, betting markets, the oil price), they
+    are correlated with each other — especially in a crisis. The weighted
+    average then behaves like <b>a single news-noise meter</b>, and inherits the
+    volatility of its noisiest term. It also hides who exactly moved.</p>
+
+    <div class="call warn">
+      <b>The real cost of noise:</b> a system that alerts every day trains
+      whoever receives it to ignore it. That is worse than no alert at all —
+      precisely for the one alert that matters.
+    </div>
+
+    <h3>What was built instead</h3>
+    <p>Every indicator here is <b>boolean</b> — lit or unlit — not a score. The
+    level is simply <b>a count of how many independent indicator families are
+    lit at once</b>:</p>
+    <div class="fx">
+      level = 0 &nbsp; <span class="c">// no family lit</span><br>
+      level = 1 &nbsp; <span class="c">// exactly 1 family lit</span><br>
+      level = 2 &nbsp; <span class="c">// exactly 2 independent families</span><br>
+      level = 3 &nbsp; <span class="c">// 3+ families &nbsp;OR&nbsp; Home Front Command policy change</span>
+    </div>
+    <p>A "family" is one source of behaviour, and it holds exactly <b>one
+    vote</b> — no matter how many items inside it moved. Two Iranian provinces
+    dropping together are still one vote, not two.</p>
+    </div>
   </section>
 
   <!-- ─────────────────────────────────────────────── -->
   <section class="blk" id="weights">
+    <div data-lang="he">
     <h2><span class="num">03</span> איפה כן הוטה המשקל</h2>
 
     <p>אין בקוד טבלת משקלות, ואין ניקוד סובייקטיבי. אבל יש ארבע הטיות מוצהרות,
@@ -367,10 +485,47 @@ footer a:hover{color:var(--cyan)}
     <p>מדד שכבר דולק אינו מתריע שוב, ולכל משפחה יש <b>קירור של 6 שעות</b>, כדי
     שפיד מהבהב לא יוכל להציף. מנגד — כל שינוי מדווח, בכל שעה, גם ב-3 לפנות בוקר.
     ההנחה היא שמי שנרשם למערכת כזו מעדיף להתעורר על שינוי אמיתי.</p>
+    </div>
+    <div data-lang="en">
+    <h2><span class="num">03</span> Where weight was applied after all</h2>
+
+    <p>There is no weights table in the code, and no subjective scoring. But
+    there are four declared biases, and each of them is a design decision that
+    can be argued with:</p>
+
+    <h3>1. Costly signals beat cheap talk</h3>
+    <p>An indicator lights only when someone has <b>paid a price</b> for an
+    action: an army changing civil-defence instructions for its population,
+    airlines forgoing revenue, a state cutting its own internet, a government
+    evacuating embassy staff, a currency collapsing. Statements, headlines and
+    tweets <b>light nothing here</b>, dramatic ones included.</p>
+
+    <h3>2. The Home Front Command alone is enough for "critical"</h3>
+    <p>This is the single exception to the counting rule. A defence-policy
+    change is the most expensive and most Israel-specific action in the whole
+    set — a state does not change civil-defence instructions over a headline.
+    So it takes the Israeli index to 3 even on its own.</p>
+
+    <h3>3. StrikeRadar got a weight of zero</h3>
+    <p>The external index is shown on the page tagged <span class="tag">context</span> — but it
+    <b>can never raise a level</b>. The reason: its components (news,
+    statements, betting markets) are exactly the class of signal this design
+    exists to exclude. Its operator markets the same engine as
+    "LayoffRadar — same engine, fresh signals", i.e. generic news aggregation.
+    It stays on the page so it can be compared against, and no more.</p>
+
+    <h3>4. The threshold is not symmetric between lighting and clearing</h3>
+    <p>An indicator that is already lit does not alert again, and every family
+    has a <b>6-hour cooldown</b>, so a flapping feed cannot flood. On the other
+    hand — every change is reported, at any hour, 3 a.m. included. The
+    assumption is that whoever signs up for a system like this prefers to be
+    woken by a real change.</p>
+    </div>
   </section>
 
   <!-- ─────────────────────────────────────────────── -->
   <section class="blk" id="stats">
+    <div data-lang="he">
     <h2><span class="num">04</span> הבסיס הסטטיסטי</h2>
 
     <p class="lead">כמעט כל מדד כאן שואל שאלה אחת: <b>האם הערך הנוכחי חורג ממה
@@ -448,10 +603,108 @@ footer a:hover{color:var(--cyan)}
       הוא סופר "משהו גדול בוער היכן שבדרך כלל לא בוער", ומסומן בדף בדיוק כך.
       אין כאן שום טענה לקורלציה עם אתרים צבאיים, כי אין רשימת אתרים מאומתת.
     </div>
+    </div>
+    <div data-lang="en">
+    <h2><span class="num">04</span> The statistical basis</h2>
+
+    <p class="lead">Nearly every indicator here asks one question: <b>is the
+    current value outside what has been normal for this indicator in recent
+    days?</b> — not "is the value high".</p>
+
+    <h3>Why the median and not the mean</h3>
+    <p>Each indicator's baseline is the <b>median</b> of its recent samples, not
+    the mean. Two reasons:</p>
+    <ul>
+      <li><b>A mean is dragged by outliers.</b> One sharp spike pulls the mean
+      upward — meaning the very event we are trying to detect poisons the
+      baseline that is supposed to detect it. The median barely moves on a
+      single outlying sample.</li>
+      <li><b>These feeds are not normally distributed.</b> Aircraft counts, BGP
+      routes and thermal anomalies are heavily long-tailed distributions. In a
+      measurement taken on NASA FIRMS data over the Iran region on 16.8.2026:
+      median intensity 4.0 MW, 90th percentile 16.6, 99th percentile 50.9, and
+      a maximum of 153.8. A mean over a distribution like that is a number that
+      describes almost no actual observation.</li>
+    </ul>
+
+    <h3>The window and the sampling</h3>
+    <div class="m-wrap"><table class="m-tbl">
+      <tbody>
+        <tr><td>Check cadence</td><td class="num-cell">every 30 minutes</td>
+            <td>The system is not continuous. Between checks it is blind.</td></tr>
+        <tr><td>Stored series length</td><td class="num-cell">96 samples ≈ 48 hours</td>
+            <td>"Normal" is defined against the last two days, not a historical
+            average. That way the indicator adapts to real shifts in the
+            background rate.</td></tr>
+        <tr><td>Minimum before a rule is active</td><td class="num-cell">12 samples ≈ 6 hours</td>
+            <td>A median-based rule simply <b>does not exist</b> until history
+            has accumulated. Otherwise the first run would produce an immediate
+            false alarm.</td></tr>
+        <tr><td>Cooldown between alerts</td><td class="num-cell">6 hours per family</td>
+            <td>Prevents flooding from a flapping feed.</td></tr>
+        <tr><td>"Normal range" shown on the page</td><td class="num-cell">10th–90th percentiles</td>
+            <td>What you see next to each indicator is the range holding 80% of
+            the recent samples — so the current number is readable without
+            knowing the feed.</td></tr>
+        <tr><td>Exception: the GPS-interference indicator</td><td class="num-cell">daily series · up to 30 days</td>
+            <td>gpsjam.org publishes one file per day (about a day behind). So
+            this family is judged once per published day, against the median of
+            the preceding days — not against the 48-hour window. At least
+            7 days of history are required before the rule is active.</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>Why the thresholds are relative, not absolute</h3>
+    <p>There are no thresholds in the code like "under 40 aircraft" or "above
+    900,000 rial to the dollar". Every threshold is phrased as a <b>ratio to
+    the median</b>. The reason is practical: every feed has a "normal" of its
+    own, and it drifts. Air traffic changes with season and hour; the rial
+    suffers continuous inflation that would trip an absolute threshold within
+    weeks; Iran's BGP route count shifts with infrastructure. A relative
+    threshold asks "what changed here <b>now</b>", and that is the right
+    question.</p>
+
+    <div class="fx">
+      <span class="c">// the shape every rule here takes</span><br>
+      prior &nbsp;= last 96 samples (excluding the current one)<br>
+      if len(prior) &lt; 12: &nbsp;<span class="c">// not enough history — rule is inert</span><br>
+      &nbsp; &nbsp; do nothing<br>
+      med &nbsp; = median(prior)<br>
+      lit &nbsp; = current &lt; factor × med &nbsp;<span class="c">// collapse-type signals</span><br>
+      lit &nbsp; = current &gt; max(factor × med, med + floor) &nbsp;<span class="c">// surge-type signals</span>
+    </div>
+
+    <p>The <span class="num-cell">med + floor</span> in the surge rules is not
+    decoration: when the median is very low, "2×" can be a jump from 3 to 6,
+    which is noise. The absolute floor also demands a move that is meaningful
+    in absolute size, not only in ratio.</p>
+
+    <h3>The "always burning" mask — why processing is needed before the data is usable at all</h3>
+    <p>The satellite indicator is the best example of raw data not being a
+    signal. A measurement over the region (bbox 44,25–64,40) on 16.8.2026
+    showed roughly 800–1,300 thermal anomalies <b>per day</b>: 1,181 distinct
+    cells across 5 days, of which 340 burned on 3 days or more — that is,
+    permanent gas flares over the Khuzestan oil fields, and industry. So only
+    anomalies meeting all three conditions are kept: high confidence, intensity
+    ≥50 MW (roughly the 99th percentile), and a location <b>absent from the
+    mask of places that burn permanently</b> — a mask learned from the
+    observations themselves. After the filtering about 1.4 anomalies a day
+    remain, and that is a number a spike can be hunted in.</p>
+
+    <div class="call warn">
+      <b>And what this indicator still does not know:</b> it does not attribute
+      cause. A large heat signature can be a strike, a wildfire or agricultural
+      stubble burning — and the indicator cannot tell them apart. It counts
+      "something large is burning where nothing usually burns", and is labelled
+      on the page exactly that way. No claim of correlation with military sites
+      is made here, because there is no verified site list.
+    </div>
+    </div>
   </section>
 
   <!-- ─────────────────────────────────────────────── -->
   <section class="blk" id="thresholds">
+    <div data-lang="he">
     <h2><span class="num">05</span> ספי ההדלקה המדויקים</h2>
 
     <p>אלה המספרים שרצים בפועל. הם מפורסמים כאן כדי שאפשר יהיה לבקר אותם —
@@ -507,10 +760,79 @@ footer a:hover{color:var(--cyan)}
       מייצרת "שינויים" שלא קרו — וזה כבר ייצר שתי התרעות שווא לפני שהכלל הוקשח.
       מאז נקראת ממנו <b>רק רמת האזהרה מהכותרת</b>, שהיא יציבה.</li>
     </ul>
+    </div>
+    <div data-lang="en">
+    <h2><span class="num">05</span> The exact thresholds</h2>
+
+    <p>These are the numbers that actually run. They are published here so they
+    can be audited — and so you can see what can, and cannot, light the page.</p>
+
+    <div class="m-wrap"><table class="m-tbl">
+      <thead><tr><th>Indicator</th><th>Source</th><th>What lights it</th><th>Which index</th></tr></thead>
+      <tbody>
+        <tr><td>Defence policy</td><td>Home Front Command (official API)</td>
+            <td>Any change of the instructions' wording against the stored
+            baseline, <b>or</b> a restrictive policy in effect (i.e. not
+            "no restrictions")</td><td>🇮🇱 Israel</td></tr>
+        <tr><td>Israeli airspace</td><td>adsb.lol</td>
+            <td class="num-cell">civil aircraft &lt; 35% of the median</td><td>🇮🇱 Israel</td></tr>
+        <tr><td>Travel advisories — Israel and neighbours</td><td>US State Department · FCDO</td>
+            <td>An advisory-level rise for Israel / Lebanon / Jordan / Syria, or
+            a UK travel-advice update for Israel — <b>confirmed by two
+            consecutive observations</b></td><td>🇮🇱 Israel</td></tr>
+        <tr><td>Iranian internet (national)</td><td>IODA · Georgia Tech</td>
+            <td class="num-cell">BGP &lt; 85% of the median, or merit-nt &lt; 50%</td><td>🇮🇷 Iran</td></tr>
+        <tr><td>Internet at province level</td><td>IODA · 8 provinces</td>
+            <td><b>Two or more provinces</b> drop below 80% of the median at
+            once</td><td>🇮🇷 Iran</td></tr>
+        <tr><td>Satellite thermal anomalies</td><td>NASA FIRMS · VIIRS</td>
+            <td class="num-cell">n &gt; max(3 × median, median + 5)</td><td>🇮🇷 Iran</td></tr>
+        <tr><td>Iranian rial</td><td>tgju (free market)</td>
+            <td class="num-cell">a move of 8%+ against the median, either direction</td><td>🇮🇷 Iran</td></tr>
+        <tr><td>Travel advisories — Iran and the Gulf</td><td>US State Department</td>
+            <td>An advisory-level rise for Iran / Iraq / Qatar / Bahrain /
+            Kuwait / the UAE / Saudi Arabia — confirmed by two
+            observations</td><td>🇮🇷 Iran</td></tr>
+        <tr><td>GPS interference — Strait of Hormuz</td><td>gpsjam.org (ADS-B-derived, daily)</td>
+            <td>The daily ratio of aircraft reporting degraded GPS accuracy
+            ≥ 3× the median of the preceding days (up to 30 days), and at
+            least 5% in absolute terms; a day with fewer than 1,000
+            observations is not judged</td><td>🇮🇷 Iran</td></tr>
+        <tr><td>US military aviation</td><td>adsb.lol (box 12–40°N, 25–60°E)</td>
+            <td class="num-cell">n &gt; max(2 × median, median + 8)</td><td>🌐 Regional — counts for both</td></tr>
+        <tr><td>Markets — Brent and the shekel</td><td>tgju (Brent) · Bank of Israel (USD/ILS)</td>
+            <td>Escalation direction only: Brent ≥ 108% of the median, or the
+            USD/ILS rate ≥ 103% of the median (shekel weakening). One vote per
+            family</td>
+            <td>🌐 Regional — counts for both</td></tr>
+        <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
+            <td><b>Lights nothing</b> — context only</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+
+    <p>Two rules in the table come from real failure, not from theory:</p>
+    <ul>
+      <li><b>Why two provinces and not one:</b> a single province dropping is
+      usually infrastructure maintenance or a hole in reporting coverage. Two
+      provinces dropping together is already state-level behaviour. The idea of
+      measuring at province level rather than only nationally was adopted from
+      another project (iranmonitor.online) — a healthy national figure can hide
+      a targeted regional cut, which is exactly the shape of a pre-event
+      shutdown.</li>
+      <li><b>Why travel advisories require two observations:</b> the State
+      Department's RSS feed is not stable between requests. Measured seconds
+      apart, one request returned 229 items and the other 216, with a
+      completely different body length for the same country. A single read of
+      this feed manufactures "changes" that never happened — and it produced
+      two false alarms before the rule was hardened. Since then <b>only the
+      advisory level from the title</b> is read from it, which is stable.</li>
+    </ul>
+    </div>
   </section>
 
   <!-- ─────────────────────────────────────────────── -->
   <section class="blk" id="history">
+    <div data-lang="he">
     <h2><span class="num">06</span> הבסיס ההיסטורי</h2>
 
     <p>בחירת המדדים לא נעשתה לפי תחושה, אלא לפי בדיקה של שלושה סבבים אמיתיים:
@@ -610,10 +932,126 @@ footer a:hover{color:var(--cyan)}
       "68% סיכוי לתקיפה". כל מי שמציג אחוז כזה על בסיס נתונים ציבוריים עושה
       התאמת עקומה לשלוש נקודות.
     </div>
+    </div>
+    <div data-lang="en">
+    <h2><span class="num">06</span> The historical basis</h2>
+
+    <p>The indicators were not chosen by feel, but by examining three real
+    rounds: what actually <b>moved before</b> the event, and what only reacted
+    after it. This is also the place to be honest about the sample size —
+    three events.</p>
+
+    <div class="ep">
+      <div class="when">APRIL 2024</div>
+      <h4>The Iranian drone-and-missile barrage on Israel · night of 13–14 April</h4>
+      <ul>
+        <li><b>T‑12 days —</b> the strike on the Iranian consulate compound in
+        Damascus (1 April) created a declared, public obligation to retaliate.
+        From that day there was an "open window".</li>
+        <li><b>T‑7 days —</b> Lufthansa suspended Tehran flights from 6 April
+        and extended the suspension — including avoiding Iranian airspace —
+        before the barrage. <b>That is an action that costs money</b>, which is
+        why it counts here.</li>
+        <li><b>T‑1 day —</b> an explicit official warning: on 12 April the
+        attack was said to be expected "sooner rather than later".</li>
+      </ul>
+      <span class="lead-badge">Maximum warning time from public data: ~a week</span>
+      <div class="src">Sources (checked 16.8.2026):
+        <a href="https://www.usnews.com/news/world/articles/2024-04-10/lufthansa-suspends-tehran-flights-middle-east-on-alert-for-potential-iran-attacks" target="_blank" rel="noopener">US News</a> ·
+        <a href="https://www.timesofisrael.com/liveblog-april-12-2024/" target="_blank" rel="noopener">Times of Israel</a>
+      </div>
+    </div>
+
+    <div class="ep">
+      <div class="when">OCTOBER 2024</div>
+      <h4>The ballistic-missile barrage · 1 October, ~19:30 Israel time</h4>
+      <ul>
+        <li><b>Context, T‑1 to T‑4 days —</b> the killing of Nasrallah on
+        27 September and the ground operation in Lebanon on 30 September opened
+        a plausible retaliation window — but with no specific public
+        precursor.</li>
+        <li><b>T‑hours —</b> on the morning and midday of 1 October a US
+        official publicly warned of an "imminent" missile attack. The launch
+        came the same day.</li>
+        <li><b>An honest and uncomfortable finding —</b> no other public feed —
+        aviation, shipping, oil — moved in advance. This is the fast case, and
+        the ceiling for a system like this one in it is <b>hours</b>, and only
+        through the official-warning channel.</li>
+      </ul>
+      <span class="lead-badge">Maximum warning time from public data: hours</span>
+      <div class="src">Sources:
+        <a href="https://www.cnbc.com/2024/10/01/iran-readying-imminent-ballistic-missile-attack-against-israel-us-official-tells-nbc-news.html" target="_blank" rel="noopener">CNBC</a> ·
+        <a href="https://www.defensenews.com/flashpoints/israel-palestine/2024/10/01/iran-preparing-imminent-missile-attack-on-israel-us-warns/" target="_blank" rel="noopener">Defense News</a>
+      </div>
+    </div>
+
+    <div class="ep">
+      <div class="when">JUNE 2025</div>
+      <h4>The Israeli campaign in Iran (from 13 June) and the US strike (21–22 June)</h4>
+      <ul>
+        <li><b>T‑~40 hours —</b> on 11 June the State Department ordered
+        non-essential staff out of the Baghdad embassy, and voluntary departure
+        was authorised for military families in Bahrain, Kuwait and the UAE.
+        The strike began in the first hours of 13 June. <b>Governments do not
+        evacuate people for nothing</b> — this is the strongest costly signal
+        found.</li>
+        <li><b>Oil —</b> rose more than 4% on 11 June — in reaction <b>to the
+        evacuation news</b> — and made its big move (~7%) only <b>after</b> the
+        strike. Oil is a derivative of the precursor, not a precursor
+        itself.</li>
+        <li><b>The deception lesson, 21 June —</b> flight-tracking sites showed
+        six B-2 bombers moving west to Guam. It was a deliberate decoy; the
+        strike aircraft flew east untracked. Two days earlier it had been said
+        the decision would come "within two weeks".</li>
+      </ul>
+      <span class="lead-badge">Maximum warning time from public data: ~40 hours</span>
+      <div class="src">Sources:
+        <a href="https://www.aljazeera.com/news/2025/6/12/us-evacuates-personnel-from-middle-east-in-sign-of-growing-regional-tension" target="_blank" rel="noopener">Al Jazeera</a> ·
+        <a href="https://www.twz.com/air/b-2-used-as-decoy-for-iran-strike-mission-is-stuck-in-hawaii" target="_blank" rel="noopener">TWZ</a>
+      </div>
+    </div>
+
+    <h3>Indicator families ranked by demonstrated warning time</h3>
+    <div class="m-wrap"><table class="m-tbl">
+      <thead><tr><th>Family</th><th>Demonstrated warning time</th><th>Assessment</th></tr></thead>
+      <tbody>
+        <tr><td>Official protective actions (embassy evacuations, advisory-level jumps)</td>
+            <td class="num-cell">1–3 days</td>
+            <td>The best family. A costly, rare, automatically checkable signal.</td></tr>
+        <tr><td>A structural event that opens a window (a strike, an assassination, a declared obligation to retaliate)</td>
+            <td class="num-cell">days–weeks</td>
+            <td>Does not say <b>when</b>, says "braced". High value per false alarm.</td></tr>
+        <tr><td>Airline flight suspensions</td>
+            <td class="num-cell">days–a week</td>
+            <td>A costly signal. Sometimes lights on general unrest too.</td></tr>
+        <tr><td>An explicit official "imminent attack" warning</td>
+            <td class="num-cell">hours–a day</td>
+            <td>The only thing that led the fast case.</td></tr>
+        <tr><td>Prediction markets</td><td class="num-cell">hours–days, contaminated</td>
+            <td>Partly an echo of the news, partly — as emerged in 2026 — inside
+            information. See section 7.</td></tr>
+        <tr><td>Military-movement tracking (OSINT)</td><td class="num-cell">days, vulnerable to deception</td>
+            <td>Can point the wrong way <b>on purpose</b>.</td></tr>
+        <tr><td>Oil, shipping, marine insurance</td><td class="num-cell">after, or a same-hour echo</td>
+            <td>Confirms, does not warn.</td></tr>
+        <tr><td>News volume and weighted indices</td><td class="num-cell">simultaneous</td>
+            <td>Exactly what this design was built to stop relying on.</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="call red">
+      <b>The limit that cannot be worked around:</b> three historical events are
+      not a sample that supports calibrated probabilities. So this page's output
+      is a <b>categorical level</b> — and never "a 68% chance of attack".
+      Anyone showing such a percentage built on public data is fitting a curve
+      to three points.
+    </div>
+    </div>
   </section>
 
   <!-- ─────────────────────────────────────────────── -->
   <section class="blk" id="rejected">
+    <div data-lang="he">
     <h2><span class="num">07</span> מה נבדק ונפסל</h2>
 
     <p>רשימת הדברים שלא נכנסו חשובה לא פחות מרשימת מה שכן — כי היא מראה איפה
@@ -661,10 +1099,77 @@ footer a:hover{color:var(--cyan)}
       נשארת כתובה: אין תיעוד מאומת של הובלה לפני אירוע, המדד נגזר מתעופה ולא
       מספנות, והוא מסומן ככזה בעמוד.</li>
     </ul>
+    </div>
+    <div data-lang="en">
+    <h2><span class="num">07</span> What was tested and rejected</h2>
+
+    <p>The list of what was left out matters no less than the list of what went
+    in — because it shows where the system chose to declare "I don't know"
+    instead of showing a green dial.</p>
+
+    <ul>
+      <li><b>Iranian airspace —</b> there is no ADS-B receiver coverage over
+      Iran at all. Measured: 0 aircraft over Tehran and over central Iran,
+      against 96 over Israel. So there is no Iranian counterpart to the
+      airspace indicator, and the page <b>says so explicitly</b> instead of
+      showing a dial that measures nothing.</li>
+      <li><b>Market indicators (oil, the shekel rate) — rejected on 16.8, wired
+      on 17.8.</b> The original search found no data channel (the price service
+      returned 429 again and again — and on a 17.8 retest it is still blocked).
+      A proven channel was found elsewhere: a live Brent price sits inside
+      tgju's feed — the same source already proven for the rial — and the
+      representative USD/ILS rate is available from the Bank of Israel's public
+      API. Both were verified with live calls from the server before wiring.
+      The reservation from section 6 stands, and is declared: in the rounds
+      that were measured, oil <b>reacted</b> rather than led, so this family is
+      mainly a fast confirmation channel (a repricing within hours), not early
+      warning. The threshold is directional on purpose — only oil rising or the
+      shekel weakening lights it; falling oil is not an escalation signal.</li>
+      <li><b>Prediction markets (Polymarket) —</b> showed ~99% for an Israeli
+      strike before 13 June 2025, but: (a) they mostly tracked the same public
+      evacuation news; (b) in February 2026 it was reported that Israelis with
+      classified access had bet in these markets — meaning part of the "edge"
+      was inside information, which cannot be identified as such in real
+      time.</li>
+      <li><b>Leader rhetoric —</b> removed entirely. On 19 June 2025 the line
+      was "a decision within two weeks", and the strike came within two days.
+      A signal that can be anti-correlated with the truth at exactly the
+      critical moment is not a signal.</li>
+      <li><b>NOTAMs —</b> the best-quality signal we do not have: a state that
+      issues a NOTAM and closes airspace is taking a costly, hard-to-fake step.
+      Tested in depth twice (16.8 and 17.8): every free channel tested is
+      blocked from the server — the FAA's NOTAM systems return 403/401, ICAO's
+      data service requires a key, autorouter requires an account, Iran's AIS
+      sites do not resolve in DNS, and Europe's EAD requires a login. One site
+      that displays a "NOTAM status" for Iran turned out, on inspection, to be
+      a field updated <b>manually</b> by the site's operator — that is, not a
+      data source at all. Declared as a gap on the main page, not filled with a
+      guess. Airspace closure is caught indirectly through the actual-aircraft
+      indicator.</li>
+      <li><b>Ship traffic (AIS) in the Strait of Hormuz —</b> still no channel:
+      UKMTO is blocked, NGA's API answers 200 but its newest message is from
+      May 2024 (a zombie feed — worse than a clean error, and rejected
+      explicitly for that), and AIS services require keys. Declared as a
+      gap.</li>
+      <li><b>GPS-interference levels — rejected on 16.8, wired on 17.8 with a
+      real baseline.</b> A proven public channel was found: gpsjam.org
+      publishes a daily file of grid cells with the number of aircraft that
+      reported good vs degraded GPS accuracy. Before wiring, 14 days were
+      measured back around the Strait of Hormuz (227 cells, 24–28.5°N): roughly
+      17–21 thousand aircraft observations per day, an interference ratio of
+      1.8–3.2% until 8.8, and a jump to 10.5–13.3% from 9.8 onward — exactly
+      the shape of transition the rule is built to catch, and it is already
+      part of the stored baseline. The original reservation stays on record:
+      there is no verified documentation of it leading before an event, the
+      indicator is derived from aviation rather than shipping, and it is
+      labelled as such on the page.</li>
+    </ul>
+    </div>
   </section>
 
   <!-- ─────────────────────────────────────────────── -->
   <section class="blk" id="honesty">
+    <div data-lang="he">
     <h2><span class="num">08</span> כללי היושרה של הדף</h2>
 
     <p>ארבעה כללים שנאכפים בקוד, ולא רק מוצהרים:</p>
@@ -680,10 +1185,35 @@ footer a:hover{color:var(--cyan)}
       <li><b>נתונים ישנים מסומנים.</b> מעל 90 דקות ללא עדכון — סימון כתום;
       מעל 12 שעות — המחוונים מאפירים לגמרי. עדיף דף שמודה שהוא לא יודע.</li>
     </ul>
+    </div>
+    <div data-lang="en">
+    <h2><span class="num">08</span> The page's honesty rules</h2>
+
+    <p>Four rules enforced in code, not merely declared:</p>
+    <ul>
+      <li><b>Baseline before alerting.</b> A median-based rule is not active
+      until 12 samples have accumulated. Until then it cannot light — and does
+      not pretend it could.</li>
+      <li><b>Presence is not change.</b> The system alerts on deviation from a
+      baseline, not on the mere existence of a value. (This rule was born from
+      a false alarm: searching the whole feed for the phrase "ordered
+      departure" lit on seven unrelated countries that carry it as standing
+      text.)</li>
+      <li><b>A failed source is shown as a warning, not as quiet.</b> This is
+      the critical point: an indicator that was not read cannot light, so
+      <b>a feed failure makes the page look calmer than reality</b>. That is
+      why, when a source fails, an explicit notice appears that "the level may
+      be under-reported".</li>
+      <li><b>Stale data is marked.</b> Over 90 minutes without an update — an
+      amber mark; over 12 hours — the dials grey out entirely. Better a page
+      that admits it does not know.</li>
+    </ul>
+    </div>
   </section>
 
   <!-- ─────────────────────────────────────────────── -->
   <section class="blk" id="ai">
+    <div data-lang="he">
     <h2><span class="num">09</span> גילוי נאות: פיתוח בעזרת כלי AI</h2>
 
     <p class="lead">המתודולוגיה שבעמוד הזה, ניתוח הסבבים הקודמים והקוד שמריץ את
@@ -723,10 +1253,60 @@ footer a:hover{color:var(--cyan)}
       <b>ולסיום, שוב:</b> זהו פרויקט פרטי, לא גורם רשמי, ואין להסתמך עליו לקבלת
       החלטות בטיחות. המקור המחייב היחיד הוא פיקוד העורף — תמיד.
     </div>
+    </div>
+    <div data-lang="en">
+    <h2><span class="num">09</span> Disclosure: developed with AI tools</h2>
+
+    <p class="lead">The methodology on this page, the analysis of the previous
+    rounds and the code that runs the radar were developed with artificial-
+    intelligence tools, working jointly with a human operator.</p>
+
+    <p>This statement appears here because it is relevant to the question "how
+    much can this be trusted", not to tick a box. Hence the detail:</p>
+
+    <h3>What this means in practice</h3>
+    <ul>
+      <li>The review of the historical events, the ranking of indicator
+      families and the critique of a weighted model — were done with AI tools,
+      against the public sources linked in section 6.</li>
+      <li>The numeric thresholds were derived from <b>measuring the feeds
+      themselves</b> (distribution, median, percentiles), not from a language
+      model's estimate. Wherever a measurement was relied on — it is noted on
+      the page with a date.</li>
+      <li>Every source was checked with a live call from the server before it
+      was wired, and sources that did not answer — were not wired.</li>
+    </ul>
+
+    <h3>What this does not mean</h3>
+    <ul>
+      <li>There is no learning model predicting events here, and no training on
+      historical data. The actual decision is <b>a simple, readable chain of
+      rules</b>, each of which is spelled out on this page. There is no
+      component that cannot be explained.</li>
+      <li>No language model is used at runtime to set the level. The
+      30-minute run is arithmetic on numbers, not a model's judgement.</li>
+      <li>There is no access to classified information, and no connection to
+      any official body. Every source on this page is public, and all are
+      listed by name.</li>
+    </ul>
+
+    <div class="call info">
+      <b>Why publish a methodology at all:</b> other escalation indices online
+      are a black box — you cannot know what moves them, so you cannot know
+      when not to believe them. A page like this makes the radar auditable: if
+      a threshold here looks wrong, it can be pointed at precisely.
+    </div>
+
+    <div class="call red">
+      <b>And finally, once more:</b> this is a private project, not an official
+      body, and it must not be relied on for safety decisions. The only binding
+      source is the Home Front Command — always.
+    </div>
+    </div>
   </section>
 
   <div class="backbar">
-    <a href="/radar/">← חזרה למצב הנוכחי בראדאר</a>
+    <a href="/radar/"><span data-lang="he">← חזרה למצב הנוכחי בראדאר</span><span data-lang="en">← Back to the current radar state</span></a>
   </div>
 
   <div class="stamp">Last methodology update: 2026-08-17</div>
@@ -734,13 +1314,52 @@ footer a:hover{color:var(--cyan)}
   </main>
 
   <footer>
-    <nav class="legal" aria-label="מידע משפטי">
+    <nav class="legal" aria-label="מידע משפטי" data-lang="he">
       <a href="/privacy.html">מדיניות פרטיות</a>
       <a href="/accessibility.html">הצהרת נגישות</a>
       <a href="/disclaimer.html">תנאי שימוש</a>
       <a href="/">kplns.com</a>
     </nav>
+    <nav class="legal" aria-label="Legal" data-lang="en">
+      <a href="/privacy.html">Privacy policy</a>
+      <a href="/accessibility.html">Accessibility statement</a>
+      <a href="/disclaimer.html">Terms of use</a>
+      <a href="/">kplns.com</a>
+    </nav>
   </footer>
 
+<script>
+// ── language switch — the SAME mechanism as /radar/ ─────────────────
+// Static copy is duplicated in the DOM and toggled by the CSS [data-lang]
+// rules; this script only flips the attributes. The choice is shared with the
+// main page through the same localStorage key ('radar-lang'), so following a
+// link between the two pages keeps the language.
+const LANGS = ['he', 'en'];
+function setLang(l, persist){
+  const lang = LANGS.indexOf(l) >= 0 ? l : 'he';
+  const root = document.documentElement;
+  root.setAttribute('data-l', lang);
+  root.setAttribute('lang', lang);
+  root.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
+  LANGS.forEach(x => {
+    const btn = document.getElementById('lang-' + x);
+    if (btn) btn.setAttribute('aria-pressed', String(x === lang));
+  });
+  if (persist) { try { localStorage.setItem('radar-lang', lang); } catch(e){} }
+}
+(function initLang(){
+  let saved = null;
+  try { saved = localStorage.getItem('radar-lang'); } catch(e){}
+  // No stored choice: follow the browser, but default to Hebrew — this page is
+  // written for people in Israel first.
+  const auto = (navigator.language || '').toLowerCase().startsWith('he') ? 'he'
+             : ((navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'he');
+  setLang(saved || auto, false);
+  LANGS.forEach(x => {
+    const btn = document.getElementById('lang-' + x);
+    if (btn) btn.addEventListener('click', () => setLang(x, true));
+  });
+})();
+</script>
 </body>
 </html>
