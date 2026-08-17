@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-17T11:12:33+00:00",
+ "generated": "2026-08-17T11:42:24+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -180,6 +180,11 @@
    "t": 1786965153,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1786966944,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -214,8 +219,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "94 מטוסים אזרחיים באזור",
-     "value_en": "94 civil aircraft in the area",
+     "value": "82 מטוסים אזרחיים באזור",
+     "value_en": "82 civil aircraft in the area",
      "range": "56–94"
     },
     {
@@ -242,8 +247,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "0–10"
     },
     {
@@ -279,8 +284,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,620 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,620 BGP routes)",
+     "value": "קישוריות תקינה (41,617 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,617 BGP routes)",
      "range": "40,855–41,639"
     },
     {
@@ -321,9 +326,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,864,950 ריאל לדולר",
-     "value_en": "1,864,950 rial to the dollar",
-     "range": "1,864,950–1,866,800"
+     "value": "1,864,000 ריאל לדולר",
+     "value_en": "1,864,000 rial to the dollar",
+     "range": "1,864,000–1,866,800"
     },
     {
      "key": "advisories_ir",
@@ -349,8 +354,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "0–10"
     },
     {
