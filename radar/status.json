@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-18T20:12:40+00:00",
+ "generated": "2026-08-18T20:42:26+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -531,6 +531,12 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787085746,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -580,8 +586,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "70 מטוסים אזרחיים באזור",
-     "value_en": "70 civil aircraft in the area",
+     "value": "55 מטוסים אזרחיים באזור",
+     "value_en": "55 civil aircraft in the area",
      "range": "57–100"
     },
     {
@@ -598,8 +604,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "11 מטוסים מעל ירדן",
-     "value_en": "11 aircraft over Jordan",
+     "value": "5 מטוסים מעל ירדן",
+     "value_en": "5 aircraft over Jordan",
      "range": "2–10"
     },
     {
@@ -634,8 +640,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -688,8 +694,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "52/100",
-     "value_en": "52/100",
+     "value": "53/100",
+     "value_en": "53/100",
      "range": ""
     }
    ]
@@ -830,8 +836,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -884,8 +890,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "52/100",
-     "value_en": "52/100",
+     "value": "53/100",
+     "value_en": "53/100",
      "range": ""
     }
    ],
