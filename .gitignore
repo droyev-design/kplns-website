@@ -1,5 +1,8 @@
-# Local publishing pause used by the radar publishers — never publish this.
+# Local publishing pause used by the radar publishers — never publish these.
+# `.publish_hold` is the all-stop; `.publish_hold.<radar|flights|cyber>` pauses
+# one publisher only. The glob has to cover both.
 .publish_hold
+.publish_hold.*
 
 # Local backups taken before edits — never publish these.
 *.bak_*

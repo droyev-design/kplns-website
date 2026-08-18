@@ -34,6 +34,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/*CSS:START*/
+
 
 :root{
   --bg-primary:#111827; --bg-secondary:#1a2236;
@@ -165,7 +167,7 @@ h1{
 .ring-mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
 .ring-emoji{font-size:1.6rem;line-height:1}
 .ring-label{font-size:.98rem;font-weight:800;letter-spacing:-.01em}
-.ring-scale{font-family:var(--font-en);font-size:.68rem;color:var(--text-muted);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.ring-scale{direction:ltr;font-family:var(--font-en);font-size:.68rem;color:var(--text-muted);letter-spacing:.08em;font-variant-numeric:tabular-nums}
 .gauge-note{color:var(--text-secondary);font-size:.86rem;min-height:2.6em}
 .gauge-caveat{margin-top:10px;font-size:.79rem;color:#fbbf24;line-height:1.5}
 .stale .ring .val{stroke:#94a3b8!important}
@@ -356,45 +358,10 @@ footer a{color:var(--text-secondary);text-decoration:none}
 footer a:hover{color:var(--cyan)}
 .legal{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;margin-bottom:10px}
 .thirdparty{max-width:520px;margin:0 auto;font-size:.75rem;line-height:1.8;color:var(--text-muted)}
-/* ── trend chart ─────────────────────────────────────── */
-/* Server-rendered inline SVG, injected between the CHART markers in the body
-   by ~/kplns-seo-agent/radar_chart.py. No JS, no CDN, no fetch: the trend is
-   bytes in this file. Two viewBox variants ship and CSS picks one — a single
-   SVG scaled to the container renders 6px axis labels on a phone or 22px ones
-   on a desktop. */
-.trend{
-  background:var(--bg-card);border:1px solid var(--border);
-  border-radius:var(--radius-md);padding:20px 22px;margin:26px 0 0
-}
-
 /* ── cyber radar specifics ───────────────────────────── */
 /* Everything above is the /flights/ stylesheet unchanged, so this page is the
    same object as its two siblings rather than a lookalike. Only the pieces
    /flights/ has no equivalent for live here. */
-.sig{display:grid;gap:8px;margin:16px 0 0}
-.sig-item{
-  display:flex;gap:10px;align-items:baseline;
-  background:var(--bg-card);border:1px solid var(--border);
-  border-radius:10px;padding:9px 13px;font-size:.86rem
-}
-.sig-n{font-family:var(--font-en);font-weight:700;font-variant-numeric:tabular-nums;
-  color:var(--text-primary);min-width:1.6em;text-align:center}
-.sig-item.zero{opacity:.55}
-.sig-item.zero .sig-n{color:var(--text-muted)}
-.sig-cves{font-family:var(--font-en);font-size:.74rem;color:var(--text-muted);
-  margin-inline-start:auto;text-align:end;direction:ltr}
-.entries{display:grid;gap:12px;margin:14px 0 0}
-.entry{
-  background:var(--bg-card);border:1px solid var(--border);
-  border-radius:var(--radius-md);padding:16px 18px
-}
-.entry.edge{border-inline-start:3px solid var(--l2)}
-.entry-head{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline}
-.entry-cve{font-family:var(--font-en);font-weight:700;font-size:.92rem;color:var(--cyan);
-  direction:ltr;text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
-.entry-prod{font-weight:700;font-size:.98rem;color:var(--text-primary)}
-.entry-meta{margin-inline-start:auto;font-size:.76rem;color:var(--text-muted);
-  font-family:var(--font-en);direction:ltr}
 .badges{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0 0}
 .badge{
   font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:99px;
@@ -405,16 +372,6 @@ footer a:hover{color:var(--cyan)}
 .badge.b-il{border-color:rgba(0,212,255,.4);color:var(--cyan);background:var(--cyan-dim)}
 .badge.b-new{border-color:rgba(234,179,8,.45);color:#fde047;background:rgba(234,179,8,.08)}
 .badge.b-epss{border-color:rgba(157,140,255,.45);color:#c4b8ff;background:rgba(157,140,255,.10)}
-.entry-he{margin:11px 0 0;font-size:.88rem;line-height:1.75;color:var(--text-secondary)}
-.entry-he b{color:var(--text-primary);font-weight:600}
-.entry-he i{color:var(--text-muted);font-style:normal;font-size:.95em}
-.entry-req{
-  margin:9px 0 0;padding:8px 11px;border-radius:8px;
-  background:rgba(255,255,255,.03);border:1px solid var(--border);
-  font-size:.78rem;line-height:1.55;color:var(--text-muted);
-  direction:ltr;text-align:left;font-family:var(--font-en)
-}
-.entry-req b{color:var(--text-secondary)}
 .srcline{
   margin:18px 0 0;font-size:.82rem;color:var(--text-muted);
   display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline
@@ -426,6 +383,71 @@ footer a:hover{color:var(--cyan)}
 }
 .est b{color:#c4b8ff}
 
+
+/* ── the combined summary line, lifted verbatim from /radar/ ───────────── */
+/* /radar/ puts one sentence between the freshness line and the gauge so a
+   reader who reads nothing else still leaves with the reading in words. There
+   is no reason this page should be the one that makes you decode a ring. */
+.summary{
+  margin:14px 0 0;text-align:center;font-size:1rem;font-weight:600;
+  color:var(--text-secondary)
+}
+.summary .sv{font-weight:800}
+
+/* The catalogue total is a constant, not a reading: 1,666 was 1,666 last week
+   and will be ~1,666 next week. At the same weight as the other three it
+   shouted louder than the level itself. Muted, it still does its real job —
+   being the denominator that makes "12 of these matter here" mean something. */
+.tile.const{background:rgba(26,34,54,.35)}
+.tile.const .tv{font-size:1.15rem;color:var(--text-secondary);font-weight:600}
+
+/* ── rows: the shared /radar/ indicator row, reused for KEV entries ─────── */
+/* Both lists on this page — the context signals and the catalogue entries —
+   are the same object /radar/ calls a tripwire row: one scannable line, the
+   prose behind the + . The KEV list used to be twelve always-open ~300px
+   cards, which is why this page measured almost twice /radar/'s height on a
+   phone for the same amount of actually-read text. */
+.row .nm{display:flex;flex-wrap:wrap;gap:4px 7px;align-items:center}
+.row .nm bdi{font-weight:700}
+.row .nm .badge{font-weight:600;flex:none}
+.row .ic.int{color:var(--text-muted)}
+/* Perimeter products keep the edge accent the entry cards had — it is the one
+   property that decides whether the level counts an entry at all. */
+.row.edge{border-inline-start:3px solid var(--l2)}
+.row .rs a{color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+.row .rs .nb,.row .rs bdi{white-space:nowrap}
+.row .rs bdi{font-family:var(--font-en)}
+.row-info .badges{margin:0 0 9px}
+.row-info .src{margin-top:8px;font-size:.8rem;color:var(--text-muted)}
+.ctx{
+  font-family:var(--font-en);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-muted);border:1px solid var(--border-hover);border-radius:20px;
+  padding:1px 7px;vertical-align:middle;font-weight:600
+}
+.gap{
+  margin-top:9px;border:1px dashed rgba(255,255,255,.14);border-radius:14px;
+  padding:11px 15px;color:var(--text-muted);font-size:.82rem;text-align:start
+}
+
+/* ── CISA's own wording, quoted ─────────────────────────────────────────── */
+/* The required action stays in CISA's English on purpose: translating an
+   operative instruction would be this page putting words in CISA's mouth. But
+   raw English paragraphs sitting in the Hebrew flow read as untranslated page
+   content, not as a citation. So it gets a quote rule, its own direction, an
+   explicit attribution line — and it lives behind the expander, where a reader
+   who opened it has asked for it. */
+.quote{
+  margin:11px 0 0;border-inline-start:3px solid rgba(157,140,255,.45);
+  background:rgba(255,255,255,.03);border-radius:0 8px 8px 0;padding:9px 13px
+}
+[dir="ltr"] .quote{border-radius:8px 0 0 8px}
+.quote-h{font-size:.76rem;font-weight:600;color:#c4b8ff;margin-bottom:5px}
+.quote-b{
+  direction:ltr;text-align:left;font-family:var(--font-en);unicode-bidi:isolate;
+  font-size:.78rem;line-height:1.6;color:var(--text-muted);margin:0
+}
+
+  /*CSS:END*/
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -485,6 +507,9 @@ footer a:hover{color:var(--cyan)}
 
   <div id="stalebox"></div>
 
+  <div class="fresh"><span data-lang="he">עודכן <bdi class="ago" data-generated="2026-08-18T09:50:41+00:00">18/08/2026 12:50</bdi> · נבדק פעמיים ביום · <bdi>2/2</bdi> מקורות נקראו</span><span data-lang="en">Updated <bdi class="ago" data-generated="2026-08-18T09:50:41+00:00">18/08/2026 12:50</bdi> · checked twice a day · <bdi>2/2</bdi> sources read</span></div>
+  <div class="summary"><span data-lang="he">סיכום: רמת החשיפה <bdi>1</bdi> מתוך <bdi>3</bdi> — <span class="sv" style="color:var(--l1)">פריט אחד</span></span><span data-lang="en">Summary: exposure level <bdi>1</bdi> of <bdi>3</bdi> — <span class="sv" style="color:var(--l1)">One item</span></span></div>
+
   <div class="gaugewrap" role="status">
     <div class="gauge">
       <span class="gauge-accent" style="background:var(--l1)" aria-hidden="true"></span>
@@ -503,11 +528,14 @@ footer a:hover{color:var(--cyan)}
         </div>
       </div>
       <div class="gauge-note"><span data-lang="he">נוסף השבוע מוצר היקפי אחד. בדקו אם הוא אצלכם ובאיזו גרסה.</span><span data-lang="en">One perimeter product was added this week. Check whether you run it, and on which version.</span></div>
+      
     </div>
-    <div class="tiles"><div class="tile"><div class="tv">4</div><div class="tl"><span data-lang="he">רשומות חדשות בקטלוג — 7 ימים</span><span data-lang="en">New catalogue entries — 7 days</span></div></div><div class="tile"><div class="tv">15</div><div class="tl"><span data-lang="he">מהן רלוונטיות לשוק הישראלי — 30 יום</span><span data-lang="en">Of those, relevant to the Israeli market — 30 days</span></div></div><div class="tile"><div class="tv">11</div><div class="tl"><span data-lang="he">מהן רכיבים היקפיים — 30 יום</span><span data-lang="en">Of those, perimeter products — 30 days</span></div></div><div class="tile"><div class="tv">1666</div><div class="tl"><span data-lang="he">סך הרשומות בקטלוג KEV</span><span data-lang="en">Total entries in the KEV catalogue</span></div></div></div>
+    <div class="tiles"><div class="tile"><div class="tv">4</div><div class="tl"><span data-lang="he">רשומות חדשות בקטלוג — 7 ימים</span><span data-lang="en">New catalogue entries — 7 days</span></div></div><div class="tile"><div class="tv">15</div><div class="tl"><span data-lang="he">מהן רלוונטיות לשוק הישראלי — 30 יום</span><span data-lang="en">Of those, relevant to the Israeli market — 30 days</span></div></div><div class="tile"><div class="tv">11</div><div class="tl"><span data-lang="he">מהן רכיבים היקפיים — 30 יום</span><span data-lang="en">Of those, perimeter products — 30 days</span></div></div><div class="tile const"><div class="tv">1666</div><div class="tl"><span data-lang="he">סך הרשומות בקטלוג KEV</span><span data-lang="en">Total entries in the KEV catalogue</span></div></div></div>
   </div>
 
-  <div class="sig" aria-label="signals"><div class="sig-item zero"><span class="sig-n">0</span><span data-lang="he">פרצות שכבר שימשו לכופרה (30 יום)</span><span data-lang="en">Used in ransomware (30 days)</span></div><div class="sig-item"><span class="sig-n">2</span><span data-lang="he">פרצות במוצר של יצרן ישראלי (90 יום)</span><span data-lang="en">In a product from an Israeli vendor (90 days)</span><span class="sig-cves">CVE-2026-16232 CVE-2026-50751</span></div><div class="sig-item"><span class="sig-n">6</span><span data-lang="he">ניצול צפוי בהיקף רחב — EPSS מעל 50% (30 יום)</span><span data-lang="en">Wide-scale exploitation expected — EPSS over 50% (30 days)</span><span class="sig-cves">CVE-2026-8037 CVE-2026-34486 CVE-2026-16232 CVE-2026-50522…</span></div><div class="sig-item"><span class="sig-n">11</span><span data-lang="he">רכיבים היקפיים שתאריך היעד של CISA להם כבר עבר (30 יום)</span><span data-lang="en">Perimeter products whose CISA due date has passed (30 days)</span><span class="sig-cves">CVE-2026-20349 CVE-2026-8037 CVE-2026-63077 CVE-2026-18556…</span></div></div>
+  <h3><span data-lang="he">אותות הקשר — מחוץ לרמה</span><span data-lang="en">Context signals — outside the level</span></h3>
+  <div class="rows"><div class="row"><div style="display:flex;gap:12px;align-items:flex-start"><div class="ic" aria-hidden="true">✓</div><div class="rw"><div class="nm"><span data-lang="he">פרצות שכבר שימשו לכופרה (30 יום)</span><span data-lang="en">Used in ransomware (30 days)</span><span class="ctx"><span data-lang="he">הקשר</span><span data-lang="en">context</span></span></div><div class="rs"><span data-lang="he">אין רשומות</span><span data-lang="en">none</span></div></div></div></div><details class="row"><summary><div class="ic" aria-hidden="true">✓</div><div class="rw"><div class="nm"><span data-lang="he">פרצות במוצר של יצרן ישראלי (90 יום)</span><span data-lang="en">In a product from an Israeli vendor (90 days)</span><span class="ctx"><span data-lang="he">הקשר</span><span data-lang="en">context</span></span></div><div class="rs"><span data-lang="he">2 רשומות</span><span data-lang="en">2 entries</span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p><span data-lang="he">הרשומות שנספרו כאן:</span><span data-lang="en">The entries counted here:</span> <bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-16232" target="_blank" rel="noopener">CVE-2026-16232</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-50751" target="_blank" rel="noopener">CVE-2026-50751</a></bdi></p></div></details><details class="row"><summary><div class="ic" aria-hidden="true">✓</div><div class="rw"><div class="nm"><span data-lang="he">ניצול צפוי בהיקף רחב — EPSS מעל 50% (30 יום)</span><span data-lang="en">Wide-scale exploitation expected — EPSS over 50% (30 days)</span><span class="ctx"><span data-lang="he">הקשר</span><span data-lang="en">context</span></span></div><div class="rs"><span data-lang="he">6 רשומות</span><span data-lang="en">6 entries</span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p><span data-lang="he">הרשומות שנספרו כאן:</span><span data-lang="en">The entries counted here:</span> <bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-8037" target="_blank" rel="noopener">CVE-2026-8037</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-34486" target="_blank" rel="noopener">CVE-2026-34486</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-16232" target="_blank" rel="noopener">CVE-2026-16232</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-50522" target="_blank" rel="noopener">CVE-2026-50522</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-60137" target="_blank" rel="noopener">CVE-2026-60137</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63030" target="_blank" rel="noopener">CVE-2026-63030</a></bdi></p></div></details><details class="row"><summary><div class="ic" aria-hidden="true">✓</div><div class="rw"><div class="nm"><span data-lang="he">רכיבים היקפיים שתאריך היעד של CISA להם כבר עבר (30 יום)</span><span data-lang="en">Perimeter products whose CISA due date has passed (30 days)</span><span class="ctx"><span data-lang="he">הקשר</span><span data-lang="en">context</span></span></div><div class="rs"><span data-lang="he">11 רשומות</span><span data-lang="en">11 entries</span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p><span data-lang="he">הרשומות שנספרו כאן:</span><span data-lang="en">The entries counted here:</span> <bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-20349" target="_blank" rel="noopener">CVE-2026-20349</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-8037" target="_blank" rel="noopener">CVE-2026-8037</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63077" target="_blank" rel="noopener">CVE-2026-63077</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-18556" target="_blank" rel="noopener">CVE-2026-18556</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-18577" target="_blank" rel="noopener">CVE-2026-18577</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-20316" target="_blank" rel="noopener">CVE-2026-20316</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2025-68686" target="_blank" rel="noopener">CVE-2025-68686</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-16812" target="_blank" rel="noopener">CVE-2026-16812</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-50522" target="_blank" rel="noopener">CVE-2026-50522</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-60137" target="_blank" rel="noopener">CVE-2026-60137</a> <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63030" target="_blank" rel="noopener">CVE-2026-63030</a></bdi></p></div></details></div>
+
   <div class="est" data-lang="he">
     ארבע השורות האלה <b>אינן חלק מהרמה</b>, בכוונה. שתיים מהן דולקות כמעט תמיד —
     תאריך יעד שחלף וציון EPSS גבוה — כי CISA נותנת 3–14 יום לתיקון, וכי רשומה
@@ -529,8 +557,8 @@ footer a:hover{color:var(--cyan)}
     <a href="https://www.first.org/epss/" target="_blank" rel="noopener">FIRST.org EPSS</a>
   </div>
 
-  <div class="stamp" id="stamp" data-generated="2026-08-18T09:33:06+00:00">
-    <span data-lang="he">עודכן: </span><span data-lang="en">Updated: </span><bdi>18/08/2026 12:33</bdi>
+  <div class="stamp" id="stamp" data-generated="2026-08-18T09:50:41+00:00">
+    <span data-lang="he">עודכן: </span><span data-lang="en">Updated: </span><bdi>18/08/2026 12:50</bdi>
     <span data-lang="he"> (שעון ישראל)</span><span data-lang="en"> (Israel time)</span>
   </div>
 
@@ -609,7 +637,7 @@ footer a:hover{color:var(--cyan)}
       מסודר לפי: רכיב היקפי לפני פנימי, יצרן נפוץ בישראל לפני פחות נפוץ, פרצה
       ששימשה לכופרה ו-EPSS גבוה לפני אלה שלא, וחדש לפני ישן. אין משקלות נסתרים.
       ההסבר בעברית מורכב אך ורק משדות שקיימים ברשומה עצמה — שדה חסר מוריד משפט,
-      ולא ממציא אותו.
+      ולא ממציא אותו. פתחו שורה עם <b>+</b> לקבלת ההסבר המלא.
     </p>
     <p class="legend-note" data-lang="en">
       Ordered by: perimeter before internal, vendors common in Israel before less
@@ -617,169 +645,39 @@ footer a:hover{color:var(--cyan)}
       older. No hidden weights. The Hebrew explanation is assembled strictly from
       fields present in the record — a missing field drops a sentence rather than
       inventing one. The English line below each entry is CISA's own description.
+      Open a row with <b>+</b> for the full explanation.
     </p>
-    <div class="entries">
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-15409"
-           target="_blank" rel="noopener">CVE-2026-15409</a>
-        <span class="entry-prod">SonicWall SMA1000 Appliances</span>
-        <span class="entry-meta">added 2026-07-14
-          · due 2026-07-17</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">שער גישה מרחוק</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span><span class="badge b-epss">EPSS 74%</span></div>
-      <p class="entry-he" data-lang="he"><b>SonicWall SMA1000 Appliances</b> הוא שער גישה מרחוק. סוג הפרצה: הכרחת השרת לפנות ליעד פנימי (SSRF). CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>74%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-17</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">SonicWall SMA1000 Appliances contain a server-side request forgery vulnerability that could allow a remote unauthenticated attacker to potentially cause the appliance to make requests to unintended location.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
-    </article>
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-15410"
-           target="_blank" rel="noopener">CVE-2026-15410</a>
-        <span class="entry-prod">SonicWall SMA1000 Appliances</span>
-        <span class="entry-meta">added 2026-07-14
-          · due 2026-07-17</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">שער גישה מרחוק</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span><span class="badge b-epss">EPSS 76%</span></div>
-      <p class="entry-he" data-lang="he"><b>SonicWall SMA1000 Appliances</b> הוא שער גישה מרחוק. סוג הפרצה: הרצת קוד זר. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>76%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-17</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">SonicWall SMA1000 Appliances contain a code injection vulnerability which in specific conditions could potentially enable a remote authenticated attacker as administrator to execute arbitrary OS commands.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
-    </article>
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-50751"
-           target="_blank" rel="noopener">CVE-2026-50751</a>
-        <span class="entry-prod">Check Point Security Gateway</span>
-        <span class="entry-meta">added 2026-06-08
-          · due 2026-06-11</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">שער בקצה הרשת</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span><span class="badge b-il">🇮🇱 <span data-lang="he">צ'ק פוינט — תל אביב</span><span data-lang="en">Israeli vendor</span></span><span class="badge b-epss">EPSS 83%</span></div>
-      <p class="entry-he" data-lang="he"><b>Check Point Security Gateway</b> הוא שער בקצה הרשת. סוג הפרצה: עקיפת אימות זהות. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>83%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: יצרן ישראלי עם חדירה גבוהה במיוחד בארגונים הגדולים ובמגזר הציבורי בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> יצרן ישראלי — צ'ק פוינט — תל אביב. תאריך היעד של CISA הוא <bdi>2026-06-11</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">Check Point Security Gateway contains an improper authentication vulnerability in IKEv1 key exchange that could allow an unauthenticated remote attacker to bypass user authentication and establish a remote access VPN connection without a valid user password.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.</p>
-    </article>
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-45659"
-           target="_blank" rel="noopener">CVE-2026-45659</a>
-        <span class="entry-prod">Microsoft SharePoint Server</span>
-        <span class="entry-meta">added 2026-07-01
-          · due 2026-07-04</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">שרת שיתוף מסמכים, לרוב חשוף לאינטרנט</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span></div>
-      <p class="entry-he" data-lang="he"><b>Microsoft SharePoint Server</b> הוא שרת שיתוף מסמכים, לרוב חשוף לאינטרנט. סוג הפרצה: פענוח אובייקט לא מהימן. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>10%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-04</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">Microsoft SharePoint Server contains a deserialization of untrusted data vulnerability which allows an authorized attacker to execute code over a network.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
-    </article>
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-50522"
-           target="_blank" rel="noopener">CVE-2026-50522</a>
-        <span class="entry-prod">Microsoft SharePoint</span>
-        <span class="entry-meta">added 2026-07-22
-          · due 2026-07-25</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">שרת שיתוף מסמכים, לרוב חשוף לאינטרנט</span><span data-lang="en">internet-facing</span></span><span class="badge b-epss">EPSS 77%</span></div>
-      <p class="entry-he" data-lang="he"><b>Microsoft SharePoint</b> הוא שרת שיתוף מסמכים, לרוב חשוף לאינטרנט. סוג הפרצה: פענוח אובייקט לא מהימן. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>77%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-25</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">Microsoft SharePoint contains a deserialization of untrusted data vulnerability which could allow an unauthorized attacker to execute code over a network.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
-    </article>
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-60137"
-           target="_blank" rel="noopener">CVE-2026-60137</a>
-        <span class="entry-prod">WordPress Core</span>
-        <span class="entry-meta">added 2026-07-21
-          · due 2026-08-04</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">אתר אינטרנט</span><span data-lang="en">internet-facing</span></span><span class="badge b-epss">EPSS 73%</span></div>
-      <p class="entry-he" data-lang="he"><b>WordPress Core</b> הוא אתר אינטרנט. סוג הפרצה: הזרקת SQL. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>73%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-04</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">WordPress Core contains a SQL injection vulnerability when a plugin or theme passes untrusted input to the parameter. This vulnerability can be chained with CVE-2026-63030 to allow an unauthenticated attacker to gain remote code execution on default WordPress installations.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
-    </article>
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-63030"
-           target="_blank" rel="noopener">CVE-2026-63030</a>
-        <span class="entry-prod">WordPress Core</span>
-        <span class="entry-meta">added 2026-07-21
-          · due 2026-07-24</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">אתר אינטרנט</span><span data-lang="en">internet-facing</span></span><span class="badge b-epss">EPSS 96%</span></div>
-      <p class="entry-he" data-lang="he"><b>WordPress Core</b> הוא אתר אינטרנט. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>96%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-24</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">WordPress Core contains an interpretation conflict vulnerability that could allow an attacker to perform SQL Injection and achieve Remote Code Execution. This vulnerability can be chained with CVE-2026-60137.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
-    </article>
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-25089"
-           target="_blank" rel="noopener">CVE-2026-25089</a>
-        <span class="entry-prod">Fortinet FortiSandbox</span>
-        <span class="entry-meta">added 2026-07-16
-          · due 2026-07-19</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">מערכת ניתוח קבצים בפריסת רשת</span><span data-lang="en">internet-facing</span></span><span class="badge b-epss">EPSS 74%</span></div>
-      <p class="entry-he" data-lang="he"><b>Fortinet FortiSandbox</b> הוא מערכת ניתוח קבצים בפריסת רשת. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>74%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-19</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">Fortinet FortiSandbox, FortiSandbox Cloud, and FortiSandbox PaaS contain an OS command injection vulnerability that allows an unauthenticated attacker to execute unauthorized commands via specifically crafted HTTP requests.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
-    </article>
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-39808"
-           target="_blank" rel="noopener">CVE-2026-39808</a>
-        <span class="entry-prod">Fortinet FortiSandbox</span>
-        <span class="entry-meta">added 2026-07-16
-          · due 2026-07-19</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">מערכת ניתוח קבצים בפריסת רשת</span><span data-lang="en">internet-facing</span></span><span class="badge b-epss">EPSS 91%</span></div>
-      <p class="entry-he" data-lang="he"><b>Fortinet FortiSandbox</b> הוא מערכת ניתוח קבצים בפריסת רשת. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>91%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-19</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">Fortinet FortiSandbox contains an OS command injection vulnerability that could allow an unauthenticated attacker to execute unauthorized code or commands via crafted HTTP requests.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
-    </article>
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-20349"
-           target="_blank" rel="noopener">CVE-2026-20349</a>
-        <span class="entry-prod">Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) </span>
-        <span class="entry-meta">added 2026-08-11
-          · due 2026-08-14</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">חומת אש</span><span data-lang="en">internet-facing</span></span><span class="badge b-new"><span data-lang="he">נוסף השבוע</span><span data-lang="en">added this week</span></span></div>
-      <p class="entry-he" data-lang="he"><b>Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) </b> הוא חומת אש. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>1%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: תשתית רשת, VPN וטלפוניה בכמעט כל ארגון בינוני ומעלה. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-14</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) contain a heap inspection vulnerability that could allow an unauthenticated, remote attacker to cause the device to reload unexpectedly, resulting in a denial of service (DoS) condition.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
-    </article>
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-20316"
-           target="_blank" rel="noopener">CVE-2026-20316</a>
-        <span class="entry-prod">Cisco Secure Firewall Management Center (FMC)</span>
-        <span class="entry-meta">added 2026-07-29
-          · due 2026-08-01</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">שרת ניהול מרכזי</span><span data-lang="en">internet-facing</span></span></div>
-      <p class="entry-he" data-lang="he"><b>Cisco Secure Firewall Management Center (FMC)</b> הוא שרת ניהול מרכזי. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>1%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: תשתית רשת, VPN וטלפוניה בכמעט כל ארגון בינוני ומעלה. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-01</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">Cisco Secure Firewall Management Center (FMC) formerly known as Firepower Management Center contains a use of hard-coded password vulnerability that could allow an unauthenticated, remote attacker to log in to an affected device using a low-privileged account to access sensitive data within the impacted systems.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
-    </article>
-    <article class="entry edge">
-      <div class="entry-head">
-        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2025-68686"
-           target="_blank" rel="noopener">CVE-2025-68686</a>
-        <span class="entry-prod">Fortinet FortiOS</span>
-        <span class="entry-meta">added 2026-07-27
-          · due 2026-08-10</span>
-      </div>
-      <div class="badges"><span class="badge b-edge"><span data-lang="he">מערכת ההפעלה של חומת האש FortiGate</span><span data-lang="en">internet-facing</span></span></div>
-      <p class="entry-he" data-lang="he"><b>Fortinet FortiOS</b> הוא מערכת ההפעלה של חומת האש FortiGate. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>1%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-10</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
-      <p class="entry-he" data-lang="en">Fortinet FortiOS contains an exposure of sensitive information to an unauthorized actor vulnerability. This may allow a remote unauthenticated attacker to bypass the patch developed for the symbolic link persistency mechanism observed in some post-exploit cases, via crafted HTTP requests. An attacker would need first to have compromised the product via another vulnerability, at filesystem level.</p>
-      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
-    </article></div>
+    <div class="rows"><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>SonicWall SMA1000 Appliances</bdi><span class="badge b-edge"><span data-lang="he">שער גישה מרחוק</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-15409" target="_blank" rel="noopener">CVE-2026-15409</a></bdi> · <bdi>EPSS 74%</bdi> · <span class="nb">נוסף <bdi>2026-07-14</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-15409" target="_blank" rel="noopener">CVE-2026-15409</a></bdi> · <bdi>EPSS 74%</bdi> · <span class="nb">added <bdi>2026-07-14</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>SonicWall SMA1000 Appliances</b> הוא שער גישה מרחוק. סוג הפרצה: הכרחת השרת לפנות ליעד פנימי (SSRF). CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>74%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-17</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">SonicWall SMA1000 Appliances contain a server-side request forgery vulnerability that could allow a remote unauthenticated attacker to potentially cause the appliance to make requests to unintended location.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p></blockquote></div></details><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>SonicWall SMA1000 Appliances</bdi><span class="badge b-edge"><span data-lang="he">שער גישה מרחוק</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-15410" target="_blank" rel="noopener">CVE-2026-15410</a></bdi> · <bdi>EPSS 76%</bdi> · <span class="nb">נוסף <bdi>2026-07-14</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-15410" target="_blank" rel="noopener">CVE-2026-15410</a></bdi> · <bdi>EPSS 76%</bdi> · <span class="nb">added <bdi>2026-07-14</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>SonicWall SMA1000 Appliances</b> הוא שער גישה מרחוק. סוג הפרצה: הרצת קוד זר. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>76%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-17</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">SonicWall SMA1000 Appliances contain a code injection vulnerability which in specific conditions could potentially enable a remote authenticated attacker as administrator to execute arbitrary OS commands.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p></blockquote></div></details><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>Check Point Security Gateway</bdi><span class="badge b-edge"><span data-lang="he">שער בקצה הרשת</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span><span class="badge b-il">🇮🇱 <span data-lang="he">צ'ק פוינט — תל אביב</span><span data-lang="en">Israeli vendor</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-50751" target="_blank" rel="noopener">CVE-2026-50751</a></bdi> · <bdi>EPSS 83%</bdi> · <span class="nb">נוסף <bdi>2026-06-08</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-50751" target="_blank" rel="noopener">CVE-2026-50751</a></bdi> · <bdi>EPSS 83%</bdi> · <span class="nb">added <bdi>2026-06-08</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>Check Point Security Gateway</b> הוא שער בקצה הרשת. סוג הפרצה: עקיפת אימות זהות. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>83%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: יצרן ישראלי עם חדירה גבוהה במיוחד בארגונים הגדולים ובמגזר הציבורי בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> יצרן ישראלי — צ'ק פוינט — תל אביב. תאריך היעד של CISA הוא <bdi>2026-06-11</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">Check Point Security Gateway contains an improper authentication vulnerability in IKEv1 key exchange that could allow an unauthenticated remote attacker to bypass user authentication and establish a remote access VPN connection without a valid user password.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.</p></blockquote></div></details><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>Microsoft SharePoint Server</bdi><span class="badge b-edge"><span data-lang="he">שרת שיתוף מסמכים, לרוב חשוף לאינטרנט</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45659" target="_blank" rel="noopener">CVE-2026-45659</a></bdi> · <bdi>EPSS 10%</bdi> · <span class="nb">נוסף <bdi>2026-07-01</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-45659" target="_blank" rel="noopener">CVE-2026-45659</a></bdi> · <bdi>EPSS 10%</bdi> · <span class="nb">added <bdi>2026-07-01</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>Microsoft SharePoint Server</b> הוא שרת שיתוף מסמכים, לרוב חשוף לאינטרנט. סוג הפרצה: פענוח אובייקט לא מהימן. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>10%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-04</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">Microsoft SharePoint Server contains a deserialization of untrusted data vulnerability which allows an authorized attacker to execute code over a network.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p></blockquote></div></details><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>Microsoft SharePoint</bdi><span class="badge b-edge"><span data-lang="he">שרת שיתוף מסמכים, לרוב חשוף לאינטרנט</span><span data-lang="en">internet-facing</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-50522" target="_blank" rel="noopener">CVE-2026-50522</a></bdi> · <bdi>EPSS 77%</bdi> · <span class="nb">נוסף <bdi>2026-07-22</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-50522" target="_blank" rel="noopener">CVE-2026-50522</a></bdi> · <bdi>EPSS 77%</bdi> · <span class="nb">added <bdi>2026-07-22</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>Microsoft SharePoint</b> הוא שרת שיתוף מסמכים, לרוב חשוף לאינטרנט. סוג הפרצה: פענוח אובייקט לא מהימן. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>77%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-25</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">Microsoft SharePoint contains a deserialization of untrusted data vulnerability which could allow an unauthorized attacker to execute code over a network.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p></blockquote></div></details><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>WordPress Core</bdi><span class="badge b-edge"><span data-lang="he">אתר אינטרנט</span><span data-lang="en">internet-facing</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-60137" target="_blank" rel="noopener">CVE-2026-60137</a></bdi> · <bdi>EPSS 73%</bdi> · <span class="nb">נוסף <bdi>2026-07-21</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-60137" target="_blank" rel="noopener">CVE-2026-60137</a></bdi> · <bdi>EPSS 73%</bdi> · <span class="nb">added <bdi>2026-07-21</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>WordPress Core</b> הוא אתר אינטרנט. סוג הפרצה: הזרקת SQL. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>73%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-04</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">WordPress Core contains a SQL injection vulnerability when a plugin or theme passes untrusted input to the parameter. This vulnerability can be chained with CVE-2026-63030 to allow an unauthenticated attacker to gain remote code execution on default WordPress installations.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p></blockquote></div></details><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>WordPress Core</bdi><span class="badge b-edge"><span data-lang="he">אתר אינטרנט</span><span data-lang="en">internet-facing</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63030" target="_blank" rel="noopener">CVE-2026-63030</a></bdi> · <bdi>EPSS 96%</bdi> · <span class="nb">נוסף <bdi>2026-07-21</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-63030" target="_blank" rel="noopener">CVE-2026-63030</a></bdi> · <bdi>EPSS 96%</bdi> · <span class="nb">added <bdi>2026-07-21</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>WordPress Core</b> הוא אתר אינטרנט. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>96%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-24</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">WordPress Core contains an interpretation conflict vulnerability that could allow an attacker to perform SQL Injection and achieve Remote Code Execution. This vulnerability can be chained with CVE-2026-60137.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p></blockquote></div></details><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>Fortinet FortiSandbox</bdi><span class="badge b-edge"><span data-lang="he">מערכת ניתוח קבצים בפריסת רשת</span><span data-lang="en">internet-facing</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25089" target="_blank" rel="noopener">CVE-2026-25089</a></bdi> · <bdi>EPSS 74%</bdi> · <span class="nb">נוסף <bdi>2026-07-16</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25089" target="_blank" rel="noopener">CVE-2026-25089</a></bdi> · <bdi>EPSS 74%</bdi> · <span class="nb">added <bdi>2026-07-16</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>Fortinet FortiSandbox</b> הוא מערכת ניתוח קבצים בפריסת רשת. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>74%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-19</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">Fortinet FortiSandbox, FortiSandbox Cloud, and FortiSandbox PaaS contain an OS command injection vulnerability that allows an unauthenticated attacker to execute unauthorized commands via specifically crafted HTTP requests.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p></blockquote></div></details><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>Fortinet FortiSandbox</bdi><span class="badge b-edge"><span data-lang="he">מערכת ניתוח קבצים בפריסת רשת</span><span data-lang="en">internet-facing</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-39808" target="_blank" rel="noopener">CVE-2026-39808</a></bdi> · <bdi>EPSS 91%</bdi> · <span class="nb">נוסף <bdi>2026-07-16</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-39808" target="_blank" rel="noopener">CVE-2026-39808</a></bdi> · <bdi>EPSS 91%</bdi> · <span class="nb">added <bdi>2026-07-16</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>Fortinet FortiSandbox</b> הוא מערכת ניתוח קבצים בפריסת רשת. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>91%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-19</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">Fortinet FortiSandbox contains an OS command injection vulnerability that could allow an unauthenticated attacker to execute unauthorized code or commands via crafted HTTP requests.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p></blockquote></div></details><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) </bdi><span class="badge b-edge"><span data-lang="he">חומת אש</span><span data-lang="en">internet-facing</span></span><span class="badge b-new"><span data-lang="he">נוסף השבוע</span><span data-lang="en">added this week</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-20349" target="_blank" rel="noopener">CVE-2026-20349</a></bdi> · <bdi>EPSS 1%</bdi> · <span class="nb">נוסף <bdi>2026-08-11</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-20349" target="_blank" rel="noopener">CVE-2026-20349</a></bdi> · <bdi>EPSS 1%</bdi> · <span class="nb">added <bdi>2026-08-11</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) </b> הוא חומת אש. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>1%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: תשתית רשת, VPN וטלפוניה בכמעט כל ארגון בינוני ומעלה. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-14</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) contain a heap inspection vulnerability that could allow an unauthenticated, remote attacker to cause the device to reload unexpectedly, resulting in a denial of service (DoS) condition.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p></blockquote></div></details><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>Cisco Secure Firewall Management Center (FMC)</bdi><span class="badge b-edge"><span data-lang="he">שרת ניהול מרכזי</span><span data-lang="en">internet-facing</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-20316" target="_blank" rel="noopener">CVE-2026-20316</a></bdi> · <bdi>EPSS 1%</bdi> · <span class="nb">נוסף <bdi>2026-07-29</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2026-20316" target="_blank" rel="noopener">CVE-2026-20316</a></bdi> · <bdi>EPSS 1%</bdi> · <span class="nb">added <bdi>2026-07-29</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>Cisco Secure Firewall Management Center (FMC)</b> הוא שרת ניהול מרכזי. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>1%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: תשתית רשת, VPN וטלפוניה בכמעט כל ארגון בינוני ומעלה. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-01</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">Cisco Secure Firewall Management Center (FMC) formerly known as Firepower Management Center contains a use of hard-coded password vulnerability that could allow an unauthenticated, remote attacker to log in to an affected device using a low-privileged account to access sensitive data within the impacted systems.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p></blockquote></div></details><details class="row edge"><summary><div class="ic" aria-hidden="true">🔺</div><div class="rw"><div class="nm"><bdi>Fortinet FortiOS</bdi><span class="badge b-edge"><span data-lang="he">מערכת ההפעלה של חומת האש FortiGate</span><span data-lang="en">internet-facing</span></span></div><div class="rs"><span data-lang="he"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-68686" target="_blank" rel="noopener">CVE-2025-68686</a></bdi> · <bdi>EPSS 1%</bdi> · <span class="nb">נוסף <bdi>2026-07-27</bdi></span></span><span data-lang="en"><bdi><a href="https://nvd.nist.gov/vuln/detail/CVE-2025-68686" target="_blank" rel="noopener">CVE-2025-68686</a></bdi> · <bdi>EPSS 1%</bdi> · <span class="nb">added <bdi>2026-07-27</bdi></span></span></div></div><span class="chev" aria-hidden="true"></span></summary><div class="row-info"><p data-lang="he"><b>Fortinet FortiOS</b> הוא מערכת ההפעלה של חומת האש FortiGate. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>1%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-10</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p><p data-lang="en">Fortinet FortiOS contains an exposure of sensitive information to an unauthorized actor vulnerability. This may allow a remote unauthenticated attacker to bypass the patch developed for the symbolic link persistency mechanism observed in some post-exploit cases, via crafted HTTP requests. An attacker would need first to have compromised the product via another vulnerability, at filesystem level.</p><blockquote class="quote"><div class="quote-h"><span data-lang="he">הפעולה שCISA דורשת — בלשונה, כפי שפורסמה (אנגלית)</span><span data-lang="en">CISA's required action — verbatim, as published</span></div><p class="quote-b" lang="en" dir="ltr">Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p></blockquote></div></details></div>
   </section>
   <!-- LIST:END -->
 
   <!-- CHART:START -->
-<section class="trend" aria-label="trend"><p class="trend-empty" data-lang="he">עדיין אין מספיק היסטוריה כדי לצייר מגמה — נאספו 1 דגימות. הגרף יופיע מעצמו כשיצטברו שתיים ומעלה.</p><p class="trend-empty" data-lang="en">Not enough history to draw a trend yet — 1 sample(s) collected. The chart appears on its own from two.</p></section>
+<section class="trend" aria-label="Level trend, last 7 days"><div data-lang="he"><div class="trend-head">
+      <h3>מגמת הרמה — 7 הימים האחרונים</h3>
+      <p class="trend-sub">ציר Y: <b>הרמה (0–3)</b> — 0 רגוע, 3 קריטי. ציר X: זמן אמת, שעון ישראל.</p>
+    </div>
+    <div class="trend-legend"><span class="tl-item"><i style="background:#00d4ff"></i>רמת חשיפה · כעת 1</span><span class="tl-item"><i class="tl-gap"></i>אין נתונים</span></div></div><div data-lang="en"><div class="trend-head">
+      <h3>Level over time — the last 7 days</h3>
+      <p class="trend-sub">Y axis: <b>the level (0–3)</b> — 0 calm, 3 critical. X axis: real time, Israel time.</p>
+    </div>
+    <div class="trend-legend"><span class="tl-item"><i style="background:#00d4ff"></i>Exposure level · now 1</span><span class="tl-item"><i class="tl-gap"></i>no data</span></div></div><div class="trend-chart trend-wide"><svg viewBox="0 0 640 190" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="nodata640" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="rgba(255,255,255,.03)"/><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,.16)" stroke-width="1.4"/></pattern></defs><rect x="26" y="141.7" width="606" height="52.7" fill="rgba(34,197,94,.07)"/><line x1="26" y1="168.0" x2="632" y2="168.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="171.8" text-anchor="end" fill="#22c55e" font-size="11" font-family="Inter,sans-serif" font-weight="600">0</text><rect x="26" y="89.0" width="606" height="52.7" fill="rgba(234,179,8,.07)"/><line x1="26" y1="115.3" x2="632" y2="115.3" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="119.2" text-anchor="end" fill="#eab308" font-size="11" font-family="Inter,sans-serif" font-weight="600">1</text><rect x="26" y="36.3" width="606" height="52.7" fill="rgba(249,115,22,.07)"/><line x1="26" y1="62.7" x2="632" y2="62.7" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="66.5" text-anchor="end" fill="#f97316" font-size="11" font-family="Inter,sans-serif" font-weight="600">2</text><rect x="26" y="-16.3" width="606" height="52.7" fill="rgba(255,107,107,.08)"/><line x1="26" y1="10.0" x2="632" y2="10.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="13.8" text-anchor="end" fill="#ff6b6b" font-size="11" font-family="Inter,sans-serif" font-weight="600">3</text><line x1="62.1" y1="10" x2="62.1" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="62.1" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">12/08</text><line x1="148.6" y1="10" x2="148.6" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="148.6" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">13/08</text><line x1="235.2" y1="10" x2="235.2" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="235.2" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">14/08</text><line x1="321.8" y1="10" x2="321.8" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="321.8" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">15/08</text><line x1="408.4" y1="10" x2="408.4" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="408.4" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">16/08</text><line x1="494.9" y1="10" x2="494.9" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="494.9" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">17/08</text><line x1="581.5" y1="10" x2="581.5" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="581.5" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">18/08</text><rect x="26" y="10" width="606" height="158" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/><rect x="26.0" y="10" width="600.8" height="158" fill="url(#nodata640)"/><path d="M 626.8 115.3 H 627.8" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linejoin="round"/><path d="M626.8 115.3h0 M627.8 115.3h0" stroke="#00d4ff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="627.8" cy="115.3" r="3.4" fill="#00d4ff" stroke="#111827" stroke-width="1.2"/></svg></div><div class="trend-chart trend-narrow"><svg viewBox="0 0 340 190" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="nodata340" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="rgba(255,255,255,.03)"/><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,.16)" stroke-width="1.4"/></pattern></defs><rect x="26" y="141.7" width="306" height="52.7" fill="rgba(34,197,94,.07)"/><line x1="26" y1="168.0" x2="332" y2="168.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="172.6" text-anchor="end" fill="#22c55e" font-size="13" font-family="Inter,sans-serif" font-weight="600">0</text><rect x="26" y="89.0" width="306" height="52.7" fill="rgba(234,179,8,.07)"/><line x1="26" y1="115.3" x2="332" y2="115.3" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="119.9" text-anchor="end" fill="#eab308" font-size="13" font-family="Inter,sans-serif" font-weight="600">1</text><rect x="26" y="36.3" width="306" height="52.7" fill="rgba(249,115,22,.07)"/><line x1="26" y1="62.7" x2="332" y2="62.7" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="67.2" text-anchor="end" fill="#f97316" font-size="13" font-family="Inter,sans-serif" font-weight="600">2</text><rect x="26" y="-16.3" width="306" height="52.7" fill="rgba(255,107,107,.08)"/><line x1="26" y1="10.0" x2="332" y2="10.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="14.6" text-anchor="end" fill="#ff6b6b" font-size="13" font-family="Inter,sans-serif" font-weight="600">3</text><line x1="44.2" y1="10" x2="44.2" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="44.2" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">12/08</text><line x1="131.6" y1="10" x2="131.6" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="131.6" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">14/08</text><line x1="219.1" y1="10" x2="219.1" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="219.1" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">16/08</text><line x1="306.5" y1="10" x2="306.5" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="306.5" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">18/08</text><rect x="26" y="10" width="306" height="158" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/><rect x="26.0" y="10" width="303.4" height="158" fill="url(#nodata340)"/><path d="M 329.4 115.3 H 329.9" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linejoin="round"/><path d="M329.4 115.3h0 M329.9 115.3h0" stroke="#00d4ff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="329.9" cy="115.3" r="3.4" fill="#00d4ff" stroke="#111827" stroke-width="1.2"/></svg></div><div data-lang="he"><p class="trend-note">
+      החלון קבוע על 7 ימים גם כשההיסטוריה קצרה ממנו, כדי שלא ייווצר רושם שהמערכת
+      מודדת כבר שבוע. בחלון הזה יש <b>2</b> דגימות אמיתיות, הראשונה
+      ב-<bdi>18/08/2026&nbsp;12:33</bdi> והאחרונה ב-<bdi>18/08/2026&nbsp;12:50</bdi>.
+      הקו הוא <b>קו מדרגה</b>: רמה מוצגת כמוחזקת מרגע המדידה ועד המדידה הבאה.
+      אין החלקה, אין ממוצע ואין נקודות מומצאות — כל קודקוד בקו הוא שורה שקיימת
+      בקובץ הנתונים. פער של יותר מ-90 דקות בין דגימות נחתך בקו ומסומן בהצללה:
+      <b>חור בנתונים אינו רגיעה</b>.
+    </p></div><div data-lang="en"><p class="trend-note">
+      The window stays fixed at 7 days even when the history is shorter, so the
+      page never implies it has been measuring all week. This window holds
+      <b>2</b> real samples, the first at <bdi>18/08/2026&nbsp;12:33</bdi> and the
+      last at <bdi>18/08/2026&nbsp;12:50</bdi>. The line is a <b>step</b> line: a level
+      is drawn as held from the sample that measured it until the next one. No
+      smoothing, no averaging, no invented points — every vertex is a row that
+      exists in the data file. A gap of more than 90 minutes between samples cuts
+      the line and is hatched: <b>a hole in the data is not calm</b>.
+    </p></div></section>
   <!-- CHART:END -->
 
   <section class="method" aria-label="מתודולוגיה" data-lang="he">
@@ -872,6 +770,8 @@ footer a:hover{color:var(--cyan)}
 </footer>
 
 <script>
+//JS:START
+
 // The ONLY script on this page, and deliberately tiny. Everything a reader
 // needs is already in the HTML; this adds two things that genuinely cannot be
 // baked in at publish time:
@@ -880,7 +780,11 @@ footer a:hover{color:var(--cyan)}
 //   2. the staleness banner. The page is generated server-side, so if the
 //      publisher dies the page would otherwise keep presenting a frozen reading
 //      as current. Age is computed here from the server-rendered timestamp — no
-//      fetch, no data, just arithmetic on a value already in the document.
+//      fetch, no data, just arithmetic on a value already in the document;
+//   3. the relative "updated N ago" in the freshness line, for the same reason
+//      and from the same timestamp. Its server-rendered fallback is the
+//      absolute stamp, so with JS off the line is still true — just less
+//      convenient. It is never a fixed string.
 (function(){
   var LANGS = ['he','en'];
   function setLang(l, persist){
@@ -893,7 +797,34 @@ footer a:hover{color:var(--cyan)}
       var b = document.getElementById('lang-' + x);
       if (b) b.setAttribute('aria-pressed', String(x === l));
     });
+    fillAgo(l);
     if (persist) { try { localStorage.setItem('radar-lang', l); } catch(e){} }
+  }
+
+  // Same rounding as /radar/'s ago(), so the three pages phrase freshness
+  // identically. Only touches nodes that carry a data-generated stamp.
+  function ago(ms, l){
+    var m = Math.round(ms / 60000), h;
+    if (l === 'he'){
+      if (m < 1)  return 'לפני פחות מדקה';
+      if (m < 60) return 'לפני ' + m + ' דק\u05f3';
+      h = Math.round(m / 60);
+      if (h < 24) return 'לפני ' + h + ' שע\u05f3';
+      return 'לפני ' + Math.round(h / 24) + ' ימים';
+    }
+    if (m < 1)  return 'less than a minute ago';
+    if (m < 60) return m + ' min ago';
+    h = Math.round(m / 60);
+    if (h < 24) return h + ' h ago';
+    return Math.round(h / 24) + ' days ago';
+  }
+
+  function fillAgo(l){
+    var ns = document.querySelectorAll('.ago[data-generated]'), i, t;
+    for (i = 0; i < ns.length; i++){
+      t = Date.parse(ns[i].getAttribute('data-generated'));
+      if (!isNaN(t)) ns[i].textContent = ago(Date.now() - t, l);
+    }
   }
   var saved = null;
   try { saved = localStorage.getItem('radar-lang'); } catch(e){}
@@ -923,6 +854,8 @@ footer a:hover{color:var(--cyan)}
       '</div></div>';
   }
 })();
+
+  //JS:END
 </script>
 
 </body>
