@@ -1,0 +1,5 @@
+# Local publishing pause used by the radar publishers — never publish this.
+.publish_hold
+
+# Local backups taken before edits — never publish these.
+*.bak_*

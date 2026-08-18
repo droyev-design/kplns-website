@@ -230,6 +230,35 @@ h3{
 .d-tbl td{padding:8px;border-bottom:1px solid var(--border);color:var(--text-secondary);font-variant-numeric:tabular-nums;white-space:nowrap}
 .d-tbl tr.today td{color:var(--text-primary);font-weight:600;background:rgba(0,212,255,.05)}
 .d-note{margin-top:10px;color:var(--text-muted);font-size:.8rem}
+/* ── trend chart ─────────────────────────────────────── */
+/* Server-rendered inline SVG, injected between the CHART markers in the body
+   by ~/kplns-seo-agent/radar_chart.py. No JS, no CDN, no fetch: the trend is
+   bytes in this file. Two viewBox variants ship and CSS picks one — a single
+   SVG scaled to the container renders 6px axis labels on a phone or 22px ones
+   on a desktop. */
+.trend{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px;margin:26px 0 0
+}
+.trend-head h3{margin:0 0 4px;font-size:1rem;color:var(--text-primary);text-align:start}
+.trend-sub{color:var(--text-secondary);font-size:.85rem;margin:0;text-align:start}
+.trend-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:13px 0 7px;
+  font-size:.82rem;color:var(--text-secondary)}
+.tl-item{display:inline-flex;align-items:center;gap:7px}
+.tl-item i{width:15px;height:3px;border-radius:2px;flex:none}
+.tl-item i.tl-gap{height:12px;width:15px;border-radius:3px;
+  background:repeating-linear-gradient(45deg,rgba(255,255,255,.16) 0 1.5px,rgba(255,255,255,.03) 1.5px 6px)}
+.trend-chart svg{display:block;width:100%;height:auto}
+.trend-narrow{display:none}
+.trend-note{color:var(--text-muted);font-size:.8rem;line-height:1.65;margin:11px 0 0;text-align:start}
+.trend-note b{color:var(--text-secondary)}
+.trend-empty{color:var(--text-muted);font-size:.85rem;margin:0;text-align:start}
+@media(max-width:600px){
+  .trend{padding:16px 14px}
+  .trend-wide{display:none}
+  .trend-narrow{display:block}
+}
+
 /* history strip */
 .hist{
   margin-top:20px;background:var(--bg-card);border:1px solid var(--border);
@@ -473,6 +502,35 @@ footer a:hover{color:var(--cyan)}
     the <b>number of distinct foreign carriers</b>, not the number of flights.
   </div>
 
+  <!-- CHART:START -->
+<section class="trend" aria-label="Level trend, last 7 days"><div data-lang="he"><div class="trend-head">
+      <h3>מגמת הרמה — 7 הימים האחרונים</h3>
+      <p class="trend-sub">ציר Y: <b>הרמה (0–3)</b> — 0 רגוע, 3 קריטי. ציר X: זמן אמת, שעון ישראל.</p>
+    </div>
+    <div class="trend-legend"><span class="tl-item"><i style="background:#00d4ff"></i>רמת רציפות · כעת 0</span><span class="tl-item"><i class="tl-gap"></i>אין נתונים</span></div></div><div data-lang="en"><div class="trend-head">
+      <h3>Level over time — the last 7 days</h3>
+      <p class="trend-sub">Y axis: <b>the level (0–3)</b> — 0 calm, 3 critical. X axis: real time, Israel time.</p>
+    </div>
+    <div class="trend-legend"><span class="tl-item"><i style="background:#00d4ff"></i>Continuity level · now 0</span><span class="tl-item"><i class="tl-gap"></i>no data</span></div></div><div class="trend-chart trend-wide"><svg viewBox="0 0 640 190" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="nodata640" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="rgba(255,255,255,.03)"/><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,.16)" stroke-width="1.4"/></pattern></defs><rect x="26" y="141.7" width="606" height="52.7" fill="rgba(34,197,94,.07)"/><line x1="26" y1="168.0" x2="632" y2="168.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="171.8" text-anchor="end" fill="#22c55e" font-size="11" font-family="Inter,sans-serif" font-weight="600">0</text><rect x="26" y="89.0" width="606" height="52.7" fill="rgba(234,179,8,.07)"/><line x1="26" y1="115.3" x2="632" y2="115.3" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="119.2" text-anchor="end" fill="#eab308" font-size="11" font-family="Inter,sans-serif" font-weight="600">1</text><rect x="26" y="36.3" width="606" height="52.7" fill="rgba(249,115,22,.07)"/><line x1="26" y1="62.7" x2="632" y2="62.7" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="66.5" text-anchor="end" fill="#f97316" font-size="11" font-family="Inter,sans-serif" font-weight="600">2</text><rect x="26" y="-16.3" width="606" height="52.7" fill="rgba(255,107,107,.08)"/><line x1="26" y1="10.0" x2="632" y2="10.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="13.8" text-anchor="end" fill="#ff6b6b" font-size="11" font-family="Inter,sans-serif" font-weight="600">3</text><line x1="65.7" y1="10" x2="65.7" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="65.7" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">12/08</text><line x1="152.2" y1="10" x2="152.2" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="152.2" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">13/08</text><line x1="238.8" y1="10" x2="238.8" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="238.8" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">14/08</text><line x1="325.4" y1="10" x2="325.4" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="325.4" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">15/08</text><line x1="412.0" y1="10" x2="412.0" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="412.0" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">16/08</text><line x1="498.5" y1="10" x2="498.5" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="498.5" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">17/08</text><line x1="585.1" y1="10" x2="585.1" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="585.1" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">18/08</text><rect x="26" y="10" width="606" height="158" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/><rect x="26.0" y="10" width="546.4" height="158" fill="url(#nodata640)"/><path d="M 572.4 168.0 H 628.8" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linejoin="round"/><path d="M572.4 168.0h0 M572.8 168.0h0 M572.9 168.0h0 M573.0 168.0h0 M574.7 168.0h0 M576.5 168.0h0 M578.3 168.0h0 M580.1 168.0h0 M581.9 168.0h0 M583.7 168.0h0 M585.5 168.0h0 M587.3 168.0h0 M589.1 168.0h0 M590.9 168.0h0 M592.7 168.0h0 M594.5 168.0h0 M596.4 168.0h0 M598.2 168.0h0 M600.0 168.0h0 M601.8 168.0h0 M603.6 168.0h0 M605.4 168.0h0 M607.2 168.0h0 M609.0 168.0h0 M610.8 168.0h0 M612.6 168.0h0 M614.4 168.0h0 M616.2 168.0h0 M618.0 168.0h0 M619.8 168.0h0 M621.6 168.0h0 M623.4 168.0h0 M625.2 168.0h0 M627.0 168.0h0 M628.8 168.0h0" stroke="#00d4ff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="628.8" cy="168.0" r="3.4" fill="#00d4ff" stroke="#111827" stroke-width="1.2"/></svg></div><div class="trend-chart trend-narrow"><svg viewBox="0 0 340 190" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="nodata340" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="rgba(255,255,255,.03)"/><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,.16)" stroke-width="1.4"/></pattern></defs><rect x="26" y="141.7" width="306" height="52.7" fill="rgba(34,197,94,.07)"/><line x1="26" y1="168.0" x2="332" y2="168.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="172.6" text-anchor="end" fill="#22c55e" font-size="13" font-family="Inter,sans-serif" font-weight="600">0</text><rect x="26" y="89.0" width="306" height="52.7" fill="rgba(234,179,8,.07)"/><line x1="26" y1="115.3" x2="332" y2="115.3" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="119.9" text-anchor="end" fill="#eab308" font-size="13" font-family="Inter,sans-serif" font-weight="600">1</text><rect x="26" y="36.3" width="306" height="52.7" fill="rgba(249,115,22,.07)"/><line x1="26" y1="62.7" x2="332" y2="62.7" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="67.2" text-anchor="end" fill="#f97316" font-size="13" font-family="Inter,sans-serif" font-weight="600">2</text><rect x="26" y="-16.3" width="306" height="52.7" fill="rgba(255,107,107,.08)"/><line x1="26" y1="10.0" x2="332" y2="10.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="14.6" text-anchor="end" fill="#ff6b6b" font-size="13" font-family="Inter,sans-serif" font-weight="600">3</text><line x1="46.0" y1="10" x2="46.0" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="46.0" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">12/08</text><line x1="133.5" y1="10" x2="133.5" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="133.5" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">14/08</text><line x1="220.9" y1="10" x2="220.9" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="220.9" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">16/08</text><line x1="308.3" y1="10" x2="308.3" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="308.3" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">18/08</text><rect x="26" y="10" width="306" height="158" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/><rect x="26.0" y="10" width="275.9" height="158" fill="url(#nodata340)"/><path d="M 301.9 168.0 H 330.4" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linejoin="round"/><path d="M301.9 168.0h0 M302.1 168.0h0 M302.2 168.0h0 M302.2 168.0h0 M303.1 168.0h0 M304.0 168.0h0 M304.9 168.0h0 M305.8 168.0h0 M306.7 168.0h0 M307.6 168.0h0 M308.5 168.0h0 M309.4 168.0h0 M310.4 168.0h0 M311.3 168.0h0 M312.2 168.0h0 M313.1 168.0h0 M314.0 168.0h0 M314.9 168.0h0 M315.8 168.0h0 M316.7 168.0h0 M317.6 168.0h0 M318.6 168.0h0 M319.5 168.0h0 M320.4 168.0h0 M321.3 168.0h0 M322.2 168.0h0 M323.1 168.0h0 M324.0 168.0h0 M324.9 168.0h0 M325.8 168.0h0 M326.7 168.0h0 M327.7 168.0h0 M328.6 168.0h0 M329.5 168.0h0 M330.4 168.0h0" stroke="#00d4ff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="330.4" cy="168.0" r="3.4" fill="#00d4ff" stroke="#111827" stroke-width="1.2"/></svg></div><div data-lang="he"><p class="trend-note">
+      החלון קבוע על 7 ימים גם כשההיסטוריה קצרה ממנו, כדי שלא ייווצר רושם שהמערכת
+      מודדת כבר שבוע. בחלון הזה יש <b>35</b> דגימות אמיתיות, הראשונה
+      ב-<bdi>17/08/2026&nbsp;20:28</bdi> והאחרונה ב-<bdi>18/08/2026&nbsp;12:07</bdi>.
+      הקו הוא <b>קו מדרגה</b>: רמה מוצגת כמוחזקת מרגע המדידה ועד המדידה הבאה.
+      אין החלקה, אין ממוצע ואין נקודות מומצאות — כל קודקוד בקו הוא שורה שקיימת
+      בקובץ הנתונים. פער של יותר מ-90 דקות בין דגימות נחתך בקו ומסומן בהצללה:
+      <b>חור בנתונים אינו רגיעה</b>.
+    </p></div><div data-lang="en"><p class="trend-note">
+      The window stays fixed at 7 days even when the history is shorter, so the
+      page never implies it has been measuring all week. This window holds
+      <b>35</b> real samples, the first at <bdi>17/08/2026&nbsp;20:28</bdi> and the
+      last at <bdi>18/08/2026&nbsp;12:07</bdi>. The line is a <b>step</b> line: a level
+      is drawn as held from the sample that measured it until the next one. No
+      smoothing, no averaging, no invented points — every vertex is a row that
+      exists in the data file. A gap of more than 90 minutes between samples cuts
+      the line and is hatched: <b>a hole in the data is not calm</b>.
+    </p></div></section>
+  <!-- CHART:END -->
+
   <div id="hist"></div>
 
   <section class="method" aria-label="מתודולוגיה" data-lang="he">
@@ -626,6 +684,7 @@ footer a:hover{color:var(--cyan)}
     <a href="/accessibility.html">הצהרת נגישות</a>
     <a href="/disclaimer.html">תנאי שימוש</a>
     <a href="/radar/">ראדאר ההסלמה</a>
+    <a href="/cyber/">ראדאר הסייבר</a>
     <a href="/">kplns.com</a>
   </nav>
   <nav class="legal" aria-label="Legal" data-lang="en">
@@ -633,6 +692,7 @@ footer a:hover{color:var(--cyan)}
     <a href="/accessibility.html">Accessibility statement</a>
     <a href="/disclaimer.html">Terms of use</a>
     <a href="/radar/">Escalation radar</a>
+    <a href="/cyber/">Cyber radar</a>
     <a href="/">kplns.com</a>
   </nav>
   <p class="thirdparty" data-lang="he">

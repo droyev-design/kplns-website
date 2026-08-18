@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<!-- Sibling of /radar/ and /flights/ — same design language, same bilingual
+     mechanism (data-lang duplication + CSS toggle + localStorage['radar-lang'],
+     so the language choice follows the user across all three pages).
+
+     One structural difference from its siblings, on purpose: this page is
+     rendered SERVER-SIDE. /radar/ and /flights/ fetch status.json and build
+     their gauges in the browser; here every word — the level, the entry list,
+     the Hebrew explanations, the trend chart — is written into this file by
+     ~/cyber_radar/publish.py before it is committed. The reason is that this
+     page's value is its prose, and prose that only exists after a fetch is
+     prose a search engine and a JS-off reader never see. -->
+<html lang="he" dir="rtl" data-l="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://kplns.com/cyber/">
+<meta name="theme-color" content="#0a1628">
+<title>ראדאר חשיפת סייבר — מה מנוצל עכשיו, ומה זה אומר בישראל | KPLNS</title>
+<meta name="description" content="אילו פרצות אבטחה מנוצלות ממש עכשיו בשטח, לפי הקטלוג הרשמי של CISA — ומה מתוכן באמת רלוונטי לעסק בישראל. עדכון יומי, בעברית, בלי ז'רגון.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kplns.com/cyber/">
+<meta property="og:title" content="ראדאר חשיפת סייבר — מה מנוצל עכשיו, ומה זה אומר בישראל">
+<meta property="og:description" content="אילו פרצות אבטחה מנוצלות ממש עכשיו בשטח, לפי הקטלוג הרשמי של CISA — ומה מתוכן באמת רלוונטי לעסק בישראל. עדכון יומי, בעברית, בלי ז'רגון.">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ראדאר חשיפת סייבר — מה מנוצל עכשיו, ומה זה אומר בישראל">
+<meta name="twitter:description" content="אילו פרצות אבטחה מנוצלות ממש עכשיו בשטח, לפי הקטלוג הרשמי של CISA — ומה מתוכן באמת רלוונטי לעסק בישראל. עדכון יומי, בעברית, בלי ז'רגון.">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg-primary:#111827; --bg-secondary:#1a2236;
+  --bg-card:rgba(26,34,54,.65); --bg-card-hover:rgba(32,42,68,.85);
+  --border:rgba(255,255,255,.08); --border-hover:rgba(255,255,255,.15);
+  --cyan:#00d4ff; --cyan-dim:rgba(0,212,255,.15); --teal:#00b8a9;
+  --purple:#9d8cff;
+  --gradient-accent:linear-gradient(135deg,#00d4ff,#00b8a9);
+  --text-primary:#e8edf5; --text-secondary:rgba(232,237,245,.6);
+  --text-muted:rgba(232,237,245,.62);
+  --font-he:'Heebo',sans-serif; --font-en:'Inter',sans-serif;
+  --radius-md:16px; --radius-lg:24px;
+  --l0:#22c55e; --l1:#eab308; --l2:#f97316; --l3:#ff6b6b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.skip{
+  position:absolute;top:-100px;inset-inline-start:0;background:var(--cyan);
+  color:#111827;padding:12px 22px;z-index:999;font-weight:700;font-size:.9rem;
+  transition:top .25s;text-decoration:none
+}
+.skip:focus{top:0}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-he);
+  background:linear-gradient(135deg,#111827 0%,#1a2236 40%,#1e2844 100%);
+  color:var(--text-primary); line-height:1.7; padding:0 0 70px;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:940px;margin:0 auto;padding:0 20px}
+.topbar{
+  border-bottom:1px solid var(--border); background:rgba(17,24,39,.6);
+  backdrop-filter:blur(12px); position:sticky; top:0; z-index:50;
+}
+.topbar-inner{
+  max-width:940px;margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.brand{font-family:var(--font-en);font-weight:700;letter-spacing:.08em;font-size:.95rem}
+.brand span{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.backlink{color:var(--text-secondary);font-size:.85rem;text-decoration:none;transition:color .2s;white-space:nowrap}
+.backlink:hover{color:var(--cyan)}
+.topnav{display:flex;gap:14px;align-items:center}
+html[data-l="he"] [data-lang="en"]{display:none!important}
+html[data-l="en"] [data-lang="he"]{display:none!important}
+/* Wrap on purpose. Every .backlink is white-space:nowrap, so a single
+   non-wrapping row overflows the viewport the moment a link is added — the
+   /radar/ page learned this on 2026-08-17, and this page reproduced it exactly:
+   four backlinks plus the language switch measured scrollWidth 527 on a 390px
+   viewport before this rule existed. */
+.topnav{flex-wrap:wrap;justify-content:flex-end;row-gap:8px}
+@media (max-width:560px){
+  .topbar-inner{padding:10px 14px;gap:8px}
+  .topnav{gap:10px;row-gap:6px}
+  .backlink{font-size:.78rem}
+}
+.langsw{display:flex;border:1px solid var(--border-hover);border-radius:9px;overflow:hidden}
+.langsw button{
+  background:none;border:0;color:var(--text-secondary);font-family:var(--font-en);
+  font-size:.76rem;font-weight:600;letter-spacing:.06em;padding:5px 10px;
+  cursor:pointer;transition:background .2s,color .2s
+}
+.langsw button:hover{color:var(--text-primary)}
+.langsw button[aria-pressed="true"]{background:var(--cyan-dim);color:var(--cyan)}
+.hero{text-align:center;padding:46px 0 26px}
+.section-label{
+  font-family:var(--font-en);font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:12px
+}
+h1{
+  font-size:clamp(1.7rem,4.6vw,2.6rem);font-weight:800;letter-spacing:-.02em;line-height:1.25;
+  background:linear-gradient(135deg,#e8edf5 30%,#00d4ff 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero p{color:var(--text-secondary);margin-top:12px;font-size:1rem}
+.divider{width:64px;height:2px;background:var(--gradient-accent);margin:22px auto 0;border-radius:2px}
+.alertstrip{
+  margin:22px auto 0;max-width:760px;
+  border:1px solid rgba(239,68,68,.32);background:rgba(239,68,68,.07);
+  border-radius:12px;padding:10px 16px;font-size:.88rem;
+  display:flex;gap:9px;align-items:baseline;justify-content:center;
+  flex-wrap:wrap;text-align:center
+}
+.alertstrip b{color:#ff9b9b;font-weight:700}
+.alertstrip a{color:var(--cyan);font-weight:600;text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+.notice{
+  margin:26px 0 0;border-radius:var(--radius-md);
+  border:1px solid rgba(239,68,68,.32);background:rgba(239,68,68,.07);
+  padding:20px 22px;
+}
+.notice h2{
+  font-size:1rem;font-weight:700;color:#ff9b9b;margin-bottom:10px;
+  display:flex;align-items:center;gap:8px
+}
+.notice ul{list-style:none;display:grid;gap:7px}
+.notice li{
+  color:var(--text-secondary);font-size:.9rem;padding-inline-start:20px;position:relative
+}
+.notice li::before{content:"—";position:absolute;inset-inline-start:0;color:rgba(239,68,68,.7)}
+.notice li b{color:var(--text-primary);font-weight:600}
+.notice a{
+  display:inline-block;margin-top:13px;color:var(--cyan);font-weight:600;
+  font-size:.88rem;text-decoration:none;border-bottom:1px solid var(--cyan-dim)
+}
+/* single gauge + stat tiles */
+.gaugewrap{display:grid;grid-template-columns:280px 1fr;gap:18px;align-items:stretch}
+#gauge{display:contents}
+@media(max-width:720px){.gaugewrap{grid-template-columns:1fr}}
+.gauge{
+  position:relative;overflow:hidden;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:26px 22px;text-align:center;
+  backdrop-filter:blur(10px);transition:border-color .3s;
+}
+.gauge-accent{position:absolute;top:0;inset-inline:0;height:3px;display:block}
+.gauge.stale .gauge-accent{background:#94a3b8!important}
+.gauge-head{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:18px}
+.gauge-flag{font-size:1.5rem;line-height:1}
+.gauge-name{font-size:1.05rem;font-weight:700}
+.ring{position:relative;width:150px;height:150px;margin:0 auto 16px}
+.ring svg{transform:rotate(-90deg);width:100%;height:100%}
+.ring circle{fill:none;stroke-width:9;stroke-linecap:round}
+.ring .track{stroke:rgba(255,255,255,.07)}
+.ring .val{transition:stroke-dashoffset 1s cubic-bezier(.4,0,.2,1),stroke .5s}
+.ring-mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
+.ring-emoji{font-size:1.6rem;line-height:1}
+.ring-label{font-size:.98rem;font-weight:800;letter-spacing:-.01em}
+.ring-scale{font-family:var(--font-en);font-size:.68rem;color:var(--text-muted);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.gauge-note{color:var(--text-secondary);font-size:.86rem;min-height:2.6em}
+.gauge-caveat{margin-top:10px;font-size:.79rem;color:#fbbf24;line-height:1.5}
+.stale .ring .val{stroke:#94a3b8!important}
+.stale .ring-label{color:#94a3b8!important}
+.stale .ring-emoji{filter:grayscale(1);opacity:.6}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:stretch}
+@media(max-width:480px){.tiles{grid-template-columns:1fr 1fr}}
+.tile{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:16px;display:flex;flex-direction:column;justify-content:center;text-align:center
+}
+.tile .tv{font-family:var(--font-en);font-size:1.7rem;font-weight:700;font-variant-numeric:tabular-nums;color:var(--text-primary)}
+.tile .tv small{font-size:.95rem;color:var(--text-secondary);font-weight:500}
+.tile .tl{color:var(--text-secondary);font-size:.8rem;margin-top:4px;line-height:1.45}
+h3{
+  font-size:.78rem;font-family:var(--font-en);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-muted);font-weight:600;margin:34px 0 12px;text-align:center
+}
+.rows{display:grid;gap:8px}
+.row{
+  display:block;text-align:start;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:14px;padding:12px 15px;transition:border-color .25s
+}
+.row>summary{display:flex;gap:12px;align-items:flex-start;cursor:pointer;list-style:none;border-radius:6px}
+.row>summary::-webkit-details-marker{display:none}
+.row:hover{border-color:var(--border-hover)}
+.row.on{border-color:rgba(239,68,68,.45);background:rgba(239,68,68,.08)}
+.row.err{border-color:rgba(234,179,8,.32);background:rgba(234,179,8,.05)}
+.row .ic{flex-shrink:0;font-size:.95rem;line-height:1.75;width:18px;text-align:center}
+.row .rw{flex:1 1 auto;min-width:0}
+.row .chev{
+  flex-shrink:0;color:var(--cyan);font-weight:700;font-size:1rem;
+  line-height:1.6;width:14px;text-align:center;user-select:none
+}
+.row[open] .chev::before{content:"−"}
+.row .chev::before{content:"+"}
+.row .nm{font-weight:600;font-size:.93rem}
+.row .rs{color:var(--text-secondary);font-size:.83rem;margin-top:1px;font-variant-numeric:tabular-nums}
+.row-info{
+  margin-top:10px;padding-top:10px;border-top:1px solid var(--border);
+  color:var(--text-secondary);font-size:.83rem;line-height:1.75
+}
+.row-info p{margin:0 0 5px}
+.row-info b{color:var(--text-primary);font-weight:600}
+.row-info a{color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+.obs{
+  font-family:var(--font-en);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple);border:1px solid rgba(157,140,255,.4);border-radius:20px;
+  padding:1px 7px;margin-inline-start:7px;vertical-align:middle;font-weight:600
+}
+.fresh{
+  margin:18px 0 0;text-align:center;font-size:.86rem;color:var(--text-secondary);
+  font-variant-numeric:tabular-nums
+}
+.banner{
+  margin:16px 0 0;border-radius:12px;padding:11px 16px;font-size:.88rem;
+  display:flex;gap:9px;align-items:flex-start;text-align:start
+}
+.banner.warn{border:1px solid rgba(251,191,36,.42);background:rgba(251,191,36,.09);color:#fbbf24}
+.banner.dead{border:1px solid rgba(148,163,184,.42);background:rgba(148,163,184,.10);color:#94a3b8}
+.banner.info{border:1px solid rgba(0,212,255,.3);background:rgba(0,212,255,.06);color:var(--text-secondary)}
+.banner b{display:block;color:var(--text-primary);margin-bottom:2px}
+/* days table */
+.daysbox{
+  margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:18px 20px
+}
+.daysbox h3{margin:0 0 12px;text-align:start;color:var(--text-secondary)}
+.d-wrap{overflow-x:auto}
+.d-tbl{width:100%;border-collapse:collapse;font-size:.86rem}
+.d-tbl th{
+  text-align:start;color:var(--text-muted);font-weight:600;padding:6px 8px;
+  border-bottom:1px solid var(--border);white-space:nowrap
+}
+.d-tbl td{padding:8px;border-bottom:1px solid var(--border);color:var(--text-secondary);font-variant-numeric:tabular-nums;white-space:nowrap}
+.d-tbl tr.today td{color:var(--text-primary);font-weight:600;background:rgba(0,212,255,.05)}
+.d-note{margin-top:10px;color:var(--text-muted);font-size:.8rem}
+/* ── trend chart ─────────────────────────────────────── */
+/* Server-rendered inline SVG, injected between the CHART markers in the body
+   by ~/kplns-seo-agent/radar_chart.py. No JS, no CDN, no fetch: the trend is
+   bytes in this file. Two viewBox variants ship and CSS picks one — a single
+   SVG scaled to the container renders 6px axis labels on a phone or 22px ones
+   on a desktop. */
+.trend{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px;margin:26px 0 0
+}
+.trend-head h3{margin:0 0 4px;font-size:1rem;color:var(--text-primary);text-align:start}
+.trend-sub{color:var(--text-secondary);font-size:.85rem;margin:0;text-align:start}
+.trend-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:13px 0 7px;
+  font-size:.82rem;color:var(--text-secondary)}
+.tl-item{display:inline-flex;align-items:center;gap:7px}
+.tl-item i{width:15px;height:3px;border-radius:2px;flex:none}
+.tl-item i.tl-gap{height:12px;width:15px;border-radius:3px;
+  background:repeating-linear-gradient(45deg,rgba(255,255,255,.16) 0 1.5px,rgba(255,255,255,.03) 1.5px 6px)}
+.trend-chart svg{display:block;width:100%;height:auto}
+.trend-narrow{display:none}
+.trend-note{color:var(--text-muted);font-size:.8rem;line-height:1.65;margin:11px 0 0;text-align:start}
+.trend-note b{color:var(--text-secondary)}
+.trend-empty{color:var(--text-muted);font-size:.85rem;margin:0;text-align:start}
+@media(max-width:600px){
+  .trend{padding:16px 14px}
+  .trend-wide{display:none}
+  .trend-narrow{display:block}
+}
+
+/* history strip */
+.hist{
+  margin-top:20px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:18px 20px
+}
+.hist h3{margin:0 0 10px;text-align:start;color:var(--text-secondary)}
+.strip{
+  display:flex;gap:1px;direction:ltr;height:22px;border-radius:5px;
+  overflow:hidden;background:rgba(255,255,255,.04)
+}
+.strip i{flex:1 1 0;display:block;min-width:0}
+.hist-axis{
+  display:flex;justify-content:space-between;direction:ltr;
+  font-size:.72rem;color:var(--text-muted);margin-top:4px;font-family:var(--font-en)
+}
+.hist-note{
+  margin-top:12px;padding-top:11px;border-top:1px solid var(--border);
+  color:var(--text-muted);font-size:.8rem
+}
+/* legend / method / explain */
+.legend{
+  margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px
+}
+.legend-h{margin:0 0 14px;text-align:start;color:var(--text-secondary)}
+.legend-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px}
+@media(max-width:640px){.legend-grid{grid-template-columns:1fr}}
+.legend-item{display:flex;gap:11px;align-items:flex-start}
+.legend-item .dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.legend-item b{display:block;font-size:.92rem;font-weight:700}
+.legend-item span:not(.dot){display:block;color:var(--text-secondary);font-size:.84rem}
+.legend-note{
+  margin-top:15px;padding-top:13px;border-top:1px solid var(--border);
+  color:var(--text-muted);font-size:.83rem
+}
+.method{
+  margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px
+}
+.m-lead{color:var(--text-secondary);font-size:.88rem;margin-bottom:14px}
+.m-lead b{color:var(--text-primary)}
+.method details{border-top:1px solid var(--border);padding:11px 0 3px}
+.method summary{
+  cursor:pointer;font-weight:600;font-size:.92rem;list-style:none;
+  display:flex;align-items:center;gap:8px
+}
+.method summary::-webkit-details-marker{display:none}
+.method summary::before{content:"+";color:var(--cyan);font-weight:700;width:12px}
+.method details[open] summary::before{content:"−"}
+.method details ul{margin:10px 0 4px;padding-inline-start:20px}
+.method details li{color:var(--text-secondary);font-size:.86rem;margin:5px 0}
+.method details p{color:var(--text-secondary);font-size:.86rem;margin-top:9px}
+.method details b{color:var(--text-primary)}
+.m-tbl{width:100%;border-collapse:collapse;margin-top:12px;font-size:.82rem}
+.m-tbl th{
+  text-align:start;color:var(--text-muted);font-weight:600;padding:6px 8px;
+  border-bottom:1px solid var(--border);white-space:nowrap
+}
+.m-tbl td{padding:7px 8px;border-bottom:1px solid var(--border);color:var(--text-secondary);vertical-align:top}
+.m-tbl td:first-child{color:var(--text-primary);font-weight:500}
+.m-wrap{overflow-x:auto}
+.explain{
+  margin-top:34px;border:1px solid rgba(0,212,255,.22);background:rgba(0,212,255,.05);
+  border-radius:var(--radius-md);padding:20px 22px;color:var(--text-secondary);font-size:.9rem
+}
+.explain b{color:var(--cyan);font-weight:600}
+.xlink{
+  display:block;margin-top:22px;padding:15px 17px;text-decoration:none;
+  border:1px solid rgba(0,212,255,.3);background:rgba(0,212,255,.06);
+  border-radius:14px;transition:background .25s,border-color .25s
+}
+.xlink:hover{background:rgba(0,212,255,.12);border-color:rgba(0,212,255,.5)}
+.xlink-t{display:block;font-weight:700;font-size:.95rem;color:var(--text-primary)}
+.xlink-s{display:block;margin-top:5px;font-size:.82rem;color:var(--text-secondary);line-height:1.7}
+.stamp{text-align:center;color:var(--text-muted);font-size:.8rem;margin-top:24px;font-family:var(--font-en);font-variant-numeric:tabular-nums}
+footer{
+  text-align:center;margin-top:34px;padding-top:24px;border-top:1px solid var(--border);
+  color:var(--text-muted);font-size:.8rem;line-height:2.1
+}
+footer a{color:var(--text-secondary);text-decoration:none}
+footer a:hover{color:var(--cyan)}
+.legal{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;margin-bottom:10px}
+.thirdparty{max-width:520px;margin:0 auto;font-size:.75rem;line-height:1.8;color:var(--text-muted)}
+/* ── trend chart ─────────────────────────────────────── */
+/* Server-rendered inline SVG, injected between the CHART markers in the body
+   by ~/kplns-seo-agent/radar_chart.py. No JS, no CDN, no fetch: the trend is
+   bytes in this file. Two viewBox variants ship and CSS picks one — a single
+   SVG scaled to the container renders 6px axis labels on a phone or 22px ones
+   on a desktop. */
+.trend{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:20px 22px;margin:26px 0 0
+}
+
+/* ── cyber radar specifics ───────────────────────────── */
+/* Everything above is the /flights/ stylesheet unchanged, so this page is the
+   same object as its two siblings rather than a lookalike. Only the pieces
+   /flights/ has no equivalent for live here. */
+.sig{display:grid;gap:8px;margin:16px 0 0}
+.sig-item{
+  display:flex;gap:10px;align-items:baseline;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:10px;padding:9px 13px;font-size:.86rem
+}
+.sig-n{font-family:var(--font-en);font-weight:700;font-variant-numeric:tabular-nums;
+  color:var(--text-primary);min-width:1.6em;text-align:center}
+.sig-item.zero{opacity:.55}
+.sig-item.zero .sig-n{color:var(--text-muted)}
+.sig-cves{font-family:var(--font-en);font-size:.74rem;color:var(--text-muted);
+  margin-inline-start:auto;text-align:end;direction:ltr}
+.entries{display:grid;gap:12px;margin:14px 0 0}
+.entry{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:16px 18px
+}
+.entry.edge{border-inline-start:3px solid var(--l2)}
+.entry-head{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline}
+.entry-cve{font-family:var(--font-en);font-weight:700;font-size:.92rem;color:var(--cyan);
+  direction:ltr;text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+.entry-prod{font-weight:700;font-size:.98rem;color:var(--text-primary)}
+.entry-meta{margin-inline-start:auto;font-size:.76rem;color:var(--text-muted);
+  font-family:var(--font-en);direction:ltr}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0 0}
+.badge{
+  font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:99px;
+  border:1px solid var(--border-hover);color:var(--text-secondary)
+}
+.badge.b-edge{border-color:rgba(249,115,22,.45);color:#fdba74;background:rgba(249,115,22,.08)}
+.badge.b-ransom{border-color:rgba(239,68,68,.45);color:#ff9b9b;background:rgba(239,68,68,.08)}
+.badge.b-il{border-color:rgba(0,212,255,.4);color:var(--cyan);background:var(--cyan-dim)}
+.badge.b-new{border-color:rgba(234,179,8,.45);color:#fde047;background:rgba(234,179,8,.08)}
+.badge.b-epss{border-color:rgba(157,140,255,.45);color:#c4b8ff;background:rgba(157,140,255,.10)}
+.entry-he{margin:11px 0 0;font-size:.88rem;line-height:1.75;color:var(--text-secondary)}
+.entry-he b{color:var(--text-primary);font-weight:600}
+.entry-he i{color:var(--text-muted);font-style:normal;font-size:.95em}
+.entry-req{
+  margin:9px 0 0;padding:8px 11px;border-radius:8px;
+  background:rgba(255,255,255,.03);border:1px solid var(--border);
+  font-size:.78rem;line-height:1.55;color:var(--text-muted);
+  direction:ltr;text-align:left;font-family:var(--font-en)
+}
+.entry-req b{color:var(--text-secondary)}
+.srcline{
+  margin:18px 0 0;font-size:.82rem;color:var(--text-muted);
+  display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline
+}
+.srcline a{color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+.est{
+  margin:20px 0 0;border:1px solid rgba(157,140,255,.3);background:rgba(157,140,255,.06);
+  border-radius:12px;padding:13px 17px;font-size:.86rem;line-height:1.7;color:var(--text-secondary)
+}
+.est b{color:#c4b8ff}
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"WebPage","@id":"https://kplns.com/cyber/#webpage","url":"https://kplns.com/cyber/","name":"ראדאר חשיפת סייבר — מה מנוצל עכשיו, ומה זה אומר בישראל","description":"אילו פרצות אבטחה מנוצלות ממש עכשיו בשטח, לפי הקטלוג הרשמי של CISA — ומה מתוכן באמת רלוונטי לעסק בישראל. עדכון יומי, בעברית, בלי ז'רגון.","inLanguage":["he-IL","en"],"isPartOf":{"@id":"https://kplns.com/#website"},"publisher":{"@id":"https://kplns.com/#organization"},"breadcrumb":{"@id":"https://kplns.com/cyber/#breadcrumb"}},
+  {"@type":"BreadcrumbList","@id":"https://kplns.com/cyber/#breadcrumb","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"KPLNS","item":"https://kplns.com/"},
+    {"@type":"ListItem","position":2,"name":"ראדאר חשיפת סייבר","item":"https://kplns.com/cyber/"}
+  ]}
+]}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main"><span data-lang="he">דלג לתוכן</span><span data-lang="en">Skip to content</span></a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span>KPLNS</span></div>
+    <div class="topnav">
+      <div class="langsw" role="group" aria-label="שפה / Language">
+        <button type="button" id="lang-he" aria-pressed="true">עב</button>
+        <button type="button" id="lang-en" aria-pressed="false">EN</button>
+      </div>
+      <a class="backlink" href="/cyber/methodology.html"
+         ><span data-lang="he">מתודולוגיה</span><span data-lang="en">Methodology</span></a>
+      <a class="backlink" href="/radar/"
+         ><span data-lang="he">ראדאר ההסלמה</span><span data-lang="en">Escalation radar</span></a>
+      <a class="backlink" href="/flights/"
+         ><span data-lang="he">ראדאר התעופה</span><span data-lang="en">Aviation radar</span></a>
+      <a class="backlink" href="/"
+         ><span data-lang="he">← חזרה לאתר</span><span data-lang="en">← Back to site</span></a>
+    </div>
+  </div>
+</div>
+
+<main class="container" id="main">
+
+  <div class="hero">
+    <div class="section-label">Cyber Exposure Radar</div>
+    <h1><span data-lang="he">מה מנוצל עכשיו — והאם זה נוגע לעסק בישראל</span
+       ><span data-lang="en">What is being exploited now — and does it touch a business in Israel</span></h1>
+    <p><span data-lang="he">קטלוג הפרצות המנוצלות בפועל של CISA, מסונן לשוק הישראלי ומוסבר בעברית</span
+       ><span data-lang="en">CISA's exploited-in-the-wild catalogue, filtered for the Israeli market and explained in Hebrew</span></p>
+    <div class="divider"></div>
+
+    <div class="alertstrip" data-lang="he">
+      <span><span aria-hidden="true">⚠️</span> <b>הדף הזה לא סורק אתכם.</b>
+      הוא לא יודע מה מותקן אצלכם, ולכן לא יכול להגיד לכם שאתם בסדר.</span>
+    </div>
+    <div class="alertstrip" data-lang="en">
+      <span><span aria-hidden="true">⚠️</span> <b>This page does not scan you.</b>
+      It has no idea what you run, so it cannot tell you that you are fine.</span>
+    </div>
+  </div>
+
+  <!-- STATUS:START -->
+
+  <div id="stalebox"></div>
+
+  <div class="gaugewrap" role="status">
+    <div class="gauge">
+      <span class="gauge-accent" style="background:var(--l1)" aria-hidden="true"></span>
+      <div class="gauge-head"><span class="gauge-flag" aria-hidden="true">🛡️</span>
+        <span class="gauge-name"><span data-lang="he">חשיפת סייבר — ישראל</span><span data-lang="en">Cyber exposure — Israel</span></span></div>
+      <div class="ring" role="img" aria-label="רמה 1 מתוך 3 — פריט אחד">
+        <svg viewBox="0 0 150 150" aria-hidden="true" focusable="false">
+          <circle class="track" cx="75" cy="75" r="62"></circle>
+          <circle class="val" cx="75" cy="75" r="62" stroke="var(--l1)"
+                  stroke-dasharray="389.56" stroke-dashoffset="259.70"></circle>
+        </svg>
+        <div class="ring-mid">
+          <div class="ring-emoji" aria-hidden="true">🟡</div>
+          <div class="ring-label" style="color:var(--l1)"><span data-lang="he">פריט אחד</span><span data-lang="en">One item</span></div>
+          <div class="ring-scale">1 / 3</div>
+        </div>
+      </div>
+      <div class="gauge-note"><span data-lang="he">נוסף השבוע מוצר היקפי אחד. בדקו אם הוא אצלכם ובאיזו גרסה.</span><span data-lang="en">One perimeter product was added this week. Check whether you run it, and on which version.</span></div>
+    </div>
+    <div class="tiles"><div class="tile"><div class="tv">4</div><div class="tl"><span data-lang="he">רשומות חדשות בקטלוג — 7 ימים</span><span data-lang="en">New catalogue entries — 7 days</span></div></div><div class="tile"><div class="tv">15</div><div class="tl"><span data-lang="he">מהן רלוונטיות לשוק הישראלי — 30 יום</span><span data-lang="en">Of those, relevant to the Israeli market — 30 days</span></div></div><div class="tile"><div class="tv">11</div><div class="tl"><span data-lang="he">מהן רכיבים היקפיים — 30 יום</span><span data-lang="en">Of those, perimeter products — 30 days</span></div></div><div class="tile"><div class="tv">1666</div><div class="tl"><span data-lang="he">סך הרשומות בקטלוג KEV</span><span data-lang="en">Total entries in the KEV catalogue</span></div></div></div>
+  </div>
+
+  <div class="sig" aria-label="signals"><div class="sig-item zero"><span class="sig-n">0</span><span data-lang="he">פרצות שכבר שימשו לכופרה (30 יום)</span><span data-lang="en">Used in ransomware (30 days)</span></div><div class="sig-item"><span class="sig-n">2</span><span data-lang="he">פרצות במוצר של יצרן ישראלי (90 יום)</span><span data-lang="en">In a product from an Israeli vendor (90 days)</span><span class="sig-cves">CVE-2026-16232 CVE-2026-50751</span></div><div class="sig-item"><span class="sig-n">6</span><span data-lang="he">ניצול צפוי בהיקף רחב — EPSS מעל 50% (30 יום)</span><span data-lang="en">Wide-scale exploitation expected — EPSS over 50% (30 days)</span><span class="sig-cves">CVE-2026-8037 CVE-2026-34486 CVE-2026-16232 CVE-2026-50522…</span></div><div class="sig-item"><span class="sig-n">11</span><span data-lang="he">רכיבים היקפיים שתאריך היעד של CISA להם כבר עבר (30 יום)</span><span data-lang="en">Perimeter products whose CISA due date has passed (30 days)</span><span class="sig-cves">CVE-2026-20349 CVE-2026-8037 CVE-2026-63077 CVE-2026-18556…</span></div></div>
+  <div class="est" data-lang="he">
+    ארבע השורות האלה <b>אינן חלק מהרמה</b>, בכוונה. שתיים מהן דולקות כמעט תמיד —
+    תאריך יעד שחלף וציון EPSS גבוה — כי CISA נותנת 3–14 יום לתיקון, וכי רשומה
+    בקטלוג היא <em>מעצם הגדרתה</em> פרצה שכבר מנצלים. אינדיקטור שדולק תמיד אינו
+    אינדיקטור. הן מוצגות כאן כהקשר, לא כציון.
+  </div>
+  <div class="est" data-lang="en">
+    Those four lines are <b>deliberately not part of the level</b>. Two of them
+    are lit almost always — a passed due date and a high EPSS — because CISA
+    allows 3–14 days to patch, and because a catalogue entry is <em>by
+    definition</em> already being exploited. An indicator that is always on is
+    not an indicator. They are shown as context, not as a score.
+  </div>
+
+  <div class="srcline">
+    <span data-lang="he">מקורות:</span><span data-lang="en">Sources:</span>
+    <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA KEV</a>
+    <span dir="ltr">v2026.08.17 · 1666 entries</span>
+    <a href="https://www.first.org/epss/" target="_blank" rel="noopener">FIRST.org EPSS</a>
+  </div>
+
+  <div class="stamp" id="stamp" data-generated="2026-08-18T09:33:06+00:00">
+    <span data-lang="he">עודכן: </span><span data-lang="en">Updated: </span><bdi>18/08/2026 12:33</bdi>
+    <span data-lang="he"> (שעון ישראל)</span><span data-lang="en"> (Israel time)</span>
+  </div>
+
+  <!-- STATUS:END -->
+
+  <div class="notice" data-lang="he">
+    <h2>⚠️ לקרוא לפני שמסיקים מהצבע</h2>
+    <ul>
+      <li><b>זו אינה בדיקה של הרשת שלכם.</b> הדף קורא קטלוג ציבורי. הוא לא יודע
+      אם FortiGate או SharePoint בכלל קיימים אצלכם, וכמה גרסאות אחורה אתם.</li>
+      <li><b>"רלוונטי לישראל" הוא הערכה מקצועית מוצהרת, לא מדידה.</b> אין מאגר
+      חופשי שאומר כמה ארגונים בישראל מריצים מוצר מסוים. הדירוג כאן הוא שיפוט של
+      יועץ אחד, עם נימוק כתוב לכל יצרן — כדי שיהיה אפשר לחלוק עליו.</li>
+      <li><b>רשימה ריקה אינה תעודת ביטוח.</b> קטלוג KEV כולל רק את מה שCISA
+      אישרה שמנוצל בפועל. פרצה חדשה שעדיין לא נכנסה לקטלוג מסוכנת בדיוק כמו זו שכן.</li>
+      <li><b>תאריכי היעד של CISA מחייבים גופי ממשל פדרליים בארה"ב</b> — לא אתכם.
+      הם מופיעים כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</li>
+      <li>זהו <b>פרויקט פרטי</b>, לא גורם רשמי ולא ייעוץ אישי.</li>
+    </ul>
+  </div>
+  <div class="notice" data-lang="en">
+    <h2>⚠️ Read this before reading the colour</h2>
+    <ul>
+      <li><b>This is not a check of your network.</b> The page reads a public
+      catalogue. It does not know whether you even run FortiGate or SharePoint,
+      or how many versions behind you are.</li>
+      <li><b>"Relevant in Israel" is a declared professional estimate, not a
+      measurement.</b> No free dataset says how many Israeli organisations run a
+      given product. The ranking here is one consultant's judgement, published
+      with a written reason per vendor so it can be argued with.</li>
+      <li><b>An empty list is not a clean bill of health.</b> KEV covers only
+      what CISA has confirmed is being exploited. A fresh vulnerability that has
+      not entered the catalogue yet is exactly as dangerous as one that has.</li>
+      <li><b>CISA due dates bind US federal agencies</b> — not you. They appear
+      here only as CISA's own measure of how urgent it considers the flaw.</li>
+      <li>This is a <b>private project</b>, not an official body and not personal advice.</li>
+    </ul>
+  </div>
+
+  <section class="legend" aria-label="הסבר הרמות" data-lang="he">
+    <h3 class="legend-h">מה אומרות הרמות</h3>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="dot" style="background:var(--l0)" aria-hidden="true"></span>
+        <div><b>0 · שבוע שקט</b><span>לא נוסף השבוע אף מוצר היקפי שנפוץ בישראל. זה השבוע הרגיל — 30 מתוך 52 השבועות שנמדדו.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l1)" aria-hidden="true"></span>
+        <div><b>1 · פריט אחד</b><span>נוסף מוצר היקפי אחד. בדקו אם הוא אצלכם ובאיזו גרסה. 10 מתוך 52 שבועות.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l2)" aria-hidden="true"></span>
+        <div><b>2 · שבוע עמוס</b><span>שני מוצרים היקפיים בשבוע אחד. 3 מתוך 52 שבועות.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l3)" aria-hidden="true"></span>
+        <div><b>3 · חריג</b><span>שלושה ומעלה. קרה ב-9 מתוך 52 השבועות שנמדדו — לרוב כשמתפרסם גל תקיפות על ציוד קצה.</span></div></div>
+    </div>
+    <p class="legend-note">הרמה סופרת <b>מוצרים היקפיים בלבד</b> — כאלה שתוקף מחו"ל יכול להגיע אליהם ישירות. פרצה בתחנת עבודה חשובה גם היא, אבל היא לא נספרת ברמה, כי היא דורשת שמישהו אצלכם ילחץ על משהו.</p>
+  </section>
+
+  <section class="legend" aria-label="Level legend" data-lang="en">
+    <h3 class="legend-h">What the levels mean</h3>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="dot" style="background:var(--l0)" aria-hidden="true"></span>
+        <div><b>0 · A quiet week</b><span>No internet-facing product common in Israel was added this week. This is the normal week — 30 of the 52 measured.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l1)" aria-hidden="true"></span>
+        <div><b>1 · One item</b><span>One perimeter product was added. Check whether you run it, and on which version. 10 of 52 weeks.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l2)" aria-hidden="true"></span>
+        <div><b>2 · A busy week</b><span>Two perimeter products in a single week. 3 of 52 weeks.</span></div></div>
+      <div class="legend-item"><span class="dot" style="background:var(--l3)" aria-hidden="true"></span>
+        <div><b>3 · Unusual</b><span>Three or more. Happened in 9 of the 52 measured weeks, usually when a wave of edge-device attacks breaks.</span></div></div>
+    </div>
+    <p class="legend-note">The level counts <b>perimeter products only</b> — the ones an attacker abroad can reach directly. A workstation flaw matters too, but it is not in the level, because it needs somebody inside to click something.</p>
+  </section>
+
+  <!-- LIST:START -->
+
+  <section aria-label="entries">
+    <h3 class="legend-h" data-lang="he">מה ברשימה עכשיו — והאם זה נוגע לכם</h3>
+    <h3 class="legend-h" data-lang="en">What is on the list now — and whether it touches you</h3>
+    <p class="legend-note" data-lang="he">
+      מסודר לפי: רכיב היקפי לפני פנימי, יצרן נפוץ בישראל לפני פחות נפוץ, פרצה
+      ששימשה לכופרה ו-EPSS גבוה לפני אלה שלא, וחדש לפני ישן. אין משקלות נסתרים.
+      ההסבר בעברית מורכב אך ורק משדות שקיימים ברשומה עצמה — שדה חסר מוריד משפט,
+      ולא ממציא אותו.
+    </p>
+    <p class="legend-note" data-lang="en">
+      Ordered by: perimeter before internal, vendors common in Israel before less
+      common ones, ransomware-linked and high-EPSS before neither, newer before
+      older. No hidden weights. The Hebrew explanation is assembled strictly from
+      fields present in the record — a missing field drops a sentence rather than
+      inventing one. The English line below each entry is CISA's own description.
+    </p>
+    <div class="entries">
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-15409"
+           target="_blank" rel="noopener">CVE-2026-15409</a>
+        <span class="entry-prod">SonicWall SMA1000 Appliances</span>
+        <span class="entry-meta">added 2026-07-14
+          · due 2026-07-17</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">שער גישה מרחוק</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span><span class="badge b-epss">EPSS 74%</span></div>
+      <p class="entry-he" data-lang="he"><b>SonicWall SMA1000 Appliances</b> הוא שער גישה מרחוק. סוג הפרצה: הכרחת השרת לפנות ליעד פנימי (SSRF). CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>74%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-17</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">SonicWall SMA1000 Appliances contain a server-side request forgery vulnerability that could allow a remote unauthenticated attacker to potentially cause the appliance to make requests to unintended location.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
+    </article>
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-15410"
+           target="_blank" rel="noopener">CVE-2026-15410</a>
+        <span class="entry-prod">SonicWall SMA1000 Appliances</span>
+        <span class="entry-meta">added 2026-07-14
+          · due 2026-07-17</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">שער גישה מרחוק</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span><span class="badge b-epss">EPSS 76%</span></div>
+      <p class="entry-he" data-lang="he"><b>SonicWall SMA1000 Appliances</b> הוא שער גישה מרחוק. סוג הפרצה: הרצת קוד זר. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>76%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-17</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">SonicWall SMA1000 Appliances contain a code injection vulnerability which in specific conditions could potentially enable a remote authenticated attacker as administrator to execute arbitrary OS commands.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
+    </article>
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-50751"
+           target="_blank" rel="noopener">CVE-2026-50751</a>
+        <span class="entry-prod">Check Point Security Gateway</span>
+        <span class="entry-meta">added 2026-06-08
+          · due 2026-06-11</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">שער בקצה הרשת</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span><span class="badge b-il">🇮🇱 <span data-lang="he">צ'ק פוינט — תל אביב</span><span data-lang="en">Israeli vendor</span></span><span class="badge b-epss">EPSS 83%</span></div>
+      <p class="entry-he" data-lang="he"><b>Check Point Security Gateway</b> הוא שער בקצה הרשת. סוג הפרצה: עקיפת אימות זהות. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>83%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: יצרן ישראלי עם חדירה גבוהה במיוחד בארגונים הגדולים ובמגזר הציבורי בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> יצרן ישראלי — צ'ק פוינט — תל אביב. תאריך היעד של CISA הוא <bdi>2026-06-11</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">Check Point Security Gateway contains an improper authentication vulnerability in IKEv1 key exchange that could allow an unauthenticated remote attacker to bypass user authentication and establish a remote access VPN connection without a valid user password.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.</p>
+    </article>
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-45659"
+           target="_blank" rel="noopener">CVE-2026-45659</a>
+        <span class="entry-prod">Microsoft SharePoint Server</span>
+        <span class="entry-meta">added 2026-07-01
+          · due 2026-07-04</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">שרת שיתוף מסמכים, לרוב חשוף לאינטרנט</span><span data-lang="en">internet-facing</span></span><span class="badge b-ransom"><span data-lang="he">שימש לכופרה</span><span data-lang="en">used in ransomware</span></span></div>
+      <p class="entry-he" data-lang="he"><b>Microsoft SharePoint Server</b> הוא שרת שיתוף מסמכים, לרוב חשוף לאינטרנט. סוג הפרצה: פענוח אובייקט לא מהימן. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>10%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-04</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">Microsoft SharePoint Server contains a deserialization of untrusted data vulnerability which allows an authorized attacker to execute code over a network.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
+    </article>
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-50522"
+           target="_blank" rel="noopener">CVE-2026-50522</a>
+        <span class="entry-prod">Microsoft SharePoint</span>
+        <span class="entry-meta">added 2026-07-22
+          · due 2026-07-25</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">שרת שיתוף מסמכים, לרוב חשוף לאינטרנט</span><span data-lang="en">internet-facing</span></span><span class="badge b-epss">EPSS 77%</span></div>
+      <p class="entry-he" data-lang="he"><b>Microsoft SharePoint</b> הוא שרת שיתוף מסמכים, לרוב חשוף לאינטרנט. סוג הפרצה: פענוח אובייקט לא מהימן. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>77%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-25</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">Microsoft SharePoint contains a deserialization of untrusted data vulnerability which could allow an unauthorized attacker to execute code over a network.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
+    </article>
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-60137"
+           target="_blank" rel="noopener">CVE-2026-60137</a>
+        <span class="entry-prod">WordPress Core</span>
+        <span class="entry-meta">added 2026-07-21
+          · due 2026-08-04</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">אתר אינטרנט</span><span data-lang="en">internet-facing</span></span><span class="badge b-epss">EPSS 73%</span></div>
+      <p class="entry-he" data-lang="he"><b>WordPress Core</b> הוא אתר אינטרנט. סוג הפרצה: הזרקת SQL. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>73%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-04</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">WordPress Core contains a SQL injection vulnerability when a plugin or theme passes untrusted input to the parameter. This vulnerability can be chained with CVE-2026-63030 to allow an unauthenticated attacker to gain remote code execution on default WordPress installations.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
+    </article>
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-63030"
+           target="_blank" rel="noopener">CVE-2026-63030</a>
+        <span class="entry-prod">WordPress Core</span>
+        <span class="entry-meta">added 2026-07-21
+          · due 2026-07-24</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">אתר אינטרנט</span><span data-lang="en">internet-facing</span></span><span class="badge b-epss">EPSS 96%</span></div>
+      <p class="entry-he" data-lang="he"><b>WordPress Core</b> הוא אתר אינטרנט. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>96%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-24</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">WordPress Core contains an interpretation conflict vulnerability that could allow an attacker to perform SQL Injection and achieve Remote Code Execution. This vulnerability can be chained with CVE-2026-60137.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
+    </article>
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-25089"
+           target="_blank" rel="noopener">CVE-2026-25089</a>
+        <span class="entry-prod">Fortinet FortiSandbox</span>
+        <span class="entry-meta">added 2026-07-16
+          · due 2026-07-19</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">מערכת ניתוח קבצים בפריסת רשת</span><span data-lang="en">internet-facing</span></span><span class="badge b-epss">EPSS 74%</span></div>
+      <p class="entry-he" data-lang="he"><b>Fortinet FortiSandbox</b> הוא מערכת ניתוח קבצים בפריסת רשת. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>74%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-19</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">Fortinet FortiSandbox, FortiSandbox Cloud, and FortiSandbox PaaS contain an OS command injection vulnerability that allows an unauthenticated attacker to execute unauthorized commands via specifically crafted HTTP requests.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
+    </article>
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-39808"
+           target="_blank" rel="noopener">CVE-2026-39808</a>
+        <span class="entry-prod">Fortinet FortiSandbox</span>
+        <span class="entry-meta">added 2026-07-16
+          · due 2026-07-19</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">מערכת ניתוח קבצים בפריסת רשת</span><span data-lang="en">internet-facing</span></span><span class="badge b-epss">EPSS 91%</span></div>
+      <p class="entry-he" data-lang="he"><b>Fortinet FortiSandbox</b> הוא מערכת ניתוח קבצים בפריסת רשת. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>91%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-19</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">Fortinet FortiSandbox contains an OS command injection vulnerability that could allow an unauthenticated attacker to execute unauthorized code or commands via crafted HTTP requests.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
+    </article>
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-20349"
+           target="_blank" rel="noopener">CVE-2026-20349</a>
+        <span class="entry-prod">Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) </span>
+        <span class="entry-meta">added 2026-08-11
+          · due 2026-08-14</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">חומת אש</span><span data-lang="en">internet-facing</span></span><span class="badge b-new"><span data-lang="he">נוסף השבוע</span><span data-lang="en">added this week</span></span></div>
+      <p class="entry-he" data-lang="he"><b>Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) </b> הוא חומת אש. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>1%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: תשתית רשת, VPN וטלפוניה בכמעט כל ארגון בינוני ומעלה. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-14</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) contain a heap inspection vulnerability that could allow an unauthenticated, remote attacker to cause the device to reload unexpectedly, resulting in a denial of service (DoS) condition.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
+    </article>
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2026-20316"
+           target="_blank" rel="noopener">CVE-2026-20316</a>
+        <span class="entry-prod">Cisco Secure Firewall Management Center (FMC)</span>
+        <span class="entry-meta">added 2026-07-29
+          · due 2026-08-01</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">שרת ניהול מרכזי</span><span data-lang="en">internet-facing</span></span></div>
+      <p class="entry-he" data-lang="he"><b>Cisco Secure Firewall Management Center (FMC)</b> הוא שרת ניהול מרכזי. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>1%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: תשתית רשת, VPN וטלפוניה בכמעט כל ארגון בינוני ומעלה. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-01</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">Cisco Secure Firewall Management Center (FMC) formerly known as Firepower Management Center contains a use of hard-coded password vulnerability that could allow an unauthenticated, remote attacker to log in to an affected device using a low-privileged account to access sensitive data within the impacted systems.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
+    </article>
+    <article class="entry edge">
+      <div class="entry-head">
+        <a class="entry-cve" href="https://nvd.nist.gov/vuln/detail/CVE-2025-68686"
+           target="_blank" rel="noopener">CVE-2025-68686</a>
+        <span class="entry-prod">Fortinet FortiOS</span>
+        <span class="entry-meta">added 2026-07-27
+          · due 2026-08-10</span>
+      </div>
+      <div class="badges"><span class="badge b-edge"><span data-lang="he">מערכת ההפעלה של חומת האש FortiGate</span><span data-lang="en">internet-facing</span></span></div>
+      <p class="entry-he" data-lang="he"><b>Fortinet FortiOS</b> הוא מערכת ההפעלה של חומת האש FortiGate. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>1%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-10</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות שCISA עצמה מייחסת לפרצה.</p>
+      <p class="entry-he" data-lang="en">Fortinet FortiOS contains an exposure of sensitive information to an unauthorized actor vulnerability. This may allow a remote unauthenticated attacker to bypass the patch developed for the symbolic link persistency mechanism observed in some post-exploit cases, via crafted HTTP requests. An attacker would need first to have compromised the product via another vulnerability, at filesystem level.</p>
+      <p class="entry-req"><b>CISA required action</b> <span style="opacity:.7">(CISA’s own wording · בנוסח של CISA)</span>: Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.</p>
+    </article></div>
+  </section>
+  <!-- LIST:END -->
+
+  <!-- CHART:START -->
+<section class="trend" aria-label="trend"><p class="trend-empty" data-lang="he">עדיין אין מספיק היסטוריה כדי לצייר מגמה — נאספו 1 דגימות. הגרף יופיע מעצמו כשיצטברו שתיים ומעלה.</p><p class="trend-empty" data-lang="en">Not enough history to draw a trend yet — 1 sample(s) collected. The chart appears on its own from two.</p></section>
+  <!-- CHART:END -->
+
+  <section class="method" aria-label="מתודולוגיה" data-lang="he">
+    <h3 class="legend-h">איך זה עובד, בקצרה</h3>
+    <p class="m-lead">הדף קורא פעמיים ביום את קטלוג <b>CISA KEV</b> — רשימת הפרצות
+    שCISA אישרה שמנוצלות בפועל בתקיפות, לא תיאורטית. הקטלוג הוא ציבורי, ללא מפתח,
+    ומכיל אלפי רשומות שרובן חסרות משמעות לקורא ישראלי.</p>
+    <p>מכאן הכול נמצא בסינון. לכל רשומה מחושבות שלוש תכונות נפרדות, ובכוונה
+    <b>לא באותה רמת ודאות</b>:</p>
+    <ul>
+      <li><b>עובדה</b> — מה שכתוב בקטלוג עצמו: איזה CVE, איזה יצרן, מתי נוסף,
+      מה תאריך היעד של CISA, והאם היא מסמנת שהפרצה שימשה בקמפיין כופרה. בנוסף
+      ציון <b>EPSS</b> של FIRST.org — הערכה מפורסמת לסיכוי שהפרצה תנוצל ב-30 הימים הקרובים.</li>
+      <li><b>מבנית</b> — האם סוג המוצר יושב על גבול הרשת (חומת אש, VPN, שרת דואר,
+      אתר, כלי ניהול מרחוק). זו תכונה של המוצר, לא של ישראל, והיא ההבדל בין
+      "לעדכן החודש" ל"לעדכן הלילה".</li>
+      <li><b>הערכה</b> — כמה המוצר נפוץ בארגונים בישראל. <b>זו לא מדידה.</b>
+      אין מקור חופשי שסופר מה מותקן בישראל, ולכן זו הערכה מקצועית מוצהרת, עם
+      נימוק כתוב לכל יצרן.</li>
+    </ul>
+    <p>הרמה 0–3 היא ספירה אחת ויחידה: <b>כמה מוצרים היקפיים שנפוצים בישראל נוספו
+    לקטלוג ב-7 הימים האחרונים</b>. הספים לא נוחשו — הם נקבעו אחרי מדידה של 52
+    השבועות הקודמים על הקטלוג האמיתי.</p>
+    <p><a href="/cyber/methodology.html">למתודולוגיה המלאה, כולל מה נבדק ונפסל ←</a></p>
+  </section>
+
+  <section class="method" aria-label="Methodology" data-lang="en">
+    <h3 class="legend-h">How this works, briefly</h3>
+    <p class="m-lead">Twice a day the page reads the <b>CISA KEV</b> catalogue —
+    the list of vulnerabilities CISA has confirmed are being exploited in real
+    attacks, not theoretically. It is public, keyless, and holds thousands of
+    entries, most of them meaningless to an Israeli reader.</p>
+    <p>Everything from there is the filter. Each entry gets three separate
+    properties, deliberately <b>not at the same level of certainty</b>:</p>
+    <ul>
+      <li><b>Fact</b> — what the catalogue itself says: which CVE, which vendor,
+      when CISA added it, CISA's due date, and whether it is flagged as used in a
+      ransomware campaign. Plus the <b>EPSS</b> score from FIRST.org, a published
+      estimate of the chance it is exploited in the next 30 days.</li>
+      <li><b>Structural</b> — whether the product class sits on the internet
+      perimeter (firewall, VPN, mail server, website, remote-management tool). A
+      property of the product, not of Israel, and the difference between "patch
+      this month" and "patch tonight".</li>
+      <li><b>Estimate</b> — how widespread the product is in Israeli
+      organisations. <b>This is not a measurement.</b> No free source counts what
+      is installed in Israel, so it is a declared professional estimate with a
+      written reason per vendor.</li>
+    </ul>
+    <p>The 0–3 level is one single count: <b>how many perimeter products common
+    in Israel entered the catalogue in the last 7 days</b>. The thresholds were
+    not guessed — they were set after measuring the previous 52 weeks against the
+    real catalogue.</p>
+    <p><a href="/cyber/methodology.html">Full methodology, including what was tested and rejected →</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <nav class="legal" aria-label="מידע משפטי" data-lang="he">
+    <a href="/privacy.html">מדיניות פרטיות</a>
+    <a href="/accessibility.html">הצהרת נגישות</a>
+    <a href="/disclaimer.html">תנאי שימוש</a>
+    <a href="/cyber/methodology.html">מתודולוגיה</a>
+    <a href="/radar/">ראדאר ההסלמה</a>
+    <a href="/flights/">ראדאר התעופה</a>
+    <a href="/">kplns.com</a>
+  </nav>
+  <nav class="legal" aria-label="Legal" data-lang="en">
+    <a href="/privacy.html">Privacy policy</a>
+    <a href="/accessibility.html">Accessibility statement</a>
+    <a href="/disclaimer.html">Terms of use</a>
+    <a href="/cyber/methodology.html">Methodology</a>
+    <a href="/radar/">Escalation radar</a>
+    <a href="/flights/">Aviation radar</a>
+    <a href="/">kplns.com</a>
+  </nav>
+  <p class="thirdparty" data-lang="he">
+    הדף אינו אוסף נתונים ואינו משתמש ב-Cookies. הוא טוען גופנים מ-Google Fonts —
+    שירות צד שלישי שרואה את כתובת ה-IP של הדפדפן. הנתונים מקורם בקטלוג
+    <span dir="ltr">CISA KEV</span> ובציוני <span dir="ltr">EPSS</span> של
+    <span dir="ltr">FIRST.org</span>. בחירת השפה נשמרת מקומית בדפדפן שלכם ואינה
+    נשלחת לשום מקום.
+  </p>
+  <p class="thirdparty" data-lang="en">
+    This page collects no data and uses no cookies. It loads fonts from Google
+    Fonts — a third-party service that sees your browser's IP address. Data comes
+    from the CISA KEV catalogue and FIRST.org EPSS scores. Your language choice is
+    stored locally in your browser and is never sent anywhere.
+  </p>
+</footer>
+
+<script>
+// The ONLY script on this page, and deliberately tiny. Everything a reader
+// needs is already in the HTML; this adds two things that genuinely cannot be
+// baked in at publish time:
+//   1. the language toggle, sharing localStorage['radar-lang'] with /radar/ and
+//      /flights/ so the choice follows the reader between the three pages;
+//   2. the staleness banner. The page is generated server-side, so if the
+//      publisher dies the page would otherwise keep presenting a frozen reading
+//      as current. Age is computed here from the server-rendered timestamp — no
+//      fetch, no data, just arithmetic on a value already in the document.
+(function(){
+  var LANGS = ['he','en'];
+  function setLang(l, persist){
+    if (LANGS.indexOf(l) < 0) l = 'he';
+    var r = document.documentElement;
+    r.setAttribute('data-l', l);
+    r.setAttribute('lang', l);
+    r.setAttribute('dir', l === 'he' ? 'rtl' : 'ltr');
+    LANGS.forEach(function(x){
+      var b = document.getElementById('lang-' + x);
+      if (b) b.setAttribute('aria-pressed', String(x === l));
+    });
+    if (persist) { try { localStorage.setItem('radar-lang', l); } catch(e){} }
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('radar-lang'); } catch(e){}
+  var nav = (navigator.language || '').toLowerCase();
+  setLang(saved || (nav.indexOf('en') === 0 ? 'en' : 'he'), false);
+  LANGS.forEach(function(x){
+    var b = document.getElementById('lang-' + x);
+    if (b) b.addEventListener('click', function(){ setLang(x, true); });
+  });
+
+  var el = document.getElementById('stamp');
+  var box = document.getElementById('stalebox');
+  if (!el || !box) return;
+  var gen = el.getAttribute('data-generated');
+  if (!gen) return;
+  var age = Date.now() - new Date(gen).getTime();
+  // The publisher runs twice a day. 36 h without an update means it stopped.
+  var H = 3600000;
+  if (age > 36 * H) {
+    var d = Math.round(age / (24 * H));
+    box.innerHTML =
+      '<div class="banner warn"><span aria-hidden="true">\u26A0\uFE0F</span><div>' +
+      '<span data-lang="he"><b>הדף לא התעדכן כבר ' + d + ' ימים.</b> ' +
+      'הקטלוג ממשיך להתעדכן גם כשהדף הזה תקוע — אל תסיקו מכאן שהיה שקט.</span>' +
+      '<span data-lang="en"><b>This page has not updated for ' + d + ' days.</b> ' +
+      'The catalogue keeps moving even when this page is stuck — do not read this as quiet.</span>' +
+      '</div></div>';
+  }
+})();
+</script>
+
+</body>
+</html>

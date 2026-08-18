@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<!-- Companion to /cyber/. Same stylesheet and same numbered-section structure
+     as /radar/methodology.html, because it answers the same kind of question:
+     not "what does the page say" but "why should anybody believe it". -->
+<html lang="he" dir="rtl" data-l="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kplns.com/cyber/methodology.html">
+<meta name="theme-color" content="#0a1628">
+<title>מתודולוגיה — ראדאר חשיפת הסייבר | KPLNS</title>
+<meta name="description" content="איך נבנה ראדאר חשיפת הסייבר: אילו מקורות אומתו, מה ההבדל בין עובדה להערכה, איך נקבעה הרמה 0–3 אחרי מדידה, ומה נבדק ונפסל.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/cyber/methodology.html">
+<meta property="og:title" content="מתודולוגיה — ראדאר חשיפת הסייבר">
+<meta property="og:description" content="איך נבנה ראדאר חשיפת הסייבר: אילו מקורות אומתו, מה ההבדל בין עובדה להערכה, איך נקבעה הרמה 0–3 אחרי מדידה, ומה נבדק ונפסל.">
+<meta property="og:locale" content="he_IL">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg-primary:#111827; --bg-secondary:#1a2236;
+  --bg-card:rgba(26,34,54,.65); --border:rgba(255,255,255,.08);
+  --border-hover:rgba(255,255,255,.15);
+  --cyan:#00d4ff; --cyan-dim:rgba(0,212,255,.15); --teal:#00b8a9;
+  --purple:#9d8cff;
+  --gradient-accent:linear-gradient(135deg,#00d4ff,#00b8a9);
+  --text-primary:#e8edf5; --text-secondary:rgba(232,237,245,.72);
+  --text-muted:rgba(232,237,245,.62);
+  --font-he:'Heebo',sans-serif; --font-en:'Inter',sans-serif;
+  --radius-md:16px; --radius-lg:24px;
+  --l0:#22c55e; --l1:#eab308; --l2:#f97316; --l3:#ff6b6b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.skip{
+  position:absolute;top:-100px;inset-inline-start:0;background:var(--cyan);
+  color:#111827;padding:12px 22px;z-index:999;font-weight:700;font-size:.9rem;
+  transition:top .25s;text-decoration:none
+}
+.skip:focus{top:0}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-he);
+  background:linear-gradient(135deg,#111827 0%,#1a2236 40%,#1e2844 100%);
+  color:var(--text-primary); line-height:1.8; padding:0 0 70px;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:880px;margin:0 auto;padding:0 20px}
+
+/* ── header ─────────────────────────────────────────── */
+.topbar{
+  border-bottom:1px solid var(--border); background:rgba(17,24,39,.6);
+  backdrop-filter:blur(12px); position:sticky; top:0; z-index:50;
+}
+.topbar-inner{
+  max-width:880px;margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px
+}
+.brand{font-family:var(--font-en);font-weight:700;letter-spacing:.08em;font-size:.95rem}
+.brand span{background:var(--gradient-accent);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.backlink{color:var(--text-secondary);font-size:.85rem;text-decoration:none;transition:color .2s;white-space:nowrap}
+.backlink:hover{color:var(--cyan)}
+.topnav{display:flex;gap:14px;align-items:center}
+
+/* Language switch — same mechanism as /radar/: the static copy is duplicated
+   in the DOM and toggled purely by these CSS rules. */
+html[data-l="he"] [data-lang="en"]{display:none!important}
+html[data-l="en"] [data-lang="he"]{display:none!important}
+/* Wrap on purpose. Every .backlink is white-space:nowrap, so a single
+   non-wrapping row overflows the viewport the moment a link is added — the
+   /radar/ page learned this on 2026-08-17, and this page reproduced it exactly:
+   four backlinks plus the language switch measured scrollWidth 527 on a 390px
+   viewport before this rule existed. */
+.topnav{flex-wrap:wrap;justify-content:flex-end;row-gap:8px}
+@media (max-width:560px){
+  .topbar-inner{padding:10px 14px;gap:8px}
+  .topnav{gap:10px;row-gap:6px}
+  .backlink{font-size:.78rem}
+}
+.langsw{display:flex;border:1px solid var(--border-hover);border-radius:9px;overflow:hidden}
+.langsw button{
+  background:none;border:0;color:var(--text-secondary);font-family:var(--font-en);
+  font-size:.76rem;font-weight:600;letter-spacing:.06em;padding:5px 10px;
+  cursor:pointer;transition:background .2s,color .2s
+}
+.langsw button:hover{color:var(--text-primary)}
+.langsw button[aria-pressed="true"]{background:var(--cyan-dim);color:var(--cyan)}
+
+.hero{text-align:center;padding:44px 0 20px}
+.section-label{
+  font-family:var(--font-en);font-size:.72rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--cyan);font-weight:600;margin-bottom:12px
+}
+h1{
+  font-size:clamp(1.6rem,4.4vw,2.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.25;
+  background:linear-gradient(135deg,#e8edf5 30%,#00d4ff 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero p{color:var(--text-secondary);margin-top:12px;font-size:1rem}
+.divider{width:64px;height:2px;background:var(--gradient-accent);margin:22px auto 0;border-radius:2px}
+
+.alertstrip{
+  margin:22px auto 0;max-width:760px;
+  border:1px solid rgba(239,68,68,.32);background:rgba(239,68,68,.07);
+  border-radius:12px;padding:10px 16px;font-size:.88rem;
+  display:flex;gap:9px;align-items:baseline;justify-content:center;
+  flex-wrap:wrap;text-align:center
+}
+.alertstrip b{color:#ff9b9b;font-weight:700}
+.alertstrip a{color:var(--cyan);font-weight:600;text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+
+/* ── table of contents ──────────────────────────────── */
+.toc{
+  margin:28px 0 0;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:18px 22px
+}
+.toc h2{
+  font-size:.74rem;font-family:var(--font-en);letter-spacing:.18em;text-transform:uppercase;
+  color:var(--text-muted);font-weight:600;margin-bottom:11px
+}
+.toc ol{list-style:none;counter-reset:t;display:grid;grid-template-columns:1fr 1fr;gap:5px 20px}
+@media(max-width:640px){.toc ol{grid-template-columns:1fr}}
+.toc li{counter-increment:t;font-size:.89rem}
+.toc li::before{
+  content:counter(t) ".";color:var(--cyan);font-family:var(--font-en);
+  font-weight:600;margin-inline-end:7px
+}
+.toc a{color:var(--text-secondary);text-decoration:none;transition:color .2s}
+.toc a:hover{color:var(--cyan)}
+
+/* ── sections ───────────────────────────────────────── */
+section.blk{
+  margin-top:22px;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius-md);padding:24px 24px 22px;scroll-margin-top:80px
+}
+section.blk h2{
+  font-size:1.18rem;font-weight:700;letter-spacing:-.01em;margin-bottom:4px;
+  display:flex;align-items:baseline;gap:10px
+}
+section.blk h2 .num{
+  font-family:var(--font-en);font-size:.8rem;color:var(--cyan);font-weight:600;
+  letter-spacing:.06em
+}
+section.blk h3{
+  font-size:.97rem;font-weight:700;color:var(--text-primary);margin:20px 0 7px
+}
+section.blk p{color:var(--text-secondary);font-size:.92rem;margin:9px 0}
+section.blk b{color:var(--text-primary);font-weight:600}
+section.blk ul{list-style:none;display:grid;gap:7px;margin:11px 0 4px}
+section.blk ul li{
+  color:var(--text-secondary);font-size:.9rem;padding-inline-start:18px;position:relative
+}
+section.blk ul li::before{
+  content:"";position:absolute;inset-inline-start:2px;top:.72em;
+  width:5px;height:5px;border-radius:50%;background:var(--teal)
+}
+section.blk a{color:var(--cyan);text-decoration:none;border-bottom:1px solid var(--cyan-dim)}
+section.blk a:hover{border-bottom-color:var(--cyan)}
+.lead{
+  font-size:.98rem!important;color:var(--text-primary)!important;
+  border-inline-start:3px solid var(--cyan);padding-inline-start:14px;margin:14px 0 4px!important
+}
+
+/* ── callouts ───────────────────────────────────────── */
+.call{
+  margin:16px 0 4px;border-radius:12px;padding:14px 17px;font-size:.89rem;
+  line-height:1.75;color:var(--text-secondary)
+}
+.call b{color:var(--text-primary)}
+.call.warn{border:1px solid rgba(251,191,36,.4);background:rgba(251,191,36,.08)}
+.call.warn b{color:#fbbf24}
+.call.info{border:1px solid rgba(0,212,255,.24);background:rgba(0,212,255,.05)}
+.call.info b{color:var(--cyan)}
+.call.red{border:1px solid rgba(239,68,68,.32);background:rgba(239,68,68,.07)}
+.call.red b{color:#ff9b9b}
+
+/* ── tables ─────────────────────────────────────────── */
+.m-wrap{overflow-x:auto;margin-top:14px}
+.m-tbl{width:100%;border-collapse:collapse;font-size:.84rem;min-width:520px}
+.m-tbl th{
+  text-align:start;color:var(--text-muted);font-weight:600;padding:8px 9px;
+  border-bottom:1px solid var(--border-hover);white-space:nowrap
+}
+.m-tbl td{padding:9px;border-bottom:1px solid var(--border);color:var(--text-secondary);vertical-align:top}
+.m-tbl td:first-child{color:var(--text-primary);font-weight:500}
+.m-tbl tr:last-child td{border-bottom:none}
+.num-cell{font-family:var(--font-en);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ── episode timeline ───────────────────────────────── */
+.ep{
+  margin-top:15px;border:1px solid var(--border);border-radius:14px;
+  padding:15px 17px;background:rgba(17,24,39,.35)
+}
+.ep h4{font-size:.95rem;font-weight:700;margin-bottom:3px}
+.ep .when{font-family:var(--font-en);font-size:.74rem;color:var(--cyan);letter-spacing:.08em;font-weight:600}
+.ep ul{margin-top:9px}
+.ep .lead-badge{
+  display:inline-block;margin-top:10px;font-size:.8rem;font-weight:600;
+  border:1px solid var(--border-hover);border-radius:20px;padding:3px 11px;
+  color:var(--text-primary);background:rgba(255,255,255,.04)
+}
+.src{font-size:.78rem;color:var(--text-muted);margin-top:8px}
+.src a{color:var(--text-muted);border-bottom:1px solid var(--border-hover)}
+.src a:hover{color:var(--cyan)}
+
+/* ── formula box ────────────────────────────────────── */
+.fx{
+  font-family:var(--font-en);direction:ltr;text-align:left;
+  background:rgba(17,24,39,.55);border:1px solid var(--border);
+  border-radius:10px;padding:12px 15px;margin:12px 0;font-size:.83rem;
+  color:var(--text-primary);overflow-x:auto;line-height:1.9
+}
+.fx .c{color:var(--text-muted)}
+
+.tag{
+  font-family:var(--font-en);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--purple);border:1px solid rgba(157,140,255,.4);border-radius:20px;
+  padding:1px 7px;margin-inline-start:7px;vertical-align:middle;font-weight:600
+}
+
+.backbar{
+  margin-top:30px;text-align:center
+}
+.backbar a{
+  display:inline-block;border:1px solid rgba(0,212,255,.35);background:rgba(0,212,255,.07);
+  color:var(--cyan);border-radius:12px;padding:11px 22px;font-weight:600;
+  font-size:.92rem;text-decoration:none;transition:background .25s
+}
+.backbar a:hover{background:rgba(0,212,255,.14)}
+
+footer{
+  text-align:center;margin-top:34px;padding-top:24px;border-top:1px solid var(--border);
+  color:var(--text-muted);font-size:.8rem;line-height:2.1
+}
+footer a{color:var(--text-secondary);text-decoration:none}
+footer a:hover{color:var(--cyan)}
+.legal{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;margin-bottom:10px}
+.stamp{text-align:center;color:var(--text-muted);font-size:.8rem;margin-top:22px;font-family:var(--font-en)}
+
+/* the vendor table is the point of section 05, so it gets real table styling */
+.vtable{width:100%;border-collapse:collapse;margin:14px 0 0;font-size:.85rem}
+.vtable th,.vtable td{
+  text-align:start;padding:8px 10px;border-bottom:1px solid var(--border);
+  vertical-align:top;line-height:1.6
+}
+.vtable th{color:var(--text-primary);font-weight:700;font-size:.8rem;
+  border-bottom:1px solid var(--border-hover)}
+.vtable td:first-child{font-family:var(--font-en);white-space:nowrap;
+  color:var(--cyan);direction:ltr}
+.vtable td.tier{font-family:var(--font-en);font-weight:700;text-align:center;width:3em}
+.vscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+/* The verified source URLs are long, LTR and unbreakable; without this the
+   page scrolled sideways on a phone (scrollWidth 558 on a 390px viewport). */
+.factbox,.estbox,.deadbox{overflow-wrap:anywhere}
+.factbox{
+  border:1px solid rgba(0,212,255,.3);background:rgba(0,212,255,.05);
+  border-radius:12px;padding:13px 17px;margin:14px 0 0;font-size:.88rem;line-height:1.75
+}
+.estbox{
+  border:1px solid rgba(157,140,255,.32);background:rgba(157,140,255,.06);
+  border-radius:12px;padding:13px 17px;margin:14px 0 0;font-size:.88rem;line-height:1.75
+}
+.deadbox{
+  border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.055);
+  border-radius:12px;padding:13px 17px;margin:14px 0 0;font-size:.88rem;line-height:1.75
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"WebPage","@id":"https://kplns.com/cyber/methodology.html#webpage","url":"https://kplns.com/cyber/methodology.html","name":"מתודולוגיה — ראדאר חשיפת הסייבר","description":"איך נבנה ראדאר חשיפת הסייבר: אילו מקורות אומתו, מה ההבדל בין עובדה להערכה, איך נקבעה הרמה 0–3 אחרי מדידה, ומה נבדק ונפסל.","inLanguage":"he-IL","isPartOf":{"@id":"https://kplns.com/#website"},"publisher":{"@id":"https://kplns.com/#organization"},"breadcrumb":{"@id":"https://kplns.com/cyber/methodology.html#breadcrumb"}},
+  {"@type":"BreadcrumbList","@id":"https://kplns.com/cyber/methodology.html#breadcrumb","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"KPLNS","item":"https://kplns.com/"},
+    {"@type":"ListItem","position":2,"name":"ראדאר חשיפת סייבר","item":"https://kplns.com/cyber/"},
+    {"@type":"ListItem","position":3,"name":"מתודולוגיה","item":"https://kplns.com/cyber/methodology.html"}
+  ]}
+]}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">דלג לתוכן</a>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span>KPLNS</span></div>
+    <div class="topnav">
+      <a class="backlink" href="/cyber/">← חזרה לראדאר</a>
+      <a class="backlink" href="/radar/methodology.html">מתודולוגיית ראדאר ההסלמה</a>
+      <a class="backlink" href="/">kplns.com</a>
+    </div>
+  </div>
+</div>
+
+<main class="container" id="main">
+
+  <div class="hero">
+    <div class="section-label">Methodology</div>
+    <h1>מתודולוגיה — ראדאר חשיפת הסייבר</h1>
+    <p>מאיפה מגיע כל מספר בדף, מה בו עובדה ומה הערכה, ומה נבדק ונפסל</p>
+    <div class="divider"></div>
+  </div>
+
+  <nav class="toc" aria-label="בעמוד הזה">
+    <h2>בעמוד הזה</h2>
+    <ul>
+      <li><a href="#q">01 · השאלה שהדף עונה עליה</a></li>
+      <li><a href="#src">02 · המקורות, ומה אומת בפועל</a></li>
+      <li><a href="#certainty">03 · שלוש רמות ודאות שאסור לערבב</a></li>
+      <li><a href="#level">04 · איך נקבעה הרמה 0–3</a></li>
+      <li><a href="#vendors">05 · רשימת היצרנים, עם הנימוקים</a></li>
+      <li><a href="#rejected">06 · מה נבדק ונפסל</a></li>
+      <li><a href="#honesty">07 · כללי היושרה של הדף</a></li>
+    </ul>
+  </nav>
+
+  <section class="blk" id="q">
+    <h2><span class="num">01</span> השאלה שהדף עונה עליה</h2>
+    <p class="m-lead">השאלה היא <b>"האם משהו שמנוצל עכשיו בשטח נוגע לעסק בישראל,
+    היום?"</b> — ולא "מה קרה השבוע בעולם הסייבר".</p>
+    <p>ההבחנה הזו היא כל הדף. פיד גולמי של CISA KEV הוא חסר ערך לקורא ישראלי:
+    הוא כולל אלפי רשומות, רובן על מוצרים שאיש כאן לא מריץ, ממוינות לפי כלום,
+    באנגלית, ומכוונות לגופי ממשל פדרליים בארה"ב. הערך כולו נמצא בסינון — ולכן
+    הסינון הוא קובץ נפרד וקריא, <code>israel_map.py</code>, ולא טבלה קבורה בתוך
+    הקוד. מה שמופיע בסעיף 05 הוא בדיוק אותו קובץ, כדי שאפשר יהיה לחלוק עליו.</p>
+    <p><b>מה הדף לא עושה.</b> הוא לא סורק אתכם, לא יודע מה מותקן אצלכם, ולא יכול
+    להגיד לכם שאתם בסדר. רשימה ריקה אינה תעודת ביטוח: הקטלוג מכיל רק את מה שCISA
+    כבר אישרה שמנוצל, ופרצה שטרם נכנסה אליו מסוכנת בדיוק כמו זו שכן.</p>
+  </section>
+
+  <section class="blk" id="src">
+    <h2><span class="num">02</span> המקורות, ומה אומת בפועל</h2>
+    <p class="m-lead">שני מקורות, שניהם ציבוריים וללא מפתח. שניהם נבדקו בבקשה
+    אמיתית לפני שנכתבה שורת קוד אחת שמסתמכת עליהם.</p>
+    <div class="factbox">
+      <p><b>CISA KEV — Known Exploited Vulnerabilities Catalog.</b><br>
+      <span dir="ltr" style="font-family:var(--font-en);font-size:.85em">https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json</span><br>
+      נבדק ב-18.8.2026: החזיר <span dir="ltr">HTTP 200</span>, סוג
+      <span dir="ltr">application/json</span>, 1.58MB, גרסת קטלוג
+      <span dir="ltr">2026.08.17</span>, 1,666 רשומות. ללא הרשמה וללא מפתח.
+      זהו הקטלוג הרשמי של פרצות שCISA אישרה שמנוצלות <b>בפועל</b> בתקיפות — לא
+      רשימת פרצות תיאורטיות.</p>
+    </div>
+    <div class="factbox">
+      <p><b>EPSS — Exploit Prediction Scoring System, FIRST.org.</b><br>
+      <span dir="ltr" style="font-family:var(--font-en);font-size:.85em">https://api.first.org/data/v1/epss</span><br>
+      נבדק ב-18.8.2026: ללא מפתח, מקבל אצווה של CVE-ים מופרדים בפסיק, והחזיר
+      43 ציונים מתוך 43 שנתבקשו בקריאה אחת. הציון הוא הערכה מפורסמת לסיכוי
+      שפרצה מסוימת תנוצל ב-30 הימים הקרובים.</p>
+    </div>
+    <p>שני המקורות נספרים בשורת "מקורות" בתחתית הדף. אם אחד מהם לא נקרא, הדף
+    <b>אומר זאת במפורש</b> — ראו סעיף 07.</p>
+  </section>
+
+  <section class="blk" id="certainty">
+    <h2><span class="num">03</span> שלוש רמות ודאות שאסור לערבב</h2>
+    <p class="m-lead">לכל רשומה מחושבות שלוש תכונות, והן <b>אינן באותה רמת
+    ודאות</b>. הדף מציג אותן בנפרד בכוונה, כי טשטוש ביניהן הוא הדרך הקלה ביותר
+    להישמע בטוח יותר מכפי שהנתונים מצדיקים.</p>
+    <div class="factbox">
+      <p><b>1 · עובדה.</b> מה שכתוב בקטלוג עצמו: מספר ה-CVE, שם היצרן והמוצר,
+      התאריך שבו CISA הוסיפה אותה, תאריך היעד שקבעה, והאם היא מסמנת שהפרצה שימשה
+      בקמפיין כופרה. בתוספת ציון EPSS. כל אלה ניתנים לבדיקה מול המקור בקליק.</p>
+    </div>
+    <div class="factbox">
+      <p><b>2 · מבנית.</b> האם סוג המוצר יושב על גבול הרשת — חומת אש, שער VPN,
+      שרת דואר, אתר אינטרנט, כלי ניהול מרחוק. זו תכונה של המוצר, לא של ישראל,
+      והיא ההבדל בין "לעדכן החודש" ל"לעדכן הלילה": לרכיב היקפי תוקף מחו"ל מגיע
+      ישירות, בלי שאף אחד בארגון ילחץ על משהו.</p>
+    </div>
+    <div class="estbox">
+      <p><b>3 · הערכה — וזו באמת רק הערכה.</b> כמה המוצר נפוץ בארגונים בישראל.
+      <b>אין מקור חופשי שסופר את זה.</b> Shodan ו-Censys חוסמים את נתוני המדינה
+      מאחורי מפתח בתשלום, ואף גוף ישראלי לא מפרסם מאגר כזה. לכן הדירוג הזה הוא
+      שיפוט מקצועי של יועץ אחד על השוק הישראלי — עם נימוק כתוב לכל יצרן, כדי
+      שיהיה אפשר לחלוק עליו לגופו. כל מקום בדף שמציג את זה כמדידה הוא באג.</p>
+    </div>
+  </section>
+
+  <section class="blk" id="level">
+    <h2><span class="num">04</span> איך נקבעה הרמה 0–3</h2>
+    <p class="m-lead">הרמה היא ספירה אחת ויחידה: <b>כמה מוצרים היקפיים שנפוצים
+    בישראל נוספו לקטלוג ב-7 הימים האחרונים</b>, חסום ב-3.</p>
+
+    <h3>למה ספירה ולא ציון משוקלל</h3>
+    <p>הגרסה הראשונה של הדף הזה השתמשה בחמישה טריפ-ווייר, בדיוק כמו ראדאר
+    ההסלמה: רכיב היקפי חדש, כופרה, יצרן ישראלי, EPSS גבוה, ותאריך יעד שחלף.
+    <b>המדידה על הקטלוג האמיתי הרגה את המודל הזה.</b> בהרצה הראשונה נדלקו ארבעה
+    מתוך חמישה, ושניים מהם — "תאריך היעד חלף" ו-"EPSS מעל 50%" — דולקים כמעט
+    תמיד: CISA נותנת 3–14 יום לתיקון, ורשומה בקטלוג היא <em>מעצם הגדרתה</em>
+    פרצה שכבר מנצלים אותה. טריפ-וויר שדולק תמיד אינו אינדיקטור אלא קישוט, ורמה
+    שתקועה על 3 לנצח אינה אומרת לקורא כלום.</p>
+    <p>ארבעת האותות האלה לא נמחקו — הם הועברו לשורות ההקשר מתחת למחוון, ומוצהר
+    עליהם במפורש שהם <b>אינם חלק מהרמה</b>.</p>
+
+    <h3>הכיול, על נתונים אמיתיים</h3>
+    <p>הספים לא נוחשו. הם נקבעו אחרי מדידה של 52 השבועות שקדמו ל-18.8.2026 על
+    הקטלוג האמיתי (1,666 רשומות), דרך אותו מיפוי שרץ בייצור:</p>
+    <div class="factbox">
+      <p><b>חציון 0 רשומות לשבוע · ממוצע 0.87 · מקסימום 5</b><br>
+      30 מתוך 52 שבועות ברמה 0 · 10 ברמה 1 · 3 ברמה 2 · 9 ברמה 3 ומעלה.</p>
+    </div>
+    <p>כלומר רמה 0 היא השבוע הרגיל, ורמה 3 היא ה-17% מהשבועות שבהם באמת קרה
+    משהו. זו סקאלה שזזה — וזו הייתה הדרישה.</p>
+
+    <h3>למה רק רכיבים היקפיים נספרים</h3>
+    <p>פרצה בתחנת עבודה חשובה גם היא, אבל היא דורשת שמישהו בארגון יפתח קובץ או
+    ילחץ על קישור. רכיב היקפי לא דורש כלום: הוא חשוף לאינטרנט, והוא נסרק
+    אוטומטית תוך שעות מרגע הפרסום. ההבדל הזה הוא ההבדל בין דחיפות של חודש
+    לדחיפות של לילה, ולכן הוא — ולא חומרת ה-CVE — מה שקובע את הרמה.</p>
+  </section>
+
+  <section class="blk" id="vendors">
+    <h2><span class="num">05</span> רשימת היצרנים, עם הנימוקים</h2>
+    <p class="m-lead">זו ההערכה מסעיף 03, כתובה במלואה. היא מוצגת כאן <b>לא</b>
+    כדי להיראות יסודי אלא כדי שאפשר יהיה להתווכח איתה: אם לדעתכם יצרן חסר, או
+    שדירוג שגוי, זה בדיוק המקום להצביע עליו.</p>
+    <p><b>איך לקרוא את הטבלה.</b> <span dir="ltr">A</span> = תמצאו אותו בחלק גדול
+    מהארגונים בישראל. <span dir="ltr">B</span> = נפוץ, אבל רחוק מלהיות אוניברסלי.
+    ההתאמה נעשית לפי מחרוזת בשם היצרן שCISA עצמה מפרסמת.</p>
+    <!-- VENDORS:START -->
+
+    <div class="vscroll">
+      <table class="vtable">
+        <thead><tr><th>יצרן (כפי שCISA מפרסמת)</th><th>רמה</th><th>הנימוק</th></tr></thead>
+        <tbody><tr><td>adobe</td><td class="tier">A</td><td>Acrobat/Reader מותקנים כמעט בכל תחנה; ColdFusion עדיין רץ באתרים ותיקים.</td></tr><tr><td>apache</td><td class="tier">A</td><td>רוב שרתי הווב, כולל אתרים ישראליים רבים.</td></tr><tr><td>apple</td><td class="tier">A</td><td>iPhone ו-macOS בשימוש רחב מאוד בישראל, כולל כמכשירי עבודה.</td></tr><tr><td>check point</td><td class="tier">A</td><td>יצרן ישראלי עם חדירה גבוהה במיוחד בארגונים הגדולים ובמגזר הציבורי בישראל. <b>🇮🇱 צ'ק פוינט — תל אביב</b></td></tr><tr><td>cisco</td><td class="tier">A</td><td>תשתית רשת, VPN וטלפוניה בכמעט כל ארגון בינוני ומעלה.</td></tr><tr><td>citrix</td><td class="tier">A</td><td>NetScaler וגישה מרחוק — נפוץ בבריאות, בפיננסים ובממשלה.</td></tr><tr><td>fortinet</td><td class="tier">A</td><td>FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל.</td></tr><tr><td>google</td><td class="tier">A</td><td>Chrome הוא הדפדפן הנפוץ ביותר בישראל, גם בארגונים.</td></tr><tr><td>ivanti</td><td class="tier">A</td><td>שערי גישה מרחוק וניהול מכשירים; יעד חוזר ונשנה של תקיפות בעולם ובישראל.</td></tr><tr><td>linux</td><td class="tier">A</td><td>רוב השרתים בישראל, כולל אצל ספקי האחסון המקומיים.</td></tr><tr><td>microsoft</td><td class="tier">A</td><td>כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם.</td></tr><tr><td>oracle</td><td class="tier">A</td><td>מסדי נתונים ו-ERP בארגונים גדולים ובמגזר הציבורי.</td></tr><tr><td>palo alto</td><td class="tier">A</td><td>נפוץ בארגונים גדולים, בפיננסים ובתעשייה הביטחונית.</td></tr><tr><td>sonicwall</td><td class="tier">A</td><td>חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל.</td></tr><tr><td>synacor</td><td class="tier">A</td><td>המוצר הוא Zimbra — שרת דואר שנפוץ בישראל במוסדות אקדמיים, ברשויות מקומיות ובעסקים שלא עברו ל-Exchange.</td></tr><tr><td>vmware</td><td class="tier">A</td><td>vSphere/ESXi הם בסיס הווירטואליזציה ברוב חוות השרתים המקומיות בישראל.</td></tr><tr><td>wordpress</td><td class="tier">A</td><td>הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל.</td></tr><tr><td>arista</td><td class="tier">B</td><td>ציוד רשת ו-SD-WAN בארגונים גדולים.</td></tr><tr><td>atlassian</td><td class="tier">B</td><td>Jira ו-Confluence הם ברירת המחדל כמעט בכל חברת הייטק ישראלית.</td></tr><tr><td>connectwise</td><td class="tier">B</td><td>כלי ניהול מרחוק של ספקי IT מנוהל (MSP) — פגיעה בו פוגעת בכל לקוחות הספק בבת אחת.</td></tr><tr><td>d-link</td><td class="tier">B</td><td>ציוד רשת ביתי ומשרדי זול, נפוץ ולרוב לא מתוחזק.</td></tr><tr><td>drupal</td><td class="tier">B</td><td>מערכת ניהול תוכן בשימוש באתרי מוסדות וארגונים.</td></tr><tr><td>elastic</td><td class="tier">B</td><td>Elasticsearch/Kibana — לוגים וניטור בהייטק הישראלי.</td></tr><tr><td>gitlab</td><td class="tier">B</td><td>ניהול קוד בחברות פיתוח.</td></tr><tr><td>grafana</td><td class="tier">B</td><td>ניטור ולוחות מחוונים בהייטק.</td></tr><tr><td>ibm</td><td class="tier">B</td><td>תשתיות ארגוניות ומערכות ליבה בבנקאות ובביטוח.</td></tr><tr><td>jetbrains</td><td class="tier">B</td><td>TeamCity ו-IDE של JetBrains נפוצים מאוד בפיתוח הישראלי.</td></tr><tr><td>joomla</td><td class="tier">B</td><td>מערכת ניהול תוכן ותיקה שעדיין מריצה אתרים ישראליים.</td></tr><tr><td>mongodb</td><td class="tier">B</td><td>מסד נתונים נפוץ בפיתוח מוצרים.</td></tr><tr><td>n-able</td><td class="tier">B</td><td>כלי ניהול מרחוק של ספקי IT מנוהל (MSP) — פגיעה בו פוגעת בכל לקוחות הספק בבת אחת.</td></tr><tr><td>nakivo</td><td class="tier">B</td><td>גיבוי בעסקים בינוניים.</td></tr><tr><td>netgear</td><td class="tier">B</td><td>ציוד רשת משרדי קטן.</td></tr><tr><td>progress</td><td class="tier">B</td><td>MOVEit, WhatsUp ו-LoadMaster בשימוש אצל ספקי IT ובארגונים בינוניים.</td></tr><tr><td>qnap</td><td class="tier">B</td><td>NAS משרדי — נפוץ מאוד בעסקים קטנים בישראל.</td></tr><tr><td>redis</td><td class="tier">B</td><td>מסד נתונים בזיכרון, נפוץ מאוד בשרתי אפליקציה.</td></tr><tr><td>roundcube</td><td class="tier">B</td><td>ממשק Webmail שספקי אחסון ישראליים מספקים ללקוחותיהם.</td></tr><tr><td>sap</td><td class="tier">B</td><td>ERP בתעשייה ובחברות הגדולות.</td></tr><tr><td>simplehelp</td><td class="tier">B</td><td>כלי תמיכה מרחוק שספקי IT ישראליים משתמשים בו.</td></tr><tr><td>solarwinds</td><td class="tier">B</td><td>ניטור רשת בארגונים בינוניים וגדולים.</td></tr><tr><td>synology</td><td class="tier">B</td><td>NAS משרדי — נפוץ מאוד בעסקים קטנים בישראל.</td></tr><tr><td>tp-link</td><td class="tier">B</td><td>ציוד רשת ביתי ומשרדי זול, נפוץ ולרוב לא מתוחזק.</td></tr><tr><td>trend micro</td><td class="tier">B</td><td>אנטי-וירוס ארגוני בשימוש בישראל.</td></tr><tr><td>veeam</td><td class="tier">B</td><td>גיבוי — היעד הראשון של קבוצות כופרה, כי בלי גיבוי אין התאוששות.</td></tr><tr><td>zoho</td><td class="tier">B</td><td>ManageEngine נפוץ במחלקות IT קטנות.</td></tr><tr><td>zyxel</td><td class="tier">B</td><td>נתבים וחומות אש זולים בעסקים קטנים ובבתים.</td></tr></tbody>
+      </table>
+    </div>
+    <p class="legend-note" style="margin-top:14px">הרשימה כוללת
+    45 יצרנים. יצרן שאינו ברשימה פשוט לא נכנס לדירוג — זה לא
+    אומר שהמוצר שלו בטוח, אלא שלא נטענת עליו טענה.</p>
+
+    <h3 id="ilv">יצרנים שמטה החברה שלהם בישראל — זו עובדה, לא הערכה</h3>
+    <p>הרשימה הזו נפרדת בכוונה מהטבלה שמעליה: היא ניתנת לאימות מול אתר החברה
+    בדקה. היא מכוונת קצרה, כי שם שמתנגש עם חברה זרה שווה יותר נזק מתועלת —
+    ראו סעיף 06.</p>
+    <ul><li><span dir="ltr">allot</span> — אלוט — הוד השרון</li><li><span dir="ltr">amdocs</span> — אמדוקס — רעננה</li><li><span dir="ltr">cellebrite</span> — סלברייט — פתח תקווה</li><li><span dir="ltr">check point</span> — צ'ק פוינט — תל אביב</li><li><span dir="ltr">cyberark</span> — סייברארק — פתח תקווה</li><li><span dir="ltr">jfrog</span> — ג'יי-פרוג — נתניה</li><li><span dir="ltr">radware</span> — רדוור — תל אביב</li><li><span dir="ltr">solaredge</span> — סולאראדג' — הרצליה</li><li><span dir="ltr">varonis</span> — ורוניס — הרצליה</li><li><span dir="ltr">wix</span> — וויקס — תל אביב</li></ul>
+  <!-- VENDORS:END -->
+  </section>
+
+  <section class="blk" id="rejected">
+    <h2><span class="num">06</span> מה נבדק ונפסל</h2>
+    <p class="m-lead">מבוי סתום שמדווח בכנות שווה יותר מפיצ'ר מרופד. כל אחד
+    מהבאים נבדק בבקשה אמיתית ב-18.8.2026, ונפסל.</p>
+
+    <div class="deadbox">
+      <p><b>1 · פיד ההתרעות של מערך הסייבר הלאומי (gov.il) — חסום.</b>
+      זה היה המקור הישראלי המשמעותי ביותר שאפשר היה לקוות לו, והוא לא זמין לשרת.
+      <span dir="ltr">https://www.gov.il/he/pages/cyber_alerts</span> החזיר
+      <span dir="ltr">HTTP 403</span> עם אתגר Cloudflare
+      (<span dir="ltr">"Just a moment…"</span>), גם עם User-Agent של דפדפן;
+      <span dir="ltr">/api/DynamicCollector</span> החזיר 404 מאחורי אותו שער.
+      <b>המשמעות:</b> אין בדף הזה שום אות מרשות ישראלית. אין התרעות INCD, אין
+      הצלבה מול הנחיות רשמיות. זה חור אמיתי, והוא מוצהר ולא מוסתר.</p>
+    </div>
+
+    <div class="deadbox">
+      <p><b>2 · מדידת חשיפה בפועל בישראל — לא נגישה.</b> הרעיון היה לספור כמה
+      מכשירים מהדגם הפגיע גלויים לאינטרנט מתוך ישראל. Shodan ו-Censys מספקים
+      בדיוק את זה — מאחורי מפתח בתשלום, שאין ברשותנו.
+      <span dir="ltr">InternetDB</span> של Shodan אמנם חינמי, אבל עונה על כתובת
+      IP בודדת ולא על צבירים, כך שהוא לא יכול לענות על "כמה בישראל".
+      <b>המשמעות:</b> הדף לעולם לא יגיד "X מכשירים חשופים בישראל". הוא לא יודע,
+      ומספר כזה היה המצאה.</p>
+    </div>
+
+    <div class="deadbox">
+      <p><b>3 · NVD כמקור העשרה — עובד, ונפסל מטעמי קצב.</b>
+      <span dir="ltr">services.nvd.nist.gov</span> נבדק והחזיר 200 ללא מפתח, עם
+      תיאור ו-CVSS מלאים. אבל ללא מפתח הוא מוגבל ל-5 בקשות ל-30 שניות, והעשרת
+      74 הרשומות הרלוונטיות הייתה לוקחת כ-7.5 דקות בכל הרצה. EPSS נותן את אותה
+      תרומה להחלטה בקריאה אחת, ולכן הוא נבחר. NVD משמש רק כיעד הקישור מכל CVE.</p>
+    </div>
+
+    <div class="deadbox">
+      <p><b>4 · התאמה לפי מחרוזת — שלוש טעויות אמיתיות שנתפסו בבדיקה.</b>
+      כולן היו מייצרות תשובה בטוחה ושגויה, וזה הסוג הגרוע ביותר של באג בדף כזה:</p>
+      <ul>
+        <li><b>"NICE" אינו NICE הישראלית.</b> היצרן <span dir="ltr">Nice</span>
+        שמופיע בקטלוג הוא <span dir="ltr">Nice S.p.A.</span> האיטלקית
+        (<span dir="ltr">Linear eMerge E3</span>), לא <span dir="ltr">NICE
+        Ltd</span> מרעננה. לכן NICE הוסרה במפורש מרשימת היצרנים הישראליים.</li>
+        <li><b>"SmartConsole" סווג כשער גישה מרחוק</b>, כי המחרוזת מכילה
+        <span dir="ltr">"sma"</span> — קיצור שנועד להתאים למשפחת
+        <span dir="ltr">SonicWall SMA1000</span>. SmartConsole היא ממשק ניהול
+        שרץ על מחשב של מנהל רשת. הקיצורים הוחלפו בשמות מוצר מלאים, וההתאמה
+        מעוגנת לגבולות מילה.</li>
+        <li><b>"Server-Side Request Forgery" הפך מרכזיית טלפונים לשרת חשוף.</b>
+        סיווג שהסתכל גם על כותרת הפרצה זיהה את המילה
+        <span dir="ltr">"Server"</span> בתוך שם הפגיעות של
+        <span dir="ltr">Cisco Unified Communications Manager</span> וסימן אותו
+        כרכיב היקפי. הסיווג מסתכל מאז על זהות המוצר בלבד, לעולם לא על כותרת
+        הפגיעות.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="blk" id="honesty">
+    <h2><span class="num">07</span> כללי היושרה של הדף</h2>
+    <p>ארבעה כללים שנאכפים בקוד, לא רק מוצהרים:</p>
+    <ul>
+      <li><b>מקור שנפל מוצג כאזהרה, לא כשקט.</b> אם הפיד של CISA לא נקרא, הדף
+      עובר למטמון המקומי ומציג באנר מפורש. בלי זה תקלת רשת הייתה גורמת לדף
+      להיראות שקט יותר מהמציאות — וזו בדיוק הכשלה שהורגת דפי סטטוס.</li>
+      <li><b>שדה חסר מוריד משפט, ולא ממציא אותו.</b> ההסבר בעברית לכל רשומה
+      מורכב אך ורק משדות שקיימים בה. אין EPSS — אין משפט EPSS. בעל עסק שפועל
+      לפי משפט מומצא הוא התוצאה הגרועה ביותר שהדף הזה יכול לייצר.</li>
+      <li><b>הערכה מסומנת כהערכה, בכל מופע.</b> כל שורה שנשענת על ההערכה משוק
+      ישראל נושאת את ההסתייגות במקום — לא רק כאן במתודולוגיה.</li>
+      <li><b>נתונים ישנים מסומנים.</b> הדף מחושב בשרת; אם המפרסם נתקע, סקריפט
+      זעיר בדף מחשב את גיל החותמת ומציג אזהרה אחרי 36 שעות. עדיף דף שמודה שהוא
+      תקוע על פני דף שמציג קריאה קפואה כאילו היא עכשווית.</li>
+    </ul>
+    <p style="margin-top:18px"><a href="/cyber/">← חזרה לראדאר</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <nav class="legal" aria-label="מידע משפטי">
+    <a href="/privacy.html">מדיניות פרטיות</a>
+    <a href="/accessibility.html">הצהרת נגישות</a>
+    <a href="/disclaimer.html">תנאי שימוש</a>
+    <a href="/cyber/">ראדאר חשיפת הסייבר</a>
+    <a href="/">kplns.com</a>
+  </nav>
+  <p class="thirdparty">
+    הדף אינו אוסף נתונים ואינו משתמש ב-Cookies. הוא טוען גופנים מ-Google Fonts —
+    שירות צד שלישי שרואה את כתובת ה-IP של הדפדפן.
+  </p>
+</footer>
+
+</body>
+</html>
