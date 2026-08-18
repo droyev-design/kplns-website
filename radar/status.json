@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-18T20:42:26+00:00",
+ "generated": "2026-08-18T21:12:58+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -537,6 +537,12 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787087578,
+   "il": 0,
+   "ir": 0,
+   "deg": 1
   }
  ],
  "indices": [
@@ -586,9 +592,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "55 מטוסים אזרחיים באזור",
-     "value_en": "55 civil aircraft in the area",
-     "range": "57–100"
+     "value": "54 מטוסים אזרחיים באזור",
+     "value_en": "54 civil aircraft in the area",
+     "range": "56–100"
     },
     {
      "key": "jo_airspace",
@@ -604,8 +610,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "2–10"
     },
     {
@@ -637,11 +643,11 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": true,
+     "ok": false,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "",
+     "value_en": "",
      "range": "1–10"
     },
     {
@@ -728,8 +734,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,559 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,559 BGP routes)",
+     "value": "קישוריות תקינה (41,555 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,555 BGP routes)",
      "range": "41,559–41,637"
     },
     {
@@ -833,11 +839,11 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": true,
+     "ok": false,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "",
+     "value_en": "",
      "range": "1–10"
     },
     {
@@ -907,8 +913,12 @@
    ]
   }
  ],
- "sources_ok": 13,
+ "sources_ok": 12,
  "sources_total": 13,
- "degraded": [],
- "degraded_en": []
+ "degraded": [
+  "תעופה צבאית באזור"
+ ],
+ "degraded_en": [
+  "Military aviation in the region"
+ ]
 }
