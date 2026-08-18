@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-18T00:12:27+00:00",
+ "generated": "2026-08-18T01:12:33+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -330,6 +330,16 @@
    "t": 1787011947,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1787013749,
+   "il": 0,
+   "ir": 0
+  },
+  {
+   "t": 1787015553,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -364,8 +374,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "56 מטוסים אזרחיים באזור",
-     "value_en": "56 civil aircraft in the area",
+     "value": "84 מטוסים אזרחיים באזור",
+     "value_en": "84 civil aircraft in the area",
      "range": "56–98"
     },
     {
@@ -378,8 +388,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים מעל ירדן",
-     "value_en": "2 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "2–10"
     },
     {
@@ -420,8 +430,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $90.9 · דולר 2.95 ₪",
-     "value_en": "Brent $90.9 · USD 2.95 ILS",
+     "value": "ברנט $91.1 · דולר 2.95 ₪",
+     "value_en": "Brent $91.1 · USD 2.95 ILS",
      "range": ""
     },
     {
@@ -448,8 +458,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "44/100",
-     "value_en": "44/100",
+     "value": "45/100",
+     "value_en": "45/100",
      "range": ""
     }
    ]
@@ -471,8 +481,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,620 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,620 BGP routes)",
+     "value": "קישוריות תקינה (41,617 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,617 BGP routes)",
      "range": "41,617–41,638"
     },
     {
@@ -569,8 +579,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $90.9 · דולר 2.95 ₪",
-     "value_en": "Brent $90.9 · USD 2.95 ILS",
+     "value": "ברנט $91.1 · דולר 2.95 ₪",
+     "value_en": "Brent $91.1 · USD 2.95 ILS",
      "range": ""
     },
     {
@@ -597,8 +607,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "44/100",
-     "value_en": "44/100",
+     "value": "45/100",
+     "value_en": "45/100",
      "range": ""
     }
    ],
