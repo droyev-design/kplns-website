@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-18T21:42:29+00:00",
+ "generated": "2026-08-18T22:42:28+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -549,6 +549,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787091148,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787092948,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -598,8 +610,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "60 מטוסים אזרחיים באזור",
-     "value_en": "60 civil aircraft in the area",
+     "value": "62 מטוסים אזרחיים באזור",
+     "value_en": "62 civil aircraft in the area",
      "range": "56–100"
     },
     {
@@ -616,8 +628,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
+     "value": "7 מטוסים מעל ירדן",
+     "value_en": "7 aircraft over Jordan",
      "range": "2–10"
     },
     {
@@ -742,7 +754,7 @@
      "reason_en": "",
      "value": "קישוריות תקינה (41,556 מסלולי BGP)",
      "value_en": "Connectivity normal (41,556 BGP routes)",
-     "range": "41,559–41,637"
+     "range": "41,558–41,637"
     },
     {
      "key": "ir_provinces",
