@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-18T19:42:39+00:00",
+ "generated": "2026-08-18T20:12:40+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -525,6 +525,12 @@
    "t": 1787082159,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1787083960,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -574,8 +580,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "69 מטוסים אזרחיים באזור",
-     "value_en": "69 civil aircraft in the area",
+     "value": "70 מטוסים אזרחיים באזור",
+     "value_en": "70 civil aircraft in the area",
      "range": "57–100"
     },
     {
@@ -592,8 +598,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "11 מטוסים מעל ירדן",
+     "value_en": "11 aircraft over Jordan",
      "range": "2–10"
     },
     {
@@ -628,8 +634,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -716,8 +722,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,560 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,560 BGP routes)",
+     "value": "קישוריות תקינה (41,559 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,559 BGP routes)",
      "range": "41,559–41,637"
     },
     {
@@ -806,8 +812,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "13.3% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-16 (נגזר מתעופה)",
-     "value_en": "13.3% of aircraft reported degraded GPS on 2026-08-16 (aviation-derived)",
+     "value": "10.1% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-17 (נגזר מתעופה)",
+     "value_en": "10.1% of aircraft reported degraded GPS on 2026-08-17 (aviation-derived)",
      "range": "1.9%–12.7%"
     },
     {
@@ -824,8 +830,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–10"
     },
     {
