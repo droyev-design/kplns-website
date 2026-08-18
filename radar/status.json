@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-18T09:12:32+00:00",
+ "generated": "2026-08-18T10:12:33+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -420,6 +420,16 @@
    "t": 1787044352,
    "il": 1,
    "ir": 1
+  },
+  {
+   "t": 1787046152,
+   "il": 0,
+   "ir": 0
+  },
+  {
+   "t": 1787047953,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -428,7 +438,7 @@
    "flag": "🇮🇱",
    "name": "ישראל",
    "name_en": "Israel",
-   "level": 1,
+   "level": 0,
    "tripwires": [
     {
      "key": "hfc_policy",
@@ -454,9 +464,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "78 מטוסים אזרחיים באזור",
-     "value_en": "78 civil aircraft in the area",
-     "range": "57–100"
+     "value": "83 מטוסים אזרחיים באזור",
+     "value_en": "83 civil aircraft in the area",
+     "range": "57–99"
     },
     {
      "key": "jo_airspace",
@@ -468,8 +478,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "2–10"
     },
     {
@@ -492,12 +502,12 @@
      "name_en": "US military aviation in the region",
      "shared": true,
      "context": false,
-     "lit": true,
+     "lit": false,
      "ok": true,
-     "reason": "זינוק בתעופה צבאית באזור: 14 מול חציון 4",
-     "reason_en": "Regional military-aviation surge: 14 vs a median of 4",
-     "value": "14 מטוסים צבאיים באזור",
-     "value_en": "14 military aircraft in the area",
+     "reason": "",
+     "reason_en": "",
+     "value": "9 מטוסים צבאיים באזור",
+     "value_en": "9 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -510,8 +520,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.2 · דולר 2.95 ₪",
-     "value_en": "Brent $91.2 · USD 2.95 ILS",
+     "value": "ברנט $91.0 · דולר 2.95 ₪",
+     "value_en": "Brent $91.0 · USD 2.95 ILS",
      "range": ""
     },
     {
@@ -549,7 +559,7 @@
    "flag": "🇮🇷",
    "name": "איראן",
    "name_en": "Iran",
-   "level": 1,
+   "level": 0,
    "tripwires": [
     {
      "key": "ir_internet",
@@ -561,8 +571,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,635 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,635 BGP routes)",
+     "value": "קישוריות תקינה (41,631 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,631 BGP routes)",
      "range": "41,617–41,637"
     },
     {
@@ -603,8 +613,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,867,000 ריאל לדולר",
-     "value_en": "1,867,000 rial to the dollar",
+     "value": "1,870,000 ריאל לדולר",
+     "value_en": "1,870,000 rial to the dollar",
      "range": "1,864,000–1,866,800"
     },
     {
@@ -641,12 +651,12 @@
      "name_en": "US military aviation in the region",
      "shared": true,
      "context": false,
-     "lit": true,
+     "lit": false,
      "ok": true,
-     "reason": "זינוק בתעופה צבאית באזור: 14 מול חציון 4",
-     "reason_en": "Regional military-aviation surge: 14 vs a median of 4",
-     "value": "14 מטוסים צבאיים באזור",
-     "value_en": "14 military aircraft in the area",
+     "reason": "",
+     "reason_en": "",
+     "value": "9 מטוסים צבאיים באזור",
+     "value_en": "9 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -659,8 +669,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.2 · דולר 2.95 ₪",
-     "value_en": "Brent $91.2 · USD 2.95 ILS",
+     "value": "ברנט $91.0 · דולר 2.95 ₪",
+     "value_en": "Brent $91.0 · USD 2.95 ILS",
      "range": ""
     },
     {
