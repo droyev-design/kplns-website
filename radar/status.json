@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-18T12:42:36+00:00",
+ "generated": "2026-08-18T14:12:29+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -455,6 +455,21 @@
    "t": 1787056956,
    "il": 0,
    "ir": 0
+  },
+  {
+   "t": 1787058751,
+   "il": 0,
+   "ir": 0
+  },
+  {
+   "t": 1787060555,
+   "il": 0,
+   "ir": 0
+  },
+  {
+   "t": 1787062349,
+   "il": 0,
+   "ir": 0
   }
  ],
  "indices": [
@@ -489,8 +504,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "91 מטוסים אזרחיים באזור",
-     "value_en": "91 civil aircraft in the area",
+     "value": "95 מטוסים אזרחיים באזור",
+     "value_en": "95 civil aircraft in the area",
      "range": "57–100"
     },
     {
@@ -531,8 +546,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "7 מטוסים צבאיים באזור",
-     "value_en": "7 military aircraft in the area",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -545,8 +560,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.3 · דולר 2.99 ₪",
-     "value_en": "Brent $91.3 · USD 2.99 ILS",
+     "value": "ברנט $91.0 · דולר 2.99 ₪",
+     "value_en": "Brent $91.0 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -573,8 +588,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "47/100",
-     "value_en": "47/100",
+     "value": "48/100",
+     "value_en": "48/100",
      "range": ""
     }
    ]
@@ -596,9 +611,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,570 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,570 BGP routes)",
-     "range": "41,617–41,637"
+     "value": "קישוריות תקינה (41,575 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,575 BGP routes)",
+     "range": "41,572–41,637"
     },
     {
      "key": "ir_provinces",
@@ -624,8 +639,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "438 חריגות תרמיות ב-24 שעות (כולל שריפות ותעשייה)",
-     "value_en": "438 thermal anomalies in 24h (includes wildfires and industry)",
+     "value": "449 חריגות תרמיות ב-24 שעות (כולל שריפות ותעשייה)",
+     "value_en": "449 thermal anomalies in 24h (includes wildfires and industry)",
      "range": "0–9"
     },
     {
@@ -638,9 +653,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,870,000 ריאל לדולר",
-     "value_en": "1,870,000 rial to the dollar",
-     "range": "1,864,000–1,866,800"
+     "value": "1,872,000 ריאל לדולר",
+     "value_en": "1,872,000 rial to the dollar",
+     "range": "1,864,000–1,867,800"
     },
     {
      "key": "advisories_ir",
@@ -680,8 +695,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "7 מטוסים צבאיים באזור",
-     "value_en": "7 military aircraft in the area",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -694,8 +709,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.3 · דולר 2.99 ₪",
-     "value_en": "Brent $91.3 · USD 2.99 ILS",
+     "value": "ברנט $91.0 · דולר 2.99 ₪",
+     "value_en": "Brent $91.0 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -722,8 +737,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "47/100",
-     "value_en": "47/100",
+     "value": "48/100",
+     "value_en": "48/100",
      "range": ""
     }
    ],
