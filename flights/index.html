@@ -207,6 +207,12 @@ h3{
   margin:18px 0 0;text-align:center;font-size:.86rem;color:var(--text-secondary);
   font-variant-numeric:tabular-nums
 }
+/* The publish-cadence explainer under the stamp. Muted and narrow: it must
+   answer "why does it say an hour ago" without competing with the gauges. */
+.fresh-note{
+  margin:5px auto 0;max-width:60ch;text-align:center;font-size:.75rem;
+  line-height:1.55;color:var(--text-muted)
+}
 .banner{
   margin:16px 0 0;border-radius:12px;padding:11px 16px;font-size:.88rem;
   display:flex;gap:9px;align-items:flex-start;text-align:start
@@ -407,6 +413,7 @@ footer a:hover{color:var(--cyan)}
   </noscript>
 
   <div class="fresh" id="fresh"></div>
+  <div class="fresh-note" id="freshnote"></div>
   <div id="banners"></div>
 
   <div class="gaugewrap" id="gaugewrap" role="status" aria-live="polite">
@@ -755,7 +762,8 @@ const T = {
       ימי חול, שישי ושבת נשפטים בנפרד, ולכן כל סוג יום צריך היסטוריה משלו
       (נאסף מ-${b.since}: ${b.weekday_days} ימי חול, ${b.fri_days} שישי, ${b.sat_days} שבת).
       עד אז הדף מציג את המספרים כפי שהם — בלי לשפוט אותם.`,
-    fresh: (a, ok, tot) => `עודכן ${a} · נבדק כל 30 דקות · ${ok}/${tot} מקורות נקראו`,
+    fresh: (hm, a, ok, tot) => `נתונים מ-${hm} · ${a} · ${ok}/${tot} מקורות נקראו`,
+    freshNote: 'הבדיקה רצה כל 30 דקות; הדף נדחף מחדש מיד כשמשהו משתנה, ואחרת אחת לשעה. חותמת ישנה יותר אומרת שלא השתנה כלום — לא שהמערכת עצרה.',
     notRead: 'לא נקרא בריצה האחרונה', ok: 'תקין',
     tagObserve: 'צובר קו בסיס',
     infoWhat: 'מה זה מודד:', infoWhen: 'מה מדליק:', infoSrc: 'מקור:',
@@ -791,7 +799,8 @@ const T = {
       Weekdays, Fridays and Saturdays are judged separately, so each day-class needs its own history
       (collecting since ${b.since}: ${b.weekday_days} weekdays, ${b.fri_days} Fridays, ${b.sat_days} Saturdays).
       Until then the page shows the numbers as they are — without judging them.`,
-    fresh: (a, ok, tot) => `Updated ${a} · checked every 30 minutes · ${ok}/${tot} sources read`,
+    fresh: (hm, a, ok, tot) => `Data from ${hm} (Israel) · ${a} · ${ok}/${tot} sources read`,
+    freshNote: 'Checks run every 30 minutes; the page is re-published the moment something changes, and otherwise once an hour. An older stamp means nothing changed — not that the system stopped.',
     notRead: 'not read in the last run', ok: 'normal',
     tagObserve: 'building baseline',
     infoWhat: 'What it measures:', infoWhen: 'What lights it:', infoSrc: 'Source:',
@@ -845,7 +854,10 @@ function ago(ms){
   const t = T[LANG];
   const m = Math.round(ms / 60000);
   if (m < 1)   return t.agoNow;
-  if (m < 60)  return t.agoMin(m);
+  // Minutes up to 90, not 60: at 45 min the old cut-off rounded straight to
+  // "לפני 1 שע׳" and made a healthy page look neglected. Past 90 min the hour
+  // count rounds UP, so the age is never understated.
+  if (m < 90)  return t.agoMin(m);
   const h = Math.round(m / 60);
   if (h < 24)  return t.agoHour(h);
   return t.agoDay(Math.round(h / 24));
@@ -979,8 +991,14 @@ function render(){
   }
   document.getElementById('banners').innerHTML = b.join('');
 
+  // Absolute time as well as relative: "נתונים מ-19:42 · לפני 45 דק׳" cannot be
+  // misread the way a bare "עודכן לפני שעה" was. Israel time for every reader,
+  // same as the full stamp at the foot of the page.
+  const hm = dt.toLocaleTimeString(s.locale,
+    {hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Jerusalem'});
   document.getElementById('fresh').textContent =
-    s.fresh(ago(age), d.sources_ok, d.sources_total);
+    s.fresh(hm, ago(age), d.sources_ok, d.sources_total);
+  document.getElementById('freshnote').textContent = s.freshNote;
   document.getElementById('gauge').innerHTML = gauge(d.level, stale, degraded);
   document.getElementById('tiles').innerHTML = tiles(d.now || {});
   daysTable(d.days);
@@ -1002,6 +1020,7 @@ function renderError(){
   const s = T[LANG];
   document.getElementById('banners').innerHTML = '';
   document.getElementById('fresh').textContent = '';
+  document.getElementById('freshnote').textContent = '';
   document.getElementById('gauge').innerHTML =
     `<div class="gauge"><div class="gauge-name">${esc(s.errTitle)}</div>` +
     `<div class="gauge-note">${esc(s.errNote)}</div></div>`;
