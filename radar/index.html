@@ -513,11 +513,11 @@ footer a:hover{color:var(--cyan)}
       <div class="legend-item"><span class="dot" style="background:var(--l1)" aria-hidden="true"></span>
         <div><b>1 · מוגבר</b><span>משפחת מדדים אחת נדלקה. מדד בודד הוא לרוב רעש — לא סיבה לשנות תוכניות.</span></div></div>
       <div class="legend-item"><span class="dot" style="background:var(--l2)" aria-hidden="true"></span>
-        <div><b>2 · אזהרה</b><span>שתי משפחות <em>בלתי תלויות</em> נדלקו יחד. שווה לשים לב לחדשות.</span></div></div>
+        <div><b>2 · אזהרה</b><span>שתי משפחות התנהגות שונות נדלקו יחד, <em>ומשני ספקי נתונים נפרדים לפחות</em>. שווה לשים לב לחדשות.</span></div></div>
       <div class="legend-item"><span class="dot" style="background:var(--l3)" aria-hidden="true"></span>
         <div><b>3 · קריטי</b><span>שלוש משפחות ומעלה — או שינוי במדיניות ההתגוננות של פיקוד העורף, שמספיק לבדו. עקבו אחרי ההנחיות הרשמיות.</span></div></div>
     </div>
-    <p class="legend-note">הרמה סופרת <b>כמה משפחות מדדים בלתי תלויות</b> נדלקו יחד — לא כמה חדשות פורסמו. לכן היא נעה לאט, ובכוונה.</p>
+    <p class="legend-note">הרמה סופרת <b>כמה משפחות מדדים נדלקו יחד</b> — לא כמה חדשות פורסמו. המשפחות מודדות <b>התנהגויות שונות</b>, אבל חלקן מגיעות מאותו ספק נתונים, ולכן הספירה עוברת <b>מסנן גיוון-ספקים</b>: משפחות שחולקות ספק תורמות יחד לכל היותר שני קולות, ורמה 2 ומעלה מחייבת שני ספקים נפרדים לפחות. לכן הרמה נעה לאט, ובכוונה.</p>
   </section>
 
   <section class="legend" aria-label="Level legend" data-lang="en">
@@ -528,11 +528,11 @@ footer a:hover{color:var(--cyan)}
       <div class="legend-item"><span class="dot" style="background:var(--l1)" aria-hidden="true"></span>
         <div><b>1 · Elevated</b><span>One indicator family lit. A single indicator is usually noise — not a reason to change plans.</span></div></div>
       <div class="legend-item"><span class="dot" style="background:var(--l2)" aria-hidden="true"></span>
-        <div><b>2 · Warning</b><span>Two <em>independent</em> families lit together. Worth following the news.</span></div></div>
+        <div><b>2 · Warning</b><span>Two different behaviour families lit together, <em>across at least two separate data providers</em>. Worth following the news.</span></div></div>
       <div class="legend-item"><span class="dot" style="background:var(--l3)" aria-hidden="true"></span>
         <div><b>3 · Critical</b><span>Three or more families — or a change in Home Front Command defence policy, which is sufficient on its own. Follow the official instructions.</span></div></div>
     </div>
-    <p class="legend-note">The level counts <b>how many independent indicator families</b> lit together — not how many headlines were published. That is why it moves slowly, by design.</p>
+    <p class="legend-note">The level counts <b>how many indicator families lit together</b> — not how many headlines were published. The families measure <b>different behaviours</b>, but some of them arrive over the same data provider, so the count passes through a <b>provider-diversity guard</b>: families sharing one provider contribute at most two votes between them, and level 2 or higher requires at least two separate providers. That is why it moves slowly, by design.</p>
   </section>
 
   <div id="detail"></div>
@@ -543,8 +543,9 @@ footer a:hover{color:var(--cyan)}
     civil-defence instructions, an airspace emptying of civil aircraft, a state
     cutting its own internet, a currency collapsing, a travel advisory being
     raised. Statements and headlines light nothing here. The level rises as more
-    <b>independent</b> indicator families light together — a single indicator is
-    usually noise. Indicators tagged <span class="tag">regional</span> count for
+    indicator families light together — families that measure <b>different
+    behaviours</b> and, from level 2 up, are read from <b>at least two separate
+    data providers</b>. A single indicator is usually noise. Indicators tagged <span class="tag">regional</span> count for
     both indices.
   </div>
 
@@ -553,8 +554,9 @@ footer a:hover{color:var(--cyan)}
     <b>צעדים יקרים</b> — כאלה שעולים למישהו משהו לעשות: שינוי הנחיות התגוננות,
     מרחב אווירי שמתרוקן ממטוסים אזרחיים, מדינה שמנתקת לעצמה את האינטרנט,
     קריסת מטבע, העלאת רמת אזהרת מסע. הצהרות וכותרות אינן מדליקות מדד כאן.
-    הרמה עולה ככל שיותר משפחות אינדיקטורים <b>בלתי תלויות</b> נדלקות יחד —
-    מדד בודד לרוב אומר רעש. מדדים המסומנים <span class="tag">אזורי</span>
+    הרמה עולה ככל שיותר משפחות אינדיקטורים נדלקות יחד — משפחות שמודדות
+    <b>התנהגויות שונות</b>, ומרמה 2 ומעלה גם מ<b>שני ספקי נתונים נפרדים
+    לפחות</b>. מדד בודד לרוב אומר רעש. מדדים המסומנים <span class="tag">אזורי</span>
     נספרים לשני הצדדים.
   </div>
 
@@ -567,10 +569,10 @@ footer a:hover{color:var(--cyan)}
       <h3>Level over time — the last 7 days</h3>
       <p class="trend-sub">Y axis: <b>the level (0–3)</b> — 0 calm, 3 critical. X axis: real time, Israel time.</p>
     </div>
-    <div class="trend-legend"><span class="tl-item"><i style="background:#00d4ff"></i>🇮🇱 Israel · now 0</span><span class="tl-item"><i style="background:repeating-linear-gradient(90deg,#9d8cff 0 5px,transparent 5px 9px)"></i>🇮🇷 Iran · now 0</span><span class="tl-item"><i class="tl-gap"></i>no data</span></div></div><div class="trend-chart trend-wide"><svg viewBox="0 0 640 190" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="nodata640" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="rgba(255,255,255,.03)"/><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,.16)" stroke-width="1.4"/></pattern></defs><rect x="26" y="141.7" width="606" height="52.7" fill="rgba(34,197,94,.07)"/><line x1="26" y1="168.0" x2="632" y2="168.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="171.8" text-anchor="end" fill="#22c55e" font-size="11" font-family="Inter,sans-serif" font-weight="600">0</text><rect x="26" y="89.0" width="606" height="52.7" fill="rgba(234,179,8,.07)"/><line x1="26" y1="115.3" x2="632" y2="115.3" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="119.2" text-anchor="end" fill="#eab308" font-size="11" font-family="Inter,sans-serif" font-weight="600">1</text><rect x="26" y="36.3" width="606" height="52.7" fill="rgba(249,115,22,.07)"/><line x1="26" y1="62.7" x2="632" y2="62.7" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="66.5" text-anchor="end" fill="#f97316" font-size="11" font-family="Inter,sans-serif" font-weight="600">2</text><rect x="26" y="-16.3" width="606" height="52.7" fill="rgba(255,107,107,.08)"/><line x1="26" y1="10.0" x2="632" y2="10.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="13.8" text-anchor="end" fill="#ff6b6b" font-size="11" font-family="Inter,sans-serif" font-weight="600">3</text><line x1="29.6" y1="10" x2="29.6" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="29.6" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">12/08</text><line x1="116.2" y1="10" x2="116.2" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="116.2" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">13/08</text><line x1="202.8" y1="10" x2="202.8" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="202.8" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">14/08</text><line x1="289.3" y1="10" x2="289.3" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="289.3" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">15/08</text><line x1="375.9" y1="10" x2="375.9" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="375.9" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">16/08</text><line x1="462.5" y1="10" x2="462.5" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="462.5" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">17/08</text><line x1="549.0" y1="10" x2="549.0" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="549.0" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">18/08</text><rect x="26" y="10" width="606" height="158" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/><rect x="26.0" y="10" width="429.3" height="158" fill="url(#nodata640)"/><rect x="26.0" y="10" width="429.3" height="158" fill="url(#nodata640)"/><path d="M 455.3 168.0 H 490.3 V 115.3 H 492.1 V 168.0 H 497.5 V 115.3 H 501.1 V 168.0 H 508.3 V 115.3 H 510.1 V 168.0 H 580.4 V 115.3 H 582.2 V 168.0 H 585.9 V 115.3 H 587.7 V 168.0 H 593.1 V 115.3 H 594.9 V 168.0 H 629.1" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linejoin="round"/><path d="M455.3 168.0h0 M455.4 168.0h0 M456.0 168.0h0 M457.8 168.0h0 M459.6 168.0h0 M461.4 168.0h0 M463.2 168.0h0 M465.0 168.0h0 M466.8 168.0h0 M468.6 168.0h0 M470.4 168.0h0 M472.2 168.0h0 M474.0 168.0h0 M475.8 168.0h0 M477.6 168.0h0 M479.4 168.0h0 M481.2 168.0h0 M483.0 168.0h0 M484.8 168.0h0 M486.7 168.0h0 M488.5 168.0h0 M490.3 115.3h0 M492.1 168.0h0 M492.7 168.0h0 M493.9 168.0h0 M495.7 168.0h0 M497.5 115.3h0 M499.3 115.3h0 M501.1 168.0h0 M502.9 168.0h0 M504.7 168.0h0 M506.5 168.0h0 M508.3 115.3h0 M510.1 168.0h0 M511.9 168.0h0 M513.7 168.0h0 M515.5 168.0h0 M517.3 168.0h0 M519.1 168.0h0 M520.9 168.0h0 M522.7 168.0h0 M524.5 168.0h0 M526.3 168.0h0 M528.1 168.0h0 M529.9 168.0h0 M531.7 168.0h0 M533.5 168.0h0 M533.6 168.0h0 M535.4 168.0h0 M536.5 168.0h0 M537.2 168.0h0 M538.0 168.0h0 M539.0 168.0h0 M540.8 168.0h0 M542.6 168.0h0 M544.4 168.0h0 M546.2 168.0h0 M546.4 168.0h0 M548.0 168.0h0 M549.8 168.0h0 M551.6 168.0h0 M553.4 168.0h0 M555.2 168.0h0 M557.0 168.0h0 M558.8 168.0h0 M560.6 168.0h0 M562.4 168.0h0 M564.2 168.0h0 M566.0 168.0h0 M567.8 168.0h0 M569.6 168.0h0 M571.4 168.0h0 M573.2 168.0h0 M575.0 168.0h0 M576.8 168.0h0 M578.6 168.0h0 M580.4 115.3h0 M582.2 168.0h0 M584.1 168.0h0 M585.9 115.3h0 M587.7 168.0h0 M589.5 168.0h0 M591.3 168.0h0 M593.1 115.3h0 M594.9 168.0h0 M596.7 168.0h0 M598.5 168.0h0 M600.3 168.0h0 M602.1 168.0h0 M603.9 168.0h0 M605.7 168.0h0 M607.5 168.0h0 M609.3 168.0h0 M611.1 168.0h0 M612.9 168.0h0 M614.7 168.0h0 M616.5 168.0h0 M618.3 168.0h0 M620.1 168.0h0 M621.9 168.0h0 M623.7 168.0h0 M625.5 168.0h0 M627.3 168.0h0 M629.1 168.0h0" stroke="#00d4ff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="629.1" cy="168.0" r="3.4" fill="#00d4ff" stroke="#111827" stroke-width="1.2"/><path d="M 455.3 168.0 H 490.3 V 115.3 H 492.1 V 168.0 H 497.5 V 115.3 H 501.1 V 168.0 H 508.3 V 115.3 H 510.1 V 168.0 H 520.9 V 115.3 H 540.8 V 168.0 H 580.4 V 115.3 H 582.2 V 168.0 H 585.9 V 115.3 H 587.7 V 168.0 H 593.1 V 115.3 H 594.9 V 168.0 H 629.1" fill="none" stroke="#9d8cff" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 4"/><path d="M455.3 168.0h0 M455.4 168.0h0 M456.0 168.0h0 M457.8 168.0h0 M459.6 168.0h0 M461.4 168.0h0 M463.2 168.0h0 M465.0 168.0h0 M466.8 168.0h0 M468.6 168.0h0 M470.4 168.0h0 M472.2 168.0h0 M474.0 168.0h0 M475.8 168.0h0 M477.6 168.0h0 M479.4 168.0h0 M481.2 168.0h0 M483.0 168.0h0 M484.8 168.0h0 M486.7 168.0h0 M488.5 168.0h0 M490.3 115.3h0 M492.1 168.0h0 M492.7 168.0h0 M493.9 168.0h0 M495.7 168.0h0 M497.5 115.3h0 M499.3 115.3h0 M501.1 168.0h0 M502.9 168.0h0 M504.7 168.0h0 M506.5 168.0h0 M508.3 115.3h0 M510.1 168.0h0 M511.9 168.0h0 M513.7 168.0h0 M515.5 168.0h0 M517.3 168.0h0 M519.1 168.0h0 M520.9 115.3h0 M522.7 115.3h0 M524.5 115.3h0 M526.3 115.3h0 M528.1 115.3h0 M529.9 115.3h0 M531.7 115.3h0 M533.5 115.3h0 M533.6 115.3h0 M535.4 115.3h0 M536.5 115.3h0 M537.2 115.3h0 M538.0 115.3h0 M539.0 115.3h0 M540.8 168.0h0 M542.6 168.0h0 M544.4 168.0h0 M546.2 168.0h0 M546.4 168.0h0 M548.0 168.0h0 M549.8 168.0h0 M551.6 168.0h0 M553.4 168.0h0 M555.2 168.0h0 M557.0 168.0h0 M558.8 168.0h0 M560.6 168.0h0 M562.4 168.0h0 M564.2 168.0h0 M566.0 168.0h0 M567.8 168.0h0 M569.6 168.0h0 M571.4 168.0h0 M573.2 168.0h0 M575.0 168.0h0 M576.8 168.0h0 M578.6 168.0h0 M580.4 115.3h0 M582.2 168.0h0 M584.1 168.0h0 M585.9 115.3h0 M587.7 168.0h0 M589.5 168.0h0 M591.3 168.0h0 M593.1 115.3h0 M594.9 168.0h0 M596.7 168.0h0 M598.5 168.0h0 M600.3 168.0h0 M602.1 168.0h0 M603.9 168.0h0 M605.7 168.0h0 M607.5 168.0h0 M609.3 168.0h0 M611.1 168.0h0 M612.9 168.0h0 M614.7 168.0h0 M616.5 168.0h0 M618.3 168.0h0 M620.1 168.0h0 M621.9 168.0h0 M623.7 168.0h0 M625.5 168.0h0 M627.3 168.0h0 M629.1 168.0h0" stroke="#9d8cff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="629.1" cy="168.0" r="3.4" fill="#9d8cff" stroke="#111827" stroke-width="1.2"/></svg></div><div class="trend-chart trend-narrow"><svg viewBox="0 0 340 190" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="nodata340" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="rgba(255,255,255,.03)"/><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,.16)" stroke-width="1.4"/></pattern></defs><rect x="26" y="141.7" width="306" height="52.7" fill="rgba(34,197,94,.07)"/><line x1="26" y1="168.0" x2="332" y2="168.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="172.6" text-anchor="end" fill="#22c55e" font-size="13" font-family="Inter,sans-serif" font-weight="600">0</text><rect x="26" y="89.0" width="306" height="52.7" fill="rgba(234,179,8,.07)"/><line x1="26" y1="115.3" x2="332" y2="115.3" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="119.9" text-anchor="end" fill="#eab308" font-size="13" font-family="Inter,sans-serif" font-weight="600">1</text><rect x="26" y="36.3" width="306" height="52.7" fill="rgba(249,115,22,.07)"/><line x1="26" y1="62.7" x2="332" y2="62.7" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="67.2" text-anchor="end" fill="#f97316" font-size="13" font-family="Inter,sans-serif" font-weight="600">2</text><rect x="26" y="-16.3" width="306" height="52.7" fill="rgba(255,107,107,.08)"/><line x1="26" y1="10.0" x2="332" y2="10.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="14.6" text-anchor="end" fill="#ff6b6b" font-size="13" font-family="Inter,sans-serif" font-weight="600">3</text><line x1="27.8" y1="10" x2="27.8" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="27.8" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">12/08</text><line x1="115.2" y1="10" x2="115.2" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="115.2" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">14/08</text><line x1="202.7" y1="10" x2="202.7" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="202.7" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">16/08</text><line x1="290.1" y1="10" x2="290.1" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="290.1" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">18/08</text><rect x="26" y="10" width="306" height="158" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/><rect x="26.0" y="10" width="216.8" height="158" fill="url(#nodata340)"/><rect x="26.0" y="10" width="216.8" height="158" fill="url(#nodata340)"/><path d="M 242.8 168.0 H 260.4 V 115.3 H 261.3 V 168.0 H 264.1 V 115.3 H 265.9 V 168.0 H 269.5 V 115.3 H 270.4 V 168.0 H 306.0 V 115.3 H 306.9 V 168.0 H 308.7 V 115.3 H 309.6 V 168.0 H 312.3 V 115.3 H 313.3 V 168.0 H 330.6" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linejoin="round"/><path d="M242.8 168.0h0 M242.8 168.0h0 M243.1 168.0h0 M244.0 168.0h0 M245.0 168.0h0 M245.9 168.0h0 M246.8 168.0h0 M247.7 168.0h0 M248.6 168.0h0 M249.5 168.0h0 M250.4 168.0h0 M251.3 168.0h0 M252.2 168.0h0 M253.1 168.0h0 M254.1 168.0h0 M255.0 168.0h0 M255.9 168.0h0 M256.8 168.0h0 M257.7 168.0h0 M258.6 168.0h0 M259.5 168.0h0 M260.4 115.3h0 M261.3 168.0h0 M261.7 168.0h0 M262.3 168.0h0 M263.2 168.0h0 M264.1 115.3h0 M265.0 115.3h0 M265.9 168.0h0 M266.8 168.0h0 M267.7 168.0h0 M268.6 168.0h0 M269.5 115.3h0 M270.4 168.0h0 M271.4 168.0h0 M272.3 168.0h0 M273.2 168.0h0 M274.1 168.0h0 M275.0 168.0h0 M275.9 168.0h0 M276.8 168.0h0 M277.7 168.0h0 M278.6 168.0h0 M279.6 168.0h0 M280.5 168.0h0 M281.4 168.0h0 M282.2 168.0h0 M282.3 168.0h0 M283.2 168.0h0 M283.8 168.0h0 M284.1 168.0h0 M284.6 168.0h0 M285.0 168.0h0 M285.9 168.0h0 M286.8 168.0h0 M287.8 168.0h0 M288.7 168.0h0 M288.8 168.0h0 M289.6 168.0h0 M290.5 168.0h0 M291.4 168.0h0 M292.3 168.0h0 M293.2 168.0h0 M294.1 168.0h0 M295.0 168.0h0 M295.9 168.0h0 M296.9 168.0h0 M297.8 168.0h0 M298.7 168.0h0 M299.6 168.0h0 M300.5 168.0h0 M301.4 168.0h0 M302.3 168.0h0 M303.2 168.0h0 M304.2 168.0h0 M305.1 168.0h0 M306.0 115.3h0 M306.9 168.0h0 M307.8 168.0h0 M308.7 115.3h0 M309.6 168.0h0 M310.5 168.0h0 M311.4 168.0h0 M312.3 115.3h0 M313.3 168.0h0 M314.2 168.0h0 M315.1 168.0h0 M316.0 168.0h0 M316.9 168.0h0 M317.8 168.0h0 M318.7 168.0h0 M319.6 168.0h0 M320.5 168.0h0 M321.5 168.0h0 M322.4 168.0h0 M323.3 168.0h0 M324.2 168.0h0 M325.1 168.0h0 M326.0 168.0h0 M326.9 168.0h0 M327.8 168.0h0 M328.7 168.0h0 M329.7 168.0h0 M330.6 168.0h0" stroke="#00d4ff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="330.6" cy="168.0" r="3.4" fill="#00d4ff" stroke="#111827" stroke-width="1.2"/><path d="M 242.8 168.0 H 260.4 V 115.3 H 261.3 V 168.0 H 264.1 V 115.3 H 265.9 V 168.0 H 269.5 V 115.3 H 270.4 V 168.0 H 275.9 V 115.3 H 285.9 V 168.0 H 306.0 V 115.3 H 306.9 V 168.0 H 308.7 V 115.3 H 309.6 V 168.0 H 312.3 V 115.3 H 313.3 V 168.0 H 330.6" fill="none" stroke="#9d8cff" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 4"/><path d="M242.8 168.0h0 M242.8 168.0h0 M243.1 168.0h0 M244.0 168.0h0 M245.0 168.0h0 M245.9 168.0h0 M246.8 168.0h0 M247.7 168.0h0 M248.6 168.0h0 M249.5 168.0h0 M250.4 168.0h0 M251.3 168.0h0 M252.2 168.0h0 M253.1 168.0h0 M254.1 168.0h0 M255.0 168.0h0 M255.9 168.0h0 M256.8 168.0h0 M257.7 168.0h0 M258.6 168.0h0 M259.5 168.0h0 M260.4 115.3h0 M261.3 168.0h0 M261.7 168.0h0 M262.3 168.0h0 M263.2 168.0h0 M264.1 115.3h0 M265.0 115.3h0 M265.9 168.0h0 M266.8 168.0h0 M267.7 168.0h0 M268.6 168.0h0 M269.5 115.3h0 M270.4 168.0h0 M271.4 168.0h0 M272.3 168.0h0 M273.2 168.0h0 M274.1 168.0h0 M275.0 168.0h0 M275.9 115.3h0 M276.8 115.3h0 M277.7 115.3h0 M278.6 115.3h0 M279.6 115.3h0 M280.5 115.3h0 M281.4 115.3h0 M282.2 115.3h0 M282.3 115.3h0 M283.2 115.3h0 M283.8 115.3h0 M284.1 115.3h0 M284.6 115.3h0 M285.0 115.3h0 M285.9 168.0h0 M286.8 168.0h0 M287.8 168.0h0 M288.7 168.0h0 M288.8 168.0h0 M289.6 168.0h0 M290.5 168.0h0 M291.4 168.0h0 M292.3 168.0h0 M293.2 168.0h0 M294.1 168.0h0 M295.0 168.0h0 M295.9 168.0h0 M296.9 168.0h0 M297.8 168.0h0 M298.7 168.0h0 M299.6 168.0h0 M300.5 168.0h0 M301.4 168.0h0 M302.3 168.0h0 M303.2 168.0h0 M304.2 168.0h0 M305.1 168.0h0 M306.0 115.3h0 M306.9 168.0h0 M307.8 168.0h0 M308.7 115.3h0 M309.6 168.0h0 M310.5 168.0h0 M311.4 168.0h0 M312.3 115.3h0 M313.3 168.0h0 M314.2 168.0h0 M315.1 168.0h0 M316.0 168.0h0 M316.9 168.0h0 M317.8 168.0h0 M318.7 168.0h0 M319.6 168.0h0 M320.5 168.0h0 M321.5 168.0h0 M322.4 168.0h0 M323.3 168.0h0 M324.2 168.0h0 M325.1 168.0h0 M326.0 168.0h0 M326.9 168.0h0 M327.8 168.0h0 M328.7 168.0h0 M329.7 168.0h0 M330.6 168.0h0" stroke="#9d8cff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="330.6" cy="168.0" r="3.4" fill="#9d8cff" stroke="#111827" stroke-width="1.2"/></svg></div><div data-lang="he"><p class="trend-note">
+    <div class="trend-legend"><span class="tl-item"><i style="background:#00d4ff"></i>🇮🇱 Israel · now 0</span><span class="tl-item"><i style="background:repeating-linear-gradient(90deg,#9d8cff 0 5px,transparent 5px 9px)"></i>🇮🇷 Iran · now 0</span><span class="tl-item"><i class="tl-gap"></i>no data</span></div></div><div class="trend-chart trend-wide"><svg viewBox="0 0 640 190" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="nodata640" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="rgba(255,255,255,.03)"/><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,.16)" stroke-width="1.4"/></pattern></defs><rect x="26" y="141.7" width="606" height="52.7" fill="rgba(34,197,94,.07)"/><line x1="26" y1="168.0" x2="632" y2="168.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="171.8" text-anchor="end" fill="#22c55e" font-size="11" font-family="Inter,sans-serif" font-weight="600">0</text><rect x="26" y="89.0" width="606" height="52.7" fill="rgba(234,179,8,.07)"/><line x1="26" y1="115.3" x2="632" y2="115.3" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="119.2" text-anchor="end" fill="#eab308" font-size="11" font-family="Inter,sans-serif" font-weight="600">1</text><rect x="26" y="36.3" width="606" height="52.7" fill="rgba(249,115,22,.07)"/><line x1="26" y1="62.7" x2="632" y2="62.7" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="66.5" text-anchor="end" fill="#f97316" font-size="11" font-family="Inter,sans-serif" font-weight="600">2</text><rect x="26" y="-16.3" width="606" height="52.7" fill="rgba(255,107,107,.08)"/><line x1="26" y1="10.0" x2="632" y2="10.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="13.8" text-anchor="end" fill="#ff6b6b" font-size="11" font-family="Inter,sans-serif" font-weight="600">3</text><line x1="29.6" y1="10" x2="29.6" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="29.6" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">12/08</text><line x1="116.2" y1="10" x2="116.2" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="116.2" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">13/08</text><line x1="202.8" y1="10" x2="202.8" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="202.8" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">14/08</text><line x1="289.3" y1="10" x2="289.3" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="289.3" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">15/08</text><line x1="375.9" y1="10" x2="375.9" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="375.9" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">16/08</text><line x1="462.5" y1="10" x2="462.5" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="462.5" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">17/08</text><line x1="549.0" y1="10" x2="549.0" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="549.0" y="184.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="11" font-family="Inter,sans-serif">18/08</text><rect x="26" y="10" width="606" height="158" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/><rect x="26.0" y="10" width="429.3" height="158" fill="url(#nodata640)"/><rect x="26.0" y="10" width="429.3" height="158" fill="url(#nodata640)"/><path d="M 455.3 168.0 H 490.3 V 115.3 H 492.1 V 168.0 H 497.5 V 115.3 H 501.1 V 168.0 H 508.3 V 115.3 H 510.1 V 168.0 H 580.4 V 115.3 H 582.2 V 168.0 H 585.9 V 115.3 H 587.7 V 168.0 H 593.1 V 115.3 H 594.9 V 168.0 H 631.0" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linejoin="round"/><path d="M455.3 168.0h0 M455.4 168.0h0 M456.0 168.0h0 M457.8 168.0h0 M459.6 168.0h0 M461.4 168.0h0 M463.2 168.0h0 M465.0 168.0h0 M466.8 168.0h0 M468.6 168.0h0 M470.4 168.0h0 M472.2 168.0h0 M474.0 168.0h0 M475.8 168.0h0 M477.6 168.0h0 M479.4 168.0h0 M481.2 168.0h0 M483.0 168.0h0 M484.8 168.0h0 M486.7 168.0h0 M488.5 168.0h0 M490.3 115.3h0 M492.1 168.0h0 M492.7 168.0h0 M493.9 168.0h0 M495.7 168.0h0 M497.5 115.3h0 M499.3 115.3h0 M501.1 168.0h0 M502.9 168.0h0 M504.7 168.0h0 M506.5 168.0h0 M508.3 115.3h0 M510.1 168.0h0 M511.9 168.0h0 M513.7 168.0h0 M515.5 168.0h0 M517.3 168.0h0 M519.1 168.0h0 M520.9 168.0h0 M522.7 168.0h0 M524.5 168.0h0 M526.3 168.0h0 M528.1 168.0h0 M529.9 168.0h0 M531.7 168.0h0 M533.5 168.0h0 M533.6 168.0h0 M535.4 168.0h0 M536.5 168.0h0 M537.2 168.0h0 M538.0 168.0h0 M539.0 168.0h0 M540.8 168.0h0 M542.6 168.0h0 M544.4 168.0h0 M546.2 168.0h0 M546.4 168.0h0 M548.0 168.0h0 M549.8 168.0h0 M551.6 168.0h0 M553.4 168.0h0 M555.2 168.0h0 M557.0 168.0h0 M558.8 168.0h0 M560.6 168.0h0 M562.4 168.0h0 M564.2 168.0h0 M566.0 168.0h0 M567.8 168.0h0 M569.6 168.0h0 M571.4 168.0h0 M573.2 168.0h0 M575.0 168.0h0 M576.8 168.0h0 M578.6 168.0h0 M580.4 115.3h0 M582.2 168.0h0 M584.1 168.0h0 M585.9 115.3h0 M587.7 168.0h0 M589.5 168.0h0 M591.3 168.0h0 M593.1 115.3h0 M594.9 168.0h0 M596.7 168.0h0 M598.5 168.0h0 M600.3 168.0h0 M602.1 168.0h0 M603.9 168.0h0 M605.7 168.0h0 M607.5 168.0h0 M609.3 168.0h0 M611.1 168.0h0 M612.9 168.0h0 M614.7 168.0h0 M616.5 168.0h0 M618.3 168.0h0 M620.1 168.0h0 M621.9 168.0h0 M623.7 168.0h0 M625.5 168.0h0 M627.3 168.0h0 M629.1 168.0h0 M631.0 168.0h0" stroke="#00d4ff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="631.0" cy="168.0" r="3.4" fill="#00d4ff" stroke="#111827" stroke-width="1.2"/><path d="M 455.3 168.0 H 490.3 V 115.3 H 492.1 V 168.0 H 497.5 V 115.3 H 501.1 V 168.0 H 508.3 V 115.3 H 510.1 V 168.0 H 520.9 V 115.3 H 540.8 V 168.0 H 580.4 V 115.3 H 582.2 V 168.0 H 585.9 V 115.3 H 587.7 V 168.0 H 593.1 V 115.3 H 594.9 V 168.0 H 631.0" fill="none" stroke="#9d8cff" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 4"/><path d="M455.3 168.0h0 M455.4 168.0h0 M456.0 168.0h0 M457.8 168.0h0 M459.6 168.0h0 M461.4 168.0h0 M463.2 168.0h0 M465.0 168.0h0 M466.8 168.0h0 M468.6 168.0h0 M470.4 168.0h0 M472.2 168.0h0 M474.0 168.0h0 M475.8 168.0h0 M477.6 168.0h0 M479.4 168.0h0 M481.2 168.0h0 M483.0 168.0h0 M484.8 168.0h0 M486.7 168.0h0 M488.5 168.0h0 M490.3 115.3h0 M492.1 168.0h0 M492.7 168.0h0 M493.9 168.0h0 M495.7 168.0h0 M497.5 115.3h0 M499.3 115.3h0 M501.1 168.0h0 M502.9 168.0h0 M504.7 168.0h0 M506.5 168.0h0 M508.3 115.3h0 M510.1 168.0h0 M511.9 168.0h0 M513.7 168.0h0 M515.5 168.0h0 M517.3 168.0h0 M519.1 168.0h0 M520.9 115.3h0 M522.7 115.3h0 M524.5 115.3h0 M526.3 115.3h0 M528.1 115.3h0 M529.9 115.3h0 M531.7 115.3h0 M533.5 115.3h0 M533.6 115.3h0 M535.4 115.3h0 M536.5 115.3h0 M537.2 115.3h0 M538.0 115.3h0 M539.0 115.3h0 M540.8 168.0h0 M542.6 168.0h0 M544.4 168.0h0 M546.2 168.0h0 M546.4 168.0h0 M548.0 168.0h0 M549.8 168.0h0 M551.6 168.0h0 M553.4 168.0h0 M555.2 168.0h0 M557.0 168.0h0 M558.8 168.0h0 M560.6 168.0h0 M562.4 168.0h0 M564.2 168.0h0 M566.0 168.0h0 M567.8 168.0h0 M569.6 168.0h0 M571.4 168.0h0 M573.2 168.0h0 M575.0 168.0h0 M576.8 168.0h0 M578.6 168.0h0 M580.4 115.3h0 M582.2 168.0h0 M584.1 168.0h0 M585.9 115.3h0 M587.7 168.0h0 M589.5 168.0h0 M591.3 168.0h0 M593.1 115.3h0 M594.9 168.0h0 M596.7 168.0h0 M598.5 168.0h0 M600.3 168.0h0 M602.1 168.0h0 M603.9 168.0h0 M605.7 168.0h0 M607.5 168.0h0 M609.3 168.0h0 M611.1 168.0h0 M612.9 168.0h0 M614.7 168.0h0 M616.5 168.0h0 M618.3 168.0h0 M620.1 168.0h0 M621.9 168.0h0 M623.7 168.0h0 M625.5 168.0h0 M627.3 168.0h0 M629.1 168.0h0 M631.0 168.0h0" stroke="#9d8cff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="631.0" cy="168.0" r="3.4" fill="#9d8cff" stroke="#111827" stroke-width="1.2"/></svg></div><div class="trend-chart trend-narrow"><svg viewBox="0 0 340 190" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="nodata340" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="rgba(255,255,255,.03)"/><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,.16)" stroke-width="1.4"/></pattern></defs><rect x="26" y="141.7" width="306" height="52.7" fill="rgba(34,197,94,.07)"/><line x1="26" y1="168.0" x2="332" y2="168.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="172.6" text-anchor="end" fill="#22c55e" font-size="13" font-family="Inter,sans-serif" font-weight="600">0</text><rect x="26" y="89.0" width="306" height="52.7" fill="rgba(234,179,8,.07)"/><line x1="26" y1="115.3" x2="332" y2="115.3" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="119.9" text-anchor="end" fill="#eab308" font-size="13" font-family="Inter,sans-serif" font-weight="600">1</text><rect x="26" y="36.3" width="306" height="52.7" fill="rgba(249,115,22,.07)"/><line x1="26" y1="62.7" x2="332" y2="62.7" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="67.2" text-anchor="end" fill="#f97316" font-size="13" font-family="Inter,sans-serif" font-weight="600">2</text><rect x="26" y="-16.3" width="306" height="52.7" fill="rgba(255,107,107,.08)"/><line x1="26" y1="10.0" x2="332" y2="10.0" stroke="rgba(255,255,255,.10)" stroke-width="1"/><text x="20" y="14.6" text-anchor="end" fill="#ff6b6b" font-size="13" font-family="Inter,sans-serif" font-weight="600">3</text><line x1="27.8" y1="10" x2="27.8" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="27.8" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">12/08</text><line x1="115.2" y1="10" x2="115.2" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="115.2" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">14/08</text><line x1="202.7" y1="10" x2="202.7" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="202.7" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">16/08</text><line x1="290.1" y1="10" x2="290.1" y2="168" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="2 3"/><text x="290.1" y="186.0" text-anchor="middle" fill="rgba(232,237,245,.62)" font-size="13" font-family="Inter,sans-serif">18/08</text><rect x="26" y="10" width="306" height="158" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/><rect x="26.0" y="10" width="216.8" height="158" fill="url(#nodata340)"/><rect x="26.0" y="10" width="216.8" height="158" fill="url(#nodata340)"/><path d="M 242.8 168.0 H 260.4 V 115.3 H 261.3 V 168.0 H 264.1 V 115.3 H 265.9 V 168.0 H 269.5 V 115.3 H 270.4 V 168.0 H 306.0 V 115.3 H 306.9 V 168.0 H 308.7 V 115.3 H 309.6 V 168.0 H 312.3 V 115.3 H 313.3 V 168.0 H 331.5" fill="none" stroke="#00d4ff" stroke-width="2" stroke-linejoin="round"/><path d="M242.8 168.0h0 M242.8 168.0h0 M243.1 168.0h0 M244.0 168.0h0 M245.0 168.0h0 M245.9 168.0h0 M246.8 168.0h0 M247.7 168.0h0 M248.6 168.0h0 M249.5 168.0h0 M250.4 168.0h0 M251.3 168.0h0 M252.2 168.0h0 M253.1 168.0h0 M254.1 168.0h0 M255.0 168.0h0 M255.9 168.0h0 M256.8 168.0h0 M257.7 168.0h0 M258.6 168.0h0 M259.5 168.0h0 M260.4 115.3h0 M261.3 168.0h0 M261.7 168.0h0 M262.3 168.0h0 M263.2 168.0h0 M264.1 115.3h0 M265.0 115.3h0 M265.9 168.0h0 M266.8 168.0h0 M267.7 168.0h0 M268.6 168.0h0 M269.5 115.3h0 M270.4 168.0h0 M271.4 168.0h0 M272.3 168.0h0 M273.2 168.0h0 M274.1 168.0h0 M275.0 168.0h0 M275.9 168.0h0 M276.8 168.0h0 M277.7 168.0h0 M278.6 168.0h0 M279.6 168.0h0 M280.5 168.0h0 M281.4 168.0h0 M282.2 168.0h0 M282.3 168.0h0 M283.2 168.0h0 M283.8 168.0h0 M284.1 168.0h0 M284.6 168.0h0 M285.0 168.0h0 M285.9 168.0h0 M286.8 168.0h0 M287.8 168.0h0 M288.7 168.0h0 M288.8 168.0h0 M289.6 168.0h0 M290.5 168.0h0 M291.4 168.0h0 M292.3 168.0h0 M293.2 168.0h0 M294.1 168.0h0 M295.0 168.0h0 M295.9 168.0h0 M296.9 168.0h0 M297.8 168.0h0 M298.7 168.0h0 M299.6 168.0h0 M300.5 168.0h0 M301.4 168.0h0 M302.3 168.0h0 M303.2 168.0h0 M304.2 168.0h0 M305.1 168.0h0 M306.0 115.3h0 M306.9 168.0h0 M307.8 168.0h0 M308.7 115.3h0 M309.6 168.0h0 M310.5 168.0h0 M311.4 168.0h0 M312.3 115.3h0 M313.3 168.0h0 M314.2 168.0h0 M315.1 168.0h0 M316.0 168.0h0 M316.9 168.0h0 M317.8 168.0h0 M318.7 168.0h0 M319.6 168.0h0 M320.5 168.0h0 M321.5 168.0h0 M322.4 168.0h0 M323.3 168.0h0 M324.2 168.0h0 M325.1 168.0h0 M326.0 168.0h0 M326.9 168.0h0 M327.8 168.0h0 M328.7 168.0h0 M329.7 168.0h0 M330.6 168.0h0 M331.5 168.0h0" stroke="#00d4ff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="331.5" cy="168.0" r="3.4" fill="#00d4ff" stroke="#111827" stroke-width="1.2"/><path d="M 242.8 168.0 H 260.4 V 115.3 H 261.3 V 168.0 H 264.1 V 115.3 H 265.9 V 168.0 H 269.5 V 115.3 H 270.4 V 168.0 H 275.9 V 115.3 H 285.9 V 168.0 H 306.0 V 115.3 H 306.9 V 168.0 H 308.7 V 115.3 H 309.6 V 168.0 H 312.3 V 115.3 H 313.3 V 168.0 H 331.5" fill="none" stroke="#9d8cff" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 4"/><path d="M242.8 168.0h0 M242.8 168.0h0 M243.1 168.0h0 M244.0 168.0h0 M245.0 168.0h0 M245.9 168.0h0 M246.8 168.0h0 M247.7 168.0h0 M248.6 168.0h0 M249.5 168.0h0 M250.4 168.0h0 M251.3 168.0h0 M252.2 168.0h0 M253.1 168.0h0 M254.1 168.0h0 M255.0 168.0h0 M255.9 168.0h0 M256.8 168.0h0 M257.7 168.0h0 M258.6 168.0h0 M259.5 168.0h0 M260.4 115.3h0 M261.3 168.0h0 M261.7 168.0h0 M262.3 168.0h0 M263.2 168.0h0 M264.1 115.3h0 M265.0 115.3h0 M265.9 168.0h0 M266.8 168.0h0 M267.7 168.0h0 M268.6 168.0h0 M269.5 115.3h0 M270.4 168.0h0 M271.4 168.0h0 M272.3 168.0h0 M273.2 168.0h0 M274.1 168.0h0 M275.0 168.0h0 M275.9 115.3h0 M276.8 115.3h0 M277.7 115.3h0 M278.6 115.3h0 M279.6 115.3h0 M280.5 115.3h0 M281.4 115.3h0 M282.2 115.3h0 M282.3 115.3h0 M283.2 115.3h0 M283.8 115.3h0 M284.1 115.3h0 M284.6 115.3h0 M285.0 115.3h0 M285.9 168.0h0 M286.8 168.0h0 M287.8 168.0h0 M288.7 168.0h0 M288.8 168.0h0 M289.6 168.0h0 M290.5 168.0h0 M291.4 168.0h0 M292.3 168.0h0 M293.2 168.0h0 M294.1 168.0h0 M295.0 168.0h0 M295.9 168.0h0 M296.9 168.0h0 M297.8 168.0h0 M298.7 168.0h0 M299.6 168.0h0 M300.5 168.0h0 M301.4 168.0h0 M302.3 168.0h0 M303.2 168.0h0 M304.2 168.0h0 M305.1 168.0h0 M306.0 115.3h0 M306.9 168.0h0 M307.8 168.0h0 M308.7 115.3h0 M309.6 168.0h0 M310.5 168.0h0 M311.4 168.0h0 M312.3 115.3h0 M313.3 168.0h0 M314.2 168.0h0 M315.1 168.0h0 M316.0 168.0h0 M316.9 168.0h0 M317.8 168.0h0 M318.7 168.0h0 M319.6 168.0h0 M320.5 168.0h0 M321.5 168.0h0 M322.4 168.0h0 M323.3 168.0h0 M324.2 168.0h0 M325.1 168.0h0 M326.0 168.0h0 M326.9 168.0h0 M327.8 168.0h0 M328.7 168.0h0 M329.7 168.0h0 M330.6 168.0h0 M331.5 168.0h0" stroke="#9d8cff" stroke-opacity=".85" stroke-width="3.4" stroke-linecap="round" fill="none"/><circle cx="331.5" cy="168.0" r="3.4" fill="#9d8cff" stroke="#111827" stroke-width="1.2"/></svg></div><div data-lang="he"><p class="trend-note">
       החלון קבוע על 7 ימים גם כשההיסטוריה קצרה ממנו, כדי שלא ייווצר רושם שהמערכת
-      מודדת כבר שבוע. בחלון הזה יש <b>104</b> דגימות אמיתיות, הראשונה
-      ב-<bdi>16/08/2026&nbsp;22:01</bdi> והאחרונה ב-<bdi>18/08/2026&nbsp;22:12</bdi>.
+      מודדת כבר שבוע. בחלון הזה יש <b>105</b> דגימות אמיתיות, הראשונה
+      ב-<bdi>16/08/2026&nbsp;22:01</bdi> והאחרונה ב-<bdi>18/08/2026&nbsp;22:42</bdi>.
       הקו הוא <b>קו מדרגה</b>: רמה מוצגת כמוחזקת מרגע המדידה ועד המדידה הבאה.
       אין החלקה, אין ממוצע ואין נקודות מומצאות — כל קודקוד בקו הוא שורה שקיימת
       בקובץ הנתונים. פער של יותר מ-90 דקות בין דגימות נחתך בקו ומסומן בהצללה:
@@ -578,8 +580,8 @@ footer a:hover{color:var(--cyan)}
     </p></div><div data-lang="en"><p class="trend-note">
       The window stays fixed at 7 days even when the history is shorter, so the
       page never implies it has been measuring all week. This window holds
-      <b>104</b> real samples, the first at <bdi>16/08/2026&nbsp;22:01</bdi> and the
-      last at <bdi>18/08/2026&nbsp;22:12</bdi>. The line is a <b>step</b> line: a level
+      <b>105</b> real samples, the first at <bdi>16/08/2026&nbsp;22:01</bdi> and the
+      last at <bdi>18/08/2026&nbsp;22:42</bdi>. The line is a <b>step</b> line: a level
       is drawn as held from the sample that measured it until the next one. No
       smoothing, no averaging, no invented points — every vertex is a row that
       exists in the data file. A gap of more than 90 minutes between samples cuts
@@ -593,17 +595,26 @@ footer a:hover{color:var(--cyan)}
     <h3 class="legend-h">מתודולוגיית החישוב</h3>
 
     <p class="m-lead">כל מדד הוא <b>בוליאני</b> - דולק או כבוי - ולא ציון. הרמה היא
-    פשוט <b>כמה משפחות מדדים בלתי תלויות דולקות</b>. אין כאן ממוצע משוקלל ואין
-    ניקוד סובייקטיבי, כי ממוצע מאפשר לרעש חדשותי לדחוף את המחוון בלי שקרה דבר.</p>
+    פשוט <b>כמה משפחות מדדים דולקות</b>, אחרי מסנן גיוון-ספקים. אין כאן ממוצע
+    משוקלל ואין ניקוד סובייקטיבי, כי ממוצע מאפשר לרעש חדשותי לדחוף את המחוון בלי
+    שקרה דבר.</p>
 
     <details><summary>איך נקבעת הרמה</summary>
       <ul>
         <li><b>0 · רגוע</b> - אף משפחה לא דולקת.</li>
         <li><b>1 · מוגבר</b> - משפחה אחת.</li>
-        <li><b>2 · אזהרה</b> - שתי משפחות בלתי תלויות.</li>
+        <li><b>2 · אזהרה</b> - שתי משפחות, משני ספקי נתונים נפרדים לפחות.</li>
         <li><b>3 · קריטי</b> - שלוש ומעלה, <b>או</b> שינוי במדיניות ההתגוננות של
         פיקוד העורף, שמספיק לבדו: זו הפעולה היקרה והישראלית ביותר בסט.</li>
       </ul>
+      <p><b>מסנן גיוון-ספקים.</b> המשפחות מודדות התנהגויות שונות, אבל הן אינן
+      <b>תצפיות</b> בלתי-תלויות: שלוש מגיעות מ-adsb.lol, שלוש מ-IODA, שתיים
+      מ-tgju ושתיים מאותה קריאה למחלקת המדינה. תקלה אחת אצל ספק אחד יכולה הייתה
+      לייצר 🔴 שנראה כמו שלושה אישושים נפרדים. לכן משפחות שחולקות ספק תורמות
+      יחד <b>לכל היותר שני קולות</b>, ורמה 2 ומעלה מחייבת <b>שני ספקים נפרדים
+      לפחות</b>. המסנן יכול רק להוריד רמה, לעולם לא להעלות. יוצא דופן אחד
+      ומוצהר: שינוי במדיניות ההתגוננות מספיק לבדו — הוא אינו טענת אישוש
+      משלושה מקורות, אלא פעולה רשמית אחת של מדינת ישראל.</p>
       <p>מדדים המסומנים "אזורי" נספרים לשני המדדים. מדד שלא נקרא בבדיקה
       אינו יכול להידלק - ולכן כשמקור נופל מוצגת אזהרה מפורשת, שאחרת הדף היה
       נראה רגוע יותר מהמציאות.</p>
@@ -616,13 +627,16 @@ footer a:hover{color:var(--cyan)}
           <tr><td>מדיניות התגוננות</td><td>פיקוד העורף (API רשמי)</td>
               <td>כל שינוי בנוסח ההנחיות מול קו הבסיס השמור</td></tr>
           <tr><td>מרחב אווירי ישראל</td><td>adsb.lol</td>
-              <td>מספר המטוסים האזרחיים יורד מתחת ל-35% מהחציון</td></tr>
+              <td>מספר המטוסים האזרחיים יורד מתחת ל-35% מהחציון <b>וגם</b> מתחת
+              לאחוזון 10 של ההיסטוריה העצמית, <b>בשתי בדיקות רצופות</b>; אין
+              שיפוט כשהחציון נמוך מ-20</td></tr>
           <tr><td>מרחב אווירי ירדן</td><td>adsb.lol (שטח ירדן בלבד)</td>
               <td>שמיים כמעט ריקים בשתי בדיקות רצופות: מתחת ל-35% מהחציון,
               לכל היותר 2 מטוסים, ומתחת לאחוזון 10; אין שיפוט כשהחציון
               נמוך מ-5</td></tr>
           <tr><td>תעופה צבאית באזור</td><td>adsb.lol</td>
-              <td>פי 2 מהחציון, ולפחות 8 מטוסים מעליו</td></tr>
+              <td>פי 3 מהחציון <b>וגם</b> לפחות 20 מטוסים בערך מוחלט,
+              בשתי בדיקות רצופות</td></tr>
           <tr><td>אינטרנט באיראן (ארצי)</td><td>IODA · Georgia Tech</td>
               <td>נפילת BGP מתחת ל-85% מהחציון</td></tr>
           <tr><td>אינטרנט ברמת מחוז</td><td>IODA · 8 מחוזות</td>
@@ -652,6 +666,11 @@ footer a:hover{color:var(--cyan)}
         מספיק דגימות (כשש שעות מהפעלה).</li>
         <li><b>נוכחות אינה שינוי</b> - המערכת מתריעה על סטייה מקו בסיס, לא על
         עצם קיומו של ערך.</li>
+        <li><b>קו הבסיס מוקפא בזמן אירוע</b> - מדד שדולק מפסיק להזין את
+        ההיסטוריה של עצמו, כדי שאירוע ממושך לא ימחוק את הכלל שמזהה אותו.
+        ההקפאה מוגבלת ל-72 שעות, ומוצגת בשורת המדד.</li>
+        <li><b>גיוון ספקים</b> - משפחות שמגיעות מאותו ספק נתונים תורמות יחד
+        לכל היותר שני קולות, ורמה 2 ומעלה מחייבת שני ספקים נפרדים לפחות.</li>
         <li><b>אישור בשתי תצפיות</b> - אזהרות המסע נמדדות מול פיד שאינו יציב בין
         בקשה לבקשה, ולכן שינוי חייב לחזור פעמיים ברצף לפני שהוא נספר.</li>
         <li><b>מה שלא ניתן למדוד - מוצהר</b>, ולא מוצג כמחוון ירוק.</li>
@@ -699,19 +718,31 @@ footer a:hover{color:var(--cyan)}
     <h3 class="legend-h">Methodology</h3>
 
     <p class="m-lead">Every indicator is <b>boolean</b> — lit or unlit — not a score.
-    The level is simply <b>how many independent indicator families are lit</b>.
-    There is no weighted average and no subjective scoring, because an average
-    lets news noise push the dial when nothing has actually happened.</p>
+    The level is simply <b>how many indicator families are lit</b>, after a
+    provider-diversity guard. There is no weighted average and no subjective
+    scoring, because an average lets news noise push the dial when nothing has
+    actually happened.</p>
 
     <details><summary>How the level is decided</summary>
       <ul>
         <li><b>0 · Calm</b> — no family lit.</li>
         <li><b>1 · Elevated</b> — one family.</li>
-        <li><b>2 · Warning</b> — two independent families.</li>
+        <li><b>2 · Warning</b> — two families, from at least two separate data providers.</li>
         <li><b>3 · Critical</b> — three or more, <b>or</b> a change in Home Front
         Command defence policy, which is sufficient alone: it is the most
         expensive and most Israel-specific action in the set.</li>
       </ul>
+      <p><b>The provider-diversity guard.</b> The families measure different
+      behaviours, but they are not independent <b>observations</b>: three arrive
+      over adsb.lol, three over IODA, two over tgju and two over a single
+      State-Department fetch. One glitch at one provider could otherwise
+      manufacture a 🔴 that looks like three separate corroborations. So
+      families sharing a provider contribute <b>at most two votes between
+      them</b>, and level 2 or higher requires <b>at least two distinct
+      providers</b>. The guard can only lower a level, never raise one. One
+      documented exception: a Home Front Command defence-policy change is
+      sufficient alone — it is not a claim of corroboration across three
+      sources, but a single authoritative act of the Israeli government.</p>
       <p>Indicators tagged "regional" count for both indices. An indicator that
       could not be read cannot light — so when a source fails, an explicit warning
       is shown, because otherwise the page would look calmer than reality.</p>
@@ -724,13 +755,16 @@ footer a:hover{color:var(--cyan)}
           <tr><td>Defence policy</td><td>Home Front Command (official API)</td>
               <td>Any change of wording against the stored baseline</td></tr>
           <tr><td>Israeli airspace</td><td>adsb.lol</td>
-              <td>Civil aircraft count drops below 35% of the median</td></tr>
+              <td>Civil aircraft count drops below 35% of the median <b>and</b>
+              below the 10th percentile of its own history, <b>on two
+              consecutive checks</b>; not judged when the median is under 20</td></tr>
           <tr><td>Jordanian airspace</td><td>adsb.lol (Jordanian territory only)</td>
               <td>Nearly-empty skies on two consecutive checks: below 35% of the
               median, at most 2 aircraft, and below the 10th percentile; not
               judged when the median is under 5</td></tr>
           <tr><td>Regional military aviation</td><td>adsb.lol</td>
-              <td>2× the median, and at least 8 aircraft above it</td></tr>
+              <td>3× the median <b>and</b> at least 20 aircraft in absolute
+              terms, on two consecutive checks</td></tr>
           <tr><td>Iranian internet (national)</td><td>IODA · Georgia Tech</td>
               <td>BGP falls below 85% of the median</td></tr>
           <tr><td>Iranian internet (province)</td><td>IODA · 8 provinces</td>
@@ -760,6 +794,13 @@ footer a:hover{color:var(--cyan)}
         enough samples have accumulated (about six hours from start).</li>
         <li><b>Presence is not change</b> — the system alerts on deviation from a
         baseline, not on the mere existence of a value.</li>
+        <li><b>The baseline is frozen during an event</b> — a lit indicator
+        stops feeding its own history, so a sustained event cannot erase the
+        rule that detects it. The hold is capped at 72 hours and is shown on
+        the indicator's row.</li>
+        <li><b>Provider diversity</b> — families arriving over the same data
+        provider contribute at most two votes between them, and level 2 or
+        higher requires at least two separate providers.</li>
         <li><b>Two-observation confirmation</b> — travel advisories are measured
         against a feed that is unstable between requests, so a change must repeat
         twice in a row before it counts.</li>
@@ -866,13 +907,13 @@ const LVLS = {
   he: [
     {e:'🟢', t:'רגוע',  c:'var(--l0)', n:'לא נדלק אף מדד.'},
     {e:'🟡', t:'מוגבר', c:'var(--l1)', n:'משפחת מדדים אחת נדלקה. לרוב רעש — לא סיבה לשנות תוכניות.'},
-    {e:'🟠', t:'אזהרה', c:'var(--l2)', n:'שתי משפחות בלתי תלויות נדלקו יחד.'},
+    {e:'🟠', t:'אזהרה', c:'var(--l2)', n:'שתי משפחות נדלקו יחד, משני ספקי נתונים נפרדים לפחות.'},
     {e:'🔴', t:'קריטי', c:'var(--l3)', n:'שלוש משפחות ומעלה, או שינוי במדיניות ההתגוננות. עקבו אחרי פיקוד העורף.'}
   ],
   en: [
     {e:'🟢', t:'Calm',     c:'var(--l0)', n:'No indicator lit.'},
     {e:'🟡', t:'Elevated', c:'var(--l1)', n:'One indicator family lit. Usually noise — not a reason to change plans.'},
-    {e:'🟠', t:'Warning',  c:'var(--l2)', n:'Two independent families lit together.'},
+    {e:'🟠', t:'Warning',  c:'var(--l2)', n:'Two families lit together, from at least two separate data providers.'},
     {e:'🔴', t:'Critical', c:'var(--l3)', n:'Three or more families, or a change in defence policy. Follow the Home Front Command.'}
   ]
 };
@@ -904,7 +945,11 @@ const T = {
     summaryMax:  (mx, c, t) => `סיכום: הגבוה מבין השניים ברמה ${mx} — <span class="sv" style="color:${c}">${t}</span>`,
     notRead: 'לא נקרא בריצה האחרונה',
     ok: 'תקין',
-    range: r => `טווח רגיל בשבוע האחרון: ${r}`,
+    range: (r, key) => key === 'hormuz_gps'
+      ? `טווח רגיל ב-30 הימים האחרונים: ${r}`
+      : `טווח רגיל ביומיים האחרונים: ${r}`,
+    frozenHold: h => `⏸️ קו הבסיס מוקפא ${h} שעות — כדי שהאירוע לא ימחוק את הכלל שמזהה אותו`,
+    frozenExpired: '⏸️ קו הבסיס הוחזק 72 שעות ושוחרר — המדד דולק ברציפות זמן חריג',
     tagRegional: 'אזורי',
     tagContext: 'הקשר',
     sourceLink: '(מקור)',
@@ -950,7 +995,11 @@ const T = {
     summaryMax:  (mx, c, t) => `Summary: the higher of the two is at level ${mx} — <span class="sv" style="color:${c}">${t}</span>`,
     notRead: 'not read in the last run',
     ok: 'normal',
-    range: r => `Normal range this week: ${r}`,
+    range: (r, key) => key === 'hormuz_gps'
+      ? `Normal range, last 30 days: ${r}`
+      : `Normal range, last 48 h: ${r}`,
+    frozenHold: h => `⏸️ Baseline held for ${h} h — so the event cannot erase the rule that detects it`,
+    frozenExpired: '⏸️ The baseline was held for 72 h and has been released — this indicator has been lit for an unusually long time',
     tagRegional: 'regional',
     tagContext: 'context',
     sourceLink: '(source)',
@@ -1064,18 +1113,18 @@ function since(hist, key){
 const INFO = {
   hfc_policy: {
     what: 'נוסח הנחיות ההתגוננות שפיקוד העורף מפרסם ב-API הרשמי שלו. זהו <b>שינוי מדיניות</b>, לא אזעקה בזמן אמת.',
-    when: 'כשהנוסח משתנה מול קו הבסיס השמור, או כשמדיניות מגבילה בתוקף (כלומר לא "אין הגבלות").',
+    when: 'כשהנוסח משתנה מול קו הבסיס השמור. <b>שינוי בלבד</b> — עצם קיומה של מדיניות מגבילה אינו מדליק כאן דבר.',
     src: 'פיקוד העורף', url: 'https://www.oref.org.il/',
     what_en: 'The wording of the civil-defence instructions the Home Front Command publishes on its official API. This is a <b>policy change</b>, not a real-time siren.',
-    when_en: 'When the wording changes against the stored baseline, or while a restrictive policy is in effect (i.e. not "no restrictions").',
+    when_en: 'When the wording changes against the stored baseline. <b>Change only</b> — the mere existence of a restrictive policy lights nothing here.',
     src_en: 'Home Front Command'
   },
   il_airspace: {
     what: 'מספר המטוסים האזרחיים ברדיוס 250 מייל ימי סביב ישראל, בכל בדיקה.',
-    when: 'כשהמספר יורד מתחת ל-35% מהחציון ההיסטורי. חברות תעופה מפנות מרחב אווירי לפני שמישהו מכריז על כך.',
+    when: 'כשהמספר יורד מתחת ל-35% מהחציון ההיסטורי וגם מתחת לאחוזון 10 שלו, בשתי בדיקות רצופות. חברות תעופה מפנות מרחב אווירי לפני שמישהו מכריז על כך.',
     src: 'adsb.lol', url: 'https://adsb.lol/',
     what_en: 'The number of civil aircraft within 250 nautical miles of Israel, at every check.',
-    when_en: 'When the count falls below 35% of the historical median. Airlines vacate airspace before anyone announces anything.',
+    when_en: 'When the count falls below 35% of the historical median and below its own 10th percentile, on two consecutive checks. Airlines vacate airspace before anyone announces anything.',
     src_en: 'adsb.lol'
   },
   jo_airspace: {
@@ -1096,10 +1145,10 @@ const INFO = {
   },
   us_mil_air: {
     what: 'מספר המטוסים בעלי שדר צבאי באזור. מדד זה נספר <b>לשני המדדים</b>.',
-    when: 'בזינוק של פי 2 מהחציון, ולפחות 8 מטוסים מעליו — כדי ששינוי קטן במספרים נמוכים לא ידליק אותו.',
+    when: 'בזינוק של פי 3 מהחציון וגם לפחות 20 מטוסים בערך מוחלט, בשתי בדיקות רצופות. הסף המוחלט גבוה מכל ערך שנמדד ביומיים האחרונים, כי הפיד מתנדנד לפי שעות היום.',
     src: 'adsb.lol', url: 'https://adsb.lol/',
     what_en: 'The number of aircraft squawking military in the region. This indicator counts for <b>both indices</b>.',
-    when_en: 'On a surge to 2× the median, and at least 8 aircraft above it — so a small change at low counts cannot light it.',
+    when_en: 'On a surge to 3× the median and at least 20 aircraft in absolute terms, on two consecutive checks. The absolute floor sits above every value measured in the last 48 h, because the feed swings with the time of day.',
     src_en: 'adsb.lol'
   },
   ir_internet: {
@@ -1205,7 +1254,9 @@ function rows(ix){
       <div class="rw">
         <div class="nm">${esc(f(t, 'name'))}${tag}${src}</div>
         <div class="rs">${esc(rs)}</div>
-        ${t.range && !t.lit ? `<div class="rng">${esc(s.range(t.range))}</div>` : ''}
+        ${t.range && !t.lit ? `<div class="rng">${esc(s.range(t.range, t.key))}</div>` : ''}
+        ${t.frozen_expired ? `<div class="rng">${esc(s.frozenExpired)}</div>`
+          : (t.frozen ? `<div class="rng">${esc(s.frozenHold(t.frozen_hours))}</div>` : '')}
       </div>`;
     const inf = info(t);
     // A tripwire with no written explanation stays a plain row — an empty

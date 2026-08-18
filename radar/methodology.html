@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://kplns.com/radar/methodology.html">
 <meta name="theme-color" content="#0a1628">
 <title>מתודולוגיה — ראדאר הסלמה | KPLNS</title>
-<meta name="description" content="איך נקבעת רמת ההסלמה: אילו מדדים בלתי-תלויים נמדדים, מה מדליק כל אחד, על מה מבוססים הספים — ומה המערכת לא יכולה לעשות.">
+<meta name="description" content="איך נקבעת רמת ההסלמה: אילו מדדים נמדדים, מה מדליק כל אחד, על מה מבוססים הספים — ומה המערכת לא יכולה לעשות.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kplns.com/radar/methodology.html">
 <meta property="og:title" content="מתודולוגיה — ראדאר הסלמה ישראל ואיראן">
@@ -394,15 +394,44 @@ footer a:hover{color:var(--cyan)}
 
     <h3>מה נבנה במקום</h3>
     <p>כל מדד כאן הוא <b>בוליאני</b> — דולק או כבוי — ולא ציון. הרמה היא פשוט
-    <b>ספירה של כמה משפחות מדדים בלתי תלויות דולקות בו-זמנית</b>:</p>
+    <b>ספירה של כמה משפחות מדדים דולקות בו-זמנית</b>, אחרי מסנן גיוון-ספקים:</p>
     <div class="fx">
+      votes &nbsp;= &nbsp; <span class="c">// lit families, capped at 2 per data provider</span><br>
       level = 0 &nbsp; <span class="c">// no family lit</span><br>
-      level = 1 &nbsp; <span class="c">// exactly 1 family lit</span><br>
-      level = 2 &nbsp; <span class="c">// exactly 2 independent families</span><br>
-      level = 3 &nbsp; <span class="c">// 3+ families &nbsp;OR&nbsp; Home Front Command policy change</span>
+      level = 1 &nbsp; <span class="c">// 1 vote — or 2+ votes that all came from ONE provider</span><br>
+      level = 2 &nbsp; <span class="c">// exactly 2 votes, from 2+ distinct providers</span><br>
+      level = 3 &nbsp; <span class="c">// 3+ votes, from 2+ distinct providers &nbsp;OR&nbsp; Home Front Command policy change</span>
     </div>
     <p>"משפחה" היא מקור-התנהגות אחד, ולה <b>קול אחד</b> בלבד — לא משנה כמה פריטים
     בתוכה זזו. שני מחוזות באיראן שיורדים יחד הם עדיין קול אחד, לא שניים.</p>
+
+    <h3>למה לא כתוב כאן "משפחות בלתי תלויות"</h3>
+    <p>עד 18.8.2026 הדף הזה טען שהרמה סופרת משפחות <b>בלתי תלויות</b>. הטענה
+    הזו לא הייתה מדויקת, והיא תוקנה. המשפחות מודדות <b>התנהגויות שונות</b> —
+    צבא, מרחב אווירי, מטבע, לוויין — אבל הן אינן <b>תצפיות</b> בלתי-תלויות:
+    כמה מהן מגיעות לשרת דרך אותו צינור בדיוק.</p>
+    <ul>
+      <li><b>IODA</b>, מארח אחד: אינטרנט איראן (ארצי), אינטרנט איראן (ברמת
+      מחוז), אינטרנט במדינות שכנות — שלוש מתוך שש המשפחות בצד האיראני.</li>
+      <li><b>adsb.lol</b>, מארח אחד: מרחב אווירי ישראל, מרחב אווירי ירדן,
+      תעופה צבאית באזור — שלוש משפחות בצד הישראלי.</li>
+      <li><b>tgju</b>, כתובת אחת: הריאל, והרגל של נפט ברנט בתוך משפחת השווקים.</li>
+      <li><b>מחלקת המדינה האמריקאית</b>, קריאה אחת: שתי משפחות אזהרות המסע.</li>
+    </ul>
+    <p>המשמעות: תקלה אחת אצל ספק אחד יכולה הייתה לייצר 🔴 קריטי שנראה כמו
+    שלושה אישושים נפרדים ובלתי-תלויים. זו בדיוק הטעות שהדף הזה נבנה כדי לא
+    לעשות. מאז נאכף בקוד <b>מסנן גיוון-ספקים</b>, ולכל משפחה יש תגית ספק
+    מפורשת בקוד (לא ניחוש מתוך כתובת):</p>
+    <ul>
+      <li>משפחות שחולקות ספק תורמות יחד <b>לכל היותר שני קולות</b>;</li>
+      <li>רמה 2 ומעלה מחייבת קולות מ<b>שני ספקים נפרדים לפחות</b>;</li>
+      <li>המסנן יכול רק <b>להוריד</b> רמה — לעולם לא להעלות אותה.</li>
+    </ul>
+    <p>יוצא דופן אחד, ומוצהר: שינוי במדיניות ההתגוננות של פיקוד העורף מספיק
+    לבדו לרמה 3. הכלל הזה אינו טענה על אישוש מצטבר משלושה מקורות, אלא פעולה
+    רשמית אחת של מדינת ישראל שמתפרסמת ב-API הרשמי שלה. המסנן נועד למנוע
+    מתקלה אחת להתחזות לשלוש תצפיות — ואין לו מה לומר על כלל שמעולם לא טען
+    להיות שלוש.</p>
     </div>
     <div data-lang="en">
     <h2><span class="num">02</span> Why tripwires and not a weighted score</h2>
@@ -441,17 +470,56 @@ footer a:hover{color:var(--cyan)}
 
     <h3>What was built instead</h3>
     <p>Every indicator here is <b>boolean</b> — lit or unlit — not a score. The
-    level is simply <b>a count of how many independent indicator families are
-    lit at once</b>:</p>
+    level is simply <b>a count of how many indicator families are lit at
+    once</b>, passed through a provider-diversity guard:</p>
     <div class="fx">
+      votes &nbsp;= &nbsp; <span class="c">// lit families, capped at 2 per data provider</span><br>
       level = 0 &nbsp; <span class="c">// no family lit</span><br>
-      level = 1 &nbsp; <span class="c">// exactly 1 family lit</span><br>
-      level = 2 &nbsp; <span class="c">// exactly 2 independent families</span><br>
-      level = 3 &nbsp; <span class="c">// 3+ families &nbsp;OR&nbsp; Home Front Command policy change</span>
+      level = 1 &nbsp; <span class="c">// 1 vote — or 2+ votes that all came from ONE provider</span><br>
+      level = 2 &nbsp; <span class="c">// exactly 2 votes, from 2+ distinct providers</span><br>
+      level = 3 &nbsp; <span class="c">// 3+ votes, from 2+ distinct providers &nbsp;OR&nbsp; Home Front Command policy change</span>
     </div>
     <p>A "family" is one source of behaviour, and it holds exactly <b>one
     vote</b> — no matter how many items inside it moved. Two Iranian provinces
     dropping together are still one vote, not two.</p>
+
+    <h3>Why this page no longer says "independent families"</h3>
+    <p>Until 18 Aug 2026 this page claimed the level counted
+    <b>independent</b> families. That claim was not accurate, and it has been
+    corrected. The families measure <b>different behaviours</b> — an army, an
+    airspace, a currency, a satellite — but they are not independent
+    <b>observations</b>: several of them reach the server down the very same
+    pipe.</p>
+    <ul>
+      <li><b>IODA</b>, one host: Iranian internet (national), Iranian internet
+      (province level), neighbouring-state internet — three of the six families
+      on the Iranian side.</li>
+      <li><b>adsb.lol</b>, one host: Israeli airspace, Jordanian airspace,
+      regional military aviation — three families on the Israeli side.</li>
+      <li><b>tgju</b>, one URL: the rial, and the Brent-crude leg inside the
+      markets family.</li>
+      <li><b>The US State Department</b>, one fetch: both travel-advisory
+      families.</li>
+    </ul>
+    <p>What that meant: one glitch at one provider could have manufactured a
+    🔴 CRITICAL that looked like three separate, independent corroborations —
+    exactly the mistake this page was built to avoid. A
+    <b>provider-diversity guard</b> is now enforced in code, and every family
+    carries an explicit provider tag in the source (not a guess parsed out of
+    a URL):</p>
+    <ul>
+      <li>families sharing a provider contribute <b>at most two votes between
+      them</b>;</li>
+      <li>a level of 2 or higher must draw on <b>at least two distinct
+      providers</b>;</li>
+      <li>the guard can only ever <b>lower</b> a level — never raise one.</li>
+    </ul>
+    <p>One exception, stated openly: a Home Front Command defence-policy change
+    is still sufficient alone for level 3. That rule is not a claim of
+    corroboration across three sources; it is a single authoritative act of the
+    Israeli government, published on its own official API. The guard exists to
+    stop one glitch impersonating three observations, and it has nothing to say
+    about a rule that never claimed to be three.</p>
     </div>
   </section>
 
@@ -714,10 +782,12 @@ footer a:hover{color:var(--cyan)}
       <thead><tr><th>מדד</th><th>מקור</th><th>מה מדליק</th><th>לאיזה מדד</th></tr></thead>
       <tbody>
         <tr><td>מדיניות התגוננות</td><td>פיקוד העורף (API רשמי)</td>
-            <td>כל שינוי בנוסח ההנחיות מול קו הבסיס השמור, <b>או</b> מדיניות מגבילה
-            שנמצאת בתוקף (כלומר לא "אין הגבלות")</td><td>🇮🇱 ישראל</td></tr>
+            <td>כל שינוי בנוסח ההנחיות מול קו הבסיס השמור. <b>שינוי בלבד</b> —
+            עצם קיומה של מדיניות מגבילה אינו מדליק כאן דבר</td><td>🇮🇱 ישראל</td></tr>
         <tr><td>מרחב אווירי ישראל</td><td>adsb.lol</td>
-            <td class="num-cell">מטוסים אזרחיים &lt; 35% מהחציון</td><td>🇮🇱 ישראל</td></tr>
+            <td>מטוסים אזרחיים &lt; 35% מהחציון, <b>וגם</b> מתחת לאחוזון 10 של
+            ההיסטוריה העצמית, <b>בשתי בדיקות רצופות</b>; אין שיפוט כשהחציון
+            &lt; 20</td><td>🇮🇱 ישראל</td></tr>
         <tr><td>מרחב אווירי ירדן</td><td>adsb.lol (שתי תיבות שהן חד-משמעית ירדן:
             29.2–32.3°N 35.75–36.5°E והרצועה 32.2–32.7°N 37.2–39.2°E — בלי
             תנועה ישראלית ובלי הנתיב הסעודי)</td>
@@ -742,8 +812,9 @@ footer a:hover{color:var(--cyan)}
             <td>היחס היומי של מטוסים המדווחים על דיוק GPS ירוד ≥ פי 3 מחציון
             הימים הקודמים (עד 30 יום), ולפחות 5% בערך מוחלט; יום עם פחות
             מ-1,000 תצפיות אינו נשפט</td><td>🇮🇷 איראן</td></tr>
-        <tr><td>תעופה צבאית אמריקאית</td><td>adsb.lol (משבצת 12–40°N, 25–60°E)</td>
-            <td class="num-cell">n &gt; max(2 × חציון, חציון + 8)</td><td>🌐 אזורי — נספר לשניהם</td></tr>
+        <tr><td>תעופה צבאית באזור</td><td>adsb.lol (משבצת 12–40°N, 25–60°E)</td>
+            <td class="num-cell">n &gt; max(3 × חציון, 20), בשתי בדיקות
+            רצופות</td><td>🌐 אזורי — נספר לשניהם</td></tr>
         <tr><td>שווקים — ברנט ושקל</td><td>tgju (ברנט) · בנק ישראל (דולר-שקל)</td>
             <td>כיוון הסלמה בלבד: ברנט ≥ 108% מהחציון, או שער הדולר-שקל
             ≥ 103% מהחציון (היחלשות שקל). קול אחד למשפחה</td>
@@ -758,7 +829,7 @@ footer a:hover{color:var(--cyan)}
       </tbody>
     </table></div>
 
-    <p>שלושה כללים שמופיעים בטבלה ומקורם בכישלון או במדידה אמיתית, לא בתיאוריה:</p>
+    <p>שישה כללים שמופיעים בטבלה ומקורם בכישלון או במדידה אמיתית, לא בתיאוריה:</p>
     <ul>
       <li><b>למה נדרשים שני מחוזות ולא אחד:</b> מחוז בודד שיורד הוא בדרך כלל תחזוקת
       תשתית או חור בכיסוי הדיווח. שני מחוזות שיורדים יחד זו כבר התנהגות ברמת מדינה.
@@ -777,6 +848,37 @@ footer a:hover{color:var(--cyan)}
       ערך מתחת לאחוזון 10 של ההיסטוריה העצמית — כך ששעות שבהן ריק זה נורמלי
       אינן יכולות להדליק — ושתי בדיקות רצופות. המחיר, והוא נאמר ביושר: סגירה
       חלקית או קצרה עלולה לחמוק.</li>
+      <li><b>למה גם מדד ישראל קיבל את אותם שני מגנים (18.8.2026):</b> עד אז
+      הוא נדלק על <b>תצפית בודדת</b> של ירידה מתחת ל-35% מהחציון, בלי אחוזון
+      ובלי אישור. בחלון 48 השעות השמור כבר יש דגימה חריגה של 33 מטוסים מול
+      54–68 באותה שעה. בשעות לילה, כשהחציון עצמו נמוך, מספיקה דגימה שגויה
+      אחת כדי להעיר אדם ב-03:00. לכן נוסף אחוזון 10 של ההיסטוריה העצמית
+      ואישור בשתי בדיקות רצופות. מה <b>לא</b> אומץ מירדן: התקרה המוחלטת של
+      "≤2 מטוסים". היא מכוילת לפיד של 5–15 מטוסים; בקנה המידה של ישראל
+      (חציון 78) היא הייתה גורמת רק להחמצות.</li>
+      <li><b>למה סף התעופה הצבאית הועלה (18.8.2026):</b> הכלל הישן,
+      n &gt; max(2×חציון, חציון+8), נדלק בחציון 4 כבר ב-12 מטוסים — רק 2 מעל
+      הקצה העליון של "הטווח הרגיל 1–10" שהדף עצמו מדפיס באותה שורה. הרצה
+      חוזרת של הכלל על 96 הדגימות השמורות הדליקה אותו <b>ארבע פעמים</b> על
+      נתונים רגילים לחלוטין (10 מול חציון 1, 13 מול 2, 11 מול 2, 14 מול 4),
+      וביומן ההרצה נשלחו שלוש הודעות 🟡 בארבע שעות. הפיד מתנדנד לפי שעות
+      היום, כך שאשכול יום שנמדד מול חציון של שפל לילה מייצר "זינוק" יש מאין.
+      הפילוג הנמדד: חציון 4, אחוזון 90 = 10, אחוזון 95 = 11, אחוזון 99 = 14,
+      מקסימום 14. הסף המוחלט החדש, 20, נמצא 43% מעל הערך הגבוה ביותר שנמדד
+      אי־פעם, והמכפיל עלה מפי 2 לפי 3, בתוספת אישור בשתי בדיקות. באותה הרצה
+      חוזרת הכלל החדש נדלק <b>אפס פעמים</b>.</li>
+      <li><b>קו הבסיס מוקפא כל עוד המדד דולק (18.8.2026):</b> כל כלל חציון כאן
+      נמדד מול 96 הדגימות האחרונות (כ-48 שעות) — וחלון זה כלל בעבר גם את
+      האירוע עצמו. דוגמה מהנתונים החיים: חציון המרחב האווירי הישראלי הוא 78,
+      כלומר סף של 27. אם התנועה קורסת ל-20 ונשארת שם, אחרי כ-24 שעות החציון
+      המתגלגל הוא כ-26.5 והסף כ-9.3 — והמדד <b>נכבה בזמן שהקריסה נמשכת</b>,
+      והדף חוזר ל-🟢 רגוע. מערכת שמוכרת שכבת התארגנות של 1–3 ימים לא יכולה
+      שקווי הבסיס שלה יתמוססו בתוך אירוע של 1–3 ימים. לכן משפחה שדולקת
+      מפסיקה להזין את הסדרה של עצמה, ונשפטת מול קו הבסיס שלפני האירוע.
+      ההקפאה חסומה ב-144 דגימות = <b>72 שעות</b> — יותר מחלון 48 השעות ויותר
+      מטווח 1–3 הימים שהדף מבטיח — וכשהיא פגה הדבר מוצג בשורת המדד ונשלחת
+      התרעה, כי מדד שדולק ברציפות שלושה ימים הוא או אירוע חריג מאוד או פיד
+      תקוע.</li>
     </ul>
     </div>
     <div data-lang="en">
@@ -790,10 +892,12 @@ footer a:hover{color:var(--cyan)}
       <tbody>
         <tr><td>Defence policy</td><td>Home Front Command (official API)</td>
             <td>Any change of the instructions' wording against the stored
-            baseline, <b>or</b> a restrictive policy in effect (i.e. not
-            "no restrictions")</td><td>🇮🇱 Israel</td></tr>
+            baseline. <b>Change only</b> — the mere existence of a restrictive
+            policy lights nothing here</td><td>🇮🇱 Israel</td></tr>
         <tr><td>Israeli airspace</td><td>adsb.lol</td>
-            <td class="num-cell">civil aircraft &lt; 35% of the median</td><td>🇮🇱 Israel</td></tr>
+            <td>civil aircraft &lt; 35% of the median, <b>and</b> below the
+            10th percentile of its own history, <b>on two consecutive
+            checks</b>; not judged when the median is &lt; 20</td><td>🇮🇱 Israel</td></tr>
         <tr><td>Jordanian airspace</td><td>adsb.lol (two boxes that are
             unambiguously Jordan: 29.2–32.3°N 35.75–36.5°E and the strip
             32.2–32.7°N 37.2–39.2°E — no Israeli traffic, no Saudi
@@ -824,8 +928,9 @@ footer a:hover{color:var(--cyan)}
             ≥ 3× the median of the preceding days (up to 30 days), and at
             least 5% in absolute terms; a day with fewer than 1,000
             observations is not judged</td><td>🇮🇷 Iran</td></tr>
-        <tr><td>US military aviation</td><td>adsb.lol (box 12–40°N, 25–60°E)</td>
-            <td class="num-cell">n &gt; max(2 × median, median + 8)</td><td>🌐 Regional — counts for both</td></tr>
+        <tr><td>Military aviation in the region</td><td>adsb.lol (box 12–40°N, 25–60°E)</td>
+            <td class="num-cell">n &gt; max(3 × median, 20), on two consecutive
+            checks</td><td>🌐 Regional — counts for both</td></tr>
         <tr><td>Markets — Brent and the shekel</td><td>tgju (Brent) · Bank of Israel (USD/ILS)</td>
             <td>Escalation direction only: Brent ≥ 108% of the median, or the
             USD/ILS rate ≥ 103% of the median (shekel weakening). One vote per
@@ -842,7 +947,7 @@ footer a:hover{color:var(--cyan)}
       </tbody>
     </table></div>
 
-    <p>Three rules in the table come from real failure or real measurement, not from theory:</p>
+    <p>Six rules in the table come from real failure or real measurement, not from theory:</p>
     <ul>
       <li><b>Why two provinces and not one:</b> a single province dropping is
       usually infrastructure maintenance or a hole in reporting coverage. Two
@@ -867,6 +972,45 @@ footer a:hover{color:var(--cyan)}
       own history — so hours at which empty is normal cannot light it — and
       two consecutive checks. The price, stated honestly: a partial or short
       closure may slip through.</li>
+      <li><b>Why the Israel indicator was given the same two guards
+      (18 Aug 2026):</b> until then it lit on a <b>single observation</b> of a
+      drop below 35% of the median — no percentile floor, no confirmation. The
+      stored 48 h window already holds an anomalous sample of 33 aircraft
+      against 54–68 in the same hour. At night, when the median is itself low,
+      one bad sample is enough to wake a human at 03:00. So it now also
+      requires a value below the 10th percentile of its own history, confirmed
+      on two consecutive checks. What was deliberately <b>not</b> copied from
+      Jordan: the absolute "≤2 aircraft" ceiling. That is calibrated to a
+      5–15 aircraft feed; at Israel's scale (median 78) it could only ever
+      cause misses.</li>
+      <li><b>Why the military-aviation threshold was raised (18 Aug 2026):</b>
+      the old rule, n &gt; max(2×median, median+8), fired at a median of 4 from
+      just 12 aircraft — only 2 above the top of the "normal range 1–10" the
+      page itself prints on that very row. Replayed over the 96 stored samples
+      it fired <b>four times</b> on entirely ordinary data (10 against a median
+      of 1, 13 against 2, 11 against 2, 14 against 4), and the run log shows
+      three 🟡 notifications inside four hours. The feed swings with the time of
+      day, so a daytime cluster measured against a night-lull median
+      manufactures a "surge" out of nothing. The measured distribution: median
+      4, p90 = 10, p95 = 11, p99 = 14, max = 14. The new absolute floor of 20
+      sits 43% above the highest value ever measured, the multiplier rose from
+      2× to 3×, and two consecutive checks are now required. On the same
+      replay the new rule fired <b>zero times</b>.</li>
+      <li><b>The baseline is frozen while an indicator is lit
+      (18 Aug 2026):</b> every median rule here is measured against the last 96
+      samples (~48 h) — and that window used to include the event itself.
+      Worked from live data: the Israeli-airspace median is 78, so the
+      threshold is 27. If traffic collapses to 20 and stays there, after about
+      24 hours the rolling median is ≈26.5 and the threshold ≈9.3 — and the
+      indicator <b>goes out while the collapse is still happening</b>, and the
+      page returns to 🟢 calm. A system sold as a 1–3 day preparation layer
+      cannot have baselines that dissolve inside a 1–3 day event. So a lit
+      family stops feeding its own series and is judged against the pre-event
+      baseline. The hold is capped at 144 samples = <b>72 hours</b> — longer
+      than the 48 h window and longer than the 1–3 day horizon the page
+      promises — and when it expires that is shown on the indicator's row and
+      alerted, because an indicator lit continuously for three days is either a
+      very unusual event or a stuck feed.</li>
     </ul>
     </div>
   </section>
@@ -1219,7 +1363,13 @@ footer a:hover{color:var(--cyan)}
       12 דגימות. עד אז הוא לא יכול להידלק — וגם לא מתיימר.</li>
       <li><b>נוכחות אינה שינוי.</b> המערכת מתריעה על סטייה מקו בסיס, לא על עצם
       קיומו של ערך. (הכלל הזה נולד מהתרעת שווא: חיפוש הביטוי "ordered departure"
-      בכל הפיד נדלק על שבע מדינות לא קשורות, שנושאות אותו כטקסט קבוע.)</li>
+      בכל הפיד נדלק על שבע מדינות לא קשורות, שנושאות אותו כטקסט קבוע.)
+      ב-18.8.2026 נמצא שהקוד עצמו הפר את הכלל במקום אחד — מדד מדיניות
+      ההתגוננות נדלק גם על <i>נוכחות</i> של נוסח מגביל, וזה המדד היחיד
+      שמספיק לבדו לרמה 3 — והתיקון בוצע. כעת הוא נדלק על שינוי בלבד.
+      <b>מגבלה שנובעת מכך, ונאמרת במפורש:</b> מדיניות מגבילה שהייתה כבר
+      בתוקף כשקו הבסיס נשמר לראשונה אינה מדליקה דבר. היא <i>מוצגת</i> בשורת
+      המדד ("הנחיות מגבילות בתוקף"), אבל אינה מעלה רמה.</li>
       <li><b>מקור שנפל מוצג כאזהרה, לא כשקט.</b> זו נקודה קריטית: מדד שלא נקרא
       אינו יכול להידלק, ולכן <b>תקלה בפיד גורמת לדף להיראות רגוע יותר מהמציאות</b>.
       לכן כשמקור נופל מופיעה הודעה מפורשת ש"ייתכן שהרמה מדווחת בחסר".</li>
@@ -1239,7 +1389,14 @@ footer a:hover{color:var(--cyan)}
       baseline, not on the mere existence of a value. (This rule was born from
       a false alarm: searching the whole feed for the phrase "ordered
       departure" lit on seven unrelated countries that carry it as standing
-      text.)</li>
+      text.) On 18 Aug 2026 the code was found to be breaking this rule in one
+      place — the defence-policy indicator also lit on the mere <i>presence</i>
+      of restrictive wording, and it is the one indicator that is sufficient
+      alone for level 3 — and that was fixed. It now lights on change only.
+      <b>The limitation that follows, stated plainly:</b> a restrictive policy
+      that was already in force when the baseline was first stored lights
+      nothing. It is <i>displayed</i> on the indicator's row ("restrictive
+      guidance in effect") but it does not raise a level.</li>
       <li><b>A failed source is shown as a warning, not as quiet.</b> This is
       the critical point: an indicator that was not read cannot light, so
       <b>a feed failure makes the page look calmer than reality</b>. That is
