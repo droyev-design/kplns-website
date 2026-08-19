@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-19T07:42:28+00:00",
+ "generated": "2026-08-19T08:42:34+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -669,6 +669,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787127154,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787128954,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -718,8 +730,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "103 מטוסים אזרחיים באזור",
-     "value_en": "103 civil aircraft in the area",
+     "value": "116 מטוסים אזרחיים באזור",
+     "value_en": "116 civil aircraft in the area",
      "range": "57–102"
     },
     {
@@ -736,9 +748,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים מעל ירדן",
-     "value_en": "4 aircraft over Jordan",
-     "range": "2–10"
+     "value": "5 מטוסים מעל ירדן",
+     "value_en": "5 aircraft over Jordan",
+     "range": "2–9"
     },
     {
      "key": "advisories_il",
@@ -772,8 +784,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "11 מטוסים צבאיים באזור",
-     "value_en": "11 military aircraft in the area",
+     "value": "8 מטוסים צבאיים באזור",
+     "value_en": "8 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -790,8 +802,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.7 · דולר 2.99 ₪",
-     "value_en": "Brent $91.7 · USD 2.99 ILS",
+     "value": "ברנט $91.5 · דולר 2.99 ₪",
+     "value_en": "Brent $91.5 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -860,8 +872,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,607 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,607 BGP routes)",
+     "value": "קישוריות תקינה (41,594 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,594 BGP routes)",
      "range": "41,555–41,633"
     },
     {
@@ -914,8 +926,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,870,100 ריאל לדולר",
-     "value_en": "1,870,100 rial to the dollar",
+     "value": "1,885,900 ריאל לדולר",
+     "value_en": "1,885,900 rial to the dollar",
      "range": "1,864,950–1,871,000"
     },
     {
@@ -968,8 +980,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "11 מטוסים צבאיים באזור",
-     "value_en": "11 military aircraft in the area",
+     "value": "8 מטוסים צבאיים באזור",
+     "value_en": "8 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -986,8 +998,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.7 · דולר 2.99 ₪",
-     "value_en": "Brent $91.7 · USD 2.99 ILS",
+     "value": "ברנט $91.5 · דולר 2.99 ₪",
+     "value_en": "Brent $91.5 · USD 2.99 ILS",
      "range": ""
     },
     {
