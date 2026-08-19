@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-19T15:12:28+00:00",
+ "generated": "2026-08-19T15:42:29+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -759,6 +759,12 @@
    "il": 1,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787154149,
+   "il": 0,
+   "ir": 0,
+   "deg": 1
   }
  ],
  "indices": [
@@ -767,15 +773,13 @@
    "flag": "🇮🇱",
    "name": "ישראל",
    "name_en": "Israel",
-   "level": 1,
+   "level": 0,
    "guard": {
-    "families": 2,
-    "votes": 2,
-    "providers": [
-     "adsb.lol"
-    ],
+    "families": 0,
+    "votes": 0,
+    "providers": [],
     "capped": false,
-    "single_provider_clamp": true
+    "single_provider_clamp": false
    },
    "tripwires": [
     {
@@ -803,15 +807,15 @@
      "provider": "adsb.lol",
      "shared": false,
      "context": false,
-     "lit": true,
-     "frozen": false,
-     "frozen_hours": 0,
+     "lit": false,
+     "frozen": true,
+     "frozen_hours": 0.0,
      "frozen_expired": false,
-     "ok": true,
-     "reason": "תנועה אזרחית קרסה: 0 מטוסים מול חציון 78 (שתי בדיקות רצופות)",
-     "reason_en": "Civil traffic collapsed: 0 aircraft vs a median of 78 (two consecutive checks)",
-     "value": "0 מטוסים אזרחיים באזור",
-     "value_en": "0 civil aircraft in the area",
+     "ok": false,
+     "reason": "",
+     "reason_en": "",
+     "value": "",
+     "value_en": "",
      "range": "57–105"
     },
     {
@@ -821,15 +825,15 @@
      "provider": "adsb.lol",
      "shared": false,
      "context": false,
-     "lit": true,
-     "frozen": false,
-     "frozen_hours": 0,
+     "lit": false,
+     "frozen": true,
+     "frozen_hours": 0.0,
      "frozen_expired": false,
      "ok": true,
-     "reason": "המרחב האווירי הירדני התרוקן: 0 מטוסים מול חציון 5 (שתי בדיקות רצופות)",
-     "reason_en": "Jordanian airspace emptied: 0 aircraft vs a median of 5 (two consecutive checks)",
-     "value": "0 מטוסים מעל ירדן",
-     "value_en": "0 aircraft over Jordan",
+     "reason": "",
+     "reason_en": "",
+     "value": "9 מטוסים מעל ירדן",
+     "value_en": "9 aircraft over Jordan",
      "range": "2–9"
     },
     {
@@ -864,8 +868,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים צבאיים באזור",
-     "value_en": "0 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -882,8 +886,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.4 · דולר 2.98 ₪",
-     "value_en": "Brent $91.4 · USD 2.98 ILS",
+     "value": "ברנט $92.1 · דולר 2.98 ₪",
+     "value_en": "Brent $92.1 · USD 2.98 ILS",
      "range": ""
     },
     {
@@ -918,8 +922,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "57/100",
-     "value_en": "57/100",
+     "value": "59/100",
+     "value_en": "59/100",
      "range": ""
     }
    ]
@@ -952,8 +956,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,576 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,576 BGP routes)",
+     "value": "קישוריות תקינה (41,569 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,569 BGP routes)",
      "range": "41,553–41,633"
     },
     {
@@ -1006,8 +1010,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,890,000 ריאל לדולר",
-     "value_en": "1,890,000 rial to the dollar",
+     "value": "1,889,900 ריאל לדולר",
+     "value_en": "1,889,900 rial to the dollar",
      "range": "1,865,000–1,889,000"
     },
     {
@@ -1060,8 +1064,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים צבאיים באזור",
-     "value_en": "0 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -1078,8 +1082,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.4 · דולר 2.98 ₪",
-     "value_en": "Brent $91.4 · USD 2.98 ILS",
+     "value": "ברנט $92.1 · דולר 2.98 ₪",
+     "value_en": "Brent $92.1 · USD 2.98 ILS",
      "range": ""
     },
     {
@@ -1114,8 +1118,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "57/100",
-     "value_en": "57/100",
+     "value": "59/100",
+     "value_en": "59/100",
      "range": ""
     }
    ],
@@ -1131,8 +1135,12 @@
    ]
   }
  ],
- "sources_ok": 13,
+ "sources_ok": 12,
  "sources_total": 13,
- "degraded": [],
- "degraded_en": []
+ "degraded": [
+  "מרחב אווירי ישראל"
+ ],
+ "degraded_en": [
+  "Israeli airspace"
+ ]
 }
