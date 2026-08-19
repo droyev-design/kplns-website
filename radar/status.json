@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-19T15:42:29+00:00",
+ "generated": "2026-08-19T16:12:27+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -765,6 +765,12 @@
    "il": 0,
    "ir": 0,
    "deg": 1
+  },
+  {
+   "t": 1787155947,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -808,15 +814,15 @@
      "shared": false,
      "context": false,
      "lit": false,
-     "frozen": true,
-     "frozen_hours": 0.0,
+     "frozen": false,
+     "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": false,
+     "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "",
-     "value_en": "",
-     "range": "57–105"
+     "value": "52 מטוסים אזרחיים באזור",
+     "value_en": "52 civil aircraft in the area",
+     "range": "56–105"
     },
     {
      "key": "jo_airspace",
@@ -826,15 +832,15 @@
      "shared": false,
      "context": false,
      "lit": false,
-     "frozen": true,
-     "frozen_hours": 0.0,
+     "frozen": false,
+     "frozen_hours": 0,
      "frozen_expired": false,
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "9 מטוסים מעל ירדן",
-     "value_en": "9 aircraft over Jordan",
-     "range": "2–9"
+     "value": "17 מטוסים מעל ירדן",
+     "value_en": "17 aircraft over Jordan",
+     "range": "2–10"
     },
     {
      "key": "advisories_il",
@@ -868,8 +874,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -922,8 +928,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "59/100",
-     "value_en": "59/100",
+     "value": "60/100",
+     "value_en": "60/100",
      "range": ""
     }
    ]
@@ -956,8 +962,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,569 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,569 BGP routes)",
+     "value": "קישוריות תקינה (41,561 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,561 BGP routes)",
      "range": "41,553–41,633"
     },
     {
@@ -1012,7 +1018,7 @@
      "reason_en": "",
      "value": "1,889,900 ריאל לדולר",
      "value_en": "1,889,900 rial to the dollar",
-     "range": "1,865,000–1,889,000"
+     "range": "1,865,000–1,889,900"
     },
     {
      "key": "advisories_ir",
@@ -1064,8 +1070,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -1118,8 +1124,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "59/100",
-     "value_en": "59/100",
+     "value": "60/100",
+     "value_en": "60/100",
      "range": ""
     }
    ],
@@ -1135,12 +1141,8 @@
    ]
   }
  ],
- "sources_ok": 12,
+ "sources_ok": 13,
  "sources_total": 13,
- "degraded": [
-  "מרחב אווירי ישראל"
- ],
- "degraded_en": [
-  "Israeli airspace"
- ]
+ "degraded": [],
+ "degraded_en": []
 }
