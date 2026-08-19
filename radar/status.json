@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-19T12:42:28+00:00",
+ "generated": "2026-08-19T13:13:15+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -729,6 +729,12 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787145195,
+   "il": 0,
+   "ir": 0,
+   "deg": 1
   }
  ],
  "indices": [
@@ -775,11 +781,11 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": true,
+     "ok": false,
      "reason": "",
      "reason_en": "",
-     "value": "114 מטוסים אזרחיים באזור",
-     "value_en": "114 civil aircraft in the area",
+     "value": "",
+     "value_en": "",
      "range": "58–105"
     },
     {
@@ -798,7 +804,7 @@
      "reason_en": "",
      "value": "5 מטוסים מעל ירדן",
      "value_en": "5 aircraft over Jordan",
-     "range": "2–10"
+     "range": "2–9"
     },
     {
      "key": "advisories_il",
@@ -832,8 +838,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "8 מטוסים צבאיים באזור",
+     "value_en": "8 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -886,8 +892,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "51/100",
-     "value_en": "51/100",
+     "value": "52/100",
+     "value_en": "52/100",
      "range": ""
     }
    ]
@@ -920,8 +926,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,554 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,554 BGP routes)",
+     "value": "קישוריות תקינה (41,562 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,562 BGP routes)",
      "range": "41,553–41,633"
     },
     {
@@ -976,7 +982,7 @@
      "reason_en": "",
      "value": "1,891,800 ריאל לדולר",
      "value_en": "1,891,800 rial to the dollar",
-     "range": "1,865,000–1,872,000"
+     "range": "1,865,000–1,885,900"
     },
     {
      "key": "advisories_ir",
@@ -1028,8 +1034,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "8 מטוסים צבאיים באזור",
+     "value_en": "8 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -1082,8 +1088,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "51/100",
-     "value_en": "51/100",
+     "value": "52/100",
+     "value_en": "52/100",
      "range": ""
     }
    ],
@@ -1099,8 +1105,12 @@
    ]
   }
  ],
- "sources_ok": 13,
+ "sources_ok": 12,
  "sources_total": 13,
- "degraded": [],
- "degraded_en": []
+ "degraded": [
+  "מרחב אווירי ישראל"
+ ],
+ "degraded_en": [
+  "Israeli airspace"
+ ]
 }
