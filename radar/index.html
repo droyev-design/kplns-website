@@ -4,6 +4,7 @@
 <html lang="he" dir="rtl" data-l="he">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://hits.sh; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
@@ -440,6 +441,21 @@ footer a:hover{color:var(--cyan)}
 .counter{margin-top:14px;opacity:.55;transition:opacity .3s}
 .counter:hover{opacity:1}
 .counter img{vertical-align:middle}
+
+/* Share row — deliberately at the end of the content, small and in the page's
+   own palette: this is how the page actually travels in Israel (WhatsApp),
+   without competing with the level cards for attention. */
+.share{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:10px;margin:26px auto 4px;max-width:640px}
+.share-label{font-size:.82rem;color:var(--text-muted);letter-spacing:.04em}
+.share-btn{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;
+  border:1px solid var(--border);border-radius:999px;background:var(--bg-card);
+  color:var(--text-secondary);font-size:.85rem;text-decoration:none;
+  transition:border-color .15s,color .15s,background .15s}
+.share-btn:hover{border-color:var(--border-hover);color:var(--text-primary);
+  background:var(--bg-card-hover)}
+.share-btn.is-channel{border-color:rgba(0,212,255,.28);color:var(--cyan)}
+.share-btn.is-channel:hover{border-color:var(--cyan);background:var(--cyan-dim)}
 </style>
 <!-- Set before the first paint, so the server-rendered snapshot further down is
      never visible for even one frame to a reader whose browser runs JS. Doing
@@ -888,6 +904,14 @@ footer a:hover{color:var(--cyan)}
     </a>
   </section>
 
+  <div class="share" role="group" aria-label="שיתוף">
+    <span class="share-label"><span data-lang="he">שיתוף</span><span data-lang="en">Share</span></span>
+    <a class="share-btn" data-lang="he" href="https://wa.me/?text=%D7%A8%D7%90%D7%93%D7%90%D7%A8%20%D7%94%D7%A1%D7%9C%D7%9E%D7%94%20%D7%99%D7%A9%D7%A8%D7%90%D7%9C%E2%80%93%D7%90%D7%99%D7%A8%D7%90%D7%9F%20%E2%80%94%20%D7%9E%D7%93%D7%93%20%D7%94%D7%9E%D7%91%D7%95%D7%A1%D7%A1%20%D7%A2%D7%9C%20%D7%90%D7%99%D7%A0%D7%93%D7%99%D7%A7%D7%98%D7%95%D7%A8%D7%99%D7%9D%20%D7%A6%D7%99%D7%91%D7%95%D7%A8%D7%99%D7%99%D7%9D%20%D7%91%D7%9C%D7%91%D7%93.%20%D7%90%D7%99%D7%A0%D7%95%20%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%94%D7%AA%D7%A8%D7%A2%D7%94.%20https%3A//kplns.com/radar/" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a class="share-btn" data-lang="en" href="https://wa.me/?text=Escalation%20Radar%20%E2%80%94%20Israel%20and%20Iran.%20An%20index%20built%20only%20on%20public%20indicators.%20Not%20a%20warning%20system.%20https%3A//kplns.com/radar/" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a class="share-btn" data-lang="he" href="https://t.me/share/url?url=https%3A//kplns.com/radar/&text=%D7%A8%D7%90%D7%93%D7%90%D7%A8%20%D7%94%D7%A1%D7%9C%D7%9E%D7%94%20%D7%99%D7%A9%D7%A8%D7%90%D7%9C%E2%80%93%D7%90%D7%99%D7%A8%D7%90%D7%9F%20%E2%80%94%20%D7%9E%D7%93%D7%93%20%D7%94%D7%9E%D7%91%D7%95%D7%A1%D7%A1%20%D7%A2%D7%9C%20%D7%90%D7%99%D7%A0%D7%93%D7%99%D7%A7%D7%98%D7%95%D7%A8%D7%99%D7%9D%20%D7%A6%D7%99%D7%91%D7%95%D7%A8%D7%99%D7%99%D7%9D%20%D7%91%D7%9C%D7%91%D7%93.%20%D7%90%D7%99%D7%A0%D7%95%20%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%94%D7%AA%D7%A8%D7%A2%D7%94." target="_blank" rel="noopener">✈️ Telegram</a>
+    <a class="share-btn" data-lang="en" href="https://t.me/share/url?url=https%3A//kplns.com/radar/&text=Escalation%20Radar%20%E2%80%94%20Israel%20and%20Iran.%20An%20index%20built%20only%20on%20public%20indicators.%20Not%20a%20warning%20system." target="_blank" rel="noopener">✈️ Telegram</a>
+    <a class="share-btn is-channel" href="https://t.me/kplns_radar" target="_blank" rel="noopener"><span data-lang="he">🛰️ ערוץ העדכונים</span><span data-lang="en">🛰️ Updates channel</span></a>
+  </div>
   <div class="stamp" id="stamp">טוען…</div>
 
   </main>
@@ -912,14 +936,16 @@ footer a:hover{color:var(--cyan)}
       <a href="/">kplns.com</a>
     </nav>
     <p class="thirdparty" data-lang="he">
-      הדף אינו אוסף נתונים ואינו משתמש ב-Cookies. הוא טוען גופנים מ-Google Fonts
-      ומונה צפיות מ-hits.sh — שירותי צד שלישי שרואים את כתובת ה-IP של הדפדפן.
+      הדף משתמש ב-Google Analytics למדידה סטטיסטית של תנועה — השירות מציב Cookies
+      ורואה את כתובת ה-IP שלכם. בנוסף נטענים גופנים מ-Google Fonts
+      ומונה צפיות מ-hits.sh — שירותי צד שלישי שרואים אף הם את כתובת ה-IP של הדפדפן.
       אחד המדדים המוצגים כאן (StrikeRadar) מקורו ב-<a href="https://usstrikeradar.com" target="_blank" rel="noopener">usstrikeradar.com</a> ואינו מחושב על ידינו.
       בחירת השפה נשמרת מקומית בדפדפן שלכם ואינה נשלחת לשום מקום.
     </p>
     <p class="thirdparty" data-lang="en">
-      This page collects no data and uses no cookies. It loads fonts from Google
-      Fonts and a view counter from hits.sh — third-party services that see your
+      This page uses Google Analytics for statistical traffic measurement — the
+      service sets cookies and sees your IP address. It also loads fonts from Google
+      Fonts and a view counter from hits.sh — third-party services that likewise see your
       browser's IP address. One of the indicators shown here (StrikeRadar) comes
       from <a href="https://usstrikeradar.com" target="_blank" rel="noopener">usstrikeradar.com</a>
       and is not calculated by us. Your language choice is stored locally in your
@@ -964,7 +990,9 @@ const T = {
   he: {
     levelAria: (l, t) => `רמה ${l} מתוך 3 — ${t}`,
     staleNote: 'הנתון אינו עדכני — אין להסיק ממנו דבר.',
-    gaugeCaveat: n => `⚠️ ${n} מקורות לא נקראו — ייתכן שהרמה מוצגת נמוך מדי`,
+    gaugeCaveat: n => n === 1
+      ? '⚠️ מקור אחד לא נקרא — ייתכן שהרמה מוצגת נמוך מדי'
+      : `⚠️ ${n} מקורות לא נקראו — ייתכן שהרמה מוצגת נמוך מדי`,
     agoNow: 'לפני פחות מדקה',
     agoMin: m => `לפני ${m} דק׳`,
     agoHour: h => `לפני ${h} שע׳`,
@@ -978,7 +1006,7 @@ const T = {
       המדדים מוצגים מעומעמים ואינם מייצגים את המצב כעת. פנו לפיקוד העורף.`,
     warnTitle: a => `<b>העדכון האחרון ${a}.</b>
       הבדיקה אמורה לרוץ כל 30 דקות — ייתכן שמקור נתונים או תהליך העדכון נתקע.`,
-    degradedTitle: (n, list) => `<b>${n} מקורות לא נקראו בבדיקה האחרונה.</b>
+    degradedTitle: (n, list) => `<b>${n === 1 ? 'מקור אחד לא נקרא' : n + ' מקורות לא נקראו'} בבדיקה האחרונה.</b>
       ${list} — מדד שלא נקרא אינו יכול להידלק, ולכן הרמה עשויה להיות מוצגת נמוך מדי.`,
     fresh: (hm, a, ok, tot) => `נתונים מ-${hm} · ${a} · ${ok}/${tot} מקורות נקראו`,
     freshNote: 'הבדיקה רצה כל 30 דקות; הדף נדחף מחדש מיד כשמשהו משתנה, ואחרת אחת לשעה. חותמת ישנה יותר אומרת שלא השתנה כלום — לא שהמערכת עצרה.',
@@ -990,7 +1018,7 @@ const T = {
     range: (r, key) => key === 'hormuz_gps'
       ? `טווח רגיל ב-30 הימים האחרונים: ${r}`
       : `טווח רגיל ביומיים האחרונים: ${r}`,
-    frozenHold: h => `⏸️ קו הבסיס מוקפא ${h} שעות — כדי שהאירוע לא ימחוק את הכלל שמזהה אותו`,
+    frozenHold: h => `⏸️ קו הבסיס מוקפא ${h < 1 ? 'פחות משעה' : h < 2 ? 'שעה' : h + ' שעות'} — כדי שהאירוע לא ימחוק את הכלל שמזהה אותו`,
     frozenExpired: '⏸️ קו הבסיס הוחזק 72 שעות ושוחרר — המדד דולק ברציפות זמן חריג',
     tagRegional: 'אזורי',
     tagContext: 'הקשר',
@@ -1014,7 +1042,9 @@ const T = {
   en: {
     levelAria: (l, t) => `Level ${l} of 3 — ${t}`,
     staleNote: 'This reading is out of date — draw no conclusion from it.',
-    gaugeCaveat: n => `⚠️ ${n} sources were not read — the level may be under-reported`,
+    gaugeCaveat: n => n === 1
+      ? '⚠️ 1 source was not read — the level may be under-reported'
+      : `⚠️ ${n} sources were not read — the level may be under-reported`,
     agoNow: 'less than a minute ago',
     agoMin: m => `${m} min ago`,
     agoHour: h => `${h} h ago`,
@@ -1028,7 +1058,7 @@ const T = {
       The gauges are dimmed and do not represent the current situation. Check the Home Front Command.`,
     warnTitle: a => `<b>Last update ${a}.</b>
       The check should run every 30 minutes — a data source or the update process may be stuck.`,
-    degradedTitle: (n, list) => `<b>${n} sources were not read in the last check.</b>
+    degradedTitle: (n, list) => `<b>${n === 1 ? '1 source was' : n + ' sources were'} not read in the last check.</b>
       ${list} — an indicator that cannot be read cannot light, so the level may be under-reported.`,
     fresh: (hm, a, ok, tot) => `Data from ${hm} (Israel) · ${a} · ${ok}/${tot} sources read`,
     freshNote: 'Checks run every 30 minutes; the page is re-published the moment something changes, and otherwise once an hour. An older stamp means nothing changed — not that the system stopped.',
@@ -1040,7 +1070,7 @@ const T = {
     range: (r, key) => key === 'hormuz_gps'
       ? `Normal range, last 30 days: ${r}`
       : `Normal range, last 48 h: ${r}`,
-    frozenHold: h => `⏸️ Baseline held for ${h} h — so the event cannot erase the rule that detects it`,
+    frozenHold: h => `⏸️ Baseline held for ${h < 1 ? 'under an hour' : h + ' h'} — so the event cannot erase the rule that detects it`,
     frozenExpired: '⏸️ The baseline was held for 72 h and has been released — this indicator has been lit for an unusually long time',
     tagRegional: 'regional',
     tagContext: 'context',
