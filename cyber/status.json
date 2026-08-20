@@ -1,15 +1,15 @@
 {
- "generated": "2026-08-19T16:25:03+00:00",
+ "generated": "2026-08-20T04:25:02+00:00",
  "level": 1,
  "catalog": {
-  "version": "2026.08.18",
-  "released": "2026-08-18T16:52:08.5398Z",
-  "count": 1670
+  "version": "2026.08.19",
+  "released": "2026-08-19T17:00:32.1366Z",
+  "count": 1671
  },
  "counts": {
-  "total": 1670,
-  "new7": 5,
-  "new30": 23,
+  "total": 1671,
+  "new7": 6,
+  "new30": 24,
   "il30": 18,
   "il_edge30": 12,
   "il_vendor90": 2,
@@ -79,9 +79,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
    "added": "2026-07-14",
-   "age": 36,
+   "age": 37,
    "due": "2026-07-17",
-   "due_in": -33,
+   "due_in": -34,
    "ransom": true,
    "cwe_he": [
     "הכרחת השרת לפנות ליעד פנימי (SSRF)"
@@ -104,9 +104,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Code Injection Vulnerability",
    "added": "2026-07-14",
-   "age": 36,
+   "age": 37,
    "due": "2026-07-17",
-   "due_in": -33,
+   "due_in": -34,
    "ransom": true,
    "cwe_he": [
     "הרצת קוד זר"
@@ -129,9 +129,9 @@
    "product": "Security Gateway",
    "name": "Check Point Security Gateway Improper Authentication Vulnerability",
    "added": "2026-06-08",
-   "age": 72,
+   "age": 73,
    "due": "2026-06-11",
-   "due_in": -69,
+   "due_in": -70,
    "ransom": true,
    "cwe_he": [
     "עקיפת אימות זהות"
@@ -154,9 +154,9 @@
    "product": "PAN-OS",
    "name": "Palo Alto Networks PAN-OS Authentication Bypass Vulnerability",
    "added": "2026-05-29",
-   "age": 82,
+   "age": 83,
    "due": "2026-06-01",
-   "due_in": -79,
+   "due_in": -80,
    "ransom": true,
    "cwe_he": [],
    "cwe_ids": [],
@@ -175,9 +175,9 @@
    "product": "SharePoint Server",
    "name": "Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability",
    "added": "2026-07-01",
-   "age": 49,
+   "age": 50,
    "due": "2026-07-04",
-   "due_in": -46,
+   "due_in": -47,
    "ransom": true,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -200,9 +200,9 @@
    "product": "SharePoint",
    "name": "Microsoft SharePoint Deserialization of Untrusted Data Vulnerability ",
    "added": "2026-07-22",
-   "age": 28,
+   "age": 29,
    "due": "2026-07-25",
-   "due_in": -25,
+   "due_in": -26,
    "ransom": false,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -225,9 +225,9 @@
    "product": "Core",
    "name": "WordPress Core SQL Injection Vulnerability",
    "added": "2026-07-21",
-   "age": 29,
+   "age": 30,
    "due": "2026-08-04",
-   "due_in": -15,
+   "due_in": -16,
    "ransom": false,
    "cwe_he": [
     "הזרקת SQL"
@@ -250,9 +250,9 @@
    "product": "Core",
    "name": "WordPress Core Interpretation Conflict Vulnerability",
    "added": "2026-07-21",
-   "age": 29,
+   "age": 30,
    "due": "2026-07-24",
-   "due_in": -26,
+   "due_in": -27,
    "ransom": false,
    "cwe_he": [],
    "cwe_ids": [],
@@ -271,9 +271,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 34,
+   "age": 35,
    "due": "2026-07-19",
-   "due_in": -31,
+   "due_in": -32,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -296,9 +296,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 34,
+   "age": 35,
    "due": "2026-07-19",
-   "due_in": -31,
+   "due_in": -32,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -321,9 +321,9 @@
    "product": "Sentry",
    "name": "Ivanti Sentry OS Command Injection Vulnerability",
    "added": "2026-06-11",
-   "age": 69,
+   "age": 70,
    "due": "2026-06-14",
-   "due_in": -66,
+   "due_in": -67,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -346,9 +346,9 @@
    "product": "SharePoint",
    "name": "Microsoft SharePoint Weak Authentication Vulnerability",
    "added": "2026-08-18",
-   "age": 1,
+   "age": 2,
    "due": "2026-08-21",
-   "due_in": 2,
+   "due_in": 1,
    "ransom": false,
    "cwe_he": [],
    "cwe_ids": [],
@@ -381,6 +381,10 @@
   },
   {
    "t": 1787156703,
+   "lv": 1
+  },
+  {
+   "t": 1787199902,
    "lv": 1
   }
  ],
