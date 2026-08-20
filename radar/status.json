@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-20T17:42:36+00:00",
+ "generated": "2026-08-20T18:42:57+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -1125,6 +1125,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787249553,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787251377,
+   "il": 0,
+   "ir": 0,
+   "deg": 1
   }
  ],
  "indices": [
@@ -1175,11 +1187,11 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": true,
+     "ok": false,
      "reason": "",
      "reason_en": "",
-     "value": "86 מטוסים אזרחיים באזור",
-     "value_en": "86 civil aircraft in the area",
+     "value": "",
+     "value_en": "",
      "range": "60–105"
     },
     {
@@ -1237,7 +1249,7 @@
      "reason_en": "",
      "value": "5.7% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-19 (נגזר מתעופה)",
      "value_en": "5.7% of aircraft reported degraded GPS on 2026-08-19 (aviation-derived)",
-     "range": "2.8%–14.1%"
+     "range": "2.1%–14.1%"
     },
     {
      "key": "us_mil_air",
@@ -1254,8 +1266,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -1273,8 +1285,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.5 · דולר 2.99 ₪",
-     "value_en": "Brent $93.5 · USD 2.99 ILS",
+     "value": "ברנט $93.7 · דולר 2.99 ₪",
+     "value_en": "Brent $93.7 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -1330,8 +1342,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "74/100",
-     "value_en": "74/100",
+     "value": "75/100",
+     "value_en": "75/100",
      "range": ""
     }
    ]
@@ -1367,8 +1379,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,397 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,397 BGP routes)",
+     "value": "קישוריות תקינה (41,564 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,564 BGP routes)",
      "range": "41,402–41,575"
     },
     {
@@ -1464,7 +1476,7 @@
      "reason_en": "",
      "value": "14.4% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-19 (נגזר מתעופה)",
      "value_en": "14.4% of aircraft reported degraded GPS on 2026-08-19 (aviation-derived)",
-     "range": "1.9%–14.1%"
+     "range": "1.9%–13.3%"
     },
     {
      "key": "us_mil_air",
@@ -1481,8 +1493,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -1500,8 +1512,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.5 · דולר 2.99 ₪",
-     "value_en": "Brent $93.5 · USD 2.99 ILS",
+     "value": "ברנט $93.7 · דולר 2.99 ₪",
+     "value_en": "Brent $93.7 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -1557,8 +1569,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "74/100",
-     "value_en": "74/100",
+     "value": "75/100",
+     "value_en": "75/100",
      "range": ""
     }
    ],
@@ -1574,8 +1586,12 @@
    ]
   }
  ],
- "sources_ok": 15,
+ "sources_ok": 14,
  "sources_total": 15,
- "degraded": [],
- "degraded_en": []
+ "degraded": [
+  "מרחב אווירי ישראל"
+ ],
+ "degraded_en": [
+  "Israeli airspace"
+ ]
 }
