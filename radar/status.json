@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-20T06:12:29+00:00",
+ "generated": "2026-08-20T07:12:35+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -951,6 +951,18 @@
    "il": 0,
    "ir": 0,
    "deg": 1
+  },
+  {
+   "t": 1787208148,
+   "il": 0,
+   "ir": 0,
+   "deg": 1
+  },
+  {
+   "t": 1787209955,
+   "il": 0,
+   "ir": 0,
+   "deg": 1
   }
  ],
  "indices": [
@@ -1004,8 +1016,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "83 מטוסים אזרחיים באזור",
-     "value_en": "83 civil aircraft in the area",
+     "value": "105 מטוסים אזרחיים באזור",
+     "value_en": "105 civil aircraft in the area",
      "range": "59–105"
     },
     {
@@ -1023,8 +1035,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "4 מטוסים מעל ירדן",
+     "value_en": "4 aircraft over Jordan",
      "range": "3–9"
     },
     {
@@ -1080,9 +1092,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "9 מטוסים צבאיים באזור",
-     "value_en": "9 military aircraft in the area",
-     "range": "1–10"
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
+     "range": "1–9"
     },
     {
      "key": "markets",
@@ -1195,7 +1207,7 @@
      "reason_en": "",
      "value": "קישוריות תקינה (41,575 מסלולי BGP)",
      "value_en": "Connectivity normal (41,575 BGP routes)",
-     "range": "41,553–41,607"
+     "range": "41,553–41,594"
     },
     {
      "key": "ir_provinces",
@@ -1252,7 +1264,7 @@
      "reason_en": "",
      "value": "1,886,000 ריאל לדולר",
      "value_en": "1,886,000 rial to the dollar",
-     "range": "1,870,000–1,889,900"
+     "range": "1,870,100–1,889,900"
     },
     {
      "key": "advisories_ir",
@@ -1307,9 +1319,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "9 מטוסים צבאיים באזור",
-     "value_en": "9 military aircraft in the area",
-     "range": "1–10"
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
+     "range": "1–9"
     },
     {
      "key": "markets",
