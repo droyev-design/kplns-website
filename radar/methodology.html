@@ -411,12 +411,33 @@ footer a:hover{color:var(--cyan)}
     <div class="fx">
       votes &nbsp;= &nbsp; <span class="c">// lit families, capped at 2 per data provider</span><br>
       level = 0 &nbsp; <span class="c">// no family lit</span><br>
-      level = 1 &nbsp; <span class="c">// 1 vote — or 2+ votes that all came from ONE provider</span><br>
-      level = 2 &nbsp; <span class="c">// exactly 2 votes, from 2+ distinct providers</span><br>
-      level = 3 &nbsp; <span class="c">// 3+ votes, from 2+ distinct providers &nbsp;OR&nbsp; Home Front Command policy change</span>
+      level = 1 &nbsp; <span class="c">// 1 vote — or 2+ votes all from ONE provider — or 2+ votes that are all BELIEFS</span><br>
+      level = 2 &nbsp; <span class="c">// exactly 2 votes, from 2+ distinct providers, incl. 1+ ACTION</span><br>
+      level = 3 &nbsp; <span class="c">// 3+ votes, same conditions &nbsp;OR&nbsp; Home Front Command policy change</span>
     </div>
     <p>"משפחה" היא מקור-התנהגות אחד, ולה <b>קול אחד</b> בלבד — לא משנה כמה פריטים
     בתוכה זזו. שני מחוזות באיראן שיורדים יחד הם עדיין קול אחד, לא שניים.</p>
+
+    <h3>פעולה מול דעה — "יקר" מתחלק לשניים (20.8.2026)</h3>
+    <p>העיקרון המקורי — אותות יקרים ולא דיבור זול — התברר כלא מדויק מספיק:
+    "יקר" מתחלק לשני סוגים שונים מהותית, ורק אחד מהם שווה קול אזהרה.</p>
+    <ul>
+      <li><b>פעולה</b> — יקרה <b>למבצע שלה</b>, ולכן חושפת מידע פרטי. פיקוד
+      העורף שמשנה הנחיות התגוננות; מדינה שמנתקת לעצמה את האינטרנט; ארה"ב
+      שמפנה אנשי שגרירות; מרחב אווירי שנסגר; צבא שמשבש GPS מעל השטח של
+      עצמו. המחיר ששולם הוא הראיה שמאחורי הצעד עומדת ידיעה.</li>
+      <li><b>דעה</b> — יקרה <b>למהמר</b> שאין לו מידע פרטי. Polymarket, נפט,
+      הריאל, שער השקל, רמות אזהרת מסע. תשלום הכסף מוכיח שהסוחר רציני — לא
+      שהוא יודע משהו. הוא קורא את אותן כותרות שהאספנים האחרים קוראים.</li>
+    </ul>
+    <p>הכלל שנאכף בקוד: <b>רמה 2 ומעלה מחייבת לפחות משפחת פעולה אחת דולקת.</b>
+    דעות לבדן — לא משנה כמה מהן נדלקות יחד — עוצרות את המדד ברמה 1. דעות
+    מאשרות ומוסיפות ביטחון; הן לעולם אינן מייצרות אזהרה בעצמן. הכלל הזה יכול
+    רק להוריד רמה, לעולם לא להעלות (הוכח בבדיקה ממצה על כל תת-הקבוצות
+    האפשריות של משפחות), והוא אינו נוגע בחריגת פיקוד העורף — שהיא משפחת
+    פעולה. הערת יושר על אזהרות המסע: פינוי שגרירות בפועל היה פעולה, אבל מה
+    שהאספן קורא הוא רק <b>רמת האזהרה מכותרת ה-RSS</b> — הכרזה, לא פעולה
+    נצפית — ולכן הן סווגו דעה.</p>
 
     <h3>למה לא כתוב כאן "משפחות בלתי תלויות"</h3>
     <p>עד 18.8.2026 הדף הזה טען שהרמה סופרת משפחות <b>בלתי תלויות</b>. הטענה
@@ -430,6 +451,8 @@ footer a:hover{color:var(--cyan)}
       תעופה צבאית באזור — שלוש משפחות בצד הישראלי.</li>
       <li><b>tgju</b>, כתובת אחת: הריאל, והרגל של נפט ברנט בתוך משפחת השווקים.</li>
       <li><b>מחלקת המדינה האמריקאית</b>, קריאה אחת: שתי משפחות אזהרות המסע.</li>
+      <li><b>gpsjam.org</b>, קובץ יומי אחד: שיבוש ה-GPS במצר הורמוז ושיבוש
+      ה-GPS מעל מרחב ישראל — אותה הורדה בדיוק משרתת את שתיהן.</li>
     </ul>
     <p>המשמעות: תקלה אחת אצל ספק אחד יכולה הייתה לייצר 🔴 קריטי שנראה כמו
     שלושה אישושים נפרדים ובלתי-תלויים. זו בדיוק הטעות שהדף הזה נבנה כדי לא
@@ -488,13 +511,40 @@ footer a:hover{color:var(--cyan)}
     <div class="fx">
       votes &nbsp;= &nbsp; <span class="c">// lit families, capped at 2 per data provider</span><br>
       level = 0 &nbsp; <span class="c">// no family lit</span><br>
-      level = 1 &nbsp; <span class="c">// 1 vote — or 2+ votes that all came from ONE provider</span><br>
-      level = 2 &nbsp; <span class="c">// exactly 2 votes, from 2+ distinct providers</span><br>
-      level = 3 &nbsp; <span class="c">// 3+ votes, from 2+ distinct providers &nbsp;OR&nbsp; Home Front Command policy change</span>
+      level = 1 &nbsp; <span class="c">// 1 vote — or 2+ votes all from ONE provider — or 2+ votes that are all BELIEFS</span><br>
+      level = 2 &nbsp; <span class="c">// exactly 2 votes, from 2+ distinct providers, incl. 1+ ACTION</span><br>
+      level = 3 &nbsp; <span class="c">// 3+ votes, same conditions &nbsp;OR&nbsp; Home Front Command policy change</span>
     </div>
     <p>A "family" is one source of behaviour, and it holds exactly <b>one
     vote</b> — no matter how many items inside it moved. Two Iranian provinces
     dropping together are still one vote, not two.</p>
+
+    <h3>Action vs belief — "costly" splits in two (20 Aug 2026)</h3>
+    <p>The original principle — costly signals, not cheap talk — turned out to
+    be not precise enough: "costly" divides into two fundamentally different
+    kinds, and only one of them is worth a warning vote.</p>
+    <ul>
+      <li><b>Action</b> — costly <b>to the actor</b>, and therefore revealing
+      private information. The Home Front Command changing civil-defence
+      instructions; a state cutting its own internet; the US ordering embassy
+      staff out; an airspace closing; a military jamming GPS over its own
+      territory. The price paid is the evidence that knowledge sits behind
+      the step.</li>
+      <li><b>Belief</b> — costly <b>to a bettor</b> who holds no private
+      information. Polymarket, oil, the rial, USD/ILS, advisory levels.
+      Paying money proves the trader is serious — not that they know
+      anything. They read the same headlines the other collectors read.</li>
+    </ul>
+    <p>The rule enforced in code: <b>a level of 2 or higher requires at least
+    one lit action family.</b> Beliefs alone — however many light together —
+    cap the index at 1. Beliefs confirm and add confidence; they never
+    manufacture a warning on their own. This rule can only lower a level,
+    never raise one (proven by an exhaustive test over every possible subset
+    of families), and it does not touch the Home Front Command exemption —
+    which is an action family. An honesty note on the travel advisories: an
+    actual embassy evacuation would be an action, but what the collector
+    reads is only the <b>advisory level from the RSS title</b> — an
+    announcement, not an observed costly act — so they are typed belief.</p>
 
     <h3>Why this page no longer says "independent families"</h3>
     <p>Until 18 Aug 2026 this page claimed the level counted
@@ -513,6 +563,9 @@ footer a:hover{color:var(--cyan)}
       markets family.</li>
       <li><b>The US State Department</b>, one fetch: both travel-advisory
       families.</li>
+      <li><b>gpsjam.org</b>, one daily file: GPS interference at the Strait of
+      Hormuz and GPS interference over Israeli airspace — the very same
+      download serves both.</li>
     </ul>
     <p>What that meant: one glitch at one provider could have manufactured a
     🔴 CRITICAL that looked like three separate, independent corroborations —
@@ -541,7 +594,7 @@ footer a:hover{color:var(--cyan)}
     <div data-lang="he">
     <h2><span class="num">03</span> איפה כן הוטה המשקל</h2>
 
-    <p>אין בקוד טבלת משקלות, ואין ניקוד סובייקטיבי. אבל יש ארבע הטיות מוצהרות,
+    <p>אין בקוד טבלת משקלות, ואין ניקוד סובייקטיבי. אבל יש חמש הטיות מוצהרות,
     וכל אחת מהן היא החלטת תכנון שאפשר להתווכח איתה:</p>
 
     <h3>1. אותות יקרים מנצחים דיבור זול</h3>
@@ -550,19 +603,26 @@ footer a:hover{color:var(--cyan)}
     ממשלה שמפנה אנשי שגרירות, מטבע שקורס. הצהרות, כותרות וטוויטים
     <b>אינם מדליקים כאן שום דבר</b>, גם לא הצהרות דרמטיות.</p>
 
-    <h3>2. פיקוד העורף לבדו מספיק ל"קריטי"</h3>
+    <h3>2. דעות מאשרות — פעולות מזהירות (20.8.2026)</h3>
+    <p>גם בתוך "יקר" יש מדרג: פעולה יקרה למבצע שלה וחושפת ידיעה; דעה יקרה
+    למהמר ומוכיחה רק רצינות (ההגדרות המלאות בסעיף 2). לכן <b>רמה 2 ומעלה
+    מחייבת לפחות משפחת פעולה אחת דולקת</b> — משפחות דעה (שווקים, שוק הניבוי,
+    אזהרות מסע) לבדן עוצרות ברמה 1, לא משנה כמה מהן נדלקו. הכלל יכול רק
+    להוריד רמה, לעולם לא להעלות.</p>
+
+    <h3>3. פיקוד העורף לבדו מספיק ל"קריטי"</h3>
     <p>זו החריגה היחידה מכלל הספירה. שינוי במדיניות ההתגוננות הוא הפעולה היקרה
     ביותר והספציפית ביותר לישראל בכל הסט — מדינה לא משנה הנחיות התגוננות לאזרחים
     בגלל כותרת. לכן הוא מקפיץ את המדד הישראלי ל-3 גם לבדו.</p>
 
-    <h3>3. StrikeRadar קיבל משקל אפס</h3>
+    <h3>4. StrikeRadar קיבל משקל אפס</h3>
     <p>המדד החיצוני מוצג בדף <span class="tag">הקשר</span> — אבל
     <b>אינו יכול להעלות רמה, אף פעם</b>. הסיבה: רכיביו (חדשות, הצהרות, שוקי הימורים)
     הם בדיוק סוג הסיגנל שהתכנון הזה נועד להוציא. מפעילו משווק את אותו מנוע גם
     כ-"LayoffRadar — same engine, fresh signals", כלומר אגרגציית חדשות גנרית.
     הוא נשאר בדף כדי שאפשר יהיה להשוות, ולא יותר.</p>
 
-    <h3>4. הסף אינו סימטרי בין הדלקה לכיבוי</h3>
+    <h3>5. הסף אינו סימטרי בין הדלקה לכיבוי</h3>
     <p>מדד שכבר דולק אינו מתריע שוב, ולכל משפחה יש <b>קירור של 6 שעות</b>, כדי
     שפיד מהבהב לא יוכל להציף. מנגד — כל שינוי מדווח, בכל שעה, גם ב-3 לפנות בוקר.
     ההנחה היא שמי שנרשם למערכת כזו מעדיף להתעורר על שינוי אמיתי.</p>
@@ -571,7 +631,7 @@ footer a:hover{color:var(--cyan)}
     <h2><span class="num">03</span> Where weight was applied after all</h2>
 
     <p>There is no weights table in the code, and no subjective scoring. But
-    there are four declared biases, and each of them is a design decision that
+    there are five declared biases, and each of them is a design decision that
     can be argued with:</p>
 
     <h3>1. Costly signals beat cheap talk</h3>
@@ -581,13 +641,22 @@ footer a:hover{color:var(--cyan)}
     evacuating embassy staff, a currency collapsing. Statements, headlines and
     tweets <b>light nothing here</b>, dramatic ones included.</p>
 
-    <h3>2. The Home Front Command alone is enough for "critical"</h3>
+    <h3>2. Beliefs confirm — actions warn (20 Aug 2026)</h3>
+    <p>Even within "costly" there is a hierarchy: an action is costly to its
+    actor and reveals knowledge; a belief is costly to a bettor and proves
+    only seriousness (full definitions in section 2). So <b>a level of 2 or
+    higher requires at least one lit action family</b> — belief families
+    (markets, the prediction market, travel advisories) alone stop at level 1,
+    no matter how many light. The rule can only lower a level, never raise
+    one.</p>
+
+    <h3>3. The Home Front Command alone is enough for "critical"</h3>
     <p>This is the single exception to the counting rule. A defence-policy
     change is the most expensive and most Israel-specific action in the whole
     set — a state does not change civil-defence instructions over a headline.
     So it takes the Israeli index to 3 even on its own.</p>
 
-    <h3>3. StrikeRadar got a weight of zero</h3>
+    <h3>4. StrikeRadar got a weight of zero</h3>
     <p>The external index is shown on the page tagged <span class="tag">context</span> — but it
     <b>can never raise a level</b>. The reason: its components (news,
     statements, betting markets) are exactly the class of signal this design
@@ -595,7 +664,7 @@ footer a:hover{color:var(--cyan)}
     "LayoffRadar — same engine, fresh signals", i.e. generic news aggregation.
     It stays on the page so it can be compared against, and no more.</p>
 
-    <h3>4. The threshold is not symmetric between lighting and clearing</h3>
+    <h3>5. The threshold is not symmetric between lighting and clearing</h3>
     <p>An indicator that is already lit does not alert again, and every family
     has a <b>6-hour cooldown</b>, so a flapping feed cannot flood. On the other
     hand — every change is reported, at any hour, 3 a.m. included. The
@@ -635,21 +704,24 @@ footer a:hover{color:var(--cyan)}
             מתאים את עצמו לשינויים אמיתיים בקצב הרקע.</td></tr>
         <tr><td>מינימום לפני שכלל פעיל</td><td class="num-cell">12 דגימות ≈ 6 שעות</td>
             <td>כלל שמבוסס על חציון פשוט <b>אינו קיים</b> עד שנצברה היסטוריה. אחרת
-            הרצה ראשונה הייתה מייצרת התרעת שווא מיידית. שני המדדים היומיים
-            שבשורה הבאה דורשים במקום זאת 7 <b>ימי</b> היסטוריה — ושוק הניבוי
-            מגיע עם ההיסטוריה הזו מהמקור עצמו כבר בריצה הראשונה.</td></tr>
+            הרצה ראשונה הייתה מייצרת התרעת שווא מיידית. שלושת המדדים היומיים
+            שבשורה הבאה דורשים במקום זאת 7 <b>ימי</b> היסטוריה — שוק הניבוי
+            מגיע עם ההיסטוריה הזו מהמקור עצמו כבר בריצה הראשונה, ומדד שיבוש
+            ה-GPS מעל ישראל נזרע בחיבורו ב-31 ימי מדידה אמיתיים מהקבצים
+            ההיסטוריים של המקור.</td></tr>
         <tr><td>קירור בין התרעות</td><td class="num-cell">6 שעות למשפחה</td>
             <td>מונע הצפה מפיד מהבהב.</td></tr>
         <tr><td>"טווח נורמלי" המוצג בדף</td><td class="num-cell">אחוזונים 10–90</td>
             <td>מה שרואים ליד כל מדד הוא הטווח שבו נמצאות 80% מהדגימות האחרונות —
             כדי שהמספר הנוכחי יהיה קריא בלי לדעת את הפיד.</td></tr>
-        <tr><td>חריגים: שיבוש ה-GPS ושוק הניבוי</td><td class="num-cell">סדרה יומית · עד 30 יום</td>
-            <td>שתי משפחות נשפטות מול חציון <b>ימים</b> קודמים ולא מול חלון 48
-            השעות, ושתיהן דורשות 7 ימי היסטוריה לפחות. שיבוש ה-GPS: gpsjam.org
-            מפרסם קובץ אחד ליום (בפיגור של כיום), ולכן הוא נשפט פעם אחת לכל יום
-            שפורסם. שוק הניבוי (Polymarket): הסדרה היומית נבנית מחדש בכל ריצה
-            מההיסטוריה השעתית של השוק עצמו — ולכן קו הבסיס אמיתי כבר מהריצה
-            הראשונה — והקריאה החיה נשפטת מולה בכל בדיקת 30 דקות.</td></tr>
+        <tr><td>חריגים: שני מדדי שיבוש ה-GPS ושוק הניבוי</td><td class="num-cell">סדרה יומית · עד 30 יום</td>
+            <td>שלוש משפחות נשפטות מול חציון <b>ימים</b> קודמים ולא מול חלון 48
+            השעות, ושלושתן דורשות 7 ימי היסטוריה לפחות. שיבוש ה-GPS (הורמוז
+            ומרחב ישראל — שני אזורים מאותו קובץ, הורדה אחת ביום): gpsjam.org
+            מפרסם קובץ אחד ליום (בפיגור של כיום), ולכן כל אזור נשפט פעם אחת
+            לכל יום שפורסם. שוק הניבוי (Polymarket): הסדרה היומית נבנית מחדש
+            בכל ריצה מההיסטוריה השעתית של השוק עצמו — ולכן קו הבסיס אמיתי כבר
+            מהריצה הראשונה — והקריאה החיה נשפטת מולה בכל בדיקת 30 דקות.</td></tr>
       </tbody>
     </table></div>
 
@@ -725,24 +797,28 @@ footer a:hover{color:var(--cyan)}
         <tr><td>Minimum before a rule is active</td><td class="num-cell">12 samples ≈ 6 hours</td>
             <td>A median-based rule simply <b>does not exist</b> until history
             has accumulated. Otherwise the first run would produce an immediate
-            false alarm. The two daily families in the row below require
-            7 <b>days</b> of history instead — and the prediction market
-            arrives with that history from the source itself on run one.</td></tr>
+            false alarm. The three daily families in the row below require
+            7 <b>days</b> of history instead — the prediction market arrives
+            with that history from the source itself on run one, and the
+            Israel GPS-interference indicator was seeded at wiring time with
+            31 real measured days from the source's historical files.</td></tr>
         <tr><td>Cooldown between alerts</td><td class="num-cell">6 hours per family</td>
             <td>Prevents flooding from a flapping feed.</td></tr>
         <tr><td>"Normal range" shown on the page</td><td class="num-cell">10th–90th percentiles</td>
             <td>What you see next to each indicator is the range holding 80% of
             the recent samples — so the current number is readable without
             knowing the feed.</td></tr>
-        <tr><td>Exceptions: GPS interference and the prediction market</td><td class="num-cell">daily series · up to 30 days</td>
-            <td>Two families are judged against the median of preceding
-            <b>days</b>, not the 48-hour window, and both require at least
-            7 days of history. GPS interference: gpsjam.org publishes one file
-            per day (about a day behind), so it is judged once per published
-            day. The prediction market (Polymarket): its daily series is
-            rebuilt every run from the market's own hourly history — so the
-            baseline is real from the first run — and the live reading is
-            judged against it on every 30-minute check.</td></tr>
+        <tr><td>Exceptions: the two GPS-interference indicators and the prediction market</td><td class="num-cell">daily series · up to 30 days</td>
+            <td>Three families are judged against the median of preceding
+            <b>days</b>, not the 48-hour window, and all three require at
+            least 7 days of history. GPS interference (Hormuz and Israeli
+            airspace — two regions from the same file, one download a day):
+            gpsjam.org publishes one file per day (about a day behind), so
+            each region is judged once per published day. The prediction
+            market (Polymarket): its daily series is rebuilt every run from
+            the market's own hourly history — so the baseline is real from
+            the first run — and the live reading is judged against it on
+            every 30-minute check.</td></tr>
       </tbody>
     </table></div>
 
@@ -800,7 +876,9 @@ footer a:hover{color:var(--cyan)}
     <h2><span class="num">05</span> ספי ההדלקה המדויקים</h2>
 
     <p>אלה המספרים שרצים בפועל. הם מפורסמים כאן כדי שאפשר יהיה לבקר אותם —
-    ולראות מה כן ומה לא יכול להדליק את הדף.</p>
+    ולראות מה כן ומה לא יכול להדליק את הדף. בעמודה האחרונה מצוין גם סיווג
+    הפעולה/דעה של כל משפחה (סעיף 2): רמה 2 ומעלה מחייבת לפחות משפחת
+    <b>פעולה</b> אחת דולקת — משפחות <b>דעה</b> לבדן נעצרות ברמה 1.</p>
 
     <div class="m-wrap"><table class="m-tbl">
       <thead><tr><th>מדד</th><th>מקור</th><th>מה מדליק</th><th>לאיזה מדד</th></tr></thead>
@@ -810,47 +888,59 @@ footer a:hover{color:var(--cyan)}
             המגביל</b>: מעבר מ"אין הגבלות" להנחיות מגבילות, או שינוי בתוך מצב
             מגביל. <b>שינוי בלבד</b> — עצם קיומה של מדיניות מגבילה אינו מדליק
             כאן דבר; וגם ניסוח מחדש שאינו משנה את המשמעות, הקלה, או נוסח שאיננו
-            יודעים לסווג — נרשמים ביומן ואינם מעלים רמה</td><td>🇮🇱 ישראל</td></tr>
+            יודעים לסווג — נרשמים ביומן ואינם מעלים רמה</td><td>🇮🇱 ישראל · פעולה</td></tr>
         <tr><td>מרחב אווירי ישראל</td><td>adsb.lol</td>
             <td>מטוסים אזרחיים &lt; 35% מהחציון, <b>וגם</b> מתחת לאחוזון 10 של
             ההיסטוריה העצמית, <b>בשתי בדיקות רצופות</b>; אין שיפוט כשהחציון
-            &lt; 20</td><td>🇮🇱 ישראל</td></tr>
+            &lt; 20</td><td>🇮🇱 ישראל · פעולה</td></tr>
         <tr><td>מרחב אווירי ירדן</td><td>adsb.lol (שתי תיבות שהן חד-משמעית ירדן:
             29.2–32.3°N 35.75–36.5°E והרצועה 32.2–32.7°N 37.2–39.2°E — בלי
             תנועה ישראלית ובלי הנתיב הסעודי)</td>
             <td>מטוסים &lt; 35% מהחציון, <b>וגם</b> ≤ 2 בערך מוחלט, <b>וגם</b>
             מתחת לאחוזון 10 של ההיסטוריה העצמית, <b>בשתי בדיקות רצופות</b>;
-            אין שיפוט כשהחציון &lt; 5</td><td>🇮🇱 ישראל</td></tr>
+            אין שיפוט כשהחציון &lt; 5</td><td>🇮🇱 ישראל · פעולה</td></tr>
         <tr><td>אזהרות מסע — ישראל והסביבה</td><td>מחלקת המדינה האמריקאית · FCDO</td>
             <td>עליית רמת אזהרה לישראל / לבנון / ירדן / סוריה, או עדכון הנחיות
-            בריטניה לישראל — <b>מאושר בשתי תצפיות רצופות</b></td><td>🇮🇱 ישראל</td></tr>
+            בריטניה לישראל — <b>מאושר בשתי תצפיות רצופות</b></td><td>🇮🇱 ישראל · דעה</td></tr>
         <tr><td>אינטרנט באיראן (ארצי)</td><td>IODA · Georgia Tech</td>
-            <td class="num-cell">BGP &lt; 85% מהחציון, או merit-nt &lt; 50%</td><td>🇮🇷 איראן</td></tr>
+            <td class="num-cell">BGP &lt; 85% מהחציון, או merit-nt &lt; 50%</td><td>🇮🇷 איראן · פעולה</td></tr>
         <tr><td>אינטרנט ברמת מחוז</td><td>IODA · 8 מחוזות</td>
-            <td><b>שני מחוזות ומעלה</b> יורדים מתחת ל-80% מהחציון בו-זמנית</td><td>🇮🇷 איראן</td></tr>
+            <td><b>שני מחוזות ומעלה</b> יורדים מתחת ל-80% מהחציון בו-זמנית</td><td>🇮🇷 איראן · פעולה</td></tr>
         <tr><td>חריגות תרמיות מלוויין</td><td>NASA FIRMS · VIIRS</td>
-            <td class="num-cell">n &gt; max(3 × חציון, חציון + 5)</td><td>🇮🇷 איראן</td></tr>
+            <td class="num-cell">n &gt; max(3 × חציון, חציון + 5)</td><td>🇮🇷 איראן · פעולה</td></tr>
         <tr><td>ריאל איראני</td><td>tgju (שוק חופשי)</td>
-            <td class="num-cell">סטייה של 8%+ מהחציון, לכל כיוון</td><td>🇮🇷 איראן</td></tr>
+            <td class="num-cell">סטייה של 8%+ מהחציון, לכל כיוון</td><td>🇮🇷 איראן · דעה</td></tr>
         <tr><td>אזהרות מסע — איראן והמפרץ</td><td>מחלקת המדינה האמריקאית</td>
             <td>עליית רמת אזהרה לאיראן / עיראק / קטר / בחריין / כווית / איחוד
-            האמירויות / סעודיה — מאושר בשתי תצפיות</td><td>🇮🇷 איראן</td></tr>
+            האמירויות / סעודיה — מאושר בשתי תצפיות</td><td>🇮🇷 איראן · דעה</td></tr>
         <tr><td>שיבוש GPS — מצר הורמוז</td><td>gpsjam.org (נגזר ADS-B, יומי)</td>
             <td>היחס היומי של מטוסים המדווחים על דיוק GPS ירוד ≥ פי 3 מחציון
             הימים הקודמים (עד 30 יום), ולפחות 5% בערך מוחלט; יום עם פחות
-            מ-1,000 תצפיות אינו נשפט</td><td>🇮🇷 איראן</td></tr>
+            מ-1,000 תצפיות אינו נשפט</td><td>🇮🇷 איראן · פעולה</td></tr>
+        <tr><td>שיבוש GPS — מרחב ישראל</td><td>gpsjam.org (אותו קובץ יומי —
+            הורדה אחת משרתת את שני מדדי ה-GPS; 51 תאי H3 ברזולוציה 4 מעל
+            29.4–33.4°N, 34.2–36.0°E)</td>
+            <td>היחס היומי ≥ פי 3 מחציון הימים הקודמים (עד 30 יום), <b>וגם</b>
+            ≥ 18% בערך מוחלט. הרצפה נגזרה ממדידת 31 יום אמיתיים
+            (20.7–19.8.2026) עם ערכת התאים הזו: מינימום 1.83%, חציון 5.73%,
+            מקסימום 17.25% — שיבוש לסירוגין הוא הרקע הקבוע מעל ישראל, ולכן
+            הרצפה יושבת מעל כל המעטפת הזו (רצפת 5% של הורמוז, מושתלת כמות
+            שהיא, הייתה נדלקת ב-29.7 על יום רגיל). בהרצה לאחור על אותו חודש:
+            24 ימים נשפטו (7 הראשונים חימום), אפס הדלקות, וההתקרבות הגדולה
+            ביותר — 79% מהסף ב-31.7. יום עם פחות מ-500 תצפיות אינו נשפט
+            (המינימום שנמדד: 1,929)</td><td>🇮🇱 ישראל · פעולה</td></tr>
         <tr><td>תעופה צבאית באזור</td><td>adsb.lol (משבצת 12–40°N, 25–60°E)</td>
             <td class="num-cell">n &gt; max(3 × חציון, 20), בשתי בדיקות
-            רצופות</td><td>🌐 אזורי — נספר לשניהם</td></tr>
+            רצופות</td><td>🌐 אזורי — נספר לשניהם · פעולה</td></tr>
         <tr><td>שווקים — ברנט ושקל</td><td>tgju (ברנט) · בנק ישראל (דולר-שקל)</td>
             <td>כיוון הסלמה בלבד: ברנט ≥ 108% מהחציון, או שער הדולר-שקל
             ≥ 103% מהחציון (היחלשות שקל). קול אחד למשפחה</td>
-            <td>🌐 אזורי — נספר לשניהם</td></tr>
+            <td>🌐 אזורי — נספר לשניהם · דעה</td></tr>
         <tr><td>אינטרנט במדינות שכנות</td><td>IODA · לבנון, סוריה, ירדן, מצרים
             (BGP בלבד — merit-nt במדינות קטנות רועש מדי בכוונה לא בשימוש)</td>
             <td class="num-cell">BGP ארצי של אחת המדינות &lt; 85% מהחציון —
             קול אחד למשפחה, שם המדינה בסיבה</td>
-            <td>🌐 אזורי — נספר לשניהם</td></tr>
+            <td>🌐 אזורי — נספר לשניהם · פעולה</td></tr>
         <tr><td>שוק ניבוי — הפסקת האש</td><td>Polymarket (האירוע "Israel x Iran
             ceasefire continues through...?", ~$26M מחזור; תנאי ההכרעה —
             תקיפה אווירית או טילית של צד אחד בשני, דו-כיווני)</td>
@@ -864,13 +954,13 @@ footer a:hover{color:var(--cyan)}
             המדד מדווח כלא-נקרא, לא כאפס. אחרי גלגול לחוזה הבא קו הבסיס
             משלב זמנית שני חוזים — זה מסומן בערך המוצג, והשיפוט נמשך
             (הנימוק המדוד בהמשך הסעיף)</td>
-            <td>🌐 אזורי — נספר לשניהם</td></tr>
+            <td>🌐 אזורי — נספר לשניהם · דעה</td></tr>
         <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
             <td><b>לא מדליק כלום</b> — הקשר בלבד</td><td>—</td></tr>
       </tbody>
     </table></div>
 
-    <p>שבעה כללים שמופיעים בטבלה ומקורם בכישלון או במדידה אמיתית, לא בתיאוריה:</p>
+    <p>שמונה כללים שמופיעים בטבלה ומקורם בכישלון או במדידה אמיתית, לא בתיאוריה:</p>
     <ul>
       <li><b>למה נדרשים שני מחוזות ולא אחד:</b> מחוז בודד שיורד הוא בדרך כלל תחזוקת
       תשתית או חור בכיסוי הדיווח. שני מחוזות שיורדים יחד זו כבר התנהגות ברמת מדינה.
@@ -942,13 +1032,26 @@ footer a:hover{color:var(--cyan)}
       כלפי מעלה, כלומר לכיוון אי-הדלקה. זה כיוון בטוח, אבל זו תכונה
       אמפירית של מבנה העקום הנוכחי, לא ערובה — ולכן הערבוב מסומן בגלוי
       בערך המוצג במקום להיעלם בסדרה חלקה.</li>
+      <li><b>למה רצפת שיבוש ה-GPS מעל ישראל היא 18% ולא 5% של הורמוז
+      (20.8.2026):</b> לפני החיבור נמדדו 31 ימים אמיתיים (20.7–19.8.2026)
+      עם ערכת 51 התאים המדויקת של המדד: היחס היומי נע בין 1.83% ל-17.25%
+      בתוך חודש אחד <b>בלי שום אירוע</b> — בניגוד להורמוז, שם היה מעבר מדרגה
+      חד ומתועד, מעל ישראל השיבוש לסירוגין הוא הרקע הקבוע. רצפת 5% של
+      הורמוז, מושתלת כמות שהיא, הייתה נדלקת ב-29.7 (14.1% מול חציון 3.57%)
+      על יום רגיל לגמרי. הרצפה נקבעה ל-18% — מעל כל המעטפת שנמדדה — ובהרצה
+      לאחור על אותו חודש: 24 ימים נשפטו, אפס הדלקות, וההתקרבות הגדולה ביותר
+      הייתה 79% מהסף (31.7). חודש רגוע שמייצר אפס התרעות הוא ההתנהגות
+      הרצויה; המחיר, והוא נאמר ביושר: זינוק שנשאר מתחת ל-18% לא יידלק.</li>
     </ul>
     </div>
     <div data-lang="en">
     <h2><span class="num">05</span> The exact thresholds</h2>
 
     <p>These are the numbers that actually run. They are published here so they
-    can be audited — and so you can see what can, and cannot, light the page.</p>
+    can be audited — and so you can see what can, and cannot, light the page.
+    The last column also carries each family's action/belief type (section 2):
+    a level of 2 or higher requires at least one lit <b>action</b> family —
+    <b>belief</b> families alone stop at level 1.</p>
 
     <div class="m-wrap"><table class="m-tbl">
       <thead><tr><th>Indicator</th><th>Source</th><th>What lights it</th><th>Which index</th></tr></thead>
@@ -960,11 +1063,11 @@ footer a:hover{color:var(--cyan)}
             already-restrictive state. <b>Change only</b> — the mere existence
             of a restrictive policy lights nothing here; and a rewording that
             does not change the meaning, a relaxation, or wording we cannot
-            classify are logged and never raise the level</td><td>🇮🇱 Israel</td></tr>
+            classify are logged and never raise the level</td><td>🇮🇱 Israel · action</td></tr>
         <tr><td>Israeli airspace</td><td>adsb.lol</td>
             <td>civil aircraft &lt; 35% of the median, <b>and</b> below the
             10th percentile of its own history, <b>on two consecutive
-            checks</b>; not judged when the median is &lt; 20</td><td>🇮🇱 Israel</td></tr>
+            checks</b>; not judged when the median is &lt; 20</td><td>🇮🇱 Israel · action</td></tr>
         <tr><td>Jordanian airspace</td><td>adsb.lol (two boxes that are
             unambiguously Jordan: 29.2–32.3°N 35.75–36.5°E and the strip
             32.2–32.7°N 37.2–39.2°E — no Israeli traffic, no Saudi
@@ -972,43 +1075,57 @@ footer a:hover{color:var(--cyan)}
             <td>aircraft &lt; 35% of the median, <b>and</b> ≤ 2 in absolute
             terms, <b>and</b> below the 10th percentile of its own history,
             <b>on two consecutive checks</b>; not judged when the median
-            is &lt; 5</td><td>🇮🇱 Israel</td></tr>
+            is &lt; 5</td><td>🇮🇱 Israel · action</td></tr>
         <tr><td>Travel advisories — Israel and neighbours</td><td>US State Department · FCDO</td>
             <td>An advisory-level rise for Israel / Lebanon / Jordan / Syria, or
             a UK travel-advice update for Israel — <b>confirmed by two
-            consecutive observations</b></td><td>🇮🇱 Israel</td></tr>
+            consecutive observations</b></td><td>🇮🇱 Israel · belief</td></tr>
         <tr><td>Iranian internet (national)</td><td>IODA · Georgia Tech</td>
-            <td class="num-cell">BGP &lt; 85% of the median, or merit-nt &lt; 50%</td><td>🇮🇷 Iran</td></tr>
+            <td class="num-cell">BGP &lt; 85% of the median, or merit-nt &lt; 50%</td><td>🇮🇷 Iran · action</td></tr>
         <tr><td>Internet at province level</td><td>IODA · 8 provinces</td>
             <td><b>Two or more provinces</b> drop below 80% of the median at
-            once</td><td>🇮🇷 Iran</td></tr>
+            once</td><td>🇮🇷 Iran · action</td></tr>
         <tr><td>Satellite thermal anomalies</td><td>NASA FIRMS · VIIRS</td>
-            <td class="num-cell">n &gt; max(3 × median, median + 5)</td><td>🇮🇷 Iran</td></tr>
+            <td class="num-cell">n &gt; max(3 × median, median + 5)</td><td>🇮🇷 Iran · action</td></tr>
         <tr><td>Iranian rial</td><td>tgju (free market)</td>
-            <td class="num-cell">a move of 8%+ against the median, either direction</td><td>🇮🇷 Iran</td></tr>
+            <td class="num-cell">a move of 8%+ against the median, either direction</td><td>🇮🇷 Iran · belief</td></tr>
         <tr><td>Travel advisories — Iran and the Gulf</td><td>US State Department</td>
             <td>An advisory-level rise for Iran / Iraq / Qatar / Bahrain /
             Kuwait / the UAE / Saudi Arabia — confirmed by two
-            observations</td><td>🇮🇷 Iran</td></tr>
+            observations</td><td>🇮🇷 Iran · belief</td></tr>
         <tr><td>GPS interference — Strait of Hormuz</td><td>gpsjam.org (ADS-B-derived, daily)</td>
             <td>The daily ratio of aircraft reporting degraded GPS accuracy
             ≥ 3× the median of the preceding days (up to 30 days), and at
             least 5% in absolute terms; a day with fewer than 1,000
-            observations is not judged</td><td>🇮🇷 Iran</td></tr>
+            observations is not judged</td><td>🇮🇷 Iran · action</td></tr>
+        <tr><td>GPS interference — Israeli airspace</td><td>gpsjam.org (the
+            same daily file — one download serves both GPS indicators; 51 H3
+            resolution-4 cells over 29.4–33.4°N, 34.2–36.0°E)</td>
+            <td>The daily ratio ≥ 3× the median of the preceding days (up to
+            30 days), <b>and</b> ≥ 18% in absolute terms. The floor was
+            derived from a measurement of 31 real days (20 Jul–19 Aug 2026)
+            with this exact cell set: minimum 1.83%, median 5.73%, maximum
+            17.25% — intermittent jamming is the standing background over
+            Israel, so the floor sits above that whole envelope (Hormuz's 5%
+            floor, transplanted unchanged, would have fired on 29 Jul on an
+            ordinary day). Backtested on that same month: 24 days judged
+            (the first 7 are warm-up), zero firings, closest approach 79% of
+            threshold on 31 Jul. A day with fewer than 500 observations is
+            not judged (the measured minimum: 1,929)</td><td>🇮🇱 Israel · action</td></tr>
         <tr><td>Military aviation in the region</td><td>adsb.lol (box 12–40°N, 25–60°E)</td>
             <td class="num-cell">n &gt; max(3 × median, 20), on two consecutive
-            checks</td><td>🌐 Regional — counts for both</td></tr>
+            checks</td><td>🌐 Regional — counts for both · action</td></tr>
         <tr><td>Markets — Brent and the shekel</td><td>tgju (Brent) · Bank of Israel (USD/ILS)</td>
             <td>Escalation direction only: Brent ≥ 108% of the median, or the
             USD/ILS rate ≥ 103% of the median (shekel weakening). One vote per
             family</td>
-            <td>🌐 Regional — counts for both</td></tr>
+            <td>🌐 Regional — counts for both · belief</td></tr>
         <tr><td>Neighbouring-state internet</td><td>IODA · Lebanon, Syria,
             Jordan, Egypt (BGP only — merit-nt is deliberately not used, as it
             is too noisy for small countries)</td>
             <td class="num-cell">any country's national BGP &lt; 85% of the
             median — one vote per family, the country named in the reason</td>
-            <td>🌐 Regional — counts for both</td></tr>
+            <td>🌐 Regional — counts for both · action</td></tr>
         <tr><td>Prediction market — ceasefire</td><td>Polymarket (the event
             "Israel x Iran ceasefire continues through...?", ~$26M volume;
             resolution criterion — an air or missile strike by either side on
@@ -1026,13 +1143,13 @@ footer a:hover{color:var(--cyan)}
             spans two contracts — this is flagged in the displayed value and
             judging continues (the measured rationale is later in this
             section)</td>
-            <td>🌐 Regional — counts for both</td></tr>
+            <td>🌐 Regional — counts for both · belief</td></tr>
         <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
             <td><b>Lights nothing</b> — context only</td><td>—</td></tr>
       </tbody>
     </table></div>
 
-    <p>Seven rules in the table come from real failure or real measurement, not from theory:</p>
+    <p>Eight rules in the table come from real failure or real measurement, not from theory:</p>
     <ul>
       <li><b>Why two provinces and not one:</b> a single province dropping is
       usually infrastructure maintenance or a hole in reporting coverage. Two
@@ -1124,6 +1241,19 @@ footer a:hover{color:var(--cyan)}
       structure, not a guarantee — which is why mixing is flagged openly
       in the displayed value instead of vanishing into a smooth
       series.</li>
+      <li><b>Why the Israel GPS-interference floor is 18% and not Hormuz's 5%
+      (20 Aug 2026):</b> before wiring, 31 real days were measured
+      (20 Jul–19 Aug 2026) with the indicator's exact 51-cell set: the daily
+      ratio swung between 1.83% and 17.25% within a single month <b>with no
+      event at all</b> — unlike Hormuz, which had one sharp, documented
+      regime step, over Israel intermittent jamming is the standing
+      background. Hormuz's 5% floor, transplanted unchanged, would have
+      fired on 29 Jul (14.1% against a 3.57% median) on an entirely ordinary
+      day. The floor was set at 18% — above the whole measured envelope —
+      and backtested on that same month: 24 days judged, zero firings, the
+      closest approach 79% of threshold (31 Jul). A calm month producing
+      zero alerts is the desired behaviour; the price, stated honestly: a
+      surge that stays under 18% will not light.</li>
     </ul>
     </div>
   </section>
@@ -1380,7 +1510,9 @@ footer a:hover{color:var(--cyan)}
       מחיר גולמי — עם רצפת נזילות, רצפת אופק של 21 יום, והרצה לאחור על חודש
       המסחר האמיתי האחרון (25 ימים שנשפטו מתוך 32 בחלון — סעיף 05). לכן זו משפחה מצביעה אבל <b>ערוץ אישור</b>, באותו
       מעמד שניתן למשפחת השווקים: כסף אמיתי, ספק נפרד באמת — אבל דעה, לא
-      פעולה יקרה של מדינה.</li>
+      פעולה יקרה של מדינה. מ-20.8 המעמד הזה גם נאכף מבנית: המשפחה מסווגת
+      "דעה", ומשפחות דעה לבדן — כמה שלא יידלקו יחד — אינן מעלות את המדד
+      מעל רמה 1 (סעיף 2).</li>
       <li><b>רטוריקת מנהיגים —</b> הוצאה לחלוטין. ב-19 ביוני 2025 נאמר "החלטה בתוך
       שבועיים", והתקיפה הגיעה תוך יומיים. סיגנל שיכול להיות אנטי-מתואם עם האמת
       בדיוק ברגע הקריטי אינו סיגנל.</li>
@@ -1403,7 +1535,10 @@ footer a:hover{color:var(--cyan)}
       יחס שיבוש של 1.8–3.2% עד 8.8, וקפיצה ל-10.5–13.3% מ-9.8 ואילך — בדיוק צורת
       המעבר שהכלל נועד לתפוס, והיא כבר חלק מקו הבסיס השמור. ההסתייגות המקורית
       נשארת כתובה: אין תיעוד מאומת של הובלה לפני אירוע, המדד נגזר מתעופה ולא
-      מספנות, והוא מסומן ככזה בעמוד.</li>
+      מספנות, והוא מסומן ככזה בעמוד. ב-20.8 הורחב אותו קובץ יומי למשפחה
+      שנייה — שיבוש GPS מעל <b>מרחב ישראל</b> (51 תאים, ספים משלה שנגזרו
+      ממדידת 31 יום — סעיף 05) — בלי הורדה נוספת: קריאה אחת ביום משרתת את
+      שני המדדים, והם מסומנים כספק אחד במסנן גיוון-הספקים.</li>
     </ul>
     </div>
     <div data-lang="en">
@@ -1447,7 +1582,10 @@ footer a:hover{color:var(--cyan)}
       (25 judged days of the 32 in the window — section 05).
       So it is a voting family but a <b>confirmation channel</b>, with the
       same standing the markets family has: real money, a genuinely separate
-      provider — but a belief, not a costly state action.</li>
+      provider — but a belief, not a costly state action. Since 20 Aug that
+      standing is also enforced structurally: the family is typed "belief",
+      and belief families alone — however many light together — can never
+      push the index past level 1 (section 2).</li>
       <li><b>Leader rhetoric —</b> removed entirely. On 19 June 2025 the line
       was "a decision within two weeks", and the strike came within two days.
       A signal that can be anti-correlated with the truth at exactly the
@@ -1479,7 +1617,12 @@ footer a:hover{color:var(--cyan)}
       part of the stored baseline. The original reservation stays on record:
       there is no verified documentation of it leading before an event, the
       indicator is derived from aviation rather than shipping, and it is
-      labelled as such on the page.</li>
+      labelled as such on the page. On 20.8 the same daily file was extended
+      to a second family — GPS interference over <b>Israeli airspace</b>
+      (51 cells, its own thresholds derived from a 31-day measurement —
+      section 05) — with no additional download: one fetch a day serves both
+      indicators, and they are tagged as one provider in the
+      provider-diversity guard.</li>
     </ul>
     </div>
   </section>
