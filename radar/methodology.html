@@ -635,16 +635,21 @@ footer a:hover{color:var(--cyan)}
             מתאים את עצמו לשינויים אמיתיים בקצב הרקע.</td></tr>
         <tr><td>מינימום לפני שכלל פעיל</td><td class="num-cell">12 דגימות ≈ 6 שעות</td>
             <td>כלל שמבוסס על חציון פשוט <b>אינו קיים</b> עד שנצברה היסטוריה. אחרת
-            הרצה ראשונה הייתה מייצרת התרעת שווא מיידית.</td></tr>
+            הרצה ראשונה הייתה מייצרת התרעת שווא מיידית. שני המדדים היומיים
+            שבשורה הבאה דורשים במקום זאת 7 <b>ימי</b> היסטוריה — ושוק הניבוי
+            מגיע עם ההיסטוריה הזו מהמקור עצמו כבר בריצה הראשונה.</td></tr>
         <tr><td>קירור בין התרעות</td><td class="num-cell">6 שעות למשפחה</td>
             <td>מונע הצפה מפיד מהבהב.</td></tr>
         <tr><td>"טווח נורמלי" המוצג בדף</td><td class="num-cell">אחוזונים 10–90</td>
             <td>מה שרואים ליד כל מדד הוא הטווח שבו נמצאות 80% מהדגימות האחרונות —
             כדי שהמספר הנוכחי יהיה קריא בלי לדעת את הפיד.</td></tr>
-        <tr><td>חריג: מדד שיבוש ה-GPS</td><td class="num-cell">סדרה יומית · עד 30 יום</td>
-            <td>gpsjam.org מפרסם קובץ אחד ליום (בפיגור של כיום). לכן המשפחה הזו
-            נשפטת פעם אחת לכל יום שפורסם, מול חציון הימים הקודמים — לא מול חלון
-            48 השעות. נדרשים 7 ימי היסטוריה לפחות לפני שהכלל פעיל.</td></tr>
+        <tr><td>חריגים: שיבוש ה-GPS ושוק הניבוי</td><td class="num-cell">סדרה יומית · עד 30 יום</td>
+            <td>שתי משפחות נשפטות מול חציון <b>ימים</b> קודמים ולא מול חלון 48
+            השעות, ושתיהן דורשות 7 ימי היסטוריה לפחות. שיבוש ה-GPS: gpsjam.org
+            מפרסם קובץ אחד ליום (בפיגור של כיום), ולכן הוא נשפט פעם אחת לכל יום
+            שפורסם. שוק הניבוי (Polymarket): הסדרה היומית נבנית מחדש בכל ריצה
+            מההיסטוריה השעתית של השוק עצמו — ולכן קו הבסיס אמיתי כבר מהריצה
+            הראשונה — והקריאה החיה נשפטת מולה בכל בדיקת 30 דקות.</td></tr>
       </tbody>
     </table></div>
 
@@ -720,18 +725,24 @@ footer a:hover{color:var(--cyan)}
         <tr><td>Minimum before a rule is active</td><td class="num-cell">12 samples ≈ 6 hours</td>
             <td>A median-based rule simply <b>does not exist</b> until history
             has accumulated. Otherwise the first run would produce an immediate
-            false alarm.</td></tr>
+            false alarm. The two daily families in the row below require
+            7 <b>days</b> of history instead — and the prediction market
+            arrives with that history from the source itself on run one.</td></tr>
         <tr><td>Cooldown between alerts</td><td class="num-cell">6 hours per family</td>
             <td>Prevents flooding from a flapping feed.</td></tr>
         <tr><td>"Normal range" shown on the page</td><td class="num-cell">10th–90th percentiles</td>
             <td>What you see next to each indicator is the range holding 80% of
             the recent samples — so the current number is readable without
             knowing the feed.</td></tr>
-        <tr><td>Exception: the GPS-interference indicator</td><td class="num-cell">daily series · up to 30 days</td>
-            <td>gpsjam.org publishes one file per day (about a day behind). So
-            this family is judged once per published day, against the median of
-            the preceding days — not against the 48-hour window. At least
-            7 days of history are required before the rule is active.</td></tr>
+        <tr><td>Exceptions: GPS interference and the prediction market</td><td class="num-cell">daily series · up to 30 days</td>
+            <td>Two families are judged against the median of preceding
+            <b>days</b>, not the 48-hour window, and both require at least
+            7 days of history. GPS interference: gpsjam.org publishes one file
+            per day (about a day behind), so it is judged once per published
+            day. The prediction market (Polymarket): its daily series is
+            rebuilt every run from the market's own hourly history — so the
+            baseline is real from the first run — and the live reading is
+            judged against it on every 30-minute check.</td></tr>
       </tbody>
     </table></div>
 
@@ -846,10 +857,13 @@ footer a:hover{color:var(--cyan)}
             <td>הסיכון היומי הגלום h = 1 − (1 − p)^(1/ימים שנותרו) —
             <b>לעולם לא המחיר הגולמי</b>, שיורד מעצמו כשהאופק מתקצר —
             ≥ פי 3 מחציון הימים הקודמים (עד 30 יום), <b>וגם</b> ≥ 2% ליום
-            בערך מוחלט. נבחר תת-השוק הפתוח הקרוב ביותר עם ≥21 יום לפדיון
-            (מתחת לזה צעד המחיר המזערי 0.005 הוא ~11% מהמדידה ומעלה);
-            נזילות &lt; $20K או מרווח קנייה-מכירה &gt; 0.05 → המדד מדווח
-            כלא-נקרא, לא כאפס</td>
+            בערך מוחלט; אין שיפוט עם פחות מ-7 ימי היסטוריה קודמים. נבחר
+            תת-השוק הפתוח הקרוב ביותר עם ≥21 יום לפדיון (מתחת לזה צעד
+            המחיר המזערי 0.005 הוא ~11% מהמדידה ומעלה); נזילות &lt; $20K,
+            מרווח קנייה-מכירה &gt; 0.05 <b>או מרווח חסר בתשובת ה-API</b> →
+            המדד מדווח כלא-נקרא, לא כאפס. אחרי גלגול לחוזה הבא קו הבסיס
+            משלב זמנית שני חוזים — זה מסומן בערך המוצג, והשיפוט נמשך
+            (הנימוק המדוד בהמשך הסעיף)</td>
             <td>🌐 אזורי — נספר לשניהם</td></tr>
         <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
             <td><b>לא מדליק כלום</b> — הקשר בלבד</td><td>—</td></tr>
@@ -913,11 +927,21 @@ footer a:hover{color:var(--cyan)}
       h = 1 − (1 − p)^(1/ימים), ירד פי 5.6 בלבד (2.22% → 0.39% ליום). כלומר
       הייתה רגיעה אמיתית, אבל <b>יותר מחצי</b> מהירידה הגולמית הייתה תעתוע
       לוח-שנה. הכלל — פי 3 מחציון הימים הקודמים וגם ≥2% ליום (שקול ל~45%
-      בתוך חודש) — הורץ לאחור על 31 ימי המסחר האמיתיים (743 נקודות שעתיות,
-      20.7–20.8) לפני החיבור ונדלק <b>אפס פעמים</b>, כולל בשיא של 3.7% ליום
-      ב-23–24 ביולי, כי חציון הימים הקודמים כבר עמד על ~2.2% — מתח שכבר
-      בקו הבסיס הוא נוכחות, לא שינוי. חודש רגוע באמת שמייצר אפס התרעות הוא
-      בדיוק ההתנהגות הרצויה.</li>
+      בתוך חודש) — הורץ לאחור על הסדרה השעתית האמיתית (743 נקודות,
+      20.7–20.8) לפני החיבור. במסגרת ההוגנת: מתוך 32 התאריכים בחלון נשפטו
+      <b>25</b> — שבעת הימים הראשונים הם חימום קו הבסיס, ודווקא בהם נמצא
+      הקטע המתוח ביותר (23–24 ביולי, ~3.3–3.5% ליום, שמעולם לא נשפט: היו
+      אז רק 3–4 ימים קודמים). מבין הימים שנשפטו הכלל נדלק <b>אפס פעמים</b>;
+      בשיא התוך-יומי של החלון — 1 באוגוסט, 3.75% ליום — הוא סירב נכון:
+      פי 3 מחציון הימים הקודמים (2.03%) עמד על 6.09% ליום. חודש רגוע באמת
+      שמייצר אפס התרעות הוא בדיוק ההתנהגות הרצויה. ולעניין הגלגול בין
+      חוזים: שחזור הגלגול האמיתי של 11.8 הראה שקו הבסיס שאחרי גלגול משלב
+      שני חוזים באופן חלקי — זה המצב הרגיל, לא תקלה. הפער המרבי שנמדד בין
+      שני חוזים ברי-בחירה באותו יום היה פי 1.86 (8.8) — מתחת לזרוע פי 3 —
+      והחוזה הקרוב קרא גבוה יותר לאורך כל החלון, כך שערבוב מטה את החציון
+      כלפי מעלה, כלומר לכיוון אי-הדלקה. זה כיוון בטוח, אבל זו תכונה
+      אמפירית של מבנה העקום הנוכחי, לא ערובה — ולכן הערבוב מסומן בגלוי
+      בערך המוצג במקום להיעלם בסדרה חלקה.</li>
     </ul>
     </div>
     <div data-lang="en">
@@ -992,11 +1016,16 @@ footer a:hover{color:var(--cyan)}
             <td>The implied daily hazard h = 1 − (1 − p)^(1/days remaining) —
             <b>never the raw price</b>, which falls on its own as the horizon
             shortens — ≥ 3× the median of the preceding days (up to 30),
-            <b>and</b> ≥ 2% per day in absolute terms. The nearest-expiry open
-            sub-market with ≥21 days to expiry is selected (closer in, the
-            0.005 minimum price tick is ~11% of the measurement and worse);
-            liquidity &lt; $20K or a bid/ask spread &gt; 0.05 → the indicator
-            reports as unread, not as zero</td>
+            <b>and</b> ≥ 2% per day in absolute terms; not judged with fewer
+            than 7 days of prior history. The nearest-expiry open sub-market
+            with ≥21 days to expiry is selected (closer in, the 0.005 minimum
+            price tick is ~11% of the measurement and worse); liquidity
+            &lt; $20K, a bid/ask spread &gt; 0.05 <b>or a spread missing from
+            the API response</b> → the indicator reports as unread, not as
+            zero. After a roll to the next contract the baseline temporarily
+            spans two contracts — this is flagged in the displayed value and
+            judging continues (the measured rationale is later in this
+            section)</td>
             <td>🌐 Regional — counts for both</td></tr>
         <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
             <td><b>Lights nothing</b> — context only</td><td>—</td></tr>
@@ -1076,12 +1105,25 @@ footer a:hover{color:var(--cyan)}
       (2.22% → 0.39% per day). Real de-escalation existed, but <b>more than
       half</b> of the raw drop was a calendar artifact. The rule — 3× the
       median of the preceding days and ≥2% per day (equivalent to ~45%
-      within a month) — was backtested on the 31 real trading days (743
-      hourly points, 20 Jul–20 Aug) before wiring and fired <b>zero
-      times</b>, including at the 3.7%/day peak of 23–24 July, because the
-      prior-days median already stood at ~2.2% — tension already in the
-      baseline is presence, not change. A genuinely calm month producing
-      zero alerts is exactly the desired behaviour.</li>
+      within a month) — was backtested on the real hourly series (743
+      points, 20 Jul–20 Aug) before wiring. Framed honestly: of the 32
+      dates in the window, <b>25 were judged</b> — the first 7 days are the
+      baseline warm-up, and that skipped stretch contains the tensest days
+      of the window (23–24 July, ~3.3–3.5%/day, never judged: only 3–4
+      prior days existed then). Among the judged days the rule fired
+      <b>zero times</b>; at the window's intraday peak — 1 August,
+      3.75%/day — it refused correctly: 3× the prior-days median (2.03%)
+      stood at 6.09%/day. A genuinely calm month producing zero alerts is
+      exactly the desired behaviour. On contract rolls: replaying the real
+      roll of 11 Aug showed the post-roll baseline partially spans two
+      contracts — the normal state, not a fault. The worst same-day spread
+      measured between two selectable contracts was 1.86× (8 Aug) — under
+      the 3× arm — and the nearer contract read higher throughout the
+      window, so mixing biases the median up, i.e. toward NOT lighting.
+      A safe direction, but an empirical property of the current term
+      structure, not a guarantee — which is why mixing is flagged openly
+      in the displayed value instead of vanishing into a smooth
+      series.</li>
     </ul>
     </div>
   </section>
@@ -1335,8 +1377,8 @@ footer a:hover{color:var(--cyan)}
       לזהות ככזה בזמן אמת. מה שכן השתנה: נמצא אירוע שתנאי ההכרעה שלו כמעט זהה
       לשאלת הראדאר (תקיפה אווירית/טילית של צד אחד בשני, דו-כיווני, ~$26M
       מחזור), והמדידה עברה למחיר <b>מנורמל לאופק</b> — סיכון יומי גלום ולא
-      מחיר גולמי — עם רצפת נזילות, רצפת אופק של 21 יום, והרצה לאחור על 31 ימי
-      מסחר אמיתיים (סעיף 05). לכן זו משפחה מצביעה אבל <b>ערוץ אישור</b>, באותו
+      מחיר גולמי — עם רצפת נזילות, רצפת אופק של 21 יום, והרצה לאחור על חודש
+      המסחר האמיתי האחרון (25 ימים שנשפטו מתוך 32 בחלון — סעיף 05). לכן זו משפחה מצביעה אבל <b>ערוץ אישור</b>, באותו
       מעמד שניתן למשפחת השווקים: כסף אמיתי, ספק נפרד באמת — אבל דעה, לא
       פעולה יקרה של מדינה.</li>
       <li><b>רטוריקת מנהיגים —</b> הוצאה לחלוטין. ב-19 ביוני 2025 נאמר "החלטה בתוך
@@ -1401,7 +1443,8 @@ footer a:hover{color:var(--cyan)}
       either side on the other, bidirectional, ~$26M volume), and the
       measurement moved to a <b>horizon-normalized</b> figure — an implied
       daily hazard, never the raw price — with a liquidity floor, a 21-day
-      horizon floor, and a backtest over 31 real trading days (section 05).
+      horizon floor, and a backtest over the last real month of trading
+      (25 judged days of the 32 in the window — section 05).
       So it is a voting family but a <b>confirmation channel</b>, with the
       same standing the markets family has: real money, a genuinely separate
       provider — but a belief, not a costly state action.</li>
