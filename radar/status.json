@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-20T03:12:25+00:00",
+ "generated": "2026-08-20T04:12:36+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -903,6 +903,18 @@
    "il": 0,
    "ir": 0,
    "deg": 1
+  },
+  {
+   "t": 1787197361,
+   "il": 0,
+   "ir": 0,
+   "deg": 1
+  },
+  {
+   "t": 1787199156,
+   "il": 0,
+   "ir": 0,
+   "deg": 1
   }
  ],
  "indices": [
@@ -952,8 +964,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "72 מטוסים אזרחיים באזור",
-     "value_en": "72 civil aircraft in the area",
+     "value": "66 מטוסים אזרחיים באזור",
+     "value_en": "66 civil aircraft in the area",
      "range": "58–105"
     },
     {
@@ -970,8 +982,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
+     "value": "2 מטוסים מעל ירדן",
+     "value_en": "2 aircraft over Jordan",
      "range": "3–9"
     },
     {
@@ -1006,8 +1018,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -1024,8 +1036,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $92.0 · דולר 2.98 ₪",
-     "value_en": "Brent $92.0 · USD 2.98 ILS",
+     "value": "ברנט $91.8 · דולר 2.98 ₪",
+     "value_en": "Brent $91.8 · USD 2.98 ILS",
      "range": ""
     },
     {
@@ -1060,8 +1072,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "71/100",
-     "value_en": "71/100",
+     "value": "70/100",
+     "value_en": "70/100",
      "range": ""
     }
    ]
@@ -1094,8 +1106,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,572 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,572 BGP routes)",
+     "value": "קישוריות תקינה (41,561 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,561 BGP routes)",
      "range": "41,553–41,633"
     },
     {
@@ -1150,7 +1162,7 @@
      "reason_en": "",
      "value": "1,886,000 ריאל לדולר",
      "value_en": "1,886,000 rial to the dollar",
-     "range": "1,865,000–1,889,900"
+     "range": "1,867,000–1,889,900"
     },
     {
      "key": "advisories_ir",
@@ -1202,8 +1214,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -1220,8 +1232,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $92.0 · דולר 2.98 ₪",
-     "value_en": "Brent $92.0 · USD 2.98 ILS",
+     "value": "ברנט $91.8 · דולר 2.98 ₪",
+     "value_en": "Brent $91.8 · USD 2.98 ILS",
      "range": ""
     },
     {
@@ -1256,8 +1268,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "71/100",
-     "value_en": "71/100",
+     "value": "70/100",
+     "value_en": "70/100",
      "range": ""
     }
    ],
