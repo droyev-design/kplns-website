@@ -1,12 +1,12 @@
 {
- "generated": "2026-08-20T20:37:03+00:00",
+ "generated": "2026-08-20T21:37:02+00:00",
  "level": 0,
  "now": {
-  "foreign_ops": 56,
-  "cancelled": 41,
-  "flights": 864,
-  "aircraft": 16,
-  "airborne_ops": 9
+  "foreign_ops": 48,
+  "cancelled": 3,
+  "flights": 682,
+  "aircraft": 10,
+  "airborne_ops": 8
  },
  "history": [
   {
@@ -58,6 +58,16 @@
    "t": 1787258223,
    "lv": 0,
    "deg": 0
+  },
+  {
+   "t": 1787260022,
+   "lv": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787261822,
+   "lv": 0,
+   "deg": 0
   }
  ],
  "tripwires": [
@@ -70,8 +80,8 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "56 חברות זרות שונות טסות היום",
-   "value_en": "56 distinct foreign airlines flying today"
+   "value": "48 חברות זרות שונות טסות היום",
+   "value_en": "48 distinct foreign airlines flying today"
   },
   {
    "key": "cancellations",
@@ -82,8 +92,8 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "41 מתוך 864 טיסות היום (4.7%) — ביטולים בודדים הם שגרה",
-   "value_en": "41 of 864 flights today (4.7%) — a handful is routine"
+   "value": "3 מתוך 682 טיסות היום (0.4%) — ביטולים בודדים הם שגרה",
+   "value_en": "3 of 682 flights today (0.4%) — a handful is routine"
   },
   {
    "key": "live_traffic",
@@ -94,26 +104,16 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "16 מטוסים באוויר כעת, 9 סימני קריאה של חברות",
-   "value_en": "16 aircraft airborne now, 9 airline callsigns"
+   "value": "10 מטוסים באוויר כעת, 8 סימני קריאה של חברות",
+   "value_en": "10 aircraft airborne now, 8 airline callsigns"
   }
  ],
  "days": [
   {
-   "date": "2026-08-20",
-   "dow": "חמישי",
-   "dow_en": "Thu",
-   "today": true,
-   "flights": 864,
-   "cancelled": 41,
-   "foreign_ops": 56,
-   "il_ops": 3
-  },
-  {
    "date": "2026-08-21",
    "dow": "שישי",
    "dow_en": "Fri",
-   "today": false,
+   "today": true,
    "flights": 682,
    "cancelled": 3,
    "foreign_ops": 48,
@@ -134,15 +134,25 @@
    "dow": "ראשון",
    "dow_en": "Sun",
    "today": false,
-   "flights": 776,
+   "flights": 786,
    "cancelled": 0,
    "foreign_ops": 54,
+   "il_ops": 3
+  },
+  {
+   "date": "2026-08-24",
+   "dow": "שני",
+   "dow_en": "Mon",
+   "today": false,
+   "flights": 18,
+   "cancelled": 0,
+   "foreign_ops": 8,
    "il_ops": 3
   }
  ],
  "baseline": {
   "since": "2026-08-20",
-  "weekday_days": 0,
+  "weekday_days": 1,
   "fri_days": 0,
   "sat_days": 0,
   "fops_need": 4,
