@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-20T19:12:35+00:00",
+ "generated": "2026-08-20T20:12:57+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -1143,6 +1143,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787254954,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787256777,
+   "il": 0,
+   "ir": 0,
+   "deg": 1
   }
  ],
  "indices": [
@@ -1196,8 +1208,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "89 מטוסים אזרחיים באזור",
-     "value_en": "89 civil aircraft in the area",
+     "value": "90 מטוסים אזרחיים באזור",
+     "value_en": "90 civil aircraft in the area",
      "range": "60–105"
     },
     {
@@ -1212,11 +1224,11 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": true,
+     "ok": false,
      "reason": "",
      "reason_en": "",
-     "value": "10 מטוסים מעל ירדן",
-     "value_en": "10 aircraft over Jordan",
+     "value": "",
+     "value_en": "",
      "range": "3–9"
     },
     {
@@ -1291,8 +1303,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.7 · דולר 2.99 ₪",
-     "value_en": "Brent $93.7 · USD 2.99 ILS",
+     "value": "ברנט $93.5 · דולר 2.99 ₪",
+     "value_en": "Brent $93.5 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -1348,8 +1360,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "75/100",
-     "value_en": "75/100",
+     "value": "76/100",
+     "value_en": "76/100",
      "range": ""
     }
    ]
@@ -1385,8 +1397,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,565 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,565 BGP routes)",
+     "value": "קישוריות תקינה (41,560 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,560 BGP routes)",
      "range": "41,402–41,575"
     },
     {
@@ -1518,8 +1530,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.7 · דולר 2.99 ₪",
-     "value_en": "Brent $93.7 · USD 2.99 ILS",
+     "value": "ברנט $93.5 · דולר 2.99 ₪",
+     "value_en": "Brent $93.5 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -1575,8 +1587,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "75/100",
-     "value_en": "75/100",
+     "value": "76/100",
+     "value_en": "76/100",
      "range": ""
     }
    ],
@@ -1592,8 +1604,12 @@
    ]
   }
  ],
- "sources_ok": 15,
+ "sources_ok": 14,
  "sources_total": 15,
- "degraded": [],
- "degraded_en": []
+ "degraded": [
+  "מרחב אווירי ירדן"
+ ],
+ "degraded_en": [
+  "Jordanian airspace"
+ ]
 }
