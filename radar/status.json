@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-20T07:12:35+00:00",
+ "generated": "2026-08-20T07:42:33+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -963,6 +963,18 @@
    "il": 0,
    "ir": 0,
    "deg": 1
+  },
+  {
+   "t": 1787210849,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787211753,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1016,8 +1028,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "105 מטוסים אזרחיים באזור",
-     "value_en": "105 civil aircraft in the area",
+     "value": "95 מטוסים אזרחיים באזור",
+     "value_en": "95 civil aircraft in the area",
      "range": "59–105"
     },
     {
@@ -1035,8 +1047,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים מעל ירדן",
-     "value_en": "4 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "3–9"
     },
     {
@@ -1092,9 +1104,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
-     "range": "1–9"
+     "value": "10 מטוסים צבאיים באזור",
+     "value_en": "10 military aircraft in the area",
+     "range": "1–10"
     },
     {
      "key": "markets",
@@ -1111,8 +1123,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.8 · דולר 2.98 ₪",
-     "value_en": "Brent $91.8 · USD 2.98 ILS",
+     "value": "ברנט $92.7 · דולר 2.98 ₪",
+     "value_en": "Brent $92.7 · USD 2.98 ILS",
      "range": ""
     },
     {
@@ -1205,9 +1217,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,575 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,575 BGP routes)",
-     "range": "41,553–41,594"
+     "value": "קישוריות תקינה (41,573 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,573 BGP routes)",
+     "range": "41,553–41,581"
     },
     {
      "key": "ir_provinces",
@@ -1240,12 +1252,12 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": false,
+     "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "",
-     "value_en": "",
-     "range": "0–4"
+     "value": "חריגה תרמית אחת במוקדים חדשים ב-2026-08-19 (מתוך 841 זיהויים גולמיים, כולל שרפות ותעשייה)",
+     "value_en": "1 thermal anomaly at new hotspots on 2026-08-19 (out of 841 raw detections, incl. wildfires and industry)",
+     "range": ""
     },
     {
      "key": "rial",
@@ -1319,9 +1331,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
-     "range": "1–9"
+     "value": "10 מטוסים צבאיים באזור",
+     "value_en": "10 military aircraft in the area",
+     "range": "1–10"
     },
     {
      "key": "markets",
@@ -1338,8 +1350,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.8 · דולר 2.98 ₪",
-     "value_en": "Brent $91.8 · USD 2.98 ILS",
+     "value": "ברנט $92.7 · דולר 2.98 ₪",
+     "value_en": "Brent $92.7 · USD 2.98 ILS",
      "range": ""
     },
     {
@@ -1412,12 +1424,8 @@
    ]
   }
  ],
- "sources_ok": 14,
+ "sources_ok": 15,
  "sources_total": 15,
- "degraded": [
-  "חריגות תרמיות מלוויין (NASA FIRMS)"
- ],
- "degraded_en": [
-  "Satellite thermal anomalies (NASA FIRMS)"
- ]
+ "degraded": [],
+ "degraded_en": []
 }
