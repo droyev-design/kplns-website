@@ -477,6 +477,16 @@ footer a:hover{color:var(--cyan)}
   background:var(--bg-card-hover)}
 .share-btn.is-channel{border-color:rgba(0,212,255,.28);color:var(--cyan)}
 .share-btn.is-channel:hover{border-color:var(--cyan);background:var(--cyan-dim)}
+/* ── channel CTA, under the disclaimer ─────────────────── */
+.chan{max-width:640px;margin:22px auto 0;padding:16px 18px;text-align:center;
+  border:1px solid rgba(0,212,255,.24);border-radius:14px;background:var(--bg-card)}
+.chan-t{font-weight:700;font-size:1.02rem;color:var(--text-primary);margin-bottom:6px}
+.chan-s{font-size:.86rem;color:var(--text-secondary);line-height:1.6;margin:0 0 12px}
+.chan-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 18px;
+  border:1px solid rgba(0,212,255,.4);border-radius:999px;background:var(--cyan-dim);
+  color:var(--cyan);font-size:.9rem;font-weight:600;text-decoration:none;
+  transition:border-color .15s,background .15s}
+.chan-btn:hover{border-color:var(--cyan);background:var(--bg-card-hover)}
 </style>
 <!-- Set before the first paint, so the server-rendered snapshot further down is
      never visible for even one frame to a reader whose browser runs JS. Doing
@@ -598,6 +608,23 @@ footer a:hover{color:var(--cyan)}
       <li>The output is a <b>level</b>, never a probability.</li>
     </ul>
     <a href="https://www.oref.org.il/eng" target="_blank" rel="noopener">Home Front Command official instructions →</a>
+  </div>
+
+  <!-- Channel CTA. Deliberately placed BELOW the "this is not a warning system"
+       notice and never above it: an invitation to "know when the level changes"
+       that a reader meets BEFORE that notice reads as subscribing to alerts,
+       which is the single misreading this whole page is built to prevent. The
+       cost is a little conversion; the copy therefore repeats the limit itself
+       instead of leaning on the block above it. -->
+  <div class="chan" data-lang="he">
+    <div class="chan-t">🛰️ לדעת כשהרמה משתנה</div>
+    <p class="chan-s">ערוץ טלגרם חד־כיווני שמפרסם <b>רק</b> כשאחד המדדים משנה רמה — בלי חדשות, בלי פרשנות ובלי תחזיות. <b>אינו מערכת התרעה</b>, והמקור המחייב היחיד הוא פיקוד העורף.</p>
+    <a class="chan-btn" href="https://t.me/kplns_radar" target="_blank" rel="noopener">לערוץ בטלגרם ←</a>
+  </div>
+  <div class="chan" data-lang="en">
+    <div class="chan-t">🛰️ Know when the level changes</div>
+    <p class="chan-s">A one-way Telegram channel that posts <b>only</b> when one of the indices changes level — no news, no commentary, no forecasts. <b>Not a warning system</b>, and the only authoritative source is the Home Front Command.</p>
+    <a class="chan-btn" href="https://t.me/kplns_radar" target="_blank" rel="noopener">Open the channel →</a>
   </div>
 
   <section class="legend" aria-label="הסבר הרמות" data-lang="he">
@@ -1039,6 +1066,22 @@ footer a:hover{color:var(--cyan)}
     <a class="share-btn is-channel" href="https://t.me/kplns_radar" target="_blank" rel="noopener"><span data-lang="he">🛰️ ערוץ העדכונים</span><span data-lang="en">🛰️ Updates channel</span></a>
   </div>
   <div class="stamp" id="stamp">טוען…</div>
+
+  <!-- Channel-click measurement. Until this existed, the conversion from page
+       to channel was unmeasurable, so every change to the CTA would have been
+       a guess. Delegated from the document so it covers the CTA, the share row
+       and anything added later, with `link_location` separating them. Silent
+       when gtag never loaded (blocker, or consent not granted). -->
+  <script>
+  document.addEventListener('click', function (e) {
+    var t = e.target, a = t && t.closest && t.closest('a[href*="t.me/kplns_radar"]');
+    if (!a || typeof gtag !== 'function') return;
+    gtag('event', 'channel_click', {
+      link_location: a.closest('.chan') ? 'cta'
+                   : a.closest('.share') ? 'share_row' : 'other'
+    });
+  }, true);
+  </script>
 
   </main>
 

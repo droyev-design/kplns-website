@@ -183,6 +183,24 @@ a{text-decoration:none;color:inherit}
 }
 @media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
 
+/* Channel CTA. Same rule as the radar page: the limit is stated INSIDE the
+   box rather than assumed from the surrounding article, because a reader who
+   arrives from search may read nothing else on the page. */
+.chan-box {
+  max-width: 760px; margin: 40px auto 0; padding: 18px 22px;
+  background: var(--bg-card); border: 1px solid rgba(0,212,255,0.24);
+  border-radius: 14px; text-align: center;
+}
+.chan-box-t { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+.chan-box-s { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 14px; }
+.chan-box-btn {
+  display: inline-block; padding: 8px 18px; border-radius: 999px;
+  border: 1px solid rgba(0,212,255,0.4); background: var(--cyan-dim);
+  color: var(--cyan); font-size: 0.9rem; font-weight: 600; text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.chan-box-btn:hover { border-color: var(--cyan); background: rgba(26, 34, 54, 0.85); }
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"התרעות שווא - הכשל שהורג מערכות ניטור מבפנים"}]}
@@ -369,6 +387,12 @@ a{text-decoration:none;color:inherit}
   </div>
 
 
+  <aside class="chan-box" aria-label="הראדאר החי וערוץ העדכונים">
+    <div class="chan-box-t">🛰️ המדד החי, ועדכון כשהרמה משתנה</div>
+    <p class="chan-box-s">הראדאר עצמו רץ ב-<a href="https://kplns.com/radar/">kplns.com/radar</a> ומתעדכן כל 30 דקות. ערוץ טלגרם חד־כיווני מפרסם <b>רק</b> כשאחד המדדים משנה רמה — בלי חדשות, בלי פרשנות ובלי תחזיות. <b>אינו מערכת התרעה</b>, והמקור המחייב היחיד הוא פיקוד העורף.</p>
+    <a class="chan-box-btn" href="https://t.me/kplns_radar" target="_blank" rel="noopener">לערוץ בטלגרם ←</a>
+  </aside>
+
   <section class="related-articles" aria-label="מאמרים ושירותים קשורים">
     <h3>מאמרים ושירותים קשורים</h3>
     <div class="related-grid">
@@ -399,5 +423,17 @@ a{text-decoration:none;color:inherit}
   </div>
   <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
 </footer>
+  <!-- Channel-click measurement, same event and shape as the radar page, so
+       both surfaces report into one GA4 event with link_location separating
+       them. Silent when gtag never loaded. -->
+  <script>
+  document.addEventListener('click', function (e) {
+    var t = e.target, a = t && t.closest && t.closest('a[href*="t.me/kplns_radar"]');
+    if (!a || typeof gtag !== 'function') return;
+    gtag('event', 'channel_click', {
+      link_location: a.closest('.chan-box') ? 'article_cta' : 'other'
+    });
+  }, true);
+  </script>
 </body>
 </html>
