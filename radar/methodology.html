@@ -725,7 +725,8 @@ footer a:hover{color:var(--cyan)}
             לכל יום שפורסם. שוק הניבוי (Polymarket): הסדרה היומית נבנית מחדש
             בכל ריצה מההיסטוריה השעתית של השוק עצמו — ולכן קו הבסיס אמיתי כבר
             מהריצה הראשונה — והקריאה החיה נשפטת מולה בכל בדיקת 30 דקות.
-            החריגות התרמיות (NASA FIRMS): הלוויין עובר מעל איראן פעם ביממה
+            החריגות התרמיות (NASA FIRMS): שלושת לווייני VIIRS (SNPP,
+            NOAA-20, NOAA-21) — כל אחד עובר מעל האזור פעם או פעמיים ביממה —
             והעיבוד מפגר בשעות, ולכן נמדדת היממה השלמה (UTC) האחרונה — לא
             היום הנוכחי, שנראה ריק עד שעות הצהריים — וכל יממה שפורסמה נשפטת
             פעם אחת. יממה שלמה שמתיישנת מעל 36 שעות פירושה מקור תקוע, והמדד
@@ -759,9 +760,12 @@ footer a:hover{color:var(--cyan)}
     האזור (bbox 44,25–64,40) ב-16.8.2026 הראתה כ-800–1,300 חריגות תרמיות
     <b>ביום</b>: 1,181 תאים שונים לאורך 5 ימים, מתוכם 340 בערו ב-3 ימים ומעלה —
     כלומר לפידי גז קבועים בשדות הנפט בח'וזסתאן ותעשייה. לכן נשמרות רק חריגות
-    שעונות על שלושת התנאים: ודאות גבוהה, עוצמה ≥50 MW (בערך אחוזון 99), ובמיקום
+    שעונות על שלושת התנאים: ודאות רגילה או גבוהה (נמוכה נפסלת), עוצמה ≥50 MW
+    (בערך אחוזון 99), ובמיקום
     <b>שלא מופיע במסכת המקומות שבוערים דרך קבע</b> — מסכה שנלמדת מהתצפיות עצמן.
-    אחרי הסינון נשארות כ-1.4 חריגות ביום, וזה מספר שאפשר לחפש בו זינוק.</p>
+    אחרי הסינון נשארים מוקדים בודדים ביום, וזה מספר שאפשר לחפש בו זינוק.
+    המדידה שלמעלה נעשתה בלוויין אחד; מאז 20.8.2026 נקראים שלושה ונספרים
+    <b>מקומות</b> ולא שורות זיהוי, ולכן הספירה היומית נבנתה מחדש מאותו תאריך.</p>
 
     <div class="call warn">
       <b>ומה שהמדד הזה עדיין לא יודע:</b> הוא אינו מייחס סיבה. חתימת חום גדולה
@@ -830,9 +834,10 @@ footer a:hover{color:var(--cyan)}
             market (Polymarket): its daily series is rebuilt every run from
             the market's own hourly history — so the baseline is real from
             the first run — and the live reading is judged against it on
-            every 30-minute check. The thermal anomalies (NASA FIRMS): the
-            satellite passes over Iran once a day and processing lags by
-            hours, so what is measured is the most recent complete UTC day —
+            every 30-minute check. The thermal anomalies (NASA FIRMS): three
+            VIIRS satellites (SNPP, NOAA-20, NOAA-21) each pass over the area
+            once or twice a day and processing lags by hours, so what is
+            measured is the most recent complete UTC day —
             not the current day, which looks empty until around noon — and
             each published day is judged exactly once. A complete day older
             than 36 hours means the source is stuck, and the indicator is
@@ -871,11 +876,15 @@ footer a:hover{color:var(--cyan)}
     showed roughly 800–1,300 thermal anomalies <b>per day</b>: 1,181 distinct
     cells across 5 days, of which 340 burned on 3 days or more — that is,
     permanent gas flares over the Khuzestan oil fields, and industry. So only
-    anomalies meeting all three conditions are kept: high confidence, intensity
+    anomalies meeting all three conditions are kept: nominal or high confidence
+    (low is discarded), intensity
     ≥50 MW (roughly the 99th percentile), and a location <b>absent from the
     mask of places that burn permanently</b> — a mask learned from the
-    observations themselves. After the filtering about 1.4 anomalies a day
-    remain, and that is a number a spike can be hunted in.</p>
+    observations themselves. After the filtering a handful of hotspots a day
+    remain, and that is a number a spike can be hunted in. That measurement
+    was taken with a single satellite; since 2026-08-20 three are read and
+    distinct <b>places</b> are counted rather than detection rows, so the
+    daily count was rebuilt from that date.</p>
 
     <div class="call warn">
       <b>And what this indicator still does not know:</b> it does not attribute
@@ -1807,7 +1816,7 @@ footer a:hover{color:var(--cyan)}
     <a href="/radar/"><span data-lang="he">← חזרה למצב הנוכחי בראדאר</span><span data-lang="en">← Back to the current radar state</span></a>
   </div>
 
-  <div class="stamp">Last methodology update: 2026-08-17</div>
+  <div class="stamp">Last methodology update: 2026-08-20</div>
 
   </main>
 
