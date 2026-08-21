@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-21T02:42:31+00:00",
+ "generated": "2026-08-21T03:42:38+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -1233,6 +1233,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787281952,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787283758,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1286,9 +1298,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "70 מטוסים אזרחיים באזור",
-     "value_en": "70 civil aircraft in the area",
-     "range": "61–105"
+     "value": "59 מטוסים אזרחיים באזור",
+     "value_en": "59 civil aircraft in the area",
+     "range": "62–105"
     },
     {
      "key": "jo_airspace",
@@ -1305,8 +1317,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "2 מטוסים מעל ירדן",
+     "value_en": "2 aircraft over Jordan",
      "range": "3–9"
     },
     {
@@ -1364,7 +1376,7 @@
      "reason_en": "",
      "value": "מטוס צבאי אחד באזור",
      "value_en": "1 military aircraft in the area",
-     "range": "1–9"
+     "range": "1–8"
     },
     {
      "key": "markets",
@@ -1381,8 +1393,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.6 · דולר 2.99 ₪",
-     "value_en": "Brent $93.6 · USD 2.99 ILS",
+     "value": "ברנט $93.5 · דולר 2.99 ₪",
+     "value_en": "Brent $93.5 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -1438,8 +1450,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "79/100",
-     "value_en": "79/100",
+     "value": "80/100",
+     "value_en": "80/100",
      "range": ""
     }
    ]
@@ -1475,8 +1487,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,554 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,554 BGP routes)",
+     "value": "קישוריות תקינה (41,555 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,555 BGP routes)",
      "range": "41,402–41,575"
     },
     {
@@ -1591,7 +1603,7 @@
      "reason_en": "",
      "value": "מטוס צבאי אחד באזור",
      "value_en": "1 military aircraft in the area",
-     "range": "1–9"
+     "range": "1–8"
     },
     {
      "key": "markets",
@@ -1608,8 +1620,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.6 · דולר 2.99 ₪",
-     "value_en": "Brent $93.6 · USD 2.99 ILS",
+     "value": "ברנט $93.5 · דולר 2.99 ₪",
+     "value_en": "Brent $93.5 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -1665,8 +1677,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "79/100",
-     "value_en": "79/100",
+     "value": "80/100",
+     "value_en": "80/100",
      "range": ""
     }
    ],
