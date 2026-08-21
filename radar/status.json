@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-21T08:42:42+00:00",
+ "generated": "2026-08-21T09:42:33+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -1305,6 +1305,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787303553,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787305353,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1358,9 +1370,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "109 מטוסים אזרחיים באזור",
-     "value_en": "109 civil aircraft in the area",
-     "range": "60–106"
+     "value": "89 מטוסים אזרחיים באזור",
+     "value_en": "89 civil aircraft in the area",
+     "range": "60–107"
     },
     {
      "key": "jo_airspace",
@@ -1377,8 +1389,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "7 מטוסים מעל ירדן",
-     "value_en": "7 aircraft over Jordan",
+     "value": "4 מטוסים מעל ירדן",
+     "value_en": "4 aircraft over Jordan",
      "range": "3–9"
     },
     {
@@ -1434,8 +1446,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–7"
     },
     {
@@ -1547,8 +1559,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,539 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,539 BGP routes)",
+     "value": "קישוריות תקינה (41,536 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,536 BGP routes)",
      "range": "41,402–41,573"
     },
     {
@@ -1661,8 +1673,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–7"
     },
     {
