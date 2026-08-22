@@ -47,6 +47,15 @@ jobs:
           # ~5 missed cycles: comfortably past any normal lag, and still fast
           # enough that a dead host is caught the same morning.
           MAX_AGE_MIN=150
+          # A fresh timestamp is not the same as a working radar. If most
+          # collectors fail but at least one succeeds, monitor.py still writes
+          # a new `generated` and the page keeps looking current — so an
+          # age-only check prints "sources: 1/16" and then "Radar is alive."
+          # Verification audit, 2026-08-23. Half the sources is the line: one
+          # or two collectors failing is ordinary and already shows up as
+          # `degraded` on the page, but a majority down means the level being
+          # published is no longer supported by the evidence it claims.
+          MIN_SOURCE_FRACTION=0.5
 
           body=""
           for attempt in 1 2 3; do
@@ -69,11 +78,12 @@ jobs:
 
           printf '%s' "$body" > status.json
 
-          python3 - "$MAX_AGE_MIN" <<'PY'
+          python3 - "$MAX_AGE_MIN" "$MIN_SOURCE_FRACTION" <<'PY'
           import json, sys
           from datetime import datetime, timezone
 
           max_age_min = int(sys.argv[1])
+          min_fraction = float(sys.argv[2])
 
           try:
               with open("status.json", encoding="utf-8") as fh:
@@ -103,6 +113,26 @@ jobs:
                     f"server, its cron daemon, or monitor.py is likely down — "
                     f"and because watchdog.py runs on that same host, it cannot "
                     f"tell you. Check the server.")
+              raise SystemExit(1)
+
+          # Staleness is checked first because a dead host makes the source
+          # counts meaningless: they would be whatever the last live run wrote.
+          ok = doc.get("sources_ok")
+          total = doc.get("sources_total")
+          if not isinstance(ok, int) or not isinstance(total, int) or total <= 0:
+              print(f"::error::status.json has no usable source counts "
+                    f"(sources_ok={ok!r}, sources_total={total!r}). The "
+                    f"publisher is writing output this check cannot verify.")
+              raise SystemExit(1)
+
+          floor = total * min_fraction
+          if ok < floor:
+              print(f"::error::The radar published a fresh page while blind: "
+                    f"only {ok} of {total} sources were readable (threshold "
+                    f"{floor:.0f}). The timestamp is current, so the host is "
+                    f"alive and nothing on it will raise this — but the level "
+                    f"on the page is no longer supported by the evidence it "
+                    f"claims. Check the collectors.")
               raise SystemExit(1)
 
           print("Radar is alive.")
