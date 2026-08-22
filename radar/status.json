@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22T09:42:32+00:00",
+ "generated": "2026-08-22T10:42:32+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -1605,6 +1605,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787393556,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787395352,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1658,8 +1670,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "80 מטוסים אזרחיים באזור",
-     "value_en": "80 civil aircraft in the area",
+     "value": "70 מטוסים אזרחיים באזור",
+     "value_en": "70 civil aircraft in the area",
      "range": "57–104"
     },
     {
@@ -1677,8 +1689,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "מטוס אחד מעל ירדן",
+     "value_en": "1 aircraft over Jordan",
      "range": "3–9"
     },
     {
@@ -1734,8 +1746,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–5"
     },
     {
@@ -1847,9 +1859,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,550 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,550 BGP routes)",
-     "range": "41,402–41,564"
+     "value": "קישוריות תקינה (41,566 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,566 BGP routes)",
+     "range": "41,402–41,565"
     },
     {
      "key": "ir_provinces",
@@ -1904,9 +1916,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,907,850 ריאל לדולר",
-     "value_en": "1,907,850 rial to the dollar",
-     "range": "1,894,000–1,895,000"
+     "value": "1,915,000 ריאל לדולר",
+     "value_en": "1,915,000 rial to the dollar",
+     "range": "1,894,000–1,895,050"
     },
     {
      "key": "advisories_ir",
@@ -1961,8 +1973,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–5"
     },
     {
