@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22T15:12:33+00:00",
+ "generated": "2026-08-22T16:12:39+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -1695,6 +1695,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787413367,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787415159,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1748,8 +1760,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "85 מטוסים אזרחיים באזור",
-     "value_en": "85 civil aircraft in the area",
+     "value": "74 מטוסים אזרחיים באזור",
+     "value_en": "74 civil aircraft in the area",
      "range": "57–104"
     },
     {
@@ -1767,8 +1779,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "4 מטוסים מעל ירדן",
+     "value_en": "4 aircraft over Jordan",
      "range": "3–9"
     },
     {
@@ -1843,9 +1855,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
-     "range": "1–4"
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
+     "range": "1–5"
     },
     {
      "key": "markets",
@@ -1919,8 +1931,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "72/100",
-     "value_en": "72/100",
+     "value": "71/100",
+     "value_en": "71/100",
      "range": ""
     }
    ]
@@ -1956,8 +1968,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,562 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,562 BGP routes)",
+     "value": "קישוריות תקינה (41,560 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,560 BGP routes)",
      "range": "41,539–41,566"
     },
     {
@@ -2013,8 +2025,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,924,000 ריאל לדולר",
-     "value_en": "1,924,000 rial to the dollar",
+     "value": "1,926,000 ריאל לדולר",
+     "value_en": "1,926,000 rial to the dollar",
      "range": "1,894,000–1,924,000"
     },
     {
@@ -2051,9 +2063,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
-     "range": "1–4"
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
+     "range": "1–5"
     },
     {
      "key": "markets",
@@ -2127,8 +2139,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "72/100",
-     "value_en": "72/100",
+     "value": "71/100",
+     "value_en": "71/100",
      "range": ""
     }
    ],
