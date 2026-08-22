@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22T03:42:31+00:00",
+ "generated": "2026-08-22T04:42:36+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -1533,6 +1533,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787371956,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787373756,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1586,9 +1598,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "42 מטוסים אזרחיים באזור",
-     "value_en": "42 civil aircraft in the area",
-     "range": "59–106"
+     "value": "57 מטוסים אזרחיים באזור",
+     "value_en": "57 civil aircraft in the area",
+     "range": "57–106"
     },
     {
      "key": "jo_airspace",
@@ -1605,8 +1617,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים מעל ירדן",
-     "value_en": "4 aircraft over Jordan",
+     "value": "5 מטוסים מעל ירדן",
+     "value_en": "5 aircraft over Jordan",
      "range": "2–9"
     },
     {
@@ -1662,9 +1674,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
-     "range": "1–7"
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
+     "range": "1–6"
     },
     {
      "key": "markets",
@@ -1775,8 +1787,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,564 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,564 BGP routes)",
+     "value": "קישוריות תקינה (41,566 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,566 BGP routes)",
      "range": "41,402–41,563"
     },
     {
@@ -1889,9 +1901,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
-     "range": "1–7"
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
+     "range": "1–6"
     },
     {
      "key": "markets",
