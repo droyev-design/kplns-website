@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22T13:42:33+00:00",
+ "generated": "2026-08-22T14:12:41+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -1653,6 +1653,30 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787406262,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787407255,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787407356,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787407961,
+   "il": 1,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1661,14 +1685,16 @@
    "flag": "🇮🇱",
    "name": "ישראל",
    "name_en": "Israel",
-   "level": 0,
+   "level": 1,
    "guard": {
-    "families": 0,
-    "votes": 0,
-    "providers": [],
+    "families": 1,
+    "votes": 1,
+    "providers": [
+     "state_dept"
+    ],
     "capped": false,
     "single_provider_clamp": false,
-    "action_lit": false,
+    "action_lit": true,
     "belief_cap": false
    },
    "tripwires": [
@@ -1706,8 +1732,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "94 מטוסים אזרחיים באזור",
-     "value_en": "94 civil aircraft in the area",
+     "value": "85 מטוסים אזרחיים באזור",
+     "value_en": "85 civil aircraft in the area",
      "range": "57–104"
     },
     {
@@ -1749,6 +1775,25 @@
      "range": ""
     },
     {
+     "key": "embassy_alerts",
+     "name": "שגרירויות ארה\"ב באזור — הוראות מבצעיות",
+     "name_en": "US embassies in the region — operational orders",
+     "provider": "state_dept",
+     "type": "action",
+     "shared": false,
+     "context": false,
+     "lit": true,
+     "frozen": false,
+     "frozen_hours": 0,
+     "frozen_expired": false,
+     "ok": true,
+     "reason": "הוראה מבצעית בהתרעת שגרירות ארה\"ב: [LB] Travel Advisory: Lebanon August 2026 — מאושר בשתי בדיקות רצופות",
+     "reason_en": "US-embassy operational order: [LB] Travel Advisory: Lebanon August 2026 — confirmed on two consecutive checks",
+     "value": "הוראה מבצעית פעילה אחת בפיד",
+     "value_en": "1 active operational alert(s) in the feed",
+     "range": ""
+    },
+    {
      "key": "il_gps",
      "name": "שיבוש GPS — מרחב ישראל",
      "name_en": "GPS interference — Israeli airspace",
@@ -1782,9 +1827,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
-     "range": "1–5"
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
+     "range": "1–4"
     },
     {
      "key": "markets",
@@ -1858,8 +1903,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "73/100",
-     "value_en": "73/100",
+     "value": "72/100",
+     "value_en": "72/100",
      "range": ""
     }
    ]
@@ -1895,9 +1940,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,567 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,567 BGP routes)",
-     "range": "41,531–41,566"
+     "value": "קישוריות תקינה (41,566 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,566 BGP routes)",
+     "range": "41,538–41,566"
     },
     {
      "key": "ir_provinces",
@@ -1952,28 +1997,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,927,000 ריאל לדולר",
-     "value_en": "1,927,000 rial to the dollar",
-     "range": "1,894,000–1,907,850"
-    },
-    {
-     "key": "advisories_ir",
-     "name": "אזהרות מסע — איראן והמפרץ",
-     "name_en": "Travel advisories — Iran and the Gulf",
-     "provider": "state_dept",
-     "type": "belief",
-     "shared": false,
-     "context": false,
-     "lit": false,
-     "frozen": false,
-     "frozen_hours": 0,
-     "frozen_expired": false,
-     "ok": true,
-     "reason": "",
-     "reason_en": "",
-     "value": "7 מדינות במעקב — ללא שינוי ברמות",
-     "value_en": "7 countries monitored — no level changes",
-     "range": ""
+     "value": "1,925,000 ריאל לדולר",
+     "value_en": "1,925,000 rial to the dollar",
+     "range": "1,894,000–1,915,000"
     },
     {
      "key": "hormuz_gps",
@@ -2009,9 +2035,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
-     "range": "1–5"
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
+     "range": "1–4"
     },
     {
      "key": "markets",
@@ -2085,8 +2111,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "73/100",
-     "value_en": "73/100",
+     "value": "72/100",
+     "value_en": "72/100",
      "range": ""
     }
    ],
@@ -2102,8 +2128,8 @@
    ]
   }
  ],
- "sources_ok": 15,
- "sources_total": 15,
+ "sources_ok": 16,
+ "sources_total": 16,
  "degraded": [],
  "degraded_en": []
 }
