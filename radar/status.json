@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22T14:16:00+00:00",
+ "generated": "2026-08-22T15:12:33+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -1683,6 +1683,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787409760,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787411553,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1736,8 +1748,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "78 מטוסים אזרחיים באזור",
-     "value_en": "78 civil aircraft in the area",
+     "value": "85 מטוסים אזרחיים באזור",
+     "value_en": "85 civil aircraft in the area",
      "range": "57–104"
     },
     {
@@ -1755,8 +1767,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "6 מטוסים מעל ירדן",
+     "value_en": "6 aircraft over Jordan",
      "range": "3–9"
     },
     {
@@ -1787,8 +1799,8 @@
      "shared": false,
      "context": false,
      "lit": false,
-     "frozen": true,
-     "frozen_hours": 0.0,
+     "frozen": false,
+     "frozen_hours": 0,
      "frozen_expired": false,
      "ok": true,
      "reason": "",
@@ -1831,8 +1843,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–4"
     },
     {
@@ -1944,8 +1956,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,566 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,566 BGP routes)",
+     "value": "קישוריות תקינה (41,562 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,562 BGP routes)",
      "range": "41,539–41,566"
     },
     {
@@ -2001,9 +2013,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "1,925,000 ריאל לדולר",
-     "value_en": "1,925,000 rial to the dollar",
-     "range": "1,894,000–1,920,150"
+     "value": "1,924,000 ריאל לדולר",
+     "value_en": "1,924,000 rial to the dollar",
+     "range": "1,894,000–1,924,000"
     },
     {
      "key": "hormuz_gps",
@@ -2039,8 +2051,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–4"
     },
     {
