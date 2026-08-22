@@ -1,0 +1,109 @@
+# Off-host dead-man switch for the escalation radar.
+#
+# WHY THIS EXISTS. monitor.py, publish_radar.py, channel_publish.py and
+# watchdog.py all run from ONE crontab on ONE machine (the home server). The
+# watchdog therefore cannot report the failure that matters most: if the host
+# or the cron daemon dies, everything that would have raised the alarm dies
+# with it, and the radar goes quiet in exactly the way a calm radar looks.
+# Audit finding H3, 2026-08-22.
+#
+# WHY IT IS SHAPED LIKE THIS. It reads ONLY https://kplns.com/radar/status.json,
+# which is already fully public, and it holds NO secrets — no bot token, no API
+# key, nothing. The alert channel is the job's own exit status: GitHub emails
+# the repository owner when a scheduled workflow fails. Nothing is sent from
+# the home server to any third party; the check pulls from the public site, so
+# no external service learns anything about when that machine is up.
+#
+# KEEP-ALIVE NOTE: GitHub disables scheduled workflows in a repository with no
+# activity for 60 days. This repository receives a push from publish_radar.py
+# every 30 minutes, so that cannot happen while the radar is alive — and if the
+# radar is dead, this workflow has already done its job.
+
+name: radar dead-man
+
+on:
+  schedule:
+    # Every 30 minutes. GitHub's scheduler is best-effort and routinely runs
+    # late under load, which is one of the reasons the staleness threshold
+    # below is generous rather than tight.
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check that the radar is still publishing
+        shell: bash
+        run: |
+          set -uo pipefail
+
+          URL="https://kplns.com/radar/status.json"
+          # The published copy legitimately trails the monitor by up to one
+          # 30-minute cycle, and GitHub may run this job late. 150 minutes is
+          # ~5 missed cycles: comfortably past any normal lag, and still fast
+          # enough that a dead host is caught the same morning.
+          MAX_AGE_MIN=150
+
+          body=""
+          for attempt in 1 2 3; do
+            # A single CDN blip must not email anyone. Only a repeated failure
+            # counts as evidence.
+            if body=$(curl -fsS --max-time 30 "$URL"); then
+              echo "fetch ok on attempt $attempt"
+              break
+            fi
+            echo "fetch attempt $attempt failed"
+            body=""
+            sleep 20
+          done
+
+          if [ -z "$body" ]; then
+            echo "::error::Could not fetch $URL after 3 attempts."
+            echo "The radar page may be down, or the site may not be publishing."
+            exit 1
+          fi
+
+          printf '%s' "$body" > status.json
+
+          python3 - "$MAX_AGE_MIN" <<'PY'
+          import json, sys
+          from datetime import datetime, timezone
+
+          max_age_min = int(sys.argv[1])
+
+          try:
+              with open("status.json", encoding="utf-8") as fh:
+                  doc = json.load(fh)
+              stamp = doc["generated"]
+          except Exception as e:
+              print(f"::error::status.json is unreadable or has no 'generated' "
+                    f"field ({e}). The publisher may be writing corrupt output.")
+              raise SystemExit(1)
+
+          try:
+              gen = datetime.fromisoformat(stamp.replace("Z", "+00:00"))
+              if gen.tzinfo is None:
+                  gen = gen.replace(tzinfo=timezone.utc)
+          except ValueError as e:
+              print(f"::error::Cannot parse 'generated' = {stamp!r} ({e}).")
+              raise SystemExit(1)
+
+          age_min = (datetime.now(timezone.utc) - gen).total_seconds() / 60
+          print(f"generated: {stamp}")
+          print(f"age: {age_min:.0f} min (threshold {max_age_min} min)")
+          print(f"sources: {doc.get('sources_ok')}/{doc.get('sources_total')}")
+
+          if age_min > max_age_min:
+              print(f"::error::The escalation radar has not published for "
+                    f"{age_min:.0f} minutes (threshold {max_age_min}). The home "
+                    f"server, its cron daemon, or monitor.py is likely down — "
+                    f"and because watchdog.py runs on that same host, it cannot "
+                    f"tell you. Check the server.")
+              raise SystemExit(1)
+
+          print("Radar is alive.")
+          PY
