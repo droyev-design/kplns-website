@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-21T23:42:31+00:00",
+ "generated": "2026-08-22T00:42:33+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -1485,6 +1485,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787357551,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787359353,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1538,9 +1550,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "63 מטוסים אזרחיים באזור",
-     "value_en": "63 civil aircraft in the area",
-     "range": "62–106"
+     "value": "69 מטוסים אזרחיים באזור",
+     "value_en": "69 civil aircraft in the area",
+     "range": "59–106"
     },
     {
      "key": "jo_airspace",
@@ -1557,8 +1569,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "3–9"
     },
     {
@@ -1614,8 +1626,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–7"
     },
     {
@@ -1671,8 +1683,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.48% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.48%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.51% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.51%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.42%–0.81%"
     },
     {
@@ -1727,9 +1739,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,549 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,549 BGP routes)",
-     "range": "41,402–41,571"
+     "value": "קישוריות תקינה (41,531 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,531 BGP routes)",
+     "range": "41,402–41,569"
     },
     {
      "key": "ir_provinces",
@@ -1765,8 +1777,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "מוקד תרמי חדש אחד ב-2026-08-20 (מתוך 2,565 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "1 new thermal hotspot on 2026-08-20 (out of 2,565 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "4 מוקדים תרמיים חדשים ב-2026-08-21 (מתוך 1,707 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "4 new thermal hotspots on 2026-08-21 (out of 1,707 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": ""
     },
     {
@@ -1841,8 +1853,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–7"
     },
     {
@@ -1898,8 +1910,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.48% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.48%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.51% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.51%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.42%–0.81%"
     },
     {
