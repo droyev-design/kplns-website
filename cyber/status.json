@@ -1,21 +1,21 @@
 {
- "generated": "2026-08-21T16:25:03+00:00",
- "level": 1,
+ "generated": "2026-08-22T04:25:02+00:00",
+ "level": 2,
  "catalog": {
   "version": "2026.08.21",
-  "released": "2026-08-21T11:57:27.4632Z",
-  "count": 1673
+  "released": "2026-08-21T17:46:43.6019Z",
+  "count": 1674
  },
  "counts": {
-  "total": 1673,
-  "new7": 8,
-  "new30": 22,
-  "il30": 16,
+  "total": 1674,
+  "new7": 9,
+  "new30": 21,
+  "il30": 15,
   "il_edge30": 10,
   "il_vendor90": 2,
   "ransom_total": 352
  },
- "level_n": 1,
+ "level_n": 2,
  "signals": [
   {
    "key": "ransom30",
@@ -38,13 +38,11 @@
    "key": "epss30",
    "he": "ניצול צפוי בהיקף רחב — EPSS מעל 50% (30 יום)",
    "en": "Wide-scale exploitation expected — EPSS over 50% (30 days)",
-   "n": 5,
+   "n": 3,
    "cves": [
     "CVE-2026-33824",
     "CVE-2026-8037",
-    "CVE-2026-34486",
-    "CVE-2026-16232",
-    "CVE-2026-50522"
+    "CVE-2026-34486"
    ]
   },
   {
@@ -53,6 +51,7 @@
    "en": "Perimeter products whose CISA due date has passed (30 days)",
    "n": 9,
    "cves": [
+    "CVE-2026-55040",
     "CVE-2026-20349",
     "CVE-2026-8037",
     "CVE-2026-63077",
@@ -60,12 +59,12 @@
     "CVE-2026-18577",
     "CVE-2026-20316",
     "CVE-2025-68686",
-    "CVE-2026-16812",
-    "CVE-2026-50522"
+    "CVE-2026-16812"
    ]
   }
  ],
  "new_edge": [
+  "CVE-2026-73570",
   "CVE-2026-55040"
  ],
  "items": [
@@ -75,9 +74,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
    "added": "2026-07-14",
-   "age": 38,
+   "age": 39,
    "due": "2026-07-17",
-   "due_in": -35,
+   "due_in": -36,
    "ransom": true,
    "cwe_he": [
     "הכרחת השרת לפנות ליעד פנימי (SSRF)"
@@ -100,9 +99,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Code Injection Vulnerability",
    "added": "2026-07-14",
-   "age": 38,
+   "age": 39,
    "due": "2026-07-17",
-   "due_in": -35,
+   "due_in": -36,
    "ransom": true,
    "cwe_he": [
     "הרצת קוד זר"
@@ -125,9 +124,9 @@
    "product": "Security Gateway",
    "name": "Check Point Security Gateway Improper Authentication Vulnerability",
    "added": "2026-06-08",
-   "age": 74,
+   "age": 75,
    "due": "2026-06-11",
-   "due_in": -71,
+   "due_in": -72,
    "ransom": true,
    "cwe_he": [
     "עקיפת אימות זהות"
@@ -150,9 +149,9 @@
    "product": "PAN-OS",
    "name": "Palo Alto Networks PAN-OS Authentication Bypass Vulnerability",
    "added": "2026-05-29",
-   "age": 84,
+   "age": 85,
    "due": "2026-06-01",
-   "due_in": -81,
+   "due_in": -82,
    "ransom": true,
    "cwe_he": [],
    "cwe_ids": [],
@@ -171,9 +170,9 @@
    "product": "SharePoint Server",
    "name": "Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability",
    "added": "2026-07-01",
-   "age": 51,
+   "age": 52,
    "due": "2026-07-04",
-   "due_in": -48,
+   "due_in": -49,
    "ransom": true,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -196,9 +195,9 @@
    "product": "SharePoint",
    "name": "Microsoft SharePoint Deserialization of Untrusted Data Vulnerability ",
    "added": "2026-07-22",
-   "age": 30,
+   "age": 31,
    "due": "2026-07-25",
-   "due_in": -27,
+   "due_in": -28,
    "ransom": false,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -221,9 +220,9 @@
    "product": "Core",
    "name": "WordPress Core SQL Injection Vulnerability",
    "added": "2026-07-21",
-   "age": 31,
+   "age": 32,
    "due": "2026-08-04",
-   "due_in": -17,
+   "due_in": -18,
    "ransom": false,
    "cwe_he": [
     "הזרקת SQL"
@@ -246,9 +245,9 @@
    "product": "Core",
    "name": "WordPress Core Interpretation Conflict Vulnerability",
    "added": "2026-07-21",
-   "age": 31,
+   "age": 32,
    "due": "2026-07-24",
-   "due_in": -28,
+   "due_in": -29,
    "ransom": false,
    "cwe_he": [],
    "cwe_ids": [],
@@ -267,9 +266,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 36,
+   "age": 37,
    "due": "2026-07-19",
-   "due_in": -33,
+   "due_in": -34,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -292,9 +291,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 36,
+   "age": 37,
    "due": "2026-07-19",
-   "due_in": -33,
+   "due_in": -34,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -317,9 +316,9 @@
    "product": "Sentry",
    "name": "Ivanti Sentry OS Command Injection Vulnerability",
    "added": "2026-06-11",
-   "age": 71,
+   "age": 72,
    "due": "2026-06-14",
-   "due_in": -68,
+   "due_in": -69,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -337,25 +336,29 @@
    "he": "<b>Ivanti Sentry</b> הוא שער אבטחה למכשירים ניידים. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>100%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: שערי גישה מרחוק וניהול מכשירים; יעד חוזר ונשנה של תקיפות בעולם ובישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-06-14</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
-   "cve": "CVE-2026-55040",
-   "vendor": "Microsoft",
-   "product": "SharePoint",
-   "name": "Microsoft SharePoint Weak Authentication Vulnerability",
-   "added": "2026-08-18",
-   "age": 3,
-   "due": "2026-08-21",
-   "due_in": 0,
+   "cve": "CVE-2026-73570",
+   "vendor": "Synacor",
+   "product": "Zimbra Collaboration Suite (ZCS)",
+   "name": "Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability",
+   "added": "2026-08-21",
+   "age": 1,
+   "due": "2026-08-24",
+   "due_in": 2,
    "ransom": false,
-   "cwe_he": [],
-   "cwe_ids": [],
+   "cwe_he": [
+    "הרצת פקודות מערכת מרחוק"
+   ],
+   "cwe_ids": [
+    "CWE-78"
+   ],
    "tier": "A",
-   "tier_why": "כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם.",
-   "edge": "שרת שיתוף מסמכים, לרוב חשוף לאינטרנט",
+   "tier_why": "המוצר הוא Zimbra — שרת דואר שנפוץ בישראל במוסדות אקדמיים, ברשויות מקומיות ובעסקים שלא עברו ל-Exchange.",
+   "edge": "שרת דואר ושיתוף פעולה",
    "il_vendor": null,
-   "epss": 0.05489,
+   "epss": 0.00539,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
-   "desc": "Microsoft SharePoint contains a weak authentication vulnerability which allows an unauthorized attacker to bypass a security feature over a network.",
-   "he": "<b>Microsoft SharePoint</b> הוא שרת שיתוף מסמכים, לרוב חשוף לאינטרנט. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>5%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-21</bdi>. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "desc": "Zimbra Collaboration Suite (ZCS) contains an OS command injection vulnerability which could allow an unauthenticated attacker to send specially crafted SMTP requests that may result in execution of arbitrary operating system commands as the Zimbra user.",
+   "he": "<b>Synacor Zimbra Collaboration Suite (ZCS)</b> הוא שרת דואר ושיתוף פעולה. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>1%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: המוצר הוא Zimbra — שרת דואר שנפוץ בישראל במוסדות אקדמיים, ברשויות מקומיות ובעסקים שלא עברו ל-Exchange. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-24</bdi>. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   }
  ],
  "history": [
@@ -395,6 +398,11 @@
   {
    "t": 1787329503,
    "lv": 1,
+   "deg": 0
+  },
+  {
+   "t": 1787372702,
+   "lv": 2,
    "deg": 0
   }
  ],
