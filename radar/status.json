@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22T01:42:32+00:00",
+ "generated": "2026-08-22T02:42:31+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -1509,6 +1509,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787364753,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787366551,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1564,7 +1576,7 @@
      "reason_en": "",
      "value": "62 מטוסים אזרחיים באזור",
      "value_en": "62 civil aircraft in the area",
-     "range": "62–106"
+     "range": "59–106"
     },
     {
      "key": "jo_airspace",
@@ -1581,8 +1593,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "מטוס אחד מעל ירדן",
-     "value_en": "1 aircraft over Jordan",
+     "value": "4 מטוסים מעל ירדן",
+     "value_en": "4 aircraft over Jordan",
      "range": "2–9"
     },
     {
@@ -1751,9 +1763,9 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,553 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,553 BGP routes)",
-     "range": "41,402–41,564"
+     "value": "קישוריות תקינה (41,557 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,557 BGP routes)",
+     "range": "41,402–41,563"
     },
     {
      "key": "ir_provinces",
@@ -1789,8 +1801,8 @@
      "ok": true,
      "reason": "",
      "reason_en": "",
-     "value": "4 מוקדים תרמיים חדשים ב-2026-08-21 (מתוך 2,734 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "4 new thermal hotspots on 2026-08-21 (out of 2,734 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "4 מוקדים תרמיים חדשים ב-2026-08-21 (מתוך 3,120 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "4 new thermal hotspots on 2026-08-21 (out of 3,120 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": ""
     },
     {
@@ -1810,7 +1822,7 @@
      "reason_en": "",
      "value": "1,894,000 ריאל לדולר",
      "value_en": "1,894,000 rial to the dollar",
-     "range": "1,893,000–1,895,000"
+     "range": "1,893,800–1,895,000"
     },
     {
      "key": "advisories_ir",
