@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-23T17:16:34+00:00",
+ "generated": "2026-08-23T18:13:00+00:00",
  "history": [
   {
    "t": 1786906862,
@@ -2031,6 +2031,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787506959,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787508780,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2094,8 +2106,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "90 מטוסים אזרחיים באזור",
-     "value_en": "90 civil aircraft in the area",
+     "value": "81 מטוסים אזרחיים באזור",
+     "value_en": "81 civil aircraft in the area",
      "range": "57–102"
     },
     {
@@ -2117,9 +2129,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים מעל ירדן",
-     "value_en": "4 aircraft over Jordan",
-     "range": "2–9"
+     "value": "8 מטוסים מעל ירדן",
+     "value_en": "8 aircraft over Jordan",
+     "range": "3–9"
     },
     {
      "key": "advisories_il",
@@ -2209,8 +2221,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים צבאיים באזור",
-     "value_en": "5 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–6"
     },
     {
@@ -2278,8 +2290,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.32% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.32%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.35% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.35%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.42%–0.81%"
     },
     {
@@ -2344,8 +2356,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,552 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,552 BGP routes)",
+     "value": "קישוריות תקינה (41,551 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,551 BGP routes)",
      "range": "41,549–41,566"
     },
     {
@@ -2415,7 +2427,7 @@
      "reason_en": "",
      "value": "1,999,000 ריאל לדולר",
      "value_en": "1,999,000 rial to the dollar",
-     "range": "1,894,000–1,997,000"
+     "range": "1,894,000–1,999,000"
     },
     {
      "key": "hormuz_gps",
@@ -2459,8 +2471,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים צבאיים באזור",
-     "value_en": "5 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–6"
     },
     {
@@ -2528,8 +2540,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.32% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.32%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.35% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.35%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.42%–0.81%"
     },
     {
