@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22T16:25:02+00:00",
+ "generated": "2026-08-23T04:25:03+00:00",
  "level": 2,
  "catalog": {
   "version": "2026.08.21",
@@ -74,9 +74,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
    "added": "2026-07-14",
-   "age": 39,
+   "age": 40,
    "due": "2026-07-17",
-   "due_in": -36,
+   "due_in": -37,
    "ransom": true,
    "cwe_he": [
     "הכרחת השרת לפנות ליעד פנימי (SSRF)"
@@ -99,9 +99,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Code Injection Vulnerability",
    "added": "2026-07-14",
-   "age": 39,
+   "age": 40,
    "due": "2026-07-17",
-   "due_in": -36,
+   "due_in": -37,
    "ransom": true,
    "cwe_he": [
     "הרצת קוד זר"
@@ -124,9 +124,9 @@
    "product": "Security Gateway",
    "name": "Check Point Security Gateway Improper Authentication Vulnerability",
    "added": "2026-06-08",
-   "age": 75,
+   "age": 76,
    "due": "2026-06-11",
-   "due_in": -72,
+   "due_in": -73,
    "ransom": true,
    "cwe_he": [
     "עקיפת אימות זהות"
@@ -149,9 +149,9 @@
    "product": "PAN-OS",
    "name": "Palo Alto Networks PAN-OS Authentication Bypass Vulnerability",
    "added": "2026-05-29",
-   "age": 85,
+   "age": 86,
    "due": "2026-06-01",
-   "due_in": -82,
+   "due_in": -83,
    "ransom": true,
    "cwe_he": [],
    "cwe_ids": [],
@@ -170,9 +170,9 @@
    "product": "SharePoint Server",
    "name": "Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability",
    "added": "2026-07-01",
-   "age": 52,
+   "age": 53,
    "due": "2026-07-04",
-   "due_in": -49,
+   "due_in": -50,
    "ransom": true,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -195,9 +195,9 @@
    "product": "SharePoint",
    "name": "Microsoft SharePoint Deserialization of Untrusted Data Vulnerability ",
    "added": "2026-07-22",
-   "age": 31,
+   "age": 32,
    "due": "2026-07-25",
-   "due_in": -28,
+   "due_in": -29,
    "ransom": false,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -220,9 +220,9 @@
    "product": "Core",
    "name": "WordPress Core SQL Injection Vulnerability",
    "added": "2026-07-21",
-   "age": 32,
+   "age": 33,
    "due": "2026-08-04",
-   "due_in": -18,
+   "due_in": -19,
    "ransom": false,
    "cwe_he": [
     "הזרקת SQL"
@@ -245,9 +245,9 @@
    "product": "Core",
    "name": "WordPress Core Interpretation Conflict Vulnerability",
    "added": "2026-07-21",
-   "age": 32,
+   "age": 33,
    "due": "2026-07-24",
-   "due_in": -29,
+   "due_in": -30,
    "ransom": false,
    "cwe_he": [],
    "cwe_ids": [],
@@ -266,9 +266,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 37,
+   "age": 38,
    "due": "2026-07-19",
-   "due_in": -34,
+   "due_in": -35,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -291,9 +291,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 37,
+   "age": 38,
    "due": "2026-07-19",
-   "due_in": -34,
+   "due_in": -35,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -316,9 +316,9 @@
    "product": "Sentry",
    "name": "Ivanti Sentry OS Command Injection Vulnerability",
    "added": "2026-06-11",
-   "age": 72,
+   "age": 73,
    "due": "2026-06-14",
-   "due_in": -69,
+   "due_in": -70,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -341,9 +341,9 @@
    "product": "Zimbra Collaboration Suite (ZCS)",
    "name": "Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability",
    "added": "2026-08-21",
-   "age": 1,
+   "age": 2,
    "due": "2026-08-24",
-   "due_in": 2,
+   "due_in": 1,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -407,6 +407,11 @@
   },
   {
    "t": 1787415902,
+   "lv": 2,
+   "deg": 0
+  },
+  {
+   "t": 1787459103,
    "lv": 2,
    "deg": 0
   }
