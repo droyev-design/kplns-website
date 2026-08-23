@@ -1,16 +1,6 @@
 {
- "generated": "2026-08-23T19:12:39+00:00",
+ "generated": "2026-08-23T20:12:45+00:00",
  "history": [
-  {
-   "t": 1786909350,
-   "il": 0,
-   "ir": 0
-  },
-  {
-   "t": 1786911152,
-   "il": 0,
-   "ir": 0
-  },
   {
    "t": 1786912949,
    "il": 0,
@@ -2040,6 +2030,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787514165,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787515965,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2103,8 +2105,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "76 מטוסים אזרחיים באזור",
-     "value_en": "76 civil aircraft in the area",
+     "value": "75 מטוסים אזרחיים באזור",
+     "value_en": "75 civil aircraft in the area",
      "range": "58–102"
     },
     {
@@ -2126,9 +2128,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
-     "range": "3–9"
+     "value": "10 מטוסים מעל ירדן",
+     "value_en": "10 aircraft over Jordan",
+     "range": "2–9"
     },
     {
      "key": "advisories_il",
@@ -2218,8 +2220,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–6"
     },
     {
@@ -2353,8 +2355,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,551 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,551 BGP routes)",
+     "value": "קישוריות תקינה (41,547 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,547 BGP routes)",
      "range": "41,549–41,566"
     },
     {
@@ -2468,8 +2470,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–6"
     },
     {
