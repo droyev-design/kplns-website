@@ -1,16 +1,6 @@
 {
- "generated": "2026-08-24T02:12:50+00:00",
+ "generated": "2026-08-24T03:13:00+00:00",
  "history": [
-  {
-   "t": 1786934541,
-   "il": 0,
-   "ir": 0
-  },
-  {
-   "t": 1786936341,
-   "il": 0,
-   "ir": 0
-  },
   {
    "t": 1786938147,
    "il": 0,
@@ -2054,6 +2044,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787539354,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787541180,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2117,9 +2119,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "69 מטוסים אזרחיים באזור",
-     "value_en": "69 civil aircraft in the area",
-     "range": "59–102"
+     "value": "54 מטוסים אזרחיים באזור",
+     "value_en": "54 civil aircraft in the area",
+     "range": "58–102"
     },
     {
      "key": "jo_airspace",
@@ -2255,8 +2257,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $92.5 · דולר 2.99 ₪",
-     "value_en": "Brent $92.5 · USD 2.99 ILS",
+     "value": "ברנט $93.1 · דולר 2.99 ₪",
+     "value_en": "Brent $93.1 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2324,8 +2326,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "63/100",
-     "value_en": "63/100",
+     "value": "62/100",
+     "value_en": "62/100",
      "range": ""
     }
    ]
@@ -2367,8 +2369,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,547 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,547 BGP routes)",
+     "value": "קישוריות תקינה (41,554 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,554 BGP routes)",
      "range": "41,543–41,566"
     },
     {
@@ -2438,7 +2440,7 @@
      "reason_en": "",
      "value": "1,999,000 ריאל לדולר",
      "value_en": "1,999,000 rial to the dollar",
-     "range": "1,915,000–1,999,000"
+     "range": "1,924,000–1,999,000"
     },
     {
      "key": "hormuz_gps",
@@ -2505,8 +2507,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $92.5 · דולר 2.99 ₪",
-     "value_en": "Brent $92.5 · USD 2.99 ILS",
+     "value": "ברנט $93.1 · דולר 2.99 ₪",
+     "value_en": "Brent $93.1 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2574,8 +2576,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "63/100",
-     "value_en": "63/100",
+     "value": "62/100",
+     "value_en": "62/100",
      "range": ""
     }
    ],
