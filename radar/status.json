@@ -1,16 +1,6 @@
 {
- "generated": "2026-08-24T14:12:46+00:00",
+ "generated": "2026-08-24T15:12:57+00:00",
  "history": [
-  {
-   "t": 1786977743,
-   "il": 0,
-   "ir": 1
-  },
-  {
-   "t": 1786979549,
-   "il": 0,
-   "ir": 1
-  },
   {
    "t": 1786981345,
    "il": 0,
@@ -2073,6 +2063,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787582576,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787584377,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2136,8 +2138,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "118 מטוסים אזרחיים באזור",
-     "value_en": "118 civil aircraft in the area",
+     "value": "70 מטוסים אזרחיים באזור",
+     "value_en": "70 civil aircraft in the area",
      "range": "57–103"
     },
     {
@@ -2159,8 +2161,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
+     "value": "28 מטוסים מעל ירדן",
+     "value_en": "28 aircraft over Jordan",
      "range": "3–10"
     },
     {
@@ -2251,8 +2253,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "8 מטוסים צבאיים באזור",
+     "value_en": "8 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2274,8 +2276,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.3 · דולר 2.99 ₪",
-     "value_en": "Brent $93.3 · USD 2.99 ILS",
+     "value": "ברנט $92.7 · דולר 2.99 ₪",
+     "value_en": "Brent $92.7 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2386,8 +2388,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,549 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,549 BGP routes)",
+     "value": "קישוריות תקינה (41,553 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,553 BGP routes)",
      "range": "41,543–41,560"
     },
     {
@@ -2455,9 +2457,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2,024,200 ריאל לדולר",
-     "value_en": "2,024,200 rial to the dollar",
-     "range": "1,927,000–2,024,750"
+     "value": "2,027,200 ריאל לדולר",
+     "value_en": "2,027,200 rial to the dollar",
+     "range": "1,927,000–2,026,000"
     },
     {
      "key": "hormuz_gps",
@@ -2501,8 +2503,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "8 מטוסים צבאיים באזור",
+     "value_en": "8 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2524,8 +2526,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.3 · דולר 2.99 ₪",
-     "value_en": "Brent $93.3 · USD 2.99 ILS",
+     "value": "ברנט $92.7 · דולר 2.99 ₪",
+     "value_en": "Brent $92.7 · USD 2.99 ILS",
      "range": ""
     },
     {
