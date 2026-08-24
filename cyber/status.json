@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-24T04:25:02+00:00",
+ "generated": "2026-08-24T16:25:03+00:00",
  "level": 2,
  "catalog": {
   "version": "2026.08.21",
@@ -38,10 +38,11 @@
    "key": "epss30",
    "he": "ניצול צפוי בהיקף רחב — EPSS מעל 50% (30 יום)",
    "en": "Wide-scale exploitation expected — EPSS over 50% (30 days)",
-   "n": 3,
+   "n": 4,
    "cves": [
     "CVE-2026-33824",
     "CVE-2026-8037",
+    "CVE-2026-63077",
     "CVE-2026-34486"
    ]
   },
@@ -88,35 +89,35 @@
    "tier_why": "חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל.",
    "edge": "שער גישה מרחוק",
    "il_vendor": null,
-   "epss": 0.74218,
+   "epss": 0.83658,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
    "desc": "SonicWall SMA1000 Appliances contain a server-side request forgery vulnerability that could allow a remote unauthenticated attacker to potentially cause the appliance to make requests to unintended location.",
-   "he": "<b>SonicWall SMA1000 Appliances</b> הוא שער גישה מרחוק. סוג הפרצה: הכרחת השרת לפנות ליעד פנימי (SSRF). CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>74%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-17</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "he": "<b>SonicWall SMA1000 Appliances</b> הוא שער גישה מרחוק. סוג הפרצה: הכרחת השרת לפנות ליעד פנימי (SSRF). CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>84%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-17</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
-   "cve": "CVE-2026-15410",
-   "vendor": "SonicWall",
-   "product": "SMA1000 Appliances",
-   "name": "SonicWall SMA1000 Appliances Code Injection Vulnerability",
-   "added": "2026-07-14",
-   "age": 41,
-   "due": "2026-07-17",
-   "due_in": -38,
+   "cve": "CVE-2026-45659",
+   "vendor": "Microsoft",
+   "product": "SharePoint Server",
+   "name": "Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability",
+   "added": "2026-07-01",
+   "age": 54,
+   "due": "2026-07-04",
+   "due_in": -51,
    "ransom": true,
    "cwe_he": [
-    "הרצת קוד זר"
+    "פענוח אובייקט לא מהימן"
    ],
    "cwe_ids": [
-    "CWE-94"
+    "CWE-502"
    ],
    "tier": "A",
-   "tier_why": "חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל.",
-   "edge": "שער גישה מרחוק",
+   "tier_why": "כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם.",
+   "edge": "שרת שיתוף מסמכים, לרוב חשוף לאינטרנט",
    "il_vendor": null,
-   "epss": 0.76347,
+   "epss": 0.76075,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
-   "desc": "SonicWall SMA1000 Appliances contain a code injection vulnerability which in specific conditions could potentially enable a remote authenticated attacker as administrator to execute arbitrary OS commands.",
-   "he": "<b>SonicWall SMA1000 Appliances</b> הוא שער גישה מרחוק. סוג הפרצה: הרצת קוד זר. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>76%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-17</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "desc": "Microsoft SharePoint Server contains a deserialization of untrusted data vulnerability which allows an authorized attacker to execute code over a network.",
+   "he": "<b>Microsoft SharePoint Server</b> הוא שרת שיתוף מסמכים, לרוב חשוף לאינטרנט. סוג הפרצה: פענוח אובייקט לא מהימן. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>76%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-04</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
    "cve": "CVE-2026-50751",
@@ -138,10 +139,10 @@
    "tier_why": "יצרן ישראלי עם חדירה גבוהה במיוחד בארגונים הגדולים ובמגזר הציבורי בישראל.",
    "edge": "שער בקצה הרשת",
    "il_vendor": "צ'ק פוינט — תל אביב",
-   "epss": 0.82554,
+   "epss": 0.83771,
    "action": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
    "desc": "Check Point Security Gateway contains an improper authentication vulnerability in IKEv1 key exchange that could allow an unauthenticated remote attacker to bypass user authentication and establish a remote access VPN connection without a valid user password.",
-   "he": "<b>Check Point Security Gateway</b> הוא שער בקצה הרשת. סוג הפרצה: עקיפת אימות זהות. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>83%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: יצרן ישראלי עם חדירה גבוהה במיוחד בארגונים הגדולים ובמגזר הציבורי בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> יצרן ישראלי — צ'ק פוינט — תל אביב. תאריך היעד של CISA הוא <bdi>2026-06-11</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "he": "<b>Check Point Security Gateway</b> הוא שער בקצה הרשת. סוג הפרצה: עקיפת אימות זהות. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>84%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: יצרן ישראלי עם חדירה גבוהה במיוחד בארגונים הגדולים ובמגזר הציבורי בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> יצרן ישראלי — צ'ק פוינט — תל אביב. תאריך היעד של CISA הוא <bdi>2026-06-11</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
    "cve": "CVE-2026-0257",
@@ -165,29 +166,29 @@
    "he": "<b>Palo Alto Networks PAN-OS</b> הוא מערכת ההפעלה של חומת האש Palo Alto Networks. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>94%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: נפוץ בארגונים גדולים, בפיננסים ובתעשייה הביטחונית. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-06-01</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
-   "cve": "CVE-2026-45659",
-   "vendor": "Microsoft",
-   "product": "SharePoint Server",
-   "name": "Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability",
-   "added": "2026-07-01",
-   "age": 54,
-   "due": "2026-07-04",
-   "due_in": -51,
+   "cve": "CVE-2026-15410",
+   "vendor": "SonicWall",
+   "product": "SMA1000 Appliances",
+   "name": "SonicWall SMA1000 Appliances Code Injection Vulnerability",
+   "added": "2026-07-14",
+   "age": 41,
+   "due": "2026-07-17",
+   "due_in": -38,
    "ransom": true,
    "cwe_he": [
-    "פענוח אובייקט לא מהימן"
+    "הרצת קוד זר"
    ],
    "cwe_ids": [
-    "CWE-502"
+    "CWE-94"
    ],
    "tier": "A",
-   "tier_why": "כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם.",
-   "edge": "שרת שיתוף מסמכים, לרוב חשוף לאינטרנט",
+   "tier_why": "חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל.",
+   "edge": "שער גישה מרחוק",
    "il_vendor": null,
-   "epss": 0.09863,
+   "epss": 0.11791,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
-   "desc": "Microsoft SharePoint Server contains a deserialization of untrusted data vulnerability which allows an authorized attacker to execute code over a network.",
-   "he": "<b>Microsoft SharePoint Server</b> הוא שרת שיתוף מסמכים, לרוב חשוף לאינטרנט. סוג הפרצה: פענוח אובייקט לא מהימן. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>10%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-04</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "desc": "SonicWall SMA1000 Appliances contain a code injection vulnerability which in specific conditions could potentially enable a remote authenticated attacker as administrator to execute arbitrary OS commands.",
+   "he": "<b>SonicWall SMA1000 Appliances</b> הוא שער גישה מרחוק. סוג הפרצה: הרצת קוד זר. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. CISA מסמנת שהפרצה הזו <b>כבר שימשה בקמפיין כופרה</b>. EPSS (FIRST.org): <bdi>12%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: חומות אש ו-SSL VPN נפוצים מאוד בעסקים קטנים ובינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-17</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
    "cve": "CVE-2026-50522",
@@ -209,10 +210,10 @@
    "tier_why": "כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם.",
    "edge": "שרת שיתוף מסמכים, לרוב חשוף לאינטרנט",
    "il_vendor": null,
-   "epss": 0.76981,
+   "epss": 0.84606,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
    "desc": "Microsoft SharePoint contains a deserialization of untrusted data vulnerability which could allow an unauthorized attacker to execute code over a network.",
-   "he": "<b>Microsoft SharePoint</b> הוא שרת שיתוף מסמכים, לרוב חשוף לאינטרנט. סוג הפרצה: פענוח אובייקט לא מהימן. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>77%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-25</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "he": "<b>Microsoft SharePoint</b> הוא שרת שיתוף מסמכים, לרוב חשוף לאינטרנט. סוג הפרצה: פענוח אובייקט לא מהימן. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>85%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: כמעט כל ארגון בישראל מריץ Windows, Microsoft 365 או שניהם. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-25</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
    "cve": "CVE-2026-60137",
@@ -234,10 +235,10 @@
    "tier_why": "הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל.",
    "edge": "מערכת ניהול תוכן שמריצה אתר אינטרנט חשוף",
    "il_vendor": null,
-   "epss": 0.731,
+   "epss": 0.79786,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
    "desc": "WordPress Core contains a SQL injection vulnerability when a plugin or theme passes untrusted input to the parameter. This vulnerability can be chained with CVE-2026-63030 to allow an unauthenticated attacker to gain remote code execution on default WordPress installations.",
-   "he": "<b>WordPress Core</b> הוא מערכת ניהול תוכן שמריצה אתר אינטרנט חשוף. סוג הפרצה: הזרקת SQL. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>73%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-04</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "he": "<b>WordPress Core</b> הוא מערכת ניהול תוכן שמריצה אתר אינטרנט חשוף. סוג הפרצה: הזרקת SQL. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>80%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-04</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
    "cve": "CVE-2026-63030",
@@ -255,10 +256,10 @@
    "tier_why": "הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל.",
    "edge": "מערכת ניהול תוכן שמריצה אתר אינטרנט חשוף",
    "il_vendor": null,
-   "epss": 0.95605,
+   "epss": 0.97789,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
    "desc": "WordPress Core contains an interpretation conflict vulnerability that could allow an attacker to perform SQL Injection and achieve Remote Code Execution. This vulnerability can be chained with CVE-2026-60137.",
-   "he": "<b>WordPress Core</b> הוא מערכת ניהול תוכן שמריצה אתר אינטרנט חשוף. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>96%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-24</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "he": "<b>WordPress Core</b> הוא מערכת ניהול תוכן שמריצה אתר אינטרנט חשוף. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>98%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: הפלטפורמה שעליה יושבים רוב אתרי העסקים הקטנים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-24</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
    "cve": "CVE-2026-25089",
@@ -280,10 +281,10 @@
    "tier_why": "FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל.",
    "edge": "מערכת ניתוח קבצים בפריסת רשת",
    "il_vendor": null,
-   "epss": 0.73603,
+   "epss": 0.76112,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
    "desc": "Fortinet FortiSandbox, FortiSandbox Cloud, and FortiSandbox PaaS contain an OS command injection vulnerability that allows an unauthenticated attacker to execute unauthorized commands via specifically crafted HTTP requests.",
-   "he": "<b>Fortinet FortiSandbox</b> הוא מערכת ניתוח קבצים בפריסת רשת. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>74%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-19</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "he": "<b>Fortinet FortiSandbox</b> הוא מערכת ניתוח קבצים בפריסת רשת. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>76%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-19</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
    "cve": "CVE-2026-39808",
@@ -305,10 +306,10 @@
    "tier_why": "FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל.",
    "edge": "מערכת ניתוח קבצים בפריסת רשת",
    "il_vendor": null,
-   "epss": 0.9121,
+   "epss": 0.92819,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
    "desc": "Fortinet FortiSandbox contains an OS command injection vulnerability that could allow an unauthenticated attacker to execute unauthorized code or commands via crafted HTTP requests.",
-   "he": "<b>Fortinet FortiSandbox</b> הוא מערכת ניתוח קבצים בפריסת רשת. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>91%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-19</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "he": "<b>Fortinet FortiSandbox</b> הוא מערכת ניתוח קבצים בפריסת רשת. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>93%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: FortiGate היא אחת מחומות האש הנפוצות ביותר בשוק העסקים הקטנים והבינוניים בישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-07-19</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
    "cve": "CVE-2026-10520",
@@ -330,7 +331,7 @@
    "tier_why": "שערי גישה מרחוק וניהול מכשירים; יעד חוזר ונשנה של תקיפות בעולם ובישראל.",
    "edge": "שער אבטחה למכשירים ניידים",
    "il_vendor": null,
-   "epss": 0.99902,
+   "epss": 0.99915,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
    "desc": "Ivanti Sentry (formerly known as MobileIron Sentry) contains an OS command injection vulnerability which could allow a remote unauthenticated user to achieve root-level remote code execution. This vulnerability can be successfully exploited in cases where the Sentry appliance is in an unmanaged state with its endpoints externally reachable. The use of mTLS with EPMM or restricted HTTPS access through Neurons for MDM makes interfaces inaccessible to external actors.",
    "he": "<b>Ivanti Sentry</b> הוא שער אבטחה למכשירים ניידים. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>100%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: שערי גישה מרחוק וניהול מכשירים; יעד חוזר ונשנה של תקיפות בעולם ובישראל. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-06-14</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
@@ -355,10 +356,10 @@
    "tier_why": "המוצר הוא Zimbra — שרת דואר שנפוץ בישראל במוסדות אקדמיים, ברשויות מקומיות ובעסקים שלא עברו ל-Exchange.",
    "edge": "שרת דואר ושיתוף פעולה",
    "il_vendor": null,
-   "epss": 0.01042,
+   "epss": 0.01506,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
    "desc": "Zimbra Collaboration Suite (ZCS) contains an OS command injection vulnerability which could allow an unauthenticated attacker to send specially crafted SMTP requests that may result in execution of arbitrary operating system commands as the Zimbra user.",
-   "he": "<b>Synacor Zimbra Collaboration Suite (ZCS)</b> הוא שרת דואר ושיתוף פעולה. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>1%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: המוצר הוא Zimbra — שרת דואר שנפוץ בישראל במוסדות אקדמיים, ברשויות מקומיות ובעסקים שלא עברו ל-Exchange. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-24</bdi>. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "he": "<b>Synacor Zimbra Collaboration Suite (ZCS)</b> הוא שרת דואר ושיתוף פעולה. סוג הפרצה: הרצת פקודות מערכת מרחוק. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>2%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: המוצר הוא Zimbra — שרת דואר שנפוץ בישראל במוסדות אקדמיים, ברשויות מקומיות ובעסקים שלא עברו ל-Exchange. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-24</bdi>. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   }
  ],
  "history": [
@@ -422,6 +423,11 @@
   },
   {
    "t": 1787545502,
+   "lv": 2,
+   "deg": 0
+  },
+  {
+   "t": 1787588703,
    "lv": 2,
    "deg": 0
   }
