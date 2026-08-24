@@ -1,16 +1,6 @@
 {
- "generated": "2026-08-24T10:12:46+00:00",
+ "generated": "2026-08-24T11:12:59+00:00",
  "history": [
-  {
-   "t": 1786963348,
-   "il": 0,
-   "ir": 0
-  },
-  {
-   "t": 1786965153,
-   "il": 0,
-   "ir": 0
-  },
   {
    "t": 1786966944,
    "il": 0,
@@ -2065,6 +2055,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787568162,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787569979,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2128,8 +2130,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "81 מטוסים אזרחיים באזור",
-     "value_en": "81 civil aircraft in the area",
+     "value": "94 מטוסים אזרחיים באזור",
+     "value_en": "94 civil aircraft in the area",
      "range": "57–102"
     },
     {
@@ -2151,8 +2153,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "7 מטוסים מעל ירדן",
+     "value_en": "7 aircraft over Jordan",
      "range": "3–9"
     },
     {
@@ -2243,8 +2245,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "10 מטוסים צבאיים באזור",
-     "value_en": "10 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2266,8 +2268,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.2 · דולר 2.99 ₪",
-     "value_en": "Brent $93.2 · USD 2.99 ILS",
+     "value": "ברנט $92.9 · דולר 2.99 ₪",
+     "value_en": "Brent $92.9 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2312,8 +2314,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.35% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.35%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.36% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.36%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.40%–0.81%"
     },
     {
@@ -2378,8 +2380,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,549 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,549 BGP routes)",
+     "value": "קישוריות תקינה (41,547 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,547 BGP routes)",
      "range": "41,543–41,561"
     },
     {
@@ -2447,9 +2449,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2,024,750 ריאל לדולר",
-     "value_en": "2,024,750 rial to the dollar",
-     "range": "1,927,000–1,999,850"
+     "value": "2,026,000 ריאל לדולר",
+     "value_en": "2,026,000 rial to the dollar",
+     "range": "1,927,000–2,001,900"
     },
     {
      "key": "hormuz_gps",
@@ -2493,8 +2495,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "10 מטוסים צבאיים באזור",
-     "value_en": "10 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2516,8 +2518,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.2 · דולר 2.99 ₪",
-     "value_en": "Brent $93.2 · USD 2.99 ILS",
+     "value": "ברנט $92.9 · דולר 2.99 ₪",
+     "value_en": "Brent $92.9 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2562,8 +2564,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.35% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.35%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.36% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.36%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.40%–0.81%"
     },
     {
