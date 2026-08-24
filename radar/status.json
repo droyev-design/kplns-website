@@ -1,16 +1,6 @@
 {
- "generated": "2026-08-24T13:12:51+00:00",
+ "generated": "2026-08-24T14:12:46+00:00",
  "history": [
-  {
-   "t": 1786974152,
-   "il": 0,
-   "ir": 1
-  },
-  {
-   "t": 1786975943,
-   "il": 0,
-   "ir": 1
-  },
   {
    "t": 1786977743,
    "il": 0,
@@ -2071,6 +2061,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787578965,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787580766,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2134,9 +2136,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "91 מטוסים אזרחיים באזור",
-     "value_en": "91 civil aircraft in the area",
-     "range": "57–102"
+     "value": "118 מטוסים אזרחיים באזור",
+     "value_en": "118 civil aircraft in the area",
+     "range": "57–103"
     },
     {
      "key": "jo_airspace",
@@ -2157,8 +2159,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "8 מטוסים מעל ירדן",
-     "value_en": "8 aircraft over Jordan",
+     "value": "5 מטוסים מעל ירדן",
+     "value_en": "5 aircraft over Jordan",
      "range": "3–10"
     },
     {
@@ -2226,8 +2228,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4.3% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-22 (נגזר מתעופה)",
-     "value_en": "4.3% of aircraft reported degraded GPS on 2026-08-22 (aviation-derived)",
+     "value": "2.2% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-23 (נגזר מתעופה)",
+     "value_en": "2.2% of aircraft reported degraded GPS on 2026-08-23 (aviation-derived)",
      "range": "2.3%–14.1%"
     },
     {
@@ -2249,8 +2251,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2272,8 +2274,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.2 · דולר 2.99 ₪",
-     "value_en": "Brent $93.2 · USD 2.99 ILS",
+     "value": "ברנט $93.3 · דולר 2.99 ₪",
+     "value_en": "Brent $93.3 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2384,9 +2386,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,543 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,543 BGP routes)",
-     "range": "41,543–41,561"
+     "value": "קישוריות תקינה (41,549 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,549 BGP routes)",
+     "range": "41,543–41,560"
     },
     {
      "key": "ir_provinces",
@@ -2453,8 +2455,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2,027,650 ריאל לדולר",
-     "value_en": "2,027,650 rial to the dollar",
+     "value": "2,024,200 ריאל לדולר",
+     "value_en": "2,024,200 rial to the dollar",
      "range": "1,927,000–2,024,750"
     },
     {
@@ -2476,9 +2478,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "10.7% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-22 (נגזר מתעופה)",
-     "value_en": "10.7% of aircraft reported degraded GPS on 2026-08-22 (aviation-derived)",
-     "range": "1.9%–14.1%"
+     "value": "8.0% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-23 (נגזר מתעופה)",
+     "value_en": "8.0% of aircraft reported degraded GPS on 2026-08-23 (aviation-derived)",
+     "range": "2.5%–14.1%"
     },
     {
      "key": "us_mil_air",
@@ -2499,8 +2501,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2522,8 +2524,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.2 · דולר 2.99 ₪",
-     "value_en": "Brent $93.2 · USD 2.99 ILS",
+     "value": "ברנט $93.3 · דולר 2.99 ₪",
+     "value_en": "Brent $93.3 · USD 2.99 ILS",
      "range": ""
     },
     {
