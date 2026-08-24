@@ -1,16 +1,6 @@
 {
- "generated": "2026-08-23T23:12:39+00:00",
+ "generated": "2026-08-24T00:12:54+00:00",
  "history": [
-  {
-   "t": 1786923749,
-   "il": 0,
-   "ir": 0
-  },
-  {
-   "t": 1786925542,
-   "il": 0,
-   "ir": 0
-  },
   {
    "t": 1786927343,
    "il": 0,
@@ -2048,6 +2038,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787528553,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787530374,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2111,9 +2113,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "60 מטוסים אזרחיים באזור",
-     "value_en": "60 civil aircraft in the area",
-     "range": "58–102"
+     "value": "62 מטוסים אזרחיים באזור",
+     "value_en": "62 civil aircraft in the area",
+     "range": "59–102"
     },
     {
      "key": "jo_airspace",
@@ -2134,8 +2136,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "3–9"
     },
     {
@@ -2226,8 +2228,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–6"
     },
     {
@@ -2249,8 +2251,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.6 · דולר 2.99 ₪",
-     "value_en": "Brent $93.6 · USD 2.99 ILS",
+     "value": "ברנט $93.4 · דולר 2.99 ₪",
+     "value_en": "Brent $93.4 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2297,7 +2299,7 @@
      "reason_en": "",
      "value": "סיכון גלום לתקיפה 0.35% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
      "value_en": "0.35%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
-     "range": "0.42%–0.81%"
+     "range": "0.40%–0.81%"
     },
     {
      "key": "strikeradar",
@@ -2403,12 +2405,12 @@
      "frozen_expired": false,
      "ok": true,
      "partial": true,
-     "partial_why": "טרם כויל — 3 ימי בסיס מתוך 7",
-     "partial_why_en": "not yet calibrated — 3 of 7 baseline days",
+     "partial_why": "טרם כויל — 4 ימי בסיס מתוך 7",
+     "partial_why_en": "not yet calibrated — 4 of 7 baseline days",
      "reason": "",
      "reason_en": "",
-     "value": "2 מוקדים תרמיים חדשים ב-2026-08-22 (מתוך 2,740 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "2 new thermal hotspots on 2026-08-22 (out of 2,740 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "3 מוקדים תרמיים חדשים ב-2026-08-23 (מתוך 1,195 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "3 new thermal hotspots on 2026-08-23 (out of 1,195 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": ""
     },
     {
@@ -2432,7 +2434,7 @@
      "reason_en": "",
      "value": "1,999,000 ריאל לדולר",
      "value_en": "1,999,000 rial to the dollar",
-     "range": "1,900,000–1,999,000"
+     "range": "1,907,850–1,999,000"
     },
     {
      "key": "hormuz_gps",
@@ -2476,8 +2478,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–6"
     },
     {
@@ -2499,8 +2501,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $93.6 · דולר 2.99 ₪",
-     "value_en": "Brent $93.6 · USD 2.99 ILS",
+     "value": "ברנט $93.4 · דולר 2.99 ₪",
+     "value_en": "Brent $93.4 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2547,7 +2549,7 @@
      "reason_en": "",
      "value": "סיכון גלום לתקיפה 0.35% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
      "value_en": "0.35%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
-     "range": "0.42%–0.81%"
+     "range": "0.40%–0.81%"
     },
     {
      "key": "strikeradar",
