@@ -1,16 +1,6 @@
 {
- "generated": "2026-08-25T02:12:35+00:00",
+ "generated": "2026-08-25T03:12:48+00:00",
  "history": [
-  {
-   "t": 1787020946,
-   "il": 0,
-   "ir": 0
-  },
-  {
-   "t": 1787022746,
-   "il": 0,
-   "ir": 0
-  },
   {
    "t": 1787024546,
    "il": 0,
@@ -2077,6 +2067,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787625758,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787627568,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2140,8 +2142,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "65 מטוסים אזרחיים באזור",
-     "value_en": "65 civil aircraft in the area",
+     "value": "53 מטוסים אזרחיים באזור",
+     "value_en": "53 civil aircraft in the area",
      "range": "57–103"
     },
     {
@@ -2163,8 +2165,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים מעל ירדן",
-     "value_en": "2 aircraft over Jordan",
+     "value": "6 מטוסים מעל ירדן",
+     "value_en": "6 aircraft over Jordan",
      "range": "3–10"
     },
     {
@@ -2255,8 +2257,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -2278,8 +2280,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $92.5 · דולר 2.99 ₪",
-     "value_en": "Brent $92.5 · USD 2.99 ILS",
+     "value": "ברנט $92.8 · דולר 2.99 ₪",
+     "value_en": "Brent $92.8 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2390,8 +2392,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,547 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,547 BGP routes)",
+     "value": "קישוריות תקינה (41,553 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,553 BGP routes)",
      "range": "41,542–41,560"
     },
     {
@@ -2436,8 +2438,8 @@
      "partial_why_en": "not yet calibrated — 5 of 7 baseline days",
      "reason": "",
      "reason_en": "",
-     "value": "0 מוקדים תרמיים חדשים ב-2026-08-24 (מתוך 2,287 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "0 new thermal hotspots on 2026-08-24 (out of 2,287 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "0 מוקדים תרמיים חדשים ב-2026-08-24 (מתוך 2,806 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "0 new thermal hotspots on 2026-08-24 (out of 2,806 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": ""
     },
     {
@@ -2461,7 +2463,7 @@
      "reason_en": "",
      "value": "2,021,950 ריאל לדולר",
      "value_en": "2,021,950 rial to the dollar",
-     "range": "1,974,000–2,026,000"
+     "range": "1,980,050–2,026,000"
     },
     {
      "key": "hormuz_gps",
@@ -2505,8 +2507,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -2528,8 +2530,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $92.5 · דולר 2.99 ₪",
-     "value_en": "Brent $92.5 · USD 2.99 ILS",
+     "value": "ברנט $92.8 · דולר 2.99 ₪",
+     "value_en": "Brent $92.8 · USD 2.99 ILS",
      "range": ""
     },
     {
