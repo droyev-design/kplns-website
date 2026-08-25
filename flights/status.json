@@ -1,12 +1,12 @@
 {
- "generated": "2026-08-25T17:07:07+00:00",
+ "generated": "2026-08-25T17:37:02+00:00",
  "level": 0,
  "now": {
-  "foreign_ops": 54,
+  "foreign_ops": 55,
   "cancelled": 23,
-  "flights": 801,
-  "aircraft": 18,
-  "airborne_ops": 11
+  "flights": 802,
+  "aircraft": 12,
+  "airborne_ops": 8
  },
  "history": [
   {
@@ -1223,6 +1223,11 @@
    "t": 1787677627,
    "lv": 0,
    "deg": 0
+  },
+  {
+   "t": 1787679422,
+   "lv": 0,
+   "deg": 0
   }
  ],
  "tripwires": [
@@ -1235,8 +1240,8 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "54 חברות זרות שונות טסות היום",
-   "value_en": "54 distinct foreign airlines flying today"
+   "value": "55 חברות זרות שונות טסות היום",
+   "value_en": "55 distinct foreign airlines flying today"
   },
   {
    "key": "cancellations",
@@ -1247,20 +1252,20 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "23 מתוך 801 טיסות היום (2.9%) — ביטולים בודדים הם שגרה",
-   "value_en": "23 of 801 flights today (2.9%) — a handful is routine"
+   "value": "23 מתוך 802 טיסות היום (2.9%) — ביטולים בודדים הם שגרה",
+   "value_en": "23 of 802 flights today (2.9%) — a handful is routine"
   },
   {
    "key": "live_traffic",
    "name": "מטוסים באוויר סביב נתב\"ג",
    "name_en": "Aircraft airborne around Ben Gurion",
    "lit": false,
-   "armed": false,
+   "armed": true,
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "18 מטוסים באוויר כעת, 11 סימני קריאה של חברות",
-   "value_en": "18 aircraft airborne now, 11 airline callsigns"
+   "value": "12 מטוסים באוויר כעת, 8 סימני קריאה של חברות",
+   "value_en": "12 aircraft airborne now, 8 airline callsigns"
   }
  ],
  "days": [
@@ -1269,9 +1274,9 @@
    "dow": "שלישי",
    "dow_en": "Tue",
    "today": true,
-   "flights": 801,
+   "flights": 802,
    "cancelled": 23,
-   "foreign_ops": 54,
+   "foreign_ops": 55,
    "il_ops": 3
   },
   {
@@ -1299,7 +1304,7 @@
    "dow": "שישי",
    "dow_en": "Fri",
    "today": false,
-   "flights": 642,
+   "flights": 649,
    "cancelled": 0,
    "foreign_ops": 47,
    "il_ops": 3
