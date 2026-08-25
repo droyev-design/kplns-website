@@ -1,12 +1,12 @@
 {
- "generated": "2026-08-25T09:37:02+00:00",
+ "generated": "2026-08-25T10:37:52+00:00",
  "level": 0,
  "now": {
   "foreign_ops": 54,
   "cancelled": 22,
   "flights": 801,
-  "aircraft": 17,
-  "airborne_ops": 9
+  "aircraft": null,
+  "airborne_ops": null
  },
  "history": [
   {
@@ -1148,6 +1148,16 @@
    "t": 1787650622,
    "lv": 0,
    "deg": 0
+  },
+  {
+   "t": 1787652422,
+   "lv": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787654272,
+   "lv": 0,
+   "deg": 1
   }
  ],
  "tripwires": [
@@ -1181,11 +1191,11 @@
    "name_en": "Aircraft airborne around Ben Gurion",
    "lit": false,
    "armed": false,
-   "ok": true,
+   "ok": false,
    "reason": "",
    "reason_en": "",
-   "value": "17 מטוסים באוויר כעת, 9 סימני קריאה של חברות",
-   "value_en": "17 aircraft airborne now, 9 airline callsigns"
+   "value": "",
+   "value_en": ""
   }
  ],
  "days": [
@@ -1204,7 +1214,7 @@
    "dow": "רביעי",
    "dow_en": "Wed",
    "today": false,
-   "flights": 806,
+   "flights": 807,
    "cancelled": 2,
    "foreign_ops": 52,
    "il_ops": 3
@@ -1224,7 +1234,7 @@
    "dow": "שישי",
    "dow_en": "Fri",
    "today": false,
-   "flights": 382,
+   "flights": 419,
    "cancelled": 0,
    "foreign_ops": 43,
    "il_ops": 3
@@ -1238,8 +1248,12 @@
   "fops_need": 4,
   "air_need": 6
  },
- "sources_ok": 3,
+ "sources_ok": 2,
  "sources_total": 3,
- "degraded": [],
- "degraded_en": []
+ "degraded": [
+  "מטוסים באוויר סביב נתב\"ג"
+ ],
+ "degraded_en": [
+  "Aircraft airborne around Ben Gurion"
+ ]
 }
