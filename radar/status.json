@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-25T20:12:40+00:00",
+ "generated": "2026-08-25T21:12:39+00:00",
  "history": [
-  {
-   "t": 1787083960,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787085746,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787087578,
    "il": 0,
@@ -2118,6 +2106,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787690585,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787692359,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2181,8 +2181,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "83 מטוסים אזרחיים באזור",
-     "value_en": "83 civil aircraft in the area",
+     "value": "62 מטוסים אזרחיים באזור",
+     "value_en": "62 civil aircraft in the area",
      "range": "57–109"
     },
     {
@@ -2204,8 +2204,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "11 מטוסים מעל ירדן",
-     "value_en": "11 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "2–11"
     },
     {
@@ -2296,8 +2296,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–11"
     },
     {
@@ -2319,8 +2319,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.4 · דולר 2.99 ₪",
-     "value_en": "Brent $88.4 · USD 2.99 ILS",
+     "value": "ברנט $86.7 · דולר 2.99 ₪",
+     "value_en": "Brent $86.7 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2431,8 +2431,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,556 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,556 BGP routes)",
+     "value": "קישוריות תקינה (41,564 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,564 BGP routes)",
      "range": "41,542–41,562"
     },
     {
@@ -2546,8 +2546,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–11"
     },
     {
@@ -2569,8 +2569,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.4 · דולר 2.99 ₪",
-     "value_en": "Brent $88.4 · USD 2.99 ILS",
+     "value": "ברנט $86.7 · דולר 2.99 ₪",
+     "value_en": "Brent $86.7 · USD 2.99 ILS",
      "range": ""
     },
     {
