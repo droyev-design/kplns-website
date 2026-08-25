@@ -1,16 +1,6 @@
 {
- "generated": "2026-08-25T00:12:39+00:00",
+ "generated": "2026-08-25T01:12:55+00:00",
  "history": [
-  {
-   "t": 1787013749,
-   "il": 0,
-   "ir": 0
-  },
-  {
-   "t": 1787015553,
-   "il": 0,
-   "ir": 0
-  },
   {
    "t": 1787017357,
    "il": 0,
@@ -2073,6 +2063,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787618555,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787620375,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2136,8 +2138,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "57 מטוסים אזרחיים באזור",
-     "value_en": "57 civil aircraft in the area",
+     "value": "76 מטוסים אזרחיים באזור",
+     "value_en": "76 civil aircraft in the area",
      "range": "57–103"
     },
     {
@@ -2159,8 +2161,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים מעל ירדן",
-     "value_en": "2 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "3–10"
     },
     {
@@ -2228,9 +2230,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2.2% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-23 (נגזר מתעופה)",
-     "value_en": "2.2% of aircraft reported degraded GPS on 2026-08-23 (aviation-derived)",
-     "range": "2.3%–14.1%"
+     "value": "7.3% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-24 (נגזר מתעופה)",
+     "value_en": "7.3% of aircraft reported degraded GPS on 2026-08-24 (aviation-derived)",
+     "range": "2.2%–14.1%"
     },
     {
      "key": "us_mil_air",
@@ -2251,8 +2253,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים צבאיים באזור",
-     "value_en": "0 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -2274,8 +2276,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $92.2 · דולר 2.99 ₪",
-     "value_en": "Brent $92.2 · USD 2.99 ILS",
+     "value": "ברנט $91.9 · דולר 2.99 ₪",
+     "value_en": "Brent $91.9 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2386,9 +2388,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,542 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,542 BGP routes)",
-     "range": "41,543–41,560"
+     "value": "קישוריות תקינה (41,540 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,540 BGP routes)",
+     "range": "41,542–41,560"
     },
     {
      "key": "ir_provinces",
@@ -2432,8 +2434,8 @@
      "partial_why_en": "not yet calibrated — 5 of 7 baseline days",
      "reason": "",
      "reason_en": "",
-     "value": "0 מוקדים תרמיים חדשים ב-2026-08-24 (מתוך 862 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "0 new thermal hotspots on 2026-08-24 (out of 862 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "0 מוקדים תרמיים חדשים ב-2026-08-24 (מתוך 1,743 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "0 new thermal hotspots on 2026-08-24 (out of 1,743 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": ""
     },
     {
@@ -2478,9 +2480,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "8.0% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-23 (נגזר מתעופה)",
-     "value_en": "8.0% of aircraft reported degraded GPS on 2026-08-23 (aviation-derived)",
-     "range": "2.5%–14.1%"
+     "value": "11.5% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-24 (נגזר מתעופה)",
+     "value_en": "11.5% of aircraft reported degraded GPS on 2026-08-24 (aviation-derived)",
+     "range": "2.5%–13.3%"
     },
     {
      "key": "us_mil_air",
@@ -2501,8 +2503,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים צבאיים באזור",
-     "value_en": "0 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -2524,8 +2526,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $92.2 · דולר 2.99 ₪",
-     "value_en": "Brent $92.2 · USD 2.99 ILS",
+     "value": "ברנט $91.9 · דולר 2.99 ₪",
+     "value_en": "Brent $91.9 · USD 2.99 ILS",
      "range": ""
     },
     {
