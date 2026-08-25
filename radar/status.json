@@ -1,16 +1,6 @@
 {
- "generated": "2026-08-25T18:12:39+00:00",
+ "generated": "2026-08-25T19:12:42+00:00",
  "history": [
-  {
-   "t": 1787078557,
-   "il": 0,
-   "ir": 0
-  },
-  {
-   "t": 1787080348,
-   "il": 0,
-   "ir": 0
-  },
   {
    "t": 1787082159,
    "il": 0,
@@ -2109,6 +2099,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787683360,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787685162,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2172,8 +2174,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "103 מטוסים אזרחיים באזור",
-     "value_en": "103 civil aircraft in the area",
+     "value": "72 מטוסים אזרחיים באזור",
+     "value_en": "72 civil aircraft in the area",
      "range": "57–109"
     },
     {
@@ -2195,8 +2197,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "7 מטוסים מעל ירדן",
+     "value_en": "7 aircraft over Jordan",
      "range": "2–10"
     },
     {
@@ -2287,8 +2289,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–11"
     },
     {
@@ -2310,8 +2312,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.4 · דולר 2.99 ₪",
-     "value_en": "Brent $88.4 · USD 2.99 ILS",
+     "value": "ברנט $88.6 · דולר 2.99 ₪",
+     "value_en": "Brent $88.6 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2356,8 +2358,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.37% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.37%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.34% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.34%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%"
     },
     {
@@ -2422,8 +2424,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,553 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,553 BGP routes)",
+     "value": "קישוריות תקינה (41,552 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,552 BGP routes)",
      "range": "41,542–41,562"
     },
     {
@@ -2491,8 +2493,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2,005,050 ריאל לדולר",
-     "value_en": "2,005,050 rial to the dollar",
+     "value": "2,005,000 ריאל לדולר",
+     "value_en": "2,005,000 rial to the dollar",
      "range": "1,999,000–2,027,200"
     },
     {
@@ -2537,8 +2539,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–11"
     },
     {
@@ -2560,8 +2562,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.4 · דולר 2.99 ₪",
-     "value_en": "Brent $88.4 · USD 2.99 ILS",
+     "value": "ברנט $88.6 · דולר 2.99 ₪",
+     "value_en": "Brent $88.6 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2606,8 +2608,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.37% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.37%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.34% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.34%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%"
     },
     {
