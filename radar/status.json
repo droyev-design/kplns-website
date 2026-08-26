@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-26T00:12:44+00:00",
+ "generated": "2026-08-26T01:12:32+00:00",
  "history": [
-  {
-   "t": 1787100147,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787101946,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787103747,
    "il": 0,
@@ -2112,6 +2100,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787704980,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787706752,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2175,8 +2175,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "68 מטוסים אזרחיים באזור",
-     "value_en": "68 civil aircraft in the area",
+     "value": "63 מטוסים אזרחיים באזור",
+     "value_en": "63 civil aircraft in the area",
      "range": "57–109"
     },
     {
@@ -2198,8 +2198,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "4 מטוסים מעל ירדן",
+     "value_en": "4 aircraft over Jordan",
      "range": "2–11"
     },
     {
@@ -2267,8 +2267,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "7.3% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-24 (נגזר מתעופה)",
-     "value_en": "7.3% of aircraft reported degraded GPS on 2026-08-24 (aviation-derived)",
+     "value": "4.1% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-25 (נגזר מתעופה)",
+     "value_en": "4.1% of aircraft reported degraded GPS on 2026-08-25 (aviation-derived)",
      "range": "2.2%–14.1%"
     },
     {
@@ -2313,8 +2313,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $87.0 · דולר 2.99 ₪",
-     "value_en": "Brent $87.0 · USD 2.99 ILS",
+     "value": "ברנט $86.9 · דולר 2.99 ₪",
+     "value_en": "Brent $86.9 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2425,8 +2425,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,561 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,561 BGP routes)",
+     "value": "קישוריות תקינה (41,562 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,562 BGP routes)",
      "range": "41,542–41,563"
     },
     {
@@ -2471,8 +2471,8 @@
      "partial_why_en": "not yet calibrated — 6 of 7 baseline days",
      "reason": "",
      "reason_en": "",
-     "value": "0 מוקדים תרמיים חדשים ב-2026-08-25 (מתוך 1,214 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "0 new thermal hotspots on 2026-08-25 (out of 1,214 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "0 מוקדים תרמיים חדשים ב-2026-08-25 (מתוך 1,721 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "0 new thermal hotspots on 2026-08-25 (out of 1,721 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": ""
     },
     {
@@ -2517,8 +2517,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "11.5% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-24 (נגזר מתעופה)",
-     "value_en": "11.5% of aircraft reported degraded GPS on 2026-08-24 (aviation-derived)",
+     "value": "10.4% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-25 (נגזר מתעופה)",
+     "value_en": "10.4% of aircraft reported degraded GPS on 2026-08-25 (aviation-derived)",
      "range": "2.5%–13.3%"
     },
     {
@@ -2563,8 +2563,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $87.0 · דולר 2.99 ₪",
-     "value_en": "Brent $87.0 · USD 2.99 ILS",
+     "value": "ברנט $86.9 · דולר 2.99 ₪",
+     "value_en": "Brent $86.9 · USD 2.99 ILS",
      "range": ""
     },
     {
