@@ -1,12 +1,12 @@
 {
- "generated": "2026-08-26T10:07:02+00:00",
+ "generated": "2026-08-26T10:37:07+00:00",
  "level": 0,
  "now": {
   "foreign_ops": 52,
   "cancelled": 7,
   "flights": 813,
-  "aircraft": 15,
-  "airborne_ops": 6
+  "aircraft": 18,
+  "airborne_ops": 11
  },
  "history": [
   {
@@ -1393,6 +1393,11 @@
    "t": 1787738822,
    "lv": 0,
    "deg": 0
+  },
+  {
+   "t": 1787740627,
+   "lv": 0,
+   "deg": 0
   }
  ],
  "tripwires": [
@@ -1425,12 +1430,12 @@
    "name": "מטוסים באוויר סביב נתב\"ג",
    "name_en": "Aircraft airborne around Ben Gurion",
    "lit": false,
-   "armed": false,
+   "armed": true,
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "15 מטוסים באוויר כעת, 6 סימני קריאה של חברות",
-   "value_en": "15 aircraft airborne now, 6 airline callsigns"
+   "value": "18 מטוסים באוויר כעת, 11 סימני קריאה של חברות",
+   "value_en": "18 aircraft airborne now, 11 airline callsigns"
   }
  ],
  "days": [
@@ -1469,7 +1474,7 @@
    "dow": "שבת",
    "dow_en": "Sat",
    "today": false,
-   "flights": 151,
+   "flights": 168,
    "cancelled": 0,
    "foreign_ops": 23,
    "il_ops": 3
