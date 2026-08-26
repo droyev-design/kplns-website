@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-25T23:12:48+00:00",
+ "generated": "2026-08-26T00:12:44+00:00",
  "history": [
-  {
-   "t": 1787096547,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787098348,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787100147,
    "il": 0,
@@ -2112,6 +2100,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787701353,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787703164,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2175,8 +2175,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "83 מטוסים אזרחיים באזור",
-     "value_en": "83 civil aircraft in the area",
+     "value": "68 מטוסים אזרחיים באזור",
+     "value_en": "68 civil aircraft in the area",
      "range": "57–109"
     },
     {
@@ -2198,8 +2198,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס אחד מעל ירדן",
-     "value_en": "1 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "2–11"
     },
     {
@@ -2290,9 +2290,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
-     "range": "2–11"
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
+     "range": "1–11"
     },
     {
      "key": "markets",
@@ -2313,8 +2313,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $86.9 · דולר 2.99 ₪",
-     "value_en": "Brent $86.9 · USD 2.99 ILS",
+     "value": "ברנט $87.0 · דולר 2.99 ₪",
+     "value_en": "Brent $87.0 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2382,8 +2382,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "48/100",
-     "value_en": "48/100",
+     "value": "47/100",
+     "value_en": "47/100",
      "range": ""
     }
    ]
@@ -2425,8 +2425,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,398 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,398 BGP routes)",
+     "value": "קישוריות תקינה (41,561 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,561 BGP routes)",
      "range": "41,542–41,563"
     },
     {
@@ -2467,12 +2467,12 @@
      "frozen_expired": false,
      "ok": true,
      "partial": true,
-     "partial_why": "טרם כויל — 5 ימי בסיס מתוך 7",
-     "partial_why_en": "not yet calibrated — 5 of 7 baseline days",
+     "partial_why": "טרם כויל — 6 ימי בסיס מתוך 7",
+     "partial_why_en": "not yet calibrated — 6 of 7 baseline days",
      "reason": "",
      "reason_en": "",
-     "value": "0 מוקדים תרמיים חדשים ב-2026-08-24 (מתוך 2,806 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "0 new thermal hotspots on 2026-08-24 (out of 2,806 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "0 מוקדים תרמיים חדשים ב-2026-08-25 (מתוך 1,214 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "0 new thermal hotspots on 2026-08-25 (out of 1,214 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": ""
     },
     {
@@ -2540,9 +2540,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
-     "range": "2–11"
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
+     "range": "1–11"
     },
     {
      "key": "markets",
@@ -2563,8 +2563,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $86.9 · דולר 2.99 ₪",
-     "value_en": "Brent $86.9 · USD 2.99 ILS",
+     "value": "ברנט $87.0 · דולר 2.99 ₪",
+     "value_en": "Brent $87.0 · USD 2.99 ILS",
      "range": ""
     },
     {
@@ -2632,8 +2632,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "48/100",
-     "value_en": "48/100",
+     "value": "47/100",
+     "value_en": "47/100",
      "range": ""
     }
    ],
