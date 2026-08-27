@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-27T12:42:55+00:00",
+ "generated": "2026-08-27T13:42:45+00:00",
  "history": [
-  {
-   "t": 1787231610,
-   "il": 0,
-   "ir": 0,
-   "deg": 1
-  },
-  {
-   "t": 1787233355,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787235158,
    "il": 0,
@@ -2064,6 +2052,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787836375,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787838165,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2127,9 +2127,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "105 מטוסים אזרחיים באזור",
-     "value_en": "105 civil aircraft in the area",
-     "range": "57–107"
+     "value": "96 מטוסים אזרחיים באזור",
+     "value_en": "96 civil aircraft in the area",
+     "range": "57–105"
     },
     {
      "key": "jo_airspace",
@@ -2150,8 +2150,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "14 מטוסים מעל ירדן",
-     "value_en": "14 aircraft over Jordan",
+     "value": "6 מטוסים מעל ירדן",
+     "value_en": "6 aircraft over Jordan",
      "range": "2–9"
     },
     {
@@ -2242,8 +2242,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2265,8 +2265,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.4 · דולר 2.98 ₪",
-     "value_en": "Brent $88.4 · USD 2.98 ILS",
+     "value": "ברנט $88.6 · דולר 2.98 ₪",
+     "value_en": "Brent $88.6 · USD 2.98 ILS",
      "range": ""
     },
     {
@@ -2492,8 +2492,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2515,8 +2515,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.4 · דולר 2.98 ₪",
-     "value_en": "Brent $88.4 · USD 2.98 ILS",
+     "value": "ברנט $88.6 · דולר 2.98 ₪",
+     "value_en": "Brent $88.6 · USD 2.98 ILS",
      "range": ""
     },
     {
