@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://kplns.com/</loc><lastmod>2026-08-19</lastmod><priority>1.0</priority></url>
+  <url><loc>https://kplns.com/</loc><lastmod>2026-08-27</lastmod><priority>1.0</priority></url>
   <url><loc>https://kplns.com/radar/</loc><lastmod>2026-08-27</lastmod><priority>0.8</priority></url>
   <url><loc>https://kplns.com/radar/methodology.html</loc><lastmod>2026-08-27</lastmod><priority>0.6</priority></url>
   <url><loc>https://kplns.com/flights/</loc><lastmod>2026-08-27</lastmod><priority>0.8</priority></url>
@@ -42,4 +42,5 @@
   <url><loc>https://kplns.com/article-saas-oauth-supply-chain-2026.html</loc><lastmod>2026-08-12</lastmod><priority>0.8</priority></url>
   <url><loc>https://kplns.com/article-false-positive-engineering-2026.html</loc><lastmod>2026-08-16</lastmod><priority>0.8</priority></url>
   <url><loc>https://kplns.com/article-radar-methodology-2026.html</loc><lastmod>2026-08-19</lastmod><priority>0.8</priority></url>
+  <url><loc>https://kplns.com/article-ndaa-compliant-not-china-free-2026.html</loc><lastmod>2026-08-27</lastmod><priority>0.8</priority></url>
 </urlset>
