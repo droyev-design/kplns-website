@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-27T02:42:33+00:00",
+ "generated": "2026-08-27T03:42:46+00:00",
  "history": [
-  {
-   "t": 1787195545,
-   "il": 0,
-   "ir": 0,
-   "deg": 1
-  },
-  {
-   "t": 1787197361,
-   "il": 0,
-   "ir": 0,
-   "deg": 1
-  },
   {
    "t": 1787199156,
    "il": 0,
@@ -2112,6 +2100,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787800364,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787802166,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2175,8 +2175,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "62 מטוסים אזרחיים באזור",
-     "value_en": "62 civil aircraft in the area",
+     "value": "54 מטוסים אזרחיים באזור",
+     "value_en": "54 civil aircraft in the area",
      "range": "60–110"
     },
     {
@@ -2200,7 +2200,7 @@
      "reason_en": "",
      "value": "מטוס אחד מעל ירדן",
      "value_en": "1 aircraft over Jordan",
-     "range": "2–9"
+     "range": "1–9"
     },
     {
      "key": "advisories_il",
@@ -2425,8 +2425,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,553 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,553 BGP routes)",
+     "value": "קישוריות תקינה (41,554 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,554 BGP routes)",
      "range": "41,549–41,564"
     },
     {
@@ -2471,8 +2471,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מוקדים תרמיים חדשים ב-2026-08-26 (מתוך 2,417 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "5 new thermal hotspots on 2026-08-26 (out of 2,417 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "5 מוקדים תרמיים חדשים ב-2026-08-26 (מתוך 2,514 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "5 new thermal hotspots on 2026-08-26 (out of 2,514 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": "0–4"
     },
     {
