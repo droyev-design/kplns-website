@@ -1,24 +1,6 @@
 {
- "generated": "2026-08-27T04:42:43+00:00",
+ "generated": "2026-08-27T05:42:33+00:00",
  "history": [
-  {
-   "t": 1787202592,
-   "il": 0,
-   "ir": 0,
-   "deg": 1
-  },
-  {
-   "t": 1787202746,
-   "il": 0,
-   "ir": 0,
-   "deg": 1
-  },
-  {
-   "t": 1787204334,
-   "il": 0,
-   "ir": 0,
-   "deg": 1
-  },
   {
    "t": 1787204553,
    "il": 0,
@@ -2112,6 +2094,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787807569,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787809353,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2175,8 +2169,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "53 מטוסים אזרחיים באזור",
-     "value_en": "53 civil aircraft in the area",
+     "value": "72 מטוסים אזרחיים באזור",
+     "value_en": "72 civil aircraft in the area",
      "range": "57–110"
     },
     {
@@ -2198,8 +2192,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "7 מטוסים מעל ירדן",
-     "value_en": "7 aircraft over Jordan",
+     "value": "4 מטוסים מעל ירדן",
+     "value_en": "4 aircraft over Jordan",
      "range": "1–9"
     },
     {
@@ -2290,8 +2284,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים צבאיים באזור",
-     "value_en": "5 military aircraft in the area",
+     "value": "9 מטוסים צבאיים באזור",
+     "value_en": "9 military aircraft in the area",
      "range": "1–10"
     },
     {
@@ -2425,8 +2419,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,531 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,531 BGP routes)",
+     "value": "קישוריות תקינה (41,560 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,560 BGP routes)",
      "range": "41,549–41,564"
     },
     {
@@ -2496,7 +2490,7 @@
      "reason_en": "",
      "value": "2,005,000 ריאל לדולר",
      "value_en": "2,005,000 rial to the dollar",
-     "range": "2,005,000–2,021,950"
+     "range": "2,005,000–2,015,000"
     },
     {
      "key": "hormuz_gps",
@@ -2540,8 +2534,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים צבאיים באזור",
-     "value_en": "5 military aircraft in the area",
+     "value": "9 מטוסים צבאיים באזור",
+     "value_en": "9 military aircraft in the area",
      "range": "1–10"
     },
     {
