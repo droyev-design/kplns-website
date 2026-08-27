@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-27T19:12:48+00:00",
+ "generated": "2026-08-27T20:13:06+00:00",
  "history": [
-  {
-   "t": 1787254954,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787256777,
-   "il": 0,
-   "ir": 0,
-   "deg": 1
-  },
   {
    "t": 1787258559,
    "il": 0,
@@ -2058,6 +2046,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787859770,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787861586,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2121,8 +2121,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "62 מטוסים אזרחיים באזור",
-     "value_en": "62 civil aircraft in the area",
+     "value": "79 מטוסים אזרחיים באזור",
+     "value_en": "79 civil aircraft in the area",
      "range": "57–101"
     },
     {
@@ -2236,8 +2236,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2259,8 +2259,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $89.9 · דולר 2.98 ₪",
-     "value_en": "Brent $89.9 · USD 2.98 ILS",
+     "value": "ברנט $89.7 · דולר 2.98 ₪",
+     "value_en": "Brent $89.7 · USD 2.98 ILS",
      "range": ""
     },
     {
@@ -2486,8 +2486,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2509,8 +2509,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $89.9 · דולר 2.98 ₪",
-     "value_en": "Brent $89.9 · USD 2.98 ILS",
+     "value": "ברנט $89.7 · דולר 2.98 ₪",
+     "value_en": "Brent $89.7 · USD 2.98 ILS",
      "range": ""
     },
     {
