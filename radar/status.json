@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-27T17:13:10+00:00",
+ "generated": "2026-08-27T18:12:36+00:00",
  "history": [
-  {
-   "t": 1787247756,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787249553,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787251377,
    "il": 0,
@@ -2058,6 +2046,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787852557,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787854356,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2121,8 +2121,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "92 מטוסים אזרחיים באזור",
-     "value_en": "92 civil aircraft in the area",
+     "value": "82 מטוסים אזרחיים באזור",
+     "value_en": "82 civil aircraft in the area",
      "range": "57–102"
     },
     {
@@ -2144,8 +2144,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
+     "value": "8 מטוסים מעל ירדן",
+     "value_en": "8 aircraft over Jordan",
      "range": "2–9"
     },
     {
@@ -2236,8 +2236,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "5 מטוסים צבאיים באזור",
+     "value_en": "5 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2259,8 +2259,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.8 · דולר 2.98 ₪",
-     "value_en": "Brent $88.8 · USD 2.98 ILS",
+     "value": "ברנט $90.1 · דולר 2.98 ₪",
+     "value_en": "Brent $90.1 · USD 2.98 ILS",
      "range": ""
     },
     {
@@ -2328,8 +2328,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "33/100",
-     "value_en": "33/100",
+     "value": "32/100",
+     "value_en": "32/100",
      "range": ""
     }
    ]
@@ -2371,9 +2371,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,581 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,581 BGP routes)",
-     "range": "41,549–41,578"
+     "value": "קישוריות תקינה (41,582 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,582 BGP routes)",
+     "range": "41,549–41,579"
     },
     {
      "key": "ir_provinces",
@@ -2486,8 +2486,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "5 מטוסים צבאיים באזור",
+     "value_en": "5 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2509,8 +2509,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.8 · דולר 2.98 ₪",
-     "value_en": "Brent $88.8 · USD 2.98 ILS",
+     "value": "ברנט $90.1 · דולר 2.98 ₪",
+     "value_en": "Brent $90.1 · USD 2.98 ILS",
      "range": ""
     },
     {
@@ -2578,8 +2578,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "33/100",
-     "value_en": "33/100",
+     "value": "32/100",
+     "value_en": "32/100",
      "range": ""
     }
    ],
