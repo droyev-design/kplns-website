@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-28T03:12:58+00:00",
+ "generated": "2026-08-28T04:12:54+00:00",
  "history": [
-  {
-   "t": 1787283758,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787285557,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787287351,
    "il": 0,
@@ -2058,6 +2046,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787888588,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787890374,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2121,9 +2121,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "51 מטוסים אזרחיים באזור",
-     "value_en": "51 civil aircraft in the area",
-     "range": "54–101"
+     "value": "47 מטוסים אזרחיים באזור",
+     "value_en": "47 civil aircraft in the area",
+     "range": "53–101"
     },
     {
      "key": "jo_airspace",
@@ -2144,8 +2144,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "6 מטוסים מעל ירדן",
+     "value_en": "6 aircraft over Jordan",
      "range": "2–9"
     },
     {
@@ -2236,8 +2236,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים צבאיים באזור",
-     "value_en": "0 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2259,8 +2259,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.1 · דולר 2.98 ₪",
-     "value_en": "Brent $88.1 · USD 2.98 ILS",
+     "value": "ברנט $88.5 · דולר 2.98 ₪",
+     "value_en": "Brent $88.5 · USD 2.98 ILS",
      "range": ""
     },
     {
@@ -2371,8 +2371,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,578 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,578 BGP routes)",
+     "value": "קישוריות תקינה (41,579 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,579 BGP routes)",
      "range": "41,549–41,579"
     },
     {
@@ -2486,8 +2486,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים צבאיים באזור",
-     "value_en": "0 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2509,8 +2509,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.1 · דולר 2.98 ₪",
-     "value_en": "Brent $88.1 · USD 2.98 ILS",
+     "value": "ברנט $88.5 · דולר 2.98 ₪",
+     "value_en": "Brent $88.5 · USD 2.98 ILS",
      "range": ""
     },
     {
