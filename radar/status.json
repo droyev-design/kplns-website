@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-29T03:12:36+00:00",
+ "generated": "2026-08-29T04:12:44+00:00",
  "history": [
-  {
-   "t": 1787370151,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787371956,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787373756,
    "il": 0,
@@ -2058,6 +2046,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787974962,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787976764,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2121,8 +2121,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "51 מטוסים אזרחיים באזור",
-     "value_en": "51 civil aircraft in the area",
+     "value": "44 מטוסים אזרחיים באזור",
+     "value_en": "44 civil aircraft in the area",
      "range": "52–97"
     },
     {
@@ -2144,8 +2144,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "6 מטוסים מעל ירדן",
+     "value_en": "6 aircraft over Jordan",
      "range": "3–7"
     },
     {
@@ -2236,8 +2236,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–7"
     },
     {
@@ -2328,8 +2328,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "33/100",
-     "value_en": "33/100",
+     "value": "34/100",
+     "value_en": "34/100",
      "range": ""
     }
    ]
@@ -2371,8 +2371,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,578 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,578 BGP routes)",
+     "value": "קישוריות תקינה (41,556 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,556 BGP routes)",
      "range": "41,562–41,579"
     },
     {
@@ -2486,8 +2486,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–7"
     },
     {
@@ -2578,8 +2578,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "33/100",
-     "value_en": "33/100",
+     "value": "34/100",
+     "value_en": "34/100",
      "range": ""
     }
    ],
