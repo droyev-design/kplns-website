@@ -1,12 +1,6 @@
 {
- "generated": "2026-08-29T01:12:43+00:00",
+ "generated": "2026-08-29T02:12:33+00:00",
  "history": [
-  {
-   "t": 1787362952,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787364753,
    "il": 0,
@@ -2058,6 +2052,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787967765,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787969553,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2121,8 +2127,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "58 מטוסים אזרחיים באזור",
-     "value_en": "58 civil aircraft in the area",
+     "value": "57 מטוסים אזרחיים באזור",
+     "value_en": "57 civil aircraft in the area",
      "range": "53–97"
     },
     {
@@ -2144,8 +2150,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "3–7"
     },
     {
@@ -2371,8 +2377,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,573 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,573 BGP routes)",
+     "value": "קישוריות תקינה (41,577 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,577 BGP routes)",
      "range": "41,560–41,579"
     },
     {
@@ -2417,8 +2423,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מוקדים תרמיים חדשים ב-2026-08-28 (מתוך 2,060 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "0 new thermal hotspots on 2026-08-28 (out of 2,060 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "0 מוקדים תרמיים חדשים ב-2026-08-28 (מתוך 3,029 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "0 new thermal hotspots on 2026-08-28 (out of 3,029 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": "0–5"
     },
     {
