@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-29T11:12:58+00:00",
+ "generated": "2026-08-29T12:12:55+00:00",
  "history": [
-  {
-   "t": 1787398958,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787400752,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787402552,
    "il": 0,
@@ -2058,6 +2046,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788003777,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788005575,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2121,9 +2121,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "83 מטוסים אזרחיים באזור",
-     "value_en": "83 civil aircraft in the area",
-     "range": "52–97"
+     "value": "96 מטוסים אזרחיים באזור",
+     "value_en": "96 civil aircraft in the area",
+     "range": "52–96"
     },
     {
      "key": "jo_airspace",
@@ -2144,8 +2144,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "8 מטוסים מעל ירדן",
-     "value_en": "8 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "2–8"
     },
     {
@@ -2236,8 +2236,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–5"
     },
     {
@@ -2371,9 +2371,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,589 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,589 BGP routes)",
-     "range": "41,571–41,585"
+     "value": "קישוריות תקינה (41,591 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,591 BGP routes)",
+     "range": "41,571–41,586"
     },
     {
      "key": "ir_provinces",
@@ -2440,9 +2440,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2,053,150 ריאל לדולר",
-     "value_en": "2,053,150 rial to the dollar",
-     "range": "2,006,000–2,008,000"
+     "value": "2,049,150 ריאל לדולר",
+     "value_en": "2,049,150 rial to the dollar",
+     "range": "2,006,000–2,027,000"
     },
     {
      "key": "hormuz_gps",
@@ -2486,8 +2486,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–5"
     },
     {
