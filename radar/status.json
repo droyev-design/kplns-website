@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-29T00:12:36+00:00",
+ "generated": "2026-08-29T01:12:43+00:00",
  "history": [
-  {
-   "t": 1787359353,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787361152,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787362952,
    "il": 0,
@@ -2058,6 +2046,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1787964160,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1787965963,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2121,8 +2121,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "67 מטוסים אזרחיים באזור",
-     "value_en": "67 civil aircraft in the area",
+     "value": "58 מטוסים אזרחיים באזור",
+     "value_en": "58 civil aircraft in the area",
      "range": "53–97"
     },
     {
@@ -2144,9 +2144,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
-     "range": "2–7"
+     "value": "5 מטוסים מעל ירדן",
+     "value_en": "5 aircraft over Jordan",
+     "range": "3–7"
     },
     {
      "key": "advisories_il",
@@ -2213,9 +2213,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3.4% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-27 (נגזר מתעופה)",
-     "value_en": "3.4% of aircraft reported degraded GPS on 2026-08-27 (aviation-derived)",
-     "range": "2.2%–14.1%"
+     "value": "4.7% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-28 (נגזר מתעופה)",
+     "value_en": "4.7% of aircraft reported degraded GPS on 2026-08-28 (aviation-derived)",
+     "range": "2.2%–12.2%"
     },
     {
      "key": "us_mil_air",
@@ -2236,8 +2236,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–7"
     },
     {
@@ -2371,9 +2371,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,575 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,575 BGP routes)",
-     "range": "41,554–41,579"
+     "value": "קישוריות תקינה (41,573 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,573 BGP routes)",
+     "range": "41,560–41,579"
     },
     {
      "key": "ir_provinces",
@@ -2463,8 +2463,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "8.8% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-27 (נגזר מתעופה)",
-     "value_en": "8.8% of aircraft reported degraded GPS on 2026-08-27 (aviation-derived)",
+     "value": "8.2% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-28 (נגזר מתעופה)",
+     "value_en": "8.2% of aircraft reported degraded GPS on 2026-08-28 (aviation-derived)",
      "range": "2.5%–13.3%"
     },
     {
@@ -2486,8 +2486,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–7"
     },
     {
