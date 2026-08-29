@@ -1,24 +1,6 @@
 {
- "generated": "2026-08-29T14:12:53+00:00",
+ "generated": "2026-08-29T15:13:01+00:00",
  "history": [
-  {
-   "t": 1787408160,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787409760,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787411553,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787413367,
    "il": 0,
@@ -2040,6 +2022,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788014571,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788016381,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2103,8 +2097,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "82 מטוסים אזרחיים באזור",
-     "value_en": "82 civil aircraft in the area",
+     "value": "95 מטוסים אזרחיים באזור",
+     "value_en": "95 civil aircraft in the area",
      "range": "52–95"
     },
     {
@@ -2218,8 +2212,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–5"
     },
     {
@@ -2422,9 +2416,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2,059,800 ריאל לדולר",
-     "value_en": "2,059,800 rial to the dollar",
-     "range": "2,006,000–2,041,800"
+     "value": "2,062,000 ריאל לדולר",
+     "value_en": "2,062,000 rial to the dollar",
+     "range": "2,006,000–2,049,150"
     },
     {
      "key": "hormuz_gps",
@@ -2468,8 +2462,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "1–5"
     },
     {
