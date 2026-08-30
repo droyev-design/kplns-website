@@ -1833,14 +1833,16 @@ fetch('status.json?t=' + Date.now())
           <span data-lang="en">Opens full screen in one tap. Not an alerting system.</span>
         </span>
         <span id="pwa-sub-ios" hidden>
-          <span data-lang="he">בתפריט השיתוף של ספארי בחרו "הוסף למסך הבית".</span>
-          <span data-lang="en">In Safari's Share menu, choose "Add to Home Screen".</span>
+          <span data-lang="he">פתחו בספארי (אם הגעתם מקישור באפליקציה), ואז: שיתוף ← "הוסף למסך הבית".</span>
+          <span data-lang="en">Open it in Safari (if you arrived from an in-app link), then: Share &rarr; "Add to Home Screen".</span>
         </span>
       </div>
     </div>
     <div class="pwa-act">
       <button id="pwa-go" type="button">
-        <span data-lang="he">התקנה</span><span data-lang="en">Install</span>
+        <span id="pwa-go-std"><span data-lang="he">התקנה</span><span data-lang="en">Install</span></span>
+        <span id="pwa-go-ios" hidden><span data-lang="he">העתקת קישור</span><span data-lang="en">Copy link</span></span>
+        <span id="pwa-go-done" hidden><span data-lang="he">הועתק ✓</span><span data-lang="en">Copied ✓</span></span>
       </button>
       <button id="pwa-no" type="button" aria-label="סגירה"
               data-label-he="סגירה" data-label-en="Dismiss">&times;</button>
@@ -1880,11 +1882,23 @@ fetch('status.json?t=' + Date.now())
   document.getElementById('pwa-no').addEventListener('click', function(){ hide(true); track('pwa_dismiss'); });
 
   // Chromium: a real install prompt.
-  var deferred = null;
+  var deferred = null, iosCopy = false;
   window.addEventListener('beforeinstallprompt', function(e){
     e.preventDefault(); deferred = e; show();
   });
   document.getElementById('pwa-go').addEventListener('click', function(){
+    // iOS: copy the URL and keep the bar up — the instruction is still needed
+    // while the reader switches to Safari, so this must NOT dismiss.
+    if (iosCopy) {
+      navigator.clipboard.writeText(location.href).then(function(){
+        var ios = document.getElementById('pwa-go-ios');
+        var done = document.getElementById('pwa-go-done');
+        ios.hidden = true; done.hidden = false;
+        setTimeout(function(){ done.hidden = true; ios.hidden = false; }, 2200);
+        track('pwa_copy_link');
+      }).catch(function(){});
+      return;
+    }
     if (!deferred) { hide(true); return; }
     deferred.prompt();
     deferred.userChoice.then(function(c){
@@ -1899,10 +1913,25 @@ fetch('status.json?t=' + Date.now())
   var ua = navigator.userAgent || '';
   var iOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   var iosSafari = iOS && !/CriOS|FxiOS|EdgiOS|OPiOS/.test(ua);
+  // Reported 2026-08-30: the instruction was correct and still unusable. Most
+  // people reach this page from a link in a messaging app, which opens an
+  // in-app WKWebView (Telegram, WhatsApp, Instagram...) whose share sheet has
+  // no "Add to Home Screen" at all — so the copy told them to use a menu item
+  // that does not exist where they were standing. Those webviews send a stock
+  // Safari UA with no distinguishing token, so sniffing them is not reliable;
+  // the copy now names the missing first step instead, and the button — dead
+  // weight on iOS until now, since beforeinstallprompt never fires there —
+  // copies the URL so the trip to Safari is one paste instead of retyping.
   if (iosSafari) {
     document.getElementById('pwa-sub-std').hidden = true;
     document.getElementById('pwa-sub-ios').hidden = false;
-    document.getElementById('pwa-go').hidden = true;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      iosCopy = true;
+      document.getElementById('pwa-go-std').hidden = true;
+      document.getElementById('pwa-go-ios').hidden = false;
+    } else {
+      document.getElementById('pwa-go').hidden = true;
+    }
     show();
   }
 
