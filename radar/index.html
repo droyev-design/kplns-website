@@ -30,6 +30,11 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/radar/manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ראדאר הסלמה">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1735,5 +1740,129 @@ fetch('status.json?t=' + Date.now())
   .then(d => { DATA = d; render(); })
   .catch(() => { LOAD_FAILED = true; renderError(); });
 </script>
+
+<!-- ===================== PWA install invitation =====================
+     Offered on entry, once. Chromium fires beforeinstallprompt and we show a
+     real install button; iOS Safari fires nothing, so it gets the manual
+     "Share -> Add to Home Screen" wording instead of a button that would do
+     nothing. Never shown when already installed, and a dismissal is
+     remembered for 30 days so the page does not nag.
+     Copy is duplicated per language and toggled by the same [data-lang] CSS
+     the rest of the page uses. -->
+<style>
+#pwa-bar{position:fixed;left:0;right:0;bottom:0;z-index:120;
+  background:rgba(10,22,40,.97);border-top:1px solid rgba(0,212,255,.28);
+  box-shadow:0 -8px 32px rgba(0,0,0,.45);backdrop-filter:blur(10px);
+  padding:14px 16px calc(14px + env(safe-area-inset-bottom));
+  display:none;animation:pwa-up .35s ease-out}
+#pwa-bar.show{display:block}
+@keyframes pwa-up{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+@media (prefers-reduced-motion:reduce){#pwa-bar{animation:none}}
+.pwa-in{max-width:880px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.pwa-ico{width:46px;height:46px;border-radius:11px;flex:0 0 auto}
+.pwa-txt{flex:1;min-width:0}
+.pwa-t{font-size:.95rem;font-weight:700;color:var(--text-primary);line-height:1.3}
+.pwa-s{font-size:.8rem;color:var(--text-muted);line-height:1.45;margin-top:3px}
+.pwa-act{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+#pwa-go{background:var(--gradient-accent);color:#06121f;border:0;border-radius:9px;
+  padding:9px 18px;font:inherit;font-size:.88rem;font-weight:800;cursor:pointer;white-space:nowrap}
+#pwa-go:hover{filter:brightness(1.08)}
+#pwa-no{background:none;border:0;color:var(--text-muted);font:inherit;font-size:1.35rem;
+  line-height:1;cursor:pointer;padding:6px 9px;border-radius:8px}
+#pwa-no:hover{color:var(--text-primary);background:rgba(255,255,255,.06)}
+@media (max-width:520px){
+  .pwa-in{gap:11px}.pwa-ico{width:38px;height:38px}
+  .pwa-t{font-size:.88rem}.pwa-s{font-size:.75rem}
+  #pwa-go{padding:8px 14px;font-size:.83rem}
+}
+</style>
+
+<div id="pwa-bar" role="region" aria-label="התקנת האפליקציה">
+  <div class="pwa-in">
+    <img class="pwa-ico" src="/radar/icon-192.png" alt="" width="46" height="46">
+    <div class="pwa-txt">
+      <div class="pwa-t">
+        <span data-lang="he">התקינו את הראדאר על המסך</span>
+        <span data-lang="en">Add the radar to your home screen</span>
+      </div>
+      <div class="pwa-s">
+        <span id="pwa-sub-std">
+          <span data-lang="he">פתיחה מהירה, במסך מלא, בלי דפדפן. אינה מערכת התרעה.</span>
+          <span data-lang="en">Opens full screen in one tap. Not an alerting system.</span>
+        </span>
+        <span id="pwa-sub-ios" hidden>
+          <span data-lang="he">בתפריט השיתוף של ספארי בחרו "הוסף למסך הבית".</span>
+          <span data-lang="en">In Safari's Share menu, choose "Add to Home Screen".</span>
+        </span>
+      </div>
+    </div>
+    <div class="pwa-act">
+      <button id="pwa-go" type="button">
+        <span data-lang="he">התקנה</span><span data-lang="en">Install</span>
+      </button>
+      <button id="pwa-no" type="button" aria-label="סגירה">&times;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var KEY = 'radar-pwa-dismissed', SNOOZE = 30*24*60*60*1000;
+  var bar = document.getElementById('pwa-bar');
+  if (!bar) return;
+
+  // Already installed: the bar would be pointless and, inside the installed
+  // app, absurd.
+  var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches)
+                   || navigator.standalone === true;
+  if (standalone) return;
+
+  var dismissed = false;
+  try { var t = +localStorage.getItem(KEY); dismissed = t && (Date.now() - t) < SNOOZE; } catch(e){}
+
+  function track(a){ try { if (typeof gtag === 'function') gtag('event', a, {event_category:'pwa'}); } catch(e){} }
+  function hide(remember){
+    bar.classList.remove('show');
+    if (remember) { try { localStorage.setItem(KEY, String(Date.now())); } catch(e){} }
+  }
+  function show(){ if (!dismissed) setTimeout(function(){ bar.classList.add('show'); track('pwa_offer'); }, 1400); }
+
+  document.getElementById('pwa-no').addEventListener('click', function(){ hide(true); track('pwa_dismiss'); });
+
+  // Chromium: a real install prompt.
+  var deferred = null;
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault(); deferred = e; show();
+  });
+  document.getElementById('pwa-go').addEventListener('click', function(){
+    if (!deferred) { hide(true); return; }
+    deferred.prompt();
+    deferred.userChoice.then(function(c){
+      track(c && c.outcome === 'accepted' ? 'pwa_accept' : 'pwa_decline');
+      hide(true); deferred = null;
+    });
+  });
+  window.addEventListener('appinstalled', function(){ hide(true); track('pwa_installed'); });
+
+  // iOS Safari never fires beforeinstallprompt, so it gets instructions and no
+  // button. Chrome/Firefox on iOS cannot install at all — excluded.
+  var ua = navigator.userAgent || '';
+  var iOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var iosSafari = iOS && !/CriOS|FxiOS|EdgiOS|OPiOS/.test(ua);
+  if (iosSafari) {
+    document.getElementById('pwa-sub-std').hidden = true;
+    document.getElementById('pwa-sub-ios').hidden = false;
+    document.getElementById('pwa-go').hidden = true;
+    show();
+  }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('/radar/sw.js', {scope: '/radar/'}).catch(function(){});
+    });
+  }
+})();
+</script>
+
 </body>
 </html>

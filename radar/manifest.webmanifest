@@ -1,0 +1,20 @@
+{
+  "id": "/radar/",
+  "name": "ראדאר הסלמה — ישראל ואיראן",
+  "short_name": "ראדאר הסלמה",
+  "description": "מדד הסלמה ישראל–איראן מאינדיקטורים ציבוריים בלבד. אינה מערכת התרעה — המקור המחייב היחיד הוא פיקוד העורף.",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "/radar/?src=pwa",
+  "scope": "/radar/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#111827",
+  "theme_color": "#0a1628",
+  "categories": ["news", "utilities"],
+  "icons": [
+    { "src": "/radar/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/radar/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/radar/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
