@@ -1,24 +1,6 @@
 {
- "generated": "2026-08-30T22:12:35+00:00",
+ "generated": "2026-08-30T23:12:54+00:00",
  "history": [
-  {
-   "t": 1787523176,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787524953,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787526759,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787528553,
    "il": 0,
@@ -2016,6 +1998,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788129782,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788131574,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2079,8 +2073,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "60 מטוסים אזרחיים באזור",
-     "value_en": "60 civil aircraft in the area",
+     "value": "72 מטוסים אזרחיים באזור",
+     "value_en": "72 civil aircraft in the area",
      "range": "54–95"
     },
     {
@@ -2102,8 +2096,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
+     "value": "6 מטוסים מעל ירדן",
+     "value_en": "6 aircraft over Jordan",
      "range": "2–8"
     },
     {
@@ -2194,8 +2188,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2217,8 +2211,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.3 · דולר 2.97 ₪",
-     "value_en": "Brent $88.3 · USD 2.97 ILS",
+     "value": "ברנט $89.8 · דולר 2.97 ₪",
+     "value_en": "Brent $89.8 · USD 2.97 ILS",
      "range": ""
     },
     {
@@ -2263,8 +2257,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.78% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.78%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.66% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.66%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%"
     },
     {
@@ -2286,8 +2280,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "36/100",
-     "value_en": "36/100",
+     "value": "37/100",
+     "value_en": "37/100",
      "range": ""
     }
    ]
@@ -2329,8 +2323,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,560 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,560 BGP routes)",
+     "value": "קישוריות תקינה (41,407 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,407 BGP routes)",
      "range": "41,564–41,590"
     },
     {
@@ -2444,8 +2438,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–9"
     },
     {
@@ -2467,8 +2461,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $88.3 · דולר 2.97 ₪",
-     "value_en": "Brent $88.3 · USD 2.97 ILS",
+     "value": "ברנט $89.8 · דולר 2.97 ₪",
+     "value_en": "Brent $89.8 · USD 2.97 ILS",
      "range": ""
     },
     {
@@ -2513,8 +2507,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.78% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.78%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.66% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.66%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%"
     },
     {
@@ -2536,8 +2530,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "36/100",
-     "value_en": "36/100",
+     "value": "37/100",
+     "value_en": "37/100",
      "range": ""
     }
    ],
