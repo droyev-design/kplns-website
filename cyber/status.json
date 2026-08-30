@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29T16:25:02+00:00",
+ "generated": "2026-08-30T04:25:02+00:00",
  "level": 1,
  "catalog": {
   "version": "2026.08.27",
@@ -53,8 +53,9 @@
    "key": "overdue",
    "he": "רכיבים היקפיים שתאריך היעד של CISA להם כבר עבר (30 יום)",
    "en": "Perimeter products whose CISA due date has passed (30 days)",
-   "n": 7,
+   "n": 8,
    "cves": [
+    "CVE-2026-8452",
     "CVE-2026-73570",
     "CVE-2026-55040",
     "CVE-2026-20349",
@@ -75,9 +76,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
    "added": "2026-07-14",
-   "age": 46,
+   "age": 47,
    "due": "2026-07-17",
-   "due_in": -43,
+   "due_in": -44,
    "ransom": true,
    "cwe_he": [
     "הכרחת השרת לפנות ליעד פנימי (SSRF)"
@@ -100,9 +101,9 @@
    "product": "SharePoint Server",
    "name": "Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability",
    "added": "2026-07-01",
-   "age": 59,
+   "age": 60,
    "due": "2026-07-04",
-   "due_in": -56,
+   "due_in": -57,
    "ransom": true,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -125,9 +126,9 @@
    "product": "Security Gateway",
    "name": "Check Point Security Gateway Improper Authentication Vulnerability",
    "added": "2026-06-08",
-   "age": 82,
+   "age": 83,
    "due": "2026-06-11",
-   "due_in": -79,
+   "due_in": -80,
    "ransom": true,
    "cwe_he": [
     "עקיפת אימות זהות"
@@ -150,9 +151,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Code Injection Vulnerability",
    "added": "2026-07-14",
-   "age": 46,
+   "age": 47,
    "due": "2026-07-17",
-   "due_in": -43,
+   "due_in": -44,
    "ransom": true,
    "cwe_he": [
     "הרצת קוד זר"
@@ -175,9 +176,9 @@
    "product": "SharePoint",
    "name": "Microsoft SharePoint Deserialization of Untrusted Data Vulnerability ",
    "added": "2026-07-22",
-   "age": 38,
+   "age": 39,
    "due": "2026-07-25",
-   "due_in": -35,
+   "due_in": -36,
    "ransom": false,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -200,9 +201,9 @@
    "product": "Core",
    "name": "WordPress Core SQL Injection Vulnerability",
    "added": "2026-07-21",
-   "age": 39,
+   "age": 40,
    "due": "2026-08-04",
-   "due_in": -25,
+   "due_in": -26,
    "ransom": false,
    "cwe_he": [
     "הזרקת SQL"
@@ -225,9 +226,9 @@
    "product": "Core",
    "name": "WordPress Core Interpretation Conflict Vulnerability",
    "added": "2026-07-21",
-   "age": 39,
+   "age": 40,
    "due": "2026-07-24",
-   "due_in": -36,
+   "due_in": -37,
    "ransom": false,
    "cwe_he": [],
    "cwe_ids": [],
@@ -246,9 +247,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 44,
+   "age": 45,
    "due": "2026-07-19",
-   "due_in": -41,
+   "due_in": -42,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -271,9 +272,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 44,
+   "age": 45,
    "due": "2026-07-19",
-   "due_in": -41,
+   "due_in": -42,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -296,9 +297,9 @@
    "product": "Sentry",
    "name": "Ivanti Sentry OS Command Injection Vulnerability",
    "added": "2026-06-11",
-   "age": 79,
+   "age": 80,
    "due": "2026-06-14",
-   "due_in": -76,
+   "due_in": -77,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -321,9 +322,9 @@
    "product": "NetScaler ADC and NetScaler Gateway",
    "name": "Citrix NetScaler ADC and NetScaler Gateway Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability",
    "added": "2026-08-26",
-   "age": 3,
+   "age": 4,
    "due": "2026-08-29",
-   "due_in": 0,
+   "due_in": -1,
    "ransom": false,
    "cwe_he": [
     "חריגה מגבולות זיכרון"
@@ -338,7 +339,7 @@
    "epss": 0.01606,
    "action": "Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines.",
    "desc": "Citrix NetScaler ADC and NetScaler Gateway contain an improper restriction of operations within the bounds of a memory buffer vulnerability which could lead to denial of service. ",
-   "he": "<b>Citrix NetScaler ADC and NetScaler Gateway</b> הוא שער גישה מרחוק / מאזן עומסים. סוג הפרצה: חריגה מגבולות זיכרון. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>2%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: NetScaler וגישה מרחוק — נפוץ בבריאות, בפיננסים ובממשלה. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-29</bdi>. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
+   "he": "<b>Citrix NetScaler ADC and NetScaler Gateway</b> הוא שער גישה מרחוק / מאזן עומסים. סוג הפרצה: חריגה מגבולות זיכרון. CISA מאשרת שהפרצה <b>מנוצלת בפועל</b> בתקיפות, לא רק תיאורטית. זה רכיב שיושב על גבול הרשת — תוקף מחו\"ל יכול להגיע אליו בלי שאף אחד אצלכם ילחץ על כלום. EPSS (FIRST.org): <bdi>2%</bdi> סיכוי משוער לניצול ב-30 הימים הקרובים. למה זה רלוונטי בישראל: NetScaler וגישה מרחוק — נפוץ בבריאות, בפיננסים ובממשלה. <i>(הערכה מקצועית, לא מדידה.)</i> תאריך היעד של CISA הוא <bdi>2026-08-29</bdi> — שכבר עבר. הוא מחייב גופי ממשל פדרליים בארה\"ב בלבד; בישראל אין חובה כזו, והוא מופיע כאן רק כמדד לדחיפות ש-CISA עצמה מייחסת לפרצה."
   },
   {
    "cve": "CVE-2026-73570",
@@ -346,9 +347,9 @@
    "product": "Zimbra Collaboration Suite (ZCS)",
    "name": "Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability",
    "added": "2026-08-21",
-   "age": 8,
+   "age": 9,
    "due": "2026-08-24",
-   "due_in": -5,
+   "due_in": -6,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -367,11 +368,6 @@
   }
  ],
  "history": [
-  {
-   "t": 1787415902,
-   "lv": 2,
-   "deg": 0
-  },
   {
    "t": 1787459103,
    "lv": 2,
@@ -439,6 +435,11 @@
   },
   {
    "t": 1788020702,
+   "lv": 1,
+   "deg": 0
+  },
+  {
+   "t": 1788063902,
    "lv": 1,
    "deg": 0
   }
