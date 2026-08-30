@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>תולעת ChainDrop ב-npm: כשעץ התלויות הופך לאמצעי הדבקה | KPLNS</title>
+<meta name="description" content="ניתוח תולעת npm של אוגוסט 2026: מה אומת ומה לא בחבילת keyv, למה נעילת גרסאות, SBOM וחתימות provenance לא עצרו אותה, ומה ספק תעשייתי צריך לבדוק עכשיו.">
+<meta property="og:title" content="תולעת ChainDrop ב-npm: כשעץ התלויות הופך לאמצעי הדבקה | KPLNS">
+<meta property="og:description" content="ב-4 באוגוסט 2026 נדחף קומיט זדוני למאגר keyv ותוך פחות מארבע שעות התפשטה נוזקה שמפרסמת את עצמה למאות חבילות npm — כשווקטור החדירה עצמו לא אומת עד היום. ניתוח המנגנון, הפער בין הדיווחים, ומה כן חוסם התפשטות בשרשרת בנייה מבוססת Node.js.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/article-npm-self-replicating-worm-2026.html">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="תולעת ChainDrop ב-npm: כשעץ התלויות הופך לאמצעי הדבקה | KPLNS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="תולעת ChainDrop ב-npm: כשעץ התלויות הופך לאמצעי הדבקה | KPLNS">
+<meta name="twitter:description" content="ניתוח תולעת npm של אוגוסט 2026: מה אומת ומה לא בחבילת keyv, למה נעילת גרסאות, SBOM וחתימות provenance לא עצרו אותה, ומה ספק תעשייתי צריך לבדוק עכשיו.">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
+<meta name="twitter:image:alt" content="תולעת ChainDrop ב-npm: כשעץ התלויות הופך לאמצעי הדבקה | KPLNS">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="KPLNS Encapsulated Solutions">
+<link rel="canonical" href="https://kplns.com/article-npm-self-replicating-worm-2026.html">
+<meta name="theme-color" content="#0a1628">
+<link rel="alternate" hreflang="he" href="https://kplns.com/article-npm-self-replicating-worm-2026.html">
+<link rel="alternate" hreflang="en" href="https://kplns.com/article-npm-self-replicating-worm-2026.html">
+<link rel="alternate" hreflang="x-default" href="https://kplns.com/article-npm-self-replicating-worm-2026.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.layer-stack{margin:28px 0;display:flex;flex-direction:column;gap:0}
+.layer-item{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--border);background:var(--bg-card)}
+.layer-item:first-child{border-radius:12px 12px 0 0}
+.layer-item:last-child{border-radius:0 0 12px 12px}
+.layer-item:not(:last-child){border-bottom:none}
+.layer-num{font-size:0.75rem;font-weight:800;font-family:var(--font-en);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.layer-item:nth-child(1) .layer-num{background:var(--red-dim);color:var(--red)}
+.layer-item:nth-child(2) .layer-num{background:var(--orange-dim);color:var(--orange)}
+.layer-item:nth-child(3) .layer-num{background:var(--yellow-dim);color:var(--yellow)}
+.layer-item:nth-child(4) .layer-num{background:var(--cyan-dim);color:var(--cyan)}
+.layer-item:nth-child(5) .layer-num{background:var(--green-dim);color:var(--green)}
+.layer-title{font-size:0.92rem;font-weight:700;color:var(--text-primary)}
+.layer-desc{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(0,184,169,0.06));border:1px solid rgba(0,212,255,0.25);border-right:4px solid var(--cyan);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--cyan);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.78rem;color:var(--text-muted);line-height:1.7;padding:6px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:7px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-sources ol li a{color:var(--cyan);word-break:break-word;transition:opacity 0.3s}
+.article-sources ol li a:hover{opacity:0.75}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.08);margin-top:60px;color:rgba(232,237,245,0.4);font-size:0.85rem}
+.article-footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.article-footer .footer-links a{color:rgba(232,237,245,0.5);font-size:0.82rem;transition:color 0.3s}
+.article-footer .footer-links a:hover{color:#00d4ff}
+.article-footer .footer-copy{font-size:0.8rem}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.related-articles {
+  max-width: 760px; margin: 0 auto; padding: 48px 24px 0;
+}
+.related-articles h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.related-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.related-card:hover {
+  border-color: rgba(0,212,255,0.2); background: rgba(26, 34, 54, 0.85);
+  transform: translateX(-4px);
+}
+.related-card .r-tag {
+  font-size: 0.7rem; font-weight: 600; color: var(--cyan);
+  background: var(--cyan-dim); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap;
+}
+.related-card .r-title {
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+}
+@media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* Channel CTA. Same rule as the radar page: the limit is stated INSIDE the
+   box rather than assumed from the surrounding article, because a reader who
+   arrives from search may read nothing else on the page. */
+.chan-box {
+  max-width: 760px; margin: 40px auto 0; padding: 18px 22px;
+  background: var(--bg-card); border: 1px solid rgba(0,212,255,0.24);
+  border-radius: 14px; text-align: center;
+}
+.chan-box-t { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+.chan-box-s { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 14px; }
+.chan-box-btn {
+  display: inline-block; padding: 8px 18px; border-radius: 999px;
+  border: 1px solid rgba(0,212,255,0.4); background: var(--cyan-dim);
+  color: var(--cyan); font-size: 0.9rem; font-weight: 600; text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.chan-box-btn:hover { border-color: var(--cyan); background: rgba(26, 34, 54, 0.85); }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"תולעת ChainDrop ב-npm: כשעץ התלויות הופך לאמצעי הדבקה"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"תולעת ChainDrop ב-npm: כשעץ התלויות הופך לאמצעי הדבקה","description":"ניתוח תולעת npm של אוגוסט 2026: מה אומת ומה לא בחבילת keyv, למה נעילת גרסאות, SBOM וחתימות provenance לא עצרו אותה, ומה ספק תעשייתי צריך לבדוק עכשיו.","author":{"@type":"Person","@id":"https://kplns.com/#founder","name":"Y.K.","jobTitle":"Security & Supply Chain Consultant"},"publisher":{"@type":"Organization","name":"KPLNS Encapsulated Solutions","url":"https://kplns.com","logo":{"@type":"ImageObject","url":"https://kplns.com/og-image.png"}},"datePublished":"2026-08-30","dateModified":"2026-08-30","image":"https://kplns.com/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kplns.com/article-npm-self-replicating-worm-2026.html"},"inLanguage":"he-IL","articleSection":"Software Supply Chain","keywords":"ChainDrop, Shai-Hulud, תולעת npm, keyv, שרשרת אספקת תוכנה, provenance, SBOM, preinstall, סקריפטי התקנה, CI/CD, Node.js, אסימוני npm, GitHub Actions","wordCount":1900}
+</script>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="index.html#insights">מאמרים</a><span>›</span>
+  תולעת ChainDrop ב-npm: כשעץ התלויות הופך לאמצעי הדבקה
+</nav>
+<article class="article-container">
+  <div class="article-tag">שרשרת אספקת תוכנה</div>
+  <h1>תולעת ChainDrop ב-npm: כשעץ התלויות הופך לאמצעי הדבקה</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; זמן קריאה: 10 דקות &nbsp;·&nbsp; מבוסס על דיווחי Elastic, Microsoft, Datadog, StepSecurity ו-Unit 42, אוגוסט 2026</div>
+
+  <div class="article-body">
+
+    <p>ב-4 באוגוסט 2026 נדחף קומיט זדוני לענף הראשי של מאגר keyv, ותוך פחות מארבע שעות הפיצה נוזקה גרסאות נגועות של מאות חבילות npm נוספות. אופן השגת הגישה לא אומת עד היום. השאלה המעניינת אינה "האם השתמשנו בחבילה שנפגעה", אלא למה ההגנות שספקי תוכנה ביטחוניים הטמיעו בשנתיים האחרונות — נעילת גרסאות, רשימת רכיבי תוכנה (SBOM — Software Bill of Materials) וחתימות מקור (provenance) — לא עצרו את זה.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">11</div>
+        <div class="stat-label">חבילות שנפגעו ישירות בגל הראשון</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num"><span dir="ltr">400+</span></div>
+        <div class="stat-label">שמות חבילות npm נגועים לפי רוב המקורות</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">1,300-2,212</div>
+        <div class="stat-label">טווח מספר הגרסאות הנגועות לפי המקורות השונים</div>
+      </div>
+    </div>
+
+    <h2>מה קרה, ואיך קוראים לזה באמת</h2>
+
+    <p>השם שרץ בתקשורת המקצועית הוא ChainDrop. אין זה שם רשמי של npm, של GitHub או של רשות ממשלתית — חוקרי אבטחה הצמידו אותו לקמפיין, וחלק מהספקים אימצו אותו. Elastic Security Labs, שזיהתה את האירוע ב-4 באוגוסט 2026, מתייחסת אליו כאל "קמפיין Shai-Hulud חדש". Chainguard מכנה אותו "Mini Shai-Hulud" — כינוי ששימש קודם לכן גם לגל אחר באותה שושלת — ומגדירה אותו כ"הגל השלישי המתועד של אותה ערכת כלים ב-2026". רשות הסייבר של סינגפור פרסמה התרעה שכותרתה נוקבת בשם Shai-Hulud ובגופה מזכירה את הכינוי ChainDrop.</p>
+
+    <div class="highlight-box">
+      <h3>המשמעות המעשית: אירוע אחד, שלושה שמות</h3>
+      <p>מערכת ניהול סיכונים שמחפשת "ChainDrop" בלבד תפספס חלק מהדיווחים; מערכת שמחפשת "Shai-Hulud" בלבד עלולה לערבב בין גל אוגוסט 2026 לגלים הקודמים באותה שושלת — התרעת CISA "פגיעה נרחבת בשרשרת האספקה של מערכת npm" מ-23 בספטמבר 2025, והנחיות Microsoft לגל Shai-Hulud 2.0, שהופיע בנובמבר 2025 ושההנחיות לגביו פורסמו ב-9 בדצמבר 2025 — אירועים נפרדים, עם רשימות חבילות שונות.</p>
+    </div>
+
+    <p>הרצף עצמו מתועד היטב. StepSecurity ו-Datadog Security Labs מתעדות דחיפת קומיט זדוני לענף הראשי של מאגר keyv סביב <span dir="ltr">09:02 UTC</span>, ופרסום הגרסה הנגועה keyv 6.0.0 ל-npm ב-<span dir="ltr">09:35 UTC</span>. תשע חבילות נוספות מאותה מערכת אקולוגית פורסמו בין 10:09 ל-10:14, ואחת-עשרה חבילות נפגעו ישירות (הרשימה המלאה בהמשך). הגל השני — הרפליקציה האוטומטית — התפרס עד <span dir="ltr">13:20 UTC</span>.</p>
+
+    <h2>המנגנון שהופך פריצה לתולעת</h2>
+
+    <p>השתלטות על זהות מתחזק היא סיפור ישן. מה שהופך את האירוע הזה לקטגוריה אחרת הוא שהמטען עצמו יודע לפרסם את עצמו הלאה.</p>
+
+    <p>ההרצה נעשית דרך וו preinstall בקובץ ההגדרות של החבילה — יכולת לגיטימית של npm שמריצה פקודות לפני התקנה. כפי שמנסחת זאת Snyk: אין צורך לייבא את keyv, להפעיל אפליקציה או לקרוא לפונקציה פגיעה; עצם ההתקנה מספיקה. הטוען הראשוני, בגודל 29,918 בתים, בודק אם סביבת הריצה Bun מותקנת במערכת, מוריד אותה מהמקור הרשמי אם לא, ומריץ מטען שני מעורפל בגודל 727,680 בתים.</p>
+
+    <p>המטען אוסף פרטי גישה לפי מעל 300 תבניות שונות, לפי Unit 42 של Palo Alto Networks — אסימוני GitHub ו-npm, פרטי גישה לענן של AWS, Azure ו-GCP, מפתחות SSH, מחרוזות התחברות למסדי נתונים, אסימוני HashiCorp Vault ואסימוני שירות של Kubernetes. עוזר Python מוטמע סורק את זיכרון התהליכים החי של רץ GitHub Actions כדי לחלץ אסימוני OIDC וסודות של ה-workflow.</p>
+
+    <p>ואז מגיע החלק שהופך את זה לתולעת. Microsoft מתארת את הלולאה כך: הנוזקה מורידה את קובץ ה-tarball האחרון של חבילה שאליה יש הרשאת פרסום, מעתיקה לתוכה את חבילת הנוזקה, מוסיפה טוען, מחליפה את סקריפטי מחזור החיים, מעלה את מספר הגרסה ומפרסמת מחדש. Datadog מוסיפה פרט קריטי: המסלול דורש אסימון גישה מפורט של npm המוגדר עם עקיפת אימות דו-שלבי והרשאת כתיבה. ההתפשטות נשענה אפוא על סוג אסימון ספציפי, שנמצא במסלול הוצאה משימוש שטרם הושלם.</p>
+
+    <p>הפצת פרטי הגישה הגנובים נעשתה בשני ערוצים: העלאה מוצפנת ב-AES-256-GCM לשרת שליטה, ובמקביל יצירת מאגרי GitHub ציבוריים תחת זהות הקורבן. Wiz מתעדת שהמאגרים האלה נוצרו עם תיאור ברירת מחדל אחיד — "Shai-Hulud: Here We Go Again". Unit 42 מתעדת שכתובות שרתי השליטה נשלפו מחוזה חכם על רשת Ethereum, מנגנון שמנטרל חסימת דומיין בודד.</p>
+
+    <p>לבסוף, שכבה שלא הייתה בגלים הקודמים: הנוזקה שתלה ווי הרצה בקבצי תצורה של סביבת הפיתוח עצמה — משימה שרצה בפתיחת תיקייה בקובץ המשימות של VS Code, ווי הרצה מסוג SessionStart בקובץ ההגדרות של Claude Code. The Register מצטט את Abby Kearns, מנכ"לית ActiveState: זהו "הקמפיין הראשון ששם לב לפער הזה ומשתמש בו בקנה מידה — והוא לא יהיה האחרון".</p>
+
+    <h3>המספרים — ולמה הם לא מסתדרים</h3>
+
+    <p>כאן צריך זהירות, וגם דיוק בייחוס — חלק מהפער בין הדיווחים הוא הבדל בין ספירת שמות חבילות לספירת גרסאות, וחלק ממנו הוא מקורות שונים שספרו דברים שונים.</p>
+
+    <p>המספר 444 מופיע אצל שני מקורות בלבד: StepSecurity ו-Aikido. Elastic נוקטת "מעל 400 חבילות npm ייחודיות", Microsoft "יותר מ-400 חבילות", ו-Datadog אינה נוקבת במספר כולל אלא ב"מאות חבילות". אין כאן התכנסות של השוק על 444, אלא שני מקורות שנוקבים במספר מדויק ואחרים שנוקבים בסדר גודל.</p>
+
+    <p>מספר הגרסאות שנוי במחלוקת ממש. Aikido, בעדכון מ-5 באוגוסט 2026, נוקבת ב-444 חבילות על פני 1,381 גרסאות; רשות הסייבר של סינגפור ב"מעל 1,300 גרסאות חבילה"; StepSecurity ב-444 חבילות ו-2,212 גרסאות. Chainguard, בזמן אמת ב-4 באוגוסט, כתבה ש"הנתונים המדווחים נעים בין כ-400 לכ-2,200" — ניסוח שממחיש בעצמו את הבלבול בין חבילות לגרסאות.</p>
+
+    <p>מה שאפשר לומר בלי לחרוג מהמקורות: שמות החבילות הם בסדר גודל של 400 עד 450, ומספר הגרסאות נע בין 1,300 ל-2,212 לפי המקור ומועד הספירה, ואין ספירה רשמית של המרשם שמכריעה ביניהם. סך ההורדות החודשי של החבילות שנפגעו מדווח כמעל שני מיליארד בידי רשות הסייבר של סינגפור ו-Aikido, ו-Aikido מדווחת על כ-127 מיליון הורדות שבועיות ל-keyv לבדה.</p>
+
+    <p>תגובת המרשם הייתה מהירה: StepSecurity מתעדת שהסרות הגרסאות החלו ב-<span dir="ltr">10:39 UTC</span>, ו-keyv 6.0.0 הוחזרה לגרסה תקינה סביב <span dir="ltr">11:15 UTC</span> — חלון חשיפה של פחות משעתיים לחבילה הראשונה, וארוך יותר לחבילות הגל השני.</p>
+
+    <h2>למה נעילת גרסאות, SBOM ו-provenance הן תשובות חלקיות</h2>
+
+    <p>זו הנקודה המרכזית לספק שמשלב שרשרת בנייה מבוססת Node.js במוצר.</p>
+
+    <div class="risk-grid">
+      <div class="risk-card warning">
+        <div class="risk-icon">⚠️</div>
+        <div>
+          <h4>provenance מאמת בנייה, לא מקור</h4>
+          <p>הגרסאות הזדוניות לא עקפו את מנגנון הפרסום המהימן של npm — הן השתמשו בו. התוקף דחף קומיט לענף הראשי והפעיל את תהליך השחרור הקיים, כך שהמטען פורסם דרך OIDC עם אסמכתה חתומה ותקפה של GitHub Actions. Socket מנסחת את זה בחדות: "provenance מאשר שלמות בנייה, לא שלמות מקור. הצינור של npm ו-sigstore עשה בדיוק את מה שהוא נועד לעשות, ועדיין הפיק אישור חתום ובר-אימות לנוזקה, כי המקור שממנו נבנתה כבר היה נגוע." אם בקרת האימות שלכם מסמנת "provenance תקין" כירוק — היא הייתה ירוקה גם כאן.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">⚠️</div>
+        <div>
+          <h4>קובץ הנעילה מגן חלקית, ולעיתים פועל נגדכם</h4>
+          <p>StepSecurity מציינת שמשימת בנייה שמתקינה תלויות מאפס — מצבן של חלק ניכר ממשימות הבדיקה — נפתרת מול המרשם לפי הגרסה האחרונה הזמינה, לא לפי נעילה קיימת. בכיוון ההפוך, Snyk מזהירה שגרסה נגועה יכולה להישאר נעולה בקובץ גם אחרי ש-npm החליפה את תגית ההפצה — הנעילה משמרת את הגרסה הרעה.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">⚠️</div>
+        <div>
+          <h4>SBOM עונה על השאלה רק אם הוא מוצמד לבנייה הנכונה</h4>
+          <p>SBOM כולל שם רכיב ומספר גרסה, ולכן SBOM שהופק מהבנייה עצמה כן יכול לזהות שגרסה נגועה נכללה בארטיפקט. המגבלה אינה מהותית אלא תפעולית: SBOM שנוצר לפני 4 באוגוסט 2026 מתעד את הגרסאות הנקיות ולא יגיד מה נמשך בפועל לתוך ה-CI באותו בוקר. SBOM ישן, חלקי או כזה שאינו משקף את הבנייה שבוצעה — עונה על "האם החבילה הזאת בכלל אצלנו", לא על "האם הותקנה גרסה נגועה".</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">⚠️</div>
+        <div>
+          <h4>סריקת תלויות לא הסתכלה במקום הנכון</h4>
+          <p>The Register מדגיש שההתפשטות נעשתה ברמת ה-tarball ולא ברמת המאגר, כך שסקירת קוד המקור אינה מגלה דבר; וווי ההרצה בקבצי התצורה של VS Code ושל Claude Code נמצאים מחוץ לתחום שכלי סריקת תלויות בוחנים.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>מה כן עוצר התפשטות</h2>
+
+    <p>ארבע בקרות מתועדות כיעילות מול משפחת המתקפות הזאת:</p>
+
+    <div class="risk-grid">
+      <div class="risk-card good">
+        <div class="risk-icon">✅</div>
+        <div>
+          <h4>חסימת סקריפטי התקנה</h4>
+          <p>StepSecurity קובעת שהרצת CI ללא סקריפטי מחזור חיים "מנטרלת לחלוטין את מחלקת הטוענים הזאת — קבצי המטען היו נשארים מונחים על הדיסק ללא הרצה". זו הבקרה בעלת ההשפעה הגדולה ביותר מול נתיב ה-preinstall שנצפה כאן, אך עלותה אינה אפס: היא חוסמת גם בניות node-gyp מרומזות, ולכן חבילות שדורשות שלב בנייה מקומי מחייבות מיפוי, אישור פרטני ותחזוקת רשימת היתר.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">⚠️</div>
+        <div>
+          <h4>npm בגרסה 12</h4>
+          <p>גרסה זו שוחררה ב-8 ביולי 2026 — פחות מחודש לפני האירוע — והפכה את חסימת הסקריפטים לברירת מחדל, לצד חסימת תלויות Git ותלויות מכתובות URL מרוחקות. אלא שלפי Socket, צוות npm "מקווה להטמיע את גרסה 12 לאחור לתוך Node 24 ו-Node 26", והחלטה זו תלויה בצוות השחרור של Node. כלומר בסביבות בנייה שרצות על גרסת LTS של Node, ההגנה הזאת לא הייתה פעילה כברירת מחדל בזמן האירוע — וזה, להערכתי, חלק מההסבר לקנה המידה. ברירת המחדל היא גם דילוג רך עם אזהרה ולא כשל קשה; להתנהגות נוקשה נדרשת אכיפה מפורשת ב-CI.</p>
+        </div>
+      </div>
+      <div class="risk-card good">
+        <div class="risk-icon">✅</div>
+        <div>
+          <h4>אסימונים קצרי-חיים ומדיניות פרסום</h4>
+          <p>GitHub ביטלה לצמיתות את כל אסימוני npm הישנים ב-9 בדצמבר 2025 והחליפה אותם באסימוני התחברות לשעתיים ובאסימוני כתיבה מוגבלים ל-90 יום. במקביל, לפי הודעת השינויים מ-8 ביולי 2026, אסימוני גישה מפורטים המוגדרים לעקיפת אימות דו-שלבי מאבדים יכולות ניהול חשבון וחבילה בתחילת אוגוסט 2026, ואת יכולת הפרסום הישירה רק סביב ינואר 2027. מכיוון שזהו בדיוק סוג האסימון שהתולעת חיפשה, הערוץ העיקרי שלה נסגר סופית רק בינואר 2027.</p>
+        </div>
+      </div>
+      <div class="risk-card warning">
+        <div class="risk-icon">⚠️</div>
+        <div>
+          <h4>בקרת יציאה מרשת הבנייה</h4>
+          <p>StepSecurity מציינת שרשימת היתר ליציאה חוסמת את הורדת סביבת הריצה Bun, אך מסייגת שסינון מבוסס דומיין לבדו אינו מספיק — השליטה נשענת על עשרות נקודות קצה ציבוריות של רשת Ethereum.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>מה ספק צריך לבדוק עכשיו</h2>
+
+    <p>רשימה מצומצמת וישימה, לפי ההנחיות של רשות הסייבר של סינגפור, Wiz ו-Snyk:</p>
+
+    <ul class="checklist">
+      <li>חפשו את 11 החבילות שנפגעו ישירות — לפי שם ומספר גרסה — בקובצי הנעילה, במטמון של npm ובתמונות מכולה שנבנו אחרי 4 באוגוסט 2026 בשעה <span dir="ltr">09:35 UTC</span>. הרשימה המלאה לפי StepSecurity: keyv 6.0.0, flat-cache 6.1.24, file-entry-cache 11.1.6, cacheable-request 13.0.20, cacheable 2.5.1, cache-manager 7.2.10, ecto 5.0.1, ‎@cacheable/utils‎ 2.5.1, ‎@cacheable/memory‎ 2.2.1, ‎@cacheable/node-cache‎ 3.1.2 ו-‎@cacheable/net‎ 2.1.1. חפשו בקובצי הנעילה, לא רק בתלויות המוצהרות — ואל תסתפקו בגל הראשון: מאות חבילות הגל השני מחייבות בדיקה מול רשימת ה-IOC העדכנית.</li>
+      <li>חפשו בכל המאגרים קובצי תצורה של סביבת פיתוח שהשתנו — משימות VS Code שרצות בפתיחת תיקייה, וווי הרצה מסוג SessionStart בהגדרות Claude Code. אלה לא ייתפסו בסריקת תלויות.</li>
+      <li>אם נמצאה גרסה נגועה, החליפו פרטי גישה מתוך מערכת נקייה בלבד — אסימוני npm ו-GitHub, פרטי גישה לענן, מפתחות SSH, אסימוני Vault ו-Kubernetes. Snyk מדגישה את הסדר: החלפת פרטי הגישה לפני התקנה מחדש.</li>
+      <li>בדקו אם נוצרו מאגרי GitHub ציבוריים חדשים תחת חשבונות הארגון עם תיאורי ברירת מחדל חריגים.</li>
+      <li>הפעילו חסימת סקריפטי התקנה ב-CI כברירת מחדל, באכיפה נוקשה. זו הפעולה היחידה ברשימה שמונעת גם את הגל הבא.</li>
+      <li>בדקו אילו אסימוני npm בארגון מוגדרים לעקיפת אימות דו-שלבי ובטלו אותם.</li>
+    </ul>
+
+    <h2>מה זה אומר בפועל</h2>
+
+    <p>לספק ישראלי שמוסר מוצר עם שרשרת בנייה מבוססת Node.js ללקוח ביטחוני או תעשייתי, שלוש מסקנות:</p>
+
+    <p>ראשית, הצהרות על עמידות בשרשרת אספקה שנשענות על SBOM ועל חתימות provenance צריכות ניסוח מדויק יותר — שתי הבקרות עברו כאן את המבחן הפורמלי ולא מנעו את האירוע. אם בטופס ההערכה של הלקוח כתוב "אנו מאמתים provenance", הוסיפו מה זה כן מוכיח ומה לא.</p>
+
+    <p>שנית, הבקרה בעלת יחס העלות-תועלת הטוב ביותר כאן אינה כלי אלא הגדרה: חסימת סקריפטי התקנה בסביבות הבנייה ובקרת יציאה מרשת רצי הבנייה, שתיהן ניתנות ליישום בימים ולא ברבעונים.</p>
+
+    <p>שלישית, סביבות הפיתוח והסוכנים עצמם הפכו למשטח תקיפה. קובצי תצורה מקומיים במאגר שמריצים פקודות בפתיחה נמצאים מחוץ לרוב תוכניות הבקרה — נקודה שכדאי להוסיף לנהלי הקליטה של קוד חיצוני, לרבות קוד מקבלני משנה.</p>
+
+    <h2>מה עדיין לא ידוע</h2>
+
+    <p>וקטור הגישה הראשוני לא אומת. Chainguard כתבה ב-4 באוגוסט 2026 ש"וקטור הגישה הראשוני עדיין לא ידוע, ולא המתחזק, לא npm ולא GitHub פרסמו הצהרה פומבית". Microsoft ניסחה זאת כ"ראיות מצביעות על אישורי מתחזק גנובים כווקטור לחדירה הראשונית" — ניסוח הסתברותי, לא קביעה. StepSecurity מסיקה מהיעדר חתימה על הקומיטים שמדובר בדחיפה דרך ה-API עם אסימון גנוב או הפעלה חטופה, אך אינה קובעת אם המקור היה דיוג. עד כה לא אותרה הצהרת סיכום פומבית מטעם המתחזק.</p>
+
+    <p>לא נמצאה הודעת שינויים של GitHub או npm מאוגוסט 2026 המתארת שינוי מבני שננקט בתגובה לאירוע. השינויים שאני מצטט — ביטול האסימונים הישנים, חסימת הסקריפטים בגרסה 12 וסריקת נוזקות בזמן פרסום מ-28 ביולי 2026 — כולם קדמו לו. האם תיגזר ממנו מדיניות נוספת טרם פורסם.</p>
+
+    <p>מספר הגרסאות הסופי לא נסגר, ולא ראיתי ספירה מאומתת ממקור ראשוני של המרשם שמכריעה בין 1,300, 1,381 ו-2,212.</p>
+
+    <p>ולבסוף, לא ניתן לקבוע כרגע כמה מפרטי הגישה שנגנבו נוצלו בפועל לתנועה רוחבית מעבר לפרסום חבילות. Unit 42 מדווחת על 453 מאגרים ציבוריים עם סימני הדלפה, אך המרחק בין "הודלף" לבין "נוצל" לא כומת באף אחד מהדיווחים שבדקתי.</p>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li id="src1"><a href="https://www.elastic.co/security-labs/shai-hulud-chaindrop-npm-supply-chain" target="_blank" rel="noopener noreferrer">Elastic Security Labs</a></li>
+        <li id="src2"><a href="https://www.chainguard.dev/unchained/the-keyv-and-cacheable-npm-supply-chain-attack-inside-the-mini-shai-hulud-campaign" target="_blank" rel="noopener noreferrer">Chainguard</a></li>
+        <li id="src3"><a href="https://www.csa.gov.sg/alerts-and-advisories/advisories/ad-2026-009/" target="_blank" rel="noopener noreferrer">Cyber Security Agency of Singapore</a></li>
+        <li id="src4"><a href="https://www.stepsecurity.io/blog/chaindrop-npm-worm" target="_blank" rel="noopener noreferrer">StepSecurity</a></li>
+        <li id="src5"><a href="https://unit42.paloaltonetworks.com/chaindrop-npm-worm-analysis/" target="_blank" rel="noopener noreferrer">Unit 42, Palo Alto Networks</a></li>
+        <li id="src6"><a href="https://www.microsoft.com/en-us/security/blog/2026/08/04/chaindrop-supply-chain-compromise-anatomy-self-propagating-worm/" target="_blank" rel="noopener noreferrer">Microsoft Security Blog</a></li>
+        <li id="src7"><a href="https://securitylabs.datadoghq.com/articles/npm-worm-compromises-popular-npm-packages/" target="_blank" rel="noopener noreferrer">Datadog Security Labs</a></li>
+        <li id="src8"><a href="https://socket.dev/blog/popular-npm-packages-in-the-keyv-and-cacheable-namespaces-compromised-in-active-supply-chain" target="_blank" rel="noopener noreferrer">Socket</a></li>
+        <li id="src9"><a href="https://snyk.io/blog/inside-keyv-npm-compromise-preinstall-malware-trusted-provenance-ide-hooks/" target="_blank" rel="noopener noreferrer">Snyk</a></li>
+        <li id="src10"><a href="https://www.wiz.io/blog/keyv-and-cacheable-npm-supply-chain-attack" target="_blank" rel="noopener noreferrer">Wiz</a></li>
+        <li id="src11"><a href="https://www.aikido.dev/blog/keyv-and-friends-compromised-in-npm-supply-chain-attack" target="_blank" rel="noopener noreferrer">Aikido Security</a></li>
+        <li id="src12"><a href="https://www.theregister.com/security/2026/08/15/chaindrop-worm-crawls-into-npm-supply-chain-evades-standard-defenses/5287958" target="_blank" rel="noopener noreferrer">The Register</a></li>
+        <li id="src13"><a href="https://github.blog/changelog/2026-07-08-npm-install-time-security-and-gat-bypass2fa-deprecation/" target="_blank" rel="noopener noreferrer">GitHub Changelog</a></li>
+        <li id="src14"><a href="https://socket.dev/blog/npm-12" target="_blank" rel="noopener noreferrer">Socket</a></li>
+        <li id="src15"><a href="https://github.blog/changelog/2025-12-09-npm-classic-tokens-revoked-session-based-auth-and-cli-token-management-now-available/" target="_blank" rel="noopener noreferrer">GitHub Changelog</a></li>
+        <li id="src16"><a href="https://github.blog/changelog/2026-07-28-npm-publish-time-malware-scanning-and-dual-use-metadata/" target="_blank" rel="noopener noreferrer">GitHub Changelog</a></li>
+        <li id="src17"><a href="https://github.blog/changelog/" target="_blank" rel="noopener noreferrer">GitHub Changelog (index)</a></li>
+        <li id="src18"><a href="https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem" target="_blank" rel="noopener noreferrer">CISA</a></li>
+        <li id="src19"><a href="https://www.microsoft.com/en-us/security/blog/2025/12/09/shai-hulud-2-0-guidance-for-detecting-investigating-and-defending-against-the-supply-chain-attack/" target="_blank" rel="noopener noreferrer">Microsoft Security Blog</a></li>
+        <li id="src20"><a href="https://cyclonedx.org/docs/1.6/json/#components_items_version" target="_blank" rel="noopener noreferrer">CycloneDX 1.6 specification (וכן SPDX 2.3, שדה PackageVersion)</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="related-articles" aria-label="מאמרים ושירותים קשורים">
+    <h3>מאמרים ושירותים קשורים</h3>
+    <div class="related-grid">
+      <a href="article-software-supply-chain-attacks-2026.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">מתקפת שרשרת אספקת תוכנה 2026 - הגנת SBOM והקשחת CI/CD</span></a>
+      <a href="article-ai-coding-agents-defense.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">סוכני AI לפיתוח קוד בתעשייה הביטחונית - וקטורי תקיפה חדשים</span></a>
+      <a href="article-signed-installer-supply-chain.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">DAEMON Tools 2026 - כשחתימה דיגיטלית מובילה למתקפת שרשרת אספקה</span></a>
+      <a href="service-survey-360.html" class="related-card"><span class="r-tag">שירות</span><span class="r-title">סקר ביטחון 360° בשרשרת האספקה</span></a>
+    </div>
+  </section>
+
+  <div class="article-cta">
+    <h3>יש לכם שרשרת בנייה מבוססת Node.js שנמסרת ללקוח ביטחוני?</h3>
+    <p>שתי הבקרות שהאירוע הזה עוקף - SBOM וחתימות provenance - הן בדיוק אלה שמופיעות בטופסי ההערכה של הלקוחות. KPLNS בודקת סביבות בנייה של ספקים: חסימת סקריפטי התקנה, בקרת יציאה מרשת הרצים, מדיניות אסימונים וניסוח מדויק של ההצהרות ללקוח.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+<footer class="article-footer">
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+    <a href="disclaimer.html">תנאי שימוש</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
+</footer>
+</body>
+</html>
