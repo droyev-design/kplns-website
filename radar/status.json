@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-30T05:12:39+00:00",
+ "generated": "2026-08-30T06:12:49+00:00",
  "history": [
-  {
-   "t": 1787463773,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787465564,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787467374,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788068575,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788070369,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2108,8 +2108,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "7 מטוסים מעל ירדן",
-     "value_en": "7 aircraft over Jordan",
+     "value": "8 מטוסים מעל ירדן",
+     "value_en": "8 aircraft over Jordan",
      "range": "2–8"
     },
     {
@@ -2200,8 +2200,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים צבאיים באזור",
-     "value_en": "5 military aircraft in the area",
+     "value": "14 מטוסים צבאיים באזור",
+     "value_en": "14 military aircraft in the area",
      "range": "1–5"
     },
     {
@@ -2450,8 +2450,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים צבאיים באזור",
-     "value_en": "5 military aircraft in the area",
+     "value": "14 מטוסים צבאיים באזור",
+     "value_en": "14 military aircraft in the area",
      "range": "1–5"
     },
     {
