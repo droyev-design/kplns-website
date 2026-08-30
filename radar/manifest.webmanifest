@@ -15,6 +15,23 @@
   "icons": [
     { "src": "/radar/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "/radar/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/radar/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
     { "src": "/radar/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    {
+      "src": "/radar/screenshot-narrow.png",
+      "sizes": "540x1170",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "שני מדדי ההסלמה — ישראל ואיראן"
+    },
+    {
+      "src": "/radar/screenshot-wide.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "שני מדדי ההסלמה — ישראל ואיראן"
+    }
   ]
 }

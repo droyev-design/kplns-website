@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://hits.sh; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW',{content_group:'radar-iran'});</script>
@@ -29,7 +29,7 @@
 <meta name="twitter:image" content="https://kplns.com/radar/og-radar.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/radar/apple-touch-icon.png">
 <link rel="manifest" href="/radar/manifest.webmanifest">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -77,6 +77,18 @@ body{
 .topbar{
   border-bottom:1px solid var(--border); background:rgba(17,24,39,.6);
   backdrop-filter:blur(12px); position:sticky; top:0; z-index:50;
+}
+/* Installed on iOS the status bar is translucent (black-translucent) and,
+   with viewport-fit=cover, the page paints under the notch — the clock would
+   sit on top of the language switch. env() is 0 on every device without a
+   cutout, so this costs nothing elsewhere. The class covers iOS versions
+   that report navigator.standalone but not the display-mode query. */
+@media (display-mode:standalone){ .topbar{padding-top:env(safe-area-inset-top)} }
+html.pwa-standalone .topbar{padding-top:env(safe-area-inset-top)}
+/* viewport-fit=cover also runs landscape content under the rounded corners. */
+.container{
+  padding-left:max(20px,env(safe-area-inset-left));
+  padding-right:max(20px,env(safe-area-inset-right));
 }
 .topbar-inner{
   max-width:940px;margin:0 auto;padding:14px 20px;
@@ -1715,8 +1727,20 @@ function setLang(l, persist){
     const btn = document.getElementById('lang-' + x);
     if (btn) btn.setAttribute('aria-pressed', String(x === LANG));
   });
+  applyAriaLabels();
   if (persist) { try { localStorage.setItem('radar-lang', LANG); } catch(e){} }
   if (DATA) render(); else if (LOAD_FAILED) renderError();
+}
+
+// Visible copy is duplicated per language and toggled by CSS, but an
+// aria-label cannot be; it has to be swapped. Anything carrying
+// data-label-he/-en is kept in sync here. Deliberately tolerant of elements
+// that do not exist yet — the install bar is injected further down the page.
+function applyAriaLabels(){
+  document.querySelectorAll('[data-label-he]').forEach(function(el){
+    el.setAttribute('aria-label',
+      el.getAttribute('data-label-' + LANG) || el.getAttribute('data-label-he'));
+  });
 }
 
 let LOAD_FAILED = false;
@@ -1777,7 +1801,8 @@ fetch('status.json?t=' + Date.now())
 }
 </style>
 
-<div id="pwa-bar" role="region" aria-label="התקנת האפליקציה">
+<div id="pwa-bar" role="region" aria-label="התקנת האפליקציה"
+     data-label-he="התקנת האפליקציה" data-label-en="Install the app">
   <div class="pwa-in">
     <img class="pwa-ico" src="/radar/icon-192.png" alt="" width="46" height="46">
     <div class="pwa-txt">
@@ -1800,7 +1825,8 @@ fetch('status.json?t=' + Date.now())
       <button id="pwa-go" type="button">
         <span data-lang="he">התקנה</span><span data-lang="en">Install</span>
       </button>
-      <button id="pwa-no" type="button" aria-label="סגירה">&times;</button>
+      <button id="pwa-no" type="button" aria-label="סגירה"
+              data-label-he="סגירה" data-label-en="Dismiss">&times;</button>
     </div>
   </div>
 </div>
@@ -1815,6 +1841,13 @@ fetch('status.json?t=' + Date.now())
   // app, absurd.
   var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches)
                    || navigator.standalone === true;
+  // Needed even when we bail out below: it drives the safe-area padding.
+  if (standalone) document.documentElement.classList.add('pwa-standalone');
+
+  // The bar is parsed after setLang() has already run, so its labels start out
+  // unsynced. One call fixes that; setLang handles every toggle after this.
+  try { applyAriaLabels(); } catch(e){}
+
   if (standalone) return;
 
   var dismissed = false;
