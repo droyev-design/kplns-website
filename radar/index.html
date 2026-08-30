@@ -228,6 +228,16 @@ h3{
    keyboard + screen-reader behaviour for free. */
 .row{
   display:block;text-align:start;
+  /* min-width:0 is load-bearing, not tidiness. .rows is a grid, and a grid
+     item defaults to min-width:auto — its min-content size — so a row whose
+     content is wider than the track is NOT shrunk, it overflows the page.
+     Measured 2026-08-30 at a 390px iPhone width, English UI: scrollWidth 458
+     vs clientWidth 390. Mobile browsers widen the layout viewport to swallow
+     that, which is what "the screen slides sideways" looks like to a reader.
+     Hebrew never tripped it (shorter names), so it went unnoticed until
+     Marina's phone auto-picked English. See also the <wbr> in the row
+     renderer — the two together take 458 back to exactly 390. */
+  min-width:0;
   background:var(--bg-card);border:1px solid var(--border);
   border-radius:14px;padding:12px 15px;transition:border-color .25s
 }
@@ -1580,15 +1590,22 @@ function rows(ix){
               : (t.ok === false ? s.notRead
               : (part ? (f(t, 'value') || s.ok) + ' — ' + f(t, 'partial_why')
                       : (f(t, 'value') || s.ok)));
-    let tag = t.context ? `<span class="ctx">${esc(s.tagContext)}</span>`
-              : (t.shared ? `<span class="tag">${esc(s.tagRegional)}</span>` : '');
+    // The leading <wbr> on every pill is load-bearing. The pills are glued
+    // straight onto the name (`${name}${tag}`) and get their visual gap from
+    // margin-inline-start, NOT from whitespace — so without a break
+    // opportunity "policy" + the pill is one unbreakable word that shoves the
+    // row past the viewport (27px of the 68px overflow measured 2026-08-30 on
+    // the English UI at 390px). <wbr> is a zero-width break opportunity: it
+    // changes nothing visually and lets the pill drop to the next line.
+    let tag = t.context ? `<wbr><span class="ctx">${esc(s.tagContext)}</span>`
+              : (t.shared ? `<wbr><span class="tag">${esc(s.tagRegional)}</span>` : '');
     // ACTION/BELIEF typology tag (published per family since 2026-08-20).
     // Context rows skip it — they hold no vote, so typing them on screen
     // would only add noise. Older payloads without `type` show no tag.
     if (!t.context && t.type) {
       tag += t.type === 'belief'
-        ? `<span class="tb">${esc(s.tagBelief)}</span>`
-        : `<span class="ta">${esc(s.tagAction)}</span>`;
+        ? `<wbr><span class="tb">${esc(s.tagBelief)}</span>`
+        : `<wbr><span class="ta">${esc(s.tagAction)}</span>`;
     }
     // Republishing someone else's index without crediting it is not okay.
     const src = t.key === 'strikeradar'
