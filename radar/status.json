@@ -1,12 +1,6 @@
 {
- "generated": "2026-08-30T09:13:57+00:00",
+ "generated": "2026-08-30T10:12:41+00:00",
  "history": [
-  {
-   "t": 1787478170,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787479969,
    "il": 0,
@@ -2022,6 +2016,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788082959,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788084761,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2087,7 +2093,7 @@
      "reason_en": "",
      "value": "90 מטוסים אזרחיים באזור",
      "value_en": "90 civil aircraft in the area",
-     "range": "52–94"
+     "range": "52–95"
     },
     {
      "key": "jo_airspace",
@@ -2200,9 +2206,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "8 מטוסים צבאיים באזור",
-     "value_en": "8 military aircraft in the area",
-     "range": "1–6"
+     "value": "10 מטוסים צבאיים באזור",
+     "value_en": "10 military aircraft in the area",
+     "range": "1–7"
     },
     {
      "key": "markets",
@@ -2335,8 +2341,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,574 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,574 BGP routes)",
+     "value": "קישוריות תקינה (41,576 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,576 BGP routes)",
      "range": "41,567–41,590"
     },
     {
@@ -2358,8 +2364,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "7 מחוזות במעקב — קישוריות תקינה",
-     "value_en": "7 provinces monitored — connectivity normal",
+     "value": "8 מחוזות במעקב — קישוריות תקינה",
+     "value_en": "8 provinces monitored — connectivity normal",
      "range": ""
     },
     {
@@ -2450,9 +2456,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "8 מטוסים צבאיים באזור",
-     "value_en": "8 military aircraft in the area",
-     "range": "1–6"
+     "value": "10 מטוסים צבאיים באזור",
+     "value_en": "10 military aircraft in the area",
+     "range": "1–7"
     },
     {
      "key": "markets",
