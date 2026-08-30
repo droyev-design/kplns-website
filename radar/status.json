@@ -1,12 +1,6 @@
 {
- "generated": "2026-08-29T23:12:55+00:00",
+ "generated": "2026-08-30T00:12:34+00:00",
  "history": [
-  {
-   "t": 1787442153,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787443982,
    "il": 0,
@@ -2022,6 +2016,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788046970,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788048754,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2085,8 +2091,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "76 מטוסים אזרחיים באזור",
-     "value_en": "76 civil aircraft in the area",
+     "value": "61 מטוסים אזרחיים באזור",
+     "value_en": "61 civil aircraft in the area",
      "range": "52–94"
     },
     {
@@ -2108,8 +2114,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "3–8"
     },
     {
@@ -2200,8 +2206,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "0 מטוסים צבאיים באזור",
+     "value_en": "0 military aircraft in the area",
      "range": "1–5"
     },
     {
@@ -2335,9 +2341,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,567 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,567 BGP routes)",
-     "range": "41,571–41,590"
+     "value": "קישוריות תקינה (41,566 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,566 BGP routes)",
+     "range": "41,569–41,590"
     },
     {
      "key": "ir_provinces",
@@ -2381,8 +2387,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מוקדים תרמיים חדשים ב-2026-08-28 (מתוך 3,029 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "0 new thermal hotspots on 2026-08-28 (out of 3,029 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "3 מוקדים תרמיים חדשים ב-2026-08-29 (מתוך 975 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "3 new thermal hotspots on 2026-08-29 (out of 975 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": "0–5"
     },
     {
@@ -2450,8 +2456,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "0 מטוסים צבאיים באזור",
+     "value_en": "0 military aircraft in the area",
      "range": "1–5"
     },
     {
