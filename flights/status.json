@@ -1,24 +1,14 @@
 {
- "generated": "2026-08-31T09:07:02+00:00",
+ "generated": "2026-08-31T09:37:11+00:00",
  "level": 0,
  "now": {
-  "foreign_ops": 51,
-  "cancelled": 10,
-  "flights": 818,
-  "aircraft": 19,
-  "airborne_ops": 10
+  "foreign_ops": null,
+  "cancelled": null,
+  "flights": null,
+  "aircraft": 8,
+  "airborne_ops": 6
  },
  "history": [
-  {
-   "t": 1787562422,
-   "lv": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787564222,
-   "lv": 0,
-   "deg": 0
-  },
   {
    "t": 1787566021,
    "lv": 0,
@@ -1693,6 +1683,11 @@
    "t": 1788167222,
    "lv": 0,
    "deg": 0
+  },
+  {
+   "t": 1788169031,
+   "lv": 0,
+   "deg": 2
   }
  ],
  "tripwires": [
@@ -1701,24 +1696,24 @@
    "name": "חברות תעופה זרות בלוח היומי",
    "name_en": "Foreign airlines on today's board",
    "lit": false,
-   "armed": true,
-   "ok": true,
+   "armed": false,
+   "ok": false,
    "reason": "",
    "reason_en": "",
-   "value": "51 חברות זרות שונות טסות היום",
-   "value_en": "51 distinct foreign airlines flying today"
+   "value": "",
+   "value_en": ""
   },
   {
    "key": "cancellations",
    "name": "ביטולי טיסות בלוח נתב\"ג",
    "name_en": "Flight cancellations at Ben Gurion",
    "lit": false,
-   "armed": true,
-   "ok": true,
+   "armed": false,
+   "ok": false,
    "reason": "",
    "reason_en": "",
-   "value": "10 מתוך 818 טיסות היום (1.2%) — ביטולים בודדים הם שגרה",
-   "value_en": "10 of 818 flights today (1.2%) — a handful is routine"
+   "value": "",
+   "value_en": ""
   },
   {
    "key": "live_traffic",
@@ -1729,52 +1724,11 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "19 מטוסים באוויר כעת, 10 סימני קריאה של חברות",
-   "value_en": "19 aircraft airborne now, 10 airline callsigns"
+   "value": "8 מטוסים באוויר כעת, 6 סימני קריאה של חברות",
+   "value_en": "8 aircraft airborne now, 6 airline callsigns"
   }
  ],
- "days": [
-  {
-   "date": "2026-08-31",
-   "dow": "שני",
-   "dow_en": "Mon",
-   "today": true,
-   "flights": 818,
-   "cancelled": 10,
-   "foreign_ops": 51,
-   "il_ops": 3
-  },
-  {
-   "date": "2026-09-01",
-   "dow": "שלישי",
-   "dow_en": "Tue",
-   "today": false,
-   "flights": 769,
-   "cancelled": 7,
-   "foreign_ops": 53,
-   "il_ops": 3
-  },
-  {
-   "date": "2026-09-02",
-   "dow": "רביעי",
-   "dow_en": "Wed",
-   "today": false,
-   "flights": 794,
-   "cancelled": 3,
-   "foreign_ops": 51,
-   "il_ops": 3
-  },
-  {
-   "date": "2026-09-03",
-   "dow": "חמישי",
-   "dow_en": "Thu",
-   "today": false,
-   "flights": 391,
-   "cancelled": 0,
-   "foreign_ops": 46,
-   "il_ops": 3
-  }
- ],
+ "days": [],
  "baseline": {
   "since": "2026-08-20",
   "weekday_days": 7,
@@ -1783,8 +1737,14 @@
   "fops_need": 4,
   "air_need": 6
  },
- "sources_ok": 3,
+ "sources_ok": 1,
  "sources_total": 3,
- "degraded": [],
- "degraded_en": []
+ "degraded": [
+  "חברות תעופה זרות בלוח היומי",
+  "ביטולי טיסות בלוח נתב\"ג"
+ ],
+ "degraded_en": [
+  "Foreign airlines on today's board",
+  "Flight cancellations at Ben Gurion"
+ ]
 }
