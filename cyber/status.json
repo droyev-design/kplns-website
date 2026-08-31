@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30T16:25:03+00:00",
+ "generated": "2026-08-31T04:25:02+00:00",
  "level": 1,
  "catalog": {
   "version": "2026.08.27",
@@ -8,7 +8,7 @@
  },
  "counts": {
   "total": 1685,
-  "new7": 11,
+  "new7": 10,
   "new30": 29,
   "il30": 17,
   "il_edge30": 8,
@@ -76,9 +76,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
    "added": "2026-07-14",
-   "age": 47,
+   "age": 48,
    "due": "2026-07-17",
-   "due_in": -44,
+   "due_in": -45,
    "ransom": true,
    "cwe_he": [
     "הכרחת השרת לפנות ליעד פנימי (SSRF)"
@@ -101,9 +101,9 @@
    "product": "SharePoint Server",
    "name": "Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability",
    "added": "2026-07-01",
-   "age": 60,
+   "age": 61,
    "due": "2026-07-04",
-   "due_in": -57,
+   "due_in": -58,
    "ransom": true,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -126,9 +126,9 @@
    "product": "Security Gateway",
    "name": "Check Point Security Gateway Improper Authentication Vulnerability",
    "added": "2026-06-08",
-   "age": 83,
+   "age": 84,
    "due": "2026-06-11",
-   "due_in": -80,
+   "due_in": -81,
    "ransom": true,
    "cwe_he": [
     "עקיפת אימות זהות"
@@ -151,9 +151,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Code Injection Vulnerability",
    "added": "2026-07-14",
-   "age": 47,
+   "age": 48,
    "due": "2026-07-17",
-   "due_in": -44,
+   "due_in": -45,
    "ransom": true,
    "cwe_he": [
     "הרצת קוד זר"
@@ -176,9 +176,9 @@
    "product": "SharePoint",
    "name": "Microsoft SharePoint Deserialization of Untrusted Data Vulnerability ",
    "added": "2026-07-22",
-   "age": 39,
+   "age": 40,
    "due": "2026-07-25",
-   "due_in": -36,
+   "due_in": -37,
    "ransom": false,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -201,9 +201,9 @@
    "product": "Core",
    "name": "WordPress Core SQL Injection Vulnerability",
    "added": "2026-07-21",
-   "age": 40,
+   "age": 41,
    "due": "2026-08-04",
-   "due_in": -26,
+   "due_in": -27,
    "ransom": false,
    "cwe_he": [
     "הזרקת SQL"
@@ -226,9 +226,9 @@
    "product": "Core",
    "name": "WordPress Core Interpretation Conflict Vulnerability",
    "added": "2026-07-21",
-   "age": 40,
+   "age": 41,
    "due": "2026-07-24",
-   "due_in": -37,
+   "due_in": -38,
    "ransom": false,
    "cwe_he": [],
    "cwe_ids": [],
@@ -247,9 +247,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 45,
+   "age": 46,
    "due": "2026-07-19",
-   "due_in": -42,
+   "due_in": -43,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -272,9 +272,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 45,
+   "age": 46,
    "due": "2026-07-19",
-   "due_in": -42,
+   "due_in": -43,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -297,9 +297,9 @@
    "product": "Sentry",
    "name": "Ivanti Sentry OS Command Injection Vulnerability",
    "added": "2026-06-11",
-   "age": 80,
+   "age": 81,
    "due": "2026-06-14",
-   "due_in": -77,
+   "due_in": -78,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -322,9 +322,9 @@
    "product": "NetScaler ADC and NetScaler Gateway",
    "name": "Citrix NetScaler ADC and NetScaler Gateway Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability",
    "added": "2026-08-26",
-   "age": 4,
+   "age": 5,
    "due": "2026-08-29",
-   "due_in": -1,
+   "due_in": -2,
    "ransom": false,
    "cwe_he": [
     "חריגה מגבולות זיכרון"
@@ -347,9 +347,9 @@
    "product": "Zimbra Collaboration Suite (ZCS)",
    "name": "Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability",
    "added": "2026-08-21",
-   "age": 9,
+   "age": 10,
    "due": "2026-08-24",
-   "due_in": -6,
+   "due_in": -7,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -435,6 +435,11 @@
   },
   {
    "t": 1788107103,
+   "lv": 1,
+   "deg": 0
+  },
+  {
+   "t": 1788150302,
    "lv": 1,
    "deg": 0
   }
