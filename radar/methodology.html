@@ -365,9 +365,24 @@ footer a:hover{color:var(--cyan)}
       </ul>
       לכן <b>0 בראדאר אינו "הכול בסדר"</b> — הוא אומר רק שהחיישנים לא ראו
       שיבוש סביבתי בחלון המדידה. ובדיוק בגלל הגבול הזה, בראש עמוד הראדאר
-      מוצג באנר "מצב הלחימה" <b>שמוזן בידי אדם</b> — שלב מוצהר, אירועים
-      קינטיים מאומתים ומקורות מצוטטים — ומסומן בבירור כערוץ אנושי, בנפרד
-      מפלט החיישנים האוטומטי שמתחתיו.
+      מוצג באנר "מצב הלחימה": שלב הלחימה המוצהר נקבע <b>בידי אדם</b>, ומתחתיו
+      רשימת אירועים קינטיים עם מקורות. מאז 31.8.2026 גם מערכת אוטומטית רשאית
+      להוסיף אירועים לרשימה הזו, ולכן <b>כל אירוע נושא תג מקור</b>, אחד
+      משלושה:
+      <ul>
+        <li><b>✓ אומת בידי אדם</b> — אדם בדק את האירוע מול המקורות והזין או
+        אישר אותו. רשומות שקדמו לתגים (ללא שדה מקור) שייכות לרובד הזה.</li>
+        <li><b>🛰 פיד רשמי מובנה</b> — האירוע נגזר מנתונים ממשלתיים מוקלדים
+        (למשל התרעות פיקוד העורף), ללא שום פרשנות טקסט. הרובד האוטומטי
+        החזק ביותר.</li>
+        <li><b>⚙ אוטומטי — לא אומת בידי אדם</b> — האירוע חולץ אוטומטית
+        מכותרות חדשות של סוכנויות מוכרות. <b>אף אדם לא בדק אותו לפני
+        הפרסום.</b> חילוץ כזה יכול לטעות — כותרת מטעה או דיווח שגוי עלולים
+        להוליד אירוע כוזב על הדף — ולכן קיים מסלול הסרה אוטומטי: אם מקור
+        רשמי מכחיש את האירוע, הוא מוסר מהרשימה אוטומטית.</li>
+      </ul>
+      התג אינו קישוט: הוא אומר לקורא בדיוק כמה אמון לתת לכל שורה, והוא
+      מוצג בשתי השפות, בנפרד מפלט החיישנים האוטומטי של המחוון שמתחת.
     </div>
     </div>
     <div data-lang="en">
@@ -427,9 +442,28 @@ footer a:hover{color:var(--cyan)}
       So <b>0 on the radar is not an all-clear</b> — it says only that the
       sensors saw no ambient disruption in the measurement window. And
       precisely because of that limit, the top of the radar page carries a
-      war-phase banner that is <b>human-entered</b> — a declared phase,
-      confirmed kinetic events, cited sources — clearly labelled as a human
-      channel, separate from the automated sensor output below it.
+      war-phase banner: the declared war phase is set <b>by a person</b>, and
+      beneath it sits a list of kinetic events with sources. Since 2026-08-31
+      an automated pipeline may also add events to that list, so <b>every
+      event carries a provenance badge</b>, one of three:
+      <ul>
+        <li><b>✓ Human-verified</b> — a person checked the event against its
+        sources and entered or approved it. Entries that predate the badges
+        (with no provenance field) belong to this tier.</li>
+        <li><b>🛰 Official structured feed</b> — the event is derived from
+        typed government data (e.g. Home Front Command siren alerts), with no
+        text interpretation involved. The strongest automatic tier.</li>
+        <li><b>⚙ Automated — not human-verified</b> — the event was
+        auto-extracted from news headlines of established agencies.
+        <b>No person reviewed it before publication.</b> Such extraction can
+        be wrong — a misleading headline or an erroneous report can put a
+        false event on this page — which is why an automatic retraction path
+        exists: if an official source denies the event, it is pulled from
+        the list automatically.</li>
+      </ul>
+      The badge is not decoration: it tells the reader exactly how much trust
+      each line has earned, it appears in both languages, and it is separate
+      from the automated sensor output of the dial below.
     </div>
     </div>
   </section>
