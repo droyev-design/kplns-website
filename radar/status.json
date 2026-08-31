@@ -1,12 +1,6 @@
 {
- "generated": "2026-08-31T14:12:51+00:00",
+ "generated": "2026-08-31T15:12:51+00:00",
  "history": [
-  {
-   "t": 1787582576,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787584377,
    "il": 0,
@@ -2022,6 +2016,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788187371,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788189171,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2087,8 +2093,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "65 מטוסים אזרחיים באזור",
-     "value_en": "65 civil aircraft in the area",
+     "value": "89 מטוסים אזרחיים באזור",
+     "value_en": "89 civil aircraft in the area",
      "range": "60–95",
      "threshold_now": "<27 מטוסים",
      "threshold_now_en": "<27 aircraft"
@@ -2112,8 +2118,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "8 מטוסים מעל ירדן",
-     "value_en": "8 aircraft over Jordan",
+     "value": "4 מטוסים מעל ירדן",
+     "value_en": "4 aircraft over Jordan",
      "range": "3–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks"
@@ -2212,8 +2218,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–10",
      "threshold_now": ">20 מטוסים",
      "threshold_now_en": ">20 aircraft"
@@ -2237,8 +2243,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $90.9 · דולר 2.99 ₪",
-     "value_en": "Brent $90.9 · USD 2.99 ILS",
+     "value": "ברנט $90.3 · דולר 2.99 ₪",
+     "value_en": "Brent $90.3 · USD 2.99 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$95.4 · דולר ≥3.06 ₪",
      "threshold_now_en": "Brent ≥$95.4 · USD/ILS ≥3.06"
@@ -2312,8 +2318,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "52/100",
-     "value_en": "52/100",
+     "value": "53/100",
+     "value_en": "53/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": ""
@@ -2360,9 +2366,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,574 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,574 BGP routes)",
-     "range": "41,558–41,578",
+     "value": "קישוריות תקינה (41,575 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,575 BGP routes)",
+     "range": "41,558–41,577",
      "threshold_now": "merit-nt <21 · ping-slash24 <5,551",
      "threshold_now_en": "merit-nt <21 · ping-slash24 <5,551"
     },
@@ -2435,9 +2441,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2,098,000 ריאל לדולר",
-     "value_en": "2,098,000 rial to the dollar",
-     "range": "2,060,100–2,082,000",
+     "value": "2,094,000 ריאל לדולר",
+     "value_en": "2,094,000 rial to the dollar",
+     "range": "2,060,100–2,091,200",
      "threshold_now": "≥2,224,908 או ≤1,895,292",
      "threshold_now_en": "≥2,224,908 or ≤1,895,292"
     },
@@ -2485,8 +2491,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–10",
      "threshold_now": ">20 מטוסים",
      "threshold_now_en": ">20 aircraft"
@@ -2510,8 +2516,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $90.9 · דולר 2.99 ₪",
-     "value_en": "Brent $90.9 · USD 2.99 ILS",
+     "value": "ברנט $90.3 · דולר 2.99 ₪",
+     "value_en": "Brent $90.3 · USD 2.99 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$95.4 · דולר ≥3.06 ₪",
      "threshold_now_en": "Brent ≥$95.4 · USD/ILS ≥3.06"
@@ -2585,8 +2591,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "52/100",
-     "value_en": "52/100",
+     "value": "53/100",
+     "value_en": "53/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": ""
