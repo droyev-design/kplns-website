@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-31T17:13:14+00:00",
+ "generated": "2026-08-31T18:13:16+00:00",
  "history": [
-  {
-   "t": 1787593374,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787595163,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787596969,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788198186,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788199996,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2087,8 +2087,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "68 מטוסים אזרחיים באזור",
-     "value_en": "68 civil aircraft in the area",
+     "value": "80 מטוסים אזרחיים באזור",
+     "value_en": "80 civil aircraft in the area",
      "range": "59–95",
      "threshold_now": "<27 מטוסים",
      "threshold_now_en": "<27 aircraft"
@@ -2112,8 +2112,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים מעל ירדן",
-     "value_en": "4 aircraft over Jordan",
+     "value": "10 מטוסים מעל ירדן",
+     "value_en": "10 aircraft over Jordan",
      "range": "3–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks"
@@ -2212,8 +2212,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–10",
      "threshold_now": ">20 מטוסים",
      "threshold_now_en": ">20 aircraft"
@@ -2237,8 +2237,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $90.3 · דולר 2.99 ₪",
-     "value_en": "Brent $90.3 · USD 2.99 ILS",
+     "value": "ברנט $90.2 · דולר 2.99 ₪",
+     "value_en": "Brent $90.2 · USD 2.99 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$95.4 · דולר ≥3.06 ₪",
      "threshold_now_en": "Brent ≥$95.4 · USD/ILS ≥3.06"
@@ -2287,8 +2287,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.58% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.58%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.60% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.60%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%",
      "threshold_now": "≥2.00% ליום",
      "threshold_now_en": "≥2.00%/day"
@@ -2312,8 +2312,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "55/100",
-     "value_en": "55/100",
+     "value": "56/100",
+     "value_en": "56/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": ""
@@ -2360,11 +2360,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,584 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,584 BGP routes)",
+     "value": "קישוריות תקינה (41,583 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,583 BGP routes)",
      "range": "41,558–41,576",
-     "threshold_now": "merit-nt <21 · ping-slash24 <5,551",
-     "threshold_now_en": "merit-nt <21 · ping-slash24 <5,551"
+     "threshold_now": "merit-nt <21 · ping-slash24 <5,550",
+     "threshold_now_en": "merit-nt <21 · ping-slash24 <5,550"
     },
     {
      "key": "ir_provinces",
@@ -2485,8 +2485,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–10",
      "threshold_now": ">20 מטוסים",
      "threshold_now_en": ">20 aircraft"
@@ -2510,8 +2510,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $90.3 · דולר 2.99 ₪",
-     "value_en": "Brent $90.3 · USD 2.99 ILS",
+     "value": "ברנט $90.2 · דולר 2.99 ₪",
+     "value_en": "Brent $90.2 · USD 2.99 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$95.4 · דולר ≥3.06 ₪",
      "threshold_now_en": "Brent ≥$95.4 · USD/ILS ≥3.06"
@@ -2560,8 +2560,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.58% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.58%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.60% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.60%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%",
      "threshold_now": "≥2.00% ליום",
      "threshold_now_en": "≥2.00%/day"
@@ -2585,8 +2585,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "55/100",
-     "value_en": "55/100",
+     "value": "56/100",
+     "value_en": "56/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": ""
