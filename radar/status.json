@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-31T03:12:39+00:00",
+ "generated": "2026-08-31T04:07:21+00:00",
  "history": [
-  {
-   "t": 1787541180,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787542973,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787544799,
    "il": 0,
@@ -2016,6 +2004,24 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788147754,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788149142,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788149241,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2058,7 +2064,9 @@
      "reason_en": "",
      "value": "אין הגבלות בכל הארץ",
      "value_en": "No restrictions nationwide",
-     "range": ""
+     "range": "",
+     "threshold_now": "",
+     "threshold_now_en": ""
     },
     {
      "key": "il_airspace",
@@ -2079,9 +2087,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "63 מטוסים אזרחיים באזור",
-     "value_en": "63 civil aircraft in the area",
-     "range": "56–95"
+     "value": "54 מטוסים אזרחיים באזור",
+     "value_en": "54 civil aircraft in the area",
+     "range": "58–95",
+     "threshold_now": "<27 מטוסים",
+     "threshold_now_en": "<27 aircraft"
     },
     {
      "key": "jo_airspace",
@@ -2104,7 +2114,9 @@
      "reason_en": "",
      "value": "6 מטוסים מעל ירדן",
      "value_en": "6 aircraft over Jordan",
-     "range": "3–8"
+     "range": "3–8",
+     "threshold_now": "≤3 מטוסים ב-3 בדיקות",
+     "threshold_now_en": "≤3 aircraft over 3 checks"
     },
     {
      "key": "advisories_il",
@@ -2127,7 +2139,9 @@
      "reason_en": "",
      "value": "4 מדינות במעקב — ללא שינוי ברמות",
      "value_en": "4 countries monitored — no level changes",
-     "range": ""
+     "range": "",
+     "threshold_now": "",
+     "threshold_now_en": ""
     },
     {
      "key": "embassy_alerts",
@@ -2150,7 +2164,9 @@
      "reason_en": "",
      "value": "הפיד במעקב — אין הוראה מבצעית פעילה",
      "value_en": "feed monitored — no operational order active",
-     "range": ""
+     "range": "",
+     "threshold_now": "",
+     "threshold_now_en": ""
     },
     {
      "key": "il_gps",
@@ -2173,7 +2189,9 @@
      "reason_en": "",
      "value": "4.0% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-30 (נגזר מתעופה)",
      "value_en": "4.0% of aircraft reported degraded GPS on 2026-08-30 (aviation-derived)",
-     "range": "2.2%–11.5%"
+     "range": "2.2%–11.5%",
+     "threshold_now": "≥18.0%",
+     "threshold_now_en": "≥18.0%"
     },
     {
      "key": "us_mil_air",
@@ -2194,9 +2212,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים צבאיים באזור",
-     "value_en": "5 military aircraft in the area",
-     "range": "1–9"
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
+     "range": "1–9",
+     "threshold_now": ">20 מטוסים",
+     "threshold_now_en": ">20 aircraft"
     },
     {
      "key": "markets",
@@ -2217,9 +2237,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $90.4 · דולר 2.97 ₪",
-     "value_en": "Brent $90.4 · USD 2.97 ILS",
-     "range": ""
+     "value": "ברנט $90.0 · דולר 2.97 ₪",
+     "value_en": "Brent $90.0 · USD 2.97 ILS",
+     "range": "",
+     "threshold_now": "ברנט ≥$95.4 · דולר ≥3.06 ₪",
+     "threshold_now_en": "Brent ≥$95.4 · USD/ILS ≥3.06"
     },
     {
      "key": "region_internet",
@@ -2228,7 +2250,7 @@
      "provider": "ioda",
      "type": "action",
      "shared": true,
-     "context": false,
+     "context": true,
      "daily": false,
      "lit": false,
      "frozen": false,
@@ -2242,7 +2264,9 @@
      "reason_en": "",
      "value": "4 מדינות במעקב — קישוריות תקינה",
      "value_en": "4 states monitored — connectivity normal",
-     "range": ""
+     "range": "",
+     "threshold_now": "מדינה כלשהי מתחת ל-85% מהחציון",
+     "threshold_now_en": "any state below 85% of median"
     },
     {
      "key": "polymarket",
@@ -2263,9 +2287,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.51% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.51%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
-     "range": "0.35%–0.81%"
+     "value": "סיכון גלום לתקיפה 0.47% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.47%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "range": "0.35%–0.81%",
+     "threshold_now": "≥2.00% ליום",
+     "threshold_now_en": "≥2.00%/day"
     },
     {
      "key": "strikeradar",
@@ -2286,11 +2312,16 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "44/100",
-     "value_en": "44/100",
-     "range": ""
+     "value": "45/100",
+     "value_en": "45/100",
+     "range": "",
+     "threshold_now": "",
+     "threshold_now_en": ""
     }
-   ]
+   ],
+   "measurable_total": 9,
+   "lit_count": 0,
+   "ratchets": []
   },
   {
    "key": "ir",
@@ -2329,9 +2360,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,558 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,558 BGP routes)",
-     "range": "41,559–41,590"
+     "value": "קישוריות תקינה (41,540 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,540 BGP routes)",
+     "range": "41,559–41,590",
+     "threshold_now": "merit-nt <21 · ping-slash24 <5,548",
+     "threshold_now_en": "merit-nt <21 · ping-slash24 <5,548"
     },
     {
      "key": "ir_provinces",
@@ -2340,7 +2373,7 @@
      "provider": "ioda",
      "type": "action",
      "shared": false,
-     "context": false,
+     "context": true,
      "daily": false,
      "lit": false,
      "frozen": false,
@@ -2354,7 +2387,9 @@
      "reason_en": "",
      "value": "8 מחוזות במעקב — קישוריות תקינה",
      "value_en": "8 provinces monitored — connectivity normal",
-     "range": ""
+     "range": "",
+     "threshold_now": "2+ מחוזות מתחת ל-80% מהחציון",
+     "threshold_now_en": "2+ provinces below 80% of median"
     },
     {
      "key": "firms",
@@ -2377,7 +2412,9 @@
      "reason_en": "",
      "value": "מוקד תרמי חדש אחד ב-2026-08-30 (מתוך 2,698 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
      "value_en": "1 new thermal hotspot on 2026-08-30 (out of 2,698 raw detections from 3 satellites, incl. wildfires and industry)",
-     "range": "0–4"
+     "range": "0–4",
+     "threshold_now": ">9 מוקדים",
+     "threshold_now_en": ">9 hotspots"
     },
     {
      "key": "rial",
@@ -2400,7 +2437,9 @@
      "reason_en": "",
      "value": "2,060,100 ריאל לדולר",
      "value_en": "2,060,100 rial to the dollar",
-     "range": "2,027,000–2,060,100"
+     "range": "2,041,800–2,060,100",
+     "threshold_now": "≥2,224,908 או ≤1,895,292",
+     "threshold_now_en": "≥2,224,908 or ≤1,895,292"
     },
     {
      "key": "hormuz_gps",
@@ -2423,7 +2462,9 @@
      "reason_en": "",
      "value": "3.4% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-30 (נגזר מתעופה)",
      "value_en": "3.4% of aircraft reported degraded GPS on 2026-08-30 (aviation-derived)",
-     "range": "2.5%–13.3%"
+     "range": "2.5%–13.3%",
+     "threshold_now": "≥16.6%",
+     "threshold_now_en": "≥16.6%"
     },
     {
      "key": "us_mil_air",
@@ -2444,9 +2485,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים צבאיים באזור",
-     "value_en": "5 military aircraft in the area",
-     "range": "1–9"
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
+     "range": "1–9",
+     "threshold_now": ">20 מטוסים",
+     "threshold_now_en": ">20 aircraft"
     },
     {
      "key": "markets",
@@ -2467,9 +2510,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $90.4 · דולר 2.97 ₪",
-     "value_en": "Brent $90.4 · USD 2.97 ILS",
-     "range": ""
+     "value": "ברנט $90.0 · דולר 2.97 ₪",
+     "value_en": "Brent $90.0 · USD 2.97 ILS",
+     "range": "",
+     "threshold_now": "ברנט ≥$95.4 · דולר ≥3.06 ₪",
+     "threshold_now_en": "Brent ≥$95.4 · USD/ILS ≥3.06"
     },
     {
      "key": "region_internet",
@@ -2478,7 +2523,7 @@
      "provider": "ioda",
      "type": "action",
      "shared": true,
-     "context": false,
+     "context": true,
      "daily": false,
      "lit": false,
      "frozen": false,
@@ -2492,7 +2537,9 @@
      "reason_en": "",
      "value": "4 מדינות במעקב — קישוריות תקינה",
      "value_en": "4 states monitored — connectivity normal",
-     "range": ""
+     "range": "",
+     "threshold_now": "מדינה כלשהי מתחת ל-85% מהחציון",
+     "threshold_now_en": "any state below 85% of median"
     },
     {
      "key": "polymarket",
@@ -2513,9 +2560,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.51% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.51%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
-     "range": "0.35%–0.81%"
+     "value": "סיכון גלום לתקיפה 0.47% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.47%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "range": "0.35%–0.81%",
+     "threshold_now": "≥2.00% ליום",
+     "threshold_now_en": "≥2.00%/day"
     },
     {
      "key": "strikeradar",
@@ -2536,25 +2585,71 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "44/100",
-     "value_en": "44/100",
-     "range": ""
+     "value": "45/100",
+     "value_en": "45/100",
+     "range": "",
+     "threshold_now": "",
+     "threshold_now_en": ""
     }
    ],
+   "measurable_total": 7,
+   "lit_count": 0,
+   "ratchets": [],
    "unavailable": [
     "אין כיסוי מקלטי ADS-B מעל איראן — לא ניתן למדוד",
     "הודעות NOTAM (סגירת מרחב אווירי רשמית) — כל הערוצים החינמיים שנבדקו חסומים מהשרת — לא ניתן למדוד",
-    "תנועת ספינות במצר הורמוז (AIS) — אין מקור חופשי נגיש (UKMTO חסום, פיד NGA קפוא מ-2024) — שיבוש ה-GPS משמש תחליף חלקי בלבד"
+    "תנועת ספינות במצר הורמוז (AIS) — אין מקור חופשי נגיש (UKMTO חסום, פיד NGA קפוא מ-2024) — לא ניתן למדוד"
    ],
    "unavailable_en": [
     "No ADS-B receiver coverage over Iran — this cannot be measured",
     "NOTAMs (official airspace closures) — every free channel tested is blocked from this server — this cannot be measured",
-    "Ship traffic through Hormuz (AIS) — no accessible free source (UKMTO blocked, the NGA feed frozen since 2024) — GPS interference is only a partial proxy"
+    "Ship traffic through Hormuz (AIS) — no accessible free source (UKMTO blocked, the NGA feed frozen since 2024) — this cannot be measured"
    ]
   }
  ],
  "sources_ok": 16,
  "sources_total": 16,
+ "families_total": 16,
+ "context_total": 3,
+ "measurable_total": 13,
+ "unmeasurable_total": 3,
+ "lit_count": 0,
+ "ratchets": [],
  "degraded": [],
- "degraded_en": []
+ "degraded_en": [],
+ "manual_override": {
+  "phase": "ceasefire_broken",
+  "phase_he": "הפסקת האש הופרה",
+  "phase_en": "Ceasefire broken",
+  "phase_note_he": "מלחמת 2026 בין ישראל/ארה\"ב לאיראן פתוחה מ-28.2.2026 ולא הסתיימה. חילופי אש פעילים בגזרה.",
+  "phase_note_en": "The 2026 Israel/US–Iran war has been open since 2026-02-28 and is unresolved. Active exchanges of fire in the theatre.",
+  "events": [
+   {
+    "ts": "2026-08-31T00:00:00Z",
+    "he": "מטח בליסטי איראני לעבר בסיסים אמריקאים בירדן — צבא ירדן יירט 8 טילים, אין נפגעים",
+    "en": "Iranian ballistic salvo at US-linked bases in Jordan — Jordan's army intercepted 8 missiles, no casualties",
+    "source": "Petra (Jordan) / CENTCOM / Haaretz / Jerusalem Post"
+   },
+   {
+    "ts": "2026-08-30T22:00:00Z",
+    "he": "תקיפה אמריקאית על נכסי מוקשים איראניים באי לארק, מיצר הורמוז",
+    "en": "US strike on Iranian minelaying assets on Larak Island, Strait of Hormuz",
+    "source": "CENTCOM"
+   },
+   {
+    "ts": "2026-08-23T00:00:00Z",
+    "he": "מיצר הורמוז כמעט משותק — 3 מעברי ספינות ביום מול כ-85 רגילים",
+    "en": "Strait of Hormuz near-frozen — 3 ship transits in a day versus ~85 normal",
+    "source": "US News / IRGC statements"
+   },
+   {
+    "ts": "2026-08-16T00:00:00Z",
+    "he": "חיזבאללה הפר את הפסקת האש; ישראל תקפה בדרום לבנון — 11 הרוגים לפחות",
+    "en": "Hezbollah breached the ceasefire; Israel struck south Lebanon — at least 11 killed",
+    "source": "Al Jazeera"
+   }
+  ],
+  "set_by": "claude+kaplan",
+  "updated": "2026-08-31T03:55:00Z"
+ }
 }
