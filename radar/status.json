@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-31T05:42:40+00:00",
+ "generated": "2026-08-31T06:12:34+00:00",
  "history": [
   {
    "t": 1787551971,
@@ -2022,6 +2022,12 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788156754,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2087,8 +2093,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "78 מטוסים אזרחיים באזור",
-     "value_en": "78 civil aircraft in the area",
+     "value": "67 מטוסים אזרחיים באזור",
+     "value_en": "67 civil aircraft in the area",
      "range": "59–95",
      "threshold_now": "<27 מטוסים",
      "threshold_now_en": "<27 aircraft"
@@ -2112,8 +2118,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים מעל ירדן",
-     "value_en": "4 aircraft over Jordan",
+     "value": "9 מטוסים מעל ירדן",
+     "value_en": "9 aircraft over Jordan",
      "range": "3–8",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks"
@@ -2287,8 +2293,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.59% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.59%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.55% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.55%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%",
      "threshold_now": "≥2.00% ליום",
      "threshold_now_en": "≥2.00%/day"
@@ -2360,11 +2366,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,563 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,563 BGP routes)",
+     "value": "קישוריות תקינה (41,568 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,568 BGP routes)",
      "range": "41,559–41,590",
-     "threshold_now": "merit-nt <21 · ping-slash24 <5,548",
-     "threshold_now_en": "merit-nt <21 · ping-slash24 <5,548"
+     "threshold_now": "merit-nt <21 · ping-slash24 <5,549",
+     "threshold_now_en": "merit-nt <21 · ping-slash24 <5,549"
     },
     {
      "key": "ir_provinces",
@@ -2560,8 +2566,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.59% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.59%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.55% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.55%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%",
      "threshold_now": "≥2.00% ליום",
      "threshold_now_en": "≥2.00%/day"
@@ -2628,28 +2634,36 @@
     "ts": "2026-08-31T00:00:00Z",
     "he": "מטח בליסטי איראני לעבר בסיסים אמריקאים בירדן — צבא ירדן יירט 8 טילים, אין נפגעים",
     "en": "Iranian ballistic salvo at US-linked bases in Jordan — Jordan's army intercepted 8 missiles, no casualties",
-    "source": "Petra (Jordan) / CENTCOM / Haaretz / Jerusalem Post"
+    "source": "Petra (Jordan) / CENTCOM / Haaretz / Jerusalem Post",
+    "origin": "human",
+    "human_verified": true
    },
    {
     "ts": "2026-08-30T22:00:00Z",
     "he": "תקיפה אמריקאית על נכסי מוקשים איראניים באי לארק, מיצר הורמוז",
     "en": "US strike on Iranian minelaying assets on Larak Island, Strait of Hormuz",
-    "source": "CENTCOM"
+    "source": "CENTCOM",
+    "origin": "human",
+    "human_verified": true
    },
    {
     "ts": "2026-08-23T00:00:00Z",
     "he": "מיצר הורמוז כמעט משותק — 3 מעברי ספינות ביום מול כ-85 רגילים",
     "en": "Strait of Hormuz near-frozen — 3 ship transits in a day versus ~85 normal",
-    "source": "US News / IRGC statements"
+    "source": "US News / IRGC statements",
+    "origin": "human",
+    "human_verified": true
    },
    {
     "ts": "2026-08-16T00:00:00Z",
     "he": "חיזבאללה הפר את הפסקת האש; ישראל תקפה בדרום לבנון — 11 הרוגים לפחות",
     "en": "Hezbollah breached the ceasefire; Israel struck south Lebanon — at least 11 killed",
-    "source": "Al Jazeera"
+    "source": "Al Jazeera",
+    "origin": "human",
+    "human_verified": true
    }
   ],
   "set_by": "claude+kaplan",
-  "updated": "2026-08-31T03:55:00Z"
+  "updated": "2026-08-31T05:52:18Z"
  }
 }
