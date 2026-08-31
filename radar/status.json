@@ -1,18 +1,6 @@
 {
- "generated": "2026-08-31T00:12:35+00:00",
+ "generated": "2026-08-31T01:12:44+00:00",
  "history": [
-  {
-   "t": 1787530374,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787532168,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787533975,
    "il": 0,
@@ -2016,6 +2004,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788136978,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788138764,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2079,8 +2079,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "60 מטוסים אזרחיים באזור",
-     "value_en": "60 civil aircraft in the area",
+     "value": "77 מטוסים אזרחיים באזור",
+     "value_en": "77 civil aircraft in the area",
      "range": "54–95"
     },
     {
@@ -2102,8 +2102,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "11 מטוסים מעל ירדן",
+     "value_en": "11 aircraft over Jordan",
      "range": "2–8"
     },
     {
@@ -2171,9 +2171,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3.3% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-29 (נגזר מתעופה)",
-     "value_en": "3.3% of aircraft reported degraded GPS on 2026-08-29 (aviation-derived)",
-     "range": "2.2%–12.2%"
+     "value": "4.0% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-30 (נגזר מתעופה)",
+     "value_en": "4.0% of aircraft reported degraded GPS on 2026-08-30 (aviation-derived)",
+     "range": "2.2%–11.5%"
     },
     {
      "key": "us_mil_air",
@@ -2217,8 +2217,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $89.7 · דולר 2.97 ₪",
-     "value_en": "Brent $89.7 · USD 2.97 ILS",
+     "value": "ברנט $89.2 · דולר 2.97 ₪",
+     "value_en": "Brent $89.2 · USD 2.97 ILS",
      "range": ""
     },
     {
@@ -2263,8 +2263,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.56% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.56%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.55% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.55%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%"
     },
     {
@@ -2286,8 +2286,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "38/100",
-     "value_en": "38/100",
+     "value": "40/100",
+     "value_en": "40/100",
      "range": ""
     }
    ]
@@ -2329,8 +2329,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,559 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,559 BGP routes)",
+     "value": "קישוריות תקינה (41,557 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,557 BGP routes)",
      "range": "41,560–41,590"
     },
     {
@@ -2375,8 +2375,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מוקד תרמי חדש אחד ב-2026-08-30 (מתוך 1,432 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "1 new thermal hotspot on 2026-08-30 (out of 1,432 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "מוקד תרמי חדש אחד ב-2026-08-30 (מתוך 2,029 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "1 new thermal hotspot on 2026-08-30 (out of 2,029 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": "0–4"
     },
     {
@@ -2421,8 +2421,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2.9% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-29 (נגזר מתעופה)",
-     "value_en": "2.9% of aircraft reported degraded GPS on 2026-08-29 (aviation-derived)",
+     "value": "3.4% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-30 (נגזר מתעופה)",
+     "value_en": "3.4% of aircraft reported degraded GPS on 2026-08-30 (aviation-derived)",
      "range": "2.5%–13.3%"
     },
     {
@@ -2467,8 +2467,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $89.7 · דולר 2.97 ₪",
-     "value_en": "Brent $89.7 · USD 2.97 ILS",
+     "value": "ברנט $89.2 · דולר 2.97 ₪",
+     "value_en": "Brent $89.2 · USD 2.97 ILS",
      "range": ""
     },
     {
@@ -2513,8 +2513,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.56% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.56%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.55% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.55%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%"
     },
     {
@@ -2536,8 +2536,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "38/100",
-     "value_en": "38/100",
+     "value": "40/100",
+     "value_en": "40/100",
      "range": ""
     }
    ],
