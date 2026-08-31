@@ -1,24 +1,14 @@
 {
- "generated": "2026-08-31T20:07:02+00:00",
- "level": 1,
+ "generated": "2026-08-31T20:37:03+00:00",
+ "level": 0,
  "now": {
   "foreign_ops": 51,
   "cancelled": 12,
-  "flights": 818,
-  "aircraft": 3,
-  "airborne_ops": 3
+  "flights": 814,
+  "aircraft": 8,
+  "airborne_ops": 6
  },
  "history": [
-  {
-   "t": 1787602022,
-   "lv": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787603822,
-   "lv": 0,
-   "deg": 0
-  },
   {
    "t": 1787605622,
    "lv": 0,
@@ -1693,6 +1683,11 @@
    "t": 1788206822,
    "lv": 1,
    "deg": 0
+  },
+  {
+   "t": 1788208623,
+   "lv": 0,
+   "deg": 0
   }
  ],
  "tripwires": [
@@ -1717,20 +1712,20 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "12 מתוך 818 טיסות היום (1.5%) — ביטולים בודדים הם שגרה",
-   "value_en": "12 of 818 flights today (1.5%) — a handful is routine"
+   "value": "12 מתוך 814 טיסות היום (1.5%) — ביטולים בודדים הם שגרה",
+   "value_en": "12 of 814 flights today (1.5%) — a handful is routine"
   },
   {
    "key": "live_traffic",
    "name": "מטוסים באוויר סביב נתב\"ג",
    "name_en": "Aircraft airborne around Ben Gurion",
-   "lit": true,
+   "lit": false,
    "armed": true,
    "ok": true,
-   "reason": "תנועה אווירית קרסה: 3 מטוסים מול חציון 10 בשעה זו בימים דומים",
-   "reason_en": "Air traffic collapsed: 3 aircraft vs a median of 10 at this hour on comparable days",
-   "value": "3 מטוסים באוויר כעת, 3 סימני קריאה של חברות",
-   "value_en": "3 aircraft airborne now, 3 airline callsigns"
+   "reason": "",
+   "reason_en": "",
+   "value": "8 מטוסים באוויר כעת, 6 סימני קריאה של חברות",
+   "value_en": "8 aircraft airborne now, 6 airline callsigns"
   }
  ],
  "days": [
@@ -1739,7 +1734,7 @@
    "dow": "שני",
    "dow_en": "Mon",
    "today": true,
-   "flights": 818,
+   "flights": 814,
    "cancelled": 12,
    "foreign_ops": 51,
    "il_ops": 3
@@ -1769,7 +1764,7 @@
    "dow": "חמישי",
    "dow_en": "Thu",
    "today": false,
-   "flights": 802,
+   "flights": 815,
    "cancelled": 0,
    "foreign_ops": 59,
    "il_ops": 3
