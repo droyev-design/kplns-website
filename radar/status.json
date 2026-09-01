@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-01T04:42:44+00:00",
+ "generated": "2026-09-01T05:43:05+00:00",
  "history": [
-  {
-   "t": 1787634771,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787636565,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787638355,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788239575,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788241385,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2111,8 +2111,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "7 מטוסים מעל ירדן",
-     "value_en": "7 aircraft over Jordan",
+     "value": "4 מטוסים מעל ירדן",
+     "value_en": "4 aircraft over Jordan",
      "range": "3–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks"
@@ -2213,7 +2213,7 @@
      "reason_en": "",
      "value": "2 מטוסים צבאיים באזור",
      "value_en": "2 military aircraft in the area",
-     "range": "1–10",
+     "range": "1–9",
      "threshold_now": ">20 מטוסים",
      "threshold_now_en": ">20 aircraft"
     },
@@ -2236,8 +2236,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.2 · דולר 2.99 ₪",
-     "value_en": "Brent $91.2 · USD 2.99 ILS",
+     "value": "ברנט $91.1 · דולר 2.99 ₪",
+     "value_en": "Brent $91.1 · USD 2.99 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$97.3 · דולר ≥3.06 ₪",
      "threshold_now_en": "Brent ≥$97.3 · USD/ILS ≥3.06"
@@ -2286,8 +2286,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.49% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.49%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.51% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.51%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%",
      "threshold_now": "≥2.00% ליום",
      "threshold_now_en": "≥2.00%/day"
@@ -2311,8 +2311,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "63/100",
-     "value_en": "63/100",
+     "value": "62/100",
+     "value_en": "62/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": ""
@@ -2358,11 +2358,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,570 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,570 BGP routes)",
+     "value": "קישוריות תקינה (41,594 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,594 BGP routes)",
      "range": "41,559–41,585",
-     "threshold_now": "merit-nt <22 · ping-slash24 <5,548",
-     "threshold_now_en": "merit-nt <22 · ping-slash24 <5,548"
+     "threshold_now": "merit-nt <22 · ping-slash24 <5,551",
+     "threshold_now_en": "merit-nt <22 · ping-slash24 <5,551"
     },
     {
      "key": "ir_provinces",
@@ -2485,7 +2485,7 @@
      "reason_en": "",
      "value": "2 מטוסים צבאיים באזור",
      "value_en": "2 military aircraft in the area",
-     "range": "1–10",
+     "range": "1–9",
      "threshold_now": ">20 מטוסים",
      "threshold_now_en": ">20 aircraft"
     },
@@ -2508,8 +2508,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.2 · דולר 2.99 ₪",
-     "value_en": "Brent $91.2 · USD 2.99 ILS",
+     "value": "ברנט $91.1 · דולר 2.99 ₪",
+     "value_en": "Brent $91.1 · USD 2.99 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$97.3 · דולר ≥3.06 ₪",
      "threshold_now_en": "Brent ≥$97.3 · USD/ILS ≥3.06"
@@ -2558,8 +2558,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.49% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.49%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.51% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.51%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%",
      "threshold_now": "≥2.00% ליום",
      "threshold_now_en": "≥2.00%/day"
@@ -2583,8 +2583,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "63/100",
-     "value_en": "63/100",
+     "value": "62/100",
+     "value_en": "62/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": ""
