@@ -518,6 +518,36 @@ footer a:hover{color:var(--cyan)}
     פעולה. הערת יושר על אזהרות המסע: פינוי שגרירות בפועל היה פעולה, אבל מה
     שהאספן קורא הוא רק <b>רמת האזהרה מכותרת ה-RSS</b> — הכרזה, לא פעולה
     נצפית — ולכן הן סווגו דעה.</p>
+    <p><b>מ-1.9.2026 הכלל הזה רדום, והוא נשמר בכוונה.</b> שלוש משפחות הדעה
+    (שווקים, שוק הניבוי, אזהרות מסע) עברו באותו יום ל<b>הקשר בלבד</b>, ולכן
+    כל משפחה שיכולה להיספר מסווגת פעולה — אין מה לחסום. הכלל לא נמחק, כי הוא
+    מת מ<b>עובדת חברות</b> ולא מזהות אריתמטית: החזרת קול למשפחת דעה אחת, או
+    הוספת משפחת דעה חדשה, מחזירה אותו לפעולה מיד ובלי שום שינוי אחר. הסיווג
+    עצמו נשאר מוצג בכל שורה.</p>
+
+
+    <h3 id="iran-ceiling-method">תקרת המדד האיראני: 2, לא 3 (1.9.2026)</h3>
+    <p>מ-1.9.2026 המדד האיראני נשען על <b>שתי משפחות מצביעות בלבד, משני ספקי
+    נתונים</b> — קישוריות האינטרנט הארצית של איראן (IODA) ותעופה צבאית באזור
+    (adsb.lol). רמה 3 מחייבת שלושה ספקים נפרדים לפחות, ולכן היא אינה ניתנת
+    להשגה במדד הזה. <b>התקרה של המדד האיראני היא 2</b>, והדף כותב "מתוך 2"
+    ולא "מתוך 3". התקרה נגזרת בקוד מרשימת המשפחות המצביעות ומתפרסמת בשדה
+    <code>max_level</code>, ולא נכתבת ידנית — כך היא אינה יכולה לסטות מהקוד.</p>
+    <p>שאר השורות בפאנל האיראני — חריגות תרמיות מלוויין, שיבוש GPS בהורמוז,
+    השווקים ושוק הניבוי — ממשיכות להימדד, להישמר ולהופיע עם הסף החי שלהן,
+    אבל <b>אינן מצביעות</b>. הסיבה היא מה שניתן למדוד מעל איראן בערוצים
+    חופשיים: זיהוי תרמי מלוויין הוא הערכת נזק <b>אחרי</b> תקיפה ולא לפניה;
+    שיבוש GPS במפרץ הוא אות ימי, מחוץ לשאלה שהדף הזה שואל; ושווקים והימורים
+    הם דעה שנבנית מאותן חדשות שכל שאר האספנים קוראים. אף אחד משלושת הסוגים
+    אינו עומד ברף של אות מקדים, ולכן אף אחד מהם אינו מקבל קול.</p>
+    <p>גם שתי המשפחות שכן מצביעות אינן במצב טוב יותר בפועל, וזה נאמר כאן ולא
+    מוסתר: הסף של merit-nt עומד היום על מתחת ל-24, והערך הנמוך ביותר שנשמר אי
+    פעם ב-14 קבצי המצב שעל הדיסק הוא 26.4; הסף של התעופה הצבאית הוא יותר מ-14
+    מטוסים, והמקסימום שנמדד אי פעם באותם קבצים הוא 14 בדיוק. שתיהן יושבות
+    מחוץ למעטפת שנמדדה עד היום.</p>
+    <p><b>זו אמירה על הכלים שיש לנו, לא על איראן.</b> הכלל הקבוע של הפרויקט
+    הוא פער מוצהר ולא חוגה מזויפת: חוגה שמוצגת כ-0–3 והשליש העליון שלה אינו
+    ניתן להשגה מגזימה מעצם הבנייה שלה. לכן התקרה מפורסמת.</p>
 
     <h3>למה לא כתוב כאן "משפחות בלתי תלויות"</h3>
     <p>עד 18.8.2026 הדף הזה טען שהרמה סופרת משפחות <b>בלתי תלויות</b>. הטענה
@@ -633,6 +663,45 @@ footer a:hover{color:var(--cyan)}
     actual embassy evacuation would be an action, but what the collector
     reads is only the <b>advisory level from the RSS title</b> — an
     announcement, not an observed costly act — so they are typed belief.</p>
+    <p><b>Since 2026-09-01 this rule is dormant, and it is kept on purpose.</b>
+    All three belief families (markets, the prediction market, travel
+    advisories) moved to <b>context only</b> that day, so every family that
+    can be counted is typed action — there is nothing left to cap. The rule
+    was not deleted, because it is dead by a <b>membership</b> fact rather
+    than an arithmetic identity: restoring a vote to one belief family, or
+    adding a new one, makes it live again immediately and with no other
+    change. The type itself is still shown on every row.</p>
+
+
+    <h3 id="iran-ceiling-method-en">The Iran index has a ceiling of 2, not 3 (2026-09-01)</h3>
+    <p>Since 2026-09-01 the Iran index rests on <b>two voting families over two
+    data providers</b> — Iran's national internet connectivity (IODA) and
+    regional military aviation (adsb.lol). Level 3 requires at least three
+    separate providers, so it is not reachable on this index. <b>The Iran
+    index's ceiling is 2</b>, and the page says "of 2" rather than "of 3". The
+    ceiling is derived in code from the voting roster and published in a
+    <code>max_level</code> field rather than written by hand, so it cannot
+    drift from the code.</p>
+    <p>The other rows on the Iran panel — satellite thermal anomalies, Hormuz
+    GPS interference, the markets and the prediction market — are still
+    measured, still stored and still shown with their live thresholds, but
+    they <b>cast no vote</b>. The reason is what can be measured over Iran on
+    free channels: satellite thermal detection is damage assessment
+    <b>after</b> a strike, not a warning before one; Gulf GPS jamming is a
+    maritime signal, outside the question this page asks; and markets and
+    betting odds are opinion, formed from the same news every other collector
+    reads. None of the three meets the bar for a leading indicator, so none of
+    them gets a vote.</p>
+    <p>The two families that do vote are not in better shape in practice, and
+    that is stated here rather than hidden: merit-nt's bar today is below 24,
+    and the lowest value ever retained across the 14 state files on disk is
+    26.4; the military-aviation bar is more than 14 aircraft, and the highest
+    value ever measured in those same files is exactly 14. Both sit outside
+    the envelope that has actually been observed.</p>
+    <p><b>This is a statement about the instruments we have, not about
+    Iran.</b> This project's standing rule is a declared gap rather than a
+    fake dial: a dial presented as 0-3 whose top third cannot be reached
+    overstates by construction. So the ceiling is published.</p>
 
     <h3>Why this page no longer says "independent families"</h3>
     <p>Until 18 Aug 2026 this page claimed the level counted
@@ -705,7 +774,9 @@ footer a:hover{color:var(--cyan)}
     למהמר ומוכיחה רק רצינות (ההגדרות המלאות בסעיף 2). לכן <b>רמה 2 ומעלה
     מחייבת לפחות משפחת פעולה אחת דולקת</b> — משפחות דעה (שווקים, שוק הניבוי,
     אזהרות מסע) לבדן עוצרות ברמה 1, לא משנה כמה מהן נדלקו. הכלל יכול רק
-    להוריד רמה, לעולם לא להעלות.</p>
+    להוריד רמה, לעולם לא להעלות. <b>מ-1.9.2026 שלוש משפחות הדעה עברו להקשר
+    ואינן מצביעות כלל</b>, ולכן הכלל רדום — נשמר בקוד, מיושם על אף משפחה
+    (סעיף 2).</p>
 
     <h3>3. פיקוד העורף לבדו מספיק ל"קריטי"</h3>
     <p>זו החריגה היחידה מכלל הספירה. שינוי במדיניות ההתגוננות הוא הפעולה היקרה
@@ -745,7 +816,9 @@ footer a:hover{color:var(--cyan)}
     higher requires at least one lit action family</b> — belief families
     (markets, the prediction market, travel advisories) alone stop at level 1,
     no matter how many light. The rule can only lower a level, never raise
-    one.</p>
+    one. <b>Since 2026-09-01 all three belief families moved to context and
+    cast no vote at all</b>, so the rule is dormant — kept in the code,
+    applying to no family (section 2).</p>
 
     <h3>3. The Home Front Command alone is enough for "critical"</h3>
     <p>This is the single exception to the counting rule. A defence-policy
@@ -1085,6 +1158,20 @@ footer a:hover{color:var(--cyan)}
     הפעולה/דעה של כל משפחה (סעיף 2): רמה 2 ומעלה מחייבת לפחות משפחת
     <b>פעולה</b> אחת דולקת — משפחות <b>דעה</b> לבדן נעצרות ברמה 1.</p>
 
+    <p><b>עודכן 1.9.2026.</b> חמש משפחות עברו ל<b>הקשר בלבד</b>: אזהרות מסע,
+    חריגות תרמיות, שיבוש GPS בהורמוז, השווקים ושוק הניבוי. הן נמדדות, נשמרות
+    ומופיעות בטבלה עם הסף החי שלהן — אבל אינן מצביעות, והעמודה האחרונה שלהן
+    כותבת "הקשר בלבד". מ-1.9.2026 כל המשפחות המצביעות מסווגות <b>פעולה</b>,
+    ולכן מסנן הפעולה/דעה רדום: הוא נשאר בקוד כמנגנון בטיחות למקרה שמשפחת דעה
+    תקבל קול שוב.</p>
+
+    <p><b>התוצאה במדד האיראני, נאמרת במפורש:</b> נשארו לו שתי משפחות מצביעות
+    בלבד — אינטרנט באיראן (IODA) ותעופה צבאית באזור (adsb.lol) — על שני ספקים.
+    רמה 3 מחייבת שלושה ספקים נפרדים, ולכן <b>המדד האיראני אינו יכול להגיע
+    לרמה 3; התקרה שלו היא 2</b>, והדף כותב "מתוך 2" ולא "מתוך 3". התקרה נגזרת
+    בקוד מרשימת המשפחות המצביעות ומתפרסמת בשדה <code>max_level</code>, כדי
+    שלא תוכל לסטות ממנה.</p>
+
     <div class="m-wrap"><table class="m-tbl">
       <thead><tr><th>מדד</th><th>מקור</th><th>מה מדליק</th><th>לאיזה מדד</th></tr></thead>
       <tbody>
@@ -1108,16 +1195,24 @@ footer a:hover{color:var(--cyan)}
             <td>עליית רמת אזהרה לישראל / לבנון / ירדן / סוריה — <b>מאושר
             בשתי תצפיות רצופות</b>. הזרוע הבריטית (FCDO, gov.uk) הוסרה
             מהקוד ב-31.8.2026; שורה זו המשיכה לתאר אותה עד
-            1.9.2026</td><td>🇮🇱 ישראל · דעה</td></tr>
+            1.9.2026. <b>הקשר בלבד מ-1.9.2026 — אינה מצביעה</b>: מה שנקרא כאן
+            הוא הכרזה על סיכון, ולבנון וסוריה כבר על תקרת הסולם
+            (4)</td><td>— הקשר בלבד</td></tr>
         <tr><td>אינטרנט באיראן (ארצי)</td><td>IODA · Georgia Tech</td>
-            <td class="num-cell">merit-nt &lt; 50% מהחציון, או ping-slash24
-            &lt; 50% (BGP מוצג אך אינו מצביע — במלחמת יוני 2025 לא ירד
-            מ-94.5% מהבסיס)</td><td>🇮🇷 איראן · פעולה</td></tr>
+            <td class="num-cell">merit-nt &lt; 50% מהחציון.
+            <b>merit-nt היא זרוע ההצבעה היחידה מ-1.9.2026</b>; BGP
+            ו-ping-slash24 נמדדים ומוצגים אך אינם מצביעים (BGP במלחמת יוני
+            2025 לא ירד מ-94.5% מהבסיס; ping-slash24 הוסר מההצבעה ב-1.9.2026
+            אחרי שנמצא החירש מבין השתיים בשחזור על 96 הדגימות
+            השמורות)</td><td>🇮🇷 איראן · פעולה</td></tr>
         <tr><td>חריגות תרמיות מלוויין</td><td>NASA FIRMS · VIIRS (סדרה יומית —
             נמדדת היממה השלמה UTC האחרונה)</td>
             <td class="num-cell">n &gt; max(3 × חציון הימים הקודמים, חציון + 5)
             · עד 30 יום · אין שיפוט עם פחות מ-7 ימי היסטוריה · יממה שלמה
-            ישנה מ-36 שעות = מקור תקוע, לא אפס</td><td>🇮🇷 איראן · פעולה</td></tr>
+            ישנה מ-36 שעות = מקור תקוע, לא אפס. <b>הקשר בלבד מ-1.9.2026 —
+            אינה מצביעה</b>: זיהוי תרמי הוא הערכת נזק אחרי אירוע ולא לפניו,
+            והסף (&gt;8 מוקדים) גבוה מהמקסימום שנמדד אי פעם (5, מתוך 13 ימים
+            שמורים)</td><td>— הקשר בלבד</td></tr>
         <tr><td>התרעות שגרירות ארה"ב — הוראות מבצעיות</td><td>7 שגרירויות
             ארה"ב באזור (ישראל, לבנון, עיראק, בחריין, כווית, קטאר, איחוד
             האמירויות)</td>
@@ -1150,7 +1245,10 @@ footer a:hover{color:var(--cyan)}
             <b>אינה מצביעה ואינה משנה רמה</b>: n=1, וירידה יכולה לנבוע גם
             מדילול כיסוי המטוסים — היחס נגזר מתעופה — ולא מכיבוי משבש. אין
             מקור שני שיפריד ביניהם, ולכן זה מסומן כאמון
-            נמוך</td><td>🇮🇷 איראן · פעולה</td></tr>
+            נמוך. <b>הקשר בלבד מ-1.9.2026 — אינה מצביעה</b>: זהו אות
+            מפרצי-ימי, מנגנון מקדים באמת אבל מחוץ לשאלה שהדף שואל. העוגן
+            והראצ׳ט שלה ממשיכים להתפרסם בפאנל האיראני — הם המנגנון היחיד כאן
+            שעקב אחרי שינוי משטר אמיתי</td><td>— הקשר בלבד</td></tr>
         <tr><td>שיבוש GPS — מרחב ישראל</td><td>gpsjam.org (אותו קובץ יומי —
             הורדה אחת משרתת את שני מדדי ה-GPS; 51 תאי H3 ברזולוציה 4 מעל
             29.4–33.4°N, 34.2–36.0°E)</td>
@@ -1186,8 +1284,11 @@ footer a:hover{color:var(--cyan)}
             ברצפה 14, הראשונה ברצפה 12</td><td>🌐 אזורי — נספר לשניהם · פעולה</td></tr>
         <tr><td>שווקים — ברנט ושקל</td><td>tgju (ברנט) · בנק ישראל (דולר-שקל)</td>
             <td>כיוון הסלמה בלבד: ברנט ≥ 108% מהחציון, או שער הדולר-שקל
-            ≥ 103% מהחציון (היחלשות שקל). קול אחד למשפחה</td>
-            <td>🌐 אזורי — נספר לשניהם · דעה</td></tr>
+            ≥ 103% מהחציון (היחלשות שקל). <b>הקשר בלבד מ-1.9.2026 — אינה
+            מצביעה באף אחד משני המדדים</b>, אף שהיא מוצגת בשניהם: מחיר מתמחר
+            מחדש חדשות שכבר פורסמו, ושני הספים (ברנט ≥$97.9 · דולר ≥3.08 ₪)
+            גבוהים מהמקסימום שנמדד בחלון החי (93.879 · 3.012)</td>
+            <td>— הקשר בלבד</td></tr>
         <tr><td>שוק ניבוי — הפסקת האש</td><td>Polymarket (האירוע "Israel x Iran
             ceasefire continues through...?", ~$26M מחזור; תנאי ההכרעה —
             תקיפה אווירית או טילית של צד אחד בשני, דו-כיווני)</td>
@@ -1200,8 +1301,11 @@ footer a:hover{color:var(--cyan)}
             מרווח קנייה-מכירה &gt; 0.05 <b>או מרווח חסר בתשובת ה-API</b> →
             המדד מדווח כלא-נקרא, לא כאפס. אחרי גלגול לחוזה הבא קו הבסיס
             משלב זמנית שני חוזים — זה מסומן בערך המוצג, והשיפוט נמשך
-            (הנימוק המדוד בהמשך הסעיף)</td>
-            <td>🌐 אזורי — נספר לשניהם · דעה</td></tr>
+            (הנימוק המדוד בהמשך הסעיף). <b>הקשר בלבד מ-1.9.2026 — אינה
+            מצביעה באף אחד משני המדדים</b>, אף שהיא מוצגת בשניהם: מהמר שאין
+            לו מידע פרטי קורא את אותן כותרות, והסף (2% ליום) גבוה מהמקסימום
+            שנמדד אי פעם (0.87% ליום, מתוך 26 ימים שמורים)</td>
+            <td>— הקשר בלבד</td></tr>
         <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
             <td><b>לא מדליק כלום</b> — הקשר בלבד</td><td>—</td></tr>
       </tbody>
@@ -1320,6 +1424,23 @@ footer a:hover{color:var(--cyan)}
     a level of 2 or higher requires at least one lit <b>action</b> family —
     <b>belief</b> families alone stop at level 1.</p>
 
+    <p><b>Updated 2026-09-01.</b> Five families became <b>context only</b>:
+    travel advisories, satellite thermal anomalies, Hormuz GPS interference,
+    the markets and the prediction market. They are still measured, still
+    stored and still listed below with their live thresholds — but they cast
+    no vote, and their last column reads "context only". Since 2026-09-01
+    every voting family is typed <b>action</b>, so the action/belief guard is
+    dormant: it stays in the code as a safety property in case a belief family
+    is ever given a vote again.</p>
+
+    <p><b>The consequence on the Iran index, said plainly:</b> it has two
+    voting families left — Iranian internet (IODA) and regional military
+    aviation (adsb.lol) — over two providers. Level 3 requires three separate
+    providers, so <b>the Iran index cannot reach level 3; its ceiling is
+    2</b>, and the page says "of 2" rather than "of 3". The ceiling is derived
+    in code from the voting roster and published in a <code>max_level</code>
+    field, so it cannot drift from it.</p>
+
     <div class="m-wrap"><table class="m-tbl">
       <thead><tr><th>Indicator</th><th>Source</th><th>What lights it</th><th>Which index</th></tr></thead>
       <tbody>
@@ -1347,17 +1468,27 @@ footer a:hover{color:var(--cyan)}
             <td>An advisory-level rise for Israel / Lebanon / Jordan / Syria —
             <b>confirmed by two consecutive observations</b>. The UK arm
             (FCDO, gov.uk) was removed from the code on 2026-08-31; this row
-            went on describing it until 2026-09-01</td><td>🇮🇱 Israel · belief</td></tr>
+            went on describing it until 2026-09-01. <b>Context only since
+            2026-09-01 — it casts no vote</b>: what is read here is an
+            announcement about risk, and Lebanon and Syria already sit at the
+            top of the scale (4)</td><td>— context only</td></tr>
         <tr><td>Iranian internet (national)</td><td>IODA · Georgia Tech</td>
-            <td class="num-cell">merit-nt &lt; 50% of the median, or
-            ping-slash24 &lt; 50% (BGP is displayed but no longer votes — it
-            never fell under 94.5% of baseline in the June-2025 war)</td><td>🇮🇷 Iran · action</td></tr>
+            <td class="num-cell">merit-nt &lt; 50% of the median.
+            <b>merit-nt is the only voting arm since 2026-09-01</b>; BGP and
+            ping-slash24 are measured and displayed but do not vote (BGP never
+            fell under 94.5% of baseline in the June-2025 war; ping-slash24
+            was removed from the vote on 2026-09-01 after it was found to be
+            the deafer of the two on a replay over the 96 stored
+            samples)</td><td>🇮🇷 Iran · action</td></tr>
         <tr><td>Satellite thermal anomalies</td><td>NASA FIRMS · VIIRS (daily
             series — measured over the latest complete UTC day)</td>
             <td class="num-cell">n &gt; max(3 × the preceding days' median,
             median + 5) · up to 30 days · no judgement with fewer than 7 days
             of history · a complete day older than 36 h = stuck source, not
-            zero</td><td>🇮🇷 Iran · action</td></tr>
+            zero. <b>Context only since 2026-09-01 — it casts no vote</b>:
+            thermal detection is damage assessment after an event, not before
+            it, and the bar (&gt;8 hotspots) sits above the highest count ever
+            recorded (5, over 13 stored days)</td><td>— context only</td></tr>
         <tr><td>US embassy alerts — operational orders</td><td>7 U.S.
             embassies in the region (Israel, Lebanon, Iraq, Bahrain, Kuwait,
             Qatar, UAE)</td>
@@ -1398,7 +1529,11 @@ footer a:hover{color:var(--cyan)}
             also be thinning aircraft coverage — the ratio is aviation-derived
             — rather than a jammer being switched off. There is no second
             source to separate the two, so it is labelled low
-            confidence</td><td>🇮🇷 Iran · action</td></tr>
+            confidence. <b>Context only since 2026-09-01 — it casts no
+            vote</b>: this is a Gulf/maritime signal, genuinely leading as a
+            mechanism but outside the question this page asks. Its anchor and
+            its ratchet keep publishing on the Iran panel — they are the only
+            mechanism here that tracked a real regime change</td><td>— context only</td></tr>
         <tr><td>GPS interference — Israeli airspace</td><td>gpsjam.org (the
             same daily file — one download serves both GPS indicators; 51 H3
             resolution-4 cells over 29.4–33.4°N, 34.2–36.0°E)</td>
@@ -1441,9 +1576,13 @@ footer a:hover{color:var(--cyan)}
             12</td><td>🌐 Regional — counts for both · action</td></tr>
         <tr><td>Markets — Brent and the shekel</td><td>tgju (Brent) · Bank of Israel (USD/ILS)</td>
             <td>Escalation direction only: Brent ≥ 108% of the median, or the
-            USD/ILS rate ≥ 103% of the median (shekel weakening). One vote per
-            family</td>
-            <td>🌐 Regional — counts for both · belief</td></tr>
+            USD/ILS rate ≥ 103% of the median (shekel weakening).
+            <b>Context only since 2026-09-01 — it casts no vote on either
+            index</b>, although it is displayed on both: a price reprices news
+            that has already been published, and both bars (Brent ≥$97.9 ·
+            USD/ILS ≥3.08) sit above the highest values in the live window
+            (93.879 · 3.012)</td>
+            <td>— context only</td></tr>
         <tr><td>Prediction market — ceasefire</td><td>Polymarket (the event
             "Israel x Iran ceasefire continues through...?", ~$26M volume;
             resolution criterion — an air or missile strike by either side on
@@ -1460,8 +1599,12 @@ footer a:hover{color:var(--cyan)}
             zero. After a roll to the next contract the baseline temporarily
             spans two contracts — this is flagged in the displayed value and
             judging continues (the measured rationale is later in this
-            section)</td>
-            <td>🌐 Regional — counts for both · belief</td></tr>
+            section). <b>Context only since 2026-09-01 — it casts no vote on
+            either index</b>, although it is displayed on both: a bettor with
+            no private information reads the same headlines, and the bar (2%
+            per day) sits above the highest value ever recorded (0.87% per
+            day, over 26 stored days)</td>
+            <td>— context only</td></tr>
         <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
             <td><b>Lights nothing</b> — context only</td><td>—</td></tr>
       </tbody>
@@ -1854,11 +1997,13 @@ footer a:hover{color:var(--cyan)}
       לשאלת הראדאר (תקיפה אווירית/טילית של צד אחד בשני, דו-כיווני, ~$26M
       מחזור), והמדידה עברה למחיר <b>מנורמל לאופק</b> — סיכון יומי גלום ולא
       מחיר גולמי — עם רצפת נזילות, רצפת אופק של 21 יום, והרצה לאחור על חודש
-      המסחר האמיתי האחרון (25 ימים שנשפטו מתוך 32 בחלון — סעיף 05). לכן זו משפחה מצביעה אבל <b>ערוץ אישור</b>, באותו
+      המסחר האמיתי האחרון (25 ימים שנשפטו מתוך 32 בחלון — סעיף 05). עד 1.9.2026 זו הייתה משפחה מצביעה אבל <b>ערוץ אישור</b>, באותו
       מעמד שניתן למשפחת השווקים: כסף אמיתי, ספק נפרד באמת — אבל דעה, לא
       פעולה יקרה של מדינה. מ-20.8 המעמד הזה גם נאכף מבנית: המשפחה מסווגת
-      "דעה", ומשפחות דעה לבדן — כמה שלא יידלקו יחד — אינן מעלות את המדד
-      מעל רמה 1 (סעיף 2).</li>
+      "דעה", ומשפחות דעה לבדן — כמה שלא יידלקו יחד — נעצרו אז ברמה 1
+      (סעיף 2). <b>ומ-1.9.2026 היא אינה מצביעה כלל</b>: היא עברה
+      ל<b>הקשר בלבד</b> יחד עם השווקים ואזהרות המסע. היא נמדדת ומוצגת, ואינה
+      נספרת.</li>
       <li><b>רטוריקת מנהיגים —</b> הוצאה לחלוטין. ב-19 ביוני 2025 נאמר "החלטה בתוך
       שבועיים", והתקיפה הגיעה תוך יומיים. סיגנל שיכול להיות אנטי-מתואם עם האמת
       בדיוק ברגע הקריטי אינו סיגנל.</li>
@@ -1926,12 +2071,16 @@ footer a:hover{color:var(--cyan)}
       daily hazard, never the raw price — with a liquidity floor, a 21-day
       horizon floor, and a backtest over the last real month of trading
       (25 judged days of the 32 in the window — section 05).
-      So it is a voting family but a <b>confirmation channel</b>, with the
+      Until 2026-09-01 it was a voting family but a <b>confirmation
+      channel</b>, with the
       same standing the markets family has: real money, a genuinely separate
       provider — but a belief, not a costly state action. Since 20 Aug that
       standing is also enforced structurally: the family is typed "belief",
-      and belief families alone — however many light together — can never
-      push the index past level 1 (section 2).</li>
+      and belief families alone — however many light together — were capped
+      at level 1 by that rule (section 2). <b>And since 2026-09-01 it
+      casts no vote at all</b>: it moved to <b>context only</b> alongside the
+      markets and the travel advisories. It is measured and displayed, and it
+      is not counted.</li>
       <li><b>Leader rhetoric —</b> removed entirely. On 19 June 2025 the line
       was "a decision within two weeks", and the strike came within two days.
       A signal that can be anti-correlated with the truth at exactly the
