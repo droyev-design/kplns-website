@@ -1,12 +1,6 @@
 {
- "generated": "2026-09-01T08:42:31+00:00",
+ "generated": "2026-09-01T09:12:31+00:00",
  "history": [
-  {
-   "t": 1787647357,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787649165,
    "il": 0,
@@ -2028,6 +2022,12 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788253951,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2073,7 +2073,9 @@
      "threshold_now": "",
      "threshold_now_en": "",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "il_airspace",
@@ -2094,13 +2096,15 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "90 מטוסים אזרחיים באזור",
-     "value_en": "90 civil aircraft in the area",
+     "value": "78 מטוסים אזרחיים באזור",
+     "value_en": "78 civil aircraft in the area",
      "range": "54–91",
      "threshold_now": "<26 מטוסים",
      "threshold_now_en": "<26 aircraft",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "jo_airspace",
@@ -2121,13 +2125,15 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
+     "value": "7 מטוסים מעל ירדן",
+     "value_en": "7 aircraft over Jordan",
      "range": "3–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "advisories_il",
@@ -2154,7 +2160,9 @@
      "threshold_now": "",
      "threshold_now_en": "",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "embassy_alerts",
@@ -2181,7 +2189,9 @@
      "threshold_now": "",
      "threshold_now_en": "",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "il_gps",
@@ -2208,7 +2218,9 @@
      "threshold_now": "≥14.0%",
      "threshold_now_en": "≥14.0%",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "us_mil_air",
@@ -2229,13 +2241,15 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים צבאיים באזור",
-     "value_en": "5 military aircraft in the area",
+     "value": "7 מטוסים צבאיים באזור",
+     "value_en": "7 military aircraft in the area",
      "range": "1–9",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "markets",
@@ -2262,7 +2276,9 @@
      "threshold_now": "ברנט ≥$97.5 · דולר ≥3.06 ₪",
      "threshold_now_en": "Brent ≥$97.5 · USD/ILS ≥3.06",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "polymarket",
@@ -2289,7 +2305,9 @@
      "threshold_now": "≥2.00% ליום",
      "threshold_now_en": "≥2.00%/day",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "strikeradar",
@@ -2316,7 +2334,9 @@
      "threshold_now": "",
      "threshold_now_en": "",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     }
    ],
    "measurable_total": 9,
@@ -2359,13 +2379,15 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,582 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,582 BGP routes)",
-     "range": "41,559–41,589",
+     "value": "קישוריות תקינה (41,594 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,594 BGP routes)",
+     "range": "41,559–41,591",
      "threshold_now": "merit-nt <23 · ping-slash24 <5,556",
      "threshold_now_en": "merit-nt <23 · ping-slash24 <5,556",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "firms",
@@ -2392,7 +2414,9 @@
      "threshold_now": ">8 מוקדים",
      "threshold_now_en": ">8 hotspots",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "hormuz_gps",
@@ -2419,7 +2443,9 @@
      "threshold_now": "≥15.6%",
      "threshold_now_en": "≥15.6%",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "📈 מצב: 12 מתוך 14 הימים האחרונים מעל העוגן המוצהר (5.0%), כולל היום. אינו מצביע. העוגן נמדד בתוך המלחמה.",
+     "anchor_en": "📈 State: 12 of the last 14 days at or above the declared anchor (5.0%), including today. Casts no vote. The anchor was measured inside the war."
     },
     {
      "key": "us_mil_air",
@@ -2440,13 +2466,15 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים צבאיים באזור",
-     "value_en": "5 military aircraft in the area",
+     "value": "7 מטוסים צבאיים באזור",
+     "value_en": "7 military aircraft in the area",
      "range": "1–9",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "markets",
@@ -2473,7 +2501,9 @@
      "threshold_now": "ברנט ≥$97.5 · דולר ≥3.06 ₪",
      "threshold_now_en": "Brent ≥$97.5 · USD/ILS ≥3.06",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "polymarket",
@@ -2500,7 +2530,9 @@
      "threshold_now": "≥2.00% ליום",
      "threshold_now_en": "≥2.00%/day",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     },
     {
      "key": "strikeradar",
@@ -2527,7 +2559,9 @@
      "threshold_now": "",
      "threshold_now_en": "",
      "watch": "",
-     "watch_en": ""
+     "watch_en": "",
+     "anchor": "",
+     "anchor_en": ""
     }
    ],
    "measurable_total": 6,
@@ -2553,6 +2587,12 @@
  "unmeasurable_total": 3,
  "lit_count": 0,
  "ratchets": [],
+ "anchor_summary": {
+  "families_reported": 3,
+  "families_on_anchor": 1,
+  "longest_streak_days": 1,
+  "window_days": 14
+ },
  "degraded": [],
  "degraded_en": [],
  "manual_override": {

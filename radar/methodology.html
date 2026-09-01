@@ -554,12 +554,18 @@ footer a:hover{color:var(--cyan)}
     לעשות. מאז נאכף בקוד <b>מסנן גיוון-ספקים</b>, ולכל משפחה יש תגית ספק
     מפורשת בקוד (לא ניחוש מתוך כתובת):</p>
     <ul>
-      <li>משפחות שחולקות ספק תורמות יחד <b>לכל היותר שני קולות</b>;</li>
       <li>רמה 2 ומעלה מחייבת קולות מ<b>שני ספקים נפרדים לפחות</b>;</li>
       <li>רמה 3 מחייבת קולות מ<b>שלושה ספקים נפרדים לפחות</b> (חריגה: פיקוד
       העורף לבדו, ראו סעיף 3 להלן);</li>
       <li>המסנן יכול רק <b>להוריד</b> רמה — לעולם לא להעלות אותה.</li>
     </ul>
+    <p><b>סעיף שהוסר, 1.9.2026.</b> עד אז נכתב כאן גם ש"משפחות שחולקות ספק
+    תורמות יחד לכל היותר שני קולות". התקרה ההיא נמחקה מהקוד באותו יום, אחרי
+    שנבדקו כל 131,072 המצבים האפשריים (2<sup>16</sup> תת-קבוצות של משפחות
+    דולקות × שני מדדים) עם התקרה ובלעדיה, ולא נמצא <b>אף</b> הבדל בתוצאה. היא
+    לא שינתה רמה מעולם: הדרישה לשלושה ספקים ברמה 3 כבר חוסמת בדיוק את אותו
+    מצב. ההערה נשארת כאן כדי שקורא שזוכר את הכלל הישן ידע שהוא הוסר בכוונה
+    ומדוע.</p>
     <p>יוצא דופן אחד, ומוצהר: שינוי במדיניות ההתגוננות של פיקוד העורף מספיק
     לבדו לרמה 3. הכלל הזה אינו טענה על אישוש מצטבר משלושה מקורות, אלא פעולה
     רשמית אחת של מדינת ישראל שמתפרסמת ב-API הרשמי שלה. המסנן נועד למנוע
@@ -671,14 +677,21 @@ footer a:hover{color:var(--cyan)}
     carries an explicit provider tag in the source (not a guess parsed out of
     a URL):</p>
     <ul>
-      <li>families sharing a provider contribute <b>at most two votes between
-      them</b>;</li>
       <li>a level of 2 or higher must draw on <b>at least two distinct
       providers</b>;</li>
       <li>a level of 3 must draw on <b>at least three distinct providers</b>
       (exception: Home Front Command alone, see section 3 below);</li>
       <li>the guard can only ever <b>lower</b> a level — never raise one.</li>
     </ul>
+    <p><b>A clause removed on 2026-09-01.</b> Until then this list also said
+    that "families sharing a provider contribute at most two votes between
+    them". That cap was deleted from the code the same day, after all 131,072
+    possible states (2<sup>16</sup> subsets of lit families × two indices)
+    were evaluated with and without it and produced <b>zero</b> differing
+    outcomes. It never once changed a level: the three-provider requirement
+    for level 3 already blocks exactly the same case. The note stays here so
+    a reader who remembers the old rule knows it was removed deliberately,
+    and why.</p>
     <p>One exception, stated openly: a Home Front Command defence-policy change
     is still sufficient alone for level 3. That rule is not a claim of
     corroboration across three sources; it is a single authoritative act of the
@@ -836,6 +849,34 @@ footer a:hover{color:var(--cyan)}
       </tbody>
     </table></div>
 
+    <h3>אוגר-מצב שני — "האם ההתארגנות נמשכת?" (1.9.2026)</h3>
+    <p>כל מה שתואר עד כאן הוא גלאי <b>שינוי</b>: ערך מול חציון מתגלגל של העבר
+    הקרוב שלו. לצורה הזו יש נקודה עיוורת מבנית אחת, ובנתונים השמורים של
+    המערכת יש דוגמה ספרותית שלה. שיבוש ה-GPS במצר הורמוז ישב בין 10% ל-14%
+    מ-9 עד 28 באוגוסט 2026 — פי ארבעה עד חמישה מרמתו שבוע קודם — <b>והדף
+    הראה 🟢 בכל אחד מעשרים הימים האלה</b>, כי עד היום השלישי החציון המתגלגל
+    כבר עלה יחד עם המדידה. עוגן מתגלגל אינו יכול לומר "זה עדיין קורה"; מעצם
+    בנייתו הוא יכול לומר רק "זה בדיוק השתנה".</p>
+    <p>מ-1.9.2026 כל משפחת <b>פעולה</b> נמדדת <b>גם</b> מול <b>עוגן מוצהר</b>:
+    מספר קבוע, כתוב בקוד לצד המקור והתאריך שלו, שאינו זז כשהמציאות זזה. כל
+    יממה נשפטת מולו, התוצאות נצברות, והדף מדפיס ליד השורה "כמה מ-14 הימים
+    האחרונים היו מעל העוגן המוצהר, וכמה מהם ברצף". בהרצה לאחור על הסדרה
+    השמורה, אשכול הורמוז נקרא <b>עשרים ימים רצופים</b> מעל העוגן. שתי הצורות
+    נשמרות בכוונה: כמה מ-14 (מצב מצטבר) <b>וגם</b> אורך הרצף (האם זה עדיין
+    קורה היום) — 12 מתוך 14 עם רצף 0 היא תופעה דועכת ואסור שתיקרא כמו תופעה
+    נמשכת.</p>
+    <p><b>מה שהוא לא, ונאמר במפורש:</b> הוא <b>אינו מדד מצביע</b>. הוא אינו
+    מעלה רמה, והקוד שקובע את הרמה לא נגע בו כלל. מצב שנמשך אינו אירוע, וניפוח
+    המחוון בגלל תנאי שנכון כבר שלושה שבועות הוא בדיוק כשל התצוגה שהמערכת הזו
+    נכתבת נגדו. הוא גם אינו מחליף את מנגנון תקרת-הסף ואינו מחליף את הקפאת קו
+    הבסיס — שניהם עוסקים בספים ובקווי בסיס של הגלאים המהירים, כמות אחרת
+    לגמרי.</p>
+    <p><b>וההסתייגות המהותית ביותר:</b> <b>כל העוגנים נמדדו בתוך המלחמה.</b>
+    הדגימה העתיקה ביותר על הדיסק היא מ-1.8.2026, והמלחמה פתוחה מ-28.2.2026.
+    לכן העוגנים יכולים לומר "יותר מהנורמה של אוגוסט 2026" — הם <b>אינם</b>
+    יכולים לומר "יותר מזמן שלום", כי המערכת הזו מעולם לא ראתה זמן שלום. זו
+    מגבלת נתונים, לא בחירת כיול, והיא מודפסת יחד עם כל שורה.</p>
+
     <h3>למה הספים יחסיים ולא מוחלטים</h3>
     <p>אין בקוד ספים כמו "פחות מ-40 מטוסים" או "מעל 100 דולר לחבית". רוב הספים
     מנוסחים כ<b>יחס לחציון</b>. הסיבה מעשית: לכל פיד יש "נורמלי" משלו, והוא נודד.
@@ -954,6 +995,42 @@ footer a:hover{color:var(--cyan)}
             marked "not read" — never zero.</td></tr>
       </tbody>
     </table></div>
+
+    <h3>A second state accumulator — "is the build-up continuing?" (1 Sep 2026)</h3>
+    <p>Everything described so far is a <b>change</b> detector: a value against
+    a rolling median of its own recent past. That shape has one structural
+    blind spot, and this system's own stored data contains a textbook instance
+    of it. GPS interference in the Strait of Hormuz sat between 10% and 14%
+    from 9 to 28 August 2026 — four to five times its own level a week earlier
+    — <b>and the page showed 🟢 on every one of those twenty days</b>, because
+    by day three the rolling median had moved up with the measurement. A
+    rolling reference cannot say "this is still happening"; by construction it
+    can only say "this just changed".</p>
+    <p>Since 2026-09-01 every <b>action</b> family is <b>also</b> scored
+    against a <b>declared anchor</b>: a fixed number, written in the code
+    beside its provenance and its date, that does not move when the world
+    moves. Each UTC day is judged against it, the results accumulate, and the
+    page prints next to the row "how many of the last 14 days were above the
+    declared anchor, and how many of them consecutively". Replayed over the
+    stored series, the Hormuz cluster reads <b>twenty consecutive days</b>
+    above the anchor. Both forms are kept deliberately: the count out of 14
+    (accumulated state) <b>and</b> the streak (is it still happening today) —
+    12 of 14 with a streak of 0 is a fading condition and must not read like a
+    continuing one.</p>
+    <p><b>What it is not, said plainly:</b> it is <b>not a voting
+    indicator</b>. It raises no level, and the code that decides the level was
+    not touched to make room for it. A sustained state is not an event, and
+    inflating the dial for a condition that has been true for three weeks is
+    exactly the display failure this system keeps writing rules against. It
+    also does not replace the threshold cap or the baseline freeze — both of
+    those act on the fast detectors' thresholds and baselines, an entirely
+    different quantity.</p>
+    <p><b>And the most important caveat:</b> <b>every anchor was measured
+    inside the war.</b> The oldest sample on disk is from 2026-08-01 and the
+    war has been open since 2026-02-28. So the anchors can say "more than the
+    August-2026 norm" — they <b>cannot</b> say "more than peacetime", because
+    this system has never seen peacetime. That is a data limit, not a
+    calibration choice, and it is printed with every line.</p>
 
     <h3>Why the thresholds are relative, not absolute</h3>
     <p>There are no thresholds in the code like "under 40 aircraft" or "above
