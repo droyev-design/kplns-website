@@ -984,6 +984,44 @@ footer a:hover{color:var(--cyan)}
     יכולים לומר "יותר מזמן שלום", כי המערכת הזו מעולם לא ראתה זמן שלום. זו
     מגבלת נתונים, לא בחירת כיול, והיא מודפסת יחד עם כל שורה.</p>
 
+    <h3>שני מספרי מצב בראש כל מדד (2.9.2026)</h3>
+    <p>האוגר שתואר למעלה עבד מ-1.9.2026, אבל הוא הודפס רק ליד השורה של
+    המשפחה עצמה. בערב 1.9.2026, כשדווח על לחימה פעילה באזור, שני המדדים
+    הראו 0 בעוד האוגר אמר - בשורה אחת בתוך פאנל איראן - ששיבוש ה-GPS
+    בהורמוז היה מעל העוגן המוצהר שלו ב-12 מתוך 14 הימים האחרונים, כולל אותו
+    יום. המספר היה נכון והוא היה קבור. מ-2.9.2026 הוא מוצג <b>בראש כל
+    מדד, ליד הרמה</b>, יחד עם מספר שני.</p>
+    <p><b>1. מצב עומד.</b> לכל מדד מוצג: כמה מהמשפחות המעוגנות שלו צברו
+    מספיק ימים כדי לדווח בכלל, כמה מהן חוצות את העוגן המוצהר שלהן
+    <b>היום</b>, והמשפחה עם הכי הרבה ימים מעבר לעוגן - במשפט זהה לזה
+    שמודפס ליד השורה שלה, מאותה פונקציה בקוד. זו אינה בחירה קוסמטית: היא
+    מבטיחה שכותרת לא תוכל לומר דבר שהשורה שמתחתיה סותרת.</p>
+    <p><b>למה הכותרת סופרת ימים ולא רצף.</b> אוגר המצב מחזיק שני מספרים
+    שונים - <b>מספר הימים</b> החוצים בחלון של 14, ו<b>אורך הרצף</b> הנגמר
+    היום. ב-1.9.2026 הסיכום הכללי דיווח רצף של יום אחד בעוד השורה של הורמוז
+    דיווחה 12 מתוך 14, ושני המספרים היו נכונים: 12 מהימים חצו את העוגן, אבל
+    היום שלפני האחרון היה מתחתיו, ולכן הרצף נקטע. כותרת שהייתה בנויה על
+    הרצף הייתה מדפיסה "יום אחד" מעל שורה שאומרת 12 מתוך 14, והקורא היה
+    צריך לבחור באיזה ממספרי הדף להאמין. לכן הכותרת סופרת ימים. שני המספרים
+    ממשיכים להתפרסם, כי 12 מתוך 14 עם רצף 0 היא תופעה דועכת ואסור שתיקרא
+    כמו תופעה נמשכת.</p>
+    <p><b>2. סיכון יומי עומד.</b> משפחת שוק הניבוי כבר מחשבת בדיוק את
+    הכמות שחסרה ליד רמה שמודדת רק שינוי: סיכון <b>ליום</b>, שאינו נעלם רק
+    מפני שדבר לא זז. מ-2.9.2026 הוא מתפרסם כמספר בפני עצמו ליד הרמה, ונושא
+    איתו - בגוף המשפט, לא מאחורי קישור - ארבעה דברים: שזו <b>הסתברות
+    גלומה משוק</b> של כסף אמיתי ולא תחזית של הדף הזה ולא מדידת חיישן; איזה
+    חוזה, בשמו, ומה סוגר אותו; מה מחיר החוזה מגלם לכל אורך חייו הנותרים
+    וכמה ימים נותרו; ושהמספר המתפרסם הוא <b>קצב יומי ולא מחיר החוזה</b>.
+    ההפרדה הזו היא כל הסיבה שהמערכת שומרת <code>hazard</code> ולא
+    <code>p</code>: מחיר חוזה יורד מעצמו ככל שמועד הפקיעה מתקרב, ולכן מחיר
+    יורד אינו עדות לכלום. המחיר עצמו כן מוצג - אבל כמספר שממנו נורמלו, ולא
+    ככותרת, כדי שהקורא יראה את החשבון במקום להתבקש להאמין לו.</p>
+    <p><b>שניהם מוצגים ואף אחד מהם אינו מצביע.</b> אף אחד משני המספרים אינו
+    נקרא על ידי הקוד שקובע רמה, אינו נספר באף מונה, ואינו יכול להזיז את
+    המחוון. וכשאין מה לדווח - פחות מ-5 ימים אגורים במשפחות המעוגנות של אותו
+    מדד, או שוק ניבוי שלא נקרא בריצה האחרונה - נכתב זאת במפורש במקום המספר,
+    ומספר ישן לא מוצג. <b>היעדר מספר אינו אישור שהכול בסדר.</b></p>
+
     <h3>למה הספים יחסיים ולא מוחלטים</h3>
     <p>אין בקוד ספים כמו "פחות מ-40 מטוסים" או "מעל 100 דולר לחבית". רוב הספים
     מנוסחים כ<b>יחס לחציון</b>. הסיבה מעשית: לכל פיד יש "נורמלי" משלו, והוא נודד.
@@ -1194,6 +1232,57 @@ footer a:hover{color:var(--cyan)}
     August-2026 norm" — they <b>cannot</b> say "more than peacetime", because
     this system has never seen peacetime. That is a data limit, not a
     calibration choice, and it is printed with every line.</p>
+
+    <h3>Two standing figures at the top of each index (2 Sep 2026)</h3>
+    <p>The accumulator described above has been running since 2026-09-01,
+    but it was printed only beside the row of the family it belonged to. On
+    the evening of 2026-09-01, with active fighting reported in the region,
+    both indices read 0 while the accumulator was saying — in one row inside
+    the Iran panel — that Hormuz GPS interference had been above its declared
+    anchor on 12 of the last 14 days, including that day. The number was
+    right and it was buried. Since 2026-09-02 it is shown <b>at the top of
+    each index, beside the level</b>, together with a second figure.</p>
+    <p><b>1. Standing state.</b> For each index: how many of its anchored
+    families have accumulated enough days to report at all, how many are past
+    their declared anchor <b>today</b>, and the family with the most days
+    past its anchor — in the identical sentence printed beside that family's
+    own row, from the same function in the code. That is not cosmetic: it
+    guarantees a headline cannot say something the row beneath it
+    contradicts.</p>
+    <p><b>Why the headline counts days and not a streak.</b> The accumulator
+    holds two different numbers — the <b>count</b> of breaching days in the
+    14-day window, and the length of the <b>streak</b> ending today. On
+    2026-09-01 the overall summary reported a streak of one day while the
+    Hormuz row reported 12 of 14, and both were correct: 12 of those days
+    were past the anchor, but the day before last was under it, so the streak
+    was broken. A headline built on the streak would have printed "one day"
+    above a row saying 12 of 14, and the reader would have had to pick which
+    of the page's own numbers to believe. So the headline counts days. Both
+    numbers go on being published, because 12 of 14 with a streak of 0 is a
+    fading condition and must not read like a continuing one.</p>
+    <p><b>2. Standing daily risk.</b> The prediction-market family already
+    computes exactly the quantity missing beside a level that only measures
+    change: a risk <b>per day</b>, which does not go quiet merely because
+    nothing moved. Since 2026-09-02 it is published as a figure in its own
+    right beside the level, and it carries with it — inline, not behind a
+    link — four things: that it is a <b>market-implied probability</b> from
+    real money and not a forecast by this page and not a sensor reading;
+    which contract, by name, and what resolves it; what the contract's price
+    implies over its whole remaining life and how many days that is; and that
+    the published number is a <b>daily rate, not the contract price</b>. That
+    separation is the entire reason the system stores <code>hazard</code> and
+    never <code>p</code>: a contract price falls on its own as expiry
+    approaches, so a falling price is evidence of nothing. The price is
+    shown — but as the figure the daily rate was normalised from, not as the
+    headline, so the reader can see the arithmetic instead of being asked to
+    trust it.</p>
+    <p><b>Both are displayed and neither votes.</b> Neither figure is read by
+    the code that decides a level, counted in any counter, or able to move
+    the dial. And when there is nothing to report — fewer than 5 stored days
+    across that index's anchored families, or a prediction market that was
+    not read in the last run — that is written where the number would have
+    been, and a stale number is not shown. <b>A missing figure is not an
+    all-clear.</b></p>
 
     <h3>Why the thresholds are relative, not absolute</h3>
     <p>There are no thresholds in the code like "under 40 aircraft" or "above
@@ -2530,7 +2619,7 @@ footer a:hover{color:var(--cyan)}
     <a href="/radar/"><span data-lang="he">← חזרה למצב הנוכחי בראדאר</span><span data-lang="en">← Back to the current radar state</span></a>
   </div>
 
-  <div class="stamp">Last methodology update: 2026-09-01</div>
+  <div class="stamp">Last methodology update: 2026-09-02</div>
 
   </main>
 
