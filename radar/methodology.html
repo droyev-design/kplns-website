@@ -365,24 +365,18 @@ footer a:hover{color:var(--cyan)}
       </ul>
       לכן <b>0 בראדאר אינו "הכול בסדר"</b> — הוא אומר רק שהחיישנים לא ראו
       שיבוש סביבתי בחלון המדידה. ובדיוק בגלל הגבול הזה, בראש עמוד הראדאר
-      מוצג באנר "מצב הלחימה": שלב הלחימה המוצהר נקבע <b>בידי אדם</b>, ומתחתיו
-      רשימת אירועים קינטיים עם מקורות. מאז 31.8.2026 גם מערכת אוטומטית רשאית
-      להוסיף אירועים לרשימה הזו, ולכן <b>כל אירוע נושא תג מקור</b>, אחד
-      משלושה:
-      <ul>
-        <li><b>✓ אומת בידי אדם</b> — אדם בדק את האירוע מול המקורות והזין או
-        אישר אותו. רשומות שקדמו לתגים (ללא שדה מקור) שייכות לרובד הזה.</li>
-        <li><b>🛰 פיד רשמי מובנה</b> — האירוע נגזר מנתונים ממשלתיים מוקלדים
-        (למשל התרעות פיקוד העורף), ללא שום פרשנות טקסט. הרובד האוטומטי
-        החזק ביותר.</li>
-        <li><b>⚙ אוטומטי — לא אומת בידי אדם</b> — האירוע חולץ אוטומטית
-        מכותרות חדשות של סוכנויות מוכרות. <b>אף אדם לא בדק אותו לפני
-        הפרסום.</b> חילוץ כזה יכול לטעות — כותרת מטעה או דיווח שגוי עלולים
-        להוליד אירוע כוזב על הדף — ולכן קיים מסלול הסרה אוטומטי: אם מקור
-        רשמי מכחיש את האירוע, הוא מוסר מהרשימה אוטומטית.</li>
-      </ul>
-      התג אינו קישוט: הוא אומר לקורא בדיוק כמה אמון לתת לכל שורה, והוא
-      מוצג בשתי השפות, בנפרד מפלט החיישנים האוטומטי של המחוון שמתחת.
+      מוצג באנר "מצב הלחימה": שלב הלחימה המוצהר נקבע <b>בידי אדם</b>. זו
+      הצהרת מצב עמידה — לא הזנת חדשות — והיא נפרדת ובמפורש מפלט החיישנים
+      האוטומטי של המחוון שמתחת.
+      <p><b>מה שאין כאן, בכוונה (1.9.2026):</b> העמוד <b>אינו עוקב אחר
+      תקיפות בודדות ואינו מציג רשימת אירועים</b>. רשימת אירועים קינטיים
+      הוצגה כאן עד 1.9.2026 והוסרה: רשימה סטטית של אירועים בעמוד סטטוס חי
+      נקראת כעדכנית גם כשהיא בת ימים, וזה בדיוק ההיפך ממה שהעמוד הזה אמור
+      לעשות. גם המערכת האוטומטית שהזינה אותה כובתה — היא ממשיכה לרוץ, אך
+      במצב דיווח בלבד (notify-only): היא מתריעה לבעל העמוד בלבד, ואין לה
+      שום הרשאת כתיבה לעמוד הציבורי. על אירועים נקודתיים יש להסתמך על
+      מקורות חדשותיים, והמקור המחייב היחיד להנחיות התגוננות הוא פיקוד
+      העורף.</p>
     </div>
     </div>
     <div data-lang="en">
@@ -442,28 +436,19 @@ footer a:hover{color:var(--cyan)}
       So <b>0 on the radar is not an all-clear</b> — it says only that the
       sensors saw no ambient disruption in the measurement window. And
       precisely because of that limit, the top of the radar page carries a
-      war-phase banner: the declared war phase is set <b>by a person</b>, and
-      beneath it sits a list of kinetic events with sources. Since 2026-08-31
-      an automated pipeline may also add events to that list, so <b>every
-      event carries a provenance badge</b>, one of three:
-      <ul>
-        <li><b>✓ Human-verified</b> — a person checked the event against its
-        sources and entered or approved it. Entries that predate the badges
-        (with no provenance field) belong to this tier.</li>
-        <li><b>🛰 Official structured feed</b> — the event is derived from
-        typed government data (e.g. Home Front Command siren alerts), with no
-        text interpretation involved. The strongest automatic tier.</li>
-        <li><b>⚙ Automated — not human-verified</b> — the event was
-        auto-extracted from news headlines of established agencies.
-        <b>No person reviewed it before publication.</b> Such extraction can
-        be wrong — a misleading headline or an erroneous report can put a
-        false event on this page — which is why an automatic retraction path
-        exists: if an official source denies the event, it is pulled from
-        the list automatically.</li>
-      </ul>
-      The badge is not decoration: it tells the reader exactly how much trust
-      each line has earned, it appears in both languages, and it is separate
-      from the automated sensor output of the dial below.
+      war-phase banner: the declared war phase is set <b>by a person</b>. It
+      is a durable state statement, not a news feed, and it is deliberately
+      kept separate from the automated sensor output of the dial below.
+      <p><b>What is deliberately NOT here (2026-09-01):</b> this page
+      <b>does not track individual strikes and carries no event list</b>. A
+      list of kinetic events stood here until 2026-09-01 and was removed: a
+      static list of events on a live-status page reads as current even when
+      it is days old, which is the exact opposite of what this page is for.
+      The automated pipeline that fed it was stood down at the same time — it
+      still runs, but in notify-only mode: it reports to the page's owner and
+      has no write access whatsoever to anything published here. For discrete
+      events, rely on news sources; the only binding source for civil-defence
+      instructions is the Home Front Command.</p>
     </div>
     </div>
   </section>

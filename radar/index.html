@@ -521,11 +521,11 @@ footer a:hover{color:var(--cyan)}
    structurally cannot see individual strikes or launches — on 31.8.2026 the
    US struck Larak Island and Iran fired 8 missiles at Jordan while this page
    showed level 0. This block is the channel for what the instrument cannot
-   sense. The war PHASE is set by a person; since 2026-08-31 the EVENTS list
-   also accepts automated ingester entries, so each event carries a
-   provenance badge (see .wp-badge below) — the styling must keep that
-   distinction readable. The same classes are emitted by publish_radar.py's
-   static snapshot. */
+   sense. The war PHASE is set by a person and is a DURABLE STATE STATEMENT,
+   not a news feed. The per-event list, its provenance badges and their CSS
+   were deleted on 2026-09-01: nothing on this page tracks individual
+   strikes any more, so no style here may imply a list. The same classes are
+   emitted by publish_radar.py's static snapshot. */
 .warphase{margin:20px 0 0;border:1px solid rgba(255,107,107,.5);
   background:rgba(255,107,107,.09);border-radius:var(--radius-md);
   padding:18px 20px;text-align:start}
@@ -538,32 +538,10 @@ footer a:hover{color:var(--cyan)}
 .wp-ceasefire_holding .wp-title{color:#4ade80}
 .wp-ceasefire_degrading .wp-title{color:#fb923c}
 .wp-note{color:var(--text-secondary);font-size:.92rem;margin-top:6px;line-height:1.65}
-.wp-evh{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);
-  font-size:.8rem;font-weight:700;color:var(--text-secondary);letter-spacing:.04em}
-.wp-events{list-style:none;display:grid;gap:8px;margin-top:8px}
-.wp-events li{font-size:.88rem;color:var(--text-primary);line-height:1.6;
-  padding-inline-start:18px;position:relative}
-.wp-events li::before{content:"•";position:absolute;inset-inline-start:0;color:#ff9b9b}
-.wp-ts{font-family:var(--font-en);font-variant-numeric:tabular-nums;color:var(--text-secondary)}
-.wp-src{display:block;color:var(--text-muted);font-size:.76rem}
-.wp-src a{color:var(--text-muted);text-decoration:underline;text-underline-offset:2px}
-.wp-src a:hover,.wp-src a:focus-visible{color:var(--text-secondary)}
-/* Per-event provenance badges (2026-08-31). The events list now accepts
-   AUTOMATED entries written by the ingester with no human review, so every
-   event carries a badge saying what stands behind it. Three tiers, three
-   looks: green = a person vouched for it, blue = typed official data (no
-   text interpretation), amber = machine-extracted from news headlines and
-   reviewed by nobody. The amber one is deliberately the most saturated of
-   the three — "not human-verified" must be readable at a glance, not
-   whispered — while staying a label, not an alarm. Same classes are emitted
-   by publish_radar.py's static snapshot; keep them in sync. */
-.wp-badge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.04em;
-  border:1px solid;border-radius:20px;padding:1px 8px;margin-inline-end:2px;
-  vertical-align:1px;white-space:nowrap}
-.wp-b-human{color:#4ade80;border-color:rgba(74,222,128,.4);background:rgba(34,197,94,.08)}
-.wp-b-struct{color:#7dd3fc;border-color:rgba(125,211,252,.4);background:rgba(0,212,255,.07)}
-.wp-b-auto{color:#fbbf24;border-color:rgba(251,191,36,.55);background:rgba(251,191,36,.1)}
-.wp-legend{margin-top:6px;color:var(--text-muted);font-size:.74rem;line-height:1.7}
+/* The event-list, timestamp, source-link and provenance-badge rules that
+   stood here (.wp-evh/.wp-events/.wp-ts/.wp-src/.wp-badge/.wp-b-*/.wp-legend)
+   were DELETED 2026-09-01 together with the list itself. Do not restore a
+   style for a list this page does not render. */
 .wp-meta{margin-top:12px;padding-top:10px;border-top:1px solid var(--border);
   color:var(--text-muted);font-size:.78rem;line-height:1.6}
 
@@ -662,13 +640,15 @@ footer a:hover{color:var(--cyan)}
        ~/israel_escalation_monitor/publish_radar.py from the same status.json
        the script below fetches. Empty until the next publish. -->
   <!-- SNAPSHOT:START -->
-<section class="snap" id="snap" aria-label="תצלום מצב סטטי"><div data-lang="he"><section class="warphase wp-ceasefire_broken" aria-label="מצב הלחימה (עדכון אנושי)"><div class="wp-tag">✍️ מצב הלחימה נקבע בידי אדם · כל אירוע מתויג לפי מקורו</div><div class="wp-title">הפסקת האש הופרה</div><p class="wp-note">מלחמת 2026 בין ישראל/ארה&quot;ב לאיראן פתוחה מ-28.2.2026 ולא הסתיימה. חילופי אש פעילים בגזרה.</p><div class="wp-meta">עודכן: <bdi>01/09/2026&nbsp;09:07</bdi> שעון ישראל · שלב הלחימה שלמעלה נקבע בידי אדם; כל אירוע ברשימה נושא תג מקור. המחוון שמתחת הוא פלט חיישנים אוטומטי — הוא אינו רואה תקיפות בודדות או שיגורי טילים.</div></section><div class="snap-head"><b>תצלום מצב סטטי</b> — נכון ל-<bdi>01/09/2026&nbsp;13:12</bdi> שעון ישראל · 0 מתוך 12 מדדים מדידים דולקים · 3 ערוצים אינם מנוטרים כלל</div><p class="snap-sum">סיכום: שני המדדים ברמה 0 — שקט</p><p class="snap-caveat">🎛️ המחוון קורא אותות ציבוריים סביבתיים (מרחב אווירי, אינטרנט, מטבע, שרפות) על פני כ-48 שעות. הוא אינו מסוגל לראות תקיפות בודדות או שיגורי טילים — אירועים קינטיים מאומתים מופיעים למעלה — ו-0 כאן אינו אישור שהכול בסדר.</p><div class="snap-ix"><h3>🇮🇱 ישראל — רמה 0 מתוך 3 · 🟢 שקט</h3><p class="snap-mean">לא נדלק אף מדד.</p><ul><li>✓ <b>מדיניות התגוננות (פיקוד העורף)</b> [פעולה] — אין הגבלות בכל הארץ</li><li>✓ <b>מרחב אווירי ישראל</b> [פעולה] — 74 מטוסים אזרחיים באזור<span class="snap-sub">קו בסיס מלחמתי (יומיים אחרונים, אוגוסט 2026): <bdi>54–91</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>&lt;25 מטוסים</bdi></span></li><li>✓ <b>מרחב אווירי ירדן</b> [פעולה] — 3 מטוסים מעל ירדן<span class="snap-sub">קו בסיס מלחמתי (יומיים אחרונים, אוגוסט 2026): <bdi>3–9</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>≤3 מטוסים ב-3 בדיקות</bdi></span></li><li>✓ <b>אזהרות מסע — ישראל והסביבה</b> [דעה] — 4 מדינות במעקב — ללא שינוי ברמות</li><li>✓ <b>שגרירויות ארה&quot;ב באזור — הוראות מבצעיות</b> [פעולה] — הפיד במעקב — אין הוראה מבצעית פעילה</li><li>✓ <b>שיבוש GPS — מרחב ישראל</b> [פעולה] — 1.8% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-31 (נגזר מתעופה)<span class="snap-sub">קו בסיס מלחמתי (30 הימים האחרונים, אוגוסט 2026): <bdi>2.2%–11.5%</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>≥14.0%</bdi></span></li><li>✓ <b>תעופה צבאית באזור</b> [אזורי] [פעולה] — 5 מטוסים צבאיים באזור<span class="snap-sub">קו בסיס מלחמתי (יומיים אחרונים, אוגוסט 2026): <bdi>1–9</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>&gt;14 מטוסים</bdi></span></li><li>✓ <b>שווקים — נפט ברנט ושער השקל</b> [אזורי] [דעה] — ברנט $92.3 · דולר 2.99 ₪<span class="snap-sub">סף הדלקה כעת: <bdi>ברנט ≥$97.5 · דולר ≥3.06 ₪</bdi></span></li><li>✓ <b>שוק ניבוי — הפסקת האש (Polymarket)</b> [אזורי] [דעה] — סיכון גלום לתקיפה 0.53% ליום (חוזה עד 2026-09-30, מנורמל לאופק)<span class="snap-sub">קו בסיס מלחמתי (30 הימים האחרונים, אוגוסט 2026): <bdi>0.35%–0.81%</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>≥2.00% ליום</bdi></span></li><li>✓ <b>StrikeRadar (הקשר בלבד — נגזר חדשות)</b> [הקשר] — 62/100</li></ul></div><div class="snap-ix"><h3>🇮🇷 איראן — רמה 0 מתוך 3 · 🟢 שקט</h3><p class="snap-mean">לא נדלק אף מדד.</p><ul><li>✓ <b>אינטרנט באיראן (ארצי)</b> [פעולה] — קישוריות תקינה (41,594 מסלולי BGP)<span class="snap-sub">קו בסיס מלחמתי (יומיים אחרונים, אוגוסט 2026): <bdi>41,559–41,592</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>merit-nt &lt;24 · ping-slash24 &lt;5,556</bdi></span></li><li>✓ <b>חריגות תרמיות מלוויין (NASA FIRMS)</b> [פעולה] — מוקד תרמי חדש אחד ב-2026-08-31 (מתוך 3,059 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)<span class="snap-sub">קו בסיס מלחמתי (30 הימים האחרונים, אוגוסט 2026): <bdi>0–4</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>&gt;8 מוקדים</bdi></span></li><li>✓ <b>שיבוש GPS — מצר הורמוז</b> [פעולה] — 10.4% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-31 (נגזר מתעופה)<span class="snap-sub">קו בסיס מלחמתי (30 הימים האחרונים, אוגוסט 2026): <bdi>2.5%–13.3%</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>≥15.6%</bdi></span><span class="snap-sub">📈 מצב: 12 מתוך 14 הימים האחרונים מעל העוגן המוצהר (5.0%), כולל היום. אינו מצביע. העוגן נמדד בתוך המלחמה.</span></li><li>✓ <b>תעופה צבאית באזור</b> [אזורי] [פעולה] — 5 מטוסים צבאיים באזור<span class="snap-sub">קו בסיס מלחמתי (יומיים אחרונים, אוגוסט 2026): <bdi>1–9</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>&gt;14 מטוסים</bdi></span></li><li>✓ <b>שווקים — נפט ברנט ושער השקל</b> [אזורי] [דעה] — ברנט $92.3 · דולר 2.99 ₪<span class="snap-sub">סף הדלקה כעת: <bdi>ברנט ≥$97.5 · דולר ≥3.06 ₪</bdi></span></li><li>✓ <b>שוק ניבוי — הפסקת האש (Polymarket)</b> [אזורי] [דעה] — סיכון גלום לתקיפה 0.53% ליום (חוזה עד 2026-09-30, מנורמל לאופק)<span class="snap-sub">קו בסיס מלחמתי (30 הימים האחרונים, אוגוסט 2026): <bdi>0.35%–0.81%</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>≥2.00% ליום</bdi></span></li><li>✓ <b>StrikeRadar (הקשר בלבד — נגזר חדשות)</b> [הקשר] — 62/100</li></ul><div class="snap-sub">⊘ אין כיסוי מקלטי ADS-B מעל איראן — לא ניתן למדוד</div><div class="snap-sub">⊘ הודעות NOTAM (סגירת מרחב אווירי רשמית) — כל הערוצים החינמיים שנבדקו חסומים מהשרת — לא ניתן למדוד</div><div class="snap-sub">⊘ תנועת ספינות במצר הורמוז (AIS) — אין מקור חופשי נגיש (UKMTO חסום, פיד NGA קפוא מ-2024) — לא ניתן למדוד</div></div><p class="snap-note">בדיקת זמינות טכנית: 13/13 מקורות נקראו בריצה זו — זמינות מקור מעידה שהצינור עובד, לא שהמכשיר מודד את הדבר הנכון. התצלום הזה נוצר בשרת ברגע פרסום הדף. הבדיקה רצה בשרת כל 30 דקות, אך הדף אינו מתרענן מעצמו בדפדפן — הוא טוען את הנתונים פעם אחת בפתיחה, ולכן כדי לראות מדידה חדשה יש לרענן את הדף. בלי JavaScript, מה שמופיע כאן הוא המצב שנמדד בחותמת שלמעלה — <b>לא</b> המצב כעת. זו אינה מערכת התרעה, והמקור המחייב היחיד הוא <a href="https://www.oref.org.il/" target="_blank" rel="noopener">פיקוד העורף</a>.</p></div><div data-lang="en" id="snap-en"></div><template id="snap-en-tpl"><section class="warphase wp-ceasefire_broken" aria-label="War-phase status (human-entered)"><div class="wp-tag">✍️ WAR-PHASE SET BY A PERSON · EACH EVENT LABELLED BY ORIGIN</div><div class="wp-title">Ceasefire broken</div><p class="wp-note">The 2026 Israel/US–Iran war has been open since 2026-02-28 and is unresolved. Active exchanges of fire in the theatre.</p><div class="wp-meta">Updated: <bdi>01/09/2026&nbsp;09:07</bdi> Israel time · The war phase above is set by a person; each listed event carries a provenance badge. The dial below is automated sensor output — it cannot see individual strikes or missile launches.</div></section><div class="snap-head"><b>Static snapshot</b> — as of <bdi>01/09/2026&nbsp;13:12</bdi> Israel time · 0 of 12 measurable tripwires lit · 3 channels unmonitored</div><p class="snap-sum">Summary: both indices at level 0 — Quiet</p><p class="snap-caveat">🎛️ This dial reads ambient public signals (airspace, internet, currency, fires) over roughly 48 hours. It cannot see individual strikes or missile launches — confirmed kinetic events are listed above — and 0 here is not an all-clear.</p><div class="snap-ix"><h3>🇮🇱 Israel — level 0 of 3 · 🟢 Quiet</h3><p class="snap-mean">No tripwire detected.</p><ul><li>✓ <b>Home Front Command defence policy</b> [action] — No restrictions nationwide</li><li>✓ <b>Israeli airspace</b> [action] — 74 civil aircraft in the area<span class="snap-sub">Wartime baseline (last 48 h, August 2026): <bdi>54–91</bdi></span><span class="snap-sub">Fires at: <bdi>&lt;25 aircraft</bdi></span></li><li>✓ <b>Jordanian airspace</b> [action] — 3 aircraft over Jordan<span class="snap-sub">Wartime baseline (last 48 h, August 2026): <bdi>3–9</bdi></span><span class="snap-sub">Fires at: <bdi>≤3 aircraft over 3 checks</bdi></span></li><li>✓ <b>Travel advisories — Israel and neighbours</b> [belief] — 4 countries monitored — no level changes</li><li>✓ <b>US embassies in the region — operational orders</b> [action] — feed monitored — no operational order active</li><li>✓ <b>GPS interference — Israeli airspace</b> [action] — 1.8% of aircraft reported degraded GPS on 2026-08-31 (aviation-derived)<span class="snap-sub">Wartime baseline (last 30 days, August 2026): <bdi>2.2%–11.5%</bdi></span><span class="snap-sub">Fires at: <bdi>≥14.0%</bdi></span></li><li>✓ <b>Military aviation in the region</b> [regional] [action] — 5 military aircraft in the area<span class="snap-sub">Wartime baseline (last 48 h, August 2026): <bdi>1–9</bdi></span><span class="snap-sub">Fires at: <bdi>&gt;14 aircraft</bdi></span></li><li>✓ <b>Markets — Brent crude and the shekel</b> [regional] [belief] — Brent $92.3 · USD 2.99 ILS<span class="snap-sub">Fires at: <bdi>Brent ≥$97.5 · USD/ILS ≥3.06</bdi></span></li><li>✓ <b>Prediction market — the ceasefire (Polymarket)</b> [regional] [belief] — 0.53%/day implied strike risk (contract to 2026-09-30, horizon-normalized)<span class="snap-sub">Wartime baseline (last 30 days, August 2026): <bdi>0.35%–0.81%</bdi></span><span class="snap-sub">Fires at: <bdi>≥2.00%/day</bdi></span></li><li>✓ <b>StrikeRadar (context only — news-derived)</b> [context] — 62/100</li></ul></div><div class="snap-ix"><h3>🇮🇷 Iran — level 0 of 3 · 🟢 Quiet</h3><p class="snap-mean">No tripwire detected.</p><ul><li>✓ <b>Iranian internet (national)</b> [action] — Connectivity normal (41,594 BGP routes)<span class="snap-sub">Wartime baseline (last 48 h, August 2026): <bdi>41,559–41,592</bdi></span><span class="snap-sub">Fires at: <bdi>merit-nt &lt;24 · ping-slash24 &lt;5,556</bdi></span></li><li>✓ <b>Satellite thermal anomalies (NASA FIRMS)</b> [action] — 1 new thermal hotspot on 2026-08-31 (out of 3,059 raw detections from 3 satellites, incl. wildfires and industry)<span class="snap-sub">Wartime baseline (last 30 days, August 2026): <bdi>0–4</bdi></span><span class="snap-sub">Fires at: <bdi>&gt;8 hotspots</bdi></span></li><li>✓ <b>GPS interference — Strait of Hormuz</b> [action] — 10.4% of aircraft reported degraded GPS on 2026-08-31 (aviation-derived)<span class="snap-sub">Wartime baseline (last 30 days, August 2026): <bdi>2.5%–13.3%</bdi></span><span class="snap-sub">Fires at: <bdi>≥15.6%</bdi></span><span class="snap-sub">📈 State: 12 of the last 14 days at or above the declared anchor (5.0%), including today. Casts no vote. The anchor was measured inside the war.</span></li><li>✓ <b>Military aviation in the region</b> [regional] [action] — 5 military aircraft in the area<span class="snap-sub">Wartime baseline (last 48 h, August 2026): <bdi>1–9</bdi></span><span class="snap-sub">Fires at: <bdi>&gt;14 aircraft</bdi></span></li><li>✓ <b>Markets — Brent crude and the shekel</b> [regional] [belief] — Brent $92.3 · USD 2.99 ILS<span class="snap-sub">Fires at: <bdi>Brent ≥$97.5 · USD/ILS ≥3.06</bdi></span></li><li>✓ <b>Prediction market — the ceasefire (Polymarket)</b> [regional] [belief] — 0.53%/day implied strike risk (contract to 2026-09-30, horizon-normalized)<span class="snap-sub">Wartime baseline (last 30 days, August 2026): <bdi>0.35%–0.81%</bdi></span><span class="snap-sub">Fires at: <bdi>≥2.00%/day</bdi></span></li><li>✓ <b>StrikeRadar (context only — news-derived)</b> [context] — 62/100</li></ul><div class="snap-sub">⊘ No ADS-B receiver coverage over Iran — this cannot be measured</div><div class="snap-sub">⊘ NOTAMs (official airspace closures) — every free channel tested is blocked from this server — this cannot be measured</div><div class="snap-sub">⊘ Ship traffic through Hormuz (AIS) — no accessible free source (UKMTO blocked, the NGA feed frozen since 2024) — this cannot be measured</div></div><p class="snap-note">Technical availability check: 13/13 sources read this run — source availability proves the plumbing works, not that the instrument measures the right thing. This snapshot was rendered on the server when the page was published. The check runs on the server every 30 minutes, but the page does not refresh itself in your browser — it loads the data once when you open it, so reload the page to see a newer measurement. Without JavaScript, what you see here is the state measured at the timestamp above — <b>not</b> the state now. This is not a warning system, and the only authoritative source is the <a href="https://www.oref.org.il/eng" target="_blank" rel="noopener">Home Front Command</a>.</p></template></section>
+<section class="snap" id="snap" aria-label="תצלום מצב סטטי"><div data-lang="he"><section class="warphase wp-ceasefire_broken" aria-label="מצב הלחימה (עדכון אנושי)"><div class="wp-tag">✍️ מצב הלחימה נקבע בידי אדם</div><div class="wp-title">הפסקת האש הופרה</div><p class="wp-note">מלחמת 2026 בין ישראל/ארה&quot;ב לאיראן פתוחה מ-28.2.2026 ולא הסתיימה. חילופי אש פעילים בגזרה.</p><div class="wp-meta">עודכן: <bdi>01/09/2026&nbsp;09:07</bdi> שעון ישראל · שלב הלחימה שלמעלה נקבע בידי אדם. המחוון שמתחת הוא פלט חיישנים אוטומטי — הוא אינו רואה תקיפות בודדות או שיגורי טילים.</div></section><div class="snap-head"><b>תצלום מצב סטטי</b> — נכון ל-<bdi>01/09/2026&nbsp;13:12</bdi> שעון ישראל · 0 מתוך 12 מדדים מדידים דולקים · 3 ערוצים אינם מנוטרים כלל</div><p class="snap-sum">סיכום: שני המדדים ברמה 0 — שקט</p><p class="snap-caveat">🎛️ המחוון קורא אותות ציבוריים סביבתיים (מרחב אווירי, אינטרנט, מטבע, שרפות) על פני כ-48 שעות. הוא אינו רואה תקיפות בודדות או שיגורי טילים, ואינו עוקב אחריהן — 0 כאן אינו אישור שהכול בסדר.</p><div class="snap-ix"><h3>🇮🇱 ישראל — רמה 0 מתוך 3 · 🟢 שקט</h3><p class="snap-mean">לא נדלק אף מדד.</p><ul><li>✓ <b>מדיניות התגוננות (פיקוד העורף)</b> [פעולה] — אין הגבלות בכל הארץ</li><li>✓ <b>מרחב אווירי ישראל</b> [פעולה] — 74 מטוסים אזרחיים באזור<span class="snap-sub">קו בסיס מלחמתי (יומיים אחרונים, אוגוסט 2026): <bdi>54–91</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>&lt;25 מטוסים</bdi></span></li><li>✓ <b>מרחב אווירי ירדן</b> [פעולה] — 3 מטוסים מעל ירדן<span class="snap-sub">קו בסיס מלחמתי (יומיים אחרונים, אוגוסט 2026): <bdi>3–9</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>≤3 מטוסים ב-3 בדיקות</bdi></span></li><li>✓ <b>אזהרות מסע — ישראל והסביבה</b> [דעה] — 4 מדינות במעקב — ללא שינוי ברמות</li><li>✓ <b>שגרירויות ארה&quot;ב באזור — הוראות מבצעיות</b> [פעולה] — הפיד במעקב — אין הוראה מבצעית פעילה</li><li>✓ <b>שיבוש GPS — מרחב ישראל</b> [פעולה] — 1.8% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-31 (נגזר מתעופה)<span class="snap-sub">קו בסיס מלחמתי (30 הימים האחרונים, אוגוסט 2026): <bdi>2.2%–11.5%</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>≥14.0%</bdi></span></li><li>✓ <b>תעופה צבאית באזור</b> [אזורי] [פעולה] — 5 מטוסים צבאיים באזור<span class="snap-sub">קו בסיס מלחמתי (יומיים אחרונים, אוגוסט 2026): <bdi>1–9</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>&gt;14 מטוסים</bdi></span></li><li>✓ <b>שווקים — נפט ברנט ושער השקל</b> [אזורי] [דעה] — ברנט $92.3 · דולר 2.99 ₪<span class="snap-sub">סף הדלקה כעת: <bdi>ברנט ≥$97.5 · דולר ≥3.06 ₪</bdi></span></li><li>✓ <b>שוק ניבוי — הפסקת האש (Polymarket)</b> [אזורי] [דעה] — סיכון גלום לתקיפה 0.53% ליום (חוזה עד 2026-09-30, מנורמל לאופק)<span class="snap-sub">קו בסיס מלחמתי (30 הימים האחרונים, אוגוסט 2026): <bdi>0.35%–0.81%</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>≥2.00% ליום</bdi></span></li><li>✓ <b>StrikeRadar (הקשר בלבד — נגזר חדשות)</b> [הקשר] — 62/100</li></ul></div><div class="snap-ix"><h3>🇮🇷 איראן — רמה 0 מתוך 3 · 🟢 שקט</h3><p class="snap-mean">לא נדלק אף מדד.</p><ul><li>✓ <b>אינטרנט באיראן (ארצי)</b> [פעולה] — קישוריות תקינה (41,594 מסלולי BGP)<span class="snap-sub">קו בסיס מלחמתי (יומיים אחרונים, אוגוסט 2026): <bdi>41,559–41,592</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>merit-nt &lt;24 · ping-slash24 &lt;5,556</bdi></span></li><li>✓ <b>חריגות תרמיות מלוויין (NASA FIRMS)</b> [פעולה] — מוקד תרמי חדש אחד ב-2026-08-31 (מתוך 3,059 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)<span class="snap-sub">קו בסיס מלחמתי (30 הימים האחרונים, אוגוסט 2026): <bdi>0–4</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>&gt;8 מוקדים</bdi></span></li><li>✓ <b>שיבוש GPS — מצר הורמוז</b> [פעולה] — 10.4% מהמטוסים דיווחו על שיבוש GPS ב-2026-08-31 (נגזר מתעופה)<span class="snap-sub">קו בסיס מלחמתי (30 הימים האחרונים, אוגוסט 2026): <bdi>2.5%–13.3%</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>≥15.6%</bdi></span><span class="snap-sub">📈 מצב: 12 מתוך 14 הימים האחרונים מעל העוגן המוצהר (5.0%), כולל היום. אינו מצביע. העוגן נמדד בתוך המלחמה.</span></li><li>✓ <b>תעופה צבאית באזור</b> [אזורי] [פעולה] — 5 מטוסים צבאיים באזור<span class="snap-sub">קו בסיס מלחמתי (יומיים אחרונים, אוגוסט 2026): <bdi>1–9</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>&gt;14 מטוסים</bdi></span></li><li>✓ <b>שווקים — נפט ברנט ושער השקל</b> [אזורי] [דעה] — ברנט $92.3 · דולר 2.99 ₪<span class="snap-sub">סף הדלקה כעת: <bdi>ברנט ≥$97.5 · דולר ≥3.06 ₪</bdi></span></li><li>✓ <b>שוק ניבוי — הפסקת האש (Polymarket)</b> [אזורי] [דעה] — סיכון גלום לתקיפה 0.53% ליום (חוזה עד 2026-09-30, מנורמל לאופק)<span class="snap-sub">קו בסיס מלחמתי (30 הימים האחרונים, אוגוסט 2026): <bdi>0.35%–0.81%</bdi></span><span class="snap-sub">סף הדלקה כעת: <bdi>≥2.00% ליום</bdi></span></li><li>✓ <b>StrikeRadar (הקשר בלבד — נגזר חדשות)</b> [הקשר] — 62/100</li></ul><div class="snap-sub">⊘ אין כיסוי מקלטי ADS-B מעל איראן — לא ניתן למדוד</div><div class="snap-sub">⊘ הודעות NOTAM (סגירת מרחב אווירי רשמית) — כל הערוצים החינמיים שנבדקו חסומים מהשרת — לא ניתן למדוד</div><div class="snap-sub">⊘ תנועת ספינות במצר הורמוז (AIS) — אין מקור חופשי נגיש (UKMTO חסום, פיד NGA קפוא מ-2024) — לא ניתן למדוד</div></div><p class="snap-note">בדיקת זמינות טכנית: 13/13 מקורות נקראו בריצה זו — זמינות מקור מעידה שהצינור עובד, לא שהמכשיר מודד את הדבר הנכון. התצלום הזה נוצר בשרת ברגע פרסום הדף. הבדיקה רצה בשרת כל 30 דקות, אך הדף אינו מתרענן מעצמו בדפדפן — הוא טוען את הנתונים פעם אחת בפתיחה, ולכן כדי לראות מדידה חדשה יש לרענן את הדף. בלי JavaScript, מה שמופיע כאן הוא המצב שנמדד בחותמת שלמעלה — <b>לא</b> המצב כעת. זו אינה מערכת התרעה, והמקור המחייב היחיד הוא <a href="https://www.oref.org.il/" target="_blank" rel="noopener">פיקוד העורף</a>.</p></div><div data-lang="en" id="snap-en"></div><template id="snap-en-tpl"><section class="warphase wp-ceasefire_broken" aria-label="War-phase status (human-entered)"><div class="wp-tag">✍️ WAR-PHASE SET BY A PERSON</div><div class="wp-title">Ceasefire broken</div><p class="wp-note">The 2026 Israel/US–Iran war has been open since 2026-02-28 and is unresolved. Active exchanges of fire in the theatre.</p><div class="wp-meta">Updated: <bdi>01/09/2026&nbsp;09:07</bdi> Israel time · The war phase above is set by a person. The dial below is automated sensor output — it cannot see individual strikes or missile launches.</div></section><div class="snap-head"><b>Static snapshot</b> — as of <bdi>01/09/2026&nbsp;13:12</bdi> Israel time · 0 of 12 measurable tripwires lit · 3 channels unmonitored</div><p class="snap-sum">Summary: both indices at level 0 — Quiet</p><p class="snap-caveat">🎛️ This dial reads ambient public signals (airspace, internet, currency, fires) over roughly 48 hours. It cannot see and does not track individual strikes or missile launches — 0 here is not an all-clear.</p><div class="snap-ix"><h3>🇮🇱 Israel — level 0 of 3 · 🟢 Quiet</h3><p class="snap-mean">No tripwire detected.</p><ul><li>✓ <b>Home Front Command defence policy</b> [action] — No restrictions nationwide</li><li>✓ <b>Israeli airspace</b> [action] — 74 civil aircraft in the area<span class="snap-sub">Wartime baseline (last 48 h, August 2026): <bdi>54–91</bdi></span><span class="snap-sub">Fires at: <bdi>&lt;25 aircraft</bdi></span></li><li>✓ <b>Jordanian airspace</b> [action] — 3 aircraft over Jordan<span class="snap-sub">Wartime baseline (last 48 h, August 2026): <bdi>3–9</bdi></span><span class="snap-sub">Fires at: <bdi>≤3 aircraft over 3 checks</bdi></span></li><li>✓ <b>Travel advisories — Israel and neighbours</b> [belief] — 4 countries monitored — no level changes</li><li>✓ <b>US embassies in the region — operational orders</b> [action] — feed monitored — no operational order active</li><li>✓ <b>GPS interference — Israeli airspace</b> [action] — 1.8% of aircraft reported degraded GPS on 2026-08-31 (aviation-derived)<span class="snap-sub">Wartime baseline (last 30 days, August 2026): <bdi>2.2%–11.5%</bdi></span><span class="snap-sub">Fires at: <bdi>≥14.0%</bdi></span></li><li>✓ <b>Military aviation in the region</b> [regional] [action] — 5 military aircraft in the area<span class="snap-sub">Wartime baseline (last 48 h, August 2026): <bdi>1–9</bdi></span><span class="snap-sub">Fires at: <bdi>&gt;14 aircraft</bdi></span></li><li>✓ <b>Markets — Brent crude and the shekel</b> [regional] [belief] — Brent $92.3 · USD 2.99 ILS<span class="snap-sub">Fires at: <bdi>Brent ≥$97.5 · USD/ILS ≥3.06</bdi></span></li><li>✓ <b>Prediction market — the ceasefire (Polymarket)</b> [regional] [belief] — 0.53%/day implied strike risk (contract to 2026-09-30, horizon-normalized)<span class="snap-sub">Wartime baseline (last 30 days, August 2026): <bdi>0.35%–0.81%</bdi></span><span class="snap-sub">Fires at: <bdi>≥2.00%/day</bdi></span></li><li>✓ <b>StrikeRadar (context only — news-derived)</b> [context] — 62/100</li></ul></div><div class="snap-ix"><h3>🇮🇷 Iran — level 0 of 3 · 🟢 Quiet</h3><p class="snap-mean">No tripwire detected.</p><ul><li>✓ <b>Iranian internet (national)</b> [action] — Connectivity normal (41,594 BGP routes)<span class="snap-sub">Wartime baseline (last 48 h, August 2026): <bdi>41,559–41,592</bdi></span><span class="snap-sub">Fires at: <bdi>merit-nt &lt;24 · ping-slash24 &lt;5,556</bdi></span></li><li>✓ <b>Satellite thermal anomalies (NASA FIRMS)</b> [action] — 1 new thermal hotspot on 2026-08-31 (out of 3,059 raw detections from 3 satellites, incl. wildfires and industry)<span class="snap-sub">Wartime baseline (last 30 days, August 2026): <bdi>0–4</bdi></span><span class="snap-sub">Fires at: <bdi>&gt;8 hotspots</bdi></span></li><li>✓ <b>GPS interference — Strait of Hormuz</b> [action] — 10.4% of aircraft reported degraded GPS on 2026-08-31 (aviation-derived)<span class="snap-sub">Wartime baseline (last 30 days, August 2026): <bdi>2.5%–13.3%</bdi></span><span class="snap-sub">Fires at: <bdi>≥15.6%</bdi></span><span class="snap-sub">📈 State: 12 of the last 14 days at or above the declared anchor (5.0%), including today. Casts no vote. The anchor was measured inside the war.</span></li><li>✓ <b>Military aviation in the region</b> [regional] [action] — 5 military aircraft in the area<span class="snap-sub">Wartime baseline (last 48 h, August 2026): <bdi>1–9</bdi></span><span class="snap-sub">Fires at: <bdi>&gt;14 aircraft</bdi></span></li><li>✓ <b>Markets — Brent crude and the shekel</b> [regional] [belief] — Brent $92.3 · USD 2.99 ILS<span class="snap-sub">Fires at: <bdi>Brent ≥$97.5 · USD/ILS ≥3.06</bdi></span></li><li>✓ <b>Prediction market — the ceasefire (Polymarket)</b> [regional] [belief] — 0.53%/day implied strike risk (contract to 2026-09-30, horizon-normalized)<span class="snap-sub">Wartime baseline (last 30 days, August 2026): <bdi>0.35%–0.81%</bdi></span><span class="snap-sub">Fires at: <bdi>≥2.00%/day</bdi></span></li><li>✓ <b>StrikeRadar (context only — news-derived)</b> [context] — 62/100</li></ul><div class="snap-sub">⊘ No ADS-B receiver coverage over Iran — this cannot be measured</div><div class="snap-sub">⊘ NOTAMs (official airspace closures) — every free channel tested is blocked from this server — this cannot be measured</div><div class="snap-sub">⊘ Ship traffic through Hormuz (AIS) — no accessible free source (UKMTO blocked, the NGA feed frozen since 2024) — this cannot be measured</div></div><p class="snap-note">Technical availability check: 13/13 sources read this run — source availability proves the plumbing works, not that the instrument measures the right thing. This snapshot was rendered on the server when the page was published. The check runs on the server every 30 minutes, but the page does not refresh itself in your browser — it loads the data once when you open it, so reload the page to see a newer measurement. Without JavaScript, what you see here is the state measured at the timestamp above — <b>not</b> the state now. This is not a warning system, and the only authoritative source is the <a href="https://www.oref.org.il/eng" target="_blank" rel="noopener">Home Front Command</a>.</p></template></section>
   <!-- SNAPSHOT:END -->
 
   <!-- War-phase banner — HUMAN-ENTERED, rendered from `manual_override` in
        status.json (source: manual_override.json beside the monitor). It sits
-       ABOVE the dial because it reports the one thing the sensors cannot:
-       confirmed kinetic events. No-JS readers get the same banner inside the
+       ABOVE the dial because it states the one thing the sensors cannot: the
+       declared phase of the war. It is a DURABLE STATE statement, not a news
+       feed — the per-event list was removed 2026-09-01 and this page does not
+       track individual strikes. No-JS readers get the same banner inside the
        server-rendered snapshot above. Empty when no override is set. -->
   <div id="warphase"></div>
 
@@ -684,12 +664,12 @@ footer a:hover{color:var(--cyan)}
        purpose — it is true regardless of the payload. -->
   <div class="dial-caveat" data-lang="he">🎛️ המחוון קורא אותות ציבוריים
     סביבתיים (מרחב אווירי, אינטרנט, מטבע, שרפות) על פני כ-48 שעות. הוא אינו
-    מסוגל לראות תקיפות בודדות או שיגורי טילים — אירועים קינטיים מאומתים
-    מופיעים למעלה — ו-0 כאן אינו אישור שהכול בסדר.</div>
+    רואה תקיפות בודדות או שיגורי טילים, ואינו עוקב אחריהן — 0 כאן אינו אישור
+    שהכול בסדר.</div>
   <div class="dial-caveat" data-lang="en">🎛️ This dial reads ambient public
     signals (airspace, internet, currency, fires) over roughly 48 hours. It
-    cannot see individual strikes or missile launches — confirmed kinetic
-    events are listed above — and 0 here is not an all-clear.</div>
+    cannot see and does not track individual strikes or missile launches —
+    0 here is not an all-clear.</div>
 
   <!-- Slow multi-week ramps the 48h baseline window cannot express. Rendered
        from the payload's `ratchets` array when present; NOT level changes. -->
@@ -1442,17 +1422,10 @@ const T = {
     thresholdNow: v => `סף הדלקה כעת: ${v}`,
     ratchetsTitle: '📈 מגמות איטיות — רמפות רב-שבועיות (הקשר בלבד, לא שינויי רמה)',
     ratchetsNote: 'חלון הבסיס של המחוון (כ-48 שעות) אינו מסוגל לבטא הצטברות איטית על פני שבועות; הרשימה הזו קיימת בדיוק בשביל זה.',
-    wpTag: '✍️ מצב הלחימה נקבע בידי אדם · כל אירוע מתויג לפי מקורו',
+    wpTag: '✍️ מצב הלחימה נקבע בידי אדם',
     wpAria: 'מצב הלחימה (עדכון אנושי)',
-    wpEvents: 'אירועים קינטיים מאומתים (החדש ראשון)',
-    wpLegend: 'תגי מקור: ✓ אומת בידי אדם · 🛰 פיד רשמי מובנה (נתונים ממשלתיים מוקלדים, ללא פרשנות טקסט) · ⚙ חולץ אוטומטית מדיווחי חדשות, ללא בדיקה אנושית — מוסר אוטומטית אם מקור רשמי מכחיש.',
-    wpBHuman: '✓ אומת בידי אדם',
-    wpBStruct: '🛰 פיד רשמי מובנה',
-    wpBAuto: '⚙ אוטומטי — לא אומת בידי אדם',
-    wpSrc: 'מקור: ',
-    wpSrcs: 'מקורות: ',
     wpUpdated: ts => `עודכן: ${ts} שעון ישראל`,
-    wpVs: 'שלב הלחימה שלמעלה נקבע בידי אדם; כל אירוע ברשימה נושא תג מקור. המחוון שמתחת הוא פלט חיישנים אוטומטי — הוא אינו רואה תקיפות בודדות או שיגורי טילים.',
+    wpVs: 'שלב הלחימה שלמעלה נקבע בידי אדם. המחוון שמתחת הוא פלט חיישנים אוטומטי — הוא אינו רואה תקיפות בודדות או שיגורי טילים.',
     errTitle: 'הנתונים אינם זמינים',
     errNote: 'לא ניתן לטעון את הסטטוס. אל תסיקו מכך דבר — פנו לפיקוד העורף.'
   },
@@ -1519,17 +1492,10 @@ const T = {
     thresholdNow: v => `Fires at: ${v}`,
     ratchetsTitle: '📈 Slow ramps — multi-week trends (context only, NOT level changes)',
     ratchetsNote: "The dial's ~48-hour baseline window cannot express a slow multi-week build-up; this list exists for exactly that.",
-    wpTag: '✍️ WAR-PHASE SET BY A PERSON · EACH EVENT LABELLED BY ORIGIN',
+    wpTag: '✍️ WAR-PHASE SET BY A PERSON',
     wpAria: 'War-phase status (human-entered)',
-    wpEvents: 'Confirmed kinetic events (latest first)',
-    wpLegend: 'Badges: ✓ human-verified · 🛰 official structured feed (typed government data, no text interpretation) · ⚙ auto-extracted from news reports, not reviewed by a person — retracted automatically if an official source denies it.',
-    wpBHuman: '✓ Human-verified',
-    wpBStruct: '🛰 Official structured feed',
-    wpBAuto: '⚙ Automated — not human-verified',
-    wpSrc: 'Source: ',
-    wpSrcs: 'Sources: ',
     wpUpdated: ts => `Updated: ${ts} Israel time`,
-    wpVs: 'The war phase above is set by a person; each listed event carries a provenance badge. The dial below is automated sensor output — it cannot see individual strikes or missile launches.',
+    wpVs: 'The war phase above is set by a person. The dial below is automated sensor output — it cannot see individual strikes or missile launches.',
     errTitle: 'Data unavailable',
     errNote: 'The status could not be loaded. Draw no conclusion from that — check the Home Front Command.'
   }
@@ -1813,69 +1779,22 @@ function rows(ix){
 }
 
 // ── war-phase banner (human-entered override) ───────────────────────
-// Rendered from `manual_override` in status.json — a file a person edits,
-// with sources, precisely because the sensors cannot see individual strikes.
-// The publisher emits the same markup into the static snapshot, so the two
-// renderings share one CSS block and cannot drift apart visually.
-function ovDate(ts){
-  // Date only, Israel time: most override entries carry date precision, and
-  // printing a converted clock time would imply precision they do not have.
-  const d = new Date(ts);
-  if (isNaN(d)) return String(ts || '').slice(0, 10);
-  return d.toLocaleDateString(T[LANG].locale,
-    {day:'2-digit', month:'2-digit', year:'numeric', timeZone:'Asia/Jerusalem'});
-}
-
-// Provenance badge for one event (2026-08-31): the automated ingester now
-// writes events into `manual_override` with NO human review, so every event
-// says what stands behind it. Safe direction is fixed: "human-verified" only
-// when the data says a person vouched (or the entry predates the fields —
-// origin missing means human-entered), "official structured feed" only when
-// source_tier is exactly 'structured'; everything else — including unknown
-// origins and a missing/unknown source_tier — falls to "automated, not
-// human-verified". A missing source_tier is never guessed. Mirrors
-// _ov_badge() in publish_radar.py; keep the two in sync.
-function ovBadge(e){
-  const s = T[LANG];
-  const origin = e.origin;
-  let cls, lbl;
-  if (e.human_verified === true || origin == null || origin === '' || origin === 'human') {
-    cls = 'wp-b-human'; lbl = s.wpBHuman;
-  } else if (e.source_tier === 'structured') {
-    cls = 'wp-b-struct'; lbl = s.wpBStruct;
-  } else {
-    cls = 'wp-b-auto'; lbl = s.wpBAuto;
-  }
-  return `<span class="wp-badge ${cls}">${esc(lbl)}</span>`;
-}
-
-function ovSources(e){
-  // Named-and-linked sources take precedence over the legacy free-text
-  // `source` string, which stays as the fallback for older entries.
-  const s = T[LANG];
-  const named = (Array.isArray(e.sources) ? e.sources : [])
-    .filter(x => x && typeof x === 'object' && x.name)
-    .map(x => {
-      const u = typeof x.url === 'string' ? x.url : '';
-      return /^https?:\/\//.test(u)
-        ? `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(x.name)}</a>`
-        : esc(x.name);
-    });
-  if (named.length)
-    return `<span class="wp-src">${esc(named.length > 1 ? s.wpSrcs : s.wpSrc)}${named.join(' · ')}</span>`;
-  return e.source ? `<span class="wp-src">${esc(s.wpSrc)}${esc(e.source)}</span>` : '';
-}
-
+// Rendered from `manual_override` in status.json — a file a person edits.
+// It states the DECLARED PHASE of the war and nothing more: the per-event
+// list, its date formatter (ovDate), its provenance badges (ovBadge) and
+// its source links (ovSources) were all DELETED on 2026-09-01, because a
+// static list of strikes on a live-status page reads as current when it is
+// not. This page does not track individual strikes. Do not restore a
+// renderer here without also restoring the page strings that promise a
+// list — tests/test_page_contract.py section 8 locks the two together in
+// BOTH directions, and will fail on either half alone.
 function warphase(mo){
   const s = T[LANG];
   const title = (LANG === 'en' ? (mo.phase_en || mo.phase_he) : (mo.phase_he || mo.phase_en)) || mo.phase;
   const note = (LANG === 'en' ? mo.phase_note_en : mo.phase_note_he) || '';
-  const evs = (mo.events || []).slice(0, 6).map(e => {
-    const txt = (LANG === 'en' ? (e.en || e.he) : (e.he || e.en)) || '';
-    const ts = e.ts ? ovDate(e.ts) : '';
-    return `<li>${ts ? `<bdi class="wp-ts">${esc(ts)}</bdi> · ` : ''}${ovBadge(e)} ${esc(txt)}` +
-           `${ovSources(e)}</li>`;
-  }).join('');
+  // A legacy `events` array in the payload is IGNORED, never rendered and
+  // never allowed to throw — old status.json snapshots and any rollback
+  // still carry one. Mirrors load_override() in publish_radar.py.
   let upd = '';
   if (mo.updated) {
     const du = new Date(mo.updated);
@@ -1886,7 +1805,6 @@ function warphase(mo){
     <div class="wp-tag">${esc(s.wpTag)}</div>
     <div class="wp-title">${esc(title)}</div>
     ${note ? `<p class="wp-note">${esc(note)}</p>` : ''}
-    ${evs ? `<div class="wp-evh">${esc(s.wpEvents)}</div><div class="wp-legend">${esc(s.wpLegend)}</div><ul class="wp-events">${evs}</ul>` : ''}
     <div class="wp-meta">${upd}${esc(s.wpVs)}</div>
   </section>`;
 }
