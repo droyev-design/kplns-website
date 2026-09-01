@@ -854,29 +854,23 @@ footer a:hover{color:var(--cyan)}
     <h3 id="scoreboard">לוח התוצאות: מה המערכת הזאת השיגה בפועל (1.9.2026)</h3>
     <p>הסעיף הזה קיים כי דף שמפרסם ספים חייב לפרסם גם את הביצועים שלו מולם.
     למיטב ידיעתנו אף מעקב ציבורי בתחום הזה לא עושה את זה על עצמו.
-    <b>מקור כל מספר, במפורש:</b> "הרצות שהושלמו" נספר מיומן ההרצות וכולל את שלוש
-    צורות הרשומה (<span class="mono">ok</span>, <span class="mono">ALERT</span>,
-    <span class="mono">GOLIVE</span>); כל שאר השורות נגזרות מ-440 התצלומים שפורסמו
-    בפועל בהיסטוריית ה-git של <span class="mono">status.json</span>. "17" הוא מספר
-    המשפחות שהופיעו אי פעם בתצלום — הרוסטר השתנה עם הזמן, ולכן הוא גדול מ-14 של היום.
-    ספירת רמה 1 היא <b>תצלומים</b> ולא תאי-מדד: ב-7 תצלומים שני המדדים היו ברמה 1 בו-זמנית,
-    כלומר 28 תצפיות-מדד מתוך 880 אך 21 תצלומים מתוך 440.</p>
+    <b>נכון ל-1.9.2026 21:30 UTC — כל המספרים בטבלה נגזרו ברגע הזה, ואינם מתעדכנים מעצמם.</b> "הרצות שהושלמו" נספר מיומן ההרצות ומונה את שלוש צורות הרשומה יחד (<span class="mono">ok</span>, <span class="mono">ALERT</span>, <span class="mono">GOLIVE</span>) — 793, 18 ו-4 בהתאמה. כל שאר השורות נגזרות מ-443 התצלומים שפורסמו בהיסטוריית ה-git של <span class="mono">status.json</span>. "18" הוא מספר המשפחות שהופיעו אי פעם בתצלום — הרוסטר השתנה עם הזמן, ולכן הוא גדול מהמספר של היום. ספירת רמה 1 היא <b>תצלומים</b> ולא תאי-מדד: ב-7 תצלומים שני המדדים היו ברמה 1 בו-זמנית, כלומר 28 תצפיות-מדד מתוך 886 אך 21 תצלומים מתוך 443. <b>גרסה קודמת של הטבלה ערבבה חתכי זמן</b> — מספר המשפחות נלקח מרגע אחד ומספר התצלומים מרגע אחר. תוקן ב-2.9.2026 אחרי ביקורת חיצונית.</p>
 
     <div class="m-wrap"><table class="m-tbl">
       <tbody>
         <tr><td>חיי המערכת</td><td class="num-cell">16.8.2026 → 1.9.2026 · 15.9 ימים</td></tr>
-        <tr><td>הרצות שהושלמו</td><td class="num-cell">803</td></tr>
-        <tr><td>תצלומים שפורסמו</td><td class="num-cell">440</td></tr>
-        <tr><td>משפחות שנדלקו אי פעם</td><td class="num-cell">5 מתוך 17</td></tr>
+        <tr><td>הרצות שהושלמו</td><td class="num-cell">815</td></tr>
+        <tr><td>תצלומים שפורסמו</td><td class="num-cell">443</td></tr>
+        <tr><td>משפחות שנדלקו אי פעם</td><td class="num-cell">5 מתוך 18</td></tr>
         <tr><td>‎— firms</td><td class="num-cell">11 תצלומים</td></tr>
         <tr><td>‎— us_mil_air</td><td class="num-cell">7 תצלומים</td></tr>
         <tr><td>‎— jo_airspace</td><td class="num-cell">2 תצלומים</td></tr>
         <tr><td>‎— il_airspace</td><td class="num-cell">1 תצלום</td></tr>
         <tr><td>‎— embassy_alerts</td><td class="num-cell">1 תצלום</td></tr>
-        <tr><td>משפחות שמעולם לא נדלקו</td><td class="num-cell">12 מתוך 17</td></tr>
+        <tr><td>משפחות שמעולם לא נדלקו</td><td class="num-cell">13 מתוך 18</td></tr>
         <tr><td>גילויים של אירוע אמיתי</td><td class="num-cell">0</td></tr>
         <tr><td>התרעות שווא מתועדות</td><td class="num-cell">6</td></tr>
-        <tr><td>תצלומים שבהם מדד כלשהו ברמה 1</td><td class="num-cell">21 מתוך 440</td></tr>
+        <tr><td>תצלומים שבהם מדד כלשהו ברמה 1</td><td class="num-cell">21 מתוך 443</td></tr>
         <tr><td>רמה 2 או 3</td><td class="num-cell">מעולם לא</td></tr>
       </tbody>
     </table></div>
@@ -1076,31 +1070,23 @@ footer a:hover{color:var(--cyan)}
     <h3 id="scoreboard-en">Scoreboard: what this system has actually achieved (2026-09-01)</h3>
     <p>This section exists because a page that publishes thresholds owes the reader
     its record against them. As far as we know no public tracker in this field does
-    this to itself. <b>Where each figure comes from, explicitly:</b> "completed runs"
-    is counted from the run log across all three record shapes
-    (<span class="mono">ok</span>, <span class="mono">ALERT</span>,
-    <span class="mono">GOLIVE</span>); every other row is derived from the 440 snapshots
-    actually published, in the git history of <span class="mono">status.json</span>.
-    The 17 is the number of families that ever appeared in a snapshot — the roster changed
-    over time, so it exceeds today's 14. The level-1 count is <b>snapshots</b>, not index
-    cells: in 7 snapshots both indices were at level 1 at once, i.e. 28 index observations
-    of 880 but 21 snapshots of 440.</p>
+    this to itself. <b>As of 2026-09-01 21:30 UTC — every figure in the table was derived at that one moment and does not update itself.</b> "Completed runs" is counted from the run log across all three record shapes together (<span class="mono">ok</span>, <span class="mono">ALERT</span>, <span class="mono">GOLIVE</span>) — 793, 18 and 4 respectively. Every other row is derived from the 443 snapshots published in the git history of <span class="mono">status.json</span>. The 18 is the number of families that ever appeared in a snapshot — the roster changed over time, so it exceeds today's count. The level-1 figure counts <b>snapshots</b>, not index cells: in 7 snapshots both indices were at level 1 at once, i.e. 28 index observations of 886 but 21 snapshots of 443. <b>An earlier version of this table mixed cutoffs</b> — the family count came from one moment and the snapshot count from another. Corrected 2026-09-02 after an external review.</p>
 
     <div class="m-wrap"><table class="m-tbl">
       <tbody>
         <tr><td>System lifetime</td><td class="num-cell">2026-08-16 → 2026-09-01 · 15.9 days</td></tr>
-        <tr><td>Completed runs</td><td class="num-cell">803</td></tr>
-        <tr><td>Published snapshots</td><td class="num-cell">440</td></tr>
-        <tr><td>Families that have ever lit</td><td class="num-cell">5 of 17</td></tr>
+        <tr><td>Completed runs</td><td class="num-cell">815</td></tr>
+        <tr><td>Published snapshots</td><td class="num-cell">443</td></tr>
+        <tr><td>Families that have ever lit</td><td class="num-cell">5 of 18</td></tr>
         <tr><td>— firms</td><td class="num-cell">11 snapshots</td></tr>
         <tr><td>— us_mil_air</td><td class="num-cell">7 snapshots</td></tr>
         <tr><td>— jo_airspace</td><td class="num-cell">2 snapshots</td></tr>
         <tr><td>— il_airspace</td><td class="num-cell">1 snapshot</td></tr>
         <tr><td>— embassy_alerts</td><td class="num-cell">1 snapshot</td></tr>
-        <tr><td>Families that have never lit</td><td class="num-cell">12 of 17</td></tr>
+        <tr><td>Families that have never lit</td><td class="num-cell">13 of 18</td></tr>
         <tr><td>Detections of a real event</td><td class="num-cell">0</td></tr>
         <tr><td>Recorded false alarms</td><td class="num-cell">6</td></tr>
-        <tr><td>Snapshots with either index at level 1</td><td class="num-cell">21 of 440</td></tr>
+        <tr><td>Snapshots with either index at level 1</td><td class="num-cell">21 of 443</td></tr>
         <tr><td>Level 2 or 3</td><td class="num-cell">never</td></tr>
       </tbody>
     </table></div>
@@ -2443,7 +2429,7 @@ footer a:hover{color:var(--cyan)}
     בזמן שדווח על שיגורים לעבר ירדן. ה-0 היה נכון — אף מדד לא זז — והוא גם
     היה בלתי-קריא, כי &quot;0 מפני שהשקט אמיתי&quot; ו&quot;0 מפני שהמכשירים
     האלה אינם רואים את זה&quot; נראים על הדף בדיוק אותו הדבר.</p>
-    <p>רמה 0 אומרת דבר אחד: <b>המדדים המפורטים בדף לא זזו</b>. היא אינה טענה
+    <p>רמה 0 אומרת דבר אחד: <b>אף טריפ-ווייר מצביע לא חצה את הסף שלו</b>. זו אמירה צרה יותר ממה שנכתב כאן קודם: מדד יכול לזוז הרבה בלי לחצות, ומשפחות הקשר אינן נספרות בכלל. היא אינה טענה
     שלא קורה כלום. ובפרט: <b>שיגור טילים או מטח אינם נראים באף אחד מהמקורות
     החינמיים שהדף הזה קורא.</b> מעל איראן אין כיסוי מקלטי ADS-B כלל, ומעל
     ישראל אותו ערוץ סופר מטוסים אזרחיים באוויר ולא גופים בטיסה בליסטית; זיהוי
@@ -2491,12 +2477,14 @@ footer a:hover{color:var(--cyan)}
     <p>The four rules above are enforced in code. What follows is not a rule
     but a <b>fact about the roster</b>, written here because on the evening of
     2026-09-01 both indices read 0 while launches toward Jordan were being
-    reported. The 0 was correct — no tripwire moved — and it was also
+    reported. The 0 was correct — no voting tripwire crossed its threshold — and it was also
     unreadable, because &quot;0 because it is quiet&quot; and &quot;0 because
     these instruments cannot see this&quot; render identically on the
     page.</p>
-    <p>Level 0 says one thing: <b>the indicators listed on the page have not
-    moved</b>. It is not a claim that nothing is happening. Specifically:
+    <p>Level 0 says one thing: <b>no voting tripwire crossed its
+    threshold</b>. That is narrower than what this page said at first: an
+    indicator can move a long way without crossing, and context families are
+    not counted at all. It is not a claim that nothing is happening. Specifically:
     <b>a missile launch or a salvo is not visible in any of the free data
     sources this page reads.</b> Over Iran there is no ADS-B receiver coverage
     at all, and over Israel that same channel counts civil aircraft in the air
