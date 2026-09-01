@@ -489,7 +489,7 @@ footer a:hover{color:var(--cyan)}
     <p>כל מדד כאן הוא <b>בוליאני</b> — דולק או כבוי — ולא ציון. הרמה היא פשוט
     <b>ספירה של כמה משפחות מדדים דולקות בו-זמנית</b>, אחרי מסנן גיוון-ספקים:</p>
     <div class="fx">
-      votes &nbsp;= &nbsp; <span class="c">// lit families, capped at 2 per data provider</span><br>
+      votes &nbsp;= &nbsp; <span class="c">// one vote per lit family (the old per-provider cap was removed 1.9.2026 — proved redundant with the two clamps below)</span><br>
       level = 0 &nbsp; <span class="c">// no family lit</span><br>
       level = 1 &nbsp; <span class="c">// 1 vote — or 2+ votes all from ONE provider — or 2+ votes that are all BELIEFS</span><br>
       level = 2 &nbsp; <span class="c">// exactly 2 votes, from 2+ distinct providers, incl. 1+ ACTION</span><br>
@@ -627,7 +627,7 @@ footer a:hover{color:var(--cyan)}
     level is simply <b>a count of how many indicator families are lit at
     once</b>, passed through a provider-diversity guard:</p>
     <div class="fx">
-      votes &nbsp;= &nbsp; <span class="c">// lit families, capped at 2 per data provider</span><br>
+      votes &nbsp;= &nbsp; <span class="c">// one vote per lit family (the old per-provider cap was removed 1.9.2026 — proved redundant with the two clamps below)</span><br>
       level = 0 &nbsp; <span class="c">// no family lit</span><br>
       level = 1 &nbsp; <span class="c">// 1 vote — or 2+ votes all from ONE provider — or 2+ votes that are all BELIEFS</span><br>
       level = 2 &nbsp; <span class="c">// exactly 2 votes, from 2+ distinct providers, incl. 1+ ACTION</span><br>
@@ -853,20 +853,30 @@ footer a:hover{color:var(--cyan)}
 
     <h3 id="scoreboard">לוח התוצאות: מה המערכת הזאת השיגה בפועל (1.9.2026)</h3>
     <p>הסעיף הזה קיים כי דף שמפרסם ספים חייב לפרסם גם את הביצועים שלו מולם.
-    למיטב ידיעתנו אף מעקב ציבורי בתחום הזה לא עושה את זה על עצמו. כל מספר כאן
-    נגזר מיומן ההרצות ומ-437 התצלומים שפורסמו, ולכל מספר צמוד ה-n שלו.</p>
+    למיטב ידיעתנו אף מעקב ציבורי בתחום הזה לא עושה את זה על עצמו.
+    <b>מקור כל מספר, במפורש:</b> "הרצות שהושלמו" נספר מיומן ההרצות וכולל את שלוש
+    צורות הרשומה (<span class="mono">ok</span>, <span class="mono">ALERT</span>,
+    <span class="mono">GOLIVE</span>); כל שאר השורות נגזרות מ-440 התצלומים שפורסמו
+    בפועל בהיסטוריית ה-git של <span class="mono">status.json</span>. "17" הוא מספר
+    המשפחות שהופיעו אי פעם בתצלום — הרוסטר השתנה עם הזמן, ולכן הוא גדול מ-14 של היום.
+    ספירת רמה 1 היא <b>תצלומים</b> ולא תאי-מדד: ב-7 תצלומים שני המדדים היו ברמה 1 בו-זמנית,
+    כלומר 28 תצפיות-מדד מתוך 880 אך 21 תצלומים מתוך 440.</p>
 
     <div class="m-wrap"><table class="m-tbl">
       <tbody>
         <tr><td>חיי המערכת</td><td class="num-cell">16.8.2026 → 1.9.2026 · 15.9 ימים</td></tr>
-        <tr><td>הרצות שהושלמו</td><td class="num-cell">785</td></tr>
-        <tr><td>משפחות שנדלקו אי פעם</td><td class="num-cell">2 מתוך 13</td></tr>
-        <tr><td>‎— firms</td><td class="num-cell">13 הרצות</td></tr>
-        <tr><td>‎— us_mil_air</td><td class="num-cell">5 הרצות</td></tr>
-        <tr><td>משפחות שמעולם לא נדלקו</td><td class="num-cell">11 מתוך 13</td></tr>
+        <tr><td>הרצות שהושלמו</td><td class="num-cell">803</td></tr>
+        <tr><td>תצלומים שפורסמו</td><td class="num-cell">440</td></tr>
+        <tr><td>משפחות שנדלקו אי פעם</td><td class="num-cell">5 מתוך 17</td></tr>
+        <tr><td>‎— firms</td><td class="num-cell">11 תצלומים</td></tr>
+        <tr><td>‎— us_mil_air</td><td class="num-cell">7 תצלומים</td></tr>
+        <tr><td>‎— jo_airspace</td><td class="num-cell">2 תצלומים</td></tr>
+        <tr><td>‎— il_airspace</td><td class="num-cell">1 תצלום</td></tr>
+        <tr><td>‎— embassy_alerts</td><td class="num-cell">1 תצלום</td></tr>
+        <tr><td>משפחות שמעולם לא נדלקו</td><td class="num-cell">12 מתוך 17</td></tr>
         <tr><td>גילויים של אירוע אמיתי</td><td class="num-cell">0</td></tr>
         <tr><td>התרעות שווא מתועדות</td><td class="num-cell">6</td></tr>
-        <tr><td>רמה 1 מתוך התצלומים שפורסמו</td><td class="num-cell">28 מתוך 437</td></tr>
+        <tr><td>תצלומים שבהם מדד כלשהו ברמה 1</td><td class="num-cell">21 מתוך 440</td></tr>
         <tr><td>רמה 2 או 3</td><td class="num-cell">מעולם לא</td></tr>
       </tbody>
     </table></div>
@@ -875,7 +885,7 @@ footer a:hover{color:var(--cyan)}
     תקלת מכשיר או פרק שלא הצלחנו לאשש ממקור חיצוני. המבחן החד ביותר שהיה עד היום:
     ב-30.8.2026 תקפו כוחות אמריקאיים משגרים באי לארק, ובשחר 31.8 שיגר משמרות המהפכה
     מטח לעבר שני בסיסי חיל אוויר בירדן, שיורט במרחב האווירי הירדני.
-    <b>המדד "מרחב אווירי ירדן" לא נדלק באף אחת מ-104 ההרצות סביב האירוע</b> — ואותה
+    <b>המדד "מרחב אווירי ירדן" לא נדלק באף אחת מ-104 ההרצות סביב האירוע</b> — הוא כן נדלק פעמיים באותו חודש, בשני מועדים שאין להם אירוע מתאים — ואותה
     משפחה עצמה כן נדלקה פעמיים באותו חודש כשלא קרה דבר.</p>
 
     <p><b>מה שהמספרים האלה אומרים, ומה שהם לא.</b> הם אומרים שהמכשירים כאן טרם הוכיחו
@@ -1028,20 +1038,31 @@ footer a:hover{color:var(--cyan)}
     <h3 id="scoreboard-en">Scoreboard: what this system has actually achieved (2026-09-01)</h3>
     <p>This section exists because a page that publishes thresholds owes the reader
     its record against them. As far as we know no public tracker in this field does
-    this to itself. Every figure is derived from the run log and the 437 published
-    snapshots, and every figure carries its n.</p>
+    this to itself. <b>Where each figure comes from, explicitly:</b> "completed runs"
+    is counted from the run log across all three record shapes
+    (<span class="mono">ok</span>, <span class="mono">ALERT</span>,
+    <span class="mono">GOLIVE</span>); every other row is derived from the 440 snapshots
+    actually published, in the git history of <span class="mono">status.json</span>.
+    The 17 is the number of families that ever appeared in a snapshot — the roster changed
+    over time, so it exceeds today's 14. The level-1 count is <b>snapshots</b>, not index
+    cells: in 7 snapshots both indices were at level 1 at once, i.e. 28 index observations
+    of 880 but 21 snapshots of 440.</p>
 
     <div class="m-wrap"><table class="m-tbl">
       <tbody>
         <tr><td>System lifetime</td><td class="num-cell">2026-08-16 → 2026-09-01 · 15.9 days</td></tr>
-        <tr><td>Completed runs</td><td class="num-cell">785</td></tr>
-        <tr><td>Families that have ever lit</td><td class="num-cell">2 of 13</td></tr>
-        <tr><td>— firms</td><td class="num-cell">13 runs</td></tr>
-        <tr><td>— us_mil_air</td><td class="num-cell">5 runs</td></tr>
-        <tr><td>Families that have never lit</td><td class="num-cell">11 of 13</td></tr>
+        <tr><td>Completed runs</td><td class="num-cell">803</td></tr>
+        <tr><td>Published snapshots</td><td class="num-cell">440</td></tr>
+        <tr><td>Families that have ever lit</td><td class="num-cell">5 of 17</td></tr>
+        <tr><td>— firms</td><td class="num-cell">11 snapshots</td></tr>
+        <tr><td>— us_mil_air</td><td class="num-cell">7 snapshots</td></tr>
+        <tr><td>— jo_airspace</td><td class="num-cell">2 snapshots</td></tr>
+        <tr><td>— il_airspace</td><td class="num-cell">1 snapshot</td></tr>
+        <tr><td>— embassy_alerts</td><td class="num-cell">1 snapshot</td></tr>
+        <tr><td>Families that have never lit</td><td class="num-cell">12 of 17</td></tr>
         <tr><td>Detections of a real event</td><td class="num-cell">0</td></tr>
         <tr><td>Recorded false alarms</td><td class="num-cell">6</td></tr>
-        <tr><td>Level 1, of published snapshots</td><td class="num-cell">28 of 437</td></tr>
+        <tr><td>Snapshots with either index at level 1</td><td class="num-cell">21 of 440</td></tr>
         <tr><td>Level 2 or 3</td><td class="num-cell">never</td></tr>
       </tbody>
     </table></div>
@@ -1052,7 +1073,7 @@ footer a:hover{color:var(--cyan)}
     forces struck launchers on Larak Island, and at dawn on 08-31 the IRGC fired a
     salvo at two air bases in Jordan, intercepted in Jordanian airspace.
     <b>The Jordanian-airspace indicator did not light in any of the 104 runs around
-    that event</b> — while the same family had already fired twice that month on
+    that event</b> — it did light twice that month, on two dates with no matching event — while the same family had already fired twice that month on
     nothing at all.</p>
 
     <p><b>What these numbers say, and what they do not.</b> They say the instruments
@@ -1390,6 +1411,20 @@ footer a:hover{color:var(--cyan)}
             לו מידע פרטי קורא את אותן כותרות, והסף (2% ליום) גבוה מהמקסימום
             שנמדד אי פעם (0.87% ליום, מתוך 26 ימים שמורים)</td>
             <td>— הקשר בלבד</td></tr>
+        <tr><td>הודעות NOTAM — מרחב ישראל</td><td>brin.iaa.gov.il</td>
+            <td><b>לא מדליק כלום</b> — <b>הקשר בלבד מ-1.9.2026</b>, ואינו
+            מצביע. הדף נקרא לכל היותר פעם בשעה ונשמר במטמון (כ-1.21MB לקריאה;
+            קריאה בכל מחזור = כ-58MB ליום מאתר ממשלתי). נמדדים: מספר ההודעות
+            הפעילות, כמה מהן כוללות CLSD, כמה סוגרות בהיקף רחב (AD CLSD, או
+            ATS RTE ... CLSD, או CLSD TO ALL [DOM] FLT), וכמה מזהים
+            נוספו/נעלמו מאז הקריאה הקודמת. <b>נוכחות אינה שינוי</b> — במדידה
+            יחידה ב-1.9.2026 היו 106 הודעות ו-57 עם סגירה, ורובן שגרה: 21
+            רחפנים, 12 מסלולים, וכל ארבע סגירות השדה נומקו DUE WIP.
+            <b>נכשל סגור:</b> חסימת Radware (עמוד קפצ'ה בקוד 200), קיטוע, דף
+            שאינו דף ה-NOTAM, פחות מ-20 מזהים, או ספירת CLSD שאינה תואמת את
+            הדף — כולם מסמנים "לא נקרא", לעולם לא "שקט"</td>
+            <td>אין עדיין קו בסיס — 30 יום של קריאות שעתיות <b>וגם</b> אירוע
+            מרחב-אווירי אחד לפחות בתוכן</td></tr>
         <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
             <td><b>לא מדליק כלום</b> — הקשר בלבד</td><td>—</td></tr>
       </tbody>
@@ -1689,6 +1724,23 @@ footer a:hover{color:var(--cyan)}
             per day) sits above the highest value ever recorded (0.87% per
             day, over 26 stored days)</td>
             <td>— context only</td></tr>
+        <tr><td>Israeli NOTAMs — airspace closures</td><td>brin.iaa.gov.il</td>
+            <td><b>Lights nothing</b> — <b>context only since 2026-09-01</b>,
+            and it casts no vote. The page is read at most once an hour and
+            cached (~1.21MB a read; reading it every cycle would be ~58MB a day
+            off a government host). Measured: the number of active notices, how
+            many carry CLSD, how many close at a wide scope (AD CLSD, or
+            ATS RTE ... CLSD, or CLSD TO ALL [DOM] FLT), and how many ids
+            appeared/disappeared since the previous read. <b>Presence is not
+            change</b> — on a single measurement on 2026-09-01 there were 106
+            notices and 57 with a closure, mostly routine: 21 drones, 12
+            runways, and all four aerodrome closures annotated DUE WIP.
+            <b>Fails closed:</b> a Radware block (a captcha page at HTTP 200),
+            a truncation, a page that is not the NOTAM page, fewer than 20 ids,
+            or a CLSD count that does not reconcile with the page — each marks
+            the family unread, never quiet</td>
+            <td>No baseline yet — 30 days of hourly readings <b>and</b> at
+            least one airspace event inside them</td></tr>
         <tr><td>StrikeRadar</td><td>usstrikeradar.com</td>
             <td><b>Lights nothing</b> — context only</td><td>—</td></tr>
       </tbody>
@@ -2091,7 +2143,16 @@ footer a:hover{color:var(--cyan)}
       <li><b>רטוריקת מנהיגים —</b> הוצאה לחלוטין. ב-19 ביוני 2025 נאמר "החלטה בתוך
       שבועיים", והתקיפה הגיעה תוך יומיים. סיגנל שיכול להיות אנטי-מתואם עם האמת
       בדיוק ברגע הקריטי אינו סיגנל.</li>
-      <li><b>הודעות NOTAM —</b> האות האיכותי ביותר שאין לנו: מדינה שמפרסמת NOTAM
+      <li><b>הודעות NOTAM לישראל — קיימות מ-1.9.2026, כהקשר בלבד.</b> מה
+      שנכתב כאן קודם — שאין בכלל ערוץ NOTAM — התברר ב-1.9.2026 כלא נכון
+      לחצי הישראלי: דף שירות המידע התעופתי של רשות שדות התעופה
+      (brin.iaa.gov.il/aeroinfo) פתוח לגמרי — HTTP 200, כ-1.21MB, 106 מזהי
+      NOTAM ו-57 מופעי CLSD במדידה חיה באותו יום, בלי קפצ'ה, עוגייה, מפתח או
+      הרשמה. הסקר של 17.8 בדק "gov.il CAA" וקיבל 403, ומעולם לא ניסה את
+      שרת רשות שדות התעופה. המשפחה נוספה כ<b>הקשר בלבד</b>, בלי קול, עד
+      שיהיה לה קו בסיס נמדד — סעיף 05. הפער שנשאר הוא NOTAM לאיראן ולאזור,
+      והוא נשאר בדיוק כפי שנבדק:</li>
+      <li><b>הודעות NOTAM לאיראן ולאזור —</b> האות האיכותי ביותר שאין לנו: מדינה שמפרסמת NOTAM
       וסוגרת מרחב אווירי עושה צעד יקר וקשה לזיוף. נבדק לעומק פעמיים (16.8 ו-17.8):
       כל ערוץ חינמי שנבדק חסום מהשרת — מערכות ה-NOTAM של ה-FAA מחזירות 403/401,
       שירות הנתונים של ICAO דורש מפתח, autorouter דורש חשבון, אתרי ה-AIS של איראן
@@ -2169,7 +2230,18 @@ footer a:hover{color:var(--cyan)}
       was "a decision within two weeks", and the strike came within two days.
       A signal that can be anti-correlated with the truth at exactly the
       critical moment is not a signal.</li>
-      <li><b>NOTAMs —</b> the best-quality signal we do not have: a state that
+      <li><b>Israeli NOTAMs — we have had these since 2026-09-01, as context
+      only.</b> What used to stand here — that there is no NOTAM channel at
+      all — turned out on 2026-09-01 to be wrong about the Israeli half: the
+      Israel Airports Authority's Aeronautical Information Service page
+      (brin.iaa.gov.il/aeroinfo) is completely open — HTTP 200, ~1.21MB, 106
+      NOTAM ids and 57 CLSD occurrences on a live fetch that day, with no
+      captcha, cookie, key or registration. The 17.8 survey tested "gov.il
+      CAA" and got a 403, and never tried the Airports Authority host. The
+      family was added as <b>context only</b>, with no vote, until it has a
+      measured baseline — section 05. The gap that remains is NOTAMs for Iran
+      and the region, and it stands exactly as tested:</li>
+      <li><b>NOTAMs for Iran and the region —</b> the best-quality signal we do not have: a state that
       issues a NOTAM and closes airspace is taking a costly, hard-to-fake step.
       Tested in depth twice (16.8 and 17.8): every free channel tested is
       blocked from the server — the FAA's NOTAM systems return 403/401, ICAO's
