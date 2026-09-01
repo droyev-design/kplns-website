@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-01T02:42:54+00:00",
+ "generated": "2026-09-01T03:42:38+00:00",
  "history": [
-  {
-   "t": 1787627568,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787629353,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787631152,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788232370,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788234158,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2087,8 +2087,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "54 מטוסים אזרחיים באזור",
-     "value_en": "54 civil aircraft in the area",
+     "value": "44 מטוסים אזרחיים באזור",
+     "value_en": "44 civil aircraft in the area",
      "range": "54–95",
      "threshold_now": "<27 מטוסים",
      "threshold_now_en": "<27 aircraft"
@@ -2112,8 +2112,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים מעל ירדן",
-     "value_en": "2 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "3–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks"
@@ -2212,8 +2212,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים צבאיים באזור",
-     "value_en": "0 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–10",
      "threshold_now": ">20 מטוסים",
      "threshold_now_en": ">20 aircraft"
@@ -2237,11 +2237,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $90.9 · דולר 2.99 ₪",
-     "value_en": "Brent $90.9 · USD 2.99 ILS",
+     "value": "ברנט $91.2 · דולר 2.99 ₪",
+     "value_en": "Brent $91.2 · USD 2.99 ILS",
      "range": "",
-     "threshold_now": "ברנט ≥$97.2 · דולר ≥3.06 ₪",
-     "threshold_now_en": "Brent ≥$97.2 · USD/ILS ≥3.06"
+     "threshold_now": "ברנט ≥$97.3 · דולר ≥3.06 ₪",
+     "threshold_now_en": "Brent ≥$97.3 · USD/ILS ≥3.06"
     },
     {
      "key": "region_internet",
@@ -2360,9 +2360,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,589 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,589 BGP routes)",
-     "range": "41,558–41,585",
+     "value": "קישוריות תקינה (41,592 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,592 BGP routes)",
+     "range": "41,559–41,585",
      "threshold_now": "merit-nt <21 · ping-slash24 <5,548",
      "threshold_now_en": "merit-nt <21 · ping-slash24 <5,548"
     },
@@ -2410,8 +2410,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מוקד תרמי חדש אחד ב-2026-08-31 (מתוך 3,021 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "1 new thermal hotspot on 2026-08-31 (out of 3,021 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "מוקד תרמי חדש אחד ב-2026-08-31 (מתוך 3,059 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "1 new thermal hotspot on 2026-08-31 (out of 3,059 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": "0–4",
      "threshold_now": ">8 מוקדים",
      "threshold_now_en": ">8 hotspots"
@@ -2485,8 +2485,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים צבאיים באזור",
-     "value_en": "0 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–10",
      "threshold_now": ">20 מטוסים",
      "threshold_now_en": ">20 aircraft"
@@ -2510,11 +2510,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $90.9 · דולר 2.99 ₪",
-     "value_en": "Brent $90.9 · USD 2.99 ILS",
+     "value": "ברנט $91.2 · דולר 2.99 ₪",
+     "value_en": "Brent $91.2 · USD 2.99 ILS",
      "range": "",
-     "threshold_now": "ברנט ≥$97.2 · דולר ≥3.06 ₪",
-     "threshold_now_en": "Brent ≥$97.2 · USD/ILS ≥3.06"
+     "threshold_now": "ברנט ≥$97.3 · דולר ≥3.06 ₪",
+     "threshold_now_en": "Brent ≥$97.3 · USD/ILS ≥3.06"
     },
     {
      "key": "region_internet",
