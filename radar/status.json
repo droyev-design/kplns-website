@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-01T01:42:46+00:00",
+ "generated": "2026-09-01T02:42:54+00:00",
  "history": [
-  {
-   "t": 1787623955,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787625758,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787627568,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788228752,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788230574,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2087,8 +2087,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "59 מטוסים אזרחיים באזור",
-     "value_en": "59 civil aircraft in the area",
+     "value": "54 מטוסים אזרחיים באזור",
+     "value_en": "54 civil aircraft in the area",
      "range": "54–95",
      "threshold_now": "<27 מטוסים",
      "threshold_now_en": "<27 aircraft"
@@ -2112,8 +2112,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים מעל ירדן",
-     "value_en": "0 aircraft over Jordan",
+     "value": "2 מטוסים מעל ירדן",
+     "value_en": "2 aircraft over Jordan",
      "range": "3–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks"
@@ -2237,8 +2237,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.0 · דולר 2.99 ₪",
-     "value_en": "Brent $91.0 · USD 2.99 ILS",
+     "value": "ברנט $90.9 · דולר 2.99 ₪",
+     "value_en": "Brent $90.9 · USD 2.99 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$97.2 · דולר ≥3.06 ₪",
      "threshold_now_en": "Brent ≥$97.2 · USD/ILS ≥3.06"
@@ -2287,8 +2287,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.52% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.52%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.53% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.53%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%",
      "threshold_now": "≥2.00% ליום",
      "threshold_now_en": "≥2.00%/day"
@@ -2312,8 +2312,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "61/100",
-     "value_en": "61/100",
+     "value": "63/100",
+     "value_en": "63/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": ""
@@ -2360,8 +2360,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,588 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,588 BGP routes)",
+     "value": "קישוריות תקינה (41,589 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,589 BGP routes)",
      "range": "41,558–41,585",
      "threshold_now": "merit-nt <21 · ping-slash24 <5,548",
      "threshold_now_en": "merit-nt <21 · ping-slash24 <5,548"
@@ -2510,8 +2510,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $91.0 · דולר 2.99 ₪",
-     "value_en": "Brent $91.0 · USD 2.99 ILS",
+     "value": "ברנט $90.9 · דולר 2.99 ₪",
+     "value_en": "Brent $90.9 · USD 2.99 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$97.2 · דולר ≥3.06 ₪",
      "threshold_now_en": "Brent ≥$97.2 · USD/ILS ≥3.06"
@@ -2560,8 +2560,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "סיכון גלום לתקיפה 0.52% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
-     "value_en": "0.52%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
+     "value": "סיכון גלום לתקיפה 0.53% ליום (חוזה עד 2026-09-30, מנורמל לאופק)",
+     "value_en": "0.53%/day implied strike risk (contract to 2026-09-30, horizon-normalized)",
      "range": "0.35%–0.81%",
      "threshold_now": "≥2.00% ליום",
      "threshold_now_en": "≥2.00%/day"
@@ -2585,8 +2585,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "61/100",
-     "value_en": "61/100",
+     "value": "63/100",
+     "value_en": "63/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": ""
