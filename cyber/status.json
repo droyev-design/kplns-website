@@ -1,21 +1,21 @@
 {
- "generated": "2026-09-01T16:25:02+00:00",
- "level": 1,
+ "generated": "2026-09-02T04:25:03+00:00",
+ "level": 0,
  "catalog": {
-  "version": "2026.08.31",
-  "released": "2026-08-31T14:55:13.3856Z",
+  "version": "2026.09.01",
+  "released": "2026-09-01T19:22:46.2162Z",
   "count": 1687
  },
  "counts": {
   "total": 1687,
-  "new7": 11,
+  "new7": 5,
   "new30": 31,
   "il30": 17,
   "il_edge30": 8,
   "il_vendor90": 3,
   "ransom_total": 352
  },
- "level_n": 1,
+ "level_n": 0,
  "signals": [
   {
    "key": "ransom30",
@@ -66,9 +66,7 @@
    ]
   }
  ],
- "new_edge": [
-  "CVE-2026-8452"
- ],
+ "new_edge": [],
  "items": [
   {
    "cve": "CVE-2026-15409",
@@ -76,9 +74,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
    "added": "2026-07-14",
-   "age": 49,
+   "age": 50,
    "due": "2026-07-17",
-   "due_in": -46,
+   "due_in": -47,
    "ransom": true,
    "cwe_he": [
     "הכרחת השרת לפנות ליעד פנימי (SSRF)"
@@ -101,9 +99,9 @@
    "product": "SharePoint Server",
    "name": "Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability",
    "added": "2026-07-01",
-   "age": 62,
+   "age": 63,
    "due": "2026-07-04",
-   "due_in": -59,
+   "due_in": -60,
    "ransom": true,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -126,9 +124,9 @@
    "product": "Security Gateway",
    "name": "Check Point Security Gateway Improper Authentication Vulnerability",
    "added": "2026-06-08",
-   "age": 85,
+   "age": 86,
    "due": "2026-06-11",
-   "due_in": -82,
+   "due_in": -83,
    "ransom": true,
    "cwe_he": [
     "עקיפת אימות זהות"
@@ -151,9 +149,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Code Injection Vulnerability",
    "added": "2026-07-14",
-   "age": 49,
+   "age": 50,
    "due": "2026-07-17",
-   "due_in": -46,
+   "due_in": -47,
    "ransom": true,
    "cwe_he": [
     "הרצת קוד זר"
@@ -176,9 +174,9 @@
    "product": "SharePoint",
    "name": "Microsoft SharePoint Deserialization of Untrusted Data Vulnerability ",
    "added": "2026-07-22",
-   "age": 41,
+   "age": 42,
    "due": "2026-07-25",
-   "due_in": -38,
+   "due_in": -39,
    "ransom": false,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -201,9 +199,9 @@
    "product": "Core",
    "name": "WordPress Core SQL Injection Vulnerability",
    "added": "2026-07-21",
-   "age": 42,
+   "age": 43,
    "due": "2026-08-04",
-   "due_in": -28,
+   "due_in": -29,
    "ransom": false,
    "cwe_he": [
     "הזרקת SQL"
@@ -226,9 +224,9 @@
    "product": "Core",
    "name": "WordPress Core Interpretation Conflict Vulnerability",
    "added": "2026-07-21",
-   "age": 42,
+   "age": 43,
    "due": "2026-07-24",
-   "due_in": -39,
+   "due_in": -40,
    "ransom": false,
    "cwe_he": [],
    "cwe_ids": [],
@@ -247,9 +245,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 47,
+   "age": 48,
    "due": "2026-07-19",
-   "due_in": -44,
+   "due_in": -45,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -272,9 +270,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 47,
+   "age": 48,
    "due": "2026-07-19",
-   "due_in": -44,
+   "due_in": -45,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -297,9 +295,9 @@
    "product": "Sentry",
    "name": "Ivanti Sentry OS Command Injection Vulnerability",
    "added": "2026-06-11",
-   "age": 82,
+   "age": 83,
    "due": "2026-06-14",
-   "due_in": -79,
+   "due_in": -80,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -322,9 +320,9 @@
    "product": "NetScaler ADC and NetScaler Gateway",
    "name": "Citrix NetScaler ADC and NetScaler Gateway Improper Restriction of Operations within the Bounds of a Memory Buffer Vulnerability",
    "added": "2026-08-26",
-   "age": 6,
+   "age": 7,
    "due": "2026-08-29",
-   "due_in": -3,
+   "due_in": -4,
    "ransom": false,
    "cwe_he": [
     "חריגה מגבולות זיכרון"
@@ -347,9 +345,9 @@
    "product": "Zimbra Collaboration Suite (ZCS)",
    "name": "Zimbra Collaboration Suite (ZCS) OS Command Injection Vulnerability",
    "added": "2026-08-21",
-   "age": 11,
+   "age": 12,
    "due": "2026-08-24",
-   "due_in": -8,
+   "due_in": -9,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -368,11 +366,6 @@
   }
  ],
  "history": [
-  {
-   "t": 1787675103,
-   "lv": 1,
-   "deg": 0
-  },
   {
    "t": 1787718303,
    "lv": 1,
@@ -441,6 +434,11 @@
   {
    "t": 1788279902,
    "lv": 1,
+   "deg": 0
+  },
+  {
+   "t": 1788323103,
+   "lv": 0,
    "deg": 0
   }
  ],
