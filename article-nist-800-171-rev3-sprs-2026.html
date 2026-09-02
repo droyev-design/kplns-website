@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGJ6X7B0KW" crossorigin="anonymous"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XGJ6X7B0KW');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>NIST SP 800-171 גרסה 3 וציון SPRS: מה באמת השתנה לספק | KPLNS</title>
+<meta name="description" content="ציון SPRS אינו תג עבר/נכשל: האריתמטיקה המדויקת של החישוב, כללי ההתיישנות, מה POA&amp;M באמת קונה, ואיזו גרסה של NIST SP 800-171 מחייבת בחוזי DoD באוגוסט 2026.">
+<meta property="og:title" content="NIST SP 800-171 גרסה 3 וציון SPRS: מה באמת השתנה לספק | KPLNS">
+<meta property="og:description" content="גרסה 3 של NIST SP 800-171 צמצמה את התקן ל-97 דרישות והכניסה פרמטרים מוגדרי-ארגון — אבל הבסיס החוזי מול משרד ההגנה האמריקאי נותר גרסה 2. פירוק מדויק של חישוב ציון SPRS, כללי ההתיישנות, מה POA&amp;M באמת קונה, והשינויים הרגולטוריים של 2026 כולל השעיית שלב 2 של CMMC.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kplns.com/article-nist-800-171-rev3-sprs-2026.html">
+<meta property="og:image" content="https://kplns.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NIST SP 800-171 גרסה 3 וציון SPRS: מה באמת השתנה לספק | KPLNS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NIST SP 800-171 גרסה 3 וציון SPRS: מה באמת השתנה לספק | KPLNS">
+<meta name="twitter:description" content="ציון SPRS אינו תג עבר/נכשל: האריתמטיקה המדויקת של החישוב, כללי ההתיישנות, מה POA&amp;M באמת קונה, ואיזו גרסה של NIST SP 800-171 מחייבת בחוזי DoD באוגוסט 2026.">
+<meta name="twitter:image" content="https://kplns.com/og-image.png">
+<meta name="twitter:image:alt" content="NIST SP 800-171 גרסה 3 וציון SPRS: מה באמת השתנה לספק | KPLNS">
+<meta property="og:locale" content="he_IL">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="KPLNS Encapsulated Solutions">
+<link rel="canonical" href="https://kplns.com/article-nist-800-171-rev3-sprs-2026.html">
+<meta name="theme-color" content="#0a1628">
+<link rel="alternate" hreflang="he" href="https://kplns.com/article-nist-800-171-rev3-sprs-2026.html">
+<link rel="alternate" hreflang="en" href="https://kplns.com/article-nist-800-171-rev3-sprs-2026.html">
+<link rel="alternate" hreflang="x-default" href="https://kplns.com/article-nist-800-171-rev3-sprs-2026.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #111827; --bg-secondary: #1a2236;
+  --bg-card: rgba(26,34,54,0.65); --border: rgba(255,255,255,0.08);
+  --cyan: #00d4ff; --cyan-dim: rgba(0,212,255,0.15); --teal: #00b8a9;
+  --text-primary: #e8edf5; --text-secondary: rgba(232,237,245,0.6);
+  --text-muted: rgba(232,237,245,0.4);
+  --font-he: 'Heebo', sans-serif; --font-en: 'Inter', sans-serif;
+  --gradient-accent: linear-gradient(135deg,#00d4ff,#00b8a9);
+  --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+  --orange: #fb923c; --orange-dim: rgba(251,146,60,0.12);
+  --yellow: #facc15; --yellow-dim: rgba(250,204,21,0.12);
+  --purple: #a78bfa; --purple-dim: rgba(167,139,250,0.12);
+  --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-he);color:var(--text-primary);background:var(--bg-primary);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.article-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
+.article-nav-inner{max-width:800px;margin:0 auto;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.article-nav a{font-size:0.85rem;color:var(--cyan);font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.3s}
+.article-nav a:hover{opacity:0.7}
+.article-nav .logo-text{font-size:1.1rem;font-weight:700;color:var(--text-primary);letter-spacing:2px;font-family:var(--font-en)}
+.article-container{max-width:760px;margin:0 auto;padding:100px 24px 80px}
+.article-tag{display:inline-block;font-size:0.72rem;font-weight:600;color:var(--cyan);background:var(--cyan-dim);padding:5px 14px;border-radius:12px;margin-bottom:20px;letter-spacing:0.5px}
+.article-container h1{font-size:2.2rem;font-weight:800;line-height:1.3;margin-bottom:16px;letter-spacing:-0.01em}
+.article-meta{font-size:0.85rem;color:var(--text-muted);margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.article-body h2{font-size:1.4rem;font-weight:700;color:var(--text-primary);margin:48px 0 16px;padding-top:16px}
+.article-body h3{font-size:1.15rem;font-weight:700;color:var(--cyan);margin:32px 0 12px}
+.article-body p{font-size:1.02rem;color:var(--text-secondary);line-height:1.95;margin-bottom:20px}
+.article-body strong{color:var(--text-primary)}
+.article-body ul{list-style:none;margin:0 0 24px;padding:0}
+.article-body ul li{font-size:1rem;color:var(--text-secondary);line-height:1.85;padding:8px 0 8px 0;padding-right:24px;position:relative}
+.article-body ul li::before{content:'';position:absolute;right:0;top:17px;width:8px;height:8px;border-radius:50%;background:var(--cyan);opacity:0.6}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-num{font-size:1.8rem;font-weight:800;font-family:var(--font-en);background:var(--gradient-accent);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-num.red{background:linear-gradient(135deg,#ef4444,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:0.78rem;color:var(--text-muted);margin-top:6px}
+.risk-grid{display:grid;grid-template-columns:1fr;gap:16px;margin:28px 0}
+.risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:18px;align-items:flex-start}
+.risk-card.critical{border-right:4px solid var(--red)}
+.risk-card.warning{border-right:4px solid var(--orange)}
+.risk-card.good{border-right:4px solid var(--green)}
+.risk-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.risk-card h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:6px}
+.risk-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin:0}
+.case-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;border-right:4px solid var(--red)}
+.case-box.orange{border-right-color:var(--orange)}
+.case-box.cyan{border-right-color:var(--cyan)}
+.case-box.green{border-right-color:var(--green)}
+.case-box h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.case-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.case-box p:last-child{margin-bottom:0}
+.highlight-box{background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0;border-right:4px solid var(--cyan)}
+.highlight-box.red{border-right-color:var(--red)}
+.highlight-box.green{border-right-color:var(--green)}
+.highlight-box h3{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.highlight-box p{font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin:0 0 8px}
+.highlight-box p:last-child{margin-bottom:0}
+.layer-stack{margin:28px 0;display:flex;flex-direction:column;gap:0}
+.layer-item{display:flex;align-items:center;gap:16px;padding:16px 20px;border:1px solid var(--border);background:var(--bg-card)}
+.layer-item:first-child{border-radius:12px 12px 0 0}
+.layer-item:last-child{border-radius:0 0 12px 12px}
+.layer-item:not(:last-child){border-bottom:none}
+.layer-num{font-size:0.75rem;font-weight:800;font-family:var(--font-en);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.layer-item:nth-child(1) .layer-num{background:var(--red-dim);color:var(--red)}
+.layer-item:nth-child(2) .layer-num{background:var(--orange-dim);color:var(--orange)}
+.layer-item:nth-child(3) .layer-num{background:var(--yellow-dim);color:var(--yellow)}
+.layer-item:nth-child(4) .layer-num{background:var(--cyan-dim);color:var(--cyan)}
+.layer-item:nth-child(5) .layer-num{background:var(--green-dim);color:var(--green)}
+.layer-title{font-size:0.92rem;font-weight:700;color:var(--text-primary)}
+.layer-desc{font-size:0.82rem;color:var(--text-muted);margin-top:2px}
+.checklist{margin:28px 0;list-style:none;padding:0}
+.checklist li{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;padding:10px 0;padding-right:36px;position:relative;border-bottom:1px solid var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{content:'✓';position:absolute;right:6px;top:10px;font-size:0.85rem;font-weight:700;color:var(--green)}
+.bottom-line{background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(0,184,169,0.06));border:1px solid rgba(0,212,255,0.25);border-right:4px solid var(--cyan);border-radius:12px;padding:28px;margin:36px 0}
+.bottom-line h3{font-size:1.1rem;font-weight:800;color:var(--cyan);margin-bottom:12px}
+.bottom-line p{font-size:0.95rem;color:var(--text-secondary);line-height:1.85;margin:0 0 10px}
+.bottom-line p:last-child{margin-bottom:0}
+.article-sources{margin-top:48px;padding-top:28px;border-top:1px solid var(--border)}
+.article-sources h4{font-size:0.78rem;font-weight:700;color:var(--text-muted);letter-spacing:0.5px;margin-bottom:12px;text-transform:uppercase}
+.article-sources ol{list-style:none;counter-reset:src;margin:0;padding:0}
+.article-sources ol li{counter-increment:src;font-size:0.78rem;color:var(--text-muted);line-height:1.7;padding:6px 0;padding-right:22px;position:relative}
+.article-sources ol li::before{content:counter(src);position:absolute;right:0;top:7px;font-size:0.65rem;font-weight:700;color:var(--text-muted);font-family:var(--font-en)}
+.article-sources ol li a{color:var(--cyan);word-break:break-word;transition:opacity 0.3s}
+.article-sources ol li a:hover{opacity:0.75}
+.article-cta{background:var(--bg-secondary);border:1px solid var(--border);border-radius:16px;padding:48px 40px;margin-top:56px;text-align:center}
+.article-cta h3{font-size:1.3rem;color:var(--text-primary);margin:0 0 12px}
+.article-cta p{font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px}
+.article-cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:8px;font-size:0.95rem;font-weight:600;background:var(--gradient-accent);color:var(--bg-primary);transition:all 0.3s}
+.article-cta-btn:hover{box-shadow:0 0 30px var(--cyan-dim);transform:translateY(-2px)}
+.article-footer{text-align:center;padding:40px 24px;border-top:1px solid rgba(255,255,255,0.08);margin-top:60px;color:rgba(232,237,245,0.4);font-size:0.85rem}
+.article-footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.article-footer .footer-links a{color:rgba(232,237,245,0.5);font-size:0.82rem;transition:color 0.3s}
+.article-footer .footer-links a:hover{color:#00d4ff}
+.article-footer .footer-copy{font-size:0.8rem}
+@media(max-width:768px){
+  .article-container{padding:70px 16px 48px}
+  .article-container h1{font-size:1.5rem}
+  .article-body h2{font-size:1.15rem}
+  .stat-row{grid-template-columns:1fr;gap:12px}
+  .risk-card{flex-direction:column;gap:10px;padding:20px 16px}
+  .case-box,.highlight-box,.bottom-line{padding:20px 16px}
+  .article-cta{padding:32px 20px}
+}
+
+.breadcrumb {
+  max-width: 760px; margin: 80px auto 0; padding: 0 24px;
+  font-size: 0.82rem; color: var(--text-muted);
+}
+.breadcrumb a { color: var(--cyan); transition: opacity 0.3s; }
+.breadcrumb a:hover { opacity: 0.8; }
+.breadcrumb span { margin: 0 8px; }
+
+.related-articles {
+  max-width: 760px; margin: 0 auto; padding: 48px 24px 0;
+}
+.related-articles h3 {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.related-card {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.related-card:hover {
+  border-color: rgba(0,212,255,0.2); background: rgba(26, 34, 54, 0.85);
+  transform: translateX(-4px);
+}
+.related-card .r-tag {
+  font-size: 0.7rem; font-weight: 600; color: var(--cyan);
+  background: var(--cyan-dim); padding: 3px 10px; border-radius: 8px;
+  white-space: nowrap;
+}
+.related-card .r-title {
+  font-size: 0.92rem; font-weight: 600; color: var(--text-primary);
+}
+@media (min-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* Channel CTA. Same rule as the radar page: the limit is stated INSIDE the
+   box rather than assumed from the surrounding article, because a reader who
+   arrives from search may read nothing else on the page. */
+.chan-box {
+  max-width: 760px; margin: 40px auto 0; padding: 18px 22px;
+  background: var(--bg-card); border: 1px solid rgba(0,212,255,0.24);
+  border-radius: 14px; text-align: center;
+}
+.chan-box-t { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+.chan-box-s { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin: 0 0 14px; }
+.chan-box-btn {
+  display: inline-block; padding: 8px 18px; border-radius: 999px;
+  border: 1px solid rgba(0,212,255,0.4); background: var(--cyan-dim);
+  color: var(--cyan); font-size: 0.9rem; font-weight: 600; text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.chan-box-btn:hover { border-color: var(--cyan); background: rgba(26, 34, 54, 0.85); }
+
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"בית","item":"https://kplns.com/"},{"@type":"ListItem","position":2,"name":"מאמרים","item":"https://kplns.com/#insights"},{"@type":"ListItem","position":3,"name":"NIST SP 800-171 גרסה 3 וציון SPRS: מה באמת השתנה לספק"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"NIST SP 800-171 גרסה 3 וציון SPRS: מה באמת השתנה לספק","description":"ציון SPRS אינו תג עבר/נכשל: האריתמטיקה המדויקת של החישוב, כללי ההתיישנות, מה POA&M באמת קונה, ואיזו גרסה של NIST SP 800-171 מחייבת בחוזי DoD באוגוסט 2026.","author":{"@type":"Person","@id":"https://kplns.com/#founder","name":"Y.K.","jobTitle":"Security & Supply Chain Consultant"},"publisher":{"@type":"Organization","name":"KPLNS Encapsulated Solutions","url":"https://kplns.com","logo":{"@type":"ImageObject","url":"https://kplns.com/og-image.png"}},"datePublished":"2026-09-02","dateModified":"2026-09-02","image":"https://kplns.com/og-image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://kplns.com/article-nist-800-171-rev3-sprs-2026.html"},"inLanguage":"he-IL","articleSection":"Compliance","keywords":"NIST SP 800-171, גרסה 3, Revision 3, ציון SPRS, DFARS 252.204-7012, CMMC Level 2, POA&M, SSP, ODP, MORSECORP, חוק התביעות הכוזבות, סטייה כיתתית, CUI","wordCount":1900}
+</script>
+</head>
+<body>
+<nav class="article-nav">
+  <div class="article-nav-inner">
+    <span class="logo-text">KPLNS</span>
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      חזרה לאתר
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="index.html">בית</a><span>›</span>
+  <a href="index.html#insights">מאמרים</a><span>›</span>
+  NIST SP 800-171 גרסה 3 וציון SPRS: מה באמת השתנה לספק
+</nav>
+<article class="article-container">
+  <div class="article-tag">ציות ושרשרת אספקה ביטחונית</div>
+  <h1>NIST SP 800-171 גרסה 3 וציון SPRS: מה באמת השתנה לספק</h1>
+  <div class="article-meta">KPLNS Encapsulated Solutions &nbsp;·&nbsp; זמן קריאה: 10 דקות &nbsp;·&nbsp; מבוסס על NIST SP 800-171, מתודולוגיית ההערכה של DoD ו-<span dir="ltr">32 CFR Part 170</span></div>
+
+  <div class="article-body">
+
+    <p>ספקים ישראליים שמוכרים לשרשרת האספקה הביטחונית האמריקאית מתייחסים לציון SPRS (Supplier Performance Risk System — מערכת סיכוני ביצועי ספקים של משרד ההגנה האמריקאי) כאל תג של "עבר/נכשל". זו טעות: מדובר במספר שהספק מדווח על עצמו, לפי אריתמטיקה קבועה וידועה, עם תוקף מוגבל בזמן וחשיפה משפטית ממשית מאחוריו. המאמר מפרק את החשבון עצמו ומבהיר איזו גרסה של התקן באמת מחייבת בחוזה נכון לאוגוסט 2026.</p>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">110</div>
+        <div class="stat-label">דרישות בגרסה 2 — ונקודת הפתיחה של ציון SPRS</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">97</div>
+        <div class="stat-label">דרישות פעילות בגרסה 3, מתוך 130 מזהי דרישה</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num red">246</div>
+        <div class="stat-label">נקודות הפער בין הציון שדווח לציון האמיתי בתיק MORSECORP</div>
+      </div>
+    </div>
+
+    <h2>מה NIST באמת פרסמה במאי 2024</h2>
+
+    <p>ב-14 במאי 2024 פרסם NIST שני מסמכים סופיים: SP 800-171 גרסה 3, וכן מדריך ההערכה הנלווה SP 800-171A גרסה 3. שניהם Final — אך מחליפים מסמכים שונים: התקן מחליף את גרסה 2 מפברואר 2020, על עדכוניה מ-28 בינואר 2021. מדריך ההערכה מחליף את המהדורה המקורית מיוני 2018: ל-800-171A לא הייתה מעולם גרסה 2.</p>
+
+    <p>בגרסה 2 יש 110 דרישות אבטחה, בארבע-עשרה משפחות. בגרסה 3 המסמך מגדיר 130 מספרי דרישה, אך 33 מהם מסומנים "Withdrawn" — כלומר בוטלו או מוזגו לדרישות אחרות. נותרות 97 דרישות פעילות, בשבע-עשרה משפחות. שלוש משפחות חדשות נוספו כדי להתיישר עם קו הבסיס Moderate של SP 800-53B: תכנון (PL), רכש מערכות ושירותים (SA) וניהול סיכוני שרשרת אספקה (SR).</p>
+
+    <p>מתחת לפני השטח בוטלה ההבחנה בין דרישות בסיסיות (Basic) לנגזרות (Derived) — הבסיס לכל שיטת הניקוד של DoD, כפי שנראה מיד. בוטלה גם קטגוריית ההתאמה (tailoring) הקרויה NFO, ונוספו הקטגוריות ORC ו-NA.</p>
+
+    <h2>פרמטרים מוגדרי-ארגון (ODP) — ומי ממלא את החסר</h2>
+
+    <p>החידוש שמשנה את אופי התקן הוא Organization-Defined Parameters — פרמטרים מוגדרי-ארגון. במקום דרישה מוחלטת, הנוסח מותיר משבצת ריקה: "<span dir="ltr">[Assignment: organization-defined frequency]</span>" וכדומה. ספירה ישירה בנספח D של הפרסום מראה ש-50 מתוך 97 הדרישות מכילות ODP אחד לפחות.</p>
+
+    <p>מי ממלא את המשבצות? ה-FAQ הרשמי של NIST קובע שסוכנויות פדרליות רשאיות לקבוע ערכי ODP או להותיר את הבחירה לארגון, ושבהיעדר קביעה פדרלית הארגון הלא-פדרלי מקצה את הערך בעצמו. משרד ההגנה פרסם מסמך ODP משלו לגרסה 3: מזכר בחתימת דיוויד מקאון, ממלא מקום סגן ה-CIO לסייבר, מ-10 באפריל 2025, שאושר לפרסום ב-15 באפריל 2025. נספחו קובע ערכים עבור 50 דרישות, בארבעה מקרים כהנחיה ולא כערך. אך המזכר עצמו מנסח את מעמדו בזהירות: הערכים נקבעו "לקראת יישום" גרסה 3 כדרישת המינימום לקבלנים — כלומר הוא אינו הופך אותה למחייבת.</p>
+
+    <div class="highlight-box">
+      <h3>המשמעות המעשית</h3>
+      <p>בגרסה 3, דרישה עם ODP אינה בינארית עד שמישהו מילא את החסר. "יישמתי את הדרישה" הופך למשפט חסר משמעות בלי לצטט את הערך ואת מקורו.</p>
+    </div>
+
+    <h2>האריתמטיקה של ציון SPRS — שורה אחר שורה</h2>
+
+    <p>שיטת הניקוד מוגדרת ב-NIST SP 800-171 DoD Assessment Methodology, גרסה 1.2.1 מ-24 ביוני 2020. היא פשוטה, ולכן קלה לביקורת בדיעבד.</p>
+
+    <p>מתחילים ב-110 — מספר הדרישות בגרסה 2. על כל דרישה שאינה מיושמת מחסירים את הערך המשוקלל שלה. המסמך קובע במפורש: "The score of 110 is reduced by each requirement not implemented, which may result in a negative score."</p>
+
+    <p>המשקולות:</p>
+
+    <p><strong>חמש נקודות</strong> — דרישות שאי-יישומן עלול להוביל לניצול משמעותי של הרשת או לדליפת CUI (Controlled Unclassified Information — מידע מבוקר שאינו מסווג): 23 דרישות בסיסיות ו-19 נגזרות.</p>
+
+    <p><strong>שלוש נקודות</strong> — דרישות בעלות השפעה ספציפית ותחומה: שבע בסיסיות ושבע נגזרות.</p>
+
+    <p><strong>נקודה אחת</strong> — כל יתר הדרישות הנגזרות.</p>
+
+    <p>שני חריגים שבהם קיים זיכוי חלקי מובנה: אימות רב-גורמי (3.5.3) — שלוש נקודות מוחסרות אם האימות מיושם רק לגישה מרחוק ולמשתמשים בעלי הרשאות מוגברות, חמש אם אינו מיושם כלל; והצפנה מאומתת FIPS (3.13.11) — שלוש נקודות אם הצפנה קיימת אך אינה מאומתת FIPS, חמש אם אין הצפנה כלל.</p>
+
+    <p>צירוף המשקולות הוא שנותן את הטווח שמשרד המשפטים האמריקאי מצטט רשמית: "the possible score range from <span dir="ltr">-203</span> to 110". ציון שלילי אינו תקלה בטופס אלא תוצאה אריתמטית תקינה.</p>
+
+    <p>שני כללים שנוטים להישכח: תוכנית אבטחת מערכת (SSP) אינה מנוקדת אלא מהווה תנאי סף — היעדרה מוביל לקביעה ש"assessment could not be completed due to incomplete information and noncompliance with DFARS clause 252.204-7012".</p>
+
+    <p>והשני: תוכנית פעולה (POA&amp;M) אינה תחליף ליישום. זהו הכלל, וסעיף <span dir="ltr">5.g.ii</span> של המתודולוגיה קובע אותו בלי סייג: "Security requirements not implemented, whether a plan of action is in place or not, will be assessed as 'not implemented.'" הדוגמה שבמסמך עצמו — פריסת אימות רב-גורמי שהושלמה ב-75% ותוכנית פעולה פעילה בצדה — נקבעת כלא-מיושמת, במלוא הניכוי; תקנת CMMC חוזרת על אותו כלל ב-<span dir="ltr">32 CFR 170.24(c)(2)(i)(B)</span> בקביעת "NOT MET". לכלל יש חריג מוגדר, ותנאיו צרים: ליקוי זמני (temporary deficiency) המטופל כראוי בתוכנית פעולה — הכוללת סקירות ליקוי, אבני דרך והתקדמות מוכחת לתיקון — נספר כמיושם (סעיף <span dir="ltr">5.h.i</span>). החריג חל על ליקוי שנוצר אחרי היישום — או, במקרה נקודתי של ציוד ספציפי, במהלך פריסה שהושלמה בעיקרה; המילון של המתודולוגיה (סעיף <span dir="ltr">7.b</span>) קובע במפורש שליקוי זמני אינו יישום ראשוני שבעיצומו. אין מגבלת זמן קשיחה, והמבחן הוא סבירות. בהצפנה, שימוש מבודד בהצפנה שאינה מאומתת FIPS המלווה בתוכנית פעולה נכנס לגדר ליקוי זמני, במקום ניכוי שלוש הנקודות. במקביל, חריגה מתמשכת ונקודתית (isolated enduring exception) — למשל ציוד ייצור ייעודי — נספרת כמיושמת אם היא מתועדת ב-SSP עם אמצעי ההפחתה, ואינה דורשת תוכנית פעולה כלל.</p>
+
+    <div class="highlight-box red">
+      <h3>ליקוי זמני מול דרישה שמעולם לא יושמה</h3>
+      <p>ההבחנה אינה סמנטית. הדוגמה שבמסמך לליקוי זמני היא עדכון שביטל את תוקף אישור ה-FIPS של מודול הצפנה שכבר פעל — מצב שנספר כמיושם כל עוד תוכנית הפעולה עומדת באמות המידה, בעוד דרישה שמעולם לא יושמה מחסירה נקודות גם עם תוכנית פעולה. מי שמחליף בין השתיים מגיש ל-SPRS מספר שגוי תחת חוק התביעות הכוזבות. וכל זה נפרד מה-POA&amp;M שקונה סטטוס Conditional ב-CMMC — מנגנון בעל תנאי כשירות משלו (להלן).</p>
+    </div>
+
+    <p>תקנת CMMC (Cybersecurity Maturity Model Certification — הסמכה במודל בגרות הסייבר של משרד ההגנה) ב-<span dir="ltr">32 CFR 170.24</span> משכפלת את אותן משקולות ל-Level 2, משווה ממצא Not Applicable ל-Met, ומנסחת את שני החריגים בלשון מחייבת: "shall be assessed as MET" (<span dir="ltr">170.24(b)(1)</span>).</p>
+
+    <h2>איזו גרסה מחייבת היום</h2>
+
+    <p>זו הנקודה הקריטית, והיא מוצגת באופן שגוי לעיתים קרובות.</p>
+
+    <p>ב-2 במאי 2024 — עוד לפני שגרסה 3 פורסמה — הוציא DoD סטייה כיתתית (Class Deviation) <span dir="ltr">2024-O0013</span>, שעודכנה ב-22 במאי 2024. הנוסח: על קבלנים שחל עליהם סעיף 252.204-7012 "to comply with NIST SP 800-171 Revision 2, instead of the version ... in effect at the time the solicitation is issued." הסטייה נשארת בתוקף עד לביטולה.</p>
+
+    <p>תוכנית CMMC נועלת את אותו קו בסיס ברמת התקנה. סעיף 170.2 מאמץ בהפניה את "SP 800-171, Revision 2, February 2020 (includes updates as of January 28, 2021)" — וגם, פחות מוכר, את "SP 800-171A ... June 2018": גם מדריך ההערכה בפועל אינו גרסה 3. סעיף <span dir="ltr">170.14(c)(3)</span> מסכם: "The security requirements in CMMC Level 2 are identical to the requirements in NIST SP 800-171 R2."</p>
+
+    <div class="highlight-box green">
+      <h3>המסקנה</h3>
+      <p>נכון להיום, גרסה 3 אינה קו הבסיס שמחייבים סעיף 252.204-7012 ו-CMMC Level 2 — לא לניקוד, לא להערכה ולא ל-ODP. זו קביעה על שני המשטרים האלה, ולא קביעה ש-DoD מנוע מלדרוש את גרסה 3 בהקשר חוזי אחר.</p>
+    </div>
+
+    <h2>2026: שלושה שינויים שמשנים את התמונה</h2>
+
+    <p><strong>נובמבר 2025.</strong> כלל ה-DFARS המשלים ל-CMMC פורסם ב-10 בספטמבר 2025 (<span dir="ltr">90 FR 43560</span>) ונכנס לתוקף ב-10 בנובמבר 2025. הוא מעדכן את הסעיף החוזי 252.204-7021 — שקיים מאז הכלל הזמני של 2020 — מוסיף את הוראת המכרז 252.204-7025, ופותח את שלב 1 של CMMC.</p>
+
+    <p><strong>פברואר 2026.</strong> במסגרת ה-Revolutionary FAR Overhaul, סטייה כיתתית <span dir="ltr">2026-O0043</span> החליפה את DFARS Part 204 החל מ-17 בפברואר 2026. בנוסח החדש, תת-הפרקים 204.73 ו-204.75 מסומנים RESERVED. סטייה <span dir="ltr">2026-O0025</span> העבירה את חובות הסייבר ל-DFARS Part 240 החדש: הסעיף 252.240-7997 מחליף את 252.204-7020 ומגדיר רק Medium Assessment ו-High Assessment, שניהם מבוצעים בידי צוותי ממשלה. הגדרת "Basic Assessment" נעלמה, וההוראה 252.204-7019 אינה נכללת עוד ברשימת ההוראות לשיבוץ. במקביל, סעיף 7012 בנוסח החדש נוקב במפורש ב-"Revision 2" עם קישור ישיר לקובץ.</p>
+
+    <p><strong>יולי 2026.</strong> סטייה <span dir="ltr">2026-O0025</span>, עדכון 2, שנחתמה ב-16 ביולי 2026, מיישמת מזכר של קצין המידע הראשי (CIO) של Department of War — השם שנושא כיום משרד ההגנה האמריקאי — מ-13 ביולי 2026, שכותרתו "Suspension of the Advancement to Cybersecurity Maturity Model Certification Phase 2 Requirements". לפי הסטייה, המזכר מתיר לגורמים הדורשים לכלול הערכות עצמיות ברמה 1 או ברמה 2; מחייב עמידה בקו בסיס NIST SP 800-171 גרסה 2 מכוח סעיף 252.204-7012; ומשעה את המעבר לשלב 2 של CMMC שהיה אמור להתחיל בנובמבר 2026. לגבי חוזים קיימים שכוללים את הדרישות שהושעו, קציני חוזים נדרשים להסירן בתיקון לפני מימוש תקופת האופציה הבאה או בתיקון המנהלי הבא. מה שלא הוסר: דרישות ההערכה העצמית של שלב 1 נותרו במקומן.</p>
+
+    <p>הערה מעשית: נכון לעדכון ה-DFARS מ-7 במאי 2026 באתר acquisition.gov, ההוראה 252.204-7019 עדיין מופיעה בטקסט המקודד. סטיות כיתתיות פועלות מעל הטקסט המקודד ולא מוחקות אותו — ולכן אין תחליף לקריאת המכרז הספציפי.</p>
+
+    <h2>"יש לי ציון" מול "הציון שלי עומד בביקורת"</h2>
+
+    <p>ההבדל בין השניים הוא ההבדל בין שורה בטופס לתיק ראיות.</p>
+
+    <div class="case-box">
+      <h4>🔴 תיק MORSECORP — פער של 246 נקודות</h4>
+      <p>תיק MORSECORP ממחיש זאת. לפי הודעת משרד המשפטים מ-26 במרץ 2025, החברה דיווחה בינואר 2021 ציון 104; ביולי 2022 יועץ חיצוני קבע שהציון האמיתי הוא מינוס 142; והחברה עדכנה רק ביוני 2023, שלושה חודשים אחרי זימון (subpoena). התוצאה: פשרה של 4.6 מיליון דולר תחת חוק התביעות הכוזבות.</p>
+      <p>הפער בין 104 למינוס 142 הוא 246 נקודות. משרד המשפטים לא פרסם את גיליון ההערכה, ולכן אי-אפשר לדעת אילו דרישות שונו. אך חשבונית, סך הדרישות במשקל נקודה אחת אינו מגיע ל-60 נקודות, ולכן פער כזה חייב לכלול עשרות דרישות במשקל 5 ו-3. ציון אינו טענה אחת אלא סיכום של 110 קביעות עובדתיות נפרדות, כל אחת ניתנת לבדיקה.</p>
+    </div>
+
+    <p><strong>תוקף בזמן.</strong> ההוראה 252.204-7019 דרשה הערכה שאינה בת יותר משלוש שנים, אלא אם המכרז מציין פרק זמן קצר יותר. במשטר CMMC, ההגדרות ב-DFARS החדש מדויקות יותר: סטטוס Final Level 2 (עצמי או C3PAO) — לא ישן מ-3 שנים, בליווי אישור תקופתי (affirmation) שאינו ישן משנה; סטטוס Conditional — לא ישן מ-180 יום.</p>
+
+    <p><strong>מה POA&amp;M קונה ומה לא.</strong> לפי <span dir="ltr">32 CFR 170.21</span>, POA&amp;M ברמה 2 מותר רק אם הציון חלקי מספר הדרישות גדול או שווה ל-0.8 — 88 מתוך 110; אף פריט בו אינו יכול להיות בשווי גבוה מנקודה אחת, למעט SC.L2-3.13.11 בשווי 3; ושש דרישות אסורות בו לחלוטין, ובהן CA.L2-3.12.4 (תוכנית אבטחת מערכת). הסגירה חייבת להיות מאומתת בהערכת סגירה תוך 180 יום — אחרת הסטטוס פג.</p>
+
+    <h2>מה זה אומר בפועל</h2>
+
+    <ul class="checklist">
+      <li><strong>אל תחליפו את תוכנית הציות לגרסה 2 בתוכנית לגרסה 3.</strong> נכון לאוגוסט 2026 הבסיס החוזי הוא גרסה 2. מדריך ההערכה המאומץ ב-<span dir="ltr">32 CFR 170.2</span> הוא SP 800-171A מיוני 2018, וחישוב ציון SPRS מכוח 252.204-7012 נשען על מתודולוגיית ההערכה של DoD, שאינה מאמצת את 800-171A כלל. היערכות מקדימה לגרסה 3 היא מסלול מעבר נפרד, לא הוכחת ציות נוכחית.</li>
+      <li><strong>תעדו את הציון ברמת הדרישה הבודדת</strong> — לכל אחת מ-110: מי קבע, מתי ועל סמך איזו ראיה. ה-SSP הוא המסמך היחיד שהיעדרו מבטל את ההערכה כולה.</li>
+      <li><strong>חשבו את הציון פעמיים</strong> — פעם בעצמכם ופעם בבדיקה בלתי-תלויה. פער של עשרות נקודות בין השתיים הוא סימן אזהרה, לא ויכוח מקצועי.</li>
+      <li><strong>עדכנו מיד.</strong> בתיק MORSECORP, העיכוב בן אחד-עשר החודשים בין גילוי הפער לעדכון הוא חלק מהעובדות שבבסיס הפשרה.</li>
+      <li><strong>בדקו כל שינוי רגולטורי מול המכרז הספציפי.</strong> אחרי השעיית שלב 2 של CMMC, ההנחה "מה שהיה במכרז הקודם תקף גם עכשיו" מסוכנת בשני הכיוונים.</li>
+      <li><strong>ספק ישראלי — שימו לב לקבלני המשנה.</strong> פסקה (m) לסעיף 252.204-7012 מחייבת לכלול את הסעיף עצמו בחוזי משנה לתמיכה קריטית תפעולית, או כאלה שביצועם יכלול מידע ביטחוני מכוסה. ציון של קבלן משנה שאינו נבדק הופך לחשיפה של הקבלן הראשי.</li>
+    </ul>
+
+    <h2>מה עדיין לא ידוע</h2>
+
+    <p><strong>מתי, אם בכלל, DoD יעבור לגרסה 3.</strong> סטיית <span dir="ltr">2024-O0013</span> "remains in effect until rescinded". לא מצאתי מועד יעד רשמי או כלל DFARS מוצע שקובע תאריך מעבר.</p>
+
+    <p><strong>מה יעלה בגורל CMMC אחרי הבחינה מחדש.</strong> לא מצאתי מסמך רשמי שקובע מה יקרה בסופה, ולא לוח זמנים לחידוש שלב 2.</p>
+
+    <p><strong>האם חובת ההעלאה של הערכה עצמית ל-SPRS נותרה בתוקף בפועל.</strong> הסעיף החדש 252.240-7997 אינו מגדיר עוד "Basic Assessment", וההוראה 252.204-7019 אינה משובצת תחת הסטייה — אך הטקסט המקודד עדיין מציג אותה, וחובת הדיווח ל-SPRS ממשיכה דרך CMMC (<span dir="ltr">32 CFR 170.16</span>). לא אימתתי ממקור ראשוני כיצד SPRS מטפלת בהגשות "Basic" היום.</p>
+
+    <p><strong>הערך המינימלי <span dir="ltr">-203</span>.</strong> משרד המשפטים מצטט אותו רשמית, אך מתודולוגיית ההערכה אינה נוקבת בו; הוא נגזרת של סכימת המשקולות ושל הטיפול בדרישה 3.12.4 בתבנית הניקוד.</p>
+
+    <div class="article-sources">
+      <h4>מקורות</h4>
+      <ol>
+        <li id="src1"><a href="https://csrc.nist.gov/pubs/sp/800/171/r3/final" target="_blank" rel="noopener noreferrer">NIST CSRC</a></li>
+        <li id="src2"><a href="https://csrc.nist.gov/pubs/sp/800/171/a/r3/final" target="_blank" rel="noopener noreferrer">NIST CSRC</a></li>
+        <li id="src3"><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171r3.pdf" target="_blank" rel="noopener noreferrer">NIST SP 800-171r3 (PDF, ספירה ישירה במסמך)</a></li>
+        <li id="src4"><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171r2.pdf" target="_blank" rel="noopener noreferrer">NIST SP 800-171 Rev. 2</a></li>
+        <li id="src5"><a href="https://csrc.nist.gov/files/projects/protecting-controlled-unclassified-information/documents/FAQ/FAQ-SP800-171R3-171AR3.pdf" target="_blank" rel="noopener noreferrer">NIST FAQ: SP 800-171r3 and SP 800-171Ar3</a></li>
+        <li id="src6"><a href="https://dowcio.war.gov/Portals/0/Documents/CMMC/OrgDefinedParmsNISTSP800-171.pdf" target="_blank" rel="noopener noreferrer">DoD CIO — memorandum, &quot;Department of Defense Organization-Defined Parameters for NIST SP 800-171 Revision 3&quot; (מקור ראשוני, אומת בהורדה)</a></li>
+        <li id="src7"><a href="https://www.acq.osd.mil/asda/dpc/cp/cyber/docs/safeguarding/NIST-SP-800-171-Assessment-Methodology-Version-1.2.1-6.24.2020.pdf" target="_blank" rel="noopener noreferrer">DoD / OUSD(A&amp;S) Defense Pricing and Contracting</a></li>
+        <li id="src8"><a href="https://www.justice.gov/opa/pr/defense-contractor-morsecorp-inc-agrees-pay-46-million-settle-cybersecurity-fraud" target="_blank" rel="noopener noreferrer">U.S. Department of Justice, Office of Public Affairs</a></li>
+        <li id="src9"><a href="https://www.law.cornell.edu/cfr/text/32/170.24" target="_blank" rel="noopener noreferrer">‎32 CFR 170.24 (Cornell LII)</a></li>
+        <li id="src10"><a href="https://www.acq.osd.mil/dpap/policy/policyvault/USA001074-24-DPC.pdf" target="_blank" rel="noopener noreferrer">OUSD(A&amp;S) Defense Pricing and Contracting — Class Deviation 2024-O0013, Revision 1</a></li>
+        <li id="src11"><a href="https://www.law.cornell.edu/cfr/text/32/170.2" target="_blank" rel="noopener noreferrer">‎32 CFR 170.2, Incorporation by reference (Cornell LII)</a></li>
+        <li id="src12"><a href="https://www.law.cornell.edu/cfr/text/32/170.14" target="_blank" rel="noopener noreferrer">‎32 CFR 170.14 (Cornell LII)</a></li>
+        <li id="src13"><a href="https://www.federalregister.gov/documents/2025/09/10/2025-17359/defense-federal-acquisition-regulation-supplement-assessing-contractor-implementation-of" target="_blank" rel="noopener noreferrer">Federal Register, DFARS Case 2019-D041, Final rule</a></li>
+        <li id="src14"><a href="https://www.federalregister.gov/documents/full_text/text/2025/09/10/2025-17359.txt" target="_blank" rel="noopener noreferrer">Federal Register 90 FR 43560, DFARS 204.7501 Definitions</a></li>
+        <li id="src15"><a href="https://www.acquisition.gov/dfars/252.204-7019-notice-nistsp-800-171-dod-assessment-requirements." target="_blank" rel="noopener noreferrer">Acquisition.gov — DFARS 252.204-7019 (DFARS Change 5/7/2026)</a></li>
+        <li id="src16"><a href="https://www.acq.osd.mil/dpap/dars/classdev/DFARS_RFO/Part-204/2026-O0043_TAB_A_Deviation_Memo_Part_204.pdf" target="_blank" rel="noopener noreferrer">OUSD(A&amp;S) — Class Deviation 2026-O0043, Revolutionary FAR Overhaul, DFARS Part 204</a></li>
+        <li id="src17"><a href="https://www.acq.osd.mil/dpap/dars/classdev/DFARS_RFO/Part-240/2026-O0025_Rev_2_TAB_A_Deviation_Memo_Part_240.pdf" target="_blank" rel="noopener noreferrer">OUSD(A&amp;S) — Class Deviation 2026-O0025, Revision 2, DFARS Part 240</a></li>
+        <li id="src18"><a href="https://www.law.cornell.edu/cfr/text/32/170.3" target="_blank" rel="noopener noreferrer">‎32 CFR 170.3(e) (Cornell LII)</a></li>
+        <li id="src19"><a href="https://www.law.cornell.edu/cfr/text/32/170.21" target="_blank" rel="noopener noreferrer">‎32 CFR 170.21 (Cornell LII)</a></li>
+        <li id="src20"><a href="https://www.law.cornell.edu/cfr/text/32/170.16" target="_blank" rel="noopener noreferrer">‎32 CFR 170.16 (Cornell LII)</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="related-articles" aria-label="מאמרים ושירותים קשורים">
+    <h3>מאמרים ושירותים קשורים</h3>
+    <div class="related-grid">
+      <a href="article-cmmc-phase2-freeze-2026.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">CMMC שלב 2 הוקפא - מה עושה ספק ביטחוני עכשיו?</span></a>
+      <a href="article-cmmc-level-2-external-cert.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">CMMC Level 2 - הסמכה חיצונית C3PAO וההיערכות לדדליין 2026</span></a>
+      <a href="article-cmmc-phase2-subcontractors-2026.html" class="related-card"><span class="r-tag">מאמר</span><span class="r-title">CMMC שלב 2 - הסמכת קבלני משנה וזרימת הדרישות לספק הישראלי</span></a>
+      <a href="service-survey-360.html" class="related-card"><span class="r-tag">שירות</span><span class="r-title">סקר ביטחון 360° בשרשרת האספקה</span></a>
+    </div>
+  </section>
+
+  <div class="article-cta">
+    <h3>הציון שלכם ב-SPRS יעמוד בבדיקה חוזרת?</h3>
+    <p>ציון SPRS הוא סיכום של 110 קביעות עובדתיות נפרדות, וכל אחת מהן ניתנת לבדיקה בדיעבד. KPLNS מבצעת לספקים ישראליים תיחום גבול CUI, הערכה עצמית מול 110 הבקרות, חישוב ציון בלתי-תלוי ותיעוד ראיה לכל דרישה - כדי שהמספר שמוגש יהיה מספר שאפשר להגן עליו.</p>
+    <a href="index.html#contact" class="article-cta-btn">
+      דברו איתנו
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</article>
+
+<footer class="article-footer">
+  <div class="footer-links">
+    <a href="privacy.html">מדיניות פרטיות</a>
+    <a href="accessibility.html">הצהרת נגישות</a>
+    <a href="disclaimer.html">תנאי שימוש</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 KPLNS Encapsulated Solutions &nbsp;·&nbsp; <a href="https://kplns.com/#contact" style="color:#00d4ff;">צרו קשר</a></div>
+</footer>
+</body>
+</html>
