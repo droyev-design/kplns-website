@@ -1,12 +1,12 @@
 {
- "generated": "2026-09-03T03:37:02+00:00",
- "level": 1,
+ "generated": "2026-09-03T04:07:02+00:00",
+ "level": 0,
  "now": {
   "foreign_ops": 59,
   "cancelled": 21,
   "flights": 830,
-  "aircraft": 2,
-  "airborne_ops": 2
+  "aircraft": 12,
+  "airborne_ops": 6
  },
  "history": [
   {
@@ -1688,6 +1688,11 @@
    "t": 1788406622,
    "lv": 1,
    "deg": 0
+  },
+  {
+   "t": 1788408422,
+   "lv": 0,
+   "deg": 0
   }
  ],
  "tripwires": [
@@ -1719,13 +1724,13 @@
    "key": "live_traffic",
    "name": "מטוסים באוויר סביב נתב\"ג",
    "name_en": "Aircraft airborne around Ben Gurion",
-   "lit": true,
+   "lit": false,
    "armed": true,
    "ok": true,
-   "reason": "תנועה אווירית קרסה: 2 מטוסים מול חציון 10 בשעה זו בימים דומים",
-   "reason_en": "Air traffic collapsed: 2 aircraft vs a median of 10 at this hour on comparable days",
-   "value": "2 מטוסים באוויר כעת, 2 סימני קריאה של חברות",
-   "value_en": "2 aircraft airborne now, 2 airline callsigns"
+   "reason": "",
+   "reason_en": "",
+   "value": "12 מטוסים באוויר כעת, 6 סימני קריאה של חברות",
+   "value_en": "12 aircraft airborne now, 6 airline callsigns"
   }
  ],
  "days": [
@@ -1764,7 +1769,7 @@
    "dow": "ראשון",
    "dow_en": "Sun",
    "today": false,
-   "flights": 171,
+   "flights": 185,
    "cancelled": 0,
    "foreign_ops": 33,
    "il_ops": 3
