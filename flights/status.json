@@ -1,24 +1,14 @@
 {
- "generated": "2026-09-03T14:07:03+00:00",
+ "generated": "2026-09-03T15:07:02+00:00",
  "level": 0,
  "now": {
-  "foreign_ops": 59,
-  "cancelled": 22,
+  "foreign_ops": 58,
+  "cancelled": 23,
   "flights": 830,
-  "aircraft": 16,
-  "airborne_ops": 11
+  "aircraft": 15,
+  "airborne_ops": 8
  },
  "history": [
-  {
-   "t": 1787839625,
-   "lv": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787841422,
-   "lv": 0,
-   "deg": 0
-  },
   {
    "t": 1787843222,
    "lv": 0,
@@ -1693,6 +1683,16 @@
    "t": 1788444423,
    "lv": 0,
    "deg": 0
+  },
+  {
+   "t": 1788446222,
+   "lv": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788448022,
+   "lv": 0,
+   "deg": 0
   }
  ],
  "tripwires": [
@@ -1705,8 +1705,8 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "59 חברות זרות שונות טסות היום",
-   "value_en": "59 distinct foreign airlines flying today"
+   "value": "58 חברות זרות שונות טסות היום",
+   "value_en": "58 distinct foreign airlines flying today"
   },
   {
    "key": "cancellations",
@@ -1717,8 +1717,8 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "22 מתוך 830 טיסות היום (2.7%) — ביטולים בודדים הם שגרה",
-   "value_en": "22 of 830 flights today (2.7%) — a handful is routine"
+   "value": "23 מתוך 830 טיסות היום (2.8%) — ביטולים בודדים הם שגרה",
+   "value_en": "23 of 830 flights today (2.8%) — a handful is routine"
   },
   {
    "key": "live_traffic",
@@ -1729,8 +1729,8 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "16 מטוסים באוויר כעת, 11 סימני קריאה של חברות",
-   "value_en": "16 aircraft airborne now, 11 airline callsigns"
+   "value": "15 מטוסים באוויר כעת, 8 סימני קריאה של חברות",
+   "value_en": "15 aircraft airborne now, 8 airline callsigns"
   }
  ],
  "days": [
@@ -1740,8 +1740,8 @@
    "dow_en": "Thu",
    "today": true,
    "flights": 830,
-   "cancelled": 22,
-   "foreign_ops": 59,
+   "cancelled": 23,
+   "foreign_ops": 58,
    "il_ops": 3
   },
   {
@@ -1769,7 +1769,7 @@
    "dow": "ראשון",
    "dow_en": "Sun",
    "today": false,
-   "flights": 548,
+   "flights": 591,
    "cancelled": 0,
    "foreign_ops": 49,
    "il_ops": 3
