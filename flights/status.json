@@ -1,24 +1,14 @@
 {
- "generated": "2026-09-03T20:07:02+00:00",
+ "generated": "2026-09-03T21:07:02+00:00",
  "level": 0,
  "now": {
-  "foreign_ops": 58,
-  "cancelled": 23,
-  "flights": 830,
-  "aircraft": 13,
-  "airborne_ops": 8
+  "foreign_ops": 46,
+  "cancelled": 1,
+  "flights": 602,
+  "aircraft": 9,
+  "airborne_ops": 6
  },
  "history": [
-  {
-   "t": 1787861223,
-   "lv": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787863022,
-   "lv": 0,
-   "deg": 0
-  },
   {
    "t": 1787864822,
    "lv": 0,
@@ -1693,6 +1683,16 @@
    "t": 1788466022,
    "lv": 0,
    "deg": 0
+  },
+  {
+   "t": 1788467821,
+   "lv": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788469622,
+   "lv": 0,
+   "deg": 0
   }
  ],
  "tripwires": [
@@ -1701,12 +1701,12 @@
    "name": "חברות תעופה זרות בלוח היומי",
    "name_en": "Foreign airlines on today's board",
    "lit": false,
-   "armed": true,
+   "armed": false,
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "58 חברות זרות שונות טסות היום",
-   "value_en": "58 distinct foreign airlines flying today"
+   "value": "46 חברות זרות שונות טסות היום",
+   "value_en": "46 distinct foreign airlines flying today"
   },
   {
    "key": "cancellations",
@@ -1717,38 +1717,28 @@
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "23 מתוך 830 טיסות היום (2.8%) — ביטולים בודדים הם שגרה",
-   "value_en": "23 of 830 flights today (2.8%) — a handful is routine"
+   "value": "1 מתוך 602 טיסות היום (0.2%) — ביטולים בודדים הם שגרה",
+   "value_en": "1 of 602 flights today (0.2%) — a handful is routine"
   },
   {
    "key": "live_traffic",
    "name": "מטוסים באוויר סביב נתב\"ג",
    "name_en": "Aircraft airborne around Ben Gurion",
    "lit": false,
-   "armed": true,
+   "armed": false,
    "ok": true,
    "reason": "",
    "reason_en": "",
-   "value": "13 מטוסים באוויר כעת, 8 סימני קריאה של חברות",
-   "value_en": "13 aircraft airborne now, 8 airline callsigns"
+   "value": "9 מטוסים באוויר כעת, 6 סימני קריאה של חברות",
+   "value_en": "9 aircraft airborne now, 6 airline callsigns"
   }
  ],
  "days": [
   {
-   "date": "2026-09-03",
-   "dow": "חמישי",
-   "dow_en": "Thu",
-   "today": true,
-   "flights": 830,
-   "cancelled": 23,
-   "foreign_ops": 58,
-   "il_ops": 3
-  },
-  {
    "date": "2026-09-04",
    "dow": "שישי",
    "dow_en": "Fri",
-   "today": false,
+   "today": true,
    "flights": 602,
    "cancelled": 1,
    "foreign_ops": 46,
@@ -1769,15 +1759,25 @@
    "dow": "ראשון",
    "dow_en": "Sun",
    "today": false,
-   "flights": 749,
-   "cancelled": 0,
+   "flights": 768,
+   "cancelled": 2,
    "foreign_ops": 53,
    "il_ops": 3
+  },
+  {
+   "date": "2026-09-07",
+   "dow": "שני",
+   "dow_en": "Mon",
+   "today": false,
+   "flights": 1,
+   "cancelled": 0,
+   "foreign_ops": 1,
+   "il_ops": 0
   }
  ],
  "baseline": {
   "since": "2026-08-20",
-  "weekday_days": 10,
+  "weekday_days": 11,
   "fri_days": 2,
   "sat_days": 2,
   "fops_need": 4,
