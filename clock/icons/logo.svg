@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="שעון נוכחות">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1E3A8A"/>
+      <stop offset="0.55" stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#g)"/>
+  <!-- The mark is a clock face whose body tapers to a map-pin point:
+       time and place, which is exactly what one entry records. -->
+  <path d="M256 412 C256 412 140 286 140 210 A116 116 0 1 1 372 210 C372 286 256 412 256 412 Z"
+        fill="none" stroke="#FFFFFF" stroke-width="26" stroke-linejoin="round"/>
+  <circle cx="256" cy="204" r="10" fill="#FFFFFF"/>
+  <!-- Hands read as a clock at a glance and stay legible at 48px. -->
+  <path d="M256 204 V132" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+  <path d="M256 204 H322" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+</svg>
