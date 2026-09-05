@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-04T23:42:22+00:00",
+ "generated": "2026-09-05T00:42:37+00:00",
  "history": [
-  {
-   "t": 1787960574,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1787962356,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1787964160,
    "il": 0,
@@ -2034,6 +2022,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788567145,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788568957,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2102,8 +2102,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "48 מטוסים אזרחיים באזור",
-     "value_en": "48 civil aircraft in the area",
+     "value": "69 מטוסים אזרחיים באזור",
+     "value_en": "69 civil aircraft in the area",
      "range": "51–103",
      "threshold_now": "<26 מטוסים",
      "threshold_now_en": "<26 aircraft",
@@ -2131,8 +2131,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים מעל ירדן",
-     "value_en": "4 aircraft over Jordan",
+     "value": "5 מטוסים מעל ירדן",
+     "value_en": "5 aircraft over Jordan",
      "range": "2–8",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2378,8 +2378,8 @@
    "lit_count": 0,
    "max_level": 3,
    "ratchets": [],
-   "standing": "📈 מצב עומד (אינו רמה): 4 משפחות מעוגנות במדד הזה צברו מספיק ימים כדי לדווח, ואחת מהן חוצה את העוגן המוצהר שלה ביום האחרון שנשמר. הספירה הגבוהה ביותר באוגר: מרחב אווירי ירדן · 2 מתוך 5 הימים האחרונים מתחת לעוגן המוצהר (3), כולל היום האחרון שנשמר. אינו מצביע; כל העוגנים נמדדו בתוך המלחמה.",
-   "standing_en": "📈 Standing state (not a level): 4 anchored families on this index have enough stored days to report, and one of them is past its declared anchor on the most recent stored day. Highest count in the register: Jordanian airspace · 2 of the last 5 days at or below the declared anchor (3), including the most recent stored day. Casts no vote; every anchor was measured inside the war.",
+   "standing": "📈 מצב עומד (אינו רמה): 4 משפחות מעוגנות במדד הזה צברו מספיק ימים כדי לדווח, ואף אחת מהן אינה חוצה את העוגן המוצהר שלה ביום האחרון שנשמר. הספירה הגבוהה ביותר באוגר: מרחב אווירי ירדן · 2 מתוך 6 הימים האחרונים מתחת לעוגן המוצהר (3), אך לא ביום האחרון שנשמר. אינו מצביע; כל העוגנים נמדדו בתוך המלחמה.",
+   "standing_en": "📈 Standing state (not a level): 4 anchored families on this index have enough stored days to report, and none of them is past its declared anchor on the most recent stored day. Highest count in the register: Jordanian airspace · 2 of the last 6 days at or below the declared anchor (3), but not on the most recent stored day. Casts no vote; every anchor was measured inside the war.",
    "standing_risk": "🎲 סיכון יומי עומד: 0.65% ליום. זו הסתברות גלומה מהשוק — כסף אמיתי ב-Polymarket — ולא תחזית של הדף הזה ולא מדידת חיישן. היא נגזרת מחוזה פתוח אחד, ⁦\"Israel x Iran ceasefire continues through September 30?\"⁩, שנסגר לפי תקיפה אווירית או טילית של אחד הצדדים במשנהו: מחירו מגלם 16% לתקיפה כזו עד 2026-09-30, ונותרו לו 26 ימים. המספר המתפרסם הוא הקצב היומי ולא מחיר החוזה: מחיר חוזה יורד מעצמו ככל שמועד הפקיעה מתקרב, גם כשדבר לא השתנה, ולכן רק הקצב היומי בר-השוואה משבוע לשבוע. אינו מצביע.",
    "standing_risk_en": "🎲 Standing daily risk: 0.65%/day. This is a MARKET-IMPLIED probability — real money on Polymarket — not a forecast by this page and not a sensor reading. It comes from one open contract, \"Israel x Iran ceasefire continues through September 30?\", which resolves on an air or missile strike by either side against the other: its price implies a 16% chance of such a strike before 2026-09-30, with 26 days left to run. The figure published is the PER-DAY rate, not the contract price: a contract price falls on its own as expiry approaches even when nothing has changed, so only the daily rate is comparable from one week to the next. Casts no vote."
   },
@@ -2419,11 +2419,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,617 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,617 BGP routes)",
-     "range": "41,598–41,617",
-     "threshold_now": "merit-nt <21",
-     "threshold_now_en": "merit-nt <21",
+     "value": "קישוריות תקינה (41,618 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,618 BGP routes)",
+     "range": "41,600–41,618",
+     "threshold_now": "merit-nt <20",
+     "threshold_now_en": "merit-nt <20",
      "watch": "",
      "watch_en": "",
      "anchor": "",
@@ -2448,11 +2448,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מוקדים תרמיים חדשים ב-2026-09-03 (מתוך 3,699 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "0 new thermal hotspots on 2026-09-03 (out of 3,699 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "2 מוקדים תרמיים חדשים ב-2026-09-04 (מתוך 1,945 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "2 new thermal hotspots on 2026-09-04 (out of 1,945 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": "0–4",
-     "threshold_now": ">7 מוקדים",
-     "threshold_now_en": ">7 hotspots",
+     "threshold_now": ">6 מוקדים",
+     "threshold_now_en": ">6 hotspots",
      "watch": "",
      "watch_en": "",
      "anchor": "",
@@ -2634,7 +2634,7 @@
  "ratchets": [],
  "anchor_summary": {
   "families_reported": 7,
-  "families_on_anchor": 2,
+  "families_on_anchor": 1,
   "longest_streak_days": 4,
   "window_days": 14,
   "families_anchored": 7,
