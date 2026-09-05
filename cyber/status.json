@@ -1,17 +1,17 @@
 {
- "generated": "2026-09-04T16:25:03+00:00",
+ "generated": "2026-09-05T04:25:02+00:00",
  "level": 2,
  "catalog": {
   "version": "2026.09.04",
-  "released": "2026-09-04T15:31:56.2523Z",
-  "count": 1694
+  "released": "2026-09-04T16:47:03.5197Z",
+  "count": 1695
  },
  "counts": {
-  "total": 1694,
-  "new7": 9,
+  "total": 1695,
+  "new7": 10,
   "new30": 34,
   "il30": 15,
-  "il_edge30": 8,
+  "il_edge30": 7,
   "il_vendor90": 4,
   "ransom_total": 354
  },
@@ -40,26 +40,24 @@
    "key": "epss30",
    "he": "ניצול צפוי בהיקף רחב — EPSS מעל 50% (30 יום)",
    "en": "Wide-scale exploitation expected — EPSS over 50% (30 days)",
-   "n": 4,
+   "n": 3,
    "cves": [
     "CVE-2019-1068",
     "CVE-2026-33824",
-    "CVE-2026-8037",
-    "CVE-2026-63077"
+    "CVE-2026-8037"
    ]
   },
   {
    "key": "overdue",
    "he": "רכיבים היקפיים שתאריך היעד של CISA להם כבר עבר (30 יום)",
    "en": "Perimeter products whose CISA due date has passed (30 days)",
-   "n": 6,
+   "n": 5,
    "cves": [
     "CVE-2026-8452",
     "CVE-2026-73570",
     "CVE-2026-55040",
     "CVE-2026-20349",
-    "CVE-2026-8037",
-    "CVE-2026-63077"
+    "CVE-2026-8037"
    ]
   }
  ],
@@ -74,9 +72,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
    "added": "2026-07-14",
-   "age": 52,
+   "age": 53,
    "due": "2026-07-17",
-   "due_in": -49,
+   "due_in": -50,
    "ransom": true,
    "cwe_he": [
     "הכרחת השרת לפנות ליעד פנימי (SSRF)"
@@ -99,9 +97,9 @@
    "product": "SharePoint Server",
    "name": "Microsoft SharePoint Server Deserialization of Untrusted Data Vulnerability",
    "added": "2026-07-01",
-   "age": 65,
+   "age": 66,
    "due": "2026-07-04",
-   "due_in": -62,
+   "due_in": -63,
    "ransom": true,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -124,9 +122,9 @@
    "product": "Security Gateway",
    "name": "Check Point Security Gateway Improper Authentication Vulnerability",
    "added": "2026-06-08",
-   "age": 88,
+   "age": 89,
    "due": "2026-06-11",
-   "due_in": -85,
+   "due_in": -86,
    "ransom": true,
    "cwe_he": [
     "עקיפת אימות זהות"
@@ -149,9 +147,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Code Injection Vulnerability",
    "added": "2026-07-14",
-   "age": 52,
+   "age": 53,
    "due": "2026-07-17",
-   "due_in": -49,
+   "due_in": -50,
    "ransom": true,
    "cwe_he": [
     "הרצת קוד זר"
@@ -174,9 +172,9 @@
    "product": "SharePoint",
    "name": "Microsoft SharePoint Deserialization of Untrusted Data Vulnerability ",
    "added": "2026-07-22",
-   "age": 44,
+   "age": 45,
    "due": "2026-07-25",
-   "due_in": -41,
+   "due_in": -42,
    "ransom": false,
    "cwe_he": [
     "פענוח אובייקט לא מהימן"
@@ -199,9 +197,9 @@
    "product": "Core",
    "name": "WordPress Core SQL Injection Vulnerability",
    "added": "2026-07-21",
-   "age": 45,
+   "age": 46,
    "due": "2026-08-04",
-   "due_in": -31,
+   "due_in": -32,
    "ransom": false,
    "cwe_he": [
     "הזרקת SQL"
@@ -224,9 +222,9 @@
    "product": "Core",
    "name": "WordPress Core Interpretation Conflict Vulnerability",
    "added": "2026-07-21",
-   "age": 45,
+   "age": 46,
    "due": "2026-07-24",
-   "due_in": -42,
+   "due_in": -43,
    "ransom": false,
    "cwe_he": [],
    "cwe_ids": [],
@@ -245,9 +243,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 50,
+   "age": 51,
    "due": "2026-07-19",
-   "due_in": -47,
+   "due_in": -48,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -270,9 +268,9 @@
    "product": "FortiSandbox",
    "name": "Fortinet FortiSandbox OS Command Injection Vulnerability",
    "added": "2026-07-16",
-   "age": 50,
+   "age": 51,
    "due": "2026-07-19",
-   "due_in": -47,
+   "due_in": -48,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -295,9 +293,9 @@
    "product": "Sentry",
    "name": "Ivanti Sentry OS Command Injection Vulnerability",
    "added": "2026-06-11",
-   "age": 85,
+   "age": 86,
    "due": "2026-06-14",
-   "due_in": -82,
+   "due_in": -83,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -320,9 +318,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances Server-Side Request Forgery Vulnerability",
    "added": "2026-09-02",
-   "age": 2,
+   "age": 3,
    "due": "2026-09-05",
-   "due_in": 1,
+   "due_in": 0,
    "ransom": false,
    "cwe_he": [
     "הכרחת השרת לפנות ליעד פנימי (SSRF)"
@@ -345,9 +343,9 @@
    "product": "SMA1000 Appliances",
    "name": "SonicWall SMA1000 Appliances OS Command Injection Vulnerability",
    "added": "2026-09-02",
-   "age": 2,
+   "age": 3,
    "due": "2026-09-05",
-   "due_in": 1,
+   "due_in": 0,
    "ransom": false,
    "cwe_he": [
     "הרצת פקודות מערכת מרחוק"
@@ -433,6 +431,11 @@
   },
   {
    "t": 1788539103,
+   "lv": 2,
+   "deg": 0
+  },
+  {
+   "t": 1788582302,
    "lv": 2,
    "deg": 0
   }
