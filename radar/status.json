@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-06T22:12:22+00:00",
+ "generated": "2026-09-06T23:12:22+00:00",
  "history": [
-  {
-   "t": 1788127955,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1788129782,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1788131574,
    "il": 0,
@@ -2034,6 +2022,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788734547,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788736342,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2102,9 +2102,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "47 מטוסים אזרחיים באזור",
-     "value_en": "47 civil aircraft in the area",
-     "range": "53–92",
+     "value": "65 מטוסים אזרחיים באזור",
+     "value_en": "65 civil aircraft in the area",
+     "range": "54–92",
      "threshold_now": "<25 מטוסים",
      "threshold_now_en": "<25 aircraft",
      "watch": "",
@@ -2131,8 +2131,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "2–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2305,8 +2305,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $96.3 · דולר 3.00 ₪",
-     "value_en": "Brent $96.3 · USD 3.00 ILS",
+     "value": "ברנט $96.8 · דולר 3.00 ₪",
+     "value_en": "Brent $96.8 · USD 3.00 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$104.0 · דולר ≥3.10 ₪",
      "threshold_now_en": "Brent ≥$104.0 · USD/ILS ≥3.10",
@@ -2363,8 +2363,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "77/100",
-     "value_en": "77/100",
+     "value": "78/100",
+     "value_en": "78/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2425,8 +2425,8 @@
      "value": "קישוריות תקינה (41,642 מסלולי BGP)",
      "value_en": "Connectivity normal (41,642 BGP routes)",
      "range": "41,611–41,646",
-     "threshold_now": "merit-nt <21",
-     "threshold_now_en": "merit-nt <21",
+     "threshold_now": "merit-nt <20",
+     "threshold_now_en": "merit-nt <20",
      "watch": "",
      "watch_en": "",
      "anchor": "",
@@ -2538,8 +2538,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $96.3 · דולר 3.00 ₪",
-     "value_en": "Brent $96.3 · USD 3.00 ILS",
+     "value": "ברנט $96.8 · דולר 3.00 ₪",
+     "value_en": "Brent $96.8 · USD 3.00 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$104.0 · דולר ≥3.10 ₪",
      "threshold_now_en": "Brent ≥$104.0 · USD/ILS ≥3.10",
@@ -2596,8 +2596,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "77/100",
-     "value_en": "77/100",
+     "value": "78/100",
+     "value_en": "78/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
