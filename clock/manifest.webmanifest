@@ -9,8 +9,8 @@
   "orientation": "portrait",
   "lang": "he",
   "dir": "rtl",
-  "background_color": "#F4F6FB",
-  "theme_color": "#2563EB",
+  "background_color": "#F4F5F8",
+  "theme_color": "#5B3FD6",
   "icons": [
     {
       "src": "/clock/icons/icon-192.png",
