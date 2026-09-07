@@ -9,8 +9,26 @@
     <link rel="apple-touch-icon" href="/clock/icons/apple-touch-icon.png" />
     <link rel="manifest" href="/clock/manifest.webmanifest" />
     <title>שעון נוכחות</title>
-    <script type="module" crossorigin src="/clock/assets/index-DXTOzasO.js"></script>
-    <link rel="stylesheet" crossorigin href="/clock/assets/index-B-ImQsLf.css">
+    <!--
+      Appearance, stamped BEFORE the first paint.
+
+      The stylesheet keys every dark token off :root[data-theme='dark'], so
+      without this the app would paint one light frame on a cold start in dark
+      mode. A module script cannot do it — it is deferred until after the
+      document is parsed. Mirrors src/ui/theme.ts; keep the key in sync.
+    -->
+    <script>
+      (function () {
+        var p;
+        try { p = localStorage.getItem('shaon.theme'); } catch (e) { p = null; }
+        if (p !== 'light' && p !== 'dark') {
+          p = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', p);
+      })();
+    </script>
+    <script type="module" crossorigin src="/clock/assets/index-D4fsqLw0.js"></script>
+    <link rel="stylesheet" crossorigin href="/clock/assets/index-C48Zzx01.css">
   </head>
   <body>
     <div id="root"></div>
