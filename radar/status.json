@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-07T17:42:28+00:00",
+ "generated": "2026-09-07T18:42:35+00:00",
  "history": [
-  {
-   "t": 1788198186,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1788199996,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1788201777,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788804753,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788806555,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2090,8 +2090,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "69 מטוסים אזרחיים באזור",
-     "value_en": "69 civil aircraft in the area",
+     "value": "62 מטוסים אזרחיים באזור",
+     "value_en": "62 civil aircraft in the area",
      "range": "56–92",
      "threshold_now": "<25 מטוסים",
      "threshold_now_en": "<25 aircraft",
@@ -2264,8 +2264,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "2–12",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
@@ -2293,8 +2293,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $97.1 · דולר 3.01 ₪",
-     "value_en": "Brent $97.1 · USD 3.01 ILS",
+     "value": "ברנט $97.3 · דולר 3.01 ₪",
+     "value_en": "Brent $97.3 · USD 3.01 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$104.0 · דולר ≥3.10 ₪",
      "threshold_now_en": "Brent ≥$104.0 · USD/ILS ≥3.10",
@@ -2410,9 +2410,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,663 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,663 BGP routes)",
-     "range": "41,620–41,657",
+     "value": "קישוריות תקינה (41,670 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,670 BGP routes)",
+     "range": "41,620–41,658",
      "threshold_now": "merit-nt <24",
      "threshold_now_en": "merit-nt <24",
      "watch": "",
@@ -2497,8 +2497,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "2–12",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
@@ -2526,8 +2526,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $97.1 · דולר 3.01 ₪",
-     "value_en": "Brent $97.1 · USD 3.01 ILS",
+     "value": "ברנט $97.3 · דולר 3.01 ₪",
+     "value_en": "Brent $97.3 · USD 3.01 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$104.0 · דולר ≥3.10 ₪",
      "threshold_now_en": "Brent ≥$104.0 · USD/ILS ≥3.10",
