@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-07T01:12:30+00:00",
+ "generated": "2026-09-07T02:12:31+00:00",
  "history": [
-  {
-   "t": 1788138764,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1788140566,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1788142359,
    "il": 0,
@@ -2034,6 +2022,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788745347,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788747151,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2102,8 +2102,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "74 מטוסים אזרחיים באזור",
-     "value_en": "74 civil aircraft in the area",
+     "value": "72 מטוסים אזרחיים באזור",
+     "value_en": "72 civil aircraft in the area",
      "range": "54–92",
      "threshold_now": "<25 מטוסים",
      "threshold_now_en": "<25 aircraft",
@@ -2247,8 +2247,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "110 הודעות · 57 עם סגירה · 19 בהיקף רחב (2 נתיבי ATS, 4 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 59 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "110 NOTAMs · 57 carry a closure · 19 wide-scope (2 ATS routes, 4 aerodromes) (+0/-0 since the previous read) · read 59 min ago — no baseline yet, casts no vote",
+     "value": "110 הודעות · 57 עם סגירה · 19 בהיקף רחב (2 נתיבי ATS, 4 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 30 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "110 NOTAMs · 57 carry a closure · 19 wide-scope (2 ATS routes, 4 aerodromes) (+0/-0 since the previous read) · read 30 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2276,8 +2276,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–8",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2422,11 +2422,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,643 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,643 BGP routes)",
+     "value": "קישוריות תקינה (41,647 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,647 BGP routes)",
      "range": "41,611–41,646",
-     "threshold_now": "merit-nt <21",
-     "threshold_now_en": "merit-nt <21",
+     "threshold_now": "merit-nt <22",
+     "threshold_now_en": "merit-nt <22",
      "watch": "",
      "watch_en": "",
      "anchor": "",
@@ -2451,8 +2451,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מוקדים תרמיים חדשים ב-2026-09-06 (מתוך 2,175 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "2 new thermal hotspots on 2026-09-06 (out of 2,175 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "2 מוקדים תרמיים חדשים ב-2026-09-06 (מתוך 3,404 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "2 new thermal hotspots on 2026-09-06 (out of 3,404 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": "0–4",
      "threshold_now": ">6 מוקדים",
      "threshold_now_en": ">6 hotspots",
@@ -2509,8 +2509,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–8",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
