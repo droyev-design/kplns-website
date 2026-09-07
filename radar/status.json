@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-07T20:42:17+00:00",
+ "generated": "2026-09-07T21:42:21+00:00",
  "history": [
-  {
-   "t": 1788208979,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1788210761,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1788212579,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1788815553,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1788817341,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2090,8 +2090,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "52 מטוסים אזרחיים באזור",
-     "value_en": "52 civil aircraft in the area",
+     "value": "48 מטוסים אזרחיים באזור",
+     "value_en": "48 civil aircraft in the area",
      "range": "54–92",
      "threshold_now": "<25 מטוסים",
      "threshold_now_en": "<25 aircraft",
@@ -2119,8 +2119,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "מטוס אחד מעל ירדן",
+     "value_en": "1 aircraft over Jordan",
      "range": "2–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2235,8 +2235,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "111 הודעות · 54 עם סגירה · 17 בהיקף רחב (1 נתיבי ATS, 4 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 29 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "111 NOTAMs · 54 carry a closure · 17 wide-scope (1 ATS routes, 4 aerodromes) (+0/-0 since the previous read) · read 29 min ago — no baseline yet, casts no vote",
+     "value": "110 הודעות · 53 עם סגירה · 17 בהיקף רחב (1 נתיבי ATS, 4 שדות) (+0/-1 מהקריאה הקודמת) · נקרא לפני 29 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "110 NOTAMs · 53 carry a closure · 17 wide-scope (1 ATS routes, 4 aerodromes) (+0/-1 since the previous read) · read 29 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2410,8 +2410,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,664 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,664 BGP routes)",
+     "value": "קישוריות תקינה (41,658 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,658 BGP routes)",
      "range": "41,622–41,660",
      "threshold_now": "merit-nt <24",
      "threshold_now_en": "merit-nt <24",
