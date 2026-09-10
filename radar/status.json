@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-10T01:12:21+00:00",
+ "generated": "2026-09-10T02:12:22+00:00",
  "history": [
-  {
-   "t": 1788397942,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1788399761,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1788401543,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1789004537,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1789006342,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2090,8 +2090,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "70 מטוסים אזרחיים באזור",
-     "value_en": "70 civil aircraft in the area",
+     "value": "76 מטוסים אזרחיים באזור",
+     "value_en": "76 civil aircraft in the area",
      "range": "52–100",
      "threshold_now": "<25 מטוסים",
      "threshold_now_en": "<25 aircraft",
@@ -2119,8 +2119,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים מעל ירדן",
-     "value_en": "2 aircraft over Jordan",
+     "value": "6 מטוסים מעל ירדן",
+     "value_en": "6 aircraft over Jordan",
      "range": "2–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2264,8 +2264,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "2–11",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
@@ -2410,8 +2410,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,659 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,659 BGP routes)",
+     "value": "קישוריות תקינה (41,661 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,661 BGP routes)",
      "range": "41,272–41,667",
      "threshold_now": "merit-nt <24",
      "threshold_now_en": "merit-nt <24",
@@ -2439,8 +2439,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מוקד תרמי חדש אחד ב-2026-09-09 (מתוך 1,989 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "1 new thermal hotspot on 2026-09-09 (out of 1,989 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "מוקד תרמי חדש אחד ב-2026-09-09 (מתוך 2,560 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "1 new thermal hotspot on 2026-09-09 (out of 2,560 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": "0–4",
      "threshold_now": ">7 מוקדים",
      "threshold_now_en": ">7 hotspots",
@@ -2497,8 +2497,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "מטוס צבאי אחד באזור",
+     "value_en": "1 military aircraft in the area",
      "range": "2–11",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
