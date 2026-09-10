@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-10T02:12:22+00:00",
+ "generated": "2026-09-10T03:12:15+00:00",
  "history": [
-  {
-   "t": 1788401543,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1788403343,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1788405163,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1789008146,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1789009935,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2090,8 +2090,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "76 מטוסים אזרחיים באזור",
-     "value_en": "76 civil aircraft in the area",
+     "value": "61 מטוסים אזרחיים באזור",
+     "value_en": "61 civil aircraft in the area",
      "range": "52–100",
      "threshold_now": "<25 מטוסים",
      "threshold_now_en": "<25 aircraft",
@@ -2119,8 +2119,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "2–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2235,8 +2235,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "104 הודעות · 45 עם סגירה · 14 בהיקף רחב (1 נתיבי ATS, 3 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 30 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "104 NOTAMs · 45 carry a closure · 14 wide-scope (1 ATS routes, 3 aerodromes) (+0/-0 since the previous read) · read 30 min ago — no baseline yet, casts no vote",
+     "value": "104 הודעות · 45 עם סגירה · 14 בהיקף רחב (1 נתיבי ATS, 3 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 29 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "104 NOTAMs · 45 carry a closure · 14 wide-scope (1 ATS routes, 3 aerodromes) (+0/-0 since the previous read) · read 29 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2264,8 +2264,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "2–11",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
@@ -2410,8 +2410,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,661 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,661 BGP routes)",
+     "value": "קישוריות תקינה (41,662 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,662 BGP routes)",
      "range": "41,272–41,667",
      "threshold_now": "merit-nt <24",
      "threshold_now_en": "merit-nt <24",
@@ -2439,8 +2439,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מוקד תרמי חדש אחד ב-2026-09-09 (מתוך 2,560 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "1 new thermal hotspot on 2026-09-09 (out of 2,560 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "מוקד תרמי חדש אחד ב-2026-09-09 (מתוך 2,609 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "1 new thermal hotspot on 2026-09-09 (out of 2,609 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": "0–4",
      "threshold_now": ">7 מוקדים",
      "threshold_now_en": ">7 hotspots",
@@ -2497,8 +2497,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "2–11",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
