@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-13T13:42:22+00:00",
+ "generated": "2026-09-13T14:42:17+00:00",
  "history": [
-  {
-   "t": 1788702157,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1788703953,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1788705757,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1789308746,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1789310537,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2090,8 +2090,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "70 מטוסים אזרחיים באזור",
-     "value_en": "70 civil aircraft in the area",
+     "value": "72 מטוסים אזרחיים באזור",
+     "value_en": "72 civil aircraft in the area",
      "range": "40–86",
      "threshold_now": "<23 מטוסים",
      "threshold_now_en": "<23 aircraft",
@@ -2119,11 +2119,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים מעל ירדן",
-     "value_en": "4 aircraft over Jordan",
+     "value": "6 מטוסים מעל ירדן",
+     "value_en": "6 aircraft over Jordan",
      "range": "2–9",
-     "threshold_now": "",
-     "threshold_now_en": "",
+     "threshold_now": "≤3 מטוסים ב-3 בדיקות",
+     "threshold_now_en": "≤3 aircraft over 3 checks",
      "watch": "",
      "watch_en": "",
      "anchor": "",
@@ -2235,8 +2235,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "113 הודעות · 52 עם סגירה · 18 בהיקף רחב (1 נתיבי ATS, 8 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "113 NOTAMs · 52 carry a closure · 18 wide-scope (1 ATS routes, 8 aerodromes) (+0/-0 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
+     "value": "113 הודעות · 52 עם סגירה · 18 בהיקף רחב (1 נתיבי ATS, 8 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 59 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "113 NOTAMs · 52 carry a closure · 18 wide-scope (1 ATS routes, 8 aerodromes) (+0/-0 since the previous read) · read 59 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2351,8 +2351,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "66/100",
-     "value_en": "66/100",
+     "value": "65/100",
+     "value_en": "65/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2410,9 +2410,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,624 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,624 BGP routes)",
-     "range": "41,629–41,683",
+     "value": "קישוריות תקינה (41,631 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,631 BGP routes)",
+     "range": "41,627–41,683",
      "threshold_now": "merit-nt <22",
      "threshold_now_en": "merit-nt <22",
      "watch": "",
@@ -2584,8 +2584,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "66/100",
-     "value_en": "66/100",
+     "value": "65/100",
+     "value_en": "65/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
