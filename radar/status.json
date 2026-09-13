@@ -1,12 +1,6 @@
 {
- "generated": "2026-09-13T10:12:16+00:00",
+ "generated": "2026-09-13T10:42:22+00:00",
  "history": [
-  {
-   "t": 1788689548,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1788691347,
    "il": 0,
@@ -2022,6 +2016,12 @@
    "il": 0,
    "ir": 0,
    "deg": 1
+  },
+  {
+   "t": 1789296142,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2090,8 +2090,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "64 מטוסים אזרחיים באזור",
-     "value_en": "64 civil aircraft in the area",
+     "value": "63 מטוסים אזרחיים באזור",
+     "value_en": "63 civil aircraft in the area",
      "range": "40–91",
      "threshold_now": "<23 מטוסים",
      "threshold_now_en": "<23 aircraft",
@@ -2171,14 +2171,14 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": false,
+     "ok": true,
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "",
-     "value_en": "",
+     "value": "הפיד במעקב — אין הוראה מבצעית פעילה",
+     "value_en": "feed monitored — no operational order active",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2235,8 +2235,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "113 הודעות · 52 עם סגירה · 18 בהיקף רחב (1 נתיבי ATS, 8 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 59 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "113 NOTAMs · 52 carry a closure · 18 wide-scope (1 ATS routes, 8 aerodromes) (+0/-0 since the previous read) · read 59 min ago — no baseline yet, casts no vote",
+     "value": "113 הודעות · 52 עם סגירה · 18 בהיקף רחב (1 נתיבי ATS, 8 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "113 NOTAMs · 52 carry a closure · 18 wide-scope (1 ATS routes, 8 aerodromes) (+0/-0 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2264,8 +2264,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–6",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2362,7 +2362,7 @@
      "anchor_en": ""
     }
    ],
-   "measurable_total": 4,
+   "measurable_total": 5,
    "lit_count": 0,
    "max_level": 3,
    "context_lit": 0,
@@ -2410,9 +2410,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,636 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,636 BGP routes)",
-     "range": "41,632–41,683",
+     "value": "קישוריות תקינה (41,630 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,630 BGP routes)",
+     "range": "41,631–41,683",
      "threshold_now": "merit-nt <21",
      "threshold_now_en": "merit-nt <21",
      "watch": "",
@@ -2497,8 +2497,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "1–6",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2618,11 +2618,11 @@
    ]
   }
  ],
- "sources_ok": 13,
+ "sources_ok": 14,
  "sources_total": 14,
  "families_total": 14,
  "context_total": 8,
- "measurable_total": 5,
+ "measurable_total": 6,
  "unmeasurable_total": 3,
  "lit_count": 0,
  "context_lit": 0,
@@ -2639,12 +2639,8 @@
   "top_window": 14,
   "top_streak": 0
  },
- "degraded": [
-  "שגרירויות ארה\"ב באזור — הוראות מבצעיות"
- ],
- "degraded_en": [
-  "US embassies in the region — operational orders"
- ],
+ "degraded": [],
+ "degraded_en": [],
  "manual_override": {
   "phase": "ceasefire_broken",
   "phase_he": "הפסקת האש הופרה",
