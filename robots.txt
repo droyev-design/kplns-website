@@ -2,4 +2,5 @@ User-agent: *
 Allow: /
 # Private tool, not part of the site. Deliberately unlinked and unindexed.
 Disallow: /clock/
+Disallow: /cal/
 Sitemap: https://kplns.com/sitemap.xml

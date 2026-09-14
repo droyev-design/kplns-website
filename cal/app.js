@@ -6,7 +6,14 @@
 
 const TZ       = 'Asia/Jerusalem';
 const FEED_URL = 'feed.json';
-const LS = { pass: 'cal.pass', payload: 'cal.payload', theme: 'cal.theme', off: 'cal.off' };
+const LS = { pass: 'cal.pass', payload: 'cal.payload', theme: 'cal.theme',
+             off: 'cal.off', seq: 'cal.seq' };
+
+// The envelope is served from a public static host, so everything outside the
+// ciphertext is attacker-writable. Pin what we accept instead of obeying it:
+// unbounded `iters` from a hostile file would hang the phone inside PBKDF2
+// before authentication ever happens.
+const KDF_LIMITS = { algo: 'PBKDF2-SHA256', minIters: 100000, maxIters: 600000, saltBytes: 16 };
 
 const $ = (id) => document.getElementById(id);
 
@@ -68,8 +75,18 @@ async function deriveKey(pass, salt, iters) {
     base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
 }
 
-/** Throws 'badkey' when the GCM tag does not verify. */
+function checkEnvelope(env) {
+  const k = env?.kdf;
+  if (env?.v !== 1 || env.cipher !== 'AES-256-GCM' || !k) throw new Error('badenvelope');
+  if (k.algo !== KDF_LIMITS.algo || k.hash !== 'SHA-256') throw new Error('badenvelope');
+  if (!(k.iters >= KDF_LIMITS.minIters && k.iters <= KDF_LIMITS.maxIters)) throw new Error('badenvelope');
+  if (b64(k.salt).length !== KDF_LIMITS.saltBytes) throw new Error('badenvelope');
+  if (b64(env.iv).length !== 12) throw new Error('badenvelope');
+}
+
+/** Throws 'badkey' (tag failed), 'badenvelope' (params) or 'replay' (older feed). */
 async function decrypt(envelope, pass) {
+  checkEnvelope(envelope);
   const key = await deriveKey(pass, b64(envelope.kdf.salt), envelope.kdf.iters);
   let plain;
   try {
@@ -77,7 +94,17 @@ async function decrypt(envelope, pass) {
       { name: 'AES-GCM', iv: b64(envelope.iv) }, key, b64(envelope.ct));
   } catch { throw new Error('badkey'); }
   const data = JSON.parse(new TextDecoder().decode(plain));
-  data.updated = envelope.updated;
+
+  // `seq` and `generated` come from inside the ciphertext, so they are the only
+  // trustworthy freshness signals. The envelope's own `updated` is decoration:
+  // anyone who can serve the file could pair last month's ciphertext with
+  // today's timestamp, and we would show a month-old calendar with confidence.
+  const seq = Number(data.seq);
+  if (!Number.isFinite(seq)) throw new Error('badenvelope');
+  const seen = Number(localStorage.getItem(LS.seq) || 0);
+  if (seq < seen) throw new Error('replay');
+  try { localStorage.setItem(LS.seq, String(seq)); } catch { /* private mode */ }
+
   return data;
 }
 
@@ -346,7 +373,7 @@ function renderBanner() {
   const el = $('banner');
   const msgs = [];
 
-  const ageH = (Date.now() - new Date(payload.updated).getTime()) / 3.6e6;
+  const ageH = (Date.now() - new Date(payload.generated).getTime()) / 3.6e6;
   if (ageH > 12) {
     msgs.push(`היומן לא התעדכן כבר ${Math.round(ageH)} שעות — ככל הנראה מחולל הפיד בשרת הביתי לא רץ.`);
   }
@@ -369,7 +396,7 @@ function renderAll() {
   const now = new Date();
   $('todayDay').textContent  = fmtDate(now, { weekday: 'long' });
   $('todayDate').textContent = fmtDate(now, { day: 'numeric', month: 'long', year: 'numeric' });
-  $('updated').textContent   = payload?.updated ? `עודכן ${relTime(payload.updated)}` : '';
+  $('updated').textContent   = payload?.generated ? `עודכן ${relTime(payload.generated)}` : '';
   renderChips();
   renderBanner();
   renderCurrentView();
@@ -403,11 +430,18 @@ async function refresh({ silent } = {}) {
     writeJSON(LS.payload, payload);
     renderAll();
   } catch (e) {
+    const el = $('banner');
     if (e.message === 'badkey') {
       localStorage.removeItem(LS.pass);
       showSetup('המפתח כבר לא מתאים לקובץ. ייתכן שהוחלף — הזן את החדש.');
+    } else if (e.message === 'replay' || e.message === 'badenvelope') {
+      // Refused on purpose: an older or malformed feed. Keep what we have and
+      // say so loudly — a silent fallback here is exactly a missed appointment.
+      el.textContent = e.message === 'replay'
+        ? 'השרת החזיר גרסה ישנה יותר של היומן — נדחתה. מוצג המידע האחרון התקין.'
+        : 'קובץ היומן לא תקין ונדחה. מוצג המידע האחרון התקין.';
+      el.hidden = false;
     } else if (!silent) {
-      const el = $('banner');
       el.textContent = payload
         ? 'אין חיבור — מוצג המידע השמור במכשיר.'
         : 'לא הצלחתי להוריד את היומן ואין עותק שמור.';
@@ -438,9 +472,10 @@ function wire() {
       writeJSON(LS.payload, payload);
       showApp();
     } catch (e) {
-      showSetup(e.message === 'badkey'
-        ? 'מפתח שגוי. בדוק שהעתקת אותו במלואו.'
-        : 'לא הצלחתי להוריד את היומן. בדוק חיבור לאינטרנט ונסה שוב.');
+      const msg = { badkey: 'מפתח שגוי. בדוק שהעתקת אותו במלואו.',
+                    badenvelope: 'קובץ היומן בשרת לא תקין. נסה שוב מאוחר יותר.',
+                    replay: 'השרת מחזיר גרסה ישנה של היומן. נסה שוב מאוחר יותר.' };
+      showSetup(msg[e.message] || 'לא הצלחתי להוריד את היומן. בדוק חיבור לאינטרנט ונסה שוב.');
     }
   });
   $('passInput').addEventListener('keydown', (e) => {
