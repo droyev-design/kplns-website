@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>יומן משפחה</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#111418">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<script>
+  // Resolve the theme before first paint so there is no white flash on a dark phone.
+  try {
+    var t = localStorage.getItem('cal.theme') || 'system';
+    var d = t === 'dark' || (t === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.setAttribute('data-theme', d ? 'dark' : 'light');
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ───────────────────────── setup (first run / wrong key) ───────────────────────── -->
+<section id="setup" class="setup" hidden>
+  <div class="setup-card">
+    <div class="setup-logo">🗓️</div>
+    <h1>יומן משפחה</h1>
+    <p class="setup-lede">
+      היומן מוצפן. הזן את המפתח פעם אחת — הוא נשמר במכשיר הזה בלבד
+      ולא נשלח לשום מקום.
+    </p>
+    <label for="passInput">מפתח</label>
+    <input id="passInput" type="text" inputmode="latin" autocomplete="off"
+           autocapitalize="off" spellcheck="false" dir="ltr"
+           placeholder="xxxx-xxxx-xxxx-xxxx-xxxx">
+    <button id="passSave" class="btn-primary">פתח את היומן</button>
+    <p id="setupError" class="setup-error" hidden></p>
+  </div>
+</section>
+
+<!-- ───────────────────────────────── main app ───────────────────────────────── -->
+<div id="app" hidden>
+
+  <header class="topbar">
+    <div class="topbar-row">
+      <div class="today">
+        <span id="todayDay" class="today-day"></span>
+        <span id="todayDate" class="today-date"></span>
+      </div>
+      <div class="topbar-actions">
+        <button id="themeBtn" class="icon-btn" title="מראה" aria-label="מראה">◐</button>
+        <button id="refreshBtn" class="icon-btn" title="רענן" aria-label="רענן">⟳</button>
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab is-active" data-view="agenda" role="tab">סדר יום</button>
+      <button class="tab" data-view="month" role="tab">חודש</button>
+    </div>
+
+    <div id="chips" class="chips"></div>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <main>
+    <section id="viewAgenda" class="view"></section>
+    <section id="viewMonth" class="view" hidden>
+      <div class="month-head">
+        <button id="monthPrev" class="icon-btn">›</button>
+        <h2 id="monthTitle"></h2>
+        <button id="monthNext" class="icon-btn">‹</button>
+      </div>
+      <div class="dow" id="dowRow"></div>
+      <div id="monthGrid" class="month-grid"></div>
+      <div id="monthDay" class="month-day"></div>
+    </section>
+  </main>
+
+  <footer class="statusbar">
+    <span id="updated"></span>
+    <button id="forgetBtn" class="link-btn">החלף מפתח</button>
+  </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
