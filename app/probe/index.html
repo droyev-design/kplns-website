@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<title>בדיקת שלב 0</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #17212b; color: #fff; direction: rtl;
+    padding: 16px calc(16px + env(safe-area-inset-right, 0px))
+             calc(24px + env(safe-area-inset-bottom, 0px))
+             calc(16px + env(safe-area-inset-left, 0px));
+    font-size: 14px; line-height: 1.5;
+  }
+  h1 { font-size: 17px; margin-bottom: 4px; }
+  .sub { font-size: 12px; color: #7d8b99; margin-bottom: 16px; }
+  .card {
+    background: #1f2c3a; border: 1px solid #2a3948; border-radius: 12px;
+    padding: 12px 14px; margin-bottom: 10px;
+  }
+  .q { font-size: 12.5px; color: #8b9aa8; margin-bottom: 6px; }
+  .a { font-size: 16px; font-weight: 700; }
+  .ok   { color: #79d99a; }
+  .bad  { color: #ef7b7b; }
+  .warn { color: #e8b352; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  td { padding: 5px 0; border-bottom: 1px solid #2a3948; vertical-align: top; }
+  td:first-child { color: #8b9aa8; width: 42%; }
+  td:last-child { font-family: ui-monospace, Menlo, Consolas, monospace;
+                  word-break: break-all; }
+  button {
+    width: 100%; padding: 13px; margin-top: 10px; border: 0; border-radius: 11px;
+    background: #2d6cb0; color: #fff; font-size: 14.5px; font-weight: 600;
+    font-family: inherit;
+  }
+  button.ghost { background: #25384a; border: 1px solid #33506b; }
+  button[disabled] { opacity: .45; }
+  #copied { font-size: 12px; color: #79d99a; text-align: center; margin-top: 8px; min-height: 16px; }
+</style>
+</head>
+<body>
+
+<h1>בדיקת שלב 0</h1>
+<div class="sub">אבחון בלבד — הדף הזה לא שולח כלום ולא שולט בכלום.</div>
+
+<div class="card">
+  <div class="q">האם טלגרם מסרה חתימה (<code>initData</code>)?</div>
+  <div class="a" id="q1">…</div>
+</div>
+
+<div class="card">
+  <div class="q">האם שדה <code>signature</code> (Ed25519) קיים?</div>
+  <div class="a" id="q2">…</div>
+</div>
+
+<div class="card">
+  <div class="q">גיל החתימה — כמה זמן <code>auth_date</code> נשאר תקף?</div>
+  <div class="a" id="q3">…</div>
+</div>
+
+<div class="card">
+  <table id="facts"></table>
+</div>
+
+<button id="addhome">➕ הוסף למסך הבית</button>
+<button class="ghost" id="copy">📋 העתק הכל</button>
+<button class="ghost" id="refresh">🔄 רענן גיל חתימה</button>
+<div id="copied"></div>
+
+<script>
+(function () {
+  var tg = window.Telegram && window.Telegram.WebApp;
+  var facts = [];
+  var authDate = null;
+
+  function put(k, v) { facts.push([k, v === undefined || v === null ? "—" : String(v)]); }
+
+  function set(id, text, cls) {
+    var el = document.getElementById(id);
+    el.textContent = text;
+    el.className = "a" + (cls ? " " + cls : "");
+  }
+
+  if (!tg) {
+    set("q1", "❌ לא רץ בתוך טלגרם כלל", "bad");
+    set("q2", "—"); set("q3", "—");
+    put("Telegram.WebApp", "absent — this is a plain browser");
+  } else {
+    tg.ready();
+    try { tg.expand(); } catch (e) {}
+
+    var initData = tg.initData || "";
+    var unsafe = tg.initDataUnsafe || {};
+    var params = new URLSearchParams(initData);
+
+    // Q1 — the blocking question: does a home-screen launch still carry initData?
+    if (initData.length > 0) {
+      set("q1", "✅ כן — " + initData.length + " תווים", "ok");
+    } else {
+      set("q1", "❌ לא — ריק. אימות בלתי אפשרי בהקשר הזה.", "bad");
+    }
+
+    // Q2 — Ed25519 present? Preferred over HMAC: survives a leaked bot token.
+    var sig = params.get("signature");
+    if (sig) { set("q2", "✅ כן (" + sig.length + " תווים)", "ok"); }
+    else if (initData) { set("q2", "⚠️ לא — HMAC בלבד", "warn"); }
+    else { set("q2", "—"); }
+
+    authDate = params.get("auth_date");
+
+    put("platform", tg.platform);
+    put("version", tg.version);
+    put("colorScheme", tg.colorScheme);
+    put("user.id", unsafe.user && unsafe.user.id);
+    put("auth_date", authDate);
+    put("query_id", params.get("query_id") ? "present" : "absent");
+    put("start_param", params.get("start_param"));
+    put("chat_type", params.get("chat_type"));
+    put("initData length", initData.length);
+    put("signature", sig ? "present" : "absent");
+    put("hash", params.get("hash") ? "present" : "absent");
+    put("isExpanded", tg.isExpanded);
+    put("addToHomeScreen fn", typeof tg.addToHomeScreen);
+    put("viewportHeight", tg.viewportHeight);
+    put("UA", navigator.userAgent);
+
+    // Storage eviction is the likeliest month-three failure (Gemini). Probe it now.
+    var storage = "unknown";
+    try {
+      localStorage.setItem("probe", "1");
+      storage = localStorage.getItem("probe") === "1" ? "writable" : "unreadable";
+      localStorage.removeItem("probe");
+    } catch (e) { storage = "blocked: " + e.name; }
+    put("localStorage", storage);
+    put("crypto.subtle", window.crypto && window.crypto.subtle ? "available" : "MISSING");
+
+    var btn = document.getElementById("addhome");
+    if (typeof tg.addToHomeScreen === "function") {
+      btn.onclick = function () { try { tg.addToHomeScreen(); } catch (e) { alert(e); } };
+    } else {
+      btn.disabled = true;
+      btn.textContent = "➕ הוספה למסך הבית — לא נתמך בגרסה הזו";
+    }
+  }
+
+  function renderAge() {
+    if (!authDate) { set("q3", "—"); return; }
+    var age = Math.round(Date.now() / 1000 - parseInt(authDate, 10));
+    var txt = age + " שניות";
+    if (age > 300) txt += " — מעבר לחלון 5 הדקות";
+    set("q3", txt, age > 300 ? "warn" : "ok");
+  }
+  renderAge();
+  document.getElementById("refresh").onclick = renderAge;
+
+  var t = document.getElementById("facts");
+  facts.forEach(function (row) {
+    var tr = t.insertRow();
+    tr.insertCell().textContent = row[0];
+    tr.insertCell().textContent = row[1];
+  });
+
+  document.getElementById("copy").onclick = function () {
+    var text = facts.map(function (r) { return r[0] + ": " + r[1]; }).join("\n");
+    // Deliberately excludes raw initData — it is a credential and is never copied or logged.
+    navigator.clipboard.writeText(text).then(function () {
+      document.getElementById("copied").textContent = "הועתק ✓";
+    }, function () {
+      document.getElementById("copied").textContent = "העתקה נכשלה — צלם מסך";
+    });
+  };
+})();
+</script>
+</body>
+</html>
