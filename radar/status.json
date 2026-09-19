@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-19T05:12:15+00:00",
+ "generated": "2026-09-19T06:12:15+00:00",
  "history": [
-  {
-   "t": 1789189944,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1789191765,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1789193560,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1789796547,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1789798335,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2090,8 +2090,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "43 מטוסים אזרחיים באזור",
-     "value_en": "43 civil aircraft in the area",
+     "value": "52 מטוסים אזרחיים באזור",
+     "value_en": "52 civil aircraft in the area",
      "range": "33–76",
      "threshold_now": "<19 מטוסים",
      "threshold_now_en": "<19 aircraft",
@@ -2119,8 +2119,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "4 מטוסים מעל ירדן",
+     "value_en": "4 aircraft over Jordan",
      "range": "2–8",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2264,8 +2264,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–9",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2410,8 +2410,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,675 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,675 BGP routes)",
+     "value": "קישוריות תקינה (41,674 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,674 BGP routes)",
      "range": "41,663–41,682",
      "threshold_now": "merit-nt <19",
      "threshold_now_en": "merit-nt <19",
@@ -2497,8 +2497,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס צבאי אחד באזור",
-     "value_en": "1 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–9",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
