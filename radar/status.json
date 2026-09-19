@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-19T18:12:27+00:00",
+ "generated": "2026-09-19T19:12:38+00:00",
  "history": [
-  {
-   "t": 1789238537,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1789240341,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1789242148,
    "il": 0,
@@ -2016,6 +2004,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1789843343,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1789845158,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2084,11 +2084,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "61 מטוסים אזרחיים באזור",
-     "value_en": "61 civil aircraft in the area",
+     "value": "47 מטוסים אזרחיים באזור",
+     "value_en": "47 civil aircraft in the area",
      "range": "33–68",
-     "threshold_now": "<19 מטוסים",
-     "threshold_now_en": "<19 aircraft",
+     "threshold_now": "<18 מטוסים",
+     "threshold_now_en": "<18 aircraft",
      "watch": "",
      "watch_en": "",
      "anchor": "",
@@ -2113,8 +2113,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "8 מטוסים מעל ירדן",
-     "value_en": "8 aircraft over Jordan",
+     "value": "5 מטוסים מעל ירדן",
+     "value_en": "5 aircraft over Jordan",
      "range": "2–8",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2258,8 +2258,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "1–5",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2404,8 +2404,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,676 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,676 BGP routes)",
+     "value": "קישוריות תקינה (41,678 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,678 BGP routes)",
      "range": "41,666–41,682",
      "threshold_now": "merit-nt <19",
      "threshold_now_en": "merit-nt <19",
@@ -2491,8 +2491,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים צבאיים באזור",
-     "value_en": "2 military aircraft in the area",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "1–5",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
