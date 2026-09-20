@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-20T11:12:36+00:00",
+ "generated": "2026-09-20T12:12:37+00:00",
  "history": [
-  {
-   "t": 1789299736,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1789301552,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1789303342,
    "il": 0,
@@ -2016,6 +2004,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1789904542,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1789906357,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2113,8 +2113,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "10 מטוסים מעל ירדן",
-     "value_en": "10 aircraft over Jordan",
+     "value": "6 מטוסים מעל ירדן",
+     "value_en": "6 aircraft over Jordan",
      "range": "2–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2229,8 +2229,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "119 הודעות · 62 עם סגירה · 22 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 29 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "119 NOTAMs · 62 carry a closure · 22 wide-scope (2 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 29 min ago — no baseline yet, casts no vote",
+     "value": "118 הודעות · 61 עם סגירה · 22 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+0/-1 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "118 NOTAMs · 61 carry a closure · 22 wide-scope (2 ATS routes, 9 aerodromes) (+0/-1 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2407,8 +2407,8 @@
      "value": "קישוריות תקינה (41,676 מסלולי BGP)",
      "value_en": "Connectivity normal (41,676 BGP routes)",
      "range": "41,666–41,683",
-     "threshold_now": "merit-nt <22",
-     "threshold_now_en": "merit-nt <22",
+     "threshold_now": "merit-nt <23",
+     "threshold_now_en": "merit-nt <23",
      "watch": "",
      "watch_en": "",
      "anchor": "",
