@@ -1,24 +1,6 @@
 {
- "generated": "2026-09-21T18:42:22+00:00",
+ "generated": "2026-09-21T19:42:23+00:00",
  "history": [
-  {
-   "t": 1789411365,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1789413158,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1789414942,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1789416758,
    "il": 0,
@@ -2022,6 +2004,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1790017946,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1790019743,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2090,9 +2084,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "28 מטוסים אזרחיים באזור",
-     "value_en": "28 civil aircraft in the area",
-     "range": "26–59",
+     "value": "47 מטוסים אזרחיים באזור",
+     "value_en": "47 civil aircraft in the area",
+     "range": "26–58",
      "threshold_now": "<15 מטוסים",
      "threshold_now_en": "<15 aircraft",
      "watch": "",
@@ -2119,8 +2113,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "4 מטוסים מעל ירדן",
+     "value_en": "4 aircraft over Jordan",
      "range": "2–8",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2293,8 +2287,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $100.0 · דולר 3.03 ₪",
-     "value_en": "Brent $100.0 · USD 3.03 ILS",
+     "value": "ברנט $100.6 · דולר 3.03 ₪",
+     "value_en": "Brent $100.6 · USD 3.03 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$112.2 · דולר ≥3.12 ₪",
      "threshold_now_en": "Brent ≥$112.2 · USD/ILS ≥3.12",
@@ -2526,8 +2520,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $100.0 · דולר 3.03 ₪",
-     "value_en": "Brent $100.0 · USD 3.03 ILS",
+     "value": "ברנט $100.6 · דולר 3.03 ₪",
+     "value_en": "Brent $100.6 · USD 3.03 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$112.2 · דולר ≥3.12 ₪",
      "threshold_now_en": "Brent ≥$112.2 · USD/ILS ≥3.12",
