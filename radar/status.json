@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-25T20:42:16+00:00",
+ "generated": "2026-09-25T21:12:46+00:00",
  "history": [
-  {
-   "t": 1789764141,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1789765953,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1789767747,
    "il": 0,
@@ -2022,6 +2010,12 @@
    "il": 0,
    "ir": 0,
    "deg": 2
+  },
+  {
+   "t": 1790370766,
+   "il": 0,
+   "ir": 0,
+   "deg": 3
   }
  ],
  "indices": [
@@ -2113,14 +2107,14 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": true,
+     "ok": false,
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים מעל ירדן",
-     "value_en": "2 aircraft over Jordan",
+     "value": "",
+     "value_en": "",
      "range": "2–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2235,8 +2229,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "133 הודעות · 72 עם סגירה · 23 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+1/-0 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "133 NOTAMs · 72 carry a closure · 23 wide-scope (2 ATS routes, 9 aerodromes) (+1/-0 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
+     "value": "133 הודעות · 72 עם סגירה · 23 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+1/-0 מהקריאה הקודמת) · נקרא לפני 30 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "133 NOTAMs · 72 carry a closure · 23 wide-scope (2 ATS routes, 9 aerodromes) (+1/-0 since the previous read) · read 30 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2410,8 +2404,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,746 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,746 BGP routes)",
+     "value": "קישוריות תקינה (41,689 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,689 BGP routes)",
      "range": "41,702–41,749",
      "threshold_now": "merit-nt <20",
      "threshold_now_en": "merit-nt <20",
@@ -2618,7 +2612,7 @@
    ]
   }
  ],
- "sources_ok": 12,
+ "sources_ok": 11,
  "sources_total": 14,
  "families_total": 14,
  "context_total": 8,
@@ -2641,10 +2635,12 @@
  },
  "degraded": [
   "מרחב אווירי ישראל",
+  "מרחב אווירי ירדן",
   "תעופה צבאית באזור"
  ],
  "degraded_en": [
   "Israeli airspace",
+  "Jordanian airspace",
   "Military aviation in the region"
  ],
  "manual_override": {
