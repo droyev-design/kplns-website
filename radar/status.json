@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-27T19:42:22+00:00",
+ "generated": "2026-09-27T20:42:28+00:00",
  "history": [
-  {
-   "t": 1789933343,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1789935154,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1789936954,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1790539937,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1790541748,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2090,9 +2090,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "48 מטוסים אזרחיים באזור",
-     "value_en": "48 civil aircraft in the area",
-     "range": "36–79",
+     "value": "24 מטוסים אזרחיים באזור",
+     "value_en": "24 civil aircraft in the area",
+     "range": "35–79",
      "threshold_now": "<21 מטוסים",
      "threshold_now_en": "<21 aircraft",
      "watch": "",
@@ -2119,8 +2119,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "15 מטוסים מעל ירדן",
-     "value_en": "15 aircraft over Jordan",
+     "value": "2 מטוסים מעל ירדן",
+     "value_en": "2 aircraft over Jordan",
      "range": "2–10",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
