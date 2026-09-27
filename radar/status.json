@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-27T11:42:15+00:00",
+ "generated": "2026-09-27T12:42:18+00:00",
  "history": [
-  {
-   "t": 1789904542,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1789906357,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1789908141,
    "il": 0,
@@ -2022,6 +2010,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1790511136,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1790512938,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2090,8 +2090,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "84 מטוסים אזרחיים באזור",
-     "value_en": "84 civil aircraft in the area",
+     "value": "97 מטוסים אזרחיים באזור",
+     "value_en": "97 civil aircraft in the area",
      "range": "36–79",
      "threshold_now": "<21 מטוסים",
      "threshold_now_en": "<21 aircraft",
@@ -2119,8 +2119,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "8 מטוסים מעל ירדן",
-     "value_en": "8 aircraft over Jordan",
+     "value": "7 מטוסים מעל ירדן",
+     "value_en": "7 aircraft over Jordan",
      "range": "2–10",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2235,8 +2235,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "132 הודעות · 71 עם סגירה · 23 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+0/-1 מהקריאה הקודמת) · נקרא לפני 29 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "132 NOTAMs · 71 carry a closure · 23 wide-scope (2 ATS routes, 9 aerodromes) (+0/-1 since the previous read) · read 29 min ago — no baseline yet, casts no vote",
+     "value": "133 הודעות · 72 עם סגירה · 23 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+1/-0 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "133 NOTAMs · 72 carry a closure · 23 wide-scope (2 ATS routes, 9 aerodromes) (+1/-0 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2264,8 +2264,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "1–7",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2410,9 +2410,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,742 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,742 BGP routes)",
-     "range": "41,722–41,751",
+     "value": "קישוריות תקינה (41,740 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,740 BGP routes)",
+     "range": "41,703–41,751",
      "threshold_now": "merit-nt <21",
      "threshold_now_en": "merit-nt <21",
      "watch": "",
@@ -2497,8 +2497,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "6 מטוסים צבאיים באזור",
+     "value_en": "6 military aircraft in the area",
      "range": "1–7",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
