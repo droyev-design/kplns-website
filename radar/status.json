@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-28T02:42:30+00:00",
+ "generated": "2026-09-28T03:42:31+00:00",
  "history": [
-  {
-   "t": 1789960336,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1789962135,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1789963947,
    "il": 0,
@@ -2016,6 +2004,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1790565155,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1790566951,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2084,9 +2084,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "34 מטוסים אזרחיים באזור",
-     "value_en": "34 civil aircraft in the area",
-     "range": "35–79",
+     "value": "33 מטוסים אזרחיים באזור",
+     "value_en": "33 civil aircraft in the area",
+     "range": "34–79",
      "threshold_now": "<21 מטוסים",
      "threshold_now_en": "<21 aircraft",
      "watch": "",
@@ -2113,8 +2113,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מטוסים מעל ירדן",
-     "value_en": "2 aircraft over Jordan",
+     "value": "מטוס אחד מעל ירדן",
+     "value_en": "1 aircraft over Jordan",
      "range": "2–10",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2229,8 +2229,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "134 הודעות · 73 עם סגירה · 24 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 29 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "134 NOTAMs · 73 carry a closure · 24 wide-scope (2 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 29 min ago — no baseline yet, casts no vote",
+     "value": "134 הודעות · 73 עם סגירה · 24 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "134 NOTAMs · 73 carry a closure · 24 wide-scope (2 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2287,8 +2287,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $105.8 · דולר 3.03 ₪",
-     "value_en": "Brent $105.8 · USD 3.03 ILS",
+     "value": "ברנט $106.3 · דולר 3.03 ₪",
+     "value_en": "Brent $106.3 · USD 3.03 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$112.7 · דולר ≥3.12 ₪",
      "threshold_now_en": "Brent ≥$112.7 · USD/ILS ≥3.12",
@@ -2404,8 +2404,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,735 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,735 BGP routes)",
+     "value": "קישוריות תקינה (41,738 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,738 BGP routes)",
      "range": "41,703–41,747",
      "threshold_now": "merit-nt <23",
      "threshold_now_en": "merit-nt <23",
@@ -2433,8 +2433,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "2 מוקדים תרמיים חדשים ב-2026-09-27 (מתוך 2,848 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
-     "value_en": "2 new thermal hotspots on 2026-09-27 (out of 2,848 raw detections from 3 satellites, incl. wildfires and industry)",
+     "value": "2 מוקדים תרמיים חדשים ב-2026-09-27 (מתוך 2,987 זיהויים גולמיים מ-3 לוויינים, כולל שרפות ותעשייה)",
+     "value_en": "2 new thermal hotspots on 2026-09-27 (out of 2,987 raw detections from 3 satellites, incl. wildfires and industry)",
      "range": "0–4",
      "threshold_now": ">6 מוקדים",
      "threshold_now_en": ">6 hotspots",
@@ -2520,8 +2520,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $105.8 · דולר 3.03 ₪",
-     "value_en": "Brent $105.8 · USD 3.03 ILS",
+     "value": "ברנט $106.3 · דולר 3.03 ₪",
+     "value_en": "Brent $106.3 · USD 3.03 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$112.7 · דולר ≥3.12 ₪",
      "threshold_now_en": "Brent ≥$112.7 · USD/ILS ≥3.12",
