@@ -1,18 +1,6 @@
 {
- "generated": "2026-09-29T06:42:26+00:00",
+ "generated": "2026-09-29T07:13:02+00:00",
  "history": [
-  {
-   "t": 1790059361,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1790061145,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1790062946,
    "il": 0,
@@ -2022,6 +2010,12 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1790665982,
+   "il": 0,
+   "ir": 0,
+   "deg": 1
   }
  ],
  "indices": [
@@ -2090,8 +2084,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "67 מטוסים אזרחיים באזור",
-     "value_en": "67 civil aircraft in the area",
+     "value": "68 מטוסים אזרחיים באזור",
+     "value_en": "68 civil aircraft in the area",
      "range": "40–82",
      "threshold_now": "<21 מטוסים",
      "threshold_now_en": "<21 aircraft",
@@ -2119,8 +2113,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים מעל ירדן",
-     "value_en": "3 aircraft over Jordan",
+     "value": "5 מטוסים מעל ירדן",
+     "value_en": "5 aircraft over Jordan",
      "range": "2–8",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2235,8 +2229,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "129 הודעות · 69 עם סגירה · 24 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 59 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "129 NOTAMs · 69 carry a closure · 24 wide-scope (2 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 59 min ago — no baseline yet, casts no vote",
+     "value": "129 הודעות · 69 עם סגירה · 24 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "129 NOTAMs · 69 carry a closure · 24 wide-scope (2 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2258,14 +2252,14 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": true,
+     "ok": false,
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "",
+     "value_en": "",
      "range": "0–11",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2293,8 +2287,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $107.2 · דולר 3.07 ₪",
-     "value_en": "Brent $107.2 · USD 3.07 ILS",
+     "value": "ברנט $106.7 · דולר 3.07 ₪",
+     "value_en": "Brent $106.7 · USD 3.07 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$114.5 · דולר ≥3.12 ₪",
      "threshold_now_en": "Brent ≥$114.5 · USD/ILS ≥3.12",
@@ -2362,7 +2356,7 @@
      "anchor_en": ""
     }
    ],
-   "measurable_total": 5,
+   "measurable_total": 4,
    "lit_count": 0,
    "max_level": 3,
    "context_lit": 0,
@@ -2410,8 +2404,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,743 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,743 BGP routes)",
+     "value": "קישוריות תקינה (41,739 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,739 BGP routes)",
      "range": "41,720–41,742",
      "threshold_now": "merit-nt <22",
      "threshold_now_en": "merit-nt <22",
@@ -2491,14 +2485,14 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": true,
+     "ok": false,
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מטוסים צבאיים באזור",
-     "value_en": "4 military aircraft in the area",
+     "value": "",
+     "value_en": "",
      "range": "0–11",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2526,8 +2520,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $107.2 · דולר 3.07 ₪",
-     "value_en": "Brent $107.2 · USD 3.07 ILS",
+     "value": "ברנט $106.7 · דולר 3.07 ₪",
+     "value_en": "Brent $106.7 · USD 3.07 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$114.5 · דולר ≥3.12 ₪",
      "threshold_now_en": "Brent ≥$114.5 · USD/ILS ≥3.12",
@@ -2595,7 +2589,7 @@
      "anchor_en": ""
     }
    ],
-   "measurable_total": 2,
+   "measurable_total": 1,
    "lit_count": 0,
    "max_level": 2,
    "context_lit": 0,
@@ -2618,11 +2612,11 @@
    ]
   }
  ],
- "sources_ok": 14,
+ "sources_ok": 13,
  "sources_total": 14,
  "families_total": 14,
  "context_total": 8,
- "measurable_total": 6,
+ "measurable_total": 5,
  "unmeasurable_total": 3,
  "lit_count": 0,
  "context_lit": 0,
@@ -2639,8 +2633,12 @@
   "top_window": 14,
   "top_streak": 0
  },
- "degraded": [],
- "degraded_en": [],
+ "degraded": [
+  "תעופה צבאית באזור"
+ ],
+ "degraded_en": [
+  "Military aviation in the region"
+ ],
  "manual_override": {
   "phase": "ceasefire_broken",
   "phase_he": "הפסקת האש הופרה",
