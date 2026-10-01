@@ -1,24 +1,6 @@
 {
- "generated": "2026-10-01T20:42:18+00:00",
+ "generated": "2026-10-01T21:42:32+00:00",
  "history": [
-  {
-   "t": 1790282577,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1790284352,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1790286148,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1790287937,
    "il": 0,
@@ -2022,6 +2004,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1790889167,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1790890952,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2090,8 +2084,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "42 מטוסים אזרחיים באזור",
-     "value_en": "42 civil aircraft in the area",
+     "value": "30 מטוסים אזרחיים באזור",
+     "value_en": "30 civil aircraft in the area",
      "range": "42–80",
      "threshold_now": "<21 מטוסים",
      "threshold_now_en": "<21 aircraft",
@@ -2119,8 +2113,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "3–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2235,8 +2229,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "106 הודעות · 55 עם סגירה · 23 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 59 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "106 NOTAMs · 55 carry a closure · 23 wide-scope (2 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 59 min ago — no baseline yet, casts no vote",
+     "value": "106 הודעות · 55 עם סגירה · 23 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 29 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "106 NOTAMs · 55 carry a closure · 23 wide-scope (2 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 29 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2293,8 +2287,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $102.3 · דולר 3.08 ₪",
-     "value_en": "Brent $102.3 · USD 3.08 ILS",
+     "value": "ברנט $102.2 · דולר 3.08 ₪",
+     "value_en": "Brent $102.2 · USD 3.08 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$105.9 · דולר ≥3.16 ₪",
      "threshold_now_en": "Brent ≥$105.9 · USD/ILS ≥3.16",
@@ -2410,9 +2404,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,680 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,680 BGP routes)",
-     "range": "41,670–41,681",
+     "value": "קישוריות תקינה (41,572 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,572 BGP routes)",
+     "range": "41,669–41,681",
      "threshold_now": "merit-nt <22",
      "threshold_now_en": "merit-nt <22",
      "watch": "",
@@ -2526,8 +2520,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $102.3 · דולר 3.08 ₪",
-     "value_en": "Brent $102.3 · USD 3.08 ILS",
+     "value": "ברנט $102.2 · דולר 3.08 ₪",
+     "value_en": "Brent $102.2 · USD 3.08 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$105.9 · דולר ≥3.16 ₪",
      "threshold_now_en": "Brent ≥$105.9 · USD/ILS ≥3.16",
