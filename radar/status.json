@@ -1,12 +1,6 @@
 {
- "generated": "2026-10-02T20:42:18+00:00",
+ "generated": "2026-10-02T21:13:39+00:00",
  "history": [
-  {
-   "t": 1790370766,
-   "il": 0,
-   "ir": 0,
-   "deg": 3
-  },
   {
    "t": 1790372544,
    "il": 0,
@@ -2016,6 +2010,12 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1790975619,
+   "il": 0,
+   "ir": 0,
+   "deg": 1
   }
  ],
  "indices": [
@@ -2084,8 +2084,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "41 מטוסים אזרחיים באזור",
-     "value_en": "41 civil aircraft in the area",
+     "value": "35 מטוסים אזרחיים באזור",
+     "value_en": "35 civil aircraft in the area",
      "range": "42–78",
      "threshold_now": "<21 מטוסים",
      "threshold_now_en": "<21 aircraft",
@@ -2113,8 +2113,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "8 מטוסים מעל ירדן",
-     "value_en": "8 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "2–9",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2136,14 +2136,14 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": true,
+     "ok": false,
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "4 מדינות במעקב — ללא שינוי ברמות",
-     "value_en": "4 countries monitored — no level changes",
+     "value": "",
+     "value_en": "",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2229,8 +2229,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "97 הודעות · 52 עם סגירה · 22 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "97 NOTAMs · 52 carry a closure · 22 wide-scope (2 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
+     "value": "97 הודעות · 52 עם סגירה · 22 בהיקף רחב (2 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 31 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "97 NOTAMs · 52 carry a closure · 22 wide-scope (2 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 31 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2258,8 +2258,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים צבאיים באזור",
-     "value_en": "0 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–10",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2287,8 +2287,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $102.7 · דולר 3.06 ₪",
-     "value_en": "Brent $102.7 · USD 3.06 ILS",
+     "value": "ברנט $102.6 · דולר 3.06 ₪",
+     "value_en": "Brent $102.6 · USD 3.06 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$108.7 · דולר ≥3.16 ₪",
      "threshold_now_en": "Brent ≥$108.7 · USD/ILS ≥3.16",
@@ -2491,8 +2491,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים צבאיים באזור",
-     "value_en": "0 military aircraft in the area",
+     "value": "2 מטוסים צבאיים באזור",
+     "value_en": "2 military aircraft in the area",
      "range": "1–10",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2520,8 +2520,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $102.7 · דולר 3.06 ₪",
-     "value_en": "Brent $102.7 · USD 3.06 ILS",
+     "value": "ברנט $102.6 · דולר 3.06 ₪",
+     "value_en": "Brent $102.6 · USD 3.06 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$108.7 · דולר ≥3.16 ₪",
      "threshold_now_en": "Brent ≥$108.7 · USD/ILS ≥3.16",
@@ -2612,7 +2612,7 @@
    ]
   }
  ],
- "sources_ok": 14,
+ "sources_ok": 13,
  "sources_total": 14,
  "families_total": 14,
  "context_total": 8,
@@ -2633,8 +2633,12 @@
   "top_window": 14,
   "top_streak": 0
  },
- "degraded": [],
- "degraded_en": [],
+ "degraded": [
+  "אזהרות מסע — ישראל והסביבה"
+ ],
+ "degraded_en": [
+  "Travel advisories — Israel and neighbours"
+ ],
  "manual_override": {
   "phase": "ceasefire_broken",
   "phase_he": "הפסקת האש הופרה",
