@@ -1,18 +1,6 @@
 {
- "generated": "2026-10-04T14:42:32+00:00",
+ "generated": "2026-10-04T15:42:42+00:00",
  "history": [
-  {
-   "t": 1790521937,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1790523735,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1790525538,
    "il": 0,
@@ -2016,6 +2004,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1791126770,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1791128562,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2084,8 +2084,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "76 מטוסים אזרחיים באזור",
-     "value_en": "76 civil aircraft in the area",
+     "value": "64 מטוסים אזרחיים באזור",
+     "value_en": "64 civil aircraft in the area",
      "range": "36–76",
      "threshold_now": "<19 מטוסים",
      "threshold_now_en": "<19 aircraft",
@@ -2113,8 +2113,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "9 מטוסים מעל ירדן",
-     "value_en": "9 aircraft over Jordan",
+     "value": "5 מטוסים מעל ירדן",
+     "value_en": "5 aircraft over Jordan",
      "range": "2–8",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2229,8 +2229,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "111 הודעות · 64 עם סגירה · 26 בהיקף רחב (3 נתיבי ATS, 9 שדות) (+1/-3 מהקריאה הקודמת) · נקרא לפני 30 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "111 NOTAMs · 64 carry a closure · 26 wide-scope (3 ATS routes, 9 aerodromes) (+1/-3 since the previous read) · read 30 min ago — no baseline yet, casts no vote",
+     "value": "111 הודעות · 64 עם סגירה · 26 בהיקף רחב (3 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 29 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "111 NOTAMs · 64 carry a closure · 26 wide-scope (3 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 29 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
