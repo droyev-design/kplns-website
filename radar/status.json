@@ -1,18 +1,6 @@
 {
- "generated": "2026-10-04T15:42:42+00:00",
+ "generated": "2026-10-04T16:42:25+00:00",
  "history": [
-  {
-   "t": 1790525538,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1790527337,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1790529139,
    "il": 0,
@@ -2016,6 +2004,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1791130350,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1791132145,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -2084,8 +2084,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "64 מטוסים אזרחיים באזור",
-     "value_en": "64 civil aircraft in the area",
+     "value": "55 מטוסים אזרחיים באזור",
+     "value_en": "55 civil aircraft in the area",
      "range": "36–76",
      "threshold_now": "<19 מטוסים",
      "threshold_now_en": "<19 aircraft",
@@ -2113,11 +2113,11 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "5 מטוסים מעל ירדן",
-     "value_en": "5 aircraft over Jordan",
+     "value": "3 מטוסים מעל ירדן",
+     "value_en": "3 aircraft over Jordan",
      "range": "2–8",
-     "threshold_now": "≤3 מטוסים ב-3 בדיקות",
-     "threshold_now_en": "≤3 aircraft over 3 checks",
+     "threshold_now": "",
+     "threshold_now_en": "",
      "watch": "",
      "watch_en": "",
      "anchor": "📈 מצב: 7 מתוך 14 הימים האחרונים מתחת לעוגן המוצהר (3), אך לא ביום האחרון שנשמר. אינו מצביע. העוגן נמדד בתוך המלחמה.",
@@ -2229,8 +2229,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "111 הודעות · 64 עם סגירה · 26 בהיקף רחב (3 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 29 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "111 NOTAMs · 64 carry a closure · 26 wide-scope (3 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 29 min ago — no baseline yet, casts no vote",
+     "value": "114 הודעות · 67 עם סגירה · 27 בהיקף רחב (4 נתיבי ATS, 9 שדות) (+3/-0 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "114 NOTAMs · 67 carry a closure · 27 wide-scope (4 ATS routes, 9 aerodromes) (+3/-0 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2258,8 +2258,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "7 מטוסים צבאיים באזור",
-     "value_en": "7 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "2–7",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2404,9 +2404,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,689 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,689 BGP routes)",
-     "range": "41,677–41,683",
+     "value": "קישוריות תקינה (41,688 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,688 BGP routes)",
+     "range": "41,677–41,684",
      "threshold_now": "merit-nt <24",
      "threshold_now_en": "merit-nt <24",
      "watch": "",
@@ -2491,8 +2491,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "7 מטוסים צבאיים באזור",
-     "value_en": "7 military aircraft in the area",
+     "value": "3 מטוסים צבאיים באזור",
+     "value_en": "3 military aircraft in the area",
      "range": "2–7",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
