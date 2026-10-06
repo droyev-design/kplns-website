@@ -1,18 +1,6 @@
 {
- "generated": "2026-10-06T04:12:15+00:00",
+ "generated": "2026-10-06T05:12:31+00:00",
  "history": [
-  {
-   "t": 1790655141,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1790656947,
-   "il": 1,
-   "ir": 1,
-   "deg": 0
-  },
   {
    "t": 1790658765,
    "il": 1,
@@ -1878,6 +1866,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1791261747,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1791263551,
+   "il": 1,
+   "ir": 1,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1886,15 +1886,17 @@
    "flag": "🇮🇱",
    "name": "ישראל",
    "name_en": "Israel",
-   "level": 0,
+   "level": 1,
    "guard": {
-    "families": 0,
-    "votes": 0,
-    "providers": [],
+    "families": 1,
+    "votes": 1,
+    "providers": [
+     "adsb.lol"
+    ],
     "single_provider_clamp": false,
     "l3_provider_clamp": false,
     "hfc_override": false,
-    "action_lit": false,
+    "action_lit": true,
     "belief_cap": false
    },
    "tripwires": [
@@ -1946,8 +1948,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "44 מטוסים אזרחיים באזור",
-     "value_en": "44 civil aircraft in the area",
+     "value": "64 מטוסים אזרחיים באזור",
+     "value_en": "64 civil aircraft in the area",
      "range": "41–79",
      "threshold_now": "<21 מטוסים",
      "threshold_now_en": "<21 aircraft",
@@ -1975,8 +1977,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "מטוס אחד מעל ירדן",
-     "value_en": "1 aircraft over Jordan",
+     "value": "6 מטוסים מעל ירדן",
+     "value_en": "6 aircraft over Jordan",
      "range": "2–8",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2091,8 +2093,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "120 הודעות · 69 עם סגירה · 26 בהיקף רחב (3 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 59 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "120 NOTAMs · 69 carry a closure · 26 wide-scope (3 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 59 min ago — no baseline yet, casts no vote",
+     "value": "120 הודעות · 69 עם סגירה · 26 בהיקף רחב (3 נתיבי ATS, 9 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 30 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "120 NOTAMs · 69 carry a closure · 26 wide-scope (3 ATS routes, 9 aerodromes) (+0/-0 since the previous read) · read 30 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2110,7 +2112,7 @@
      "shared": true,
      "context": false,
      "daily": false,
-     "lit": false,
+     "lit": true,
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
@@ -2118,10 +2120,10 @@
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
-     "reason": "",
-     "reason_en": "",
-     "value": "10 מטוסים צבאיים באזור",
-     "value_en": "10 military aircraft in the area",
+     "reason": "זינוק בתעופה צבאית באזור: 17 מול חציון 4 (שתי בדיקות רצופות)",
+     "reason_en": "Regional military-aviation surge: 17 vs a median of 4 (two consecutive checks)",
+     "value": "17 מטוסים צבאיים באזור",
+     "value_en": "17 military aircraft in the area",
      "range": "2–10",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2149,8 +2151,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $100.5 · דולר 3.06 ₪",
-     "value_en": "Brent $100.5 · USD 3.06 ILS",
+     "value": "ברנט $100.8 · דולר 3.06 ₪",
+     "value_en": "Brent $100.8 · USD 3.06 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$110.4 · דולר ≥3.15 ₪",
      "threshold_now_en": "Brent ≥$110.4 · USD/ILS ≥3.15",
@@ -2219,7 +2221,7 @@
     }
    ],
    "measurable_total": 5,
-   "lit_count": 0,
+   "lit_count": 1,
    "max_level": 3,
    "context_lit": 0,
    "context_lit_names": [],
@@ -2235,15 +2237,17 @@
    "flag": "🇮🇷",
    "name": "איראן",
    "name_en": "Iran",
-   "level": 0,
+   "level": 1,
    "guard": {
-    "families": 0,
-    "votes": 0,
-    "providers": [],
+    "families": 1,
+    "votes": 1,
+    "providers": [
+     "adsb.lol"
+    ],
     "single_provider_clamp": false,
     "l3_provider_clamp": false,
     "hfc_override": false,
-    "action_lit": false,
+    "action_lit": true,
     "belief_cap": false
    },
    "tripwires": [
@@ -2268,7 +2272,7 @@
      "reason_en": "",
      "value": "קישוריות תקינה (41,689 מסלולי BGP)",
      "value_en": "Connectivity normal (41,689 BGP routes)",
-     "range": "41,292–41,688",
+     "range": "41,292–41,689",
      "threshold_now": "merit-nt <26",
      "threshold_now_en": "merit-nt <26",
      "watch": "",
@@ -2343,7 +2347,7 @@
      "shared": true,
      "context": false,
      "daily": false,
-     "lit": false,
+     "lit": true,
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
@@ -2351,10 +2355,10 @@
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
-     "reason": "",
-     "reason_en": "",
-     "value": "10 מטוסים צבאיים באזור",
-     "value_en": "10 military aircraft in the area",
+     "reason": "זינוק בתעופה צבאית באזור: 17 מול חציון 4 (שתי בדיקות רצופות)",
+     "reason_en": "Regional military-aviation surge: 17 vs a median of 4 (two consecutive checks)",
+     "value": "17 מטוסים צבאיים באזור",
+     "value_en": "17 military aircraft in the area",
      "range": "2–10",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2382,8 +2386,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $100.5 · דולר 3.06 ₪",
-     "value_en": "Brent $100.5 · USD 3.06 ILS",
+     "value": "ברנט $100.8 · דולר 3.06 ₪",
+     "value_en": "Brent $100.8 · USD 3.06 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$110.4 · דולר ≥3.15 ₪",
      "threshold_now_en": "Brent ≥$110.4 · USD/ILS ≥3.15",
@@ -2452,7 +2456,7 @@
     }
    ],
    "measurable_total": 2,
-   "lit_count": 0,
+   "lit_count": 1,
    "max_level": 2,
    "context_lit": 0,
    "context_lit_names": [],
@@ -2480,7 +2484,7 @@
  "context_total": 8,
  "measurable_total": 6,
  "unmeasurable_total": 3,
- "lit_count": 0,
+ "lit_count": 1,
  "context_lit": 0,
  "ratchets": [],
  "anchor_summary": {
