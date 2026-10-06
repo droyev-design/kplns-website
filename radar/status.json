@@ -1,12 +1,6 @@
 {
- "generated": "2026-10-06T13:13:37+00:00",
+ "generated": "2026-10-06T13:42:46+00:00",
  "history": [
-  {
-   "t": 1790689338,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1790691185,
    "il": 0,
@@ -1872,6 +1866,12 @@
    "il": 0,
    "ir": 0,
    "deg": 1
+  },
+  {
+   "t": 1791294166,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1940,8 +1940,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "82 מטוסים אזרחיים באזור",
-     "value_en": "82 civil aircraft in the area",
+     "value": "76 מטוסים אזרחיים באזור",
+     "value_en": "76 civil aircraft in the area",
      "range": "40–81",
      "threshold_now": "<21 מטוסים",
      "threshold_now_en": "<21 aircraft",
@@ -1963,14 +1963,14 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": false,
+     "ok": true,
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "",
-     "value_en": "",
+     "value": "2 מטוסים מעל ירדן",
+     "value_en": "2 aircraft over Jordan",
      "range": "2–8",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2085,8 +2085,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "110 הודעות · 60 עם סגירה · 25 בהיקף רחב (3 נתיבי ATS, 9 שדות) (+0/-2 מהקריאה הקודמת) · נקרא לפני 31 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "110 NOTAMs · 60 carry a closure · 25 wide-scope (3 ATS routes, 9 aerodromes) (+0/-2 since the previous read) · read 31 min ago — no baseline yet, casts no vote",
+     "value": "111 הודעות · 61 עם סגירה · 25 בהיקף רחב (3 נתיבי ATS, 9 שדות) (+1/-0 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "111 NOTAMs · 61 carry a closure · 25 wide-scope (3 ATS routes, 9 aerodromes) (+1/-0 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2114,8 +2114,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "7 מטוסים צבאיים באזור",
+     "value_en": "7 military aircraft in the area",
      "range": "2–13",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
@@ -2146,8 +2146,8 @@
      "value": "ברנט $97.7 · דולר 3.05 ₪",
      "value_en": "Brent $97.7 · USD 3.05 ILS",
      "range": "",
-     "threshold_now": "ברנט ≥$110.0 · דולר ≥3.15 ₪",
-     "threshold_now_en": "Brent ≥$110.0 · USD/ILS ≥3.15",
+     "threshold_now": "ברנט ≥$109.8 · דולר ≥3.15 ₪",
+     "threshold_now_en": "Brent ≥$109.8 · USD/ILS ≥3.15",
      "watch": "",
      "watch_en": "",
      "anchor": "",
@@ -2347,8 +2347,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "7 מטוסים צבאיים באזור",
+     "value_en": "7 military aircraft in the area",
      "range": "2–13",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
@@ -2379,8 +2379,8 @@
      "value": "ברנט $97.7 · דולר 3.05 ₪",
      "value_en": "Brent $97.7 · USD 3.05 ILS",
      "range": "",
-     "threshold_now": "ברנט ≥$110.0 · דולר ≥3.15 ₪",
-     "threshold_now_en": "Brent ≥$110.0 · USD/ILS ≥3.15",
+     "threshold_now": "ברנט ≥$109.8 · דולר ≥3.15 ₪",
+     "threshold_now_en": "Brent ≥$109.8 · USD/ILS ≥3.15",
      "watch": "",
      "watch_en": "",
      "anchor": "",
@@ -2468,7 +2468,7 @@
    ]
   }
  ],
- "sources_ok": 13,
+ "sources_ok": 14,
  "sources_total": 14,
  "families_total": 14,
  "context_total": 8,
@@ -2489,12 +2489,8 @@
   "top_window": 14,
   "top_streak": 1
  },
- "degraded": [
-  "מרחב אווירי ירדן"
- ],
- "degraded_en": [
-  "Jordanian airspace"
- ],
+ "degraded": [],
+ "degraded_en": [],
  "manual_override": {
   "phase": "ceasefire_broken",
   "phase_he": "הפסקת האש הופרה",
