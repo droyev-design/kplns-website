@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-06T14:13:25+00:00",
+ "generated": "2026-10-06T14:42:43+00:00",
  "history": [
   {
    "t": 1790692980,
@@ -1872,6 +1872,12 @@
    "il": 0,
    "ir": 0,
    "deg": 1
+  },
+  {
+   "t": 1791297763,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1969,8 +1975,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "5 מטוסים מעל ירדן",
+     "value_en": "5 aircraft over Jordan",
      "range": "2–8",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2085,8 +2091,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "111 הודעות · 61 עם סגירה · 25 בהיקף רחב (3 נתיבי ATS, 9 שדות) (+1/-0 מהקריאה הקודמת) · נקרא לפני 30 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "111 NOTAMs · 61 carry a closure · 25 wide-scope (3 ATS routes, 9 aerodromes) (+1/-0 since the previous read) · read 30 min ago — no baseline yet, casts no vote",
+     "value": "111 הודעות · 61 עם סגירה · 25 בהיקף רחב (3 נתיבי ATS, 9 שדות) (+1/-0 מהקריאה הקודמת) · נקרא לפני 59 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "111 NOTAMs · 61 carry a closure · 25 wide-scope (3 ATS routes, 9 aerodromes) (+1/-0 since the previous read) · read 59 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2108,14 +2114,14 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": false,
+     "ok": true,
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "",
-     "value_en": "",
+     "value": "8 מטוסים צבאיים באזור",
+     "value_en": "8 military aircraft in the area",
      "range": "2–13",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
@@ -2146,8 +2152,8 @@
      "value": "ברנט $98.2 · דולר 3.05 ₪",
      "value_en": "Brent $98.2 · USD 3.05 ILS",
      "range": "",
-     "threshold_now": "ברנט ≥$109.7 · דולר ≥3.15 ₪",
-     "threshold_now_en": "Brent ≥$109.7 · USD/ILS ≥3.15",
+     "threshold_now": "ברנט ≥$109.5 · דולר ≥3.15 ₪",
+     "threshold_now_en": "Brent ≥$109.5 · USD/ILS ≥3.15",
      "watch": "",
      "watch_en": "",
      "anchor": "",
@@ -2212,7 +2218,7 @@
      "anchor_en": ""
     }
    ],
-   "measurable_total": 4,
+   "measurable_total": 5,
    "lit_count": 0,
    "max_level": 3,
    "context_lit": 0,
@@ -2341,14 +2347,14 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": false,
+     "ok": true,
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "",
-     "value_en": "",
+     "value": "8 מטוסים צבאיים באזור",
+     "value_en": "8 military aircraft in the area",
      "range": "2–13",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
@@ -2379,8 +2385,8 @@
      "value": "ברנט $98.2 · דולר 3.05 ₪",
      "value_en": "Brent $98.2 · USD 3.05 ILS",
      "range": "",
-     "threshold_now": "ברנט ≥$109.7 · דולר ≥3.15 ₪",
-     "threshold_now_en": "Brent ≥$109.7 · USD/ILS ≥3.15",
+     "threshold_now": "ברנט ≥$109.5 · דולר ≥3.15 ₪",
+     "threshold_now_en": "Brent ≥$109.5 · USD/ILS ≥3.15",
      "watch": "",
      "watch_en": "",
      "anchor": "",
@@ -2445,7 +2451,7 @@
      "anchor_en": ""
     }
    ],
-   "measurable_total": 1,
+   "measurable_total": 2,
    "lit_count": 0,
    "max_level": 2,
    "context_lit": 0,
@@ -2468,11 +2474,11 @@
    ]
   }
  ],
- "sources_ok": 13,
+ "sources_ok": 14,
  "sources_total": 14,
  "families_total": 14,
  "context_total": 8,
- "measurable_total": 5,
+ "measurable_total": 6,
  "unmeasurable_total": 3,
  "lit_count": 0,
  "context_lit": 0,
@@ -2489,12 +2495,8 @@
   "top_window": 14,
   "top_streak": 1
  },
- "degraded": [
-  "תעופה צבאית באזור"
- ],
- "degraded_en": [
-  "Military aviation in the region"
- ],
+ "degraded": [],
+ "degraded_en": [],
  "manual_override": {
   "phase": "ceasefire_broken",
   "phase_he": "הפסקת האש הופרה",
