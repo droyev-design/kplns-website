@@ -6,3 +6,6 @@
 
 # Local backups taken before edits — never publish these.
 *.bak_*
+
+# Local backups, hyphenated form (2026-10-08).
+*.bak-*
