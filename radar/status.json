@@ -1,18 +1,6 @@
 {
- "generated": "2026-10-08T13:12:40+00:00",
+ "generated": "2026-10-08T14:12:47+00:00",
  "history": [
-  {
-   "t": 1790862147,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1790863957,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1790865777,
    "il": 0,
@@ -1872,6 +1860,18 @@
    "il": 0,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1791466938,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
+  },
+  {
+   "t": 1791468767,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1940,8 +1940,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "85 מטוסים אזרחיים באזור",
-     "value_en": "85 civil aircraft in the area",
+     "value": "71 מטוסים אזרחיים באזור",
+     "value_en": "71 civil aircraft in the area",
      "range": "37–80",
      "threshold_now": "<20 מטוסים",
      "threshold_now_en": "<20 aircraft",
@@ -1969,8 +1969,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים מעל ירדן",
-     "value_en": "6 aircraft over Jordan",
+     "value": "8 מטוסים מעל ירדן",
+     "value_en": "8 aircraft over Jordan",
      "range": "1–10",
      "threshold_now": "≤3 מטוסים ב-3 בדיקות",
      "threshold_now_en": "≤3 aircraft over 3 checks",
@@ -2085,8 +2085,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "115 הודעות · 67 עם סגירה · 25 בהיקף רחב (3 נתיבי ATS, 8 שדות) (+0/-1 מהקריאה הקודמת) · נקרא לפני 29 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "115 NOTAMs · 67 carry a closure · 25 wide-scope (3 ATS routes, 8 aerodromes) (+0/-1 since the previous read) · read 29 min ago — no baseline yet, casts no vote",
+     "value": "116 הודעות · 66 עם סגירה · 23 בהיקף רחב (3 נתיבי ATS, 7 שדות) (+3/-2 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "116 NOTAMs · 66 carry a closure · 23 wide-scope (3 ATS routes, 7 aerodromes) (+3/-2 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2114,8 +2114,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "11 מטוסים צבאיים באזור",
+     "value_en": "11 military aircraft in the area",
      "range": "1–12",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
@@ -2143,8 +2143,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $105.1 · דולר 3.08 ₪",
-     "value_en": "Brent $105.1 · USD 3.08 ILS",
+     "value": "ברנט $104.3 · דולר 3.08 ₪",
+     "value_en": "Brent $104.3 · USD 3.08 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$109.5 · דולר ≥3.17 ₪",
      "threshold_now_en": "Brent ≥$109.5 · USD/ILS ≥3.17",
@@ -2260,9 +2260,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,662 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,662 BGP routes)",
-     "range": "41,670–41,690",
+     "value": "קישוריות תקינה (41,664 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,664 BGP routes)",
+     "range": "41,670–41,683",
      "threshold_now": "merit-nt <24",
      "threshold_now_en": "merit-nt <24",
      "watch": "",
@@ -2347,8 +2347,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
+     "value": "11 מטוסים צבאיים באזור",
+     "value_en": "11 military aircraft in the area",
      "range": "1–12",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
@@ -2376,8 +2376,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "ברנט $105.1 · דולר 3.08 ₪",
-     "value_en": "Brent $105.1 · USD 3.08 ILS",
+     "value": "ברנט $104.3 · דולר 3.08 ₪",
+     "value_en": "Brent $104.3 · USD 3.08 ILS",
      "range": "",
      "threshold_now": "ברנט ≥$109.5 · דולר ≥3.17 ₪",
      "threshold_now_en": "Brent ≥$109.5 · USD/ILS ≥3.17",
@@ -2492,12 +2492,12 @@
  "degraded": [],
  "degraded_en": [],
  "manual_override": {
-  "phase": "ceasefire_broken",
-  "phase_he": "הפסקת האש הופרה",
-  "phase_en": "Ceasefire broken",
-  "phase_note_he": "מלחמת 2026 בין ישראל/ארה\"ב לאיראן פתוחה מ-28.2.2026 ולא הסתיימה. חילופי אש פעילים בגזרה.",
-  "phase_note_en": "The 2026 Israel/US–Iran war has been open since 2026-02-28 and is unresolved. Active exchanges of fire in the theatre.",
-  "set_by": "kaplan",
-  "updated": "2026-09-01T06:07:16Z"
+  "phase": "ceasefire_degrading",
+  "phase_he": "רגיעה שברירית",
+  "phase_en": "Fragile lull",
+  "phase_note_he": "מלחמת 2026 בין ישראל/ארה\"ב לאיראן נפתחה ב-28.2.2026 ולא הסתיימה רשמית. בשבועות האחרונים לא דווחו חילופי אש ישירים בין ישראל לאיראן, אך המשא ומתן תקוע, ספינות נפגעות במצר הורמוז וארה\"ב מאיימת בהסלמה.",
+  "phase_note_en": "The 2026 Israel/US–Iran war began on 2026-02-28 and has not formally ended. No direct Israel–Iran exchange of fire has been reported in recent weeks, but talks are stalled, ships are being hit in the Strait of Hormuz and the US is threatening escalation.",
+  "set_by": "claude (on kaplan's instruction, 2026-10-08)",
+  "updated": "2026-10-08T14:01:37Z"
  }
 }
