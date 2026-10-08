@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-08T07:13:04+00:00",
+ "generated": "2026-10-08T07:42:20+00:00",
  "history": [
   {
    "t": 1790840546,
@@ -1872,6 +1872,12 @@
    "il": 0,
    "ir": 0,
    "deg": 1
+  },
+  {
+   "t": 1791445340,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1934,14 +1940,14 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": false,
+     "ok": true,
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "",
-     "value_en": "",
+     "value": "71 מטוסים אזרחיים באזור",
+     "value_en": "71 civil aircraft in the area",
      "range": "37–77",
      "threshold_now": "<19 מטוסים",
      "threshold_now_en": "<19 aircraft",
@@ -2085,8 +2091,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "115 הודעות · 67 עם סגירה · 24 בהיקף רחב (3 נתיבי ATS, 8 שדות) (+0/-1 מהקריאה הקודמת) · נקרא לפני 30 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "115 NOTAMs · 67 carry a closure · 24 wide-scope (3 ATS routes, 8 aerodromes) (+0/-1 since the previous read) · read 30 min ago — no baseline yet, casts no vote",
+     "value": "115 הודעות · 67 עם סגירה · 24 בהיקף רחב (3 נתיבי ATS, 8 שדות) (+0/-1 מהקריאה הקודמת) · נקרא לפני 59 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "115 NOTAMs · 67 carry a closure · 24 wide-scope (3 ATS routes, 8 aerodromes) (+0/-1 since the previous read) · read 59 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2114,9 +2120,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
-     "range": "1–12",
+     "value": "17 מטוסים צבאיים באזור",
+     "value_en": "17 military aircraft in the area",
+     "range": "1–13",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
      "watch": "",
@@ -2212,7 +2218,7 @@
      "anchor_en": ""
     }
    ],
-   "measurable_total": 4,
+   "measurable_total": 5,
    "lit_count": 0,
    "max_level": 3,
    "context_lit": 0,
@@ -2260,8 +2266,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,670 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,670 BGP routes)",
+     "value": "קישוריות תקינה (41,674 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,674 BGP routes)",
      "range": "41,671–41,695",
      "threshold_now": "merit-nt <25",
      "threshold_now_en": "merit-nt <25",
@@ -2347,9 +2353,9 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "6 מטוסים צבאיים באזור",
-     "value_en": "6 military aircraft in the area",
-     "range": "1–12",
+     "value": "17 מטוסים צבאיים באזור",
+     "value_en": "17 military aircraft in the area",
+     "range": "1–13",
      "threshold_now": ">15 מטוסים",
      "threshold_now_en": ">15 aircraft",
      "watch": "",
@@ -2468,11 +2474,11 @@
    ]
   }
  ],
- "sources_ok": 13,
+ "sources_ok": 14,
  "sources_total": 14,
  "families_total": 14,
  "context_total": 8,
- "measurable_total": 5,
+ "measurable_total": 6,
  "unmeasurable_total": 3,
  "lit_count": 0,
  "context_lit": 0,
@@ -2489,12 +2495,8 @@
   "top_window": 14,
   "top_streak": 1
  },
- "degraded": [
-  "מרחב אווירי ישראל"
- ],
- "degraded_en": [
-  "Israeli airspace"
- ],
+ "degraded": [],
+ "degraded_en": [],
  "manual_override": {
   "phase": "ceasefire_broken",
   "phase_he": "הפסקת האש הופרה",
