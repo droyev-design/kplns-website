@@ -1,12 +1,6 @@
 {
- "generated": "2026-10-09T21:12:19+00:00",
+ "generated": "2026-10-09T21:42:17+00:00",
  "history": [
-  {
-   "t": 1790975619,
-   "il": 0,
-   "ir": 0,
-   "deg": 1
-  },
   {
    "t": 1790977374,
    "il": 0,
@@ -1878,6 +1872,12 @@
    "il": 0,
    "ir": 0,
    "deg": 1
+  },
+  {
+   "t": 1791582137,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1946,8 +1946,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "32 מטוסים אזרחיים באזור",
-     "value_en": "32 civil aircraft in the area",
+     "value": "24 מטוסים אזרחיים באזור",
+     "value_en": "24 civil aircraft in the area",
      "range": "37–80",
      "threshold_now": "<19 מטוסים",
      "threshold_now_en": "<19 aircraft",
@@ -1969,14 +1969,14 @@
      "frozen": false,
      "frozen_hours": 0,
      "frozen_expired": false,
-     "ok": false,
+     "ok": true,
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "",
-     "value_en": "",
+     "value": "4 מטוסים מעל ירדן",
+     "value_en": "4 aircraft over Jordan",
      "range": "2–8",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2091,8 +2091,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "110 הודעות · 64 עם סגירה · 21 בהיקף רחב (3 נתיבי ATS, 7 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 29 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "110 NOTAMs · 64 carry a closure · 21 wide-scope (3 ATS routes, 7 aerodromes) (+0/-0 since the previous read) · read 29 min ago — no baseline yet, casts no vote",
+     "value": "110 הודעות · 64 עם סגירה · 21 בהיקף רחב (3 נתיבי ATS, 7 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 59 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "110 NOTAMs · 64 carry a closure · 21 wide-scope (3 ATS routes, 7 aerodromes) (+0/-0 since the previous read) · read 59 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2120,8 +2120,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "5 מטוסים צבאיים באזור",
+     "value_en": "5 military aircraft in the area",
      "range": "1–8",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2207,8 +2207,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "69/100",
-     "value_en": "69/100",
+     "value": "70/100",
+     "value_en": "70/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2353,8 +2353,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "5 מטוסים צבאיים באזור",
+     "value_en": "5 military aircraft in the area",
      "range": "1–8",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2440,8 +2440,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "69/100",
-     "value_en": "69/100",
+     "value": "70/100",
+     "value_en": "70/100",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2474,7 +2474,7 @@
    ]
   }
  ],
- "sources_ok": 13,
+ "sources_ok": 14,
  "sources_total": 14,
  "families_total": 14,
  "context_total": 9,
@@ -2495,12 +2495,8 @@
   "top_window": 14,
   "top_streak": 0
  },
- "degraded": [
-  "מרחב אווירי ירדן"
- ],
- "degraded_en": [
-  "Jordanian airspace"
- ],
+ "degraded": [],
+ "degraded_en": [],
  "manual_override": {
   "phase": "ceasefire_degrading",
   "phase_he": "רגיעה שברירית",
