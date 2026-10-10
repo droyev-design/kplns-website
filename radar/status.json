@@ -1,18 +1,6 @@
 {
- "generated": "2026-10-10T05:12:21+00:00",
+ "generated": "2026-10-10T05:42:36+00:00",
  "history": [
-  {
-   "t": 1791004342,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
-  {
-   "t": 1791006135,
-   "il": 0,
-   "ir": 0,
-   "deg": 0
-  },
   {
    "t": 1791007946,
    "il": 0,
@@ -1878,6 +1866,12 @@
    "il": 1,
    "ir": 0,
    "deg": 0
+  },
+  {
+   "t": 1791610956,
+   "il": 0,
+   "ir": 0,
+   "deg": 0
   }
  ],
  "indices": [
@@ -1886,17 +1880,15 @@
    "flag": "🇮🇱",
    "name": "ישראל",
    "name_en": "Israel",
-   "level": 1,
+   "level": 0,
    "guard": {
-    "families": 1,
-    "votes": 1,
-    "providers": [
-     "adsb.lol"
-    ],
+    "families": 0,
+    "votes": 0,
+    "providers": [],
     "single_provider_clamp": false,
     "l3_provider_clamp": false,
     "hfc_override": false,
-    "action_lit": true,
+    "action_lit": false,
     "belief_cap": false
    },
    "tripwires": [
@@ -1938,18 +1930,18 @@
      "shared": false,
      "context": false,
      "daily": false,
-     "lit": true,
+     "lit": false,
      "frozen": true,
-     "frozen_hours": 3.0,
+     "frozen_hours": 3.5,
      "frozen_expired": false,
      "ok": true,
      "partial": false,
      "partial_why": "",
      "partial_why_en": "",
-     "reason": "תנועה אזרחית קרסה: 13 מטוסים מול חציון 52 (שתי בדיקות רצופות)",
-     "reason_en": "Civil traffic collapsed: 13 aircraft vs a median of 52 (two consecutive checks)",
-     "value": "13 מטוסים אזרחיים באזור",
-     "value_en": "13 civil aircraft in the area",
+     "reason": "",
+     "reason_en": "",
+     "value": "34 מטוסים אזרחיים באזור",
+     "value_en": "34 civil aircraft in the area",
      "range": "36–80",
      "threshold_now": "<18 מטוסים",
      "threshold_now_en": "<18 aircraft",
@@ -1977,8 +1969,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "0 מטוסים מעל ירדן",
-     "value_en": "0 aircraft over Jordan",
+     "value": "7 מטוסים מעל ירדן",
+     "value_en": "7 aircraft over Jordan",
      "range": "1–8",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2093,8 +2085,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "110 הודעות · 64 עם סגירה · 21 בהיקף רחב (3 נתיבי ATS, 7 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 30 דק' — אין עדיין קו בסיס, אינו מצביע",
-     "value_en": "110 NOTAMs · 64 carry a closure · 21 wide-scope (3 ATS routes, 7 aerodromes) (+0/-0 since the previous read) · read 30 min ago — no baseline yet, casts no vote",
+     "value": "110 הודעות · 64 עם סגירה · 21 בהיקף רחב (3 נתיבי ATS, 7 שדות) (+0/-0 מהקריאה הקודמת) · נקרא לפני 0 דק' — אין עדיין קו בסיס, אינו מצביע",
+     "value_en": "110 NOTAMs · 64 carry a closure · 21 wide-scope (3 ATS routes, 7 aerodromes) (+0/-0 since the previous read) · read 0 min ago — no baseline yet, casts no vote",
      "range": "",
      "threshold_now": "",
      "threshold_now_en": "",
@@ -2122,8 +2114,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "2–7",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2221,7 +2213,7 @@
     }
    ],
    "measurable_total": 4,
-   "lit_count": 1,
+   "lit_count": 0,
    "max_level": 3,
    "context_lit": 0,
    "context_lit_names": [],
@@ -2268,8 +2260,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "קישוריות תקינה (41,622 מסלולי BGP)",
-     "value_en": "Connectivity normal (41,622 BGP routes)",
+     "value": "קישוריות תקינה (41,620 מסלולי BGP)",
+     "value_en": "Connectivity normal (41,620 BGP routes)",
      "range": "41,622–41,674",
      "threshold_now": "merit-nt <19",
      "threshold_now_en": "merit-nt <19",
@@ -2355,8 +2347,8 @@
      "partial_why_en": "",
      "reason": "",
      "reason_en": "",
-     "value": "3 מטוסים צבאיים באזור",
-     "value_en": "3 military aircraft in the area",
+     "value": "4 מטוסים צבאיים באזור",
+     "value_en": "4 military aircraft in the area",
      "range": "2–7",
      "threshold_now": ">14 מטוסים",
      "threshold_now_en": ">14 aircraft",
@@ -2482,7 +2474,7 @@
  "context_total": 9,
  "measurable_total": 5,
  "unmeasurable_total": 3,
- "lit_count": 1,
+ "lit_count": 0,
  "context_lit": 0,
  "ratchets": [],
  "anchor_summary": {
